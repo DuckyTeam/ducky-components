@@ -1,0 +1,24 @@
+.wrapper {
+    border-radius: 5px;
+    border: 0;
+    padding: 10px 15px;
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary {
+    composes: wrapper;
+    composes: softBlue2 from '../backgroundColor.css';
+    color: #fff;
+}
+
+.secondary {
+    composes: wrapper;
+    composes: softBlue2 from '../border.css';
+    composes: softBlue2 from '../color.css';
+    background-color: #fff;
+    border-width: 1px;
+    border-style: solid;
+}

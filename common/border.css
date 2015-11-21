@@ -1,3 +1,154 @@
-.gray {
-  border: 1px solid red;
+.grey1 {
+  border-color: #6a8f97;
+}
+.grey2 {
+  border-color: #8fadb4;
+}
+.grey3 {
+  border-color: #bccfd1;
+}
+.grey4 {
+  border-color: #d8e3e2;
+}
+.grey5 {
+  border-color: #eef3f3;
+}
+.grey6 {
+  border-color: #f7f9f9;
+}
+
+.main1 {
+  border-color: #1e4a54;
+}
+
+.main2 {
+  border-color: #00727b;
+}
+
+.secondary1 {
+  border-color: #ad4f49;
+}
+
+.secondary2 {
+  border-color: #e45c5e;
+}
+
+.secondary3 {
+  border-color: #ed8c7a;
+}
+
+.strongBlue1 {
+  border-color: #2e7498;
+}
+.strongBlue2 {
+  border-color: #1aa9d0;
+}
+.strongBlue3 {
+  border-color: #91d2e4;
+}
+
+.strongGreen1 {
+  border-color: #366842;
+}
+.strongGreen2 {
+  border-color: #3ea159;
+}
+.strongGreen3 {
+  border-color: #8cb61d;
+}
+
+.strongYellow1 {
+  border-color: #e87800;
+}
+
+.strongYellow2 {
+  border-color: #efa016;
+}
+
+.strongYellow3 {
+  border-color: #f4d100;
+}
+
+.strongRed1 {
+  border-color: #7c223d;
+}
+
+.strongRed2 {
+  border-color: #b30044;
+}
+
+.strongRed3 {
+  border-color: #c61648;
+}
+
+.strongPurple1 {
+  border-color: #3d1c5d;
+}
+
+.strongPurple2 {
+  border-color: #682a6c;
+}
+
+.strongPurple3 {
+  border-color: #8f257a;
+}
+
+.softBlue1 {
+  border-color: #2c4e46;
+}
+
+.softBlue2 {
+  border-color: #1c9283;
+}
+
+.softBlue3 {
+  border-color: #12ad9c;
+}
+
+.softGreen1 {
+  border-color: #557538;
+}
+
+.softGreen2 {
+  border-color: #86ac5d;
+}
+
+.softGreen3 {
+  border-color: #b3c589;
+}
+
+.softYellow1 {
+  border-color: #be8952;
+}
+
+.softYellow2 {
+  border-color: #efa859;
+}
+
+.softYellow3 {
+  border-color: #f2c579;
+}
+
+.softRed1 {
+  border-color: #930041;
+}
+
+.softRed2 {
+  border-color: #c3487b;
+}
+
+.softRed3 {
+  border-color: #dd7899;
+}
+
+.softPurple1 {
+  border-color: #564677;
+}
+
+.softPurple2 {
+  border-color: #9779a6;
+}
+
+.softPurple3 {
+  border-color: #ab8eb8;
 }
