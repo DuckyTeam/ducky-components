@@ -38,7 +38,15 @@ module.exports = {
       loader: 'json'
     }, {
       test: /\.css$/,
-      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]'
+      loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]',
+      exclude: /node_modules/
+    }, {
+      test: /\.css$/,
+      loader: 'style!css',
+      include: /node_modules/
+    }, {
+      test: [/\.woff/, /\.eot/, /\.woff2/, /\.ttf/, /\.svg/],
+      loader: 'url?limit=20'
     }]
   }
 };

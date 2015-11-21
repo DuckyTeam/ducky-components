@@ -26,8 +26,11 @@
     "jscs": "jscs ."
   },
   "dependencies": {
+    "file-loader": "^0.8.4",
+    "font-awesome": "^4.4.0",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "url-loader": "^0.5.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
