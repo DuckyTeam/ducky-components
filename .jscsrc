@@ -60,7 +60,7 @@
   "disallowMultipleLineBreaks": true,
   "validateLineBreaks": "LF",
   "validateQuoteMarks": null,
-  "validateIndentation": 2,
+  "validateIndentation": 4,
   "disallowMixedSpacesAndTabs": true,
   "disallowTrailingWhitespace": true,
   "disallowTrailingComma": true,

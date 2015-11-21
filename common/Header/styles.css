@@ -1,0 +1,25 @@
+.wrapper {
+  border-bottom: 1px solid #EAEAEA;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 10px;
+  font-family: sans-serif;
+}
+
+.title {
+    align-self: center;
+    font-size: 30px;
+    color: #1e4a54;
+    font-weight: bold;
+}
+
+.subTitle {
+    font-size: 16px;
+    font-weight: normal;
+    color: #6a8f97;
+    line-height: 10px;
+    align-self: center;
+    margin-top: 10px;
+}
