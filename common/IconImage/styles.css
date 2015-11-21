@@ -1,0 +1,6 @@
+.circle {
+    border: 2px solid #004348;
+    box-sizing: border-box;
+    border-radius: 100%;
+    width: 100%;
+}
