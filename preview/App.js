@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './App.css';
 import Preview from './Preview';
-import Header from '../common/Header';
 import 'font-awesome/css/font-awesome.css';
-
+import Header from '../common/Header';
+import Button from '../common/Button';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 
@@ -25,6 +25,14 @@ export default class App extends React.Component {
                 </Preview>
                 <Preview title="/Header">
                     <Header title="Logg aktiviteter" subTitle="Favoritter (0)"/>
+                </Preview>
+                <Preview title="/Button">
+                    <Button onClick={() => console.log('Clicked button')} type="secondary">
+                        Secondary button
+                    </Button>
+                    <Button onClick={() => console.log('Clicked button')}>
+                        Primary button
+                    </Button>
                 </Preview>
                 <h1>/mobile</h1>
                 <h1>/pad</h1>
