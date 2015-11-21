@@ -5,6 +5,8 @@
   border-radius: 3px;
   min-width: 200px;
   min-height: 75px;
+  vertical-align: top;
+  margin: 10px;
 }
 
 .title {
