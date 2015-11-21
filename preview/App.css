@@ -1,0 +1,8 @@
+.wrapper {}
+
+.wrapper h1 {
+  text-transform: lowercase;
+  font-family: Arial;
+  font-size: 24px;
+  color: #333;
+}
