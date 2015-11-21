@@ -23,7 +23,7 @@ export default class App extends React.Component {
                         <DropdownItem>Item 2</DropdownItem>
                     </Dropdown>
                 </Preview>
-                <Preview title="/Ducky">
+                <Preview title="/Header">
                     <Header title="Logg aktiviteter" subTitle="Favoritter (0)"/>
                 </Preview>
                 <h1>/mobile</h1>
