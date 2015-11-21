@@ -1,0 +1,21 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.options {
+  position: absolute;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.15);
+  z-index: 999999;
+  background-color: #fff;
+}
+
+.optionsRight {
+  composes: options;
+  right: 0;
+}
