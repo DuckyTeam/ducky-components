@@ -3,6 +3,7 @@ import styles from './App.css';
 import Preview from './Preview';
 import Header from '../common/Header';
 import 'font-awesome/css/font-awesome.css';
+import IconImage from "./../common/IconImage/index.js";
 
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
@@ -22,6 +23,9 @@ export default class App extends React.Component {
                         <DropdownItem>Item 1</DropdownItem>
                         <DropdownItem>Item 2</DropdownItem>
                     </Dropdown>
+                </Preview>
+                <Preview title="/IconImage" width={200}>
+                    <IconImage/>
                 </Preview>
                 <Preview title="/Header">
                     <Header title="Logg aktiviteter" subTitle="Favoritter (0)"/>
