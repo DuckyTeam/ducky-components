@@ -59,13 +59,14 @@ export default class App extends React.Component {
                 </Button>
             </Preview>
 
-            <Preview title="/PostFooterStandard">
+            <Preview title="/PostFooterStandard" width={300}>
                 <PostFooterStandard
                   iconStates={{like: false, comment: true, bookmark: false}}
                   values={{likes: 8, comments: 12, bookmarks: 10, shares: 20}}
                   onLikeClick={() => console.log('Clicked like')}
                   onCommentClick={() => console.log('Clicked comment')}
                   onBookmarkClick={() => console.log('Clicked bookmark')}
+                  onShareClick={() => console.log('Clicked share')}
                   />
             </Preview>
           <h1>/mobile</h1>

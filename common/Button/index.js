@@ -5,7 +5,6 @@ function Button(props) {
     let buttonType = styles.primary;
 
     if (props.type) {
-        console.log('hey');
         buttonType = styles[props.type];
     }
 
