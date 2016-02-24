@@ -11,6 +11,7 @@ import DropdownItem from '../common/Dropdown/Item';
 import PostFooterStandard from '../common/PostFooterStandard';
 import TextOnlyElement from '../common/TextOnlyElement';
 import Modal from '../common/Modal';
+import TopNavigationBar from '../common/TopNavigationBar';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -50,7 +51,6 @@ export default class App extends React.Component {
             <Preview title="/Header" width={300}>
                 <Header title="Logg aktiviteter" subTitle="Favoritter (0)"/>
             </Preview>
-
             <Preview title="/Button">
                 <Button onClick={() => console.log('Clicked button')} type="secondary">
                     Secondary button
@@ -59,8 +59,10 @@ export default class App extends React.Component {
                     Primary button
                 </Button>
             </Preview>
-
-            <Preview title="/PostFooterStandard" width={300}>
+            <Preview title={"TopNavigationBar"} width={900}>
+                <TopNavigationBar/>
+            </Preview>
+            <Preview title="/PostFooterStandard">
                 <PostFooterStandard
                   iconStates={{like: false, comment: true, bookmark: false}}
                   values={{likes: 8, comments: 12, bookmarks: 10, shares: 20}}

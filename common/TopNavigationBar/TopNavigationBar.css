@@ -1,0 +1,53 @@
+.container {
+    background-color: #2cbf82;
+    height: 48px
+}
+
+.menuIcon{
+    padding: 12px;
+    font-size: 24px;
+    float: left;
+    color: white;
+}
+
+.rightIcon {
+    padding: 12px;
+    font-size: 24px;
+    float: right;
+    color: white;
+}
+
+.logo{
+    height:24px;
+    padding: 12px 20px;
+    float: left;
+}
+
+.title{
+    padding: 12px;
+    margin: 0;
+    font-size: 18px;
+    line-height: 24px;
+    float: left;
+    display: inline;
+    color: white;
+}
+
+.split{
+    padding: 10px 12px 12px 12px;
+    margin: 0;
+    font-size: 20px;
+    line-height: 24px;
+    float: left;
+    display: inline;
+    color: white;
+}
+
+@media (max-width: 768px){
+    .split {
+        display: none;
+    }
+    .logo {
+        display: none;
+    }
+}
