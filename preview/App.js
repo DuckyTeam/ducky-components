@@ -8,6 +8,7 @@ import IconImage from "./../common/IconImage/index.js";
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import Modal from '../common/Modal';
+import TopNavigationBar from '../common/TopNavigationBar';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -56,6 +57,7 @@ export default class App extends React.Component {
                   Primary button
               </Button>
           </Preview>
+          <TopNavigationBar/>
         <h1>/mobile</h1>
         <h1>/pad</h1>
         <h1>/desktop</h1>
