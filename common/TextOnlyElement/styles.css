@@ -1,0 +1,11 @@
+.wrapper {
+  composes: BodyText_Normal from '../basestyles.css';
+  color: #fff;
+  background-color: #607D8B;
+  padding: 16px;
+}
+
+.shadowWrapper {
+  composes: wrapper;
+  height: 200px;
+}
