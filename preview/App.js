@@ -68,6 +68,15 @@ export default class App extends React.Component {
                   onLikeClick={() => console.log('Clicked like')}
                   onCommentClick={() => console.log('Clicked comment')}
                   onBookmarkClick={() => console.log('Clicked bookmark')}
+                  onShareClick={() => console.log('Clicked share')}
+                  />
+                <PostFooterStandard
+                  iconStates={{like: true, comment: false, bookmark: true}}
+                  values={{likes: 0, comments: 0, bookmarks: 0, shares: 1933}}
+                  onLikeClick={() => console.log('Clicked like')}
+                  onCommentClick={() => console.log('Clicked comment')}
+                  onBookmarkClick={() => console.log('Clicked bookmark')}
+                  onShareClick={() => console.log('Clicked share')}
                   />
             </Preview>
           <h1>/mobile</h1>

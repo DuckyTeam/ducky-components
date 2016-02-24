@@ -1,19 +1,27 @@
 .wrapper {
   padding: 16px;
+  display: flex;
 }
 
 .icon {
-  color: red;
+  display: flex;
   margin-right: 16px;
+  cursor: pointer;
+  composes: Icon_MA_Standard from "../basestyles.css";
 }
 
 .iconWrapper {
-  color: red;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  composes: Icon_MA_Standard from "../basestyles.css";
 }
 
 .value {
+  flex: 1;
   margin-left: 4px;
   margin-right: 12px;
+  composes: Caption_2_Normal from "../basestyles.css";
 }
 
 .icon:last-child {
@@ -21,9 +29,12 @@
 }
 
 .leftColumn {
-  float: left;
+  flex: 1;
+  display: flex;
 }
 
 .rightColumn {
-  float: right;
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
 }

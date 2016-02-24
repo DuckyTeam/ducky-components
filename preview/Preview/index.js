@@ -14,7 +14,7 @@ class Preview extends React.Component {
         <div className={styles.title}>
           {this.props.title}
         </div>
-        <div className={styles.options}>
+        <div className={styles.content}>
           {this.props.children}
         </div>
       </div>
