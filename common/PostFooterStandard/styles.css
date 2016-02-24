@@ -1,0 +1,29 @@
+.wrapper {
+  padding: 16px;
+}
+
+.icon {
+  color: red;
+  margin-right: 16px;
+}
+
+.iconWrapper {
+  color: red;
+}
+
+.value {
+  margin-left: 4px;
+  margin-right: 12px;
+}
+
+.icon:last-child {
+  margin-right: 0;
+}
+
+.leftColumn {
+  float: left;
+}
+
+.rightColumn {
+  float: right;
+}
