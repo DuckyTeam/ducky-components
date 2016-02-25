@@ -10,6 +10,7 @@ import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import PostFooterStandard from '../common/PostFooterStandard';
 import TextOnlyElement from '../common/TextOnlyElement';
+import TextImageElement from '../common/TextImageElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 
@@ -51,6 +52,7 @@ export default class App extends React.Component {
             <Preview title="/Header" width={300}>
                 <Header title="Logg aktiviteter" subTitle="Favoritter (0)"/>
             </Preview>
+
             <Preview title="/Button">
                 <Button onClick={() => console.log('Clicked button')} type="secondary">
                     Secondary button
@@ -59,9 +61,11 @@ export default class App extends React.Component {
                     Primary button
                 </Button>
             </Preview>
+
             <Preview title={"TopNavigationBar"} width={900}>
                 <TopNavigationBar/>
             </Preview>
+
             <Preview title="/PostFooterStandard">
                 <PostFooterStandard
                   iconStates={{like: false, comment: true, bookmark: false}}
@@ -82,9 +86,17 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/TextOnlyElement" width={300}>
-              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
-              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
+              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. <a target="_blank" href="http://www.google.com"> #google</a></TextOnlyElement>
+              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. <a target="_blank" href="http://www.google.com"> #google</a> Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
             </Preview>
+
+            <Preview title="/TextImageElement" width={300}>
+              <TextImageElement>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
+              </TextImageElement>
+            </Preview>
+
           <h1>/mobile</h1>
           <h1>/pad</h1>
           <h1>/desktop</h1>

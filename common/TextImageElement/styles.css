@@ -1,0 +1,13 @@
+.wrapper {
+  composes: BodyText_Normal from '../basestyles.css';
+  padding: 0 16px 16px 16px;
+}
+
+.wrapper a {
+  color: #78909C;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}

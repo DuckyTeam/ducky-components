@@ -5,6 +5,16 @@
   padding: 16px;
 }
 
+.wrapper a {
+  color: #B0BEC5;
+  text-decoration: none;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+
 .shadowWrapper {
   composes: wrapper;
   height: 120px;
