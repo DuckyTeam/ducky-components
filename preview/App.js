@@ -11,6 +11,7 @@ import DropdownItem from '../common/Dropdown/Item';
 import PostFooterStandard from '../common/PostFooterStandard';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TextImageElement from '../common/TextImageElement';
+import ImageOnlyElement from '../common/ImageOnlyElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 
@@ -95,6 +96,12 @@ export default class App extends React.Component {
                 Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
                 <a target="_blank" href="http://www.google.com"> #google</a>
               </TextImageElement>
+            </Preview>
+
+            <Preview title="/ImageOnlyElement" width={300}>
+              <ImageOnlyElement
+                url="http://funnyasduck.net/wp-content/uploads/2013/01/funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"
+                height={300}/>
             </Preview>
 
           <h1>/mobile</h1>
