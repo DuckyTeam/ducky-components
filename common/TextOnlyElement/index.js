@@ -2,11 +2,11 @@ import React from 'react';
 import styles from './styles.css';
 
 function TextOnlyElement(props) {
-  console.log(props.children.length);
-    if (props.children.length > 200) {
+    if (props.children.length > 250) {
         return (
           <div className={styles.shadowWrapper}>
             {props.children}
+            <div className={styles.gradient}></div>
           </div>
         );
     }
