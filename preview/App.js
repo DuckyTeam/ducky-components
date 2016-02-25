@@ -9,6 +9,7 @@ import IconImage from '../common/IconImage/index.js';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import PostFooterStandard from '../common/PostFooterStandard';
+import TextOnlyElement from '../common/TextOnlyElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 
@@ -78,6 +79,11 @@ export default class App extends React.Component {
                   onBookmarkClick={() => console.log('Clicked bookmark')}
                   onShareClick={() => console.log('Clicked share')}
                   />
+            </Preview>
+
+            <Preview title="/TextOnlyElement" width={300}>
+              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
+              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
             </Preview>
           <h1>/mobile</h1>
           <h1>/pad</h1>
