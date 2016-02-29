@@ -14,6 +14,7 @@ import TextImageElement from '../common/TextImageElement';
 import ImageOnlyElement from '../common/ImageOnlyElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
+import PostFooterIcon from '../common/PostFooterIcon';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -65,6 +66,22 @@ export default class App extends React.Component {
 
             <Preview title={"TopNavigationBar"} width={900}>
                 <TopNavigationBar/>
+            </Preview>
+
+            <Preview title="/PostFooterIcon" width={300}>
+              <PostFooterIcon
+                value={8}
+                onClick={() => console.log('Clicked PostFooterIcon')}
+                icon={'zmdi zmdi-favorite'}/>
+
+              <PostFooterIcon
+                onClick={() => console.log('Clicked PostFooterIcon')}
+                icon={'zmdi zmdi-favorite-outline'}/>
+
+              <PostFooterIcon
+                value={12}
+                onClick={() => console.log('Clicked PostFooterIcon')}
+                icon={'zmdi zmdi-bookmark-outline'}/>
             </Preview>
 
             <Preview title="/PostFooterStandard">
