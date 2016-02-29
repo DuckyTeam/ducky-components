@@ -1,0 +1,17 @@
+.wrapper {
+
+}
+
+.caption1Normal {
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: normal;
+  color: #607D8B;
+}
+
+.caption1Strong {
+  font-size: 10px;
+  line-height: 12px;
+  font-weight: bold;
+  color: #263238;
+}

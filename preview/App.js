@@ -15,7 +15,7 @@ import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 import PostFooterIcon from '../common/PostFooterIcon';
 import Icon from '../common/Icon';
-import Caption1Normal from '../common/typography/Caption1Normal';
+import Typography from '../common/Typography';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -132,7 +132,9 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/typography">
-              <Caption1Normal>Caption1Normal (10px)</Caption1Normal>
+              <Typography type={'caption1Normal'}>caption1Normal (10px)</Typography>
+              <br/>
+              <Typography type={'caption1Strong'}>caption1Strong (10px)</Typography>
             </Preview>
 
           <h1>/mobile</h1>

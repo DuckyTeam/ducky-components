@@ -5,9 +5,9 @@ import classNames from 'classnames';
 function Icon(props) {
     return (
         <span className={classNames(styles.wrapper, {
-            [props.className]: props.className,
             [props.icon]: props.icon,
-            [styles[props.size]]: props.size
+            [styles[props.size]]: props.size,
+            [props.className]: props.className
         })} onClick={props.onClick}>
         </span>
     );
