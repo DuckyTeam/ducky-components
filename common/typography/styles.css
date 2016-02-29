@@ -36,3 +36,66 @@
   font-weight: normal;
   color: #263238;
 }
+
+.bodyTextStrong {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.bodyTextTitle {
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.ingressNormal {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+  color: #263238;
+}
+
+.ingressStrong {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.ingressTitles {
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.header1 {
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.display1 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.display2 {
+  font-size: 48px;
+  line-height: 56px;
+  font-weight: bold;
+  color: #263238;
+}
+
+.display3 {
+  font-size: 56px;
+  line-height: 72px;
+  font-weight: bold;
+  color: #263238;
+}

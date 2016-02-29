@@ -141,6 +141,24 @@ export default class App extends React.Component {
               <Typography type={'caption2Strong'}>caption2Strong (12px)</Typography>
               <br/>
               <Typography type={'bodyTextNormal'}>bodyTextNormal (14px)</Typography>
+              <br/>
+              <Typography type={'bodyTextStrong'}>bodyTextStrong (14px)</Typography>
+              <br/>
+              <Typography type={'bodyTextTitle'}>bodyTextTitle (14px)</Typography>
+              <br/>
+              <Typography type={'ingressNormal'}>ingressNormal (18px)</Typography>
+              <br/>
+              <Typography type={'ingressStrong'}>ingressStrong (18px)</Typography>
+              <br/>
+              <Typography type={'ingressTitles'}>ingressTitles (18px)</Typography>
+              <br/>
+              <Typography type={'header1'}>header1 (24px)</Typography>
+              <br/>
+              <Typography type={'display1'}>display1 (32px)</Typography>
+              <br/>
+              <Typography type={'display2'}>display2 (48px)</Typography>
+              <br/>
+              <Typography type={'display3'}>display3 (56px)</Typography>
             </Preview>
 
           <h1>/mobile</h1>
