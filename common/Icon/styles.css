@@ -1,0 +1,39 @@
+.wrapper {
+  color: #607D8B;
+}
+
+.nano {
+  font-size: 10px;
+}
+
+.micro {
+  font-size: 12px;
+}
+
+.mini {
+  font-size: 16px;
+}
+
+.small {
+  font-size: 20px;
+}
+
+.standard {
+  font-size: 24px;
+}
+
+.large1 {
+  font-size: 36px;
+}
+
+.large2 {
+  font-size: 48px;
+}
+
+.display1 {
+  font-size: 72px;
+}
+
+.display2 {
+  font-size: 96px;
+}

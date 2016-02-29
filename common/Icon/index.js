@@ -2,20 +2,22 @@ import React from 'react';
 import styles from './styles.css';
 import classNames from 'classnames';
 
-function IconNano(props) {
+function Icon(props) {
     return (
         <span className={classNames(styles.wrapper, {
             [props.className]: props.className,
-            [props.icon]: props.icon
+            [props.icon]: props.icon,
+            [styles[props.size]]: props.size
         })} onClick={props.onClick}>
         </span>
     );
 }
 
-IconNano.propTypes = {
+Icon.propTypes = {
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
+    size: React.PropTypes.oneOf(['nano', 'micro', 'mini', 'small', 'standard', 'large1', 'large2', 'display1', 'display2']),
     onClick: React.PropTypes.func
 };
 
-export default IconNano;
+export default Icon;
