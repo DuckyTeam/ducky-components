@@ -3,7 +3,7 @@ import styles from './styles.css';
 import classNames from 'classnames';
 
 function PostFooterIcon(props) {
-    if (props.value) {
+    if (props.children) {
         return (
             <div
               className={classNames(styles.iconWrapper, {
@@ -11,7 +11,7 @@ function PostFooterIcon(props) {
                   [props.className]: props.className
               })}
               onClick={props.onClick}>
-            <span className={styles.value}>{props.value}</span>
+            <span className={styles.value}>{props.children}</span>
           </div>
       );
     }
@@ -27,7 +27,7 @@ function PostFooterIcon(props) {
 }
 
 PostFooterIcon.propTypes = {
-    value: React.PropTypes.number,
+    children: React.PropTypes.number,
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     className: React.PropTypes.object

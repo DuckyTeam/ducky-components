@@ -14,6 +14,7 @@ import ImageOnlyElement from '../common/ImageOnlyElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 import PostFooterIcon from '../common/PostFooterIcon';
+import IconNano from '../common/icons/IconNano';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -67,25 +68,32 @@ export default class App extends React.Component {
                 <TopNavigationBar/>
             </Preview>
 
-            <Preview title="/PostFooterIcon" width={300}>
+            <Preview title="/PostFooterIcon">
               <PostFooterIcon
-                value={8}
-                onClick={() => console.log('Clicked PostFooterIcon')}
-                icon={'zmdi zmdi-favorite'}/>
+                onClick={() => console.log('Clicked favorite')}
+                icon={'zmdi zmdi-favorite'}>{8}</PostFooterIcon>
 
               <PostFooterIcon
-                onClick={() => console.log('Clicked PostFooterIcon')}
+                onClick={() => console.log('Clicked favorite outlined')}
                 icon={'zmdi zmdi-favorite-outline'}/>
 
               <PostFooterIcon
-                value={12}
-                onClick={() => console.log('Clicked PostFooterIcon')}
-                icon={'zmdi zmdi-bookmark-outline'}/>
+                onClick={() => console.log('Clicked bookmark')}
+                icon={'zmdi zmdi-bookmark-outline'}>{12}</PostFooterIcon>
             </Preview>
 
             <Preview title="/TextOnlyElement" width={300}>
-              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. <a target="_blank" href="http://www.google.com"> #google</a></TextOnlyElement>
-              <TextOnlyElement>Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. <a target="_blank" href="http://www.google.com"> #google</a> Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.</TextOnlyElement>
+              <TextOnlyElement>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst.
+                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. <a target="_blank" href="http://www.google.com"> #google</a>
+              </TextOnlyElement>
+              <TextOnlyElement>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
+                <a target="_blank" href="http://www.google.com"> #google</a> Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
+                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
+                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+              </TextOnlyElement>
             </Preview>
 
             <Preview title="/TextImageElement" width={300}>
@@ -99,6 +107,12 @@ export default class App extends React.Component {
               <ImageOnlyElement
                 url="http://funnyasduck.net/wp-content/uploads/2013/01/funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"
                 height={300}/>
+            </Preview>
+
+            <Preview title="/IconNano">
+              <IconNano icon={'zmdi zmdi-favorite'}/>
+              <IconNano icon={'zmdi zmdi-bookmark'} onClick={() => console.log('Clicked on Nano Icon')}/>
+              <IconNano icon={'zmdi zmdi-favorite-outline'}/>
             </Preview>
 
           <h1>/mobile</h1>
