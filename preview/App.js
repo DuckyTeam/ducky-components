@@ -135,6 +135,12 @@ export default class App extends React.Component {
               <Typography type={'caption1Normal'}>caption1Normal (10px)</Typography>
               <br/>
               <Typography type={'caption1Strong'}>caption1Strong (10px)</Typography>
+              <br/>
+              <Typography type={'caption2Normal'}>caption2Normal (12px)</Typography>
+              <br/>
+              <Typography type={'caption2Strong'}>caption2Strong (12px)</Typography>
+              <br/>
+              <Typography type={'bodyTextNormal'}>bodyTextNormal (14px)</Typography>
             </Preview>
 
           <h1>/mobile</h1>

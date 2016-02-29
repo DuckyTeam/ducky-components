@@ -14,7 +14,7 @@ function Typography(props) {
 }
 
 Typography.propTypes = {
-    type: React.PropTypes.oneOf(['caption1Normal', 'caption1Strong']),
+    type: React.PropTypes.oneOf(['caption1Normal', 'caption1Strong', 'caption2Normal', 'caption2Strong', 'bodyTextNormal']),
     className: React.PropTypes.string,
     children: React.PropTypes.any
 };
