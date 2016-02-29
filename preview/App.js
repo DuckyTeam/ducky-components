@@ -15,6 +15,14 @@ import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 import PostFooterIcon from '../common/PostFooterIcon';
 import IconNano from '../common/icons/IconNano';
+import IconMicro from '../common/icons/IconMicro';
+import IconMini from '../common/icons/IconMini';
+import IconSmall from '../common/icons/IconSmall';
+import IconStandard from '../common/icons/IconStandard';
+import IconLarge1 from '../common/icons/IconLarge1';
+import IconLarge2 from '../common/icons/IconLarge2';
+import IconDisplay1 from '../common/icons/IconDisplay1';
+import IconDisplay2 from '../common/icons/IconDisplay2';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -109,10 +117,25 @@ export default class App extends React.Component {
                 height={300}/>
             </Preview>
 
-            <Preview title="/IconNano">
-              <IconNano icon={'zmdi zmdi-favorite'}/>
-              <IconNano icon={'zmdi zmdi-bookmark'} onClick={() => console.log('Clicked on Nano Icon')}/>
-              <IconNano icon={'zmdi zmdi-favorite-outline'}/>
+            <Preview title="/icons">
+              <div className={styles.subHeader}>IconNano (10px)</div>
+              <IconNano icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconNano')}/>
+              <div className={styles.subHeader}>IconMicro (12px)</div>
+              <IconMicro icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconMicro')}/>
+              <div className={styles.subHeader}>IconMini (16px)</div>
+              <IconMini icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconMini')}/>
+              <div className={styles.subHeader}>IconSmall (20px)</div>
+              <IconSmall icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconSmall')}/>
+              <div className={styles.subHeader}>IconStandard (24px)</div>
+              <IconStandard icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconStandard')}/>
+              <div className={styles.subHeader}>IconLarge1 (36px)</div>
+              <IconLarge1 icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconLarge1')}/>
+              <div className={styles.subHeader}>IconLarge2 (46px)</div>
+              <IconLarge2 icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconLarge2')}/>
+              <div className={styles.subHeader}>IconDisplay1 (72px)</div>
+              <IconDisplay1 icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconDisplay1')}/>
+              <div className={styles.subHeader}>IconDisplay2 (96px)</div>
+              <IconDisplay2 icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconDisplay2')}/>
             </Preview>
 
           <h1>/mobile</h1>
