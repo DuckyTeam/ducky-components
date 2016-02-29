@@ -7,6 +7,7 @@
   min-height: 75px;
   vertical-align: top;
   margin: 10px;
+  display: grid;
 }
 
 .title {

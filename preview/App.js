@@ -8,7 +8,6 @@ import Button from '../common/Button';
 import IconImage from '../common/IconImage/index.js';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
-import PostFooterStandard from '../common/PostFooterStandard';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TextImageElement from '../common/TextImageElement';
 import ImageOnlyElement from '../common/ImageOnlyElement';
@@ -82,25 +81,6 @@ export default class App extends React.Component {
                 value={12}
                 onClick={() => console.log('Clicked PostFooterIcon')}
                 icon={'zmdi zmdi-bookmark-outline'}/>
-            </Preview>
-
-            <Preview title="/PostFooterStandard">
-                <PostFooterStandard
-                  iconStates={{like: false, comment: true, bookmark: false}}
-                  values={{likes: 8, comments: 12, bookmarks: 10, shares: 20}}
-                  onLikeClick={() => console.log('Clicked like')}
-                  onCommentClick={() => console.log('Clicked comment')}
-                  onBookmarkClick={() => console.log('Clicked bookmark')}
-                  onShareClick={() => console.log('Clicked share')}
-                  />
-                <PostFooterStandard
-                  iconStates={{like: true, comment: false, bookmark: true}}
-                  values={{likes: 0, comments: 0, bookmarks: 0, shares: 1933}}
-                  onLikeClick={() => console.log('Clicked like')}
-                  onCommentClick={() => console.log('Clicked comment')}
-                  onBookmarkClick={() => console.log('Clicked bookmark')}
-                  onShareClick={() => console.log('Clicked share')}
-                  />
             </Preview>
 
             <Preview title="/TextOnlyElement" width={300}>
