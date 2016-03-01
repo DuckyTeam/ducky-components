@@ -16,6 +16,7 @@ import TopNavigationBar from '../common/TopNavigationBar';
 import PostFooterIcon from '../common/PostFooterIcon';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
+import Avatar from "../common/Avatar";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -159,6 +160,19 @@ export default class App extends React.Component {
               <Typography type={'display2'}>display2 (48px)</Typography>
               <br/>
               <Typography type={'display3'}>display3 (56px)</Typography>
+            </Preview>
+
+            <Preview title="/avatars">
+              <div className={styles.subHeader}>Avatar Small (24px)</div>
+              <Avatar link={"/"} user={"all"} size={"small"}/>
+              <div className={styles.subHeader}>Avatar Standard (36px)</div>
+              <Avatar link={"/"} user={"friends"} size={"standard"}/>
+              <div className={styles.subHeader}>Avatar Large (48px)</div>
+              <Avatar link={"/"} user={"none"} size={"large"}/>
+              <div className={styles.subHeader}>Avatar Display1 (72px)</div>
+              <Avatar link={"/"} user={"all"} size={"display1"}/>
+              <div className={styles.subHeader}>Avatar Display2 (96px)</div>
+              <Avatar link={"/"} user={"none"} size={"display2"}/>
             </Preview>
 
           <h1>/mobile</h1>
