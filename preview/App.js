@@ -18,6 +18,7 @@ import Icon from '../common/Icon';
 import Typography from '../common/Typography';
 import Avatar from "../common/Avatar";
 import LabelSmall from "../common/LabelSmall";
+import LabelStandard from "../common/LabelStandard";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -180,10 +181,18 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/labels">
+                <div className={styles.subHeader}>Small Label</div>
                 <LabelSmall
                     content={"45"}
-                    icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconDisplay2')}
+                    icon={'zmdi zmdi-favorite'}
+                    onClick={() => console.log('Clicked on IconDisplay2')}
                     type={"caption2Strong"}
+                    />
+                <div className={styles.subHeader}>Standard Label</div>
+                <LabelStandard
+                    content={"425"}
+                    icon={'zmdi zmdi-favorite'}
+                    onClick={() => console.log('Clicked on IconDisplay2')}
                     />
             </Preview>
 
