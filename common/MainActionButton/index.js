@@ -17,7 +17,6 @@ function MainActionButton(props) {
 }
 
 MainActionButton.propTypes = {
-    children: React.PropTypes.any,
     icon: React.PropTypes.string,
     className: React.PropTypes.string,
     onClick: React.PropTypes.func

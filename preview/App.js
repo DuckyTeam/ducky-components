@@ -201,7 +201,7 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/MainActionButton">
-              <MainActionButton icon={'zmdi zmdi-favorite'}/>
+              <MainActionButton icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked MainActionButton')}/>
             </Preview>
 
           <h1>/mobile</h1>
