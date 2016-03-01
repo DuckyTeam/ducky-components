@@ -17,7 +17,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
 import Avatar from "../common/Avatar";
-import Label from "../common/Label";
+import LabelSmall from "../common/LabelSmall";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -180,10 +180,10 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/labels">
-                <Label
+                <LabelSmall
                     content={"45"}
                     icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconDisplay2')}
-                    type={"caption2Normal"}
+                    type={"caption2Strong"}
                     />
             </Preview>
 

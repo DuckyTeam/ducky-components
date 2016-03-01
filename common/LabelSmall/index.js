@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./LabelSmall.css";
+import styles from "./Label.css";
 import Icon from "../Icon";
 import Typography from "../typography"
 const PropTypes = React.PropTypes;
 
-class LabelSmall extends React.Component {
+class Label extends React.Component {
     render() {
         return (
             <span className={styles.wrapper}>
@@ -21,11 +21,11 @@ class LabelSmall extends React.Component {
     }
 }
 
-LabelSmall.displayName = "LabelSmall";
-LabelSmall.propTypes = {
+Label.displayName = "Label";
+Label.propTypes = {
     content: PropTypes.any,
     icon: PropTypes.string,
     type: PropTypes.string,
     onClick: React.PropTypes.func
 };
-export default LabelSmall;
+export default Label;
