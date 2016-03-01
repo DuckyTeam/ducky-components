@@ -17,6 +17,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
 import Avatar from "../common/Avatar";
+import MainActionButton from '../common/MainActionButton';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 
@@ -25,7 +26,9 @@ export default class App extends React.Component {
       super(props);
       this.state = {
           showModal: false,
-          showImageModal: false
+          showImageModal: false,
+          showFullImageText: false,
+          showFullText: false
       };
   }
   render() {
@@ -92,17 +95,36 @@ export default class App extends React.Component {
                 Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.Dette er en kjempe fin tekst.
                 Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. <a target="_blank" href="http://www.google.com"> #google</a>
               </TextOnlyElement>
-              <TextOnlyElement>
+              <br/>
+              <TextOnlyElement
+                onClick={() => this.setState({showFullText: !this.state.showFullText})}
+                showFullText={this.state.showFullText}>
                 Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
                 <a target="_blank" href="http://www.google.com"> #google</a> Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
                 Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
                 Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
-                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
+                Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne. Dette er en kjempe fin tekst.
               </TextOnlyElement>
             </Preview>
 
             <Preview title="/TextImageElement" width={300}>
               <TextImageElement>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
+              </TextImageElement>
+              <br/>
+              <TextImageElement
+                onClick={() => this.setState({showFullImageText: !this.state.showFullImageText})}
+                showFullText={this.state.showFullImageText}>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
+                Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
+                <a target="_blank" href="http://www.google.com"> #google</a>
                 Dette er en kjempe fin tekst. Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så denne.
                 <a target="_blank" href="http://www.google.com"> #google</a>
               </TextImageElement>
@@ -178,6 +200,10 @@ export default class App extends React.Component {
               <Avatar link={"/"} user={"all"} size={"display1"}/>
               <div className={styles.subHeader}>Avatar Display2 (96px)</div>
               <Avatar link={"/"} user={"none"} size={"display2"}/>
+            </Preview>
+	    
+	    <Preview title="/MainActionButton">
+              <MainActionButton icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked MainActionButton')}/>
             </Preview>
 
             <Preview title="/labels">

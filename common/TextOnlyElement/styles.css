@@ -1,23 +1,15 @@
 .wrapper {
-  composes: BodyText_Normal from '../basestyles.css';
-  color: #fff;
   background-color: #607D8B;
   padding: 16px;
 }
 
-.wrapper a {
-  color: #B0BEC5;
-  text-decoration: none;
+.text {
+  color: #fff !important;
 }
-
-.wrapper a:hover {
-  text-decoration: underline;
-}
-
 
 .shadowWrapper {
   composes: wrapper;
-  height: 120px;
+  height: 180px;
   position: relative;
   overflow: hidden;
 }
