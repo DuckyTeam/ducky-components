@@ -1,0 +1,19 @@
+.icon {
+  margin-right: 16px;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.iconWrapper {
+  align-items: center;
+  display: inline-flex;
+  cursor: pointer;
+  composes: Icon_MA_Standard from "../basestyles.css";
+}
+
+.value {
+  flex: 1;
+  margin-left: 4px;
+  margin-right: 12px;
+  composes: Caption_2_Normal from "../basestyles.css";
+}

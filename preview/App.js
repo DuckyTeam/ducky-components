@@ -13,7 +13,7 @@ import TextImageElement from '../common/TextImageElement';
 import ImageOnlyElement from '../common/ImageOnlyElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
-import PostFooterIcon from '../common/PostFooterIcon';
+import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
 
@@ -69,18 +69,18 @@ export default class App extends React.Component {
                 <TopNavigationBar/>
             </Preview>
 
-            <Preview title="/PostFooterIcon">
-              <PostFooterIcon
+            <Preview title="/LabelFooterAction">
+              <LabelFooterAction
                 onClick={() => console.log('Clicked favorite')}
-                icon={'zmdi zmdi-favorite'}>{8}</PostFooterIcon>
+                icon={'zmdi zmdi-favorite'}>{8}</LabelFooterAction>
 
-              <PostFooterIcon
+              <LabelFooterAction
                 onClick={() => console.log('Clicked favorite outlined')}
                 icon={'zmdi zmdi-favorite-outline'}/>
 
-              <PostFooterIcon
+              <LabelFooterAction
                 onClick={() => console.log('Clicked bookmark')}
-                icon={'zmdi zmdi-bookmark-outline'}>{12}</PostFooterIcon>
+                icon={'zmdi zmdi-bookmark-outline'}>{12}</LabelFooterAction>
             </Preview>
 
             <Preview title="/TextOnlyElement" width={300}>
