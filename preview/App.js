@@ -17,6 +17,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
 import Avatar from "../common/Avatar";
+import Label from "../common/Label";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -176,6 +177,14 @@ export default class App extends React.Component {
               <Avatar link={"/"} user={"all"} size={"display1"}/>
               <div className={styles.subHeader}>Avatar Display2 (96px)</div>
               <Avatar link={"/"} user={"none"} size={"display2"}/>
+            </Preview>
+
+            <Preview title="/labels">
+                <Label
+                    content={"45"}
+                    icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked on IconDisplay2')}
+                    type={"caption2Normal"}
+                    />
             </Preview>
 
           <h1>/mobile</h1>
