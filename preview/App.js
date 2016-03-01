@@ -16,7 +16,8 @@ import TopNavigationBar from '../common/TopNavigationBar';
 import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
-import Avatar from "../common/Avatar";
+import Avatar from '../common/Avatar';
+import MainActionButton from '../common/MainActionButton';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -197,6 +198,10 @@ export default class App extends React.Component {
               <Avatar link={"/"} user={"all"} size={"display1"}/>
               <div className={styles.subHeader}>Avatar Display2 (96px)</div>
               <Avatar link={"/"} user={"none"} size={"display2"}/>
+            </Preview>
+
+            <Preview title="/MainActionButton">
+              <MainActionButton icon={'zmdi zmdi-favorite'}/>
             </Preview>
 
           <h1>/mobile</h1>
