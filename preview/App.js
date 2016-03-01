@@ -10,7 +10,7 @@ import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TextImageElement from '../common/TextImageElement';
-import ImageOnlyElement from '../common/ImageOnlyElement';
+import ImageElement from '../common/ImageElement';
 import Modal from '../common/Modal';
 import TopNavigationBar from '../common/TopNavigationBar';
 import LabelFooterAction from '../common/LabelFooterAction';
@@ -105,7 +105,7 @@ export default class App extends React.Component {
             </Preview>
 
             <Preview title="/ImageOnlyElement" width={300}>
-              <ImageOnlyElement
+              <ImageElement
                 url="http://funnyasduck.net/wp-content/uploads/2013/01/funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"
                 height={300}/>
             </Preview>

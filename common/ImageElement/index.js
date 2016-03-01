@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.css';
 
-function ImageOnlyElement(props) {
+function ImageElement(props) {
     return (
         <div
           className={styles.wrapper}
@@ -15,10 +15,10 @@ function ImageOnlyElement(props) {
     );
 }
 
-ImageOnlyElement.propTypes = {
+ImageElement.propTypes = {
     url: React.PropTypes.string,
     width: React.PropTypes.number,
     height: React.PropTypes.number
 };
 
-export default ImageOnlyElement;
+export default ImageElement;
