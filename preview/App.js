@@ -186,12 +186,12 @@ export default class App extends React.Component {
                     content={"45"}
                     icon={'zmdi zmdi-favorite'}
                     onClick={() => console.log('Clicked on IconDisplay2')}
-                    type={"caption2Strong"}
+                    type={"caption2Normal"}
                     />
                 <div className={styles.subHeader}>Standard Label</div>
                 <LabelStandard
                     content={"425"}
-                    icon={'zmdi zmdi-favorite'}
+                    icon={'zmdi zmdi-brightness-7'}
                     onClick={() => console.log('Clicked on IconDisplay2')}
                     />
             </Preview>
