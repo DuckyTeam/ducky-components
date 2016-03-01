@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./Avatar.css";
 import classNames from "classnames";
+import styles from "./Avatar.css";
 const PropTypes = React.PropTypes;
 
 class Avatar extends React.Component {
@@ -30,7 +30,7 @@ class Avatar extends React.Component {
                         [this.props.className]: this.props.className
                     })}
                     src={imageUri}
-                    />
+                />
             </a>
         );
     }
@@ -40,14 +40,14 @@ Avatar.propTypes = {
     className: PropTypes.string,
     image: PropTypes.string,
     link: PropTypes.string,
-    size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"]),
     name: PropTypes.string,
+    size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"]),
     user: PropTypes.oneOfType(
         [PropTypes.shape({
             facebook: PropTypes.shape({
                 id: PropTypes.string
             }),
-            profile_picture_path: PropTypes.string
+            profilePicturePath: PropTypes.string
         }),
             React.PropTypes.oneOf(["all", "friends"])])
 };

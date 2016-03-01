@@ -12,9 +12,9 @@ function Header(props) {
 }
 
 Header.propTypes = {
-    title: React.PropTypes.string,
+    children: React.PropTypes.node,
     subTitle: React.PropTypes.string,
-    children: React.PropTypes.any
+    title: React.PropTypes.string
 };
 
 export default Header;

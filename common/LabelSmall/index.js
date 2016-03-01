@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./LabelSmall.css";
 import Icon from "../Icon";
-import Typography from "../typography"
+import React from "react";
+import Typography from "../typography";
+import styles from "./LabelSmall.css";
 const PropTypes = React.PropTypes;
 
 class LabelSmall extends React.Component {
@@ -13,7 +13,7 @@ class LabelSmall extends React.Component {
                     icon={this.props.icon}
                     onClick={this.props.onClick}
                     size={'micro'}
-                    />
+                />
                 <Typography type={this.props.type}>{this.props.content}</Typography>
             </span>
 
@@ -23,9 +23,9 @@ class LabelSmall extends React.Component {
 
 LabelSmall.displayName = "LabelSmall";
 LabelSmall.propTypes = {
-    content: PropTypes.any,
+    content: PropTypes.node,
     icon: PropTypes.string,
-    type: PropTypes.string,
-    onClick: React.PropTypes.func
+    onClick: React.PropTypes.func,
+    type: PropTypes.string
 };
 export default LabelSmall;

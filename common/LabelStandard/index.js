@@ -1,7 +1,7 @@
-import React from "react";
-import styles from "./LabelStandard.css";
 import Icon from "../Icon";
-import Typography from "../typography"
+import React from "react";
+import Typography from "../typography";
+import styles from "./LabelStandard.css";
 const PropTypes = React.PropTypes;
 
 class LabelStandard extends React.Component {
@@ -12,8 +12,8 @@ class LabelStandard extends React.Component {
                     icon={this.props.icon}
                     onClick={this.props.onClick}
                     size={'small'}
-                    />
-                <br/>
+                />
+                <br />
                 <Typography type={"bodyTextTitle"}>{this.props.content}</Typography>
             </span>
 
@@ -23,7 +23,7 @@ class LabelStandard extends React.Component {
 
 LabelStandard.displayName = "LabelStandard";
 LabelStandard.propTypes = {
-    content: PropTypes.any,
+    content: PropTypes.node,
     icon: PropTypes.string,
     onClick: React.PropTypes.func
 };

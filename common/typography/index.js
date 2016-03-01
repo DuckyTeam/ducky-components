@@ -1,19 +1,23 @@
 import React from 'react';
-import styles from './styles.css';
 import classNames from 'classnames';
+import styles from './styles.css';
 
 function Typography(props) {
     return (
-        <span className={classNames(styles.wrapper, {
-            [styles[props.type]]: props.type,
-            [props.className]: props.className
-        })}>
+        <span
+            className={classNames(styles.wrapper, {
+                [styles[props.type]]: props.type,
+                [props.className]: props.className
+            })}
+        >
           {props.children}
         </span>
     );
 }
 
 Typography.propTypes = {
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
     type: React.PropTypes.oneOf([
         'caption1Normal',
         'caption1Strong',
@@ -29,9 +33,7 @@ Typography.propTypes = {
         'display1',
         'display2',
         'display3'
-    ]),
-    className: React.PropTypes.string,
-    children: React.PropTypes.any
+    ])
 };
 
 export default Typography;

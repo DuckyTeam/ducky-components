@@ -9,14 +9,17 @@ function Button(props) {
     }
 
     return (
-        <button className={buttonType} onClick={props.onClick}>
+        <button
+            className={buttonType}
+            onClick={props.onClick}
+        >
             {props.children}
         </button>
     );
 }
 
 Button.propTypes = {
-    children: React.PropTypes.any,
+    children: React.PropTypes.node,
     onClick: React.PropTypes.func,
     type: React.PropTypes.string
 };
