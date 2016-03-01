@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './styles.css';
 import classNames from 'classnames';
 
-function PostFooterIcon(props) {
+function LabelFooterActions(props) {
     if (props.children) {
         return (
             <div
@@ -26,11 +26,11 @@ function PostFooterIcon(props) {
     );
 }
 
-PostFooterIcon.propTypes = {
+LabelFooterActions.propTypes = {
     children: React.PropTypes.number,
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     className: React.PropTypes.object
 };
 
-export default PostFooterIcon;
+export default LabelFooterActions;
