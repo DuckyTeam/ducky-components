@@ -20,6 +20,7 @@ import Avatar from "../common/Avatar";
 import MainActionButton from '../common/MainActionButton';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import TimeStamp from "../common/TimeStamp";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -201,7 +202,7 @@ export default class App extends React.Component {
               <div className={styles.subHeader}>Avatar Display2 (96px)</div>
               <Avatar link={"/"} user={"none"} size={"display2"}/>
             </Preview>
-	    
+
 	    <Preview title="/MainActionButton">
               <MainActionButton icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked MainActionButton')}/>
             </Preview>
@@ -219,6 +220,13 @@ export default class App extends React.Component {
                     content={"425"}
                     icon={'zmdi zmdi-brightness-7'}
                     onClick={() => console.log('Clicked on IconDisplay2')}
+                    />
+            </Preview>
+
+            <Preview title="/timeStamp">
+                <TimeStamp
+                    dateTime={"2016-03-01 14:42:48"}
+                    short={Boolean(true)}
                     />
             </Preview>
 
