@@ -27,7 +27,7 @@ class Avatar extends React.Component {
                     alt={this.props.name}
                     className={classNames(styles.item, {
                         [styles[this.props.size]]: this.props.size,
-                        [styles[this.props.className]]: this.props.className
+                        [this.props.className]: this.props.className
                     })}
                     src={imageUri}
                     />

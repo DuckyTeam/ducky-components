@@ -16,8 +16,10 @@ import TopNavigationBar from '../common/TopNavigationBar';
 import LabelFooterAction from '../common/LabelFooterAction';
 import Icon from '../common/Icon';
 import Typography from '../common/Typography';
-import Avatar from '../common/Avatar';
+import Avatar from "../common/Avatar";
 import MainActionButton from '../common/MainActionButton';
+import LabelSmall from "../common/LabelSmall";
+import LabelStandard from "../common/LabelStandard";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -199,9 +201,25 @@ export default class App extends React.Component {
               <div className={styles.subHeader}>Avatar Display2 (96px)</div>
               <Avatar link={"/"} user={"none"} size={"display2"}/>
             </Preview>
-
-            <Preview title="/MainActionButton">
+	    
+	    <Preview title="/MainActionButton">
               <MainActionButton icon={'zmdi zmdi-favorite'} onClick={() => console.log('Clicked MainActionButton')}/>
+            </Preview>
+
+            <Preview title="/labels">
+                <div className={styles.subHeader}>Small Label</div>
+                <LabelSmall
+                    content={"45"}
+                    icon={'zmdi zmdi-favorite'}
+                    onClick={() => console.log('Clicked on IconDisplay2')}
+                    type={"caption2Normal"}
+                    />
+                <div className={styles.subHeader}>Standard Label</div>
+                <LabelStandard
+                    content={"425"}
+                    icon={'zmdi zmdi-brightness-7'}
+                    onClick={() => console.log('Clicked on IconDisplay2')}
+                    />
             </Preview>
 
           <h1>/mobile</h1>
