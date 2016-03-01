@@ -21,7 +21,8 @@ export default class App extends React.Component {
   constructor(props) {
       super(props);
       this.state = {
-          showModal: false
+          showModal: false,
+          showImageModal: false
       };
   }
   render() {
@@ -104,10 +105,12 @@ export default class App extends React.Component {
               </TextImageElement>
             </Preview>
 
-            <Preview title="/ImageOnlyElement" width={300}>
+            <Preview title="/ImageElement" width={300} height={300}>
               <ImageElement
                 url="http://funnyasduck.net/wp-content/uploads/2013/01/funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"
-                height={300}/>
+                showModal={this.state.showImageModal}
+                onModalHide={() => this.setState({showImageModal: false})}
+                onClick={() => this.setState({showImageModal: true})}/>
             </Preview>
 
             <Preview title="/icons">
