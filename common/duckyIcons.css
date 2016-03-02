@@ -1,8 +1,23 @@
 @font-face {
     font-family: 'Duckycon-Font';
-    src: url('Duckycon-Font.woff?ssu2m1') format('woff');
+    src: url('./Duckycon-Font.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+.font {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Duckycon-Font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 [class^="duckycon-"], [class*=" duckycon-"] {
@@ -20,22 +35,29 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
+
+.duckycon-duckylogo {composes: font;}
 .duckycon-duckylogo:before {
     content: "\e92e";
 }
+.duckycon-leaderboard:before {composes: font;}
 .duckycon-leaderboard:before {
     content: "\e92c";
 }
+.duckycon-hashtag {composes: font;}
 .duckycon-hashtag:before {
     content: "\e92d";
 }
+.duckycon-dots-vertical {composes: font;}
 .duckycon-dots-vertical:before {
     content: "\e92b";
 }
+.duckycon-cheese {composes: font;}
 .duckycon-cheese:before {
     content: "\e900";
 }
-.duckycon-facebook:before {
+.duckycon-facebook {composes: font;} .duckycon-facebook:before {
     content: "\e926";
 }
 .duckycon-google-plus:before {
