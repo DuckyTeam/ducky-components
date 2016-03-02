@@ -1,6 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
-import Typography from '../typography';
+import Typography from '../Typography';
 import styles from './LabelStandard.css';
 const PropTypes = React.PropTypes;
 
