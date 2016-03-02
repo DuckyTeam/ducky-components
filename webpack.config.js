@@ -1,14 +1,59 @@
 /* eslint-env node */
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+/* eslint-disable no-process-env */
+const ExtractTextPlugin = require("extract-text-webpack-plugin"),
+    HtmlWebpackPlugin = require('html-webpack-plugin'),
+    StatsPlugin = require('stats-webpack-plugin'),
+    autoprefixer = require("autoprefixer"),
+    cssnext = require("postcss-cssnext"),
+    path = require("path"),
+    webpack = require("webpack");
 
-module.exports = {
-    devtool: 'eval-source-map',
+const options = {
     entry: [
-        'webpack-hot-middleware/client?reload=true',
         path.join(__dirname, 'preview/main.js')
     ],
+    module: {
+        loaders: [
+            {
+                test: /\.js[x]?$/,
+                loader: "babel",
+                include: [
+                    path.resolve(__dirname, "common"),
+                    path.resolve(__dirname, "preview")
+                ],
+                query: {
+                    presets: ["es2015", "stage-0", "react"],
+                    env: {
+                        production: {
+                            plugins: [
+                                "transform-react-constant-elements",
+                                "transform-react-inline-elements",
+                                "transform-member-expression-literals",
+                                "transform-merge-sibling-variables",
+                                "transform-minify-booleans",
+                                "transform-property-literals",
+                                "transform-remove-console",
+                                "transform-remove-debugger",
+                                "transform-simplify-comparison-operators"
+                            ]
+                        }
+                    }
+                }
+            },
+            {test: /\.json?$/, loader: 'json'},
+            {test: /\.html$/, loader: "file?name=[name].[ext]"},
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract('style',
+                    'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
+            },
+            {
+                test: [/\.woff/, /\.eot/, /\.woff2/, /\.ttf/, /\.svg/],
+                loader: 'url?limit=20'
+            }
+        ],
+        postcss: [autoprefixer({browsers: ["last 2 versions"]}), cssnext]
+    },
     output: {
         path: path.join(__dirname, '/dist/'),
         filename: '[name].js',
@@ -23,29 +68,35 @@ module.exports = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
-        })
+        new ExtractTextPlugin('[name]-[hash].min.css', {allChunks: true}),
+        new webpack.ProvidePlugin({fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"})
     ],
-    module: {
-        loaders: [{
-            test: /\.js?$/,
-            exclude: /node_modules/,
-            loader: 'babel'
-        }, {
-            test: /\.json?$/,
-            loader: 'json'
-        }, {
-            test: /\.css$/,
-            loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]',
-            exclude: /node_modules/
-        }, {
-            test: /\.css$/,
-            loader: 'style!css',
-            include: /node_modules/
-        }, {
-            test: [/\.woff/, /\.eot/, /\.woff2/, /\.ttf/, /\.svg/],
-            loader: 'url?limit=20'
-        }]
+    resolve: {
+        extensions: ["", ".js", ".jsx"],
+        root: [
+            path.resolve(__dirname, "common"),
+            path.resolve(__dirname, "preview")
+        ]
     }
 };
+
+if (process.env.NODE_ENV === "production") {
+    options.plugins.push(
+        new StatsPlugin('webpack.stats.json', {
+            source: false,
+            modules: false
+        }),
+        new webpack.DefinePlugin({"process.env": {NODE_ENV: JSON.stringify("production")}}),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin()
+    );
+} else {
+    options.entry = [
+        'webpack-hot-middleware/client?reload=true',
+        path.join(__dirname, 'preview/main.js')
+    ];
+    options.cache = true;
+    options.debug = true;
+    options.devtool = "eval-source-map";
+}
+module.exports = options;
