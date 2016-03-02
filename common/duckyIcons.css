@@ -5,21 +5,6 @@
     font-style: normal;
 }
 
-.font {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'Duckycon-Font' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
 :global [class^="duckycon-"], [class*=" duckycon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'Duckycon-Font' !important;
