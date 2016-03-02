@@ -1,10 +1,6 @@
 @font-face {
     font-family: 'Duckycon-Font';
-    src:    url('fonts/Duckycon-Font.eot?ssu2m1');
-    src:    url('fonts/Duckycon-Font.eot?ssu2m1#iefix') format('embedded-opentype'),
-        url('fonts/Duckycon-Font.ttf?ssu2m1') format('truetype'),
-        url('fonts/Duckycon-Font.woff?ssu2m1') format('woff'),
-        url('fonts/Duckycon-Font.svg?ssu2m1#Duckycon-Font') format('svg');
+    src:        url('Duckycon-Font.woff?ssu2m1') format('woff');
     font-weight: normal;
     font-style: normal;
 }
