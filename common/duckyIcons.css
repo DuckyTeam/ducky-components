@@ -20,7 +20,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[class^="duckycon-"], [class*=" duckycon-"] {
+:global [class^="duckycon-"], [class*=" duckycon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'Duckycon-Font' !important;
     speak: none;
@@ -35,29 +35,22 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-.duckycon-duckylogo {composes: font;}
 .duckycon-duckylogo:before {
     content: "\e92e";
 }
-.duckycon-leaderboard:before {composes: font;}
 .duckycon-leaderboard:before {
     content: "\e92c";
 }
-.duckycon-hashtag {composes: font;}
 .duckycon-hashtag:before {
     content: "\e92d";
 }
-.duckycon-dots-vertical {composes: font;}
 .duckycon-dots-vertical:before {
     content: "\e92b";
 }
-.duckycon-cheese {composes: font;}
 .duckycon-cheese:before {
     content: "\e900";
 }
-.duckycon-facebook {composes: font;} .duckycon-facebook:before {
+.duckycon-facebook:before {
     content: "\e926";
 }
 .duckycon-google-plus:before {
