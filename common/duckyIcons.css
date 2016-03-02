@@ -5,7 +5,7 @@
     font-style: normal;
 }
 
-:global [class^="duckycon-"], [class*=" duckycon-"] {
+[class^="duckycon-"], [class*=" duckycon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'Duckycon-Font' !important;
     speak: none;
