@@ -9,6 +9,7 @@ import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelFooterAction from '../common/LabelFooterAction';
+import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import MainActionButton from '../common/MainActionButton';
@@ -537,6 +538,23 @@ export default class App extends React.Component {
                         content={"425"}
                         icon={'zmdi zmdi-brightness-7'}
                         onClick={this.handleIconDisplayTwoClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Label Pair - timestamp-points'}
+                    </div>
+                    <LabelPair
+                        onClick={this.handleIconDisplayTwoClick}
+                        pairing={'time-points'}
+                        points={'12'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Label Pair - points-co2'}
+                    </div>
+                    <LabelPair
+                        co2={'165'}
+                        onClick={this.handleIconDisplayTwoClick}
+                        pairing={'points-co2'}
+                        points={'12'}
                     />
                 </Preview>
 
