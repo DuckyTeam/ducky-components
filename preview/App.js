@@ -544,7 +544,6 @@ export default class App extends React.Component {
                     </div>
                     <LabelPair
                         onClick={this.handleIconDisplayTwoClick}
-                        pairing={'time-points'}
                         points={'12'}
                     />
                     <div className={styles.subHeader}>
@@ -553,7 +552,6 @@ export default class App extends React.Component {
                     <LabelPair
                         co2={'165'}
                         onClick={this.handleIconDisplayTwoClick}
-                        pairing={'points-co2'}
                         points={'12'}
                     />
                 </Preview>

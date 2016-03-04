@@ -5,19 +5,21 @@ import styles from './LabelPair.css';
 const PropTypes = React.PropTypes;
 
 function LabelPair(props) {
-    if (props.pairing === 'time-points') {
+    if (props.co2) {
         return (
             <span>
-                <Time
-                    dateTime={"2016-03-01 14:42:48"}
-                    short={Boolean(true)}
+                <LabelSmall
+                    content={props.points}
+                    icon={'zmdi zmdi-favorite'}
+                    onClick={props.onClick}
+                    type={"caption2Strong"}
                 />
                 <span className={styles.pad}>
                     <LabelSmall
-                        content={props.points}
+                        content={props.co2}
                         icon={'zmdi zmdi-favorite'}
                         onClick={props.onClick}
-                        type={"caption2Normal"}
+                        type={"caption2Strong"}
                     />
                 </span>
             </span>
@@ -26,18 +28,16 @@ function LabelPair(props) {
 
     return (
         <span>
-            <LabelSmall
-                content={props.points}
-                icon={'zmdi zmdi-favorite'}
-                onClick={props.onClick}
-                type={"caption2Normal"}
+            <Time
+                dateTime={"2016-03-04 09:30:00"}
+                short={Boolean(true)}
             />
             <span className={styles.pad}>
                 <LabelSmall
-                    content={props.co2}
+                    content={props.points}
                     icon={'zmdi zmdi-favorite'}
                     onClick={props.onClick}
-                    type={"caption2Normal"}
+                    type={"caption2Strong"}
                 />
             </span>
         </span>
@@ -48,7 +48,6 @@ LabelPair.displayName = 'LabelPair';
 LabelPair.propTypes = {
     co2: PropTypes.number,
     onClick: PropTypes.func,
-    pairing: PropTypes.oneOf(['time-points', 'pionts-co2']),
     points: PropTypes.number
 };
 export default LabelPair;
