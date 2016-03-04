@@ -3,11 +3,10 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function ActionButton(props) {
+function MainActionButton(props) {
     return (
         <div
             className={classNames(styles.wrapper, {
-                [styles[props.size]]: props.size,
                 [props.className]: props.className,
                 [props.icon]: props.icon
             })}
@@ -18,11 +17,10 @@ function ActionButton(props) {
     );
 }
 
-ActionButton.propTypes = {
+MainActionButton.propTypes = {
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    size: React.PropTypes.oneOf(['standard', 'main'])
+    onClick: React.PropTypes.func
 };
 
-export default ActionButton;
+export default MainActionButton;

@@ -1,6 +1,5 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
-import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -14,6 +13,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import MainActionButton from '../common/MainActionButton';
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
@@ -515,22 +515,10 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/ActionButtons">
-                    <div className={styles.subHeader}>
-                        {"Action Button Main"}
-                    </div>
-                    <ActionButton
+                <Preview title="/MainActionButton">
+                    <MainActionButton
                         icon={'zmdi zmdi-favorite'}
                         onClick={this.handleMainActionButtonClicked}
-                        size={'main'}
-                    />
-                    <div className={styles.subHeader}>
-                        {"Action Button Standard"}
-                    </div>
-                    <ActionButton
-                        icon={'zmdi zmdi-favorite'}
-                        onClick={this.handleMainActionButtonClicked}
-                        size={'standard'}
                     />
                 </Preview>
 
