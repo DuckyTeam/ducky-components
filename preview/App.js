@@ -2,6 +2,7 @@ import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonCounter from '../common/ButtonCounter';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import Header from '../common/Header';
@@ -553,6 +554,25 @@ export default class App extends React.Component {
                         co2={'165'}
                         onClick={this.handleIconDisplayTwoClick}
                         points={'12'}
+                    />
+                </Preview>
+
+                <Preview title="/buttonCounters">
+                    <div className={styles.subHeader}>
+                        {'Small Button Counter'}
+                    </div>
+                    <ButtonCounter
+                        number={'45'}
+                        onClick={this.handleIconNanoClick}
+                        size={'small'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Standard Button Counter'}
+                    </div>
+                    <ButtonCounter
+                        number={'1002'}
+                        onClick={this.handleIconNanoClick}
+                        size={'standard'}
                     />
                 </Preview>
 
