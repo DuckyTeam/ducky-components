@@ -1,0 +1,21 @@
+.wrapper {
+    background-color: #78909C;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.number {
+    color: #FFFFFF;
+}
+
+.small {
+    height: 24px;
+    width: 24px;
+}
+
+.standard {
+    height: 36px;
+    width: 36px;
+}
