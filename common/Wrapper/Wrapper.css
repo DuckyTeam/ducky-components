@@ -1,0 +1,28 @@
+.wrapper {
+    background-color: c1e6f9;
+    display: inline-flex;
+}
+
+.standard {
+    padding: 16px;
+}
+
+.side-bottom {
+    padding: 0 16px 16px;
+}
+
+.side {
+    padding: 0 16px;
+}
+
+.narrow {
+    padding: 12px;
+}
+
+.slim {
+    padding: 4px;
+}
+
+.short{
+    padding: 12px 16px;
+}

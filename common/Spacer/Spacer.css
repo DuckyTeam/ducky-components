@@ -12,16 +12,12 @@
 
 .hr1 {
     background-color: #F3F5F6;
-    padding-top: 7.5px;
-    padding-bottom: 7.5px;
+    padding: 7.5px 0 7.5px 0;
 }
 
 .hr2 {
     background-color: #F3F5F6;
-    padding-top: 7.5px;
-    padding-right: 16px;
-    padding-bottom: 7.5px;
-    padding-left: 68px;
+    padding: 7.5px 16px 7.5px 68px;
 }
 
 .hr {
