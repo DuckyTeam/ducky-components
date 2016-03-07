@@ -17,6 +17,7 @@ import LabelStandard from "../common/LabelStandard";
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
+import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
@@ -585,6 +586,35 @@ export default class App extends React.Component {
                         number={'1002'}
                         onClick={this.handleIconNanoClick}
                         size={'standard'}
+                    />
+                </Preview>
+
+                <Preview title="/spacer">
+                    <div className={styles.subHeader}>
+                        {'Standard Spacer'}
+                    </div>
+                    <Spacer
+                        size={'standard'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Double Spacer'}
+                    </div>
+                    <Spacer
+                        size={'double'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Horizontal Ruler'}
+                    </div>
+                    <Spacer
+                        hr={'true'}
+                        size={'hr1'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Horizontal Ruler with Margins'}
+                    </div>
+                    <Spacer
+                        hr={'true'}
+                        size={'hr2'}
                     />
                 </Preview>
 
