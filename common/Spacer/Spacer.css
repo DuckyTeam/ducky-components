@@ -1,0 +1,29 @@
+.wrapper {
+    background-color: #F3F5F6;
+}
+
+.standard {
+    height: 8px;
+}
+
+.double {
+    height: 16px;
+}
+
+.hr1 {
+    background-color: #F3F5F6;
+    padding-top: 7.5px;
+    padding-bottom: 7.5px;
+}
+
+.hr2 {
+    background-color: #F3F5F6;
+    padding-top: 7.5px;
+    padding-right: 16px;
+    padding-bottom: 7.5px;
+    padding-left: 68px;
+}
+
+.hr {
+    border-bottom: 1px solid rgba(38,50,56,0.12);
+}
