@@ -22,6 +22,7 @@ import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
+import Wrapper from '../common/Wrapper';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -615,6 +616,51 @@ export default class App extends React.Component {
                     <Spacer
                         hr={'true'}
                         size={'hr2'}
+                    />
+                </Preview>
+
+                <Preview title="/wrapper">
+                    <div className={styles.subHeader}>
+                        {'Standard Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'standard'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Side/Bottom Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'side-bottom'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Side Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'side'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Narrow Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'narrow'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Slim Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'slim'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Short Wrapper'}
+                    </div>
+                    <Wrapper
+                        content={<img src={'http://placehold.it/100x50'} />}
+                        size={'short'}
                     />
                 </Preview>
 
