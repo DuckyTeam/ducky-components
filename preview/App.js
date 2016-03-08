@@ -14,6 +14,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
 import Modal from '../common/Modal';
 import Preview from './Preview';
@@ -665,7 +666,18 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/menuItem">
+                <Preview title="/mainMenu">
+                    <div className={styles.subHeader}>
+                        {'Menu Header'}
+                    </div>
+                    <MenuHeader
+                        icon1={'zmdi zmdi-favorite'}
+                        icon2={'zmdi zmdi-favorite'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Menu Item'}
+                    </div>
                     <MenuItem
                         icon={'zmdi zmdi-favorite'}
                         name={'Feed'}

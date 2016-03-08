@@ -1,0 +1,7 @@
+.wrapper {
+    height: 56px;
+    border-bottom: 1px solid rgba(38,50,56,0.12);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
