@@ -1,0 +1,14 @@
+.wrapper {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.icon {
+    margin-right: 28px;
+}
+
+.name {
+    text-overflow: ellipsis;
+}

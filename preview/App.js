@@ -14,6 +14,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import MenuItem from '../common/MenuItem';
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
@@ -661,6 +662,14 @@ export default class App extends React.Component {
                     <Wrapper
                         content={<img src={'http://placehold.it/100x50'} />}
                         size={'short'}
+                    />
+                </Preview>
+
+                <Preview title="/menuItem">
+                    <MenuItem
+                        icon={'zmdi zmdi-favorite'}
+                        name={'Feed'}
+                        onClick={this.handleIconSmallClick}
                     />
                 </Preview>
 
