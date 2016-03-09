@@ -10,14 +10,14 @@ function LabelPair(props) {
             <span>
                 <LabelSmall
                     content={props.points}
-                    icon={'zmdi zmdi-favorite'}
+                    icon={'icon-brightness_high'}
                     onClick={props.onClick}
                     type={"caption2Strong"}
                 />
                 <span className={styles.pad}>
                     <LabelSmall
                         content={props.co2}
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-leaf'}
                         onClick={props.onClick}
                         type={"caption2Strong"}
                     />
@@ -35,7 +35,7 @@ function LabelPair(props) {
             <span className={styles.pad}>
                 <LabelSmall
                     content={props.points}
-                    icon={'zmdi zmdi-favorite'}
+                    icon={'icon-brightness_high'}
                     onClick={props.onClick}
                     type={"caption2Strong"}
                 />
