@@ -219,9 +219,17 @@ export default class App extends React.Component {
 
                 <Preview
                     title={"TopNavigationBar"}
-                    width={TOP_NAVIGATION_PREVIEW_WIDTH}
+                    width={900}
                 >
-                    <TopNavigationBar />
+                    <TopNavigationBar
+                        title={"Testing"}
+                        notifications={5}
+                        onClickProfile={() => console.log("Profile Clicked")}
+                        onClickDucky={() => console.log("Ducky Clicked")}
+                        onClickNotification={() => console.log("Notification Clicked")}
+                        onClickMenu={() => console.log("Menu Clicked")}
+                        onClickSearch={() => console.log("Search Clicked")}
+                    />
                 </Preview>
 
                 <Preview title="/LabelFooterAction">
