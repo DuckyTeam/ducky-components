@@ -30,6 +30,7 @@ import HeaderCompositUser from '../common/HeaderCompositUser';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
+import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -473,7 +474,7 @@ export default class App extends React.Component {
                     <br />
                     <Typography type={'ingressStrong'}>{"ingressStrong (18px)"}</Typography>
                     <br />
-                    <Typography type={'ingressTitles'}>{"ingressTitles (18px)"}</Typography>
+                    <Typography type={'ingressTitle'}>{"ingressTitle (18px)"}</Typography>
                     <br />
                     <Typography type={'header1'}>{"header1 (24px)"}</Typography>
                     <br />
@@ -729,6 +730,20 @@ export default class App extends React.Component {
                     <HeaderCompositUser title={"Dette er et langt navn"} icon={"icon-pig"} onIconClick={this.handleButtonClick}>
                         <LabelPair co2={10} points={8}/>
                     </HeaderCompositUser>
+                </Preview>
+
+                <Preview title={"SectionHeaderGeneral"} width={200}>
+                    <SectionHeaderGeneral title="Right icon" rightIcon={"icon-pig"}>
+                        <LabelPair co2={10} points={8}/>
+                    </SectionHeaderGeneral>
+
+                    <SectionHeaderGeneral title="This is a long text" rightIcon={"icon-pig"}>
+                        <LabelPair co2={10} points={8}/>
+                    </SectionHeaderGeneral>
+
+                    <SectionHeaderGeneral title="Only text"/>
+
+                    <SectionHeaderGeneral title="Icon on left" leftIcon={"icon-pig"}/>
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

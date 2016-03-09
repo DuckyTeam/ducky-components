@@ -1,0 +1,21 @@
+.wrapper {
+  display: flex;
+}
+
+.title {
+  min-height: 20px;
+  margin-bottom: 4px;
+}
+
+.rightIconWrapper {
+  margin-left: 16px;
+}
+
+.leftIconWrapper {
+  margin-right: 16px;
+}
+
+.children {
+  margin-top: 4px;
+  min-height: 14px;
+}
