@@ -12,10 +12,12 @@ function MenuHeader(props) {
                 content={
                     <span>
                         <Icon
+                            className={styles.icon1}
                             icon={props.icon1}
                             size={'standard'}
                         />
                         <Icon
+                            className={styles.icon2}
                             icon={props.icon2}
                             size={'standard'}
                         />

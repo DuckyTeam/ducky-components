@@ -676,15 +676,15 @@ export default class App extends React.Component {
                         {'Menu Header'}
                     </div>
                     <MenuHeader
-                        icon1={'zmdi zmdi-favorite'}
-                        icon2={'zmdi zmdi-favorite'}
+                        icon1={'icon-duckylogo'}
+                        icon2={'icon-navigate_before'}
                         onClick={this.handleButtonClick}
                     />
                     <div className={styles.subHeader}>
                         {'Menu Item'}
                     </div>
                     <MenuItem
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-trophy-outline'}
                         name={'Feed'}
                         onClick={this.handleIconSmallClick}
                     />
