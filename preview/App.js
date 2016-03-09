@@ -17,6 +17,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import NotificationItem from './../common/NotificationItem';
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
@@ -689,6 +690,19 @@ export default class App extends React.Component {
 
                 <Preview title={"FeedbackTextInput"}>
                     <FeedbackTextInput prompt={"Skriv noe..."} />
+                </Preview>
+
+                <Preview title={"Notification Item"}>
+                    <NotificationItem dateTime={"2016-03-04 09:30:00"}
+                        icon={"icon-leaf"}
+                        onClick={this.handleButtonClick}
+                        text={"Du har gjort noe bra!"}
+                    >
+                        <Avatar
+                            size={"standard"}
+                            user={"all"}
+                        />
+                    </NotificationItem>
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
