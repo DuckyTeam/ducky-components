@@ -16,6 +16,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import MaMeF10 from "../common/MaMeF10";
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
@@ -681,6 +682,10 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         user={'friends'}
                     />
+                </Preview>
+
+                <Preview title={"MaMeF10"}>
+                    <MaMeF10 prompt={"Skriv noe..."} />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

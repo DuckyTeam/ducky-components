@@ -11,14 +11,14 @@ function Wrapper(props) {
                 [props.className]: props.className
             })}
         >
-            {props.content}
+            {props.children}
         </div>
     );
 }
 
 Wrapper.propTypes = {
+    children: PropTypes.node,
     className: PropTypes.string,
-    content: PropTypes.node,
     hr: PropTypes.bool,
     size: PropTypes.oneOf(['standard', 'side-bottom', 'side', 'narrow', 'slim', 'short'])
 };

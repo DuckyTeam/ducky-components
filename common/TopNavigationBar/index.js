@@ -5,20 +5,20 @@ import styles from "./TopNavigationBar.css";
 
 const MAX_NOTIFICATION_NUMBER = 10;
 
-function getNotificationCounter(number) {
-    if (number === 0) {
-        return (<i className={`zmdi zmdi-notifications-none ${""}`} />);
-    } else if (number < MAX_NOTIFICATION_NUMBER) {
-        return (<i className={`zmdi zmdi-Ingress_Normal` +
-        `${styles.notificationNumber} ${styles.rightIcon}`}
-                >{number}</i>);
-    }
-    return (<i className={`zmdi zmdi-Ingress_Normal` +
-    ` ${styles.notificationNumber} ${styles.rightIcon}`}
-            >{"9+"}</i>);
-}
-
 class TopNavigationBar extends React.Component {
+
+    getNotificationCounter(number) {
+        if (number === 0) {
+            return (<i className={`zmdi zmdi-notifications-none ${""}`} />);
+        } else if (number < MAX_NOTIFICATION_NUMBER) {
+            return (<i className={`zmdi zmdi-Ingress_Normal` +
+        `${styles.notificationNumber} ${styles.rightIcon}`}
+                    >{number}</i>);
+        }
+        return (<i className={`zmdi zmdi-Ingress_Normal` +
+            ` ${styles.notificationNumber} ${styles.rightIcon}`}
+                >{"9+"}</i>);
+    }
 
     render() {
         return (
@@ -48,7 +48,7 @@ class TopNavigationBar extends React.Component {
                     />
                 </a>
                 <a onClick={this.props.onClickNotification}>
-                    {getNotificationCounter(this.props.notifications)}
+                    {this.getNotificationCounter(this.props.notifications)}
                 </a>
                 <a onClick={this.props.onClickSearch}>
                     <i className={`zmdi zmdi-search ${styles.rightIcon}`} />
