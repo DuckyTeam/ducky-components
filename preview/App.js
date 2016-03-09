@@ -1,5 +1,6 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
+import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
@@ -226,19 +227,19 @@ export default class App extends React.Component {
 
                 <Preview title="/LabelFooterAction">
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-water'}
                         onClick={this.handleFavoriteClicked}
                     >
                         {LABEL_ONE}
                     </LabelFooterAction>
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite-outline'}
+                        icon={'icon-water'}
                         onClick={this.handleOutlinedFavoriteClicked}
                     />
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-bookmark-outline'}
+                        icon={'icon-water'}
                         onClick={this.handleBookmarkClicked}
                     >
                         {LABEL_TWO}
