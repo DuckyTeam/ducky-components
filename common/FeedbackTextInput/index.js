@@ -1,7 +1,7 @@
 import IcoW01 from '../IconAvaWrapper';
 import React from 'react';
 import Wra16A from '../Wrapper';
-import styles from './Feedback Text Input.css';
+import styles from './FeedbackTextInput.css';
 
 class FeedbackTextInput extends React.Component {
     render() {

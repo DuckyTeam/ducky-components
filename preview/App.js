@@ -19,6 +19,7 @@ import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import NotificationItem from './../common/NotificationItem';
 import Modal from '../common/Modal';
+import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
 import Spacer from '../common/Spacer';
@@ -703,6 +704,12 @@ export default class App extends React.Component {
                             user={"all"}
                         />
                     </NotificationItem>
+                </Preview>
+
+                <Preview title={"Popover Menu"}>
+                    <PopoverMenu onClick={this.handleButtonClick}
+                        text={"Hei pa deg!"}
+                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
