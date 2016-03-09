@@ -28,7 +28,7 @@ Typography.propTypes = {
         'bodyTextTitle',
         'ingressNormal',
         'ingressStrong',
-        'ingressTitles',
+        'ingressTitle',
         'header1',
         'display1',
         'display2',
