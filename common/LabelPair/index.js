@@ -29,7 +29,7 @@ function LabelPair(props) {
     return (
         <span>
             <Time
-                dateTime={"2016-03-04 09:30:00"}
+                dateTime={props.time}
                 short={Boolean(true)}
             />
             <span className={styles.pad}>
@@ -46,8 +46,9 @@ function LabelPair(props) {
 
 LabelPair.displayName = 'LabelPair';
 LabelPair.propTypes = {
-    co2: PropTypes.number,
-    onClick: PropTypes.func,
-    points: PropTypes.number
+    co2: React.PropTypes.number,
+    time: React.PropTypes.string,
+    onClick: React.PropTypes.func,
+    points: React.PropTypes.number
 };
 export default LabelPair;

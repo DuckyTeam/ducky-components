@@ -26,6 +26,8 @@ import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
+import HeaderCompositUser from '../common/HeaderCompositUser';
+import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
@@ -379,7 +381,7 @@ export default class App extends React.Component {
 
                 <Preview title="/icons">
                     <div className={styles.subHeader}>
-                        {"IconNano (10px)"}
+                        {"nano (10px)"}
                     </div>
                     <Icon
                         icon={'icon-pig'}
@@ -387,7 +389,7 @@ export default class App extends React.Component {
                         size={'nano'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconMicro (12px)"}
+                        {"micro (12px)"}
                     </div>
                     <Icon
                         icon={'icon-cow'}
@@ -395,7 +397,7 @@ export default class App extends React.Component {
                         size={'micro'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconMini (16px)"}
+                        {"mini (16px)"}
                     </div>
                     <Icon
                         icon={'icon-tune'}
@@ -403,7 +405,7 @@ export default class App extends React.Component {
                         size={'mini'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconSmall (20px)"}
+                        {"small (20px)"}
                     </div>
                     <Icon
                         icon={'icon-work'}
@@ -411,7 +413,7 @@ export default class App extends React.Component {
                         size={'small'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconStandard (24px)"}
+                        {"standard (24px)"}
                     </div>
                     <Icon
                         icon={'icon-lens'}
@@ -419,7 +421,7 @@ export default class App extends React.Component {
                         size={'standard'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconLarge1 (36px)"}
+                        {"large1 (36px)"}
                     </div>
                     <Icon
                         icon={'icon-star'}
@@ -427,7 +429,7 @@ export default class App extends React.Component {
                         size={'large1'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconLarge2 (46px)"}
+                        {"large2 (46px)"}
                     </div>
                     <Icon
                         icon={'icon-fish'}
@@ -435,7 +437,7 @@ export default class App extends React.Component {
                         size={'large2'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconDisplay1 (72px)"}
+                        {"display1 (72px)"}
                     </div>
                     <Icon
                         icon={'icon-pets'}
@@ -443,7 +445,7 @@ export default class App extends React.Component {
                         size={'display1'}
                     />
                     <div className={styles.subHeader}>
-                        {"IconDisplay2 (96px)"}
+                        {"display2 (96px)"}
                     </div>
                     <Icon
                         icon={'icon-duck'}
@@ -568,6 +570,7 @@ export default class App extends React.Component {
                     <LabelPair
                         onClick={this.handleIconDisplayTwoClick}
                         points={'12'}
+                        time={'2016-03-04 09:30:00'}
                     />
                     <div className={styles.subHeader}>
                         {'Label Pair - points-co2'}
@@ -710,6 +713,22 @@ export default class App extends React.Component {
                     <PopoverMenu onClick={this.handleButtonClick}
                         text={"Hei pa deg!"}
                     />
+                </Preview>
+
+                <Preview title={"HeaderComposits"}>
+                    <div className={styles.subHeader}>
+                        {'HeaderCompositActivity'}
+                    </div>
+                    <HeaderCompositActivity activityIcon={'icon-brightness_high'} iconValue={10} title={"Dette er et langt navn"} icon={"icon-pig"}>
+                        <LabelPair points={10} time={'2016-03-08 09:30:00'}/>
+                    </HeaderCompositActivity>
+                    <br/>
+                    <div className={styles.subHeader}>
+                        {'HeaderCompositUser'}
+                    </div>
+                    <HeaderCompositUser title={"Dette er et langt navn"} icon={"icon-pig"} onIconClick={this.handleButtonClick}>
+                        <LabelPair co2={10} points={8}/>
+                    </HeaderCompositUser>
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

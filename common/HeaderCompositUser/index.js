@@ -5,7 +5,7 @@ import Avatar from '../Avatar';
 import Typography from '../Typography';
 import classNames from 'classnames';
 
-function HeaderCompositInfo(props) {
+function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Avatar link={props.avatarLink} user={"all"} size={"standard"}/>
@@ -15,21 +15,18 @@ function HeaderCompositInfo(props) {
                     {props.children}
                 </div>
             </div>
-            <div className={styles.iconWrapper}>
-              <Icon icon={props.icon} size="small"/>
-              <Typography type="bodyTextTitle">{props.iconValue}</Typography>
-            </div>
+            <Icon icon={props.icon} size="large1" onClick={props.onIconClick}/>
         </div>
     );
 }
 
-HeaderCompositInfo.propTypes = {
-    avatarLink: React.PropTypes.string,
+HeaderCompositUser.propTypes = {
     title: React.PropTypes.string,
     icon: React.PropTypes.string,
-    iconValue: React.PropTypes.func,
+    avatarLink: React.PropTypes.string,
+    onIconClick: React.PropTypes.func,
     children: React.PropTypes.any,
     className: React.PropTypes.string
 };
 
-export default HeaderCompositInfo;
+export default HeaderCompositUser;
