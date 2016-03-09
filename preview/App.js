@@ -1,5 +1,6 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
+import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
@@ -8,6 +9,7 @@ import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import Header from '../common/Header';
 import Icon from '../common/Icon';
+import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelFooterAction from '../common/LabelFooterAction';
@@ -223,24 +225,27 @@ export default class App extends React.Component {
                     title={"TopNavigationBar"}
                     width={TOP_NAVIGATION_PREVIEW_WIDTH}
                 >
-                    <TopNavigationBar />
+                    <TopNavigationBar
+                        notifications={0}
+                        title={'Title'}
+                    />
                 </Preview>
 
                 <Preview title="/LabelFooterAction">
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-favorite'}
                         onClick={this.handleFavoriteClicked}
                     >
                         {LABEL_ONE}
                     </LabelFooterAction>
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite-outline'}
+                        icon={'icon-favorite_border'}
                         onClick={this.handleOutlinedFavoriteClicked}
                     />
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-bookmark-outline'}
+                        icon={'icon-trophy-outline'}
                         onClick={this.handleBookmarkClicked}
                     >
                         {LABEL_TWO}
@@ -376,7 +381,7 @@ export default class App extends React.Component {
                         {"IconNano (10px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-pig'}
                         onClick={this.handleIconNanoClick}
                         size={'nano'}
                     />
@@ -384,7 +389,7 @@ export default class App extends React.Component {
                         {"IconMicro (12px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-cow'}
                         onClick={this.handleIconMicroClick}
                         size={'micro'}
                     />
@@ -392,7 +397,7 @@ export default class App extends React.Component {
                         {"IconMini (16px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-tune'}
                         onClick={this.handleIconMiniClick}
                         size={'mini'}
                     />
@@ -400,7 +405,7 @@ export default class App extends React.Component {
                         {"IconSmall (20px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-work'}
                         onClick={this.handleIconSmallClick}
                         size={'small'}
                     />
@@ -408,7 +413,7 @@ export default class App extends React.Component {
                         {"IconStandard (24px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-lens'}
                         onClick={this.handleIconStandardClick}
                         size={'standard'}
                     />
@@ -416,7 +421,7 @@ export default class App extends React.Component {
                         {"IconLarge1 (36px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-star'}
                         onClick={this.handleIconLargeOneClick}
                         size={'large1'}
                     />
@@ -424,7 +429,7 @@ export default class App extends React.Component {
                         {"IconLarge2 (46px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-fish'}
                         onClick={this.handleIconLargeTwoClick}
                         size={'large2'}
                     />
@@ -432,7 +437,7 @@ export default class App extends React.Component {
                         {"IconDisplay1 (72px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-pets'}
                         onClick={this.handleIconDisplayOneClick}
                         size={'display1'}
                     />
@@ -440,7 +445,7 @@ export default class App extends React.Component {
                         {"IconDisplay2 (96px)"}
                     </div>
                     <Icon
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-duck'}
                         onClick={this.handleIconDisplayTwoClick}
                         size={'display2'}
                     />
@@ -524,7 +529,7 @@ export default class App extends React.Component {
                         {'Action Button Main'}
                     </div>
                     <ActionButton
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-star'}
                         onClick={this.handleMainActionButtonClicked}
                         size={'main'}
                     />
@@ -532,7 +537,7 @@ export default class App extends React.Component {
                         {'Action Button Standard'}
                     </div>
                     <ActionButton
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-room'}
                         onClick={this.handleMainActionButtonClicked}
                         size={'standard'}
                     />
@@ -544,7 +549,7 @@ export default class App extends React.Component {
                     </div>
                     <LabelSmall
                         content={"45"}
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-tram'}
                         onClick={this.handleIconDisplayTwoClick}
                         type={"caption2Normal"}
                     />
@@ -553,7 +558,7 @@ export default class App extends React.Component {
                     </div>
                     <LabelStandard
                         content={"425"}
-                        icon={'zmdi zmdi-brightness-7'}
+                        icon={'icon-brightness_high'}
                         onClick={this.handleIconDisplayTwoClick}
                     />
                     <div className={styles.subHeader}>
@@ -682,6 +687,23 @@ export default class App extends React.Component {
                         icon={'zmdi zmdi-favorite'}
                         name={'Feed'}
                         onClick={this.handleIconSmallClick}
+                    />
+                </Preview>
+
+                <Preview title="/Icon avatar with wrapper">
+                    <div className={styles.subHeader}>
+                        {'Wrapped Icon'}
+                    </div>
+                    <IconAvaWrapper
+                        icon={'icon-tram'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Wrapped Avatar'}
+                    </div>
+                    <IconAvaWrapper
+                        onClick={this.handleButtonClick}
+                        user={'friends'}
                     />
                 </Preview>
 

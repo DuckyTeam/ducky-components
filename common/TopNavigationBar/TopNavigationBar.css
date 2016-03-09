@@ -1,6 +1,7 @@
 .container {
-    background-color: #2cbf82;
-    height: 48px
+    background-color: #607D8B;
+    height: 48px;
+    padding: 4px;
 }
 
 .menuIcon{
@@ -8,6 +9,7 @@
     font-size: 24px;
     float: left;
     color: white;
+    cursor: pointer;
 }
 
 .rightIcon {
@@ -15,12 +17,28 @@
     font-size: 24px;
     float: right;
     color: white;
+    cursor: pointer;
+}
+
+.notificationNumber {
+    border-radius: 100%;
+    background-color: white;
+    height:24px;
+    width: 24px;
+    margin: 12px;
+    padding: 0;
+    color: black;
+    text-align: center;
+    font-size: 0.7rem;
+    line-height: 24px;
 }
 
 .logo{
-    height:24px;
-    padding: 12px 20px;
+    padding: 12px;
+    font-size: 24px;
     float: left;
+    color: white;
+    cursor: pointer;
 }
 
 .title{
@@ -41,6 +59,16 @@
     float: left;
     display: inline;
     color: white;
+}
+
+.counter {
+    background-color: #FFFFFF;
+    float: right;
+    margin: 12px;
+}
+
+.counter > span {
+    color: #607D8B;
 }
 
 @media (max-width: 768px){

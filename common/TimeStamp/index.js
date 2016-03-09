@@ -14,7 +14,7 @@ function TimeStamp(props) {
                     {timeSince(props.dateTime, props.short)}
                 </time>
             }
-            icon={'zmdi zmdi-time'}
+            icon={'icon-schedule'}
             type={'caption2Normal'}
         />
     );
