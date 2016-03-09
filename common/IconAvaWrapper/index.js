@@ -10,30 +10,28 @@ function IconAvaWrapper(props) {
         return (
             <Wrapper
                 className={styles.wrapper}
-                content={
-                    <Avatar
-                        link={'/'}
-                        size={'small'}
-                        user={props.user}
-                    />
-                }
                 size={'narrow'}
-            />
+            >
+                <Avatar
+                    link={'/'}
+                    size={'small'}
+                    user={props.user}
+                />
+            </Wrapper>
         );
     }
 
     return (
         <Wrapper
             className={styles.wrapper}
-            content={
-                <Icon
-                    icon={props.icon}
-                    onClick={props.onClick}
-                    size={'standard'}
-                />
-            }
             size={'narrow'}
-        />
+        >
+            <Icon
+                icon={props.icon}
+                onClick={props.onClick}
+                size={'standard'}
+            />
+        </Wrapper>
     );
 }
 

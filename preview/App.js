@@ -7,6 +7,7 @@ import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
+import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import Icon from '../common/Icon';
 import IconAvaWrapper from '../common/IconAvaWrapper';
@@ -705,6 +706,10 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         user={'friends'}
                     />
+                </Preview>
+
+                <Preview title={"FeedbackTextInput"}>
+                    <FeedbackTextInput prompt={"Skriv noe..."} />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

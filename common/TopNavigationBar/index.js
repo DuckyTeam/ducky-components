@@ -4,22 +4,20 @@ import React from "react";
 import Typography from "./../Typography";
 import styles from "./TopNavigationBar.css";
 
-function getNotificationCounter(number) {
-    if (number === 0) {
-        return (<i className={`icon-notifications_none ${styles.rightIcon}`} />);
-    }
-
-    return (
-        <ButtonCounter
-            className={styles.counter}
-            number={number}
-            size={'small'}
-        />
-    );
-}
-
 class TopNavigationBar extends React.Component {
 
+    getNotificationCounter(number) {
+        if (number === 0) {
+            return (<i className={`icon-notifications_none ${styles.rightIcon}`} />);
+        }
+        return (
+            <ButtonCounter
+                className={styles.counter}
+                number={number}
+                size={'small'}
+            />
+        );
+    }
     render() {
         return (
             <div className={styles.container}>
@@ -46,7 +44,7 @@ class TopNavigationBar extends React.Component {
                     />
                 </a>
                 <a onClick={this.props.onClickNotification}>
-                    {getNotificationCounter(this.props.notifications)}
+                    {this.getNotificationCounter(this.props.notifications)}
                 </a>
                 <a onClick={this.props.onClickSearch}>
                     <i className={`icon-search ${styles.rightIcon}`} />
