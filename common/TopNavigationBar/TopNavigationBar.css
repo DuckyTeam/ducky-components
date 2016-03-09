@@ -34,9 +34,10 @@
 }
 
 .logo{
-    height:24px;
-    padding: 12px 20px;
+    padding: 12px;
+    font-size: 24px;
     float: left;
+    color: white;
     cursor: pointer;
 }
 
@@ -58,6 +59,16 @@
     float: left;
     display: inline;
     color: white;
+}
+
+.counter {
+    background-color: #FFFFFF;
+    float: right;
+    margin: 12px;
+}
+
+.counter > span {
+    color: #607D8B;
 }
 
 @media (max-width: 768px){
