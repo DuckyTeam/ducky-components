@@ -1,9 +1,9 @@
 import IcoW01 from '../IconAvaWrapper';
 import React from 'react';
 import Wra16A from '../Wrapper';
-import styles from './MaMeF10.css';
+import styles from './Feedback Text Input.css';
 
-class MaMeF10 extends React.Component {
+class FeedbackTextInput extends React.Component {
     render() {
         return (
             <Wra16A className={styles.wrapper}
@@ -23,10 +23,10 @@ class MaMeF10 extends React.Component {
     }
 }
 
-MaMeF10.displayName = "MaMeF10";
-MaMeF10.propTypes = {
+FeedbackTextInput.displayName = "Feedback Text Input";
+FeedbackTextInput.propTypes = {
     onChange: React.PropTypes.func,
     onSubmit: React.PropTypes.func,
     prompt: React.PropTypes.string
 };
-export default MaMeF10;
+export default FeedbackTextInput;

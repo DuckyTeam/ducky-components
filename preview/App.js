@@ -7,6 +7,7 @@ import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
+import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import Icon from '../common/Icon';
 import IconAvaWrapper from '../common/IconAvaWrapper';
@@ -16,7 +17,6 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
-import MaMeF10 from "../common/MaMeF10";
 import Modal from '../common/Modal';
 import Preview from './Preview';
 import React from 'react';
@@ -687,8 +687,8 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title={"MaMeF10"}>
-                    <MaMeF10 prompt={"Skriv noe..."} />
+                <Preview title={"FeedbackTextInput"}>
+                    <FeedbackTextInput prompt={"Skriv noe..."} />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
