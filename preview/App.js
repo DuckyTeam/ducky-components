@@ -1,5 +1,6 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
+import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
@@ -8,6 +9,7 @@ import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import Header from '../common/Header';
 import Icon from '../common/Icon';
+import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelFooterAction from '../common/LabelFooterAction';
@@ -226,19 +228,19 @@ export default class App extends React.Component {
 
                 <Preview title="/LabelFooterAction">
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite'}
+                        icon={'icon-water'}
                         onClick={this.handleFavoriteClicked}
                     >
                         {LABEL_ONE}
                     </LabelFooterAction>
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-favorite-outline'}
+                        icon={'icon-water'}
                         onClick={this.handleOutlinedFavoriteClicked}
                     />
 
                     <LabelFooterAction
-                        icon={'zmdi zmdi-bookmark-outline'}
+                        icon={'icon-water'}
                         onClick={this.handleBookmarkClicked}
                     >
                         {LABEL_TWO}
@@ -661,6 +663,23 @@ export default class App extends React.Component {
                     <Wrapper
                         content={<img src={'http://placehold.it/100x50'} />}
                         size={'short'}
+                    />
+                </Preview>
+
+                <Preview title="/Icon/avatar with wrapper">
+                    <div className={styles.subHeader}>
+                        {'Wrapped Icon'}
+                    </div>
+                    <IconAvaWrapper
+                        icon={'fa fa-paw'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Wrapped Avatar'}
+                    </div>
+                    <IconAvaWrapper
+                        onClick={this.handleButtonClick}
+                        user={'friends'}
                     />
                 </Preview>
 
