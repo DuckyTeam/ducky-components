@@ -1,0 +1,24 @@
+.wrapper {
+    background-color: white;
+}
+
+.typo {
+    color: #607D8B;
+}
+
+.child {
+    margin-right: 16px;
+}
+
+.icon {
+    float: left;
+    margin-right: 12px;
+}
+
+.timeStamp {
+    float: left;
+}
+
+.span {
+    cursor: pointer;
+}
