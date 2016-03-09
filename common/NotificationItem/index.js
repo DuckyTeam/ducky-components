@@ -9,8 +9,10 @@ import styles from './NotificationItem.css';
 class NotificationItem extends React.Component {
     render() {
         return (
-            <span className={styles.span} onClick={this.props.onClick}>
-                <Wrapper className={styles.wrapper}>
+            <span className={styles.span}
+                onClick={this.props.onClick}
+            >
+                <Wrapper>
                     <div className={styles.child}>
                         {this.props.children}
                     </div>
@@ -46,6 +48,7 @@ NotificationItem.propTypes = {
     children: React.PropTypes.node,
     dateTime: React.PropTypes.shape({}),
     icon: React.PropTypes.string,
+    onClick: React.PropTypes.func,
     text: React.PropTypes.string
 };
 export default NotificationItem;

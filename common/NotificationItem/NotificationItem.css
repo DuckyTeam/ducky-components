@@ -1,7 +1,3 @@
-.wrapper {
-    background-color: white;
-}
-
 .typo {
     color: #607D8B;
 }
@@ -21,4 +17,13 @@
 
 .span {
     cursor: pointer;
+
+}
+
+.wrapper {
+    background-color: white;
+}
+
+.wrapper:active {
+    background-color: transparent;
 }
