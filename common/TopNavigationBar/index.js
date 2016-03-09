@@ -1,33 +1,31 @@
 import Avatar from "./../Avatar";
+import ButtonCounter from "./../ButtonCounter";
 import React from "react";
 import Typography from "./../Typography";
 import styles from "./TopNavigationBar.css";
-
-const MAX_NOTIFICATION_NUMBER = 10;
 
 class TopNavigationBar extends React.Component {
 
     getNotificationCounter(number) {
         if (number === 0) {
-            return (<i className={`zmdi zmdi-notifications-none ${""}`} />);
-        } else if (number < MAX_NOTIFICATION_NUMBER) {
-            return (<i className={`zmdi zmdi-Ingress_Normal` +
-        `${styles.notificationNumber} ${styles.rightIcon}`}
-                    >{number}</i>);
+            return (<i className={`icon-notifications_none ${styles.rightIcon}`} />);
         }
-        return (<i className={`zmdi zmdi-Ingress_Normal` +
-            ` ${styles.notificationNumber} ${styles.rightIcon}`}
-                >{"9+"}</i>);
+        return (
+            <ButtonCounter
+                className={styles.counter}
+                number={number}
+                size={'small'}
+            />
+        );
     }
-
     render() {
         return (
             <div className={styles.container}>
                 <a onClick={this.props.onClickMenu}>
-                    <i className={`${styles.menuIcon} duckycon-duckylogo`} />
+                    <i className={`${styles.menuIcon} icon-menu`} />
                 </a>
                 <a onClick={this.props.onClickDucky}>
-                    <i className={"duckyconDuckylogo"} />
+                    <i className={`${styles.logo} icon-duckylogo`} />
                 </a>
                 <Typography className={styles.split}
                     type={"ingressNormal"}
@@ -40,18 +38,16 @@ class TopNavigationBar extends React.Component {
                     {this.props.title}
                 </Typography>
                 <a onClick={this.props.onClickProfile}>
-                    <i className={`zmdi zmdi-account-circle ${styles.rightIcon}`} />
-                </a>
-                <a onClick={this.props.onClickProfile}>
                     <Avatar className={styles.rightIcon}
                         size={"small"}
+                        user={"all"}
                     />
                 </a>
                 <a onClick={this.props.onClickNotification}>
                     {this.getNotificationCounter(this.props.notifications)}
                 </a>
                 <a onClick={this.props.onClickSearch}>
-                    <i className={`zmdi zmdi-search ${styles.rightIcon}`} />
+                    <i className={`icon-search ${styles.rightIcon}`} />
                 </a>
             </div>
         );
