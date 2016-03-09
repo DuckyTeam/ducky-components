@@ -18,8 +18,8 @@ class TopNavigationBar extends React.Component {
     render() {
         return (
             <div className={styles.container}>
-                <a onClick={this.props.onClickMenu}><i className={`zmdi zmdi-menu ${""}`}/></a>
-                <a onClick={this.props.onClickDucky}><img className={styles.logo} src="https://www.ducky.no/images/ducky-logo-no-padding.png"/></a>
+                <a onClick={this.props.onClickMenu}><i className={`${styles.menuIcon} duckycon-duckylogo`}/></a>
+                <a onClick={this.props.onClickDucky}><i className={"duckyconDuckylogo"}/></a>
                 <Typography className={styles.split} type={"ingressNormal"}>{"|"}</Typography>
                 <Typography className={styles.title} type={"ingressNormal"}>{this.props.title}</Typography>
                 <a onClick={this.props.onClickProfile}><i className={`zmdi zmdi-account-circle ${styles.rightIcon}`}/></a>
