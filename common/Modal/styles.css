@@ -3,26 +3,36 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-  min-height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
   text-align: center;
   z-index: 99999;
+}
+
+.modalWrapper {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
   position: relative;
   display: inline-block;
-  margin: 10% 0;
-  width: 90%;
+  margin: 48px 0;
+  width: 95%;
   min-height: 200px;
-  max-width: 500px;
+  max-width: 520px;
   padding: 0;
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,.15);
+  border: 1px solid rgba(0,0,0,0.15);
   z-index: 999999;
   background-color: #fff;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .close {
