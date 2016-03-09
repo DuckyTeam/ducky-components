@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
-import Icon from '../Icon';
+import IconAvaWrapper from '../IconAvaWrapper';
 import styles from './styles.css';
 
 function SectionHeaderGeneral(props) {
@@ -10,7 +10,7 @@ function SectionHeaderGeneral(props) {
             {
               props.leftIcon ?
                   <div className={styles.leftIconWrapper}>
-                      <Icon size={"standard"} icon={props.leftIcon}></Icon>
+                      <IconAvaWrapper size={"standard"} icon={props.leftIcon} onClick={props.onClick}></IconAvaWrapper>
                   </div>
               :
                   null
@@ -25,7 +25,7 @@ function SectionHeaderGeneral(props) {
             {
               props.rightIcon ?
                   <div className={styles.rightIconWrapper}>
-                      <Icon size={"standard"} icon={props.rightIcon}></Icon>
+                      <IconAvaWrapper size={"standard"} icon={props.rightIcon} onClick={props.onClick}></IconAvaWrapper>
                   </div>
               :
                   null
@@ -38,7 +38,8 @@ SectionHeaderGeneral.propTypes = {
   title: React.PropTypes.string,
   children: React.PropTypes.any,
   rightIcon: React.PropTypes.string,
-  leftIcon: React.PropTypes.string
+  leftIcon: React.PropTypes.string,
+  onClick: React.PropTypes.func
 }
 
 export default SectionHeaderGeneral;
