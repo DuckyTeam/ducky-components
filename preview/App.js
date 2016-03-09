@@ -736,13 +736,16 @@ export default class App extends React.Component {
                     <SectionHeaderGeneral title="Right icon" rightIcon={"icon-pig"}>
                         <LabelPair co2={10} points={8}/>
                     </SectionHeaderGeneral>
+                    <br/>
 
                     <SectionHeaderGeneral title="This is a long text" rightIcon={"icon-pig"}>
                         <LabelPair co2={10} points={8}/>
                     </SectionHeaderGeneral>
+                    <br/>
 
                     <SectionHeaderGeneral title="Only text"/>
-
+                    <br/>
+                    
                     <SectionHeaderGeneral title="Icon on left" leftIcon={"icon-pig"}/>
                 </Preview>
 
