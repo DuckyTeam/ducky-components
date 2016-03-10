@@ -9,22 +9,19 @@ function MenuHeader(props) {
         <span onClick={props.onClick} >
             <Wrapper
                 className={styles.wrapper}
-                content={
-                    <span>
-                        <Icon
-                            className={styles.icon1}
-                            icon={props.icon1}
-                            size={'standard'}
-                        />
-                        <Icon
-                            className={styles.icon2}
-                            icon={props.icon2}
-                            size={'standard'}
-                        />
-                    </span>
-                }
                 size={'side'}
-            />
+            >
+                <Icon
+                    className={styles.icon1}
+                    icon={props.icon1}
+                    size={'standard'}
+                />
+                <Icon
+                    className={styles.icon2}
+                    icon={props.icon2}
+                    size={'standard'}
+                />
+            </Wrapper>
         </span>
     );
 }

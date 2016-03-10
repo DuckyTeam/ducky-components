@@ -632,44 +632,50 @@ export default class App extends React.Component {
                         {'Standard Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'standard'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Side/Bottom Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'side-bottom'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Side Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'side'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Narrow Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'narrow'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Slim Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'slim'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Short Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'short'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title="/mainMenu">
@@ -686,7 +692,7 @@ export default class App extends React.Component {
                     </div>
                     <MenuItem
                         icon={'icon-trophy-outline'}
-                        name={'Feed'}
+                        name={'Feed is here and it is not so long'}
                         onClick={this.handleIconSmallClick}
                     />
                 </Preview>

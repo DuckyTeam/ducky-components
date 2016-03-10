@@ -10,23 +10,20 @@ function MenuItem(props) {
         <span onClick={props.onClick} >
             <Wrapper
                 className={styles.wrapper}
-                content={
-                    <span>
-                        <Icon
-                            className={styles.icon}
-                            icon={props.icon}
-                            size={'standard'}
-                        />
-                        <Typography
-                            className={styles.name}
-                            type={'bodyTextNormal'}
-                        >
-                            {props.name}
-                        </Typography>
-                    </span>
-                }
                 size={'side'}
-            />
+            >
+                <Icon
+                    className={styles.icon}
+                    icon={props.icon}
+                    size={'standard'}
+                />
+                <Typography
+                    className={styles.name}
+                    type={'bodyTextNormal'}
+                >
+                    {props.name}
+                </Typography>
+            </Wrapper>
         </span>
     );
 }
