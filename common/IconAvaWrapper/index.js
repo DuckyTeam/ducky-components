@@ -3,6 +3,7 @@ import Icon from '../Icon';
 import React from 'react';
 import Wrapper from '../Wrapper';
 import styles from './IconAvaWrapper.css';
+import classNames from 'classnames';
 const PropTypes = React.PropTypes;
 
 function IconAvaWrapper(props) {
@@ -23,12 +24,12 @@ function IconAvaWrapper(props) {
 
     return (
         <Wrapper
-            className={styles.wrapper}
+            className={classNames(styles.wrapper, {[styles.pointerCursor]: props.onClick})}
             size={'narrow'}
+            onClick={props.onClick}
         >
             <Icon
                 icon={props.icon}
-                onClick={props.onClick}
                 size={'standard'}
             />
         </Wrapper>

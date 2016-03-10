@@ -5,28 +5,31 @@ import Avatar from '../Avatar';
 import Typography from '../Typography';
 import classNames from 'classnames';
 
-function HeaderCompositButton(props) {
+function HeaderCompositActivity(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Avatar link={props.avatarLink} user={"all"} size={"standard"}/>
+            <Icon size={"large1"} icon={props.activityIcon}/>
             <div className={styles.content}>
                 <Typography type="bodyTextTitle" className={styles.title}>{props.title}</Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
                 </div>
             </div>
-            <Icon icon={props.icon} size="large1" onClick={props.onIconClick}/>
+            <div className={styles.iconWrapper}>
+              <Icon icon={props.icon} size="small"/>
+              <Typography type="bodyTextTitle">{props.iconValue}</Typography>
+            </div>
         </div>
     );
 }
 
-HeaderCompositButton.propTypes = {
+HeaderCompositActivity.propTypes = {
+    activityIcon: React.PropTypes.string,
     title: React.PropTypes.string,
     icon: React.PropTypes.string,
-    avatarLink: React.PropTypes.string,
-    onIconClick: React.PropTypes.func,
+    iconValue: React.PropTypes.func,
     children: React.PropTypes.any,
     className: React.PropTypes.string
 };
 
-export default HeaderCompositButton;
+export default HeaderCompositActivity;

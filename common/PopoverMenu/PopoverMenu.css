@@ -1,0 +1,8 @@
+.wrapper {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #ECEFF1;
+}
