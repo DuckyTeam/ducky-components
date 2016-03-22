@@ -13,3 +13,7 @@
 .name {
     text-overflow: ellipsis;
 }
+
+.wrapper:hover {
+    background-color: #ECEFF1;
+}
