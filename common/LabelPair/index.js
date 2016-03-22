@@ -46,9 +46,9 @@ function LabelPair(props) {
 
 LabelPair.displayName = 'LabelPair';
 LabelPair.propTypes = {
-    co2: React.PropTypes.number,
-    time: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    points: React.PropTypes.number
+    co2: PropTypes.number,
+    onClick: PropTypes.func,
+    points: PropTypes.number,
+    time: PropTypes.string
 };
 export default LabelPair;

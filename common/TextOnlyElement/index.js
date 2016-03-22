@@ -1,8 +1,8 @@
 import React from 'react';
 import Typography from '../Typography';
+import Wrapper from '../Wrapper';
 import styles from './styles.css';
 const BREAK_TEXT_LENGTH = 415;
-import Wrapper from '../Wrapper';
 
 function TextOnlyElement(props) {
     let textLength = props.children.length;
