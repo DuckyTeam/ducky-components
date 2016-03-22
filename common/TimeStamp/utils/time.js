@@ -15,6 +15,12 @@ moment.locale(getLocale(), {
         sameElse: "D.MMM"
     },
     relativeTime: {
+        d: "1 dag",
+        dd: "%d dager",
+        M: "1 måned",
+        MM: "%d måneder",
+        y: "1 år",
+        yy: "%d år",
         s: "Nå",
         m: "%d m",
         mm: "%d m",
@@ -42,7 +48,7 @@ export function isSame(firstDate, secondDate, period) {
  * @returns {string}: human readable time string
  */
 export function timeSince(date, short = false) {
-    if (isSame(date, moment(), "day")) {
+    if (isSame(date, moment(), "date")) {
         return moment(date).fromNow(short);
     }
     return moment(date).calendar();
