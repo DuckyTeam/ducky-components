@@ -21,6 +21,7 @@ import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
+import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import NotificationItem from './../common/NotificationItem';
 import PopoverMenu from './../common/PopoverMenu';
@@ -54,10 +55,15 @@ export default class App extends React.Component {
             showModal: false,
             showImageModal: false,
             showFullImageText: false,
-            showFullText: false
+            showFullText: false,
+            showMenu: false
         };
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
+        this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
+        this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
+        this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
+        this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
@@ -70,6 +76,22 @@ export default class App extends React.Component {
 
     handleModalHide() {
         this.setState({showModal: false});
+    }
+
+    handleLeftMenuButtonClick() {
+        this.setState({showLeftMenu: true});
+    }
+
+    handleRightMenuButtonClick() {
+        this.setState({showRightMenu: true});
+    }
+
+    handleLeftMenuHide() {
+        this.setState({showLeftMenu: false});
+    }
+
+    handleRightMenuHide() {
+        this.setState({showRightMenu: false});
     }
 
     handleTextOnlyElementClick() {
@@ -549,42 +571,6 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/labels">
-                    <div className={styles.subHeader}>
-                        {"Small Label"}
-                    </div>
-                    <LabelSmall
-                        content={"45"}
-                        icon={'icon-tram'}
-                        onClick={this.handleIconDisplayTwoClick}
-                        type={"caption2Normal"}
-                    />
-                    <div className={styles.subHeader}>
-                        {"Standard Label"}
-                    </div>
-                    <LabelStandard
-                        content={"425"}
-                        icon={'icon-brightness_high'}
-                        onClick={this.handleIconDisplayTwoClick}
-                    />
-                    <div className={styles.subHeader}>
-                            {'Label Pair - timestamp-points'}
-                    </div>
-                    <LabelPair
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                        time={'2016-03-04 09:30:00'}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Label Pair - points-co2'}
-                    </div>
-                    <LabelPair
-                        co2={'165'}
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                    />
-                </Preview>
-
                 <Preview title="/buttonCounters">
                     <div className={styles.subHeader}>
                         {'Small Button Counter'}
@@ -702,6 +688,37 @@ export default class App extends React.Component {
                         onClick={this.handleIconSmallClick}
                     />
                 </Preview>
+                <div className={styles.subHeader}>
+                    {'MenuWrapper'}
+                </div>
+                <button onClick={this.handleLeftMenuButtonClick}>
+                    {'Show Left Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'left'}
+                    onHide={this.handleLeftMenuHide}
+                    show={this.state.showLeftMenu}
+                >
+                    <MenuHeader
+                        icon1={'icon-duckylogo'}
+                        icon2={'icon-navigate_before'}
+                        onClick={this.handleButtonClick}
+                    />
+                </MenuWrapper>
+                <button onClick={this.handleRightMenuButtonClick}>
+                    {'Show Right Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'right'}
+                    onHide={this.handleRightMenuHide}
+                    show={this.state.showRightMenu}
+                >
+                    <MenuItem
+                        icon={'icon-trophy-outline'}
+                        name={'Feed is here and it is not so long'}
+                        onClick={this.handleIconSmallClick}
+                    />
+                </MenuWrapper>
 
                 <Preview title="/Icon avatar with wrapper">
                     <div className={styles.subHeader}>
@@ -722,94 +739,6 @@ export default class App extends React.Component {
 
                 <Preview title={"FeedbackTextInput"}>
                     <FeedbackTextInput prompt={"Skriv noe..."} />
-                </Preview>
-
-                <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-03-04 09:30:00"}
-                        icon={"icon-leaf"}
-                        onClick={this.handleButtonClick}
-                        text={"Du har gjort noe bra!"}
-                    >
-                        <Avatar
-                            size={"standard"}
-                            user={"all"}
-                        />
-                    </NotificationItem>
-                </Preview>
-
-                <Preview title={"Popover Menu"}>
-                    <PopoverMenu onClick={this.handleButtonClick}
-                        text={"Hei pa deg!"}
-                    />
-                </Preview>
-
-                <Preview title={"HeaderComposits"}>
-                    <div className={styles.subHeader}>
-                        {'HeaderCompositActivity'}
-                    </div>
-                    <HeaderCompositActivity
-                        activityIcon={'icon-brightness_high'}
-                        icon={"icon-pig"}
-                        iconValue={'10'}
-                        title={"Dette er et langt navn"}
-                    >
-                        <LabelPair
-                            points={'10'}
-                            time={'2016-03-08 09:30:00'}
-                        />
-                    </HeaderCompositActivity>
-                    <br />
-                    <div className={styles.subHeader}>
-                        {'HeaderCompositUser'}
-                    </div>
-                    <HeaderCompositUser
-                        icon={"icon-pig"}
-                        onIconClick={this.handleButtonClick}
-                        title={"Dette er et langt navn"}
-                    >
-                        <LabelPair
-                            co2={'100'}
-                            points={'8'}
-                        />
-                    </HeaderCompositUser>
-                </Preview>
-
-                <Preview
-                    title={"SectionHeaderGeneral"}
-                    width={'200'}
-                >
-                    <SectionHeaderGeneral
-                        onClick={this.handleButtonClick}
-                        rightIcon={"icon-pig"}
-                        title="Right icon"
-                    >
-                        <LabelPair
-                            co2={'10'}
-                            points={'8'}
-                        />
-                    </SectionHeaderGeneral>
-                    <br />
-
-                    <SectionHeaderGeneral
-                        onClick={this.handleButtonClick}
-                        rightIcon={"icon-pig"}
-                        title="This is a long text"
-                    >
-                        <LabelPair
-                            co2={'10'}
-                            points={'8'}
-                        />
-                    </SectionHeaderGeneral>
-                    <br />
-
-                    <SectionHeaderGeneral title="Only text" />
-                    <br />
-
-                    <SectionHeaderGeneral
-                        leftIcon={"icon-pig"}
-                        onClick={this.handleButtonClick}
-                        title="Icon on left"
-                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

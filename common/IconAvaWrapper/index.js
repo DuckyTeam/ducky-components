@@ -2,15 +2,16 @@ import Avatar from '../Avatar';
 import Icon from '../Icon';
 import React from 'react';
 import Wrapper from '../Wrapper';
-import styles from './IconAvaWrapper.css';
 import classNames from 'classnames';
+import styles from './IconAvaWrapper.css';
 const PropTypes = React.PropTypes;
 
 function IconAvaWrapper(props) {
     if (props.user) {
         return (
             <Wrapper
-                className={styles.wrapper}
+                className={classNames(styles.wrapper, {[styles.pointerCursor]: props.onClick})}
+                onClick={props.onClick}
                 size={'narrow'}
             >
                 <Avatar
@@ -25,8 +26,8 @@ function IconAvaWrapper(props) {
     return (
         <Wrapper
             className={classNames(styles.wrapper, {[styles.pointerCursor]: props.onClick})}
-            size={'narrow'}
             onClick={props.onClick}
+            size={'narrow'}
         >
             <Icon
                 icon={props.icon}

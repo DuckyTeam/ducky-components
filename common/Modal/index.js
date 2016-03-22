@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './styles.css';
 import classNames from 'classnames';
+import styles from './styles.css';
 
 class Modal extends React.Component {
     constructor(props) {
@@ -53,16 +53,19 @@ class Modal extends React.Component {
         }
 
         return (
-            <div className={classNames(styles.backdrop, {[this.props.className]: this.props.className})}>
+            <div className={classNames(styles.backdrop, {
+                [this.props.className]: this.props.className
+            })}
+            >
                 <div className={styles.modalWrapper}>
                     <div
                         className={styles.modal}
                         ref={this.handleModalRef}
-                        >
+                    >
                         <i
-                            className={`fa fa-times ${styles.close}`}
+                            className={`icon-close ${styles.close}`}
                             onClick={this.props.onHide}
-                            />
+                        />
                         {this.props.children}
                     </div>
                 </div>
@@ -73,9 +76,9 @@ class Modal extends React.Component {
 
 Modal.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     onHide: React.PropTypes.func.isRequired,
-    show: React.PropTypes.bool,
-    className: React.PropTypes.string
+    show: React.PropTypes.bool
 };
 
 export default Modal;

@@ -1,12 +1,47 @@
-.wrapper {
-    background-color: #FFFFFF;
+.menuWrapper {
+    overflow-x: hidden;
+}
+
+.menuWrapper > div.left {
     box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
-    position: "fixed";
-    left: 300;
-    right: 0;
     height: 100%;
     width: 300px;
-    transition-property: "all";
-    transition-timing-function: "cubic-bezier(0, 1, 0.5, 1)";
-    background-color: khaki;
+    overflow: hidden;
+    background: #FFFFFF;
+    position: absolute;
+    left: -310px;
+    transition:  1s ease;
+    z-index: 100;
+}
+.menuWrapper > div.showleft {
+    box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
+    height: 100%;
+    width: 300px;
+    overflow: hidden;
+    background: #FFFFFF;
+    position: absolute;
+    left: 0px;
+    transition:  1s ease;
+    z-index: 100;
+}
+
+.right {
+    box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
+    height: 100%;
+    width: 300px;
+    background: #FFFFFF;
+    position: absolute;
+    right: -310px;
+    transition:  1s ease;
+    z-index: 100;
+}
+.showright {
+    box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
+    height: 100%;
+    width: 300px;
+    background: #FFFFFF;
+    position: absolute;
+    right: 0px;
+    transition:  1s ease;
+    z-index: 100;
 }
