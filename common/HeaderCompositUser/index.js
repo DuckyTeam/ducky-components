@@ -1,32 +1,45 @@
-import React from 'react';
-import styles from './styles.css';
-import Icon from '../Icon';
 import Avatar from '../Avatar';
+import Icon from '../Icon';
+import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
+import styles from './styles.css';
 
 function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Avatar link={props.avatarLink} user={"all"} size={"standard"}/>
+            <Avatar
+                link={props.avatarLink}
+                size={"standard"}
+                user={"all"}
+            />
             <div className={styles.content}>
-                <Typography type="bodyTextTitle" className={styles.title}>{props.title}</Typography>
+                <Typography
+                    className={styles.title}
+                    type="bodyTextTitle"
+                >
+                    {props.title}
+                </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
                 </div>
             </div>
-            <Icon icon={props.icon} size="large1" onClick={props.onIconClick}/>
+            <Icon
+                icon={props.icon}
+                onClick={props.onIconClick}
+                size="large1"
+            />
         </div>
     );
 }
 
 HeaderCompositUser.propTypes = {
-    title: React.PropTypes.string,
-    icon: React.PropTypes.string,
     avatarLink: React.PropTypes.string,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
+    icon: React.PropTypes.string,
     onIconClick: React.PropTypes.func,
-    children: React.PropTypes.any,
-    className: React.PropTypes.string
+    title: React.PropTypes.string
 };
 
 export default HeaderCompositUser;

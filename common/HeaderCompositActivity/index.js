@@ -1,23 +1,38 @@
-import React from 'react';
-import styles from './styles.css';
+
 import Icon from '../Icon';
-import Avatar from '../Avatar';
+import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
+import styles from './styles.css';
 
 function HeaderCompositActivity(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Icon size={"large1"} icon={props.activityIcon}/>
+            <Icon
+                icon={props.activityIcon}
+                size={"large1"}
+            />
             <div className={styles.content}>
-                <Typography type="bodyTextTitle" className={styles.title}>{props.title}</Typography>
+                <Typography
+                    className={styles.title}
+                    type="bodyTextTitle"
+                >
+                    {props.title}
+                </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
                 </div>
             </div>
             <div className={styles.iconWrapper}>
-              <Icon icon={props.icon} size="small"/>
-              <Typography type="bodyTextTitle">{props.iconValue}</Typography>
+                <Icon
+                    icon={props.icon}
+                    size="small"
+                />
+                <Typography
+                    type="bodyTextTitle"
+                >
+                    {props.iconValue}
+                </Typography>
             </div>
         </div>
     );
@@ -25,11 +40,11 @@ function HeaderCompositActivity(props) {
 
 HeaderCompositActivity.propTypes = {
     activityIcon: React.PropTypes.string,
-    title: React.PropTypes.string,
+    children: React.PropTypes.node,
+    className: React.PropTypes.string,
     icon: React.PropTypes.string,
     iconValue: React.PropTypes.func,
-    children: React.PropTypes.any,
-    className: React.PropTypes.string
+    title: React.PropTypes.string
 };
 
 export default HeaderCompositActivity;

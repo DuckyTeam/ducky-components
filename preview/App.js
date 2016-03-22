@@ -9,6 +9,8 @@ import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
+import HeaderCompositActivity from '../common/HeaderCompositActivity';
+import HeaderCompositUser from '../common/HeaderCompositUser';
 import Icon from '../common/Icon';
 import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
@@ -17,20 +19,21 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
-import NotificationItem from './../common/NotificationItem';
+import MenuHeader from '../common/MenuHeader';
+import MenuItem from '../common/MenuItem';
+import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
+import NotificationItem from './../common/NotificationItem';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
+import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
-import HeaderCompositUser from '../common/HeaderCompositUser';
-import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
-import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -44,7 +47,7 @@ export default class App extends React.Component {
      WARNING: NEVER DO THIS, IT HAS NO VALID USE CASE!
      IT IS ONLY USED FOR DEMONSTRATION, setState IS VERBOTEN!
     */
-    /* eslint-disable react/no-set-state, no-console */
+    /* eslint-disable react/no-set-state, no-console, max-statements */
 
     constructor(props) {
         super(props);
@@ -52,10 +55,15 @@ export default class App extends React.Component {
             showModal: false,
             showImageModal: false,
             showFullImageText: false,
-            showFullText: false
+            showFullText: false,
+            showMenu: false
         };
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
+        this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
+        this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
+        this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
+        this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
@@ -68,6 +76,22 @@ export default class App extends React.Component {
 
     handleModalHide() {
         this.setState({showModal: false});
+    }
+
+    handleLeftMenuButtonClick() {
+        this.setState({showLeftMenu: true});
+    }
+
+    handleRightMenuButtonClick() {
+        this.setState({showRightMenu: true});
+    }
+
+    handleLeftMenuHide() {
+        this.setState({showLeftMenu: false});
+    }
+
+    handleRightMenuHide() {
+        this.setState({showRightMenu: false});
     }
 
     handleTextOnlyElementClick() {
@@ -571,7 +595,7 @@ export default class App extends React.Component {
                     <LabelPair
                         onClick={this.handleIconDisplayTwoClick}
                         points={'12'}
-                        time={'2016-03-04 09:30:00'}
+                        time={'2016-02-22 09:30:00'}
                     />
                     <div className={styles.subHeader}>
                         {'Label Pair - points-co2'}
@@ -636,44 +660,50 @@ export default class App extends React.Component {
                         {'Standard Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'standard'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Side/Bottom Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'side-bottom'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Side Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'side'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Narrow Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'narrow'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Slim Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'slim'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                     <div className={styles.subHeader}>
                         {'Short Wrapper'}
                     </div>
                     <Wrapper
-                        content={<img src={'http://placehold.it/100x50'} />}
                         size={'short'}
-                    />
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title="/Icon avatar with wrapper">
@@ -698,7 +728,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-03-04 09:30:00"}
+                    <NotificationItem dateTime={"2016-03-01 01:32:21"}
                         icon={"icon-leaf"}
                         onClick={this.handleButtonClick}
                         text={"Du har gjort noe bra!"}
@@ -720,34 +750,120 @@ export default class App extends React.Component {
                     <div className={styles.subHeader}>
                         {'HeaderCompositActivity'}
                     </div>
-                    <HeaderCompositActivity activityIcon={'icon-brightness_high'} iconValue={10} title={"Dette er et langt navn"} icon={"icon-pig"}>
-                        <LabelPair points={10} time={'2016-03-08 09:30:00'}/>
+                    <HeaderCompositActivity
+                        activityIcon={'icon-brightness_high'}
+                        icon={"icon-pig"}
+                        iconValue={'10'}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            points={'10'}
+                            time={'2016-01-05T01:32:21.196Z'}
+                        />
                     </HeaderCompositActivity>
-                    <br/>
+                    <br />
                     <div className={styles.subHeader}>
                         {'HeaderCompositUser'}
                     </div>
-                    <HeaderCompositUser title={"Dette er et langt navn"} icon={"icon-pig"} onIconClick={this.handleButtonClick}>
-                        <LabelPair co2={10} points={8}/>
+                    <HeaderCompositUser
+                        icon={"icon-pig"}
+                        onIconClick={this.handleButtonClick}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={'10'}
+                            points={'8'}
+                        />
                     </HeaderCompositUser>
                 </Preview>
 
-                <Preview title={"SectionHeaderGeneral"} width={200}>
-                    <SectionHeaderGeneral title="Right icon" rightIcon={"icon-pig"} onClick={this.handleButtonClick}>
-                        <LabelPair co2={10} points={8}/>
+                <Preview title={"SectionHeaderGeneral"}
+                    width={'200'}
+                >
+                    <SectionHeaderGeneral
+                        onClick={this.handleButtonClick}
+                        rightIcon={"icon-pig"}
+                        title="Right icon"
+                    >
+                        <LabelPair
+                            co2={'10'}
+                            points={'8'}
+                        />
                     </SectionHeaderGeneral>
-                    <br/>
+                    <br />
 
-                    <SectionHeaderGeneral title="This is a long text" rightIcon={"icon-pig"} onClick={this.handleButtonClick}>
-                        <LabelPair co2={10} points={8}/>
+                    <SectionHeaderGeneral
+                        onClick={this.handleButtonClick}
+                        rightIcon={"icon-pig"}
+                        title="This is a long text"
+                    >
+                        <LabelPair
+                            co2={'10'}
+                            points={'8'}
+                        />
                     </SectionHeaderGeneral>
-                    <br/>
+                    <br />
 
-                    <SectionHeaderGeneral title="Only text"/>
-                    <br/>
+                    <SectionHeaderGeneral title="Only text" />
+                    <br />
 
-                    <SectionHeaderGeneral title="Icon on left" leftIcon={"icon-pig"} onClick={this.handleButtonClick}/>
+                    <SectionHeaderGeneral
+                        leftIcon={"icon-pig"}
+                        onClick={this.handleButtonClick}
+                        title="Icon on left"
+                    />
                 </Preview>
+
+                <Preview title="/mainMenu">
+                    <div className={styles.subHeader}>
+                        {'Menu Header'}
+                    </div>
+                    <MenuHeader
+                        icon1={'icon-duckylogo'}
+                        icon2={'icon-navigate_before'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Menu Item'}
+                    </div>
+                    <MenuItem
+                        icon={'icon-trophy-outline'}
+                        name={'Feed'}
+                        onClick={this.handleIconSmallClick}
+                    />
+                </Preview>
+                <div className={styles.subHeader}>
+                    {'MenuWrapper'}
+                </div>
+                <button onClick={this.handleLeftMenuButtonClick}>
+                    {'Show Left Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'left'}
+                    onHide={this.handleLeftMenuHide}
+                    show={this.state.showLeftMenu}
+                >
+                    <MenuHeader
+                        icon1={'icon-duckylogo'}
+                        icon2={'icon-navigate_before'}
+                        onClick={this.handleButtonClick}
+                    />
+                </MenuWrapper>
+                <button onClick={this.handleRightMenuButtonClick}>
+                    {'Show Right Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'right'}
+                    onHide={this.handleRightMenuHide}
+                    show={this.state.showRightMenu}
+                >
+                    <MenuItem
+                        icon={'icon-trophy-outline'}
+                        name={'Feed'}
+                        onClick={this.handleIconSmallClick}
+                    />
+                </MenuWrapper>
+
 
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
