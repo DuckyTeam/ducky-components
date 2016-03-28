@@ -6,6 +6,8 @@ import classNames from 'classnames';
 import styles from './ShareMenuItem.css';
 const PropTypes = React.PropTypes;
 
+/* eslint-disable max-statements */
+
 function ShareMenuItem(props) {
     const share = props.share;
     let icon = props.icon;
