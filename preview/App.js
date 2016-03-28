@@ -5,6 +5,7 @@ import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
+import CopyLink from '../common/CopyLink';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
 import FeedbackTextInput from "../common/FeedbackTextInput";
@@ -28,6 +29,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
+import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
@@ -56,7 +58,8 @@ export default class App extends React.Component {
             showImageModal: false,
             showFullImageText: false,
             showFullText: false,
-            showMenu: false
+            showMenu: false,
+            showCopyLink: false
         };
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
@@ -68,6 +71,8 @@ export default class App extends React.Component {
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
+        this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
+        this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
     }
 
     handleModalButtonClick() {
@@ -108,6 +113,14 @@ export default class App extends React.Component {
 
     handleImageElementModalHide() {
         this.setState({showImageModal: false});
+    }
+
+    handleCopyLinkButtonClick() {
+        this.setState({showCopyLink: true});
+    }
+
+    handleCopyLinkHide() {
+        this.setState({showCopyLink: false});
     }
 
     /* eslint-enable react/no-set-state */
@@ -863,6 +876,22 @@ export default class App extends React.Component {
                         onClick={this.handleIconSmallClick}
                     />
                 </MenuWrapper>
+
+                <Preview title="/ShareMenu">
+                    <CopyLink
+                        link={"https://ducky.no/1049/posts/VDbdeR"}
+                        onModalHide={this.handleCopyLinkHide}
+                        showModal={this.state.showCopyLink}
+                    />
+                    <ShareMenuItem
+                        onClick={this.handleButtonClick}
+                        share={'fb'}
+                    />
+                    <ShareMenuItem
+                        onClick={this.handleCopyLinkButtonClick}
+                        share={'link'}
+                    />
+                </Preview>
 
 
                 <h1>{"/mobile"}</h1>
