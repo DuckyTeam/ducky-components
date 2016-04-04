@@ -104,6 +104,7 @@
     ]
   },
   "dependencies": {
-    "postcss-cssnext": "^2.4.0"
+    "postcss-cssnext": "^2.4.0",
+    "url-loader": "^0.5.7"
   }
 }

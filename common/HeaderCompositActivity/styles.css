@@ -1,6 +1,7 @@
 .wrapper {
   height: 36px;
   display: flex;
+  width: 100%;
 }
 
 .content {
