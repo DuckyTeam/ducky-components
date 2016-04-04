@@ -492,7 +492,9 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/typography">
+                <Preview title="Typography">
+                    Types:
+                    <br />
                     <Typography type={'caption1Normal'}>{"caption1Normal (10px)"}</Typography>
                     <br />
                     <Typography type={'caption1Strong'}>{"caption1Strong (10px)"}</Typography>

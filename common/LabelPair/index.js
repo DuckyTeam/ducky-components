@@ -49,6 +49,6 @@ LabelPair.propTypes = {
     co2: PropTypes.number,
     onClick: PropTypes.func,
     points: PropTypes.number,
-    time: PropTypes.string
+    time: PropTypes.string || PropTypes.number
 };
 export default LabelPair;
