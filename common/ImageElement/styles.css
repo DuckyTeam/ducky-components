@@ -6,8 +6,10 @@
   height: 100%;
 }
 
-.modalImageWrapper {
-  padding: 20px;
-  height: 400px;
+.modalImage {
+  height: 100%;
+  margin: 0 auto;
+  display: block;
+  padding: 16px;
   box-sizing: border-box;
 }

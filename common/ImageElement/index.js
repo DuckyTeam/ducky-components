@@ -17,13 +17,11 @@ function ImageElement(props) {
                     onHide={props.onModalHide}
                     show={props.showModal}
                 >
-                    <div className={styles.modalImageWrapper}>
-                        <div
-                            className={styles.image}
-                            style={{backgroundImage: `url(${props.url})`}}
+                    <img
+                        src={props.url}
+                        className={styles.modalImage}
                         >
-                        </div>
-                    </div>
+                    </img>
                 </Modal>
             ) : null}
         </div>

@@ -22,7 +22,9 @@
   position: relative;
   display: inline-block;
   margin: 48px 0;
-  max-width: 95%;
+  max-width: 520px;
+  width: 95%;
+  max-height: calc(100% - 96px);
   padding: 0;
   box-shadow: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
   border-radius: 4px;
