@@ -1,24 +1,39 @@
-.wrapper {
-    border-radius: 5px;
-    border: 0;
-    padding: 10px 15px;
-    font-family: sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
+.button {
+    height: 36px;
+    min-width: 80px;
+    padding: 0 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    background: transparnet;
 }
 
-.primary {
-    composes: wrapper;
-    composes: softBlue2 from '../backgroundColor.css';
-    color: #fff;
+.flat {
+    composes: button;
 }
 
-.secondary {
-    composes: wrapper;
-    composes: softBlue2 from '../border.css';
-    composes: softBlue2 from '../color.css';
-    background-color: #fff;
-    border-width: 1px;
-    border-style: solid;
+.flat:disabled {
+    opacity: 0.5;
+}
+
+.raised {
+    composes: button;
+    background-color: #607D8B;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+}
+
+.raisedDark:disabled {
+    box-shadow: none;
+    opacity: 0.5;
+}
+
+.raised:disabled {
+    background-color: #CFD8DC;
+    box-shadow: none;
+    color: #607D8B;
+    opacity: 0.5;
+}
+
+.raised > span {
+    color: #FFFFFF !important;
 }

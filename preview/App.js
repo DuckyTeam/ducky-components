@@ -252,13 +252,31 @@ export default class App extends React.Component {
 
                 <Preview title="/Button">
                     <Button
+                        disabled
                         onClick={this.handleButtonClick}
-                        type="secondary"
+                        type={'flat'}
                     >
-                        {"Secondary button"}
+                        {"Flat button disabled"}
                     </Button>
-                    <Button onClick={this.handleButtonClick}>
-                        {"Primary button"}
+                    <Button
+                        onClick={this.handleButtonClick}
+                        type={'flat'}
+                    >
+                        {"Flat button"}
+                    </Button>
+                    <br />
+                    <Button
+                        disabled
+                        onClick={this.handleButtonClick}
+                        type={'raised'}
+                    >
+                        {"Raised button disabled"}
+                    </Button>
+                    <Button
+                        onClick={this.handleButtonClick}
+                        type={'raised'}
+                    >
+                        {"Raised button"}
                     </Button>
                 </Preview>
 
@@ -520,6 +538,8 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
+                    <br />
+                    <Typography type={'buttonText'}>{"buttonText (14px)"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
@@ -741,7 +761,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-03-01 01:32:21"}
+                    <NotificationItem dateTime={"2016-04-01 13:57:21"}
                         icon={"icon-leaf"}
                         onClick={this.handleButtonClick}
                         text={"Du har gjort noe bra!"}

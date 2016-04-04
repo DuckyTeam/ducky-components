@@ -9,12 +9,15 @@ function getLocale() {
 moment.locale(getLocale(), {
     calendar: {
         lastDay: "igår",
+        sameDay: "[i dag kl] LT",
         nextDay: "D.MMM",
         lastWeek: "D.MMM",
         nextWeek: "D.MMM",
         sameElse: "D.MMM"
     },
     relativeTime: {
+        furture: "in %s",
+        past: "%s",
         d: "1 dag",
         dd: "%d dager",
         M: "1 måned",
