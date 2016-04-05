@@ -11,7 +11,6 @@ function HeaderCompositUser(props) {
             <Avatar
                 link={props.profileLink}
                 size={"standard"}
-                user={"all"}
                 image={props.avatar}
             />
             <div className={styles.content}>
