@@ -36,7 +36,7 @@ function LabelFooterAction(props) {
 }
 
 LabelFooterAction.propTypes = {
-    children: React.PropTypes.number,
+    children: React.PropTypes.string,
     className: React.PropTypes.shape({}),
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func
