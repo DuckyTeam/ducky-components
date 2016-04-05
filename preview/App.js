@@ -39,6 +39,7 @@ import Wrapper from '../common/Wrapper';
 import CommentCarousel from '../common/CommentCarousel';
 import Comment from '../common/Comment';
 import CommentInput from '../common/CommentInput';
+import ScrollContainer from '../common/ScrollContainer';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -919,6 +920,12 @@ export default class App extends React.Component {
                     </CommentInput>
                 </Preview>
 
+                <Preview title="ScrollContainer" width={300}>
+                    <ScrollContainer size={200}>
+                        <div style={{backgroundColor: 'red', height: 300}}></div>
+                        <div style={{backgroundColor: 'blue', height: 300}}></div>
+                    </ScrollContainer>
+                </Preview>
 
 
                 <h1>{"/mobile"}</h1>

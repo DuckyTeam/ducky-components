@@ -5,7 +5,7 @@ import Typography from '../Typography';
 import Avatar from '../Avatar';
 import TimeStamp from '../TimeStamp';
 
-function CommentCarousel(props) {
+function Comment(props) {
     return (
         <Wrapper size="standard" className={styles.wrapper}>
             <Avatar
@@ -34,7 +34,7 @@ function CommentCarousel(props) {
     );
 }
 
-CommentCarousel.propTypes = {
+Comment.propTypes = {
     name: React.PropTypes.string,
     children: React.PropTypes.string,
     avatar: React.PropTypes.string,
@@ -42,4 +42,4 @@ CommentCarousel.propTypes = {
     published: React.PropTypes.number
 };
 
-export default CommentCarousel;
+export default Comment;
