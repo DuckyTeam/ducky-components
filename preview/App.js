@@ -38,6 +38,7 @@ import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
 import CommentCarousel from '../common/CommentCarousel';
 import Comment from '../common/Comment';
+import CommentInput from '../common/CommentInput';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -907,6 +908,11 @@ export default class App extends React.Component {
                     <Comment name={"Gunnar Gunnersen langt navn"} published={Date.now()}>
                       {"Dette er jammen flott! En fantastisk kommentar! ;)"}
                     </Comment>
+                </Preview>
+
+                <Preview title="CommentInput" width={200}>
+                    <CommentInput>
+                    </CommentInput>
                 </Preview>
 
 
