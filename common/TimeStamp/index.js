@@ -6,6 +6,7 @@ const PropTypes = React.PropTypes;
 function TimeStamp(props) {
     return (
         <LabelSmall
+            className={props.className}
             content={
                 <time
                     dateTime={isoString(props.dateTime)}
@@ -23,6 +24,7 @@ function TimeStamp(props) {
 TimeStamp.displayName = 'TimeStamp';
 TimeStamp.propTypes = {
     dateTime: PropTypes.number,
+    className: PropTypes.string,
     short: PropTypes.bool,
     style: PropTypes.shape({})
 };

@@ -908,11 +908,14 @@ export default class App extends React.Component {
                     <Comment name={"Gunnar Gunnersen long name"} published={Date.now()}>
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
+                    <br/>
+                    <Comment name={"Gunnar"} published={Date.now()}>
+                      {"This is absolutely fantastic! What a great comment! ;)"}
+                    </Comment>
                 </Preview>
 
                 <Preview title="CommentInput" width={300}>
                     <CommentInput placeholder={"Write something here..."} onSubmit={() => {console.log('submitted');}}>
-                        
                     </CommentInput>
                 </Preview>
 
