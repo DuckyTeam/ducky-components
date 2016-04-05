@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  border-top: 1px solid rgba(38,50,56,0.12);
+  background-color: #FFFFFF;
+}
+
+.inputWrapper {
+  margin: 8px 16px;
+  width: 100%;
+}
+
+.textarea {
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  resize: none;
+  outline: none;
+}
+
+.form {
+  display: flex;
+}
+
+.icon {
+  margin: -6px -12px -6px 0;
+}
+
+.textarea::-webkit-input-placeholder {
+   color: rgba(38,50,56,0.40);
+}
+
+.textarea:-moz-placeholder { /* Firefox 18- */
+   color: rgba(38,50,56,0.40);
+}
+
+.textarea::-moz-placeholder {  /* Firefox 19+ */
+   color: rgba(38,50,56,0.40);
+}
+
+.textarea:-ms-input-placeholder {
+   color: rgba(38,50,56,0.40);
+}
+
+.button {
+  border: 0;
+  background-color: transparent;
+  padding: 0;
+  align-self: flex-start;
+}

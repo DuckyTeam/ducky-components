@@ -898,20 +898,21 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="CommentCarousel" width={200}>
+                <Preview title="CommentCarousel" width={250}>
                     <CommentCarousel name={"Gunnar"}>
-                      {"Dette er jammen flott! En fantastisk kommentar! ;)"}
+                      {"This is absolutely fantastic! What a great comment! ;)"}
                     </CommentCarousel>
                 </Preview>
 
-                <Preview title="Comment" width={200}>
-                    <Comment name={"Gunnar Gunnersen langt navn"} published={Date.now()}>
-                      {"Dette er jammen flott! En fantastisk kommentar! ;)"}
+                <Preview title="Comment" width={250}>
+                    <Comment name={"Gunnar Gunnersen long name"} published={Date.now()}>
+                      {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
                 </Preview>
 
-                <Preview title="CommentInput" width={200}>
-                    <CommentInput>
+                <Preview title="CommentInput" width={300}>
+                    <CommentInput placeholder={"Write something here..."} onSubmit={() => {console.log('submitted');}}>
+                        
                     </CommentInput>
                 </Preview>
 
