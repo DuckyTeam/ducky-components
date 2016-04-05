@@ -21,37 +21,33 @@ function TextOnlyElement(props) {
 
     if (textLength > BREAK_TEXT_LENGTH && !props.showFullText) {
         return (
-            <Wrapper size="standard">
-                <div
-                    className={styles.shadowWrapper}
-                    onClick={props.onClick}
-                >
-                    <Typography
-                        className={styles.text}
-                        type="bodyTextNormal"
-                    >
-                        {props.children}
-                    </Typography>
-                    <div className={styles.gradient}></div>
-                </div>
-            </Wrapper>
+              <div
+                  className={styles.shadowWrapper}
+                  onClick={props.onClick}
+              >
+                  <Typography
+                      className={styles.text}
+                      type="bodyTextNormal"
+                  >
+                      {props.children}
+                  </Typography>
+                  <div className={styles.gradient}></div>
+              </div>
         );
     }
 
     return (
-        <Wrapper size="standard">
-            <div
-                className={styles.wrapper}
-                onClick={props.onClick}
+        <div
+            className={styles.wrapper}
+            onClick={props.onClick}
+        >
+            <Typography
+                className={styles.text}
+                type="bodyTextNormal"
             >
-                <Typography
-                    className={styles.text}
-                    type="bodyTextNormal"
-                >
-                    {props.children}
-                </Typography>
-            </div>
-        </Wrapper>
+                {props.children}
+            </Typography>
+        </div>
     );
 }
 

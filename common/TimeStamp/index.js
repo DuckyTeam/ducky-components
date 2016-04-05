@@ -22,7 +22,7 @@ function TimeStamp(props) {
 
 TimeStamp.displayName = 'TimeStamp';
 TimeStamp.propTypes = {
-    dateTime: PropTypes.shape({}),
+    dateTime: PropTypes.number,
     short: PropTypes.bool,
     style: PropTypes.shape({})
 };

@@ -1,0 +1,22 @@
+.wrapper {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+}
+
+.textWrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.name {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    display: block;
+}
+
+.avatar {
+  margin-right: 16px;
+}

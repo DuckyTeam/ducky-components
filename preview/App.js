@@ -36,6 +36,8 @@ import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
+import CommentCarousel from '../common/CommentCarousel';
+import Comment from '../common/Comment';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
@@ -894,6 +896,19 @@ export default class App extends React.Component {
                         share={'link'}
                     />
                 </Preview>
+
+                <Preview title="CommentCarousel" width={200}>
+                    <CommentCarousel name={"Gunnar"}>
+                      {"Dette er jammen flott! En fantastisk kommentar! ;)"}
+                    </CommentCarousel>
+                </Preview>
+
+                <Preview title="Comment" width={200}>
+                    <Comment name={"Gunnar Gunnersen langt navn"} published={Date.now()}>
+                      {"Dette er jammen flott! En fantastisk kommentar! ;)"}
+                    </Comment>
+                </Preview>
+
 
 
                 <h1>{"/mobile"}</h1>

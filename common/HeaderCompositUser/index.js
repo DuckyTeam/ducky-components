@@ -9,16 +9,20 @@ function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Avatar
-                link={props.avatarLink}
+                link={props.profileLink}
                 size={"standard"}
                 user={"all"}
+                image={props.avatar}
             />
             <div className={styles.content}>
                 <Typography
                     className={styles.title}
                     type="bodyTextTitle"
+                    onClick={props.onProfileClick}
                 >
+                  <a href={props.profileLink}>
                     {props.title}
+                  </a>
                 </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
@@ -34,7 +38,8 @@ function HeaderCompositUser(props) {
 }
 
 HeaderCompositUser.propTypes = {
-    avatarLink: React.PropTypes.string,
+    profileLink: React.PropTypes.string,
+    avatar: React.PropTypes.string,
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,

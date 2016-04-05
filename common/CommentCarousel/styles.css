@@ -1,0 +1,12 @@
+.textWrapper {
+  height: 40px;
+  overflow: hidden;
+}
+
+.text {
+  margin-left: 5px;
+}
+
+.avatar {
+  margin-right: 16px;
+}
