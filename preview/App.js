@@ -204,21 +204,13 @@ export default class App extends React.Component {
                     title="/Dropdown"
                     width={PREVIEW_WIDTH}
                 >
-                    <Dropdown label={<span>{"Some label"}</span>}>
+                    <Dropdown>
                         <DropdownItem onClick={this.handleClickOne}>
                             {"Item 1"}
                         </DropdownItem>
                         <DropdownItem onClick={this.handleClickTwo}>
                             {"Item 2"}
                         </DropdownItem>
-                    </Dropdown>
-                    <br />
-                    <Dropdown
-                        label={<span>{"Some label"}</span>}
-                        right
-                    >
-                        <DropdownItem>{"Item 1"}</DropdownItem>
-                        <DropdownItem>{"Item 2"}</DropdownItem>
                     </Dropdown>
                 </Preview>
 
