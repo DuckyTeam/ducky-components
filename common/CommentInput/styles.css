@@ -15,6 +15,7 @@
   width: 100%;
   resize: none;
   outline: none;
+  min-height: 20px;
 }
 
 .form {

@@ -49,7 +49,6 @@ function CommentInput(props) {
 }
 
 CommentInput.propTypes = {
-    name: React.PropTypes.string,
     className: React.PropTypes.string,
     children: React.PropTypes.string,
     avatar: React.PropTypes.string,
