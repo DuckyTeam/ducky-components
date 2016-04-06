@@ -1,6 +1,7 @@
 import Avatar from '../Avatar';
 import Icon from '../Icon';
 import React from 'react';
+import {PropTypes} from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -9,19 +10,19 @@ function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Avatar
+                image={props.avatar}
                 link={props.profileLink}
                 size={"standard"}
-                image={props.avatar}
             />
             <div className={styles.content}>
                 <Typography
                     className={styles.title}
-                    type="bodyTextTitle"
                     onClick={props.onProfileClick}
+                    type="bodyTextTitle"
                 >
-                  <a href={props.profileLink}>
-                    {props.title}
-                  </a>
+                    <a href={props.profileLink}>
+                        {props.title}
+                    </a>
                 </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
@@ -37,13 +38,14 @@ function HeaderCompositUser(props) {
 }
 
 HeaderCompositUser.propTypes = {
-    profileLink: React.PropTypes.string,
-    avatar: React.PropTypes.string,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    onIconClick: React.PropTypes.func,
-    title: React.PropTypes.string
+    avatar: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    icon: PropTypes.string,
+    onIconClick: PropTypes.func,
+    onProfileClick: PropTypes.func,
+    profileLink: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default HeaderCompositUser;
