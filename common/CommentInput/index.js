@@ -60,7 +60,7 @@ class CommentInput extends React.Component {
                     </Typography>
                     <button
                         className={styles.button}
-                        disabled={props.disabled || !props.children || !props.children.length}
+                        disabled={this.props.disabled || !this.props.children || !this.props.children.length}
                         onClick={this.props.onSubmit}
                         type="button"
                     >
