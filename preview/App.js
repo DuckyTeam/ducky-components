@@ -5,6 +5,9 @@ import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
+import Comment from '../common/Comment';
+import CommentCarousel from '../common/CommentCarousel';
+import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
@@ -25,9 +28,11 @@ import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import NotificationItem from './../common/NotificationItem';
+import NotificationMenuContent from './../common/NotificationMenuContent';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
+import ScrollContainer from '../common/ScrollContainer';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
@@ -36,16 +41,23 @@ import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
-import CommentCarousel from '../common/CommentCarousel';
-import Comment from '../common/Comment';
-import CommentInput from '../common/CommentInput';
-import ScrollContainer from '../common/ScrollContainer';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
+const notifications = [
+    {date: '2016-03-22 14:32:21',
+    icon: 'icon-textsms',
+    text: 'Navn Navnesen kommenter innlegget ditt'},
+    {date: '2016-03-30 14:32:21',
+    icon: 'icon-leaf',
+    text: 'Navn Navnesen likte innlegget ditt'},
+    {date: '2016-01-03 14:32:21',
+    icon: 'icon-favorite',
+    text: 'Navn Navnesen har gegynt a folge deg'}
+];
 
 export default class App extends React.Component {
 
@@ -489,7 +501,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="Typography">
-                    Types:
+                    {'Types:'}
                     <br />
                     <Typography type={'caption1Normal'}>{"caption1Normal (10px)"}</Typography>
                     <br />
@@ -875,6 +887,12 @@ export default class App extends React.Component {
                     />
                 </MenuWrapper>
 
+                <Preview title="/Notifications">
+                    <NotificationMenuContent
+                        notifications={notifications}
+                    />
+                </Preview>
+
                 <Preview title="/ShareMenu">
                     <CopyLink
                         link={"https://ducky.no/1049/posts/VDbdeR"}
@@ -891,29 +909,45 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="CommentCarousel" width={250}>
+                <Preview title="/CommentCarousel"
+                    width={'250'}
+                >
                     <CommentCarousel name={"Gunnar"}>
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </CommentCarousel>
                 </Preview>
 
-                <Preview title="Comment" width={250}>
-                    <Comment name={"Gunnar Gunnersen long name"} published={Date.now()}>
+                <Preview title="/Comment"
+                    width={'250'}
+                >
+                    <Comment
+                        name={"Gunnar Gunnersen long name"}
+                        published={Date.now()}
+                    >
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
-                    <br/>
-                    <Comment name={"Gunnar"} published={Date.now()}>
+                    <br />
+                    <Comment
+                        name={"/Gunnar"}
+                        published={Date.now()}
+                    >
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
                 </Preview>
 
-                <Preview title="CommentInput" width={300}>
-                    <CommentInput placeholder={"Write something here..."} onSubmit={() => {console.log('submitted');}}>
-                    </CommentInput>
+                <Preview title="/CommentInput"
+                    width={'300'}
+                >
+                    <CommentInput
+                        onSubmit={() => {console.log('submitted');}}
+                        placeholder={"Write something here..."}
+                    />
                 </Preview>
 
-                <Preview title="ScrollContainer" width={300}>
-                    <ScrollContainer size={200}>
+                <Preview title="ScrollContainer"
+                    width={'300'}
+                >
+                    <ScrollContainer size={'200'}>
                         <div style={{backgroundColor: 'red', height: 300}}></div>
                         <div style={{backgroundColor: 'blue', height: 300}}></div>
                     </ScrollContainer>

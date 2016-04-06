@@ -12,7 +12,9 @@ class NotificationItem extends React.Component {
             <span className={styles.span}
                 onClick={this.props.onClick}
             >
-                <Wrapper>
+                <Wrapper
+                    size={'short'}
+                >
                     <div className={styles.child}>
                         {this.props.children}
                     </div>
@@ -24,7 +26,7 @@ class NotificationItem extends React.Component {
                                 {this.props.text}
                             </Typo>
                         </div>
-                        <Spacer hr
+                        <Spacer
                             size={'standard'}
                         />
                         <div className={styles.bottom}>
