@@ -193,6 +193,10 @@ export default class App extends React.Component {
         console.log("IconDisplayTwo");
     }
 
+    handleSubmit() {
+        console.log('submitted');
+    }
+
     /* eslint-enable no-console */
 
     render() {
