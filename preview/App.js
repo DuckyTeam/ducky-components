@@ -53,7 +53,7 @@ const notifications = [{
     user: {
         id: "123",
         name: "Navn Navnesen ",
-        imageUrl: "http://static.boredpanda.com/blog/wp-content/uuuploads/funny-zoo-animal-portraits-yago-partal/funny-zoo-animal-portraits-yago-partal-2.jpg"
+        imageUrl: "http://tinyurl.com/jzdtpvm"
     },
     date: '2016-03-22 14:32:21',
     icon: "icon-textsms",
