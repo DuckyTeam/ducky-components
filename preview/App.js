@@ -20,6 +20,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LogButton from "../common/LogButton";
 import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
@@ -191,6 +192,10 @@ export default class App extends React.Component {
 
     handleIconDisplayTwoClick() {
         console.log("IconDisplayTwo");
+    }
+
+    handleSubmit() {
+        console.log('submitted');
     }
 
     /* eslint-enable no-console */
@@ -489,7 +494,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="Typography">
-                    Types:
+                    {"Types:"}
                     <br />
                     <Typography type={'caption1Normal'}>{"caption1Normal (10px)"}</Typography>
                     <br />
@@ -891,32 +896,60 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="CommentCarousel" width={250}>
+                <Preview
+                    title="CommentCarousel"
+                    width={250}
+                >
                     <CommentCarousel name={"Gunnar"}>
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </CommentCarousel>
                 </Preview>
 
-                <Preview title="Comment" width={250}>
-                    <Comment name={"Gunnar Gunnersen long name"} published={Date.now()}>
+                <Preview
+                    title="Comment"
+                    width={250}
+                >
+                    <Comment
+                        name={"Gunnar Gunnersen long name"}
+                        published={Date.now()}
+                    >
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
-                    <br/>
-                    <Comment name={"Gunnar"} published={Date.now()}>
+                    <br />
+                    <Comment
+                        name={"Gunnar"}
+                        published={Date.now()}
+                    >
                       {"This is absolutely fantastic! What a great comment! ;)"}
                     </Comment>
                 </Preview>
 
-                <Preview title="CommentInput" width={300}>
-                    <CommentInput placeholder={"Write something here..."} onSubmit={() => {console.log('submitted');}}>
-                    </CommentInput>
+                <Preview
+                    title="CommentInput"
+                    width={300}
+                >
+                    <CommentInput
+                        onSubmit={this.handleSubmit}
+                        placeholder={"Write something here..."}
+                    />
                 </Preview>
 
-                <Preview title="ScrollContainer" width={300}>
+                <Preview
+                    title="ScrollContainer"
+                    width={300}
+                >
                     <ScrollContainer size={200}>
                         <div style={{backgroundColor: 'red', height: 300}}></div>
                         <div style={{backgroundColor: 'blue', height: 300}}></div>
                     </ScrollContainer>
+                </Preview>
+
+                <Preview
+                    title="LogButton"
+                    width={50}
+                >
+                    <LogButton />
+                    <LogButton checked />
                 </Preview>
 
 
