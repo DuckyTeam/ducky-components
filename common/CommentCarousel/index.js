@@ -1,31 +1,47 @@
-import React from 'react';
-import styles from './styles.css';
-import Wrapper from '../Wrapper';
-import Typography from '../Typography';
 import Avatar from '../Avatar';
+import React from 'react';
+import {PropTypes} from 'react';
+import Typography from '../Typography';
+import Wrapper from '../Wrapper';
+import styles from './styles.css';
 
 function CommentCarousel(props) {
     return (
-        <Wrapper size="standard" className={styles.wrapper}>
+        <Wrapper
+            className={styles.wrapper}
+            onClick={props.onClick}
+            size="standard"
+        >
             <Avatar
+                className={styles.avatar}
                 image={props.avatar}
                 link={props.profileLink}
                 size={"standard"}
-                className={styles.avatar}
-                />
-            <Typography type="bodyTextStrong" className={styles.textWrapper}>
-              <a href={props.profileLink}>{props.name}:</a>
-              <Typography type="bodyTextNormal" className={styles.text}>{props.children}</Typography>
+            />
+            <Typography
+                className={styles.textWrapper}
+                type="bodyTextStrong"
+            >
+                <a href={props.profileLink}>
+                  {`${props.name}:`}
+                </a>
+                <Typography
+                    className={styles.text}
+                    type="bodyTextNormal"
+                >
+                    {props.children}
+                </Typography>
             </Typography>
         </Wrapper>
     );
 }
 
 CommentCarousel.propTypes = {
-    name: React.PropTypes.string,
-    children: React.PropTypes.string,
-    avatar: React.PropTypes.string,
-    profileLink: React.PropTypes.string
+    avatar: PropTypes.string,
+    children: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    profileLink: PropTypes.string
 };
 
 export default CommentCarousel;

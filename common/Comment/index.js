@@ -1,31 +1,34 @@
-import React from 'react';
-import styles from './styles.css';
-import Wrapper from '../Wrapper';
-import Typography from '../Typography';
 import Avatar from '../Avatar';
+import React from 'react';
 import TimeStamp from '../TimeStamp';
+import Typography from '../Typography';
+import Wrapper from '../Wrapper';
+import styles from './styles.css';
+
 
 function Comment(props) {
     return (
-        <Wrapper size="standard" className={styles.wrapper}>
+        <Wrapper className={styles.wrapper}
+            size="standard"
+        >
             <Avatar
+                className={styles.avatar}
                 image={props.avatar}
                 link={props.profileLink}
                 size={"standard"}
-                className={styles.avatar}
-                />
+            />
             <div className={styles.textWrapper}>
                 <div className={styles.nameDateWrapper}>
-                <Typography
-                    type="bodyTextStrong"
-                    className={styles.name}
+                    <Typography
+                        className={styles.name}
+                        type="bodyTextStrong"
                     >
-                    <a href={props.profileLink}>{props.name}</a>
-                </Typography>
-                <TimeStamp
-                    dateTime={props.published}
-                    short={Boolean(true)}
-                    className={styles.timeStamp}
+                        <a href={props.profileLink}>{props.name}</a>
+                    </Typography>
+                    <TimeStamp
+                        className={styles.timeStamp}
+                        dateTime={props.published}
+                        short={Boolean(true)}
                     />
                 </div>
                 <Typography type="bodyTextNormal">{props.children}</Typography>
@@ -35,9 +38,9 @@ function Comment(props) {
 }
 
 Comment.propTypes = {
-    name: React.PropTypes.string,
-    children: React.PropTypes.string,
     avatar: React.PropTypes.string,
+    children: React.PropTypes.string,
+    name: React.PropTypes.string,
     profileLink: React.PropTypes.string,
     published: React.PropTypes.number
 };

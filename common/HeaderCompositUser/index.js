@@ -1,6 +1,7 @@
 import Avatar from '../Avatar';
 import Icon from '../Icon';
 import React from 'react';
+import {PropTypes} from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -37,14 +38,14 @@ function HeaderCompositUser(props) {
 }
 
 HeaderCompositUser.propTypes = {
-    avatar: React.PropTypes.string,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    onIconClick: React.PropTypes.func,
-    onProfileClick: React.PropTypes.func,
-    profileLink: React.PropTypes.string,
-    title: React.PropTypes.string
+    avatar: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    icon: PropTypes.string,
+    onIconClick: PropTypes.func,
+    onProfileClick: PropTypes.func,
+    profileLink: PropTypes.string,
+    title: PropTypes.string
 };
 
 export default HeaderCompositUser;

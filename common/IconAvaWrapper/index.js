@@ -10,7 +10,10 @@ function IconAvaWrapper(props) {
     if (props.user) {
         return (
             <Wrapper
-                className={classNames(styles.wrapper, {[styles.pointerCursor]: props.onClick, [props.className]: props.className})}
+                className={classNames(
+                    styles.wrapper,
+                    {[styles.pointerCursor]: props.onClick, [props.className]: props.className}
+                )}
                 onClick={props.onClick}
                 size={'narrow'}
             >
@@ -25,7 +28,10 @@ function IconAvaWrapper(props) {
 
     return (
         <Wrapper
-            className={classNames(styles.wrapper, {[styles.pointerCursor]: props.onClick, [props.className]: props.className})}
+            className={classNames(
+                styles.wrapper,
+                {[styles.pointerCursor]: props.onClick, [props.className]: props.className}
+            )}
             onClick={props.onClick}
             size={'narrow'}
         >
@@ -38,8 +44,8 @@ function IconAvaWrapper(props) {
 }
 
 IconAvaWrapper.propTypes = {
-    icon: PropTypes.string,
     className: PropTypes.string,
+    icon: PropTypes.string,
     onClick: PropTypes.func,
     user: PropTypes.string
 };

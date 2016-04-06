@@ -1,60 +1,93 @@
+import Avatar from '../Avatar';
+import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import {PropTypes} from 'react';
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
-import Avatar from '../Avatar';
-import IconAvaWrapper from '../IconAvaWrapper';
 import Textarea from 'react-textarea-autosize';
 import TypographyCSS from '../Typography/styles.css';
 import classNames from 'classnames';
+const ENTER_KEY_ID = 13;
 
-function CommentInput(props) {
-    return (
-        <Wrapper size="standard" className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Avatar
-                image={props.avatar}
-                link={props.profileLink}
-                size={"standard"}
-                className={styles.avatar}
+
+class CommentInput extends React.Component {
+    constructor(props) {
+        super(props);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+    }
+
+    handleKeyPress(event) {
+        const emptyTextarea = !this.props.children || !this.props.children.length;
+        const enterClick = event.which === ENTER_KEY_ID && !event.shiftKey;
+
+        if (this.props.onSubmit && enterClick && emptyTextarea) {
+            event.preventDefault();
+        } else if (enterClick && this.props.onSubmit) {
+            this.props.onSubmit();
+            event.preventDefault();
+        }
+    }
+
+    render() {
+        return (
+            <Wrapper
+                className={classNames(
+                    styles.wrapper,
+                    {[this.props.className]: this.props.className}
+                )}
+                size="standard"
+            >
+                <Avatar
+                    className={styles.avatar}
+                    image={this.props.avatar}
+                    link={this.props.profileLink}
+                    size={"standard"}
                 />
-            <form onSubmit={props.onSubmit} className={styles.form}>
-                <Typography
-                    type="bodyTextNormal"
-                    className={styles.inputWrapper}
+                <form
+                    className={styles.form}
+                    onSubmit={this.props.onSubmit}
+                >
+                    <Typography
+                        className={styles.inputWrapper}
+                        type="bodyTextNormal"
                     >
-                    <Textarea
-                        className={`${styles.textarea} ${TypographyCSS.bodyTextNormal}`}
-                        placeholder={props.placeholder}
-                        value={props.children}
-                        onChange={props.onChange}
-                        onKeyPress={(e) => {
-                          if (e.which === 13 && !e.shiftKey) {
-                            props.onSubmit && props.onSubmit();
-                            e.preventDefault();
-                          }
-                        }}
-                        >
-                    </Textarea>
-                </Typography>
-                <button type="button" className={styles.button}>
-                    <IconAvaWrapper
-                        icon={"icon-send"}
-                        onClick={props.onSubmit}
-                        className={styles.icon}
+                        <Textarea
+                            className={`${styles.textarea} ${TypographyCSS.bodyTextNormal}`}
+                            onChange={this.props.onChange}
+                            onKeyPress={this.handleKeyPress}
+                            placeholder={this.props.placeholder}
+                            value={this.props.children}
                         />
-                </button>
-            </form>
-        </Wrapper>
-    );
+                    </Typography>
+                    <button
+                        className={styles.button}
+                        disabled={this.props.disabled ||
+                                  !this.props.children ||
+                                  !this.props.children.length}
+                        onClick={this.props.onSubmit}
+                        type="button"
+                    >
+                        <IconAvaWrapper
+                            className={styles.icon}
+                            icon={"icon-send"}
+                        />
+                    </button>
+                </form>
+            </Wrapper>
+        );
+    }
 }
 
 CommentInput.propTypes = {
-    className: React.PropTypes.string,
-    children: React.PropTypes.string,
-    avatar: React.PropTypes.string,
-    placeholder: React.PropTypes.string,
-    onSubmit: React.PropTypes.func,
-    onChange: React.PropTypes.func
+    avatar: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    disabled: React.PropTypes.bool,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    placeholder: PropTypes.string,
+    profileLink: PropTypes.string
 };
 
 export default CommentInput;

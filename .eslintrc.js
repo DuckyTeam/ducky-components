@@ -233,7 +233,9 @@ module.exports = {
         // Reason: By popular demand, to verbose with pure react components.
         "semi": 2,
         "semi-spacing": 2,
-        "sort-imports": 2,
+        "sort-imports": 0,
+        // Reason: By popular demand, we don't have side effect free imports everywhere
+        // to verbose to override.
         "sort-vars": 2,
         "space-before-blocks": 2,
         "space-before-function-paren": [2, {anonymous: "always", named: "never"}],

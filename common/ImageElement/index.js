@@ -1,5 +1,6 @@
 import Modal from '../Modal';
 import React from 'react';
+import {PropTypes} from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -18,9 +19,9 @@ function ImageElement(props) {
                     show={props.showModal}
                 >
                     <img
-                        src={props.url}
                         className={styles.modalImage}
-                        >
+                        src={props.url}
+                    >
                     </img>
                 </Modal>
             ) : null}
@@ -29,11 +30,11 @@ function ImageElement(props) {
 }
 
 ImageElement.propTypes = {
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    onModalHide: React.PropTypes.func,
-    showModal: React.PropTypes.bool,
-    url: React.PropTypes.string
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onModalHide: PropTypes.func,
+    showModal: PropTypes.bool,
+    url: PropTypes.string
 };
 
 export default ImageElement;

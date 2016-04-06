@@ -22,8 +22,8 @@ function LabelSmall(props) {
 
 LabelSmall.displayName = 'LabelSmall';
 LabelSmall.propTypes = {
-    content: PropTypes.node,
     className: PropTypes.string,
+    content: PropTypes.node,
     icon: PropTypes.string,
     onClick: React.PropTypes.func,
     type: PropTypes.string
