@@ -5,6 +5,9 @@ import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
+import Comment from '../common/Comment';
+import CommentCarousel from '../common/CommentCarousel';
+import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
 import Dropdown from '../common/Dropdown';
 import DropdownItem from '../common/Dropdown/Item';
@@ -26,9 +29,11 @@ import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import NotificationItem from './../common/NotificationItem';
+import NotificationMenuContent from './../common/NotificationMenuContent';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
+import ScrollContainer from '../common/ScrollContainer';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
@@ -37,16 +42,23 @@ import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
-import CommentCarousel from '../common/CommentCarousel';
-import Comment from '../common/Comment';
-import CommentInput from '../common/CommentInput';
-import ScrollContainer from '../common/ScrollContainer';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
+const notifications = [{
+    id: "001",
+    user: {
+        id: "123",
+        name: "Navn Navnesen ",
+        imageUrl: "http://tinyurl.com/jzdtpvm"
+    },
+    date: '2016-03-22 14:32:21',
+    icon: "icon-textsms",
+    text: "kommenter innlegget ditt"
+}];
 
 export default class App extends React.Component {
 
@@ -879,6 +891,12 @@ export default class App extends React.Component {
                         onClick={this.handleIconSmallClick}
                     />
                 </MenuWrapper>
+
+                <Preview title="/Notifications">
+                    <NotificationMenuContent
+                        notifications={notifications}
+                    />
+                </Preview>
 
                 <Preview title="/ShareMenu">
                     <CopyLink

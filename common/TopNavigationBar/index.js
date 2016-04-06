@@ -38,9 +38,10 @@ class TopNavigationBar extends React.Component {
                     {this.props.title}
                 </Typography>
                 <a onClick={this.props.onClickProfile}>
-                    <Avatar className={styles.rightIcon}
+                    <Avatar className={styles.profileIcon}
+                        image={this.props.avatar}
+                        link={this.props.profileLink}
                         size={"small"}
-                        user={"all"}
                     />
                 </a>
                 <a onClick={this.props.onClickNotification}>
@@ -55,12 +56,14 @@ class TopNavigationBar extends React.Component {
 }
 
 TopNavigationBar.propTypes = {
+    avatar: React.PropTypes.string,
     notifications: React.PropTypes.number,
     onClickDucky: React.PropTypes.func,
     onClickMenu: React.PropTypes.func,
     onClickNotification: React.PropTypes.func,
     onClickProfile: React.PropTypes.func,
     onClickSearch: React.PropTypes.func,
+    profileLink: React.PropTypes.string,
     title: React.PropTypes.string
 };
 

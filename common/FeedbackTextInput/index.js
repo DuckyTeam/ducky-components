@@ -9,7 +9,9 @@ class FeedbackTextInput extends React.Component {
             <Wra16A className={styles.wrapper}
                 size={"standard"}
             >
-                <textArea className={styles.textArea}
+                <textArea
+                    autoFocus
+                    className={styles.textArea}
                     onChange={this.props.onChange}
                     placeholder={this.props.prompt}
                 />

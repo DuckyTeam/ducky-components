@@ -12,7 +12,9 @@ class NotificationItem extends React.Component {
             <span className={styles.span}
                 onClick={this.props.onClick}
             >
-                <Wrapper>
+                <Wrapper
+                    size={'short'}
+                >
                     <div className={styles.child}>
                         {this.props.children}
                     </div>
@@ -21,10 +23,10 @@ class NotificationItem extends React.Component {
                             <Typo className={styles.typo}
                                 type={"caption2Normal"}
                             >
-                                {this.props.text}
+                                {this.props.name + this.props.text}
                             </Typo>
                         </div>
-                        <Spacer hr
+                        <Spacer
                             size={'standard'}
                         />
                         <div className={styles.bottom}>
@@ -48,6 +50,7 @@ NotificationItem.propTypes = {
     children: React.PropTypes.node,
     dateTime: React.PropTypes.shape({}),
     icon: React.PropTypes.string,
+    name: React.PropTypes.string,
     onClick: React.PropTypes.func,
     text: React.PropTypes.string
 };
