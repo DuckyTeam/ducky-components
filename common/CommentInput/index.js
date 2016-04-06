@@ -8,7 +8,7 @@ import Typography from '../Typography';
 import Textarea from 'react-textarea-autosize';
 import TypographyCSS from '../Typography/styles.css';
 import classNames from 'classnames';
-const KEY_ID = 13; // Enter click
+const KEY_ID = 13;
 
 class CommentInput extends React.Component {
     constructor(props) {
@@ -17,11 +17,7 @@ class CommentInput extends React.Component {
     }
 
     handleKeyPress(event) {
-        const emptyTextarea = !this.props.children || !this.props.children.length;
-        const enterClick = event.which === KEY_ID && !event.shiftKey;
-        if (this.props.onSubmit && enterClick && emptyTextarea) {
-            event.preventDefault();
-        } else if (enterClick && this.props.onSubmit) {
+        if (event.which === KEY_ID && !event.shiftKey && this.props.onSubmit) {
             this.props.onSubmit();
             event.preventDefault();
         }
@@ -60,13 +56,12 @@ class CommentInput extends React.Component {
                     </Typography>
                     <button
                         className={styles.button}
-                        disabled={props.disabled || !props.children || !props.children.length}
-                        onClick={this.props.onSubmit}
                         type="button"
                     >
                         <IconAvaWrapper
                             className={styles.icon}
                             icon={"icon-send"}
+                            onClick={this.props.onSubmit}
                         />
                     </button>
                 </form>
@@ -79,7 +74,6 @@ CommentInput.propTypes = {
     avatar: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    disabled: React.PropTypes.bool,
     onChange: PropTypes.func,
     onSubmit: PropTypes.func,
     placeholder: PropTypes.string,

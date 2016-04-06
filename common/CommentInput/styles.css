@@ -48,7 +48,3 @@
   padding: 0;
   align-self: flex-start;
 }
-
-.button:disabled {
-  opacity: 0.5;
-}
