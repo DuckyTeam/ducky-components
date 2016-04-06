@@ -20,6 +20,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LogButton from "../common/LogButton";
 import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
@@ -917,6 +918,10 @@ export default class App extends React.Component {
                         <div style={{backgroundColor: 'red', height: 300}}></div>
                         <div style={{backgroundColor: 'blue', height: 300}}></div>
                     </ScrollContainer>
+                </Preview>
+
+                <Preview title="LogButton" width={50}>
+                    <LogButton /><LogButton checked/>
                 </Preview>
 
 
