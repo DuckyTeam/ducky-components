@@ -7,8 +7,9 @@ import styles from './styles.css';
 function CommentCarousel(props) {
     return (
         <Wrapper
-            className={styles.wrapper}
             size="standard"
+            className={styles.wrapper}
+            onClick={props.onClick}
         >
             <Avatar
                 className={styles.avatar}
@@ -38,6 +39,7 @@ CommentCarousel.propTypes = {
     avatar: React.PropTypes.string,
     children: React.PropTypes.string,
     name: React.PropTypes.string,
+    onClick: React.PropTypes.func,
     profileLink: React.PropTypes.string
 };
 
