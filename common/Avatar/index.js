@@ -4,8 +4,6 @@ import styles from './Avatar.css';
 const PropTypes = React.PropTypes;
 
 function Avatar(props) {
-    const user = props.user;
-
     return (
         <a href={props.link}>
             <img
