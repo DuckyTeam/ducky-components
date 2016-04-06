@@ -944,8 +944,12 @@ export default class App extends React.Component {
                     </ScrollContainer>
                 </Preview>
 
-                <Preview title="LogButton" width={50}>
-                    <LogButton /><LogButton checked/>
+                <Preview
+                    title="LogButton"
+                    width={50}
+                >
+                    <LogButton />
+                    <LogButton checked />
                 </Preview>
 
 
