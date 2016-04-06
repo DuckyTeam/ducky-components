@@ -31,9 +31,9 @@ class ScrollContainer extends React.Component {
 }
 
 ScrollContainer.propTypes = {
-    children: React.PropTypes.node,
-    scrollOnUpdate: React.PropTypes.oneOf(['bottom', 'top']),
-    size: React.PropTypes.number
+    children: PropTypes.node,
+    scrollOnUpdate: PropTypes.oneOf(['bottom', 'top']),
+    size: PropTypes.number
 };
 
 export default ScrollContainer;
