@@ -1,5 +1,6 @@
 import Avatar from '../Avatar';
 import React from 'react';
+import {PropTypes} from 'react';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';
@@ -8,6 +9,7 @@ function CommentCarousel(props) {
     return (
         <Wrapper
             className={styles.wrapper}
+            onClick={props.onClick}
             size="standard"
         >
             <Avatar
@@ -35,10 +37,11 @@ function CommentCarousel(props) {
 }
 
 CommentCarousel.propTypes = {
-    avatar: React.PropTypes.string,
-    children: React.PropTypes.string,
-    name: React.PropTypes.string,
-    profileLink: React.PropTypes.string
+    avatar: PropTypes.string,
+    children: PropTypes.string,
+    name: PropTypes.string,
+    onClick: PropTypes.func,
+    profileLink: PropTypes.string
 };
 
 export default CommentCarousel;
