@@ -957,7 +957,9 @@ export default class App extends React.Component {
                     title="Action Item Summary Composite"
                     width={100}
                 >
-                    <ActionItemSummaryComposit icons={["icon-lens","icon-lens","icon-lens","icon-lens","icon-lens","icon-lens","icon-lens"]} />
+                    <ActionItemSummaryComposit
+                        icons={["icon-lens", "icon-lens", "icon-lens", "icon-lens"]}
+                    />
                 </Preview>
 
 
