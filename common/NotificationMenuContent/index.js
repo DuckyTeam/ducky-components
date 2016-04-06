@@ -22,12 +22,13 @@ function NotificationMenuContent(props) {
                     })}
                     dateTime={props.notifications[index].date}
                     icon={props.notifications[index].icon}
+                    name={props.notifications[index].user.name}
                     onClick={props.onClick}
                     text={props.notifications[index].text}
                 >
                     <Avatar
+                        image={props.notifications[index].user.imageUrl}
                         size={"standard"}
-                        user={"all"}
                     />
                 </NotificationItem>
             );

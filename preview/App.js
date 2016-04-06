@@ -47,17 +47,17 @@ const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
-const notifications = [
-    {date: '2016-03-22 14:32:21',
-    icon: 'icon-textsms',
-    text: 'Navn Navnesen kommenter innlegget ditt'},
-    {date: '2016-03-30 14:32:21',
-    icon: 'icon-leaf',
-    text: 'Navn Navnesen likte innlegget ditt'},
-    {date: '2016-01-03 14:32:21',
-    icon: 'icon-favorite',
-    text: 'Navn Navnesen har gegynt a folge deg'}
-];
+const notifications = [{
+    id: "001",
+    user: {
+        id: "123",
+        name: "Navn Navnesen ",
+        imageUrl: "http://static.boredpanda.com/blog/wp-content/uuuploads/funny-zoo-animal-portraits-yago-partal/funny-zoo-animal-portraits-yago-partal-2.jpg"
+    },
+    date: '2016-03-22 14:32:21',
+    icon: "icon-textsms",
+    text: "kommenter innlegget ditt"
+}];
 
 export default class App extends React.Component {
 
