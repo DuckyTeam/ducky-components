@@ -1,27 +1,32 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import {PropTypes} from 'react';
 import styles from './styles.css';
 
 class ScrollContainer extends React.Component {
     constructor(props) {
         super(props);
+        this.handleRef = this.handleRef.bind(this);
     }
     componentDidUpdate(prevProps) {
         if (prevProps.children.length !== this.props.children.length) {
             if (this.props.scrollOnUpdate === 'bottom') {
-                this.refs.scrollContainer.scrollTop = 999999;
+                ReactDOM.findDOMNode(this.scrollContainer).scrollTop = 999999;
             }
 
             if (this.props.scrollOnUpdate === 'top') {
-                this.refs.scrollContainer.scrollTop = 0;
+                ReactDOM.findDOMNode(this.scrollContainer).scrollTop = 0;
             }
         }
+    }
+    handleRef(component) {
+        this.scrollContainer = component;
     }
     render() {
         return (
             <div
                 className={styles.wrapper}
-                ref="scrollContainer"
+                ref={this.handleRef}
                 style={{maxHeight: this.props.size}}
             >
                 {this.props.children}

@@ -8,7 +8,8 @@ import Typography from '../Typography';
 import Textarea from 'react-textarea-autosize';
 import TypographyCSS from '../Typography/styles.css';
 import classNames from 'classnames';
-const KEY_ID = 13; /* Enter click */
+const ENTER_KEY_ID = 13;
+
 
 class CommentInput extends React.Component {
     constructor(props) {
@@ -18,7 +19,7 @@ class CommentInput extends React.Component {
 
     handleKeyPress(event) {
         const emptyTextarea = !this.props.children || !this.props.children.length;
-        const enterClick = event.which === KEY_ID && !event.shiftKey;
+        const enterClick = event.which === ENTER_KEY_ID && !event.shiftKey;
 
         if (this.props.onSubmit && enterClick && emptyTextarea) {
             event.preventDefault();
@@ -61,7 +62,9 @@ class CommentInput extends React.Component {
                     </Typography>
                     <button
                         className={styles.button}
-                        disabled={this.props.disabled || !this.props.children || !this.props.children.length}
+                        disabled={this.props.disabled ||
+                                  !this.props.children ||
+                                  !this.props.children.length}
                         onClick={this.props.onSubmit}
                         type="button"
                     >
