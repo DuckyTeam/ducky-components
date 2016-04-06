@@ -2,6 +2,7 @@ import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
+import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -950,6 +951,13 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
+                </Preview>
+
+                <Preview
+                    title="Action Item Summary Composite"
+                    width={100}
+                >
+                    <ActionItemSummaryComposit icons={["icon-lens","icon-lens","icon-lens","icon-lens","icon-lens","icon-lens","icon-lens"]} />
                 </Preview>
 
 

@@ -1,0 +1,16 @@
+.icon{
+    display: inline-block;
+    max-width: 24px;
+    float: left;
+}
+
+.cb{
+    vertical-align: text-bottom;
+    float: left;
+}
+
+.arrow {
+    float: right;
+    display: inline-block;
+    float: right;
+}
