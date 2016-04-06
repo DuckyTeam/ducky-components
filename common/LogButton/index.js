@@ -7,12 +7,15 @@ function LogButton(props) {
     return (
         <div
             className={classNames(styles.wrapper, {
-                [styles["checked"]]: props.checked,
+                [styles.checked]: props.checked,
                 [props.className]: props.className
             })}
             onClick={props.onClick}
         >
-            <Icon icon={"icon-check"} size={"standard"}/>
+            <Icon
+                icon={"icon-check"}
+                size={"standard"}
+            />
         </div>
     );
 }
