@@ -9,8 +9,7 @@ import Comment from '../common/Comment';
 import CommentCarousel from '../common/CommentCarousel';
 import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
-import Dropdown from '../common/Dropdown';
-import DropdownItem from '../common/Dropdown/Item';
+import Popup from '../common/Popup';
 import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -218,17 +217,12 @@ export default class App extends React.Component {
                 <h1>{"/common"}</h1>
 
                 <Preview
-                    title="/Dropdown"
+                    title="/Popup"
                     width={PREVIEW_WIDTH}
                 >
-                    <Dropdown>
-                        <DropdownItem onClick={this.handleClickOne}>
-                            {"Item 1"}
-                        </DropdownItem>
-                        <DropdownItem onClick={this.handleClickTwo}>
-                            {"Item 2"}
-                        </DropdownItem>
-                    </Dropdown>
+                    <Popup>
+                        hey
+                    </Popup>
                 </Preview>
 
                 <Preview
