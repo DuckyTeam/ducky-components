@@ -3,50 +3,39 @@ import React from 'react';
 import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import Spacer from '../Spacer';
 import Wrapper from '../Wrapper';
-import styles from './CopyLink.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-class CopyLink extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleRef = this.handleRef.bind(this);
-    }
+function CopyLink(props) {
+  const onInputMount = (input) => {
+    input && input.select();
+  }
 
-    componentDidUpdate() {
-        this.copyLink.select();
-    }
-
-    handleRef(component) {
-        this.copyLink = component;
-    }
-
-    render() {
-        return (
-            <Modal
-                className={styles.modal}
-                onHide={this.props.onModalHide}
-                show={this.props.showModal}
-            >
-                <div className={styles.wrapper}>
-                    <SectionHeaderGeneral
-                        onClick={this.props.onModalHide}
-                        rightIcon={"icon-close"}
-                        title="Kopier lenke"
-                    />
-                    <Wrapper size={'standard'} >
-                        <input
-                            className={styles.link}
-                            readOnly
-                            ref={this.handleRef}
-                            type={'text'}
-                            value={this.props.link}
-                        />
-                    </Wrapper>
-                    <Spacer size={'double'} />
-                </div>
-            </Modal>
-        );
-    }
+  return (
+      <Modal
+          className={styles.modal}
+          onHide={props.onModalHide}
+          show={props.showModal}
+      >
+          <div className={styles.wrapper}>
+              <SectionHeaderGeneral
+                  onClick={props.onModalHide}
+                  rightIcon={"icon-close"}
+                  title="Kopier lenke"
+              />
+              <Wrapper size={'standard'} className={styles.inputWrapper}>
+                  <input
+                      className={styles.link}
+                      readOnly
+                      ref={onInputMount}
+                      type={'text'}
+                      value={props.link}
+                  />
+              </Wrapper>
+              <Spacer size={'double'} />
+          </div>
+      </Modal>
+  );
 }
 
 CopyLink.propTypes = {

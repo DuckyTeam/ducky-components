@@ -6,13 +6,11 @@ import styles from './styles.css';
 
 function ImageElement(props) {
     return (
-        <div
-            className={classNames(styles.image, {
-                [props.className]: props.className
-            })}
+        <div className={props.className}>
+          <div
+            className={styles.image}
             onClick={props.onClick}
-            style={{backgroundImage: `url(${props.url})`}}
-        >
+            style={{backgroundImage: `url(${props.url})`}}/>
             {props.onClick ? (
                 <Modal
                     onHide={props.onModalHide}

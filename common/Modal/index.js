@@ -5,48 +5,12 @@ import styles from './styles.css';
 class Modal extends React.Component {
     constructor(props) {
         super(props);
-        this.handleModalRef = this.handleModalRef.bind(this);
-        this.onWindowClick = this.onWindowClick.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
-
-    componentDidMount() {
-        if (this.props.show) {
-            setTimeout(() => {
-                window.addEventListener('click', this.onWindowClick);
-            }, 0);
-        }
+    onClick(event) {
+      console.log('wuuut?');
+      event.stopPropagation();
     }
-
-    componentDidUpdate(prevProps) {
-        if (prevProps.show !== this.props.show && this.props.show) {
-            setTimeout(() => {
-                window.addEventListener('click', this.onWindowClick);
-            }, 0);
-        } else if (prevProps.show !== this.props.show) {
-            window.removeEventListener('click', this.onWindowClick);
-        }
-    }
-
-    componentWillUnmount() {
-        window.removeEventListener('click', this.onWindowClick);
-    }
-
-    handleModalRef(component) {
-        this.modal = component;
-    }
-
-    onWindowClick(event) {
-        let target = event.target;
-
-        while (target) {
-            if (target === this.modal) {
-                return;
-            }
-            target = target.parentNode;
-        }
-        this.props.onHide();
-    }
-
     render() {
         if (!this.props.show) {
             return null;
@@ -60,7 +24,7 @@ class Modal extends React.Component {
                 <div className={styles.modalWrapper}>
                     <div
                         className={styles.modal}
-                        ref={this.handleModalRef}
+                        onClick={this.onClick}
                     >
                         <i
                             className={`icon-close ${styles.close}`}
