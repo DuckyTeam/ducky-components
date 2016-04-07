@@ -14,10 +14,10 @@ function ShareMenuItem(props) {
     let text = props.text;
 
     if (share) {
-        if (share === 'fb') {
+        if (share === 'facebook') {
             icon = 'icon-facebook';
             text = 'Facebook';
-        } else if (share === 'twit') {
+        } else if (share === 'twitter') {
             icon = 'icon-twitter';
             text = 'Twitter';
         } else if (share === 'google') {
@@ -60,7 +60,7 @@ ShareMenuItem.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
     onClick: PropTypes.func,
-    share: PropTypes.oneOf(['fb', 'twit', 'google', 'link']),
+    share: PropTypes.oneOf(['facebook', 'twitter', 'google', 'link']),
     text: PropTypes.string
 };
 
