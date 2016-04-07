@@ -3,7 +3,7 @@
       line-height: 20px;
       font-weight: normal;
       color: #263238;
-      width: 250px;
+      width: 100%;
       background-color: transparent;
       border: none;
 }
@@ -11,6 +11,10 @@
 .wrapper {
     background-color: transparent;
     z-index: 100;
+}
+
+.inputWrapper {
+  width: 100%;
 }
 
 div > i {

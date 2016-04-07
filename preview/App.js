@@ -9,8 +9,7 @@ import Comment from '../common/Comment';
 import CommentCarousel from '../common/CommentCarousel';
 import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
-import Dropdown from '../common/Dropdown';
-import DropdownItem from '../common/Dropdown/Item';
+import Popup from '../common/Popup';
 import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -218,17 +217,10 @@ export default class App extends React.Component {
                 <h1>{"/common"}</h1>
 
                 <Preview
-                    title="/Dropdown"
+                    title="/Popup"
                     width={PREVIEW_WIDTH}
                 >
-                    <Dropdown>
-                        <DropdownItem onClick={this.handleClickOne}>
-                            {"Item 1"}
-                        </DropdownItem>
-                        <DropdownItem onClick={this.handleClickTwo}>
-                            {"Item 2"}
-                        </DropdownItem>
-                    </Dropdown>
+                    <Popup>{'hey'}</Popup>
                 </Preview>
 
                 <Preview
@@ -779,14 +771,14 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={'icon-brightness_high'}
+                        activityIcon={"icon-brightness_high"}
                         icon={"icon-pig"}
-                        iconValue={'10'}
+                        iconValue={"10"}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            points={'10'}
-                            time={'2016-01-05T01:32:21.196Z'}
+                            points={"10"}
+                            time={"2016-01-05T01:32:21.196Z"}
                         />
                     </HeaderCompositActivity>
                     <br />
@@ -799,8 +791,8 @@ export default class App extends React.Component {
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={'10'}
-                            points={'8'}
+                            co2={"10"}
+                            points={"8"}
                         />
                     </HeaderCompositUser>
                 </Preview>
