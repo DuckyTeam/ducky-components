@@ -220,9 +220,7 @@ export default class App extends React.Component {
                     title="/Popup"
                     width={PREVIEW_WIDTH}
                 >
-                    <Popup>
-                        hey
-                    </Popup>
+                    <Popup>{'hey'}</Popup>
                 </Preview>
 
                 <Preview

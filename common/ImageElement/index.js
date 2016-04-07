@@ -1,16 +1,16 @@
 import Modal from '../Modal';
 import React from 'react';
 import {PropTypes} from 'react';
-import classNames from 'classnames';
 import styles from './styles.css';
 
 function ImageElement(props) {
     return (
         <div className={props.className}>
-          <div
-            className={styles.image}
-            onClick={props.onClick}
-            style={{backgroundImage: `url(${props.url})`}}/>
+            <div
+                className={styles.image}
+                onClick={props.onClick}
+                style={{backgroundImage: `url(${props.url})`}}
+            />
             {props.onClick ? (
                 <Modal
                     onHide={props.onModalHide}

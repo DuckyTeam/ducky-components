@@ -37,8 +37,8 @@ function ShareMenuItem(props) {
         >
             <Wrapper
                 className={styles.wrapper}
-                size={'short'}
                 onClick={props.onClick}
+                size={'short'}
             >
                 <ActionButton
                     className={styles.button}

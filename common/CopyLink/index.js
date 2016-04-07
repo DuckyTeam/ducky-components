@@ -7,35 +7,40 @@ import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function CopyLink(props) {
-  const onInputMount = (input) => {
-    input && input.select();
-  }
+    function onInputMount(input) {
+        if (input) {
+            input.select();
+        }
+    }
 
-  return (
-      <Modal
-          className={styles.modal}
-          onHide={props.onModalHide}
-          show={props.showModal}
-      >
-          <div className={styles.wrapper}>
-              <SectionHeaderGeneral
-                  onClick={props.onModalHide}
-                  rightIcon={"icon-close"}
-                  title="Kopier lenke"
-              />
-              <Wrapper size={'standard'} className={styles.inputWrapper}>
-                  <input
-                      className={styles.link}
-                      readOnly
-                      ref={onInputMount}
-                      type={'text'}
-                      value={props.link}
-                  />
-              </Wrapper>
-              <Spacer size={'double'} />
-          </div>
-      </Modal>
-  );
+    return (
+        <Modal
+            className={styles.modal}
+            onHide={props.onModalHide}
+            show={props.showModal}
+        >
+            <div className={styles.wrapper}>
+                <SectionHeaderGeneral
+                    onClick={props.onModalHide}
+                    rightIcon={"icon-close"}
+                    title="Kopier lenke"
+                />
+                <Wrapper
+                    className={styles.inputWrapper}
+                    size={'standard'}
+                >
+                    <input
+                        className={styles.link}
+                        readOnly
+                        ref={onInputMount}
+                        type={'text'}
+                        value={props.link}
+                    />
+                </Wrapper>
+                <Spacer size={'double'} />
+            </div>
+        </Modal>
+    );
 }
 
 CopyLink.propTypes = {

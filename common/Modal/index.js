@@ -5,10 +5,10 @@ import styles from './styles.css';
 class Modal extends React.Component {
     constructor(props) {
         super(props);
-        this.onClick = this.onClick.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
-    onClick(event) {
-      event.stopPropagation();
+    handleClick(event) {
+        event.stopPropagation();
     }
     render() {
         if (!this.props.show) {
@@ -23,7 +23,7 @@ class Modal extends React.Component {
                 <div className={styles.modalWrapper}>
                     <div
                         className={styles.modal}
-                        onClick={this.onClick}
+                        onClick={this.handleClick}
                     >
                         <i
                             className={`icon-close ${styles.close}`}
