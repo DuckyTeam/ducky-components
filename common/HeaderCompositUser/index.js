@@ -3,6 +3,7 @@ import Icon from '../Icon';
 import React from 'react';
 import {PropTypes} from 'react';
 import Typography from '../Typography';
+import LabelStandard from '../LabelStandard';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -28,11 +29,19 @@ function HeaderCompositUser(props) {
                     {props.children}
                 </div>
             </div>
-            <Icon
-                icon={props.icon}
-                onClick={props.onIconClick}
-                size="large1"
-            />
+            {
+                props.iconValue ?
+                    <LabelStandard
+                        content={props.iconValue}
+                        icon={props.icon}
+                    />
+                :
+                    <Icon
+                        icon={props.icon}
+                        onClick={props.onIconClick}
+                        size="large1"
+                    />
+            }
         </div>
     );
 }
@@ -42,6 +51,7 @@ HeaderCompositUser.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     icon: PropTypes.string,
+    iconValue: PropTypes.number,
     onIconClick: PropTypes.func,
     onProfileClick: PropTypes.func,
     profileLink: PropTypes.string,

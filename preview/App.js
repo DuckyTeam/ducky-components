@@ -773,7 +773,7 @@ export default class App extends React.Component {
                     <HeaderCompositActivity
                         activityIcon={'icon-brightness_high'}
                         icon={"icon-pig"}
-                        iconValue={'10'}
+                        iconValue={10}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair

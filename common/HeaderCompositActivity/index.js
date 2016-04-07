@@ -2,6 +2,7 @@
 import Icon from '../Icon';
 import React from 'react';
 import Typography from '../Typography';
+import LabelStandard from '../LabelStandard';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -23,17 +24,19 @@ function HeaderCompositActivity(props) {
                     {props.children}
                 </div>
             </div>
-            <div className={styles.iconWrapper}>
-                <Icon
-                    icon={props.icon}
-                    size="small"
-                />
-                <Typography
-                    type="bodyTextTitle"
-                >
-                    {props.iconValue}
-                </Typography>
-            </div>
+            {
+                props.iconValue ?
+                    <LabelStandard
+                        content={props.iconValue}
+                        icon={props.icon}
+                    />
+                :
+                    <Icon
+                        icon={props.icon}
+                        onClick={props.onIconClick}
+                        size="large1"
+                    />
+            }
         </div>
     );
 }
@@ -43,7 +46,8 @@ HeaderCompositActivity.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
-    iconValue: React.PropTypes.func,
+    iconValue: React.PropTypes.number,
+    onIconClick: React.PropTypes.func,
     title: React.PropTypes.string
 };
 
