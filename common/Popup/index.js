@@ -3,7 +3,7 @@ import {PropTypes} from 'react';
 import styles from './styles.css';
 import classnames from 'classnames';
 
-function Dropdown(props) {
+function Popup(props) {
     return (
         <div className={classnames(styles.wrapper, props.className)}>
             {props.children}
@@ -11,9 +11,9 @@ function Dropdown(props) {
     );
 }
 
-Dropdown.propTypes = {
+Popup.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string
 };
 
-export default Dropdown;
+export default Popup;
