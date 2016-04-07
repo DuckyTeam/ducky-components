@@ -8,7 +8,6 @@ class Modal extends React.Component {
         this.onClick = this.onClick.bind(this);
     }
     onClick(event) {
-      console.log('wuuut?');
       event.stopPropagation();
     }
     render() {
