@@ -30,17 +30,16 @@ function HeaderCompositUser(props) {
                 </div>
             </div>
             {
-                props.iconValue ?
-                    <LabelStandard
-                        content={props.iconValue}
-                        icon={props.icon}
-                    />
-                :
-                    <Icon
-                        icon={props.icon}
-                        onClick={props.onIconClick}
-                        size="standard"
-                    />
+                props.iconValue
+                ? <LabelStandard
+                    content={props.iconValue}
+                    icon={props.icon}
+                  />
+                : <Icon
+                    icon={props.icon}
+                    onClick={props.onIconClick}
+                    size="standard"
+                  />
             }
         </div>
     );
