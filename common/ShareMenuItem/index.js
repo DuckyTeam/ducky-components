@@ -38,11 +38,11 @@ function ShareMenuItem(props) {
             <Wrapper
                 className={styles.wrapper}
                 size={'short'}
+                onClick={props.onClick}
             >
                 <ActionButton
                     className={styles.button}
                     icon={icon}
-                    onClick={props.onClick}
                     size={'standard'}
                 />
                 <Typography
