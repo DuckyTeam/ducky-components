@@ -771,14 +771,14 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={'icon-brightness_high'}
+                        activityIcon={"icon-brightness_high"}
                         icon={"icon-pig"}
-                        iconValue={10}
+                        iconValue={"10"}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            points={'10'}
-                            time={'2016-01-05T01:32:21.196Z'}
+                            points={"10"}
+                            time={"2016-01-05T01:32:21.196Z"}
                         />
                     </HeaderCompositActivity>
                     <br />
@@ -791,8 +791,8 @@ export default class App extends React.Component {
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={'10'}
-                            points={'8'}
+                            co2={"10"}
+                            points={"8"}
                         />
                     </HeaderCompositUser>
                 </Preview>

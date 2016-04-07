@@ -39,7 +39,7 @@ function HeaderCompositUser(props) {
                     <Icon
                         icon={props.icon}
                         onClick={props.onIconClick}
-                        size="large1"
+                        size="standard"
                     />
             }
         </div>
@@ -51,7 +51,7 @@ HeaderCompositUser.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     icon: PropTypes.string,
-    iconValue: PropTypes.number,
+    iconValue: PropTypes.string,
     onIconClick: PropTypes.func,
     onProfileClick: PropTypes.func,
     profileLink: PropTypes.string,

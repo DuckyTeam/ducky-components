@@ -34,7 +34,7 @@ function HeaderCompositActivity(props) {
                     <Icon
                         icon={props.icon}
                         onClick={props.onIconClick}
-                        size="large1"
+                        size="standard"
                     />
             }
         </div>
@@ -46,7 +46,7 @@ HeaderCompositActivity.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
-    iconValue: React.PropTypes.number,
+    iconValue: React.PropTypes.string,
     onIconClick: React.PropTypes.func,
     title: React.PropTypes.string
 };
