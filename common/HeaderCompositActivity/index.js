@@ -31,7 +31,9 @@ function HeaderCompositActivity(props) {
                     icon={props.icon}
                   />
                 : <Icon
-                    icon={props.icon}
+                    icon={classNames(props.icon, {
+                        [styles.iconWithCursor]: Boolean(props.onIconClick)
+                    })}
                     onClick={props.onIconClick}
                     size="standard"
                   />
