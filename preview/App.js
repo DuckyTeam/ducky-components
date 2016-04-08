@@ -40,6 +40,7 @@ import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
+import CreatePostHeader from '../common/CreatePostHeader';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
@@ -960,6 +961,12 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
+                </Preview>
+
+                <Preview title="CreatePostHeader">
+                    <CreatePostHeader
+                        // avatar={AVATAR_URL}
+                        />
                 </Preview>
 
 
