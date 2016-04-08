@@ -43,10 +43,13 @@ import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
+const LOGBUTTON_WIDTH = 50;
+const COMMENTCAROUSEL_WIDTH = 250;
 const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
+const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 const notifications = [{
     id: "001",
     user: {
@@ -534,41 +537,41 @@ export default class App extends React.Component {
                         {"Avatar Small (24px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"small"}
-                        user={"all"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Standard (36px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"standard"}
-                        user={"friends"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Large (48px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"large"}
-                        user={"none"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Display1 (72px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"display1"}
-                        user={"all"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Display2 (96px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"display2"}
-                        user={"none"}
                     />
                 </Preview>
 
@@ -738,8 +741,8 @@ export default class App extends React.Component {
                         {'Wrapped Avatar'}
                     </div>
                     <IconAvaWrapper
+                        avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
-                        user={'friends'}
                     />
                 </Preview>
 
@@ -754,8 +757,8 @@ export default class App extends React.Component {
                         text={"Du har gjort noe bra!"}
                     >
                         <Avatar
+                            image={AVATAR_URL}
                             size={"standard"}
-                            user={"all"}
                         />
                     </NotificationItem>
                 </Preview>
@@ -786,6 +789,7 @@ export default class App extends React.Component {
                         {'HeaderCompositUser'}
                     </div>
                     <HeaderCompositUser
+                        avatar={AVATAR_URL}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
                         title={"Dette er et langt navn"}
@@ -908,18 +912,22 @@ export default class App extends React.Component {
 
                 <Preview
                     title="CommentCarousel"
-                    width={250}
+                    width={COMMENTCAROUSEL_WIDTH}
                 >
-                    <CommentCarousel name={"Gunnar"}>
-                      {"This is absolutely fantastic! What a great comment! ;)"}
+                    <CommentCarousel
+                        avatar={AVATAR_URL}
+                        name={"Gunnar"}
+                    >
+                        {"This is absolutely fantastic! What a great comment! ;)"}
                     </CommentCarousel>
                 </Preview>
 
                 <Preview
                     title="Comment"
-                    width={250}
+                    width={COMMENTCAROUSEL_WIDTH}
                 >
                     <Comment
+                        avatar={AVATAR_URL}
                         name={"Gunnar Gunnersen long name"}
                         published={Date.now()}
                     >
@@ -927,6 +935,7 @@ export default class App extends React.Component {
                     </Comment>
                     <br />
                     <Comment
+                        avatar={AVATAR_URL}
                         name={"Gunnar"}
                         published={Date.now()}
                     >
@@ -936,7 +945,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="CommentInput"
-                    width={300}
+                    width={HEADER_PREVIEW_WIDTH}
                 >
                     <CommentInput
                         onSubmit={this.handleSubmit}
@@ -946,9 +955,9 @@ export default class App extends React.Component {
 
                 <Preview
                     title="ScrollContainer"
-                    width={300}
+                    width={HEADER_PREVIEW_WIDTH}
                 >
-                    <ScrollContainer size={200}>
+                    <ScrollContainer size={PREVIEW_WIDTH}>
                         <div style={{backgroundColor: 'red', height: 300}}></div>
                         <div style={{backgroundColor: 'blue', height: 300}}></div>
                     </ScrollContainer>
@@ -956,7 +965,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="LogButton"
-                    width={50}
+                    width={LOGBUTTON_WIDTH}
                 >
                     <LogButton />
                     <LogButton checked />
