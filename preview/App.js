@@ -38,6 +38,7 @@ import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
+import IconDropdown from '../common/IconDropdown';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import Wrapper from '../common/Wrapper';
@@ -206,6 +207,10 @@ export default class App extends React.Component {
 
     handleIconDisplayTwoClick() {
         console.log("IconDisplayTwo");
+    }
+
+    handleIconDropdownClick() {
+        console.log("IconDropdown clicked");
     }
 
     handleSubmit() {
@@ -969,6 +974,17 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
+                </Preview>
+
+                <Preview title="IconDropdown">
+                    <IconDropdown
+                        icon="icon-home"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                    <IconDropdown
+                        icon="icon-data_usage"
+                        onClick={this.handleIconDropdownClick}
+                    />
                 </Preview>
 
 
