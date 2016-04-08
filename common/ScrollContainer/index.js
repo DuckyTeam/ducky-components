@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {PropTypes} from 'react';
 import styles from './styles.css';
+import classNames from 'classnames';
 
 class ScrollContainer extends React.Component {
     constructor(props) {
@@ -25,7 +26,9 @@ class ScrollContainer extends React.Component {
     render() {
         return (
             <div
-                className={styles.wrapper}
+                className={classNames(styles.wrapper, {
+                    [this.props.className]: this.props.className
+                })}
                 ref={this.handleRef}
                 style={{maxHeight: this.props.size}}
             >
@@ -37,6 +40,7 @@ class ScrollContainer extends React.Component {
 
 ScrollContainer.propTypes = {
     children: PropTypes.node,
+    className: PropTypes.string,
     scrollOnUpdate: PropTypes.oneOf(['bottom', 'top']),
     size: PropTypes.number
 };
