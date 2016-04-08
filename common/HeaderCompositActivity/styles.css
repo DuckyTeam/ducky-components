@@ -25,3 +25,7 @@
   flex-direction: row;
   align-items: flex-start;
 }
+
+.iconWithCursor {
+  cursor: pointer;
+}
