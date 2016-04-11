@@ -16,9 +16,11 @@ class Modal extends React.Component {
         }
 
         return (
-            <div className={classNames(styles.backdrop, {
-                [this.props.className]: this.props.className
-            })}
+            <div
+                className={classNames(styles.backdrop, {
+                    [this.props.className]: this.props.className
+                })}
+                onClick={this.props.onHide}
             >
                 <div className={styles.modalWrapper}>
                     <div
