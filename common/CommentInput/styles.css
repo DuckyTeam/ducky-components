@@ -9,15 +9,6 @@
   width: 100%;
 }
 
-.textarea {
-  border: 0;
-  background-color: transparent;
-  width: 100%;
-  resize: none;
-  outline: none;
-  min-height: 20px;
-}
-
 .form {
   display: flex;
 }
