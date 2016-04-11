@@ -21,3 +21,7 @@
 .label {
     margin: 0 12px;
 }
+
+.inactive {
+  opacity: 0.4;
+}
