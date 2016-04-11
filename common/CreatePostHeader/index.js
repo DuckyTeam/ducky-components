@@ -35,7 +35,9 @@ function CreatePostHeader(props) {
                         type="caption2Normal"
                     />
                     <Typography
-                        className={classNames(styles.label, {[styles.inactive]: !props.textActivated || !props.imageActivated})}
+                        className={classNames(styles.label, {
+                            [styles.inactive]: !props.textActivated || !props.imageActivated
+                        })}
                         type="caption2Normal"
                     >{"+"}</Typography>
                     <LabelSmall
@@ -45,11 +47,15 @@ function CreatePostHeader(props) {
                         type="caption2Normal"
                     />
                     <Typography
-                        className={classNames(styles.label, {[styles.inactive]: !props.textActivated && !props.imageActivated})}
+                        className={classNames(styles.label, {
+                            [styles.inactive]: !props.textActivated && !props.imageActivated
+                        })}
                         type={"caption2Normal"}
                     >{"="}</Typography>
                     <LabelSmall
-                        className={classNames({[styles.inactive]: !props.textActivated && !props.imageActivated})}
+                        className={classNames({
+                            [styles.inactive]: !props.textActivated && !props.imageActivated
+                        })}
                         content={props.points}
                         icon={"icon-brightness_high"}
                         type="caption2Normal"
@@ -67,8 +73,8 @@ function CreatePostHeader(props) {
 CreatePostHeader.propTypes = {
     avatar: PropTypes.string,
     className: PropTypes.string,
-    name: PropTypes.string,
     imageActivated: PropTypes.bool,
+    name: PropTypes.string,
     onClick: PropTypes.func,
     points: PropTypes.number,
     profileLink: PropTypes.string,
