@@ -29,24 +29,27 @@ function CreatePostHeader(props) {
                 </Typography>
                 <div className={styles.labelWrapper}>
                     <LabelSmall
+                        className={classNames({[styles.inactive]: !props.textActivated})}
                         content={"Tekst"}
                         icon={"icon-mode_edit"}
                         type="caption2Normal"
                     />
                     <Typography
-                        className={styles.label}
+                        className={classNames(styles.label, {[styles.inactive]: !props.textActivated || !props.imageActivated})}
                         type="caption2Normal"
                     >{"+"}</Typography>
                     <LabelSmall
+                        className={classNames({[styles.inactive]: !props.imageActivated})}
                         content={"Bilde"}
                         icon={"icon-mode_edit"}
                         type="caption2Normal"
                     />
                     <Typography
-                        className={styles.label}
+                        className={classNames(styles.label, {[styles.inactive]: !props.textActivated && !props.imageActivated})}
                         type={"caption2Normal"}
                     >{"="}</Typography>
                     <LabelSmall
+                        className={classNames({[styles.inactive]: !props.textActivated && !props.imageActivated})}
                         content={props.points}
                         icon={"icon-brightness_high"}
                         type="caption2Normal"
@@ -63,12 +66,13 @@ function CreatePostHeader(props) {
 
 CreatePostHeader.propTypes = {
     avatar: PropTypes.string,
-    children: PropTypes.node,
     className: PropTypes.string,
     name: PropTypes.string,
+    imageActivated: PropTypes.bool,
     onClick: PropTypes.func,
     points: PropTypes.number,
-    profileLink: PropTypes.string
+    profileLink: PropTypes.string,
+    textActivated: PropTypes.bool
 };
 
 export default CreatePostHeader;
