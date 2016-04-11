@@ -19,7 +19,6 @@ function CreatePostHeader(props) {
             <div className={styles.content}>
                 <Typography
                     className={styles.title}
-                    onClick={props.onProfileClick}
                     type="bodyTextTitle"
                 >
                     <a href={props.profileLink}>
@@ -36,6 +35,7 @@ function CreatePostHeader(props) {
 
 CreatePostHeader.propTypes = {
     avatar: PropTypes.string,
+    children: PropTypes.node,
     className: PropTypes.string,
     name: PropTypes.string,
     profileLink: PropTypes.string

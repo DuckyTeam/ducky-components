@@ -974,8 +974,9 @@ export default class App extends React.Component {
 
                 <Preview title="CreatePostHeader">
                     <CreatePostHeader
-                        // avatar={AVATAR_URL}
-                        />
+                        avatar={AVATAR_URL}
+                        name="Gunnar Gunnersen"
+                    />
                 </Preview>
 
 
