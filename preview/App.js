@@ -51,6 +51,7 @@ const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
+const DUCKYPOINTS = 10;
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 const notifications = [{
     id: "001",
@@ -216,6 +217,10 @@ export default class App extends React.Component {
 
     handleSubmit() {
         console.log('submitted');
+    }
+
+    handleCreatePostHeaderClick() {
+        console.log('CreatePostHeader clicked');
     }
 
     /* eslint-enable no-console */
@@ -980,7 +985,11 @@ export default class App extends React.Component {
                 <Preview title="CreatePostHeader">
                     <CreatePostHeader
                         avatar={AVATAR_URL}
+                        image={Boolean(true)}
                         name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={DUCKYPOINTS}
+                        text={Boolean(false)}
                     />
                 </Preview>
 

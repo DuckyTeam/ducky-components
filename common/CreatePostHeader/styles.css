@@ -13,3 +13,11 @@
   width: 100%;
   align-self: center;
 }
+
+.labelWrapper {
+  font-weight: bold;
+}
+
+.label {
+    margin: 0 12px;
+}

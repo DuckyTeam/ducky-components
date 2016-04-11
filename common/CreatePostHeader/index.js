@@ -4,6 +4,8 @@ import styles from './styles.css';
 import classNames from 'classnames';
 import Avatar from '../Avatar';
 import Typography from '../Typography';
+import IconDropdown from '../IconDropdown';
+import LabelSmall from '../LabelSmall';
 
 function CreatePostHeader(props) {
     return (
@@ -26,9 +28,35 @@ function CreatePostHeader(props) {
                     </a>
                 </Typography>
                 <div className={styles.labelWrapper}>
-                    {props.children}
+                    <LabelSmall
+                        content={"Tekst"}
+                        icon={"icon-mode_edit"}
+                        type="caption2Normal"
+                    />
+                    <Typography
+                        className={styles.label}
+                        type="caption2Normal"
+                    >{"+"}</Typography>
+                    <LabelSmall
+                        content={"Bilde"}
+                        icon={"icon-mode_edit"}
+                        type="caption2Normal"
+                    />
+                    <Typography
+                        className={styles.label}
+                        type={"caption2Normal"}
+                    >{"="}</Typography>
+                    <LabelSmall
+                        content={props.points}
+                        icon={"icon-brightness_high"}
+                        type="caption2Normal"
+                    />
                 </div>
             </div>
+            <IconDropdown
+                icon="icon-public"
+                onClick={props.onClick}
+            />
         </div>
     );
 }
@@ -38,6 +66,8 @@ CreatePostHeader.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     name: PropTypes.string,
+    onClick: PropTypes.func,
+    points: PropTypes.number,
     profileLink: PropTypes.string
 };
 
