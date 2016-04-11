@@ -42,6 +42,7 @@ import IconDropdown from '../common/IconDropdown';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import CreatePostHeader from '../common/CreatePostHeader';
+import TextArea from '../common/TextArea';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
@@ -81,7 +82,8 @@ export default class App extends React.Component {
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
-            showCopyLink: false
+            showCopyLink: false,
+            textAreaValue: ""
         };
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
@@ -95,6 +97,7 @@ export default class App extends React.Component {
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
         this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
+        this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
     }
 
     handleModalButtonClick() {
@@ -143,6 +146,10 @@ export default class App extends React.Component {
 
     handleCopyLinkHide() {
         this.setState({showCopyLink: false});
+    }
+
+    handleOnTextAreaChange(event) {
+        this.setState({textAreaValue: event.target.value});
     }
 
     /* eslint-enable react/no-set-state */
@@ -221,6 +228,10 @@ export default class App extends React.Component {
 
     handleCreatePostHeaderClick() {
         console.log('CreatePostHeader clicked');
+    }
+
+    handleOnTextAreaSubmit() {
+        console.log('TextArea submitted');
     }
 
     /* eslint-enable no-console */
@@ -1001,6 +1012,15 @@ export default class App extends React.Component {
                     <IconDropdown
                         icon="icon-data_usage"
                         onClick={this.handleIconDropdownClick}
+                    />
+                </Preview>
+
+                <Preview title="TextArea">
+                    <TextArea
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
                     />
                 </Preview>
 
