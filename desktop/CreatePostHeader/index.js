@@ -2,10 +2,10 @@ import React from 'react';
 import {PropTypes} from 'react';
 import styles from './styles.css';
 import classNames from 'classnames';
-import Avatar from '../Avatar';
-import Typography from '../Typography';
-import IconDropdown from '../IconDropdown';
-import LabelSmall from '../LabelSmall';
+import Avatar from '../../common/Avatar';
+import Typography from '../../common/Typography';
+import IconDropdown from '../../common/IconDropdown';
+import LabelSmall from '../../common/LabelSmall';
 
 function CreatePostHeader(props) {
     return (

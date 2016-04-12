@@ -19,6 +19,7 @@ const options = {
                 loader: "babel",
                 include: [
                     path.resolve(__dirname, "common"),
+                    path.resolve(__dirname, "desktop"),
                     path.resolve(__dirname, "preview")
                 ],
                 query: {
@@ -75,6 +76,7 @@ const options = {
         extensions: ["", ".js", ".jsx"],
         root: [
             path.resolve(__dirname, "common"),
+            path.resolve(__dirname, "desktop"),
             path.resolve(__dirname, "preview")
         ]
     }
