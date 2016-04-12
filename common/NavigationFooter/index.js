@@ -7,10 +7,16 @@ function NavigationFooter(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <div className={styles.buttonWrapper}>
-                <button className={styles.button}>
+                <button
+                    className={styles.button}
+                    onClick={props.onAdvance}
+                >
                     {"Avbryt"}
                 </button>
-                <button className={styles.button}>
+                <button
+                    className={styles.button}
+                    onClick={props.onCancel}
+                >
                     {"Publiser"}
                 </button>
             </div>
@@ -19,7 +25,9 @@ function NavigationFooter(props) {
 }
 
 NavigationFooter.propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    onAdvance: PropTypes.func,
+    onCancel: PropTypes.func
 };
 
 export default NavigationFooter;
