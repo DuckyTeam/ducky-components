@@ -8,12 +8,15 @@ function ActionButton(props) {
         <div
             className={classNames(styles.wrapper, {
                 [styles[props.size]]: props.size,
-                [props.className]: props.className,
-                [props.icon]: props.icon
+                [props.className]: props.className
             })}
             onClick={props.onClick}
         >
-            <Icon size="standard" />
+            <Icon
+                className={styles.icon}
+                icon={props.icon}
+                size="standard"
+            />
         </div>
     );
 }
