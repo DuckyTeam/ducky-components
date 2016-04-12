@@ -45,6 +45,8 @@ import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
+import CreatePostFooter from '../desktop/CreatePostFooter';
+import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const LOGBUTTON_WIDTH = 50;
@@ -1022,6 +1024,12 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="CreatePostNavigationFooter">
+                    <div style={{marginTop: 10}}>
+                        <CreatePostNavigationFooter />
+                    </div>
+                </Preview>
+
                 <Preview
                     title="RemoveImage"
                     width={HEADER_PREVIEW_WIDTH}
@@ -1063,6 +1071,23 @@ export default class App extends React.Component {
                         points={DUCKYPOINTS_20}
                         textActivated={Boolean(true)}
                     />
+                </Preview>
+
+
+                <Preview title="CreatePostFooter">
+                    <CreatePostFooter>
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
+
+                    <CreatePostFooter image={Boolean(true)}>
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
                 </Preview>
             </div>
         );
