@@ -43,6 +43,7 @@ import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
+import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
@@ -52,6 +53,8 @@ const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
+const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
+"funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
 const DUCKYPOINTS_20 = 20;
 const DUCKYPOINTS_10 = 10;
 const DUCKYPOINTS_0 = 0;
@@ -234,6 +237,10 @@ export default class App extends React.Component {
 
     handleOnTextAreaSubmit() {
         console.log('TextArea submitted');
+    }
+
+    handleRemoveImageClick() {
+        console.log('RemoveImage button clicked');
     }
 
     /* eslint-enable no-console */
@@ -1012,6 +1019,16 @@ export default class App extends React.Component {
                         onSubmit={this.handleOnTextAreaSubmit}
                         placeholder={"Write something..."}
                         value={this.state.textAreaValue}
+                    />
+                </Preview>
+
+                <Preview
+                    title="RemoveImage"
+                    width={HEADER_PREVIEW_WIDTH}
+                >
+                    <RemoveImage
+                        image={IMAGE_URL}
+                        onClick={this.handleRemoveImageClick}
                     />
                 </Preview>
 

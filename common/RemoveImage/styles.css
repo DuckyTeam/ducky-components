@@ -1,0 +1,14 @@
+.wrapper {
+  position: relative;
+  display: block;
+}
+
+.button {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.image {
+  width: 100%;
+}
