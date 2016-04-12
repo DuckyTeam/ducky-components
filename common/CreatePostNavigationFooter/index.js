@@ -9,13 +9,13 @@ function NavigationFooter(props) {
             <div className={styles.buttonWrapper}>
                 <button
                     className={styles.button}
-                    onClick={props.onAdvance}
+                    onClick={props.onCancel}
                 >
                     {"Avbryt"}
                 </button>
                 <button
                     className={styles.button}
-                    onClick={props.onCancel}
+                    onClick={props.onAdvance}
                 >
                     {"Publiser"}
                 </button>
