@@ -21,7 +21,8 @@ class TextArea extends React.Component {
         }
     }
     render() {
-        const textType = this.props.textType || 'bodyTextNormal';
+        const textType = this.props.textType || 'bodyTextNormal';
+
         return (
             <ReactTextArea
                 className={`${styles.textarea} ${TypographyCSS[textType]}`}
