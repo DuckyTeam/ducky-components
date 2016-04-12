@@ -52,7 +52,9 @@ const HEADER_PREVIEW_WIDTH = 300;
 const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
 const LABEL_ONE = 8;
 const LABEL_TWO = 12;
-const DUCKYPOINTS = 10;
+const DUCKYPOINTS_20 = 20;
+const DUCKYPOINTS_10 = 10;
+const DUCKYPOINTS_0 = 0;
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 const notifications = [{
     id: "001",
@@ -996,11 +998,29 @@ export default class App extends React.Component {
                 <Preview title="CreatePostHeader">
                     <CreatePostHeader
                         avatar={AVATAR_URL}
-                        image={Boolean(true)}
+                        imageActivated={Boolean(false)}
                         name="Gunnar Gunnersen"
                         onClick={this.handleCreatePostHeaderClick}
-                        points={DUCKYPOINTS}
-                        text={Boolean(false)}
+                        points={DUCKYPOINTS_0}
+                        textActivated={Boolean(false)}
+                    />
+
+                    <CreatePostHeader
+                        avatar={AVATAR_URL}
+                        imageActivated={Boolean(false)}
+                        name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={DUCKYPOINTS_10}
+                        textActivated={Boolean(true)}
+                    />
+
+                    <CreatePostHeader
+                        avatar={AVATAR_URL}
+                        imageActivated={Boolean(true)}
+                        name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={DUCKYPOINTS_20}
+                        textActivated={Boolean(true)}
                     />
                 </Preview>
 
