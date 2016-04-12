@@ -3,7 +3,7 @@ import {PropTypes} from 'react';
 import styles from './styles.css';
 import classNames from 'classnames';
 
-function CreatePostNavigationFooter(props) {
+function NavigationFooter(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <div className={styles.buttonWrapper}>
@@ -24,10 +24,10 @@ function CreatePostNavigationFooter(props) {
     );
 }
 
-CreatePostNavigationFooter.propTypes = {
+NavigationFooter.propTypes = {
     className: PropTypes.string,
     onAdvance: PropTypes.func,
     onCancel: PropTypes.func
 };
 
-export default CreatePostNavigationFooter;
+export default NavigationFooter;

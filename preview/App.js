@@ -46,7 +46,7 @@ import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
 import CreatePostFooter from '../desktop/CreatePostFooter';
-import NavigationFooter from '../common/NavigationFooter';
+import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const LOGBUTTON_WIDTH = 50;
@@ -1024,9 +1024,9 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="NavigationFooter">
+                <Preview title="CreatePostNavigationFooter">
                     <div style={{marginTop: 10}}>
-                        <NavigationFooter />
+                        <CreatePostNavigationFooter />
                     </div>
                 </Preview>
 
