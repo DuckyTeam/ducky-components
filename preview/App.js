@@ -41,7 +41,7 @@ import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
-import CreatePostHeader from '../common/CreatePostHeader';
+import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
 import Wrapper from '../common/Wrapper';
 import styles from './App.css';
@@ -995,6 +995,30 @@ export default class App extends React.Component {
                     <LogButton checked />
                 </Preview>
 
+                <Preview title="IconDropdown">
+                    <IconDropdown
+                        icon="icon-home"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                    <IconDropdown
+                        icon="icon-data_usage"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                </Preview>
+
+                <Preview title="TextArea">
+                    <TextArea
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
+                    />
+                </Preview>
+
+                <h1>{"/mobile"}</h1>
+                <h1>{"/pad"}</h1>
+                <h1>{"/desktop"}</h1>
+
                 <Preview title="CreatePostHeader">
                     <CreatePostHeader
                         avatar={AVATAR_URL}
@@ -1023,31 +1047,6 @@ export default class App extends React.Component {
                         textActivated={Boolean(true)}
                     />
                 </Preview>
-
-                <Preview title="IconDropdown">
-                    <IconDropdown
-                        icon="icon-home"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                    <IconDropdown
-                        icon="icon-data_usage"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                </Preview>
-
-                <Preview title="TextArea">
-                    <TextArea
-                        onChange={this.handleOnTextAreaChange}
-                        onSubmit={this.handleOnTextAreaSubmit}
-                        placeholder={"Write something..."}
-                        value={this.state.textAreaValue}
-                    />
-                </Preview>
-
-
-                <h1>{"/mobile"}</h1>
-                <h1>{"/pad"}</h1>
-                <h1>{"/desktop"}</h1>
             </div>
         );
     }

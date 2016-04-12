@@ -21,9 +21,11 @@ class TextArea extends React.Component {
         }
     }
     render() {
+        const textType = this.props.textType || 'bodyTextNormal';
+
         return (
             <ReactTextArea
-                className={`${styles.textarea} ${TypographyCSS.bodyTextNormal}`}
+                className={`${styles.textarea} ${TypographyCSS[textType]}`}
                 onChange={this.props.onChange}
                 onKeyPress={this.handleKeyPress}
                 placeholder={this.props.placeholder}
@@ -39,6 +41,7 @@ TextArea.propTypes = {
     onSubmit: React.PropTypes.func,
     placeholder: React.PropTypes.string,
     showFullText: React.PropTypes.bool,
+    textType: React.PropTypes.oneOf(Object.keys(TypographyCSS)),
     value: React.PropTypes.string
 };
 
