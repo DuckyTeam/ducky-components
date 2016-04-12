@@ -44,6 +44,7 @@ import Typography from '../common/Typography';
 import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
 import Wrapper from '../common/Wrapper';
+import CreatePostFooter from '../desktop/CreatePostFooter';
 import styles from './App.css';
 const PREVIEW_WIDTH = 200;
 const LOGBUTTON_WIDTH = 50;
@@ -1046,6 +1047,23 @@ export default class App extends React.Component {
                         points={DUCKYPOINTS_20}
                         textActivated={Boolean(true)}
                     />
+                </Preview>
+
+
+                <Preview title="CreatePostFooter">
+                    <CreatePostFooter>
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
+
+                    <CreatePostFooter image={Boolean(true)}>
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
                 </Preview>
             </div>
         );
