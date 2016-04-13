@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './styles.css';
 
 function Button(props) {
@@ -10,7 +11,7 @@ function Button(props) {
 
     return (
         <button
-            className={buttonType}
+            className={classnames(buttonType, {[props.className]: props.className})}
             onClick={props.onClick}
         >
             {props.children}
