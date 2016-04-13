@@ -51,18 +51,8 @@ import CreatePostFooter from '../desktop/CreatePostFooter';
 import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import IconSVG from '../common/IconSVG';
 import styles from './App.css';
-const PREVIEW_WIDTH = 200;
-const LOGBUTTON_WIDTH = 50;
-const COMMENTCAROUSEL_WIDTH = 250;
-const HEADER_PREVIEW_WIDTH = 300;
-const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
-const LABEL_ONE = 8;
-const LABEL_TWO = 12;
 const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
 "funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
-const DUCKYPOINTS_20 = 20;
-const DUCKYPOINTS_10 = 10;
-const DUCKYPOINTS_0 = 0;
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 const notifications = [{
     id: "001",
@@ -257,14 +247,14 @@ export default class App extends React.Component {
 
                 <Preview
                     title="/Popup"
-                    width={PREVIEW_WIDTH}
+                    width={200}
                 >
                     <Popup>{'hey'}</Popup>
                 </Preview>
 
                 <Preview
                     title="/Modal"
-                    width={PREVIEW_WIDTH}
+                    width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
                         {"Show modal"}
@@ -279,14 +269,14 @@ export default class App extends React.Component {
 
                 <Preview
                     title="/IconImage"
-                    width={PREVIEW_WIDTH}
+                    width={200}
                 >
                     <IconImage />
                 </Preview>
 
                 <Preview
                     title="/Header"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <Header
                         subTitle="Favoritter (0)"
@@ -308,7 +298,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title={"TopNavigationBar"}
-                    width={TOP_NAVIGATION_PREVIEW_WIDTH}
+                    width={900}
                 >
                     <TopNavigationBar
                         notifications={0}
@@ -321,7 +311,7 @@ export default class App extends React.Component {
                         icon={'icon-favorite'}
                         onClick={this.handleFavoriteClicked}
                     >
-                        {LABEL_ONE}
+                        {8}
                     </LabelFooterAction>
 
                     <LabelFooterAction
@@ -333,13 +323,13 @@ export default class App extends React.Component {
                         icon={'icon-trophy-outline'}
                         onClick={this.handleBookmarkClicked}
                     >
-                        {LABEL_TWO}
+                        {12}
                     </LabelFooterAction>
                 </Preview>
 
                 <Preview
                     title="/TextOnlyElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <TextOnlyElement>
                         {[
@@ -387,7 +377,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="/TextImageElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <TextImageElement>
                         {"Dette er en kjempe fin tekst. " +
@@ -448,9 +438,9 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    height={HEADER_PREVIEW_WIDTH}
+                    height={300}
                     title="/ImageElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <ImageElement
                         onClick={this.handleImageElementClick}
@@ -821,6 +811,20 @@ export default class App extends React.Component {
                         />
                     </HeaderCompositActivity>
                     <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        icon={"icon-pig"}
+                        iconValue={"10"}
+                        title={"Dette er et langt navn"}
+                    />
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositActivity>
+                    <br />
                     <div className={styles.subHeader}>
                         {'HeaderCompositUser'}
                     </div>
@@ -835,6 +839,28 @@ export default class App extends React.Component {
                             points={"8"}
                         />
                     </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={"10"}
+                            points={"8"}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    />
                 </Preview>
 
                 <Preview title={"SectionHeaderGeneral"}
@@ -948,7 +974,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="CommentCarousel"
-                    width={COMMENTCAROUSEL_WIDTH}
+                    width={250}
                 >
                     <CommentCarousel
                         avatar={AVATAR_URL}
@@ -960,7 +986,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="Comment"
-                    width={COMMENTCAROUSEL_WIDTH}
+                    width={250}
                 >
                     <Comment
                         avatar={AVATAR_URL}
@@ -981,7 +1007,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="CommentInput"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <CommentInput
                         onSubmit={this.handleSubmit}
@@ -991,9 +1017,9 @@ export default class App extends React.Component {
 
                 <Preview
                     title="ScrollContainer"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
-                    <ScrollContainer size={PREVIEW_WIDTH}>
+                    <ScrollContainer size={200}>
                         <div style={{backgroundColor: 'red', height: 300}}></div>
                         <div style={{backgroundColor: 'blue', height: 300}}></div>
                     </ScrollContainer>
@@ -1001,7 +1027,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="LogButton"
-                    width={LOGBUTTON_WIDTH}
+                    width={50}
                 >
                     <LogButton />
                     <LogButton checked />
@@ -1035,7 +1061,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="RemoveImage"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <RemoveImage
                         image={IMAGE_URL}
@@ -1104,7 +1130,7 @@ export default class App extends React.Component {
                         imageActivated={Boolean(false)}
                         name="Gunnar Gunnersen"
                         onClick={this.handleCreatePostHeaderClick}
-                        points={DUCKYPOINTS_0}
+                        points={0}
                         textActivated={Boolean(false)}
                     />
 
@@ -1113,7 +1139,7 @@ export default class App extends React.Component {
                         imageActivated={Boolean(false)}
                         name="Gunnar Gunnersen"
                         onClick={this.handleCreatePostHeaderClick}
-                        points={DUCKYPOINTS_10}
+                        points={10}
                         textActivated={Boolean(true)}
                     />
 
@@ -1122,7 +1148,7 @@ export default class App extends React.Component {
                         imageActivated={Boolean(true)}
                         name="Gunnar Gunnersen"
                         onClick={this.handleCreatePostHeaderClick}
-                        points={DUCKYPOINTS_20}
+                        points={20}
                         textActivated={Boolean(true)}
                     />
                 </Preview>
