@@ -1,0 +1,39 @@
+.wrapper {
+  color: #607D8B;
+}
+
+.nano {
+  width: 10px;
+}
+
+.micro {
+  width: 12px;
+}
+
+.mini {
+  width: 16px;
+}
+
+.small {
+  width: 20px;
+}
+
+.standard {
+  width: 24px;
+}
+
+.large1 {
+  width: 36px;
+}
+
+.large2 {
+  width: 48px;
+}
+
+.display1 {
+  width: 72px;
+}
+
+.display2 {
+  width: 96px;
+}
