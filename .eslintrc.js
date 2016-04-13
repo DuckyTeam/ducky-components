@@ -101,7 +101,7 @@ module.exports = {
         "no-labels": 2,
         "no-lone-blocks": 2,
         "no-loop-func": 2,
-        "no-magic-numbers": [2, {ignore: [0]}],
+        "no-magic-numbers": [0, {ignore: [0]}],
         // Reason: By popular demand, several functions needs a 0 starting point
         "no-multi-spaces": 2,
         "no-multi-str": 2,
