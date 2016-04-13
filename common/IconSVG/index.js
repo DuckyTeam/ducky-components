@@ -83,8 +83,8 @@ IconSVG.propTypes = {
     className: React.PropTypes.string,
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
-    size: React.PropTypes.oneOf(['nano', 'micro', 'mini', 'small', 'standard',
-        'large1', 'large2', 'display1', 'display2'])
+    size: React.PropTypes.oneOf(['small', 'standard',
+        'large', 'display1', 'display2'])
 };
 
 export default IconSVG;
