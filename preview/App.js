@@ -22,6 +22,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import TabMenuIconButtons from '../common/TabMenuIconButtons';
 import LogButton from "../common/LogButton";
 import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
@@ -1038,6 +1039,28 @@ export default class App extends React.Component {
                         image={IMAGE_URL}
                         onClick={this.handleRemoveImageClick}
                     />
+                </Preview>
+
+                <Preview
+                    title="Tab Menu 1 - Icon Buttons"
+                    width={300}
+                >
+                    <TabMenuIconButtons
+                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
+                        selected={2}
+                    >
+                        <Typography>{"Child One"}</Typography>
+                        <p>{"Child Two"}</p>
+                        <div>
+                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
+                            <Typography
+                                type={"bodyTextNormal"}
+                            >
+                                {"Hello there! I am the third item on this tab menu. I am groot!"}
+                            </Typography>
+                        </div>
+                        <p>{"Child Four"}</p>
+                    </TabMenuIconButtons>
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

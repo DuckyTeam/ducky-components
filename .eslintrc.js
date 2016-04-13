@@ -248,7 +248,7 @@ module.exports = {
         // ECMAScript 6
         // These rules are only relevant to ES6 environments.
 
-        "arrow-body-style": [2, "always"],
+        "arrow-body-style": 0,
         "arrow-parens": 2,
         "arrow-spacing": 2,
         "constructor-super": 2,
@@ -304,7 +304,7 @@ module.exports = {
         "react/jsx-indent": 2,
         "react/jsx-key": 2,
         "react/jsx-max-props-per-line": 2,
-        "react/jsx-no-bind": 2,
+        "react/jsx-no-bind": 0,
         "react/jsx-no-duplicate-props": 2,
         "react/jsx-no-literals": 2,
         "react/jsx-no-undef": 2,
