@@ -819,6 +819,20 @@ export default class App extends React.Component {
                         />
                     </HeaderCompositActivity>
                     <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        icon={"icon-pig"}
+                        iconValue={"10"}
+                        title={"Dette er et langt navn"}
+                    />
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositActivity>
+                    <br />
                     <div className={styles.subHeader}>
                         {'HeaderCompositUser'}
                     </div>
@@ -833,6 +847,28 @@ export default class App extends React.Component {
                             points={"8"}
                         />
                     </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={"10"}
+                            points={"8"}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    />
                 </Preview>
 
                 <Preview title={"SectionHeaderGeneral"}
