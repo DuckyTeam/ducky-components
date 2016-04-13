@@ -21,6 +21,7 @@ function Button(props) {
 
 Button.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     onClick: React.PropTypes.func,
     type: React.PropTypes.string
 };
