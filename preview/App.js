@@ -37,6 +37,7 @@ import ScrollContainer from '../common/ScrollContainer';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
+import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
@@ -48,6 +49,7 @@ import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
 import CreatePostFooter from '../desktop/CreatePostFooter';
 import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
+import IconSVG from '../common/IconSVG';
 import styles from './App.css';
 const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
 "funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
@@ -1087,6 +1089,35 @@ export default class App extends React.Component {
                         </div>
                         <p>{"Child Four"}</p>
                     </TabMenuIconButtons>
+                </Preview>
+
+                <Preview
+                    title="Suggested Hashtags"
+                    width={400}
+                >
+                    <SuggestedHashtags
+                        hashtags={[
+                            "lolrerewedsdsfdsfsfsdfdsfddsas",
+                            "yolo",
+                            "lol",
+                            "yolo",
+                            "lol",
+                            "lol",
+                            "yolo",
+                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
+                        ]}
+                    />
+                </Preview>
+
+                <Preview>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"standard"}
+                    />
+                    <IconSVG
+                        icon={"Consumption_03"}
+                        size={"large1"}
+                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
