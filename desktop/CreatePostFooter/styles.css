@@ -23,3 +23,16 @@
   align-items: flex-end;
   flex-direction: column;
 }
+
+.input {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.label {
+  cursor: pointer;
+  display: block;
+  position: relative;
+}

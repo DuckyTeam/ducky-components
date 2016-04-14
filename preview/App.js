@@ -238,6 +238,10 @@ export default class App extends React.Component {
         console.log('RemoveImage button clicked');
     }
 
+    handleOnFileSelected(event) {
+        console.log('selected file', event.target.files);
+    }
+
     /* eslint-enable no-console */
 
     render() {
@@ -1155,7 +1159,9 @@ export default class App extends React.Component {
 
 
                 <Preview title="CreatePostFooter">
-                    <CreatePostFooter>
+                    <CreatePostFooter
+                        onFileSelected={this.handleOnFileSelected}
+                    >
                         <ActionButton
                             icon="icon-restaurant"
                             size="standard"
