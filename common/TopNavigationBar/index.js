@@ -25,11 +25,7 @@ class TopNavigationBar extends React.Component {
                     <i className={`${styles.menuIcon} icon-menu`} />
                 </a>
                 <a onClick={this.props.onClickDucky}>
-                    <i className={`${styles.logo} icon-duckylogo`}>
-                        <sub className={styles.beta}>
-                            {'beta'}
-                        </sub>
-                    </i>
+                    <i className={`${styles.logo} icon-duckylogo`} />
                 </a>
                 <Typography className={styles.split}
                     type={"ingressNormal"}
