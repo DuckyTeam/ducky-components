@@ -11,7 +11,7 @@
     background-color: inherit;
     position: absolute;
     left: -310px;
-    transition: 1s ease;
+    transition: 0.5s ease;
     z-index: 100;
 }
 .showleft {
@@ -22,7 +22,7 @@
     background-color: inherit;
     position: absolute;
     left: 0px;
-    transition:  1s ease;
+    transition:  0.5s ease;
     z-index: 100;
 }
 
@@ -33,7 +33,7 @@
     background: #FFFFFF;
     position: fixed;
     right: -310px;
-    transition: 1s ease;
+    transition: 0.5s ease;
     overflow-x: hidden;
     z-index: 100;
 }
@@ -44,7 +44,7 @@
     background: #FFFFFF;
     position: absolute;
     right: 0px;
-    transition: 1s ease;
+    transition: 0.5s ease;
     overflow-x: hidden;
     z-index: 100;
 }

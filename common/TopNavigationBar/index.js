@@ -47,7 +47,7 @@ class TopNavigationBar extends React.Component {
                 <a onClick={this.props.onClickNotification}>
                     {this.getNotificationCounter(this.props.notifications)}
                 </a>
-                {/*<a onClick={this.props.onClickSearch}>
+                {/* <a onClick={this.props.onClickSearch}>
                     <i className={`icon-search ${styles.rightIcon}`} />
                 </a>*/}
             </div>
