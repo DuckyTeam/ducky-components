@@ -29,7 +29,6 @@ import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import NotificationItem from './../common/NotificationItem';
-import NotificationMenuContent from './../common/NotificationMenuContent';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
@@ -54,17 +53,6 @@ import styles from './App.css';
 const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
 "funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
-const notifications = [{
-    id: "001",
-    user: {
-        id: "123",
-        name: "Navn Navnesen ",
-        imageUrl: "http://tinyurl.com/jzdtpvm"
-    },
-    date: '2016-03-22 14:32:21',
-    icon: "icon-textsms",
-    text: "kommenter innlegget ditt"
-}];
 
 export default class App extends React.Component {
 
@@ -953,12 +941,6 @@ export default class App extends React.Component {
                         onClick={this.handleIconSmallClick}
                     />
                 </MenuWrapper>
-
-                <Preview title="/Notifications">
-                    <NotificationMenuContent
-                        notifications={notifications}
-                    />
-                </Preview>
 
                 <Preview title="/ShareMenu">
                     <CopyLink

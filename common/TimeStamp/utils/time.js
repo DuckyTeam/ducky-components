@@ -40,7 +40,6 @@ export function timeSince(date, short = false) {
     if (moment().date() === moment(date).date() &&
         moment().month() === moment(date).month() &&
         moment().year() === moment(date).year()) {
-        console.log(date);
         return moment(date).fromNow(short);
     }
     return moment(date).calendar();
