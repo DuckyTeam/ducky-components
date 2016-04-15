@@ -20,10 +20,14 @@
 
 }
 
-.wrapper {
-    background-color: white;
+.true {
+    background-color: transparent;
 }
 
-.wrapper:active {
-    background-color: transparent;
+.false {
+    background-color: #F4F7F9;
+    width: 100%;
+}
+
+.wrappers {
 }

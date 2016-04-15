@@ -25,7 +25,11 @@ class TopNavigationBar extends React.Component {
                     <i className={`${styles.menuIcon} icon-menu`} />
                 </a>
                 <a onClick={this.props.onClickDucky}>
-                    <i className={`${styles.logo} icon-duckylogo`} />
+                    <i className={`${styles.logo} icon-duckylogo`}>
+                        <sub className={styles.beta}>
+                            {'beta'}
+                        </sub>
+                    </i>
                 </a>
                 <Typography className={styles.split}
                     type={"ingressNormal"}
@@ -47,9 +51,9 @@ class TopNavigationBar extends React.Component {
                 <a onClick={this.props.onClickNotification}>
                     {this.getNotificationCounter(this.props.notifications)}
                 </a>
-                <a onClick={this.props.onClickSearch}>
+                {/*<a onClick={this.props.onClickSearch}>
                     <i className={`icon-search ${styles.rightIcon}`} />
-                </a>
+                </a>*/}
             </div>
         );
     }

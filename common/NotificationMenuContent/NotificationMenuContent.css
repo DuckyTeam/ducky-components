@@ -4,6 +4,10 @@
     overflow-y: auto;
 }
 
+.firstItem {
+    padding-top: 28px;
+}
+
 .wrapper {
     padding-top: 56px;
     display: flex;
