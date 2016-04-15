@@ -20,6 +20,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+:global .icon-duckylogo_beta:before {
+    content: "\e936";
+}
 :global .icon-photo_camera_checked:before {
     content: "\e934";
 }
@@ -37,6 +40,9 @@
 }
 :global .icon-leaderboard:before {
     content: "\e904";
+}
+:global .icon-star-off:before {
+    content: "\e935";
 }
 :global .icon-account-alert:before {
     content: "\e905";
@@ -772,4 +778,10 @@
 }
 :global .icon-local_play:before {
     content: "\e553";
+}
+:global .icon-get_app:before {
+    content: "\e884";
+}
+:global .icon-file_upload:before {
+    content: "\e2c6";
 }
