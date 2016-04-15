@@ -15,6 +15,8 @@ moment.locale(getLocale(), {
         sameElse: "D.MMM"
     },
     relativeTime: {
+        future: "in %s",
+        past:   "%s",
         d: "1 dag",
         dd: "%d dager",
         M: "1 måned",
@@ -30,25 +32,15 @@ moment.locale(getLocale(), {
 });
 
 /**
- * @param {object} firstDate: date to compare
- * @param {object} secondDate: date to compare to
- * @param {string} period: period to compare
- * @returns {bool}: dates are within period
- */
-export function isSame(firstDate, secondDate, period) {
-    if (period) {
-        return moment(firstDate)[period]() === moment(secondDate)[period]();
-    }
-    return moment(firstDate).isSame(moment(secondDate));
-}
-
-/**
  * @param {object} date: date to convert
  * @param {bool} short: remove suffixes
  * @returns {string}: human readable time string
  */
 export function timeSince(date, short = false) {
-    if (isSame(date, moment(), "date")) {
+    if (moment().date() === moment(date).date() &&
+        moment().month() === moment(date).month() &&
+        moment().year() === moment(date).year()) {
+        console.log(date);
         return moment(date).fromNow(short);
     }
     return moment(date).calendar();

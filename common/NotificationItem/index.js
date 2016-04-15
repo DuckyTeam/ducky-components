@@ -10,7 +10,7 @@ import styles from './NotificationItem.css';
 class NotificationItem extends React.Component {
     render() {
         return (
-            <span
+            <div
                 onClick={this.props.onClick}
             >
                 <Wrapper
@@ -44,7 +44,7 @@ class NotificationItem extends React.Component {
                         </div>
                     </div>
                 </Wrapper>
-            </span>
+            </div>
         );
     }
 }
