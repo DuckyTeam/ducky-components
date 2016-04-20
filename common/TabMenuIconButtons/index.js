@@ -8,6 +8,7 @@ import styles from './styles.css';
 class TabMenuIconButtons extends React.Component {
     getMenu() {
         const icons = this.props.icons;
+
         return icons.map((el, key) => {
             const cn = (key === this.props.selected) ? styles.buttonSelected : styles.button;
 
@@ -30,6 +31,7 @@ class TabMenuIconButtons extends React.Component {
 
     render() {
         const menu = this.getMenu();
+
         return (
             <div className={classNames(styles.wrapper,
                 {[this.props.className]: this.props.className})}
