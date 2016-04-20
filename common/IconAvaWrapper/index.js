@@ -7,7 +7,7 @@ import styles from './IconAvaWrapper.css';
 const PropTypes = React.PropTypes;
 
 function IconAvaWrapper(props) {
-    if (props.user) {
+    if (props.avatar) {
         return (
             <Wrapper
                 className={classNames(
@@ -18,9 +18,9 @@ function IconAvaWrapper(props) {
                 size={'narrow'}
             >
                 <Avatar
+                    image={props.avatar}
                     link={'/'}
                     size={'small'}
-                    user={props.user}
                 />
             </Wrapper>
         );
@@ -44,10 +44,10 @@ function IconAvaWrapper(props) {
 }
 
 IconAvaWrapper.propTypes = {
+    avatar: PropTypes.string,
     className: PropTypes.string,
     icon: PropTypes.string,
-    onClick: PropTypes.func,
-    user: PropTypes.string
+    onClick: PropTypes.func
 };
 
 export default IconAvaWrapper;

@@ -6,9 +6,11 @@ import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
+import Comment from '../common/Comment';
+import CommentCarousel from '../common/CommentCarousel';
+import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
-import Dropdown from '../common/Dropdown';
-import DropdownItem from '../common/Dropdown/Item';
+import Popup from '../common/Popup';
 import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -21,33 +23,49 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import TabMenuIconButtons from '../common/TabMenuIconButtons';
 import LogButton from "../common/LogButton";
 import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import NotificationItem from './../common/NotificationItem';
+import NotificationMenuContent from './../common/NotificationMenuContent';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
+import ScrollContainer from '../common/ScrollContainer';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
+import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
+import IconDropdown from '../common/IconDropdown';
 import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
+import CreatePostHeader from '../desktop/CreatePostHeader';
+import TextArea from '../common/TextArea';
+import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
-import CommentCarousel from '../common/CommentCarousel';
-import Comment from '../common/Comment';
-import CommentInput from '../common/CommentInput';
-import ScrollContainer from '../common/ScrollContainer';
+import CreatePostFooter from '../desktop/CreatePostFooter';
+import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
+import IconSVG from '../common/IconSVG';
 import styles from './App.css';
-const PREVIEW_WIDTH = 200;
-const HEADER_PREVIEW_WIDTH = 300;
-const TOP_NAVIGATION_PREVIEW_WIDTH = 900;
-const LABEL_ONE = 8;
-const LABEL_TWO = 12;
+const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
+"funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
+const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
+const notifications = [{
+    id: "001",
+    user: {
+        id: "123",
+        name: "Navn Navnesen ",
+        imageUrl: "http://tinyurl.com/jzdtpvm"
+    },
+    date: '2016-03-22 14:32:21',
+    icon: "icon-textsms",
+    text: "kommenter innlegget ditt"
+}];
 
 export default class App extends React.Component {
 
@@ -65,7 +83,8 @@ export default class App extends React.Component {
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
-            showCopyLink: false
+            showCopyLink: false,
+            textAreaValue: ""
         };
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
@@ -79,6 +98,7 @@ export default class App extends React.Component {
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
         this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
+        this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
     }
 
     handleModalButtonClick() {
@@ -127,6 +147,10 @@ export default class App extends React.Component {
 
     handleCopyLinkHide() {
         this.setState({showCopyLink: false});
+    }
+
+    handleOnTextAreaChange(event) {
+        this.setState({textAreaValue: event.target.value});
     }
 
     /* eslint-enable react/no-set-state */
@@ -195,8 +219,28 @@ export default class App extends React.Component {
         console.log("IconDisplayTwo");
     }
 
+    handleIconDropdownClick() {
+        console.log("IconDropdown clicked");
+    }
+
     handleSubmit() {
         console.log('submitted');
+    }
+
+    handleCreatePostHeaderClick() {
+        console.log('CreatePostHeader clicked');
+    }
+
+    handleOnTextAreaSubmit() {
+        console.log('TextArea submitted');
+    }
+
+    handleRemoveImageClick() {
+        console.log('RemoveImage button clicked');
+    }
+
+    handleOnFileSelected(event) {
+        console.log('selected file', event.target.files);
     }
 
     /* eslint-enable no-console */
@@ -207,22 +251,15 @@ export default class App extends React.Component {
                 <h1>{"/common"}</h1>
 
                 <Preview
-                    title="/Dropdown"
-                    width={PREVIEW_WIDTH}
+                    title="/Popup"
+                    width={200}
                 >
-                    <Dropdown>
-                        <DropdownItem onClick={this.handleClickOne}>
-                            {"Item 1"}
-                        </DropdownItem>
-                        <DropdownItem onClick={this.handleClickTwo}>
-                            {"Item 2"}
-                        </DropdownItem>
-                    </Dropdown>
+                    <Popup>{'hey'}</Popup>
                 </Preview>
 
                 <Preview
                     title="/Modal"
-                    width={PREVIEW_WIDTH}
+                    width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
                         {"Show modal"}
@@ -237,14 +274,14 @@ export default class App extends React.Component {
 
                 <Preview
                     title="/IconImage"
-                    width={PREVIEW_WIDTH}
+                    width={200}
                 >
                     <IconImage />
                 </Preview>
 
                 <Preview
                     title="/Header"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <Header
                         subTitle="Favoritter (0)"
@@ -266,7 +303,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title={"TopNavigationBar"}
-                    width={TOP_NAVIGATION_PREVIEW_WIDTH}
+                    width={900}
                 >
                     <TopNavigationBar
                         notifications={0}
@@ -279,7 +316,7 @@ export default class App extends React.Component {
                         icon={'icon-favorite'}
                         onClick={this.handleFavoriteClicked}
                     >
-                        {LABEL_ONE}
+                        {8}
                     </LabelFooterAction>
 
                     <LabelFooterAction
@@ -291,13 +328,13 @@ export default class App extends React.Component {
                         icon={'icon-trophy-outline'}
                         onClick={this.handleBookmarkClicked}
                     >
-                        {LABEL_TWO}
+                        {12}
                     </LabelFooterAction>
                 </Preview>
 
                 <Preview
                     title="/TextOnlyElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <TextOnlyElement>
                         {[
@@ -345,7 +382,7 @@ export default class App extends React.Component {
 
                 <Preview
                     title="/TextImageElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <TextImageElement>
                         {"Dette er en kjempe fin tekst. " +
@@ -406,9 +443,9 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    height={HEADER_PREVIEW_WIDTH}
+                    height={300}
                     title="/ImageElement"
-                    width={HEADER_PREVIEW_WIDTH}
+                    width={300}
                 >
                     <ImageElement
                         onClick={this.handleImageElementClick}
@@ -531,41 +568,41 @@ export default class App extends React.Component {
                         {"Avatar Small (24px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"small"}
-                        user={"all"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Standard (36px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"standard"}
-                        user={"friends"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Large (48px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"large"}
-                        user={"none"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Display1 (72px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"display1"}
-                        user={"all"}
                     />
                     <div className={styles.subHeader}>
                         {"Avatar Display2 (96px)"}
                     </div>
                     <Avatar
+                        image={AVATAR_URL}
                         link={"/"}
                         size={"display2"}
-                        user={"none"}
                     />
                 </Preview>
 
@@ -735,8 +772,8 @@ export default class App extends React.Component {
                         {'Wrapped Avatar'}
                     </div>
                     <IconAvaWrapper
+                        avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
-                        user={'friends'}
                     />
                 </Preview>
 
@@ -751,8 +788,8 @@ export default class App extends React.Component {
                         text={"Du har gjort noe bra!"}
                     >
                         <Avatar
+                            image={AVATAR_URL}
                             size={"standard"}
-                            user={"all"}
                         />
                     </NotificationItem>
                 </Preview>
@@ -768,30 +805,67 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={'icon-brightness_high'}
+                        activityIcon={"icon-brightness_high"}
                         icon={"icon-pig"}
-                        iconValue={'10'}
+                        iconValue={"10"}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            points={'10'}
-                            time={'2016-01-05T01:32:21.196Z'}
+                            points={"10"}
+                            time={"2016-01-05T01:32:21.196Z"}
                         />
+                    </HeaderCompositActivity>
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        icon={"icon-pig"}
+                        iconValue={"10"}
+                        title={"Dette er et langt navn"}
+                    />
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"icon-brightness_high"}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
                     </HeaderCompositActivity>
                     <br />
                     <div className={styles.subHeader}>
                         {'HeaderCompositUser'}
                     </div>
                     <HeaderCompositUser
+                        avatar={AVATAR_URL}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={'10'}
-                            points={'8'}
+                            co2={"10"}
+                            points={"8"}
                         />
                     </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={"10"}
+                            points={"8"}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    />
                 </Preview>
 
                 <Preview title={"SectionHeaderGeneral"}
@@ -881,6 +955,12 @@ export default class App extends React.Component {
                     />
                 </MenuWrapper>
 
+                <Preview title="/Notifications">
+                    <NotificationMenuContent
+                        notifications={notifications}
+                    />
+                </Preview>
+
                 <Preview title="/ShareMenu">
                     <CopyLink
                         link={"https://ducky.no/1049/posts/VDbdeR"}
@@ -901,8 +981,11 @@ export default class App extends React.Component {
                     title="CommentCarousel"
                     width={250}
                 >
-                    <CommentCarousel name={"Gunnar"}>
-                      {"This is absolutely fantastic! What a great comment! ;)"}
+                    <CommentCarousel
+                        avatar={AVATAR_URL}
+                        name={"Gunnar"}
+                    >
+                        {"This is absolutely fantastic! What a great comment! ;)"}
                     </CommentCarousel>
                 </Preview>
 
@@ -911,6 +994,7 @@ export default class App extends React.Component {
                     width={250}
                 >
                     <Comment
+                        avatar={AVATAR_URL}
                         name={"Gunnar Gunnersen long name"}
                         published={Date.now()}
                     >
@@ -918,6 +1002,7 @@ export default class App extends React.Component {
                     </Comment>
                     <br />
                     <Comment
+                        avatar={AVATAR_URL}
                         name={"Gunnar"}
                         published={Date.now()}
                     >
@@ -962,10 +1047,143 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="IconDropdown">
+                    <IconDropdown
+                        icon="icon-home"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                    <IconDropdown
+                        icon="icon-data_usage"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                </Preview>
 
+                <Preview title="TextArea">
+                    <TextArea
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
+                    />
+                </Preview>
+
+                <Preview title="CreatePostNavigationFooter">
+                    <div style={{marginTop: 10}}>
+                        <CreatePostNavigationFooter />
+                    </div>
+                </Preview>
+
+                <Preview
+                    title="RemoveImage"
+                    width={300}
+                >
+                    <RemoveImage
+                        image={IMAGE_URL}
+                        onClick={this.handleRemoveImageClick}
+                    />
+                </Preview>
+
+                <Preview
+                    title="Tab Menu 1 - Icon Buttons"
+                    width={300}
+                >
+                    <TabMenuIconButtons
+                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
+                        selected={2}
+                    >
+                        <Typography>{"Child One"}</Typography>
+                        <p>{"Child Two"}</p>
+                        <div>
+                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
+                            <Typography
+                                type={"bodyTextNormal"}
+                            >
+                                {"Hello there! I am the third item on this tab menu. I am groot!"}
+                            </Typography>
+                        </div>
+                        <p>{"Child Four"}</p>
+                    </TabMenuIconButtons>
+                </Preview>
+
+                <Preview
+                    title="Suggested Hashtags"
+                    width={400}
+                >
+                    <SuggestedHashtags
+                        hashtags={[
+                            "lolrerewedsdsfdsfsfsdfdsfddsas",
+                            "yolo",
+                            "lol",
+                            "yolo",
+                            "lol",
+                            "lol",
+                            "yolo",
+                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
+                        ]}
+                    />
+                </Preview>
+
+                <Preview>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"standard"}
+                    />
+                    <IconSVG
+                        icon={"Consumption_03"}
+                        size={"large1"}
+                    />
+                </Preview>
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
+
+                <Preview title="CreatePostHeader">
+                    <CreatePostHeader
+                        avatar={AVATAR_URL}
+                        imageActivated={Boolean(false)}
+                        name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={0}
+                        textActivated={Boolean(false)}
+                    />
+
+                    <CreatePostHeader
+                        avatar={AVATAR_URL}
+                        imageActivated={Boolean(false)}
+                        name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={10}
+                        textActivated={Boolean(true)}
+                    />
+
+                    <CreatePostHeader
+                        avatar={AVATAR_URL}
+                        imageActivated={Boolean(true)}
+                        name="Gunnar Gunnersen"
+                        onClick={this.handleCreatePostHeaderClick}
+                        points={20}
+                        textActivated={Boolean(true)}
+                    />
+                </Preview>
+
+
+                <Preview title="CreatePostFooter">
+                    <CreatePostFooter
+                        onFileSelected={this.handleOnFileSelected}
+                    >
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
+
+                    <CreatePostFooter image={Boolean(true)}>
+                        <ActionButton
+                            icon="icon-restaurant"
+                            size="standard"
+                        />
+                    </CreatePostFooter>
+                </Preview>
             </div>
         );
     }

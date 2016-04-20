@@ -101,7 +101,7 @@ module.exports = {
         "no-labels": 2,
         "no-lone-blocks": 2,
         "no-loop-func": 2,
-        "no-magic-numbers": [2, {ignore: [0]}],
+        "no-magic-numbers": [0, {ignore: [0]}],
         // Reason: By popular demand, several functions needs a 0 starting point
         "no-multi-spaces": 2,
         "no-multi-str": 2,
@@ -248,7 +248,7 @@ module.exports = {
         // ECMAScript 6
         // These rules are only relevant to ES6 environments.
 
-        "arrow-body-style": [2, "always"],
+        "arrow-body-style": 0,
         "arrow-parens": 2,
         "arrow-spacing": 2,
         "constructor-super": 2,
@@ -304,9 +304,9 @@ module.exports = {
         "react/jsx-indent": 2,
         "react/jsx-key": 2,
         "react/jsx-max-props-per-line": 2,
-        "react/jsx-no-bind": 2,
+        "react/jsx-no-bind": 0,
         "react/jsx-no-duplicate-props": 2,
-        "react/jsx-no-literals": 2,
+        "react/jsx-no-literals": 0,
         "react/jsx-no-undef": 2,
         "react/jsx-pascal-case": 2,
         "react/jsx-sort-props": 2,

@@ -2,12 +2,15 @@ import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
+import classNames from 'classnames';
 import styles from './styles.css';
 
 function SectionHeaderGeneral(props) {
     return (
         <Wrapper
-            className={styles.wrapper}
+            className={classNames(styles.wrapper, {
+                [props.className]: props.className
+            })}
             size={"standard"}
         >
             {props.leftIcon
@@ -48,6 +51,7 @@ function SectionHeaderGeneral(props) {
 
 SectionHeaderGeneral.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     leftIcon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     rightIcon: React.PropTypes.string,

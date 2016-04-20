@@ -20,6 +20,12 @@
     cursor: pointer;
 }
 
+.profileIcon {
+    margin: 12px;
+    float: right;
+    cursor: pointer;
+}
+
 .notificationNumber {
     border-radius: 100%;
     background-color: white;
@@ -65,6 +71,7 @@
     background-color: #FFFFFF;
     float: right;
     margin: 12px;
+    cursor: pointer;
 }
 
 .counter > span {

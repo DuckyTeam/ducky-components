@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import styles from './styles.css';
 
 function Button(props) {
@@ -10,7 +11,7 @@ function Button(props) {
 
     return (
         <button
-            className={buttonType}
+            className={classnames(buttonType, {[props.className]: props.className})}
             onClick={props.onClick}
         >
             {props.children}
@@ -20,6 +21,7 @@ function Button(props) {
 
 Button.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     onClick: React.PropTypes.func,
     type: React.PropTypes.string
 };

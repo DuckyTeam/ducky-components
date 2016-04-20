@@ -1,5 +1,5 @@
 .wrapper {
-    background-color: #F3F5F6;
+    background-color: transparent;
 }
 
 .standard {
@@ -11,12 +11,10 @@
 }
 
 .hr1 {
-    background-color: #F3F5F6;
     padding: 7.5px 0 7.5px 0;
 }
 
 .hr2 {
-    background-color: #F3F5F6;
     padding: 7.5px 16px 7.5px 68px;
 }
 

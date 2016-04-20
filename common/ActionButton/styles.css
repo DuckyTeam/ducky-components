@@ -9,12 +9,16 @@
 }
 
 .main {
-    box-shadow: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
-    width: 56px;
-    height: 56px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.19), 0 6px 10px rgba(0,0,0,0.23);
+  width: 56px;
+  height: 56px;
 }
 
 .standard {
-    width: 36px;
-    height: 36px;
+  width: 36px;
+  height: 36px;
+}
+
+.icon {
+  color: #fff;
 }
