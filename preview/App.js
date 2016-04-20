@@ -78,6 +78,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            ASICExpanded: false,
             showModal: false,
             showImageModal: false,
             showFullImageText: false,
@@ -86,6 +87,7 @@ export default class App extends React.Component {
             showCopyLink: false,
             textAreaValue: ""
         };
+        this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
         this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
@@ -151,6 +153,10 @@ export default class App extends React.Component {
 
     handleOnTextAreaChange(event) {
         this.setState({textAreaValue: event.target.value});
+    }
+    handleASICPressed() {
+        console.log("Preddes");
+        this.setState({ASICExpanded: !this.state.ASICExpanded});
     }
 
     /* eslint-enable react/no-set-state */
@@ -1043,7 +1049,17 @@ export default class App extends React.Component {
                     width={100}
                 >
                     <ActionItemSummaryComposit
-                        icons={["icon-lens", "icon-lens", "icon-lens", "icon-lens"]}
+                        expanded={this.state.ASICExpanded}
+                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
+                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
+                            "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                        onClick={this.handleASICPressed}
+                    />
+                    <ActionItemSummaryComposit
+                        icons={["Consumption01", "Energy02", "Energy01",
+                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
                     />
                 </Preview>
 

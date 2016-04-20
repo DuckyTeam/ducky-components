@@ -1,16 +1,26 @@
+.wrapper {
+    position: relative;
+    height: 24px;
+}
 .icon{
-    display: inline-block;
-    max-width: 24px;
-    float: left;
+    display: inline;
+    position: absolute;
 }
 
 .cb{
     vertical-align: text-bottom;
-    float: left;
+    vertical-align: top;
 }
 
 .arrow {
-    float: right;
-    display: inline-block;
-    float: right;
+    right: 0;
+    position: absolute;
+    transition-duration: .5s;
+    transition-property: transform;
+}
+
+.expanded {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
 }

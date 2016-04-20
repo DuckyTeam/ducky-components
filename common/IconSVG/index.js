@@ -74,6 +74,7 @@ function IconSVG(props) {
             })}
             onClick={props.onClick}
             src={source[props.icon]}
+            style={props.style}
         >
         </img>
     );
@@ -84,7 +85,10 @@ IconSVG.propTypes = {
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     size: React.PropTypes.oneOf(['small', 'standard',
-        'large', 'display1', 'display2'])
+        'large', 'display1', 'display2']),
+    style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
+        [React.PropTypes.number, React.PropTypes.string]
+    ))
 };
 
 export default IconSVG;
