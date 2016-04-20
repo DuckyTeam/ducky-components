@@ -27,7 +27,7 @@ class NotificationItem extends React.Component {
                             <Typo className={styles.typo}
                                 type={"caption2Normal"}
                             >
-                                {this.props.name + this.props.text}
+                                {`${this.props.name} ${this.props.text}`}
                             </Typo>
                         </div>
                         <Spacer
@@ -52,7 +52,7 @@ class NotificationItem extends React.Component {
 NotificationItem.displayName = "Notification Item";
 NotificationItem.propTypes = {
     children: React.PropTypes.node,
-    classNames: React.PropTypes.string,
+    className: React.PropTypes.string,
     dateTime: React.PropTypes.shape({}),
     icon: React.PropTypes.string,
     name: React.PropTypes.string,
