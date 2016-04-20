@@ -35,6 +35,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
+import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
@@ -1148,6 +1149,10 @@ export default class App extends React.Component {
                         icon={"Consumption_03"}
                         size={"large1"}
                     />
+                </Preview>
+
+                <Preview>
+                    <SectionFooterClose />
                 </Preview>
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
