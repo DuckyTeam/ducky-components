@@ -1167,16 +1167,20 @@ export default class App extends React.Component {
                         onClick={this.handleTabIndexChanged}
                         selected={this.state.tabIndexSelected}
                         tabs={
-                    [
-                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her står det masse om fisk!"},
-                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her star det masse om fisk!"},
-                    {icon: "icon-fish", title: "Fisk er ikke sunt", text:"Her star det masse om fisk!"},
-                    {icon: "icon-fish", title: "", text:"wrew"},
-                    {icon: "icon-fish", title: "Fisk går sunt", text:"Her star det masse om fisk!"},
-                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her star det masse om fisk!"},
-                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her stir det masse om fisk!"}
-                    ]
-                    }/>
+                            [
+                                {icon: "icon-fish",
+                                    title: "Fisk er sunt", text: "Her står det masse om fisk!"},
+                                {icon: "icon-fish",
+                                    title: "Fisk er sunt", text: "Her star det masse om fisk!"},
+                                {icon: "icon-fish",
+                                    title: "Fisk er ikke sunt", text: "Her sta masse om fisk!"},
+                                {icon: "icon-fish",
+                                    title: "", text: "wrew"},
+                                {icon: "icon-fish",
+                                    title: "Fisk går sunt", text: "Her star det masse om fisk!"}
+                            ]
+                    }
+                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

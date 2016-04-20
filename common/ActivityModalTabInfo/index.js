@@ -6,10 +6,12 @@ import styles from './styles.css';
 class ActivityModalTabInfo extends React.Component {
     render() {
         const icons = [];
-        const tabs = this.props.tabs.map((tab) => {
+        const tabs = this.props.tabs.map((tab, index) => {
             icons.push(tab.icon);
             return (
-                <div>
+                <div
+                    key={index}
+                >
                     <Typo
                         className={styles.title}
                         type={"bodyTextStrong"}
@@ -24,6 +26,7 @@ class ActivityModalTabInfo extends React.Component {
                 </div>
             );
         });
+
         return (
             <TabMenu
                 icons={icons}
@@ -38,6 +41,8 @@ class ActivityModalTabInfo extends React.Component {
 
 ActivityModalTabInfo.displayName = "Activity Modal - Tab Info";
 ActivityModalTabInfo.propTypes = {
-
+    onClick: React.PropTypes.func,
+    selected: React.PropTypes.number,
+    tabs: React.PropTypes.arrayOf(React.PropTypes.objectOf(React.PropTypes.string))
 };
 export default ActivityModalTabInfo;
