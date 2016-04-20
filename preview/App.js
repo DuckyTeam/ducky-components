@@ -3,6 +3,7 @@ import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
+import ActivityModalTabInfo from '../common/ActivityModalTabInfo';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -86,7 +87,8 @@ export default class App extends React.Component {
             showFullText: false,
             showMenu: false,
             showCopyLink: false,
-            textAreaValue: ""
+            textAreaValue: "",
+            tabIndexSelected: 0
         };
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
@@ -95,6 +97,7 @@ export default class App extends React.Component {
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
         this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
         this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
+        this.handleTabIndexChanged = this.handleTabIndexChanged.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
@@ -102,6 +105,10 @@ export default class App extends React.Component {
         this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
         this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+    }
+
+    handleTabIndexChanged(key) {
+        this.setState({tabIndexSelected: key});
     }
 
     handleModalButtonClick() {
@@ -1154,6 +1161,24 @@ export default class App extends React.Component {
                 <Preview>
                     <SectionFooterClose />
                 </Preview>
+
+                <Preview>
+                    <ActivityModalTabInfo
+                        onClick={this.handleTabIndexChanged}
+                        selected={this.state.tabIndexSelected}
+                        tabs={
+                    [
+                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her står det masse om fisk!"},
+                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her star det masse om fisk!"},
+                    {icon: "icon-fish", title: "Fisk er ikke sunt", text:"Her star det masse om fisk!"},
+                    {icon: "icon-fish", title: "", text:"wrew"},
+                    {icon: "icon-fish", title: "Fisk går sunt", text:"Her star det masse om fisk!"},
+                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her star det masse om fisk!"},
+                    {icon: "icon-fish", title: "Fisk er sunt", text:"Her stir det masse om fisk!"}
+                    ]
+                    }/>
+                </Preview>
+
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
