@@ -35,6 +35,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
+import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
@@ -85,7 +86,8 @@ export default class App extends React.Component {
             showFullText: false,
             showMenu: false,
             showCopyLink: false,
-            textAreaValue: ""
+            textAreaValue: "",
+            tabIndexSelected: 0
         };
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
@@ -94,6 +96,7 @@ export default class App extends React.Component {
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
         this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
         this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
+        this.handleTabIndexChanged = this.handleTabIndexChanged.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
@@ -101,6 +104,10 @@ export default class App extends React.Component {
         this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
         this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+    }
+
+    handleTabIndexChanged(key) {
+        this.setState({tabIndexSelected: key});
     }
 
     handleModalButtonClick() {
@@ -1107,8 +1114,6 @@ export default class App extends React.Component {
                         icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
                         selected={2}
                     >
-                        <Typography>{"Child One"}</Typography>
-                        <p>{"Child Two"}</p>
                         <div>
                             <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
                             <Typography
@@ -1117,7 +1122,6 @@ export default class App extends React.Component {
                                 {"Hello there! I am the third item on this tab menu. I am groot!"}
                             </Typography>
                         </div>
-                        <p>{"Child Four"}</p>
                     </TabMenuIconButtons>
                 </Preview>
 
@@ -1149,6 +1153,11 @@ export default class App extends React.Component {
                         size={"large1"}
                     />
                 </Preview>
+
+                <Preview>
+                    <SectionFooterClose />
+                </Preview>
+
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
