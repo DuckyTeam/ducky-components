@@ -25,6 +25,7 @@ function ButtonCounter(props) {
                 [props.className]: props.className
             })}
             onClick={props.onClick}
+            style={props.style}
         >
             <Typography
                 className={styles.number}
@@ -40,7 +41,10 @@ ButtonCounter.propTypes = {
     className: PropTypes.string,
     number: PropTypes.number,
     onClick: PropTypes.func,
-    size: React.PropTypes.oneOf(['small', 'standard'])
+    size: React.PropTypes.oneOf(['small', 'standard']),
+    style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
+        [React.PropTypes.number, React.PropTypes.string]
+    ))
 };
 
 export default ButtonCounter;

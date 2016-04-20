@@ -2,6 +2,7 @@ import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
+import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -77,6 +78,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            ASICExpanded: false,
             showModal: false,
             showImageModal: false,
             showFullImageText: false,
@@ -85,6 +87,7 @@ export default class App extends React.Component {
             showCopyLink: false,
             textAreaValue: ""
         };
+        this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
         this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
@@ -150,6 +153,10 @@ export default class App extends React.Component {
 
     handleOnTextAreaChange(event) {
         this.setState({textAreaValue: event.target.value});
+    }
+    handleASICPressed() {
+        console.log("Preddes");
+        this.setState({ASICExpanded: !this.state.ASICExpanded});
     }
 
     /* eslint-enable react/no-set-state */
@@ -1037,6 +1044,25 @@ export default class App extends React.Component {
                     <LogButton checked />
                 </Preview>
 
+                <Preview
+                    title="Action Item Summary Composite"
+                    width={100}
+                >
+                    <ActionItemSummaryComposit
+                        expanded={this.state.ASICExpanded}
+                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
+                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
+                            "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                        onClick={this.handleASICPressed}
+                    />
+                    <ActionItemSummaryComposit
+                        icons={["Consumption01", "Energy02", "Energy01",
+                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                    />
+                </Preview>
+
                 <Preview title="IconDropdown">
                     <IconDropdown
                         icon="icon-home"
@@ -1123,7 +1149,6 @@ export default class App extends React.Component {
                         size={"large1"}
                     />
                 </Preview>
-
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
