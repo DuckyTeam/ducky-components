@@ -1115,8 +1115,6 @@ export default class App extends React.Component {
                         icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
                         selected={2}
                     >
-                        <Typography>{"Child One"}</Typography>
-                        <p>{"Child Two"}</p>
                         <div>
                             <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
                             <Typography
@@ -1125,7 +1123,6 @@ export default class App extends React.Component {
                                 {"Hello there! I am the third item on this tab menu. I am groot!"}
                             </Typography>
                         </div>
-                        <p>{"Child Four"}</p>
                     </TabMenuIconButtons>
                 </Preview>
 
@@ -1160,27 +1157,6 @@ export default class App extends React.Component {
 
                 <Preview>
                     <SectionFooterClose />
-                </Preview>
-
-                <Preview>
-                    <ActivityModalTabInfo
-                        onClick={this.handleTabIndexChanged}
-                        selected={this.state.tabIndexSelected}
-                        tabs={
-                            [
-                                {icon: "icon-fish",
-                                    title: "Fisk er sunt", text: "Her står det masse om fisk!"},
-                                {icon: "icon-fish",
-                                    title: "Fisk er sunt", text: "Her star det masse om fisk!"},
-                                {icon: "icon-fish",
-                                    title: "Fisk er ikke sunt", text: "Her sta masse om fisk!"},
-                                {icon: "icon-fish",
-                                    title: "", text: "wrew"},
-                                {icon: "icon-fish",
-                                    title: "Fisk går sunt", text: "Her star det masse om fisk!"}
-                            ]
-                    }
-                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
