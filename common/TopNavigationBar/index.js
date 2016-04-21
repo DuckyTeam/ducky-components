@@ -47,13 +47,16 @@ class TopNavigationBar extends React.Component {
                 <a onClick={this.props.onClickNotification}>
                     {this.getNotificationCounter(this.props.notifications)}
                 </a>
-                {/* <a onClick={this.props.onClickSearch}>
-                    <i className={`icon-search ${styles.rightIcon}`} />
-                </a>*/}
             </div>
         );
     }
 }
+
+/* Removed Search
+<a onClick={this.props.onClickSearch}>
+    <i className={`icon-search ${styles.rightIcon}`} />
+</a>
+*/
 
 TopNavigationBar.propTypes = {
     avatar: React.PropTypes.string,

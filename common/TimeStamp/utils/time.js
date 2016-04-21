@@ -16,7 +16,7 @@ moment.locale(getLocale(), {
     },
     relativeTime: {
         future: "in %s",
-        past:   "%s",
+        past: "%s",
         d: "1 dag",
         dd: "%d dager",
         M: "1 måned",

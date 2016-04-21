@@ -5,7 +5,7 @@
 
 .left {
     box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
-    height: calc(100% - 48px);
+    height: 100%;
     width: 300px;
     overflow-x: hidden;
     background-color: inherit;
@@ -16,7 +16,7 @@
 }
 .showleft {
     box-shadow: 0 14px 45px rgba(0,0,0,0.25), 0 10px 18px rgba(0,0,0,0.22);
-    height: calc(100% - 48px);
+    height: 100%;
     width: 300px;
     overflow-x: hidden;
     background-color: inherit;
@@ -34,7 +34,7 @@
     background: #FFFFFF;
     position: fixed;
     right: -320px;
-    top: 48px;
+    top: 56px;
     bottom: 0px;
     transition: 0.2s ease;
     overflow-x: hidden;
@@ -47,7 +47,7 @@
     background: #FFFFFF;
     position: absolute;
     right: 0px;
-    top: 48px;
+    top: 56px;
     bottom: 0px;
     transition: 0.2s ease;
     overflow-x: hidden;
