@@ -28,12 +28,9 @@ class TabMenuIconButtons extends React.Component {
             );
         });
     }
-    getContent(number) {
-        return this.props.children[number];
-    }
+
     render() {
         const menu = this.getMenu();
-        const content = this.getContent(this.props.selected);
 
         return (
             <div className={classNames(styles.wrapper,
@@ -44,7 +41,7 @@ class TabMenuIconButtons extends React.Component {
                     className={styles.innerWrapper}
                     size={"standard"}
                 >
-                    {content}
+                    {this.props.children}
                 </Wrapper>
             </div>
         );
@@ -53,7 +50,7 @@ class TabMenuIconButtons extends React.Component {
 
 TabMenuIconButtons.displayName = "Tab Menu 1 - Icon Buttons";
 TabMenuIconButtons.propTypes = {
-    children: React.PropTypes.arrayOf(React.PropTypes.node),
+    children: React.PropTypes.node,
     className: React.PropTypes.string,
     icons: React.PropTypes.arrayOf(React.PropTypes.string),
     onClick: React.PropTypes.func,

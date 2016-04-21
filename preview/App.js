@@ -2,6 +2,7 @@ import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
+import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -33,6 +34,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
+import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
@@ -65,20 +67,24 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            ASICExpanded: false,
             showModal: false,
             showImageModal: false,
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
             showCopyLink: false,
-            textAreaValue: ""
+            textAreaValue: "",
+            tabIndexSelected: 0
         };
+        this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
         this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
         this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
         this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
+        this.handleTabIndexChanged = this.handleTabIndexChanged.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
@@ -86,6 +92,10 @@ export default class App extends React.Component {
         this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
         this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+    }
+
+    handleTabIndexChanged(key) {
+        this.setState({tabIndexSelected: key});
     }
 
     handleModalButtonClick() {
@@ -138,6 +148,10 @@ export default class App extends React.Component {
 
     handleOnTextAreaChange(event) {
         this.setState({textAreaValue: event.target.value});
+    }
+    handleASICPressed() {
+        console.log("Preddes");
+        this.setState({ASICExpanded: !this.state.ASICExpanded});
     }
 
     /* eslint-enable react/no-set-state */
@@ -1019,6 +1033,25 @@ export default class App extends React.Component {
                     <LogButton checked />
                 </Preview>
 
+                <Preview
+                    title="Action Item Summary Composite"
+                    width={100}
+                >
+                    <ActionItemSummaryComposit
+                        expanded={this.state.ASICExpanded}
+                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
+                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
+                            "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                        onClick={this.handleASICPressed}
+                    />
+                    <ActionItemSummaryComposit
+                        icons={["Consumption01", "Energy02", "Energy01",
+                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                    />
+                </Preview>
+
                 <Preview title="IconDropdown">
                     <IconDropdown
                         icon="icon-home"
@@ -1063,8 +1096,6 @@ export default class App extends React.Component {
                         icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
                         selected={2}
                     >
-                        <Typography>{"Child One"}</Typography>
-                        <p>{"Child Two"}</p>
                         <div>
                             <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
                             <Typography
@@ -1073,7 +1104,6 @@ export default class App extends React.Component {
                                 {"Hello there! I am the third item on this tab menu. I am groot!"}
                             </Typography>
                         </div>
-                        <p>{"Child Four"}</p>
                     </TabMenuIconButtons>
                 </Preview>
 
@@ -1104,6 +1134,10 @@ export default class App extends React.Component {
                         icon={"Consumption_03"}
                         size={"large1"}
                     />
+                </Preview>
+
+                <Preview>
+                    <SectionFooterClose />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
