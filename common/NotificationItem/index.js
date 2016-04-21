@@ -4,15 +4,19 @@ import Spacer from './../Spacer';
 import TimeStamp from './../TimeStamp';
 import Typo from './../Typography';
 import Wrapper from './../Wrapper';
+import classNames from 'classnames';
 import styles from './NotificationItem.css';
 
 class NotificationItem extends React.Component {
     render() {
         return (
-            <span className={styles.span}
+            <div
                 onClick={this.props.onClick}
             >
                 <Wrapper
+                    className={classNames(styles[this.props.seen], {
+                        [this.props.className]: this.props.className
+                    })}
                     size={'short'}
                 >
                     <div className={styles.child}>
@@ -23,7 +27,7 @@ class NotificationItem extends React.Component {
                             <Typo className={styles.typo}
                                 type={"caption2Normal"}
                             >
-                                {this.props.name + this.props.text}
+                                {`${this.props.name} ${this.props.text}`}
                             </Typo>
                         </div>
                         <Spacer
@@ -40,7 +44,7 @@ class NotificationItem extends React.Component {
                         </div>
                     </div>
                 </Wrapper>
-            </span>
+            </div>
         );
     }
 }
@@ -48,10 +52,12 @@ class NotificationItem extends React.Component {
 NotificationItem.displayName = "Notification Item";
 NotificationItem.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     dateTime: React.PropTypes.shape({}),
     icon: React.PropTypes.string,
     name: React.PropTypes.string,
     onClick: React.PropTypes.func,
+    seen: React.PropTypes.string,
     text: React.PropTypes.string
 };
 export default NotificationItem;

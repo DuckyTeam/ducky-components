@@ -6,7 +6,7 @@ const PropTypes = React.PropTypes;
 
 function MenuHeader(props) {
     return (
-        <span onClick={props.onClick} >
+        <div onClick={props.onClick} >
             <Wrapper
                 className={styles.wrapper}
                 size={'side'}
@@ -22,7 +22,7 @@ function MenuHeader(props) {
                     size={'standard'}
                 />
             </Wrapper>
-        </span>
+        </div>
     );
 }
 
