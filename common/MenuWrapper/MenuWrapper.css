@@ -10,6 +10,8 @@
     overflow-x: hidden;
     background-color: inherit;
     position: absolute;
+    top: 0px;
+    bottom: 0px;
     left: -320px;
     transition: 0.2s ease;
     z-index: 100;
@@ -20,8 +22,9 @@
     width: 300px;
     overflow-x: hidden;
     background-color: inherit;
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
     left: 0px;
     transition:  0.2s ease;
     z-index: 100;
@@ -45,7 +48,7 @@
     height: 100%;
     width: 300px;
     background: #FFFFFF;
-    position: absolute;
+    position: fixed;
     right: 0px;
     top: 56px;
     bottom: 0px;
