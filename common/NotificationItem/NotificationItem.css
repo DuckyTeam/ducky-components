@@ -15,19 +15,16 @@
     float: left;
 }
 
-.span {
+.item {
     cursor: pointer;
-
 }
 
 .true {
     background-color: transparent;
-}
-
-.false {
-    background-color: #F4F7F9;
     width: 100%;
 }
 
-.wrappers {
+.false {
+    background-color: #FFFFFF;
+    width: 100%;
 }

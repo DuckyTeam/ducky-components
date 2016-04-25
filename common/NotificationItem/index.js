@@ -11,6 +11,7 @@ class NotificationItem extends React.Component {
     render() {
         return (
             <div
+                className={styles.item}
                 onClick={this.props.onClick}
             >
                 <Wrapper
