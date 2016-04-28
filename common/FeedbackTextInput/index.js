@@ -1,34 +1,58 @@
-import IcoW01 from '../IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
-import Wra16A from '../Wrapper';
-import styles from './FeedbackTextInput.css';
+import {PropTypes} from 'react';
+import styles from './styles.css';
+import Wrapper from '../Wrapper';
+import Typography from '../Typography';
+import TextArea from '../TextArea';
+import classNames from 'classnames';
 
-class FeedbackTextInput extends React.Component {
-    render() {
-        return (
-            <Wra16A className={styles.wrapper}
-                size={"standard"}
+
+function FeedbackTextInput(props) {
+    return (
+        <Wrapper
+            className={classNames(
+                styles.wrapper,
+                {[props.className]: props.className}
+            )}
+            size="standard"
+        >
+            <form
+                className={styles.form}
+                onSubmit={props.onSubmit}
             >
-                <textArea
-                    autoFocus
-                    className={styles.textArea}
-                    onChange={this.props.onChange}
-                    placeholder={this.props.prompt}
-                />
-                <IcoW01 className={styles.icon}
-                    icon={"icon-send"}
-                    onClick={this.props.onSubmit}
-                    size={"standard"}
-                />
-            </Wra16A>
-        );
-    }
+                <Typography
+                    className={styles.inputWrapper}
+                    type="bodyTextNormal"
+                >
+                    <TextArea
+                        onChange={props.onChange}
+                        onSubmit={props.onSubmit}
+                        placeholder={props.placeholder}
+                    />
+                </Typography>
+                <button
+                    className={styles.button}
+                    disabled={props.disabled}
+                    onClick={props.onSubmit}
+                    type="submit"
+                >
+                    <IconAvaWrapper
+                        className={styles.icon}
+                        icon={"icon-send"}
+                    />
+                </button>
+            </form>
+        </Wrapper>
+    );
 }
 
-FeedbackTextInput.displayName = "Feedback Text Input";
 FeedbackTextInput.propTypes = {
-    onChange: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    prompt: React.PropTypes.string
+    className: PropTypes.string,
+    disabled: React.PropTypes.bool,
+    onChange: PropTypes.func,
+    onSubmit: PropTypes.func,
+    placeholder: PropTypes.string
 };
+
 export default FeedbackTextInput;
