@@ -1,9 +1,9 @@
-import Avatar from '../Avatar';
-import Icon from '../Icon';
+import Avatar from '../../Avatar';
+import Icon from '../../Icon';
 import React from 'react';
 import {PropTypes} from 'react';
-import Typography from '../Typography';
-import LabelStandard from '../LabelStandard';
+import Typography from '../../Typography';
+import LabelStandard from '../../LabelStandard';
 import classNames from 'classnames';
 import styles from './styles.css';
 

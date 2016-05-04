@@ -1,5 +1,5 @@
 import React from 'react';
-import SectionHeader from '../SectionHeaderGeneral';
+import SectionHeader from '../composites/SectionHeaderGeneral';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';

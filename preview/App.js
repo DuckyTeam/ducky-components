@@ -1,16 +1,16 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
+import HeaderCompositUser from '../common/composites/HeaderCompositUser';
+import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
 import ActionButton from '../common/ActionButton';
 import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
-import CopyLink from '../common/CopyLink';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
-import HeaderCompositUser from '../common/HeaderCompositUser';
 import Icon from '../common/Icon';
 import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
@@ -30,7 +30,6 @@ import Preview from './Preview';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
-import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
 import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
 import SuggestedHashtags from '../common/SuggestedHashtags';
@@ -38,12 +37,9 @@ import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
 import Typography from '../common/Typography';
-import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
-import CreatePostFooter from '../desktop/CreatePostFooter';
-import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import IconSVG from '../common/IconSVG';
 import styles from './App.css';
 const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
@@ -67,7 +63,6 @@ export default class App extends React.Component {
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
-            showCopyLink: false,
             textAreaValue: "",
             tabIndexSelected: 0
         };
@@ -83,8 +78,6 @@ export default class App extends React.Component {
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
-        this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
-        this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
     }
 
@@ -130,14 +123,6 @@ export default class App extends React.Component {
 
     handleImageElementModalHide() {
         this.setState({showImageModal: false});
-    }
-
-    handleCopyLinkButtonClick() {
-        this.setState({showCopyLink: true});
-    }
-
-    handleCopyLinkHide() {
-        this.setState({showCopyLink: false});
     }
 
     handleOnTextAreaChange(event) {
@@ -220,10 +205,6 @@ export default class App extends React.Component {
 
     handleSubmit() {
         console.log('submitted');
-    }
-
-    handleCreatePostHeaderClick() {
-        console.log('CreatePostHeader clicked');
     }
 
     handleOnTextAreaSubmit() {
@@ -768,6 +749,175 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="/mainMenu">
+                    <div className={styles.subHeader}>
+                        {'Menu Header'}
+                    </div>
+                    <MenuHeader
+                        icon1={'icon-home'}
+                        icon2={'icon-room'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Menu Item'}
+                    </div>
+                    <MenuItem
+                        icon={'icon-trophy-outline'}
+                        name={'Title'}
+                        onClick={this.handleIconSmallClick}
+                    />
+                </Preview>
+                <div className={styles.subHeader}>
+                    {'MenuWrapper'}
+                </div>
+                <button onClick={this.handleLeftMenuButtonClick}>
+                    {'Show Left Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'left'}
+                    onHide={this.handleLeftMenuHide}
+                    show={this.state.showLeftMenu}
+                >
+                    <b>{'MenuContent'}</b>
+                </MenuWrapper>
+                <button onClick={this.handleRightMenuButtonClick}>
+                    {'Show Right Menu'}
+                </button>
+                <MenuWrapper
+                    alignment={'right'}
+                    onHide={this.handleRightMenuHide}
+                    show={this.state.showRightMenu}
+                >
+                    <b>{'MenuContent'}</b>
+                </MenuWrapper>
+
+                <Preview title="/ShareMenu">
+                    <ShareMenuItem
+                        onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
+                <Preview
+                    title="ScrollContainer"
+                    width={300}
+                >
+                    <ScrollContainer size={200}>
+                        <div style={{backgroundColor: 'red', height: 300}}></div>
+                        <div style={{backgroundColor: 'blue', height: 300}}></div>
+                    </ScrollContainer>
+                </Preview>
+
+                <Preview
+                    title="LogButton"
+                    width={50}
+                >
+                    <LogButton />
+                    <LogButton checked />
+                </Preview>
+
+                <Preview
+                    title="Action Item Summary Composite"
+                    width={100}
+                >
+                    <ActionItemSummaryComposit
+                        expanded={this.state.ASICExpanded}
+                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
+                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
+                            "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                        onClick={this.handleASICPressed}
+                    />
+                    <ActionItemSummaryComposit
+                        icons={["Consumption01", "Energy02", "Energy01",
+                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                    />
+                </Preview>
+
+                <Preview title="IconDropdown">
+                    <IconDropdown
+                        icon="icon-home"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                    <IconDropdown
+                        icon="icon-data_usage"
+                        onClick={this.handleIconDropdownClick}
+                    />
+                </Preview>
+
+                <Preview title="TextArea">
+                    <TextArea
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
+                    />
+                </Preview>
+
+                <Preview
+                    title="RemoveImage"
+                    width={300}
+                >
+                    <RemoveImage
+                        image={IMAGE_URL}
+                        onClick={this.handleRemoveImageClick}
+                    />
+                </Preview>
+
+                <Preview
+                    title="Tab Menu 1 - Icon Buttons"
+                    width={300}
+                >
+                    <TabMenuIconButtons
+                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
+                        selected={2}
+                    >
+                        <div>
+                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
+                            <Typography
+                                type={"bodyTextNormal"}
+                            >
+                                {"Hello there! I am the third item on this tab menu. I am groot!"}
+                            </Typography>
+                        </div>
+                    </TabMenuIconButtons>
+                </Preview>
+
+                <Preview
+                    title="Suggested Hashtags"
+                    width={400}
+                >
+                    <SuggestedHashtags
+                        hashtags={[
+                            "lolrerewedsdsfdsfsfsdfdsfddsas",
+                            "yolo",
+                            "lol",
+                            "yolo",
+                            "lol",
+                            "lol",
+                            "yolo",
+                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
+                        ]}
+                    />
+                </Preview>
+
+                <Preview>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"standard"}
+                    />
+                    <IconSVG
+                        icon={"Consumption_03"}
+                        size={"large1"}
+                    />
+                </Preview>
+
+                <Preview>
+                    <SectionFooterClose />
+                </Preview>
+
+                <h1>{"/Composite Components"}</h1>
+
                 <Preview title={"HeaderComposits"}>
                     <div className={styles.subHeader}>
                         {'HeaderCompositActivity'}
@@ -873,248 +1023,9 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/mainMenu">
-                    <div className={styles.subHeader}>
-                        {'Menu Header'}
-                    </div>
-                    <MenuHeader
-                        icon1={'icon-duckylogo'}
-                        icon2={'icon-navigate_before'}
-                        onClick={this.handleButtonClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Menu Item'}
-                    </div>
-                    <MenuItem
-                        icon={'icon-trophy-outline'}
-                        name={'Feed'}
-                        onClick={this.handleIconSmallClick}
-                    />
-                </Preview>
-                <div className={styles.subHeader}>
-                    {'MenuWrapper'}
-                </div>
-                <button onClick={this.handleLeftMenuButtonClick}>
-                    {'Show Left Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'left'}
-                    onHide={this.handleLeftMenuHide}
-                    show={this.state.showLeftMenu}
-                >
-                    <MenuHeader
-                        icon1={'icon-duckylogo'}
-                        icon2={'icon-navigate_before'}
-                        onClick={this.handleButtonClick}
-                    />
-                </MenuWrapper>
-                <button onClick={this.handleRightMenuButtonClick}>
-                    {'Show Right Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'right'}
-                    onHide={this.handleRightMenuHide}
-                    show={this.state.showRightMenu}
-                >
-                    <MenuItem
-                        icon={'icon-trophy-outline'}
-                        name={'Feed'}
-                        onClick={this.handleIconSmallClick}
-                    />
-                </MenuWrapper>
-
-                <Preview title="/ShareMenu">
-                    <CopyLink
-                        link={"https://ducky.no/1049/posts/VDbdeR"}
-                        onModalHide={this.handleCopyLinkHide}
-                        showModal={this.state.showCopyLink}
-                    />
-                    <ShareMenuItem
-                        onClick={this.handleButtonClick}
-                        share={'fb'}
-                    />
-                    <ShareMenuItem
-                        onClick={this.handleCopyLinkButtonClick}
-                        share={'link'}
-                    />
-                </Preview>
-
-                <Preview
-                    title="ScrollContainer"
-                    width={300}
-                >
-                    <ScrollContainer size={200}>
-                        <div style={{backgroundColor: 'red', height: 300}}></div>
-                        <div style={{backgroundColor: 'blue', height: 300}}></div>
-                    </ScrollContainer>
-                </Preview>
-
-                <Preview
-                    title="LogButton"
-                    width={50}
-                >
-                    <LogButton />
-                    <LogButton checked />
-                </Preview>
-
-                <Preview
-                    title="Action Item Summary Composite"
-                    width={100}
-                >
-                    <ActionItemSummaryComposit
-                        expanded={this.state.ASICExpanded}
-                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
-                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
-                            "Energy02", "Energy01", "Transport02", "Energy02"
-                        ]}
-                        onClick={this.handleASICPressed}
-                    />
-                    <ActionItemSummaryComposit
-                        icons={["Consumption01", "Energy02", "Energy01",
-                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
-                        ]}
-                    />
-                </Preview>
-
-                <Preview title="IconDropdown">
-                    <IconDropdown
-                        icon="icon-home"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                    <IconDropdown
-                        icon="icon-data_usage"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                </Preview>
-
-                <Preview title="TextArea">
-                    <TextArea
-                        onChange={this.handleOnTextAreaChange}
-                        onSubmit={this.handleOnTextAreaSubmit}
-                        placeholder={"Write something..."}
-                        value={this.state.textAreaValue}
-                    />
-                </Preview>
-
-                <Preview title="CreatePostNavigationFooter">
-                    <div style={{marginTop: 10}}>
-                        <CreatePostNavigationFooter />
-                    </div>
-                </Preview>
-
-                <Preview
-                    title="RemoveImage"
-                    width={300}
-                >
-                    <RemoveImage
-                        image={IMAGE_URL}
-                        onClick={this.handleRemoveImageClick}
-                    />
-                </Preview>
-
-                <Preview
-                    title="Tab Menu 1 - Icon Buttons"
-                    width={300}
-                >
-                    <TabMenuIconButtons
-                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
-                        selected={2}
-                    >
-                        <div>
-                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
-                            <Typography
-                                type={"bodyTextNormal"}
-                            >
-                                {"Hello there! I am the third item on this tab menu. I am groot!"}
-                            </Typography>
-                        </div>
-                    </TabMenuIconButtons>
-                </Preview>
-
-                <Preview
-                    title="Suggested Hashtags"
-                    width={400}
-                >
-                    <SuggestedHashtags
-                        hashtags={[
-                            "lolrerewedsdsfdsfsfsdfdsfddsas",
-                            "yolo",
-                            "lol",
-                            "yolo",
-                            "lol",
-                            "lol",
-                            "yolo",
-                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
-                        ]}
-                    />
-                </Preview>
-
-                <Preview>
-                    <IconSVG
-                        icon={"Consumption01"}
-                        size={"standard"}
-                    />
-                    <IconSVG
-                        icon={"Consumption_03"}
-                        size={"large1"}
-                    />
-                </Preview>
-
-                <Preview>
-                    <SectionFooterClose />
-                </Preview>
-
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
-
-                <Preview title="CreatePostHeader">
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(false)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={0}
-                        textActivated={Boolean(false)}
-                    />
-
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(false)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={10}
-                        textActivated={Boolean(true)}
-                    />
-
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(true)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={20}
-                        textActivated={Boolean(true)}
-                    />
-                </Preview>
-
-
-                <Preview title="CreatePostFooter">
-                    <CreatePostFooter
-                        onFileSelected={this.handleOnFileSelected}
-                    >
-                        <ActionButton
-                            icon="icon-restaurant"
-                            size="standard"
-                        />
-                    </CreatePostFooter>
-
-                    <CreatePostFooter image={Boolean(true)}>
-                        <ActionButton
-                            icon="icon-restaurant"
-                            size="standard"
-                        />
-                    </CreatePostFooter>
-                </Preview>
             </div>
         );
     }
