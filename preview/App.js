@@ -6,12 +6,8 @@ import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
-import Comment from '../common/Comment';
-import CommentCarousel from '../common/CommentCarousel';
-import CommentInput from '../common/CommentInput';
 import CopyLink from '../common/CopyLink';
 import Popup from '../common/Popup';
-import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import HeaderCompositUser from '../common/HeaderCompositUser';
@@ -29,7 +25,6 @@ import MenuHeader from '../common/MenuHeader';
 import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
-import NotificationItem from './../common/NotificationItem';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import React from 'react';
@@ -42,7 +37,6 @@ import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
-import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
 import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
@@ -300,16 +294,6 @@ export default class App extends React.Component {
                     <Button onClick={this.handleButtonClick}>
                         {"Primary button"}
                     </Button>
-                </Preview>
-
-                <Preview
-                    title={"TopNavigationBar"}
-                    width={900}
-                >
-                    <TopNavigationBar
-                        notifications={0}
-                        title={'Title'}
-                    />
                 </Preview>
 
                 <Preview title="/LabelFooterAction">
@@ -645,20 +629,20 @@ export default class App extends React.Component {
                         onClick={this.handleIconDisplayTwoClick}
                     />
                     <div className={styles.subHeader}>
-                            {'Label Pair - timestamp-points'}
-                    </div>
-                    <LabelPair
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                        time={'2016-02-22 09:30:00'}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Label Pair - points-co2'}
+                        {'Label Pair'}
                     </div>
                     <LabelPair
                         co2={'165'}
                         onClick={this.handleIconDisplayTwoClick}
                         points={'12'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Label Pair - timestamp'}
+                    </div>
+                    <LabelPair
+                        onClick={this.handleIconDisplayTwoClick}
+                        points={'12'}
+                        time={'2016-02-22 09:30:00'}
                     />
                 </Preview>
 
@@ -776,23 +760,6 @@ export default class App extends React.Component {
                         avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
                     />
-                </Preview>
-
-                <Preview title={"FeedbackTextInput"}>
-                    <FeedbackTextInput prompt={"Skriv noe..."} />
-                </Preview>
-
-                <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-03-01 01:32:21"}
-                        icon={"icon-leaf"}
-                        onClick={this.handleButtonClick}
-                        text={"Du har gjort noe bra!"}
-                    >
-                        <Avatar
-                            image={AVATAR_URL}
-                            size={"standard"}
-                        />
-                    </NotificationItem>
                 </Preview>
 
                 <Preview title={"Popover Menu"}>
@@ -969,49 +936,6 @@ export default class App extends React.Component {
                     <ShareMenuItem
                         onClick={this.handleCopyLinkButtonClick}
                         share={'link'}
-                    />
-                </Preview>
-
-                <Preview
-                    title="CommentCarousel"
-                    width={250}
-                >
-                    <CommentCarousel
-                        avatar={AVATAR_URL}
-                        name={"Gunnar"}
-                    >
-                        {"This is absolutely fantastic! What a great comment! ;)"}
-                    </CommentCarousel>
-                </Preview>
-
-                <Preview
-                    title="Comment"
-                    width={250}
-                >
-                    <Comment
-                        avatar={AVATAR_URL}
-                        name={"Gunnar Gunnersen long name"}
-                        published={Date.now()}
-                    >
-                      {"This is absolutely fantastic! What a great comment! ;)"}
-                    </Comment>
-                    <br />
-                    <Comment
-                        avatar={AVATAR_URL}
-                        name={"Gunnar"}
-                        published={Date.now()}
-                    >
-                      {"This is absolutely fantastic! What a great comment! ;)"}
-                    </Comment>
-                </Preview>
-
-                <Preview
-                    title="CommentInput"
-                    width={300}
-                >
-                    <CommentInput
-                        onSubmit={this.handleSubmit}
-                        placeholder={"Write something here..."}
                     />
                 </Preview>
 
