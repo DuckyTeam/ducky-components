@@ -4,6 +4,7 @@ import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
+//import BarChart from '../common/Charts/BarChart';
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
 import Comment from '../common/Comment';
@@ -23,6 +24,7 @@ import LabelFooterAction from '../common/LabelFooterAction';
 import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LineGraph from '../common/LineGraph';
 import TabMenuIconButtons from '../common/TabMenuIconButtons';
 import LogButton from "../common/LogButton";
 import MenuHeader from '../common/MenuHeader';
@@ -75,8 +77,12 @@ export default class App extends React.Component {
             showMenu: false,
             showCopyLink: false,
             textAreaValue: "",
-            tabIndexSelected: 0
+            tabIndexSelected: 0,
+            value: 0
         };
+        setInterval(() => {
+            this.setState({value: this.state.value +0.3});
+        }, 1000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
@@ -1138,6 +1144,28 @@ export default class App extends React.Component {
 
                 <Preview>
                     <SectionFooterClose />
+                </Preview>
+
+                <Preview width={"500px"}>
+                    <LineGraph
+                        data={[
+                            {
+                                data: [{date: 1, value: this.state.value}, {date: 6, value: 5}],
+                                color: "#607D8B",
+                                label: "Strek1"
+                            },
+                            {
+                                data: [{date: 2, value: 2}, {date: 4, value: 4}],
+                                color: "#D2DADE",
+                                label: "Strek1"
+                            },{
+                                data: [{date: 3, value: this.state.value*0.4}, {date: 5, value: 1}],
+                                color: "#EDF0F2",
+                                label: "Strek1"
+                            },
+                        ]}
+                        domain={{x: [0,6], y: [0, 8]}}
+                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
