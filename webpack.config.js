@@ -99,6 +99,6 @@ if (process.env.NODE_ENV === "production") {
     ];
     options.cache = true;
     options.debug = true;
-    options.devtool = "eval-source-map";
+    options.devtool = "#eval-source-map";
 }
 module.exports = options;

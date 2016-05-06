@@ -3,8 +3,9 @@ import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
+import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
+import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
-import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonCounter from '../common/ButtonCounter';
@@ -16,13 +17,10 @@ import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelFooterAction from '../common/LabelFooterAction';
-import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import TabMenuIconButtons from '../common/TabMenuIconButtons';
 import LogButton from "../common/LogButton";
-import MenuHeader from '../common/MenuHeader';
-import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PopoverMenu from './../common/PopoverMenu';
@@ -30,7 +28,6 @@ import Preview from './Preview';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
-import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
 import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
@@ -749,24 +746,6 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="/mainMenu">
-                    <div className={styles.subHeader}>
-                        {'Menu Header'}
-                    </div>
-                    <MenuHeader
-                        icon1={'icon-home'}
-                        icon2={'icon-room'}
-                        onClick={this.handleButtonClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Menu Item'}
-                    </div>
-                    <MenuItem
-                        icon={'icon-trophy-outline'}
-                        name={'Title'}
-                        onClick={this.handleIconSmallClick}
-                    />
-                </Preview>
                 <div className={styles.subHeader}>
                     {'MenuWrapper'}
                 </div>
@@ -791,12 +770,6 @@ export default class App extends React.Component {
                     <b>{'MenuContent'}</b>
                 </MenuWrapper>
 
-                <Preview title="/ShareMenu">
-                    <ShareMenuItem
-                        onClick={this.handleButtonClick}
-                    />
-                </Preview>
-
                 <Preview
                     title="ScrollContainer"
                     width={300}
@@ -813,25 +786,6 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
-                </Preview>
-
-                <Preview
-                    title="Action Item Summary Composite"
-                    width={100}
-                >
-                    <ActionItemSummaryComposit
-                        expanded={this.state.ASICExpanded}
-                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
-                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
-                            "Energy02", "Energy01", "Transport02", "Energy02"
-                        ]}
-                        onClick={this.handleASICPressed}
-                    />
-                    <ActionItemSummaryComposit
-                        icons={["Consumption01", "Energy02", "Energy01",
-                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
-                        ]}
-                    />
                 </Preview>
 
                 <Preview title="IconDropdown">
@@ -1020,6 +974,25 @@ export default class App extends React.Component {
                         leftIcon={"icon-pig"}
                         onClick={this.handleButtonClick}
                         title="Icon on left"
+                    />
+                </Preview>
+
+                <Preview
+                    title="Action Item Summary Composite"
+                    width={100}
+                >
+                    <ActionItemSummaryComposit
+                        expanded={this.state.ASICExpanded}
+                        icons={["Consumption01", "Energy01", "Transport02", "Energy02",
+                            "Energy01", "Transport02", "Energy02", "Energy01", "Transport02",
+                            "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
+                        onClick={this.handleASICPressed}
+                    />
+                    <ActionItemSummaryComposit
+                        icons={["Consumption01", "Energy02", "Energy01",
+                            "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
+                        ]}
                     />
                 </Preview>
 
