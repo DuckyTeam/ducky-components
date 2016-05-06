@@ -1,7 +1,7 @@
-import LabelSmall from '../LabelSmall';
+import LabelSmall from '../../LabelSmall';
 import React from 'react';
-import Time from '../TimeStamp';
-import styles from './LabelPair.css';
+import Time from '../../TimeStamp';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function LabelPair(props) {
