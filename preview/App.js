@@ -4,6 +4,7 @@ import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
 import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
+import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
@@ -13,13 +14,10 @@ import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
-import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
-import LabelFooterAction from '../common/LabelFooterAction';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
-import TabMenuIconButtons from '../common/TabMenuIconButtons';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -29,7 +27,6 @@ import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
-import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
@@ -39,8 +36,7 @@ import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
 import IconSVG from '../common/IconSVG';
 import styles from './App.css';
-const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
-"funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
+const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 
 export default class App extends React.Component {
@@ -60,8 +56,7 @@ export default class App extends React.Component {
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
-            textAreaValue: "",
-            tabIndexSelected: 0
+            textAreaValue: ""
         };
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
@@ -70,16 +65,11 @@ export default class App extends React.Component {
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
         this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
         this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
-        this.handleTabIndexChanged = this.handleTabIndexChanged.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
-    }
-
-    handleTabIndexChanged(key) {
-        this.setState({tabIndexSelected: key});
     }
 
     handleModalButtonClick() {
@@ -136,74 +126,6 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
-    handleClickOne() {
-        console.log("item1");
-    }
-
-    handleClickTwo() {
-        console.log("item2");
-    }
-
-    handleFavoriteClicked() {
-        console.log('Clicked favorite');
-    }
-
-    handleOutlinedFavoriteClicked() {
-        console.log('Clicked favorite outlined');
-    }
-
-    handleBookmarkClicked() {
-        console.log('Clicked bookmark');
-    }
-
-    handleMainActionButtonClicked() {
-        console.log('Clicked MainActionButton');
-    }
-
-    handleIconNanoClick() {
-        console.log("IconNano");
-    }
-
-    handleIconMicroClick() {
-        console.log("IconMicro");
-    }
-
-    handleIconMiniClick() {
-        console.log("IconMini");
-    }
-
-    handleIconSmallClick() {
-        console.log("IconSmall");
-    }
-
-    handleIconStandardClick() {
-        console.log("IconStandard");
-    }
-
-    handleIconLargeOneClick() {
-        console.log("IconLargeOne");
-    }
-
-    handleIconLargeTwoClick() {
-        console.log("IconLargeTwo");
-    }
-
-    handleIconDisplayOneClick() {
-        console.log("IconDisplayOne");
-    }
-
-    handleIconDisplayTwoClick() {
-        console.log("IconDisplayTwo");
-    }
-
-    handleIconDropdownClick() {
-        console.log("IconDropdown clicked");
-    }
-
-    handleSubmit() {
-        console.log('submitted');
-    }
-
     handleOnTextAreaSubmit() {
         console.log('TextArea submitted');
     }
@@ -222,6 +144,29 @@ export default class App extends React.Component {
         return (
             <div className={styles.wrapper}>
                 <h1>{"/common"}</h1>
+
+                <Preview title={"Menu Wrapper"}>
+                    <button onClick={this.handleLeftMenuButtonClick}>
+                        {'Show Left Menu'}
+                    </button>
+                    <MenuWrapper
+                        alignment={'left'}
+                        onHide={this.handleLeftMenuHide}
+                        show={this.state.showLeftMenu}
+                    >
+                        <b>{'MenuContent'}</b>
+                    </MenuWrapper>
+                    <button onClick={this.handleRightMenuButtonClick}>
+                        {'Show Right Menu'}
+                    </button>
+                    <MenuWrapper
+                        alignment={'right'}
+                        onHide={this.handleRightMenuHide}
+                        show={this.state.showRightMenu}
+                    >
+                        <b>{'MenuContent'}</b>
+                    </MenuWrapper>
+                </Preview>
 
                 <Preview
                     title="/Popup"
@@ -272,27 +217,6 @@ export default class App extends React.Component {
                     <Button onClick={this.handleButtonClick}>
                         {"Primary button"}
                     </Button>
-                </Preview>
-
-                <Preview title="/LabelFooterAction">
-                    <LabelFooterAction
-                        icon={'icon-favorite'}
-                        onClick={this.handleFavoriteClicked}
-                    >
-                        {8}
-                    </LabelFooterAction>
-
-                    <LabelFooterAction
-                        icon={'icon-favorite_border'}
-                        onClick={this.handleOutlinedFavoriteClicked}
-                    />
-
-                    <LabelFooterAction
-                        icon={'icon-trophy-outline'}
-                        onClick={this.handleBookmarkClicked}
-                    >
-                        {12}
-                    </LabelFooterAction>
                 </Preview>
 
                 <Preview
@@ -425,7 +349,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-pig'}
-                        onClick={this.handleIconNanoClick}
+                        onClick={this.handleButtonClick}
                         size={'nano'}
                     />
                     <div className={styles.subHeader}>
@@ -433,7 +357,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-cow'}
-                        onClick={this.handleIconMicroClick}
+                        onClick={this.handleButtonClick}
                         size={'micro'}
                     />
                     <div className={styles.subHeader}>
@@ -441,7 +365,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-tune'}
-                        onClick={this.handleIconMiniClick}
+                        onClick={this.handleButtonClick}
                         size={'mini'}
                     />
                     <div className={styles.subHeader}>
@@ -449,7 +373,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-work'}
-                        onClick={this.handleIconSmallClick}
+                        onClick={this.handleButtonClick}
                         size={'small'}
                     />
                     <div className={styles.subHeader}>
@@ -457,7 +381,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-lens'}
-                        onClick={this.handleIconStandardClick}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                     <div className={styles.subHeader}>
@@ -465,7 +389,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-star'}
-                        onClick={this.handleIconLargeOneClick}
+                        onClick={this.handleButtonClick}
                         size={'large1'}
                     />
                     <div className={styles.subHeader}>
@@ -473,7 +397,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-fish'}
-                        onClick={this.handleIconLargeTwoClick}
+                        onClick={this.handleButtonClick}
                         size={'large2'}
                     />
                     <div className={styles.subHeader}>
@@ -481,7 +405,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-pets'}
-                        onClick={this.handleIconDisplayOneClick}
+                        onClick={this.handleButtonClick}
                         size={'display1'}
                     />
                     <div className={styles.subHeader}>
@@ -489,7 +413,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-duck'}
-                        onClick={this.handleIconDisplayTwoClick}
+                        onClick={this.handleButtonClick}
                         size={'display2'}
                     />
                 </Preview>
@@ -575,7 +499,7 @@ export default class App extends React.Component {
                     </div>
                     <ActionButton
                         icon={'icon-star'}
-                        onClick={this.handleMainActionButtonClicked}
+                        onClick={this.handleButtonClick}
                         size={'main'}
                     />
                     <div className={styles.subHeader}>
@@ -583,7 +507,7 @@ export default class App extends React.Component {
                     </div>
                     <ActionButton
                         icon={'icon-room'}
-                        onClick={this.handleMainActionButtonClicked}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                 </Preview>
@@ -595,7 +519,7 @@ export default class App extends React.Component {
                     <LabelSmall
                         content={"45"}
                         icon={'icon-tram'}
-                        onClick={this.handleIconDisplayTwoClick}
+                        onClick={this.handleButtonClick}
                         type={"caption2Normal"}
                     />
                     <div className={styles.subHeader}>
@@ -604,23 +528,7 @@ export default class App extends React.Component {
                     <LabelStandard
                         content={"425"}
                         icon={'icon-brightness_high'}
-                        onClick={this.handleIconDisplayTwoClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Label Pair'}
-                    </div>
-                    <LabelPair
-                        co2={'165'}
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Label Pair - timestamp'}
-                    </div>
-                    <LabelPair
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                        time={'2016-02-22 09:30:00'}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 
@@ -630,7 +538,7 @@ export default class App extends React.Component {
                     </div>
                     <ButtonCounter
                         number={'45'}
-                        onClick={this.handleIconNanoClick}
+                        onClick={this.handleButtonClick}
                         size={'small'}
                     />
                     <div className={styles.subHeader}>
@@ -638,7 +546,7 @@ export default class App extends React.Component {
                     </div>
                     <ButtonCounter
                         number={'1002'}
-                        onClick={this.handleIconNanoClick}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                 </Preview>
@@ -723,52 +631,11 @@ export default class App extends React.Component {
                     </Wrapper>
                 </Preview>
 
-                <Preview title="/Icon avatar with wrapper">
-                    <div className={styles.subHeader}>
-                        {'Wrapped Icon'}
-                    </div>
-                    <IconAvaWrapper
-                        icon={'icon-tram'}
-                        onClick={this.handleButtonClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Wrapped Avatar'}
-                    </div>
-                    <IconAvaWrapper
-                        avatar={AVATAR_URL}
-                        onClick={this.handleButtonClick}
-                    />
-                </Preview>
-
                 <Preview title={"Popover Menu"}>
                     <PopoverMenu onClick={this.handleButtonClick}
                         text={"Hei pa deg!"}
                     />
                 </Preview>
-
-                <div className={styles.subHeader}>
-                    {'MenuWrapper'}
-                </div>
-                <button onClick={this.handleLeftMenuButtonClick}>
-                    {'Show Left Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'left'}
-                    onHide={this.handleLeftMenuHide}
-                    show={this.state.showLeftMenu}
-                >
-                    <b>{'MenuContent'}</b>
-                </MenuWrapper>
-                <button onClick={this.handleRightMenuButtonClick}>
-                    {'Show Right Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'right'}
-                    onHide={this.handleRightMenuHide}
-                    show={this.state.showRightMenu}
-                >
-                    <b>{'MenuContent'}</b>
-                </MenuWrapper>
 
                 <Preview
                     title="ScrollContainer"
@@ -791,11 +658,11 @@ export default class App extends React.Component {
                 <Preview title="IconDropdown">
                     <IconDropdown
                         icon="icon-home"
-                        onClick={this.handleIconDropdownClick}
+                        onClick={this.handleButtonClick}
                     />
                     <IconDropdown
                         icon="icon-data_usage"
-                        onClick={this.handleIconDropdownClick}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 
@@ -815,43 +682,6 @@ export default class App extends React.Component {
                     <RemoveImage
                         image={IMAGE_URL}
                         onClick={this.handleRemoveImageClick}
-                    />
-                </Preview>
-
-                <Preview
-                    title="Tab Menu 1 - Icon Buttons"
-                    width={300}
-                >
-                    <TabMenuIconButtons
-                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
-                        selected={2}
-                    >
-                        <div>
-                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
-                            <Typography
-                                type={"bodyTextNormal"}
-                            >
-                                {"Hello there! I am the third item on this tab menu. I am groot!"}
-                            </Typography>
-                        </div>
-                    </TabMenuIconButtons>
-                </Preview>
-
-                <Preview
-                    title="Suggested Hashtags"
-                    width={400}
-                >
-                    <SuggestedHashtags
-                        hashtags={[
-                            "lolrerewedsdsfdsfsfsdfdsfddsas",
-                            "yolo",
-                            "lol",
-                            "yolo",
-                            "lol",
-                            "lol",
-                            "yolo",
-                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
-                        ]}
                     />
                 </Preview>
 
@@ -993,6 +823,42 @@ export default class App extends React.Component {
                         icons={["Consumption01", "Energy02", "Energy01",
                             "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
                         ]}
+                    />
+                </Preview>
+
+                <Preview title="/labels">
+                    <div className={styles.subHeader}>
+                        {'Label Pair'}
+                    </div>
+                    <LabelPair
+                        co2={'165'}
+                        onClick={this.handleButtonClick}
+                        points={'12'}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Label Pair - timestamp'}
+                    </div>
+                    <LabelPair
+                        onClick={this.handleButtonClick}
+                        points={'12'}
+                        time={'2016-02-22 09:30:00'}
+                    />
+                </Preview>
+
+                <Preview title="/Icon avatar with wrapper">
+                    <div className={styles.subHeader}>
+                        {'Wrapped Icon'}
+                    </div>
+                    <IconAvaWrapper
+                        icon={'icon-tram'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Wrapped Avatar'}
+                    </div>
+                    <IconAvaWrapper
+                        avatar={AVATAR_URL}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 

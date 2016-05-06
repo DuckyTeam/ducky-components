@@ -1,9 +1,9 @@
-import Avatar from '../Avatar';
-import Icon from '../Icon';
+import Avatar from '../../Avatar';
+import Icon from '../../Icon';
 import React from 'react';
-import Wrapper from '../Wrapper';
+import Wrapper from '../../Wrapper';
 import classNames from 'classnames';
-import styles from './IconAvaWrapper.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function IconAvaWrapper(props) {

@@ -1,4 +1,4 @@
-import IconAvaWrapper from '../../IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
 import Typography from '../../Typography';
 import Wrapper from '../../Wrapper';
