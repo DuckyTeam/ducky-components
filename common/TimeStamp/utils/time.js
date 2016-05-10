@@ -9,6 +9,7 @@ function getLocale() {
 moment.locale(getLocale(), {
     calendar: {
         lastDay: "igår",
+        sameDay: "[i dag kl] LT",
         nextDay: "D.MMM",
         lastWeek: "D.MMM",
         nextWeek: "D.MMM",
