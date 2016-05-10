@@ -223,7 +223,9 @@ export default class App extends React.Component {
                     title="/TextOnlyElement"
                     width={300}
                 >
-                    <TextOnlyElement>
+                    <TextOnlyElement
+                            category={'transport'}
+                            >
                         {[
                             "Dette er en kjempe fin tekst." +
                             " Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så\n",
@@ -239,6 +241,7 @@ export default class App extends React.Component {
                     </TextOnlyElement>
                     <br />
                     <TextOnlyElement
+                        category={'energy'}
                         onClick={this.handleTextOnlyElementClick}
                         showFullText={this.state.showFullText}
                     >
