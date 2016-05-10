@@ -7,9 +7,9 @@ import path from 'path';
 import webpack from 'webpack';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackMiddleware from 'webpack-dev-middleware';
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = 3005;
 const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? DEFAULT_PORT : process.env.PORT;
+const port = process.env.PORT ? process.env.PORT : DEFAULT_PORT;
 const app = express();
 
 if (isDeveloping) {

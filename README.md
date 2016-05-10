@@ -1,26 +1,30 @@
 # Ducky components
 
 ## Overview
-React components used to create wwww.ducky.no
+Basic React components used to create www.ducky.no
 
-## Creating components
-Ipsum lorem
+## Install
+- Have the latest version of [Node](https://nodejs.org/en/)
+- Clone the repo
+- Install dependencies with `npm install`
+
+## Running the project
+- Run the development server with `npm start`
+- Open `localhost:3005`
+
+## Project structure
+Create a component folder in `common` with `index.js` and `styles.css` files. Each component is to be developed as a function or a class if required.
+Preview the component in `preview\App.js`.
+
 ### CSS Modules
 CSS files loaded into components are locally scoped and you can point to class names with javascript.
 You can also compose classes together, also from other files.
 These are also hot loaded. Read more about them [here](http://glenmaddern.com/articles/css-modules).
 To turn off CSS Modules remove it from the `webpack.config.js` file.
 
-## Running
-Ipsum lorem
-
 ### Babel
 Both Node server and frontend code runs with Babel.
 
-### CssNext
-
 ### Linting
-`npm run lint`
-All code is linted. With atom you install the `linter` package, then `linter-eslint`. You are covered.
-Also run `npm run eslint` to verify all files.
+Run `npm run lint` to verify all files. With Atom you can install the `linter` package, then `linter-eslint` for error highlighting.
 I would recommend installing `language-babel` package too for syntax highlighting

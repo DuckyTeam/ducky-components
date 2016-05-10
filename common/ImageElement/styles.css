@@ -3,11 +3,14 @@
   background-size: contain;
   background-repeat: no-repeat;
   width: 100%;
-  height: 100%;
+  height: 200px;
 }
 
-.modalImageWrapper {
-  padding: 20px;
-  height: 400px;
+.modalImage {
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  display: block;
+  padding: 16px;
   box-sizing: border-box;
 }

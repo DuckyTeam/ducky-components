@@ -11,3 +11,7 @@
   font-size: 12px;
   font-weight: bold;
 }
+
+*{
+  box-sizing: border-box;
+}

@@ -1,9 +1,4 @@
 .wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-.options {
   position: absolute;
   list-style-type: none;
   padding: 0;
@@ -13,9 +8,4 @@
   border: 1px solid rgba(0,0,0,.15);
   z-index: 999999;
   background-color: #fff;
-}
-
-.optionsRight {
-  composes: options;
-  right: 0;
 }

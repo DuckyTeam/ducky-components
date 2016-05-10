@@ -1,0 +1,24 @@
+.wrapper {
+    color: #607D8B;
+    display: inline;
+}
+
+.small {
+    width: 24px;
+}
+
+.standard {
+    width: 36px;
+}
+
+.large {
+    width: 48px;
+}
+
+.display1 {
+    width: 72px;
+}
+
+.display2 {
+    width: 96px;
+}

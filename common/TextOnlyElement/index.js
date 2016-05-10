@@ -1,6 +1,6 @@
 import React from 'react';
+import {PropTypes} from 'react';
 import Typography from '../Typography';
-import Wrapper from '../Wrapper';
 import styles from './styles.css';
 const BREAK_TEXT_LENGTH = 415;
 
@@ -21,27 +21,8 @@ function TextOnlyElement(props) {
 
     if (textLength > BREAK_TEXT_LENGTH && !props.showFullText) {
         return (
-            <Wrapper size="standard">
-                <div
-                    className={styles.shadowWrapper}
-                    onClick={props.onClick}
-                >
-                    <Typography
-                        className={styles.text}
-                        type="bodyTextNormal"
-                    >
-                        {props.children}
-                    </Typography>
-                    <div className={styles.gradient}></div>
-                </div>
-            </Wrapper>
-        );
-    }
-
-    return (
-        <Wrapper size="standard">
             <div
-                className={styles.wrapper}
+                className={styles.shadowWrapper}
                 onClick={props.onClick}
             >
                 <Typography
@@ -50,15 +31,30 @@ function TextOnlyElement(props) {
                 >
                     {props.children}
                 </Typography>
+                <div className={styles.gradient}></div>
             </div>
-        </Wrapper>
+        );
+    }
+
+    return (
+        <div
+            className={styles.wrapper}
+            onClick={props.onClick}
+        >
+            <Typography
+                className={styles.text}
+                type="bodyTextNormal"
+            >
+                {props.children}
+            </Typography>
+        </div>
     );
 }
 
 TextOnlyElement.propTypes = {
-    children: React.PropTypes.node,
-    onClick: React.PropTypes.func,
-    showFullText: React.PropTypes.bool
+    children: PropTypes.node,
+    onClick: PropTypes.func,
+    showFullText: PropTypes.bool
 };
 
 export default TextOnlyElement;

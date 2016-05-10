@@ -19,6 +19,7 @@ const options = {
                 loader: "babel",
                 include: [
                     path.resolve(__dirname, "common"),
+                    path.resolve(__dirname, "desktop"),
                     path.resolve(__dirname, "preview")
                 ],
                 query: {
@@ -75,6 +76,7 @@ const options = {
         extensions: ["", ".js", ".jsx"],
         root: [
             path.resolve(__dirname, "common"),
+            path.resolve(__dirname, "desktop"),
             path.resolve(__dirname, "preview")
         ]
     }
@@ -97,6 +99,6 @@ if (process.env.NODE_ENV === "production") {
     ];
     options.cache = true;
     options.debug = true;
-    options.devtool = "eval-source-map";
+    options.devtool = "#eval-source-map";
 }
 module.exports = options;

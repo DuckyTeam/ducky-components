@@ -1,24 +1,29 @@
-
-import Icon from '../Icon';
+import Avatar from '../../Avatar';
+import Icon from '../../Icon';
 import React from 'react';
-import Typography from '../Typography';
-import LabelStandard from '../LabelStandard';
+import {PropTypes} from 'react';
+import Typography from '../../Typography';
+import LabelStandard from '../../LabelStandard';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function HeaderCompositActivity(props) {
+function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Icon
-                icon={props.activityIcon}
-                size={"large1"}
+            <Avatar
+                image={props.avatar}
+                link={props.profileLink}
+                size={"standard"}
             />
             <div className={styles.content}>
                 <Typography
                     className={styles.title}
+                    onClick={props.onProfileClick}
                     type="bodyTextTitle"
                 >
-                    {props.title}
+                    <a href={props.profileLink}>
+                        {props.title}
+                    </a>
                 </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
@@ -31,9 +36,7 @@ function HeaderCompositActivity(props) {
                     icon={props.icon}
                   />
                 : <Icon
-                    icon={classNames(props.icon, {
-                        [styles.iconWithCursor]: Boolean(props.onIconClick)
-                    })}
+                    icon={props.icon}
                     onClick={props.onIconClick}
                     size="standard"
                   />
@@ -42,14 +45,16 @@ function HeaderCompositActivity(props) {
     );
 }
 
-HeaderCompositActivity.propTypes = {
-    activityIcon: React.PropTypes.string,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    iconValue: React.PropTypes.string,
-    onIconClick: React.PropTypes.func,
-    title: React.PropTypes.string
+HeaderCompositUser.propTypes = {
+    avatar: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    icon: PropTypes.string,
+    iconValue: PropTypes.string,
+    onIconClick: PropTypes.func,
+    onProfileClick: PropTypes.func,
+    profileLink: PropTypes.string,
+    title: PropTypes.string
 };
 
-export default HeaderCompositActivity;
+export default HeaderCompositUser;

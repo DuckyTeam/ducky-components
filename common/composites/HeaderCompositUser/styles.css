@@ -1,6 +1,8 @@
 .wrapper {
   height: 36px;
   display: flex;
+  width: 100%;
+  align-items: center;
 }
 
 .content {
