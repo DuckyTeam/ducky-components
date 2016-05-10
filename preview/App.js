@@ -273,6 +273,15 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
+                    <Button
+                        onClick={this.handleButtonClick}
+                        type="secondary"
+                    >
+                        {"Secondary button"}
+                    </Button>
+                    <Button onClick={this.handleButtonClick}>
+                        {"Primary button"}
+                    </Button>
                 </Preview>
 
                 <Preview
@@ -733,19 +742,6 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-<<<<<<< HEAD
-                <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-04-01 13:57:21"}
-                        icon={"icon-leaf"}
-                        onClick={this.handleButtonClick}
-                        text={"Du har gjort noe bra!"}
-                    >
-                        <Avatar
-                            size={"standard"}
-                            user={"all"}
-                        />
-                    </NotificationItem>
-=======
                 <Preview
                     title="RemoveImage"
                     width={300}
@@ -754,7 +750,6 @@ export default class App extends React.Component {
                         image={IMAGE_URL}
                         onClick={this.handleRemoveImageClick}
                     />
->>>>>>> refs/remotes/origin/master
                 </Preview>
 
                 <Preview>
@@ -811,6 +806,16 @@ export default class App extends React.Component {
                         avatar={AVATAR_URL}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={"10"}
+                            points={"8"}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
