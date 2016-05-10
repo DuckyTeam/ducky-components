@@ -24,6 +24,11 @@
   padding-bottom: 30px;
 }
 
+a {
+    color: #004750;
+    text-decoration: none;
+}
+
 .foodWrapper {
     background-color: #F6BA75;
 }

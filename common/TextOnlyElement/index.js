@@ -58,7 +58,6 @@ function TextOnlyElement(props) {
             >
                 {props.children}
             </Typography>
-            <a>Hey</a>
         </div>
     );
 }
