@@ -4,6 +4,7 @@ import "../common/icons.css";
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CopyLink from '../common/CopyLink';
 import Dropdown from '../common/Dropdown';
@@ -251,33 +252,70 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="/Button">
-                    <Button
-                        disabled
-                        onClick={this.handleButtonClick}
-                        type={'flat'}
-                    >
-                        {"Flat button disabled"}
-                    </Button>
-                    <Button
-                        onClick={this.handleButtonClick}
-                        type={'flat'}
-                    >
-                        {"Flat button"}
-                    </Button>
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
+                    <br />{'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
                     <br />
-                    <Button
-                        disabled
-                        onClick={this.handleButtonClick}
-                        type={'raised'}
-                    >
-                        {"Raised button disabled"}
-                    </Button>
-                    <Button
-                        onClick={this.handleButtonClick}
-                        type={'raised'}
-                    >
-                        {"Raised button"}
-                    </Button>
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
                 </Preview>
 
                 <Preview

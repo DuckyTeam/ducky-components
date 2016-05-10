@@ -5,13 +5,16 @@ import styles from './styles.css';
 
 function Button(props) {
     let disabled = false;
+
     if (props.disabled) {
         disabled = 'disabled';
     }
 
     return (
         <button
-            className={styles.flat}
+            className={classNames(styles.raised, {
+                [styles.darkBackground]: props.theme === 'dark'
+            })}
             disabled={disabled}
             onClick={props.onClick}
         >

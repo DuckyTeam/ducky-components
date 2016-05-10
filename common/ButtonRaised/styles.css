@@ -1,0 +1,48 @@
+.button {
+    height: 36px;
+    min-width: 80px;
+    padding: 0 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+}
+
+.raised {
+    composes: button;
+    background-color: #00AB97;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+}
+
+.text {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
+
+.darkBackground {
+    background-color: #00AB97;
+}
+
+.darkText{
+    color: white;
+}
+.darkBackground:disabled {
+    box-shadow: none;
+    background-color: #607D8B;
+    opacity: 0.5;
+}
+
+.raised:disabled {
+    background-color: #CFD8DC;
+    box-shadow: none;
+    color: #607D8B;
+    opacity: 0.5;
+}
+
+.raised:disabled > span {
+    color: #607D8B !important;
+}

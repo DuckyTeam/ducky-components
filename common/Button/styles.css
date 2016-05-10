@@ -5,7 +5,8 @@
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
-    background: transparnet;
+    background: transparent;
+    border: none;
 }
 
 .flat {
@@ -16,24 +17,19 @@
     opacity: 0.5;
 }
 
-.raised {
-    composes: button;
-    background-color: #607D8B;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+.flat:disabled > span {
+    color: #607D8B !important;
 }
 
-.raisedDark:disabled {
-    box-shadow: none;
-    opacity: 0.5;
+.text {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #00AB97;
 }
 
-.raised:disabled {
-    background-color: #CFD8DC;
-    box-shadow: none;
-    color: #607D8B;
-    opacity: 0.5;
-}
-
-.raised > span {
-    color: #FFFFFF !important;
+.darkText{
+    color: white;
+    background-color: transparent;
 }
