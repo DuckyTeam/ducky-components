@@ -5,6 +5,7 @@ import styles from './styles.css';
 
 function Button(props) {
     let disabled = false;
+
     if (props.disabled) {
         disabled = 'disabled';
     }

@@ -7,6 +7,7 @@
     align-items: center;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .raised {
@@ -41,6 +42,7 @@
     box-shadow: none;
     color: #607D8B;
     opacity: 0.5;
+    cursor: auto;
 }
 
 .raised:disabled > span {

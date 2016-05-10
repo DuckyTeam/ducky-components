@@ -7,6 +7,7 @@
     align-items: center;
     background: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .flat {
@@ -15,6 +16,7 @@
 
 .flat:disabled {
     opacity: 0.5;
+    cursor: auto;
 }
 
 .flat:disabled > span {

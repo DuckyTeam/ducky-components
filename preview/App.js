@@ -273,15 +273,6 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
-                    <Button
-                        onClick={this.handleButtonClick}
-                        type="secondary"
-                    >
-                        {"Secondary button"}
-                    </Button>
-                    <Button onClick={this.handleButtonClick}>
-                        {"Primary button"}
-                    </Button>
                 </Preview>
 
                 <Preview
