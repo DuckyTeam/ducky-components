@@ -1,6 +1,7 @@
 import React from 'react';
 import {PropTypes} from 'react';
 import Typography from '../Typography';
+import classNames from 'classnames';
 import styles from './styles.css';
 const BREAK_TEXT_LENGTH = 415;
 
@@ -22,7 +23,9 @@ function TextOnlyElement(props) {
     if (textLength > BREAK_TEXT_LENGTH && !props.showFullText) {
         return (
             <div
-                className={styles.shadowWrapper}
+                className={classNames(styles.shadowWrapper, {
+                    [props.className]: props.className
+                })}
                 onClick={props.onClick}
             >
                 <Typography
@@ -38,7 +41,9 @@ function TextOnlyElement(props) {
 
     return (
         <div
-            className={styles.wrapper}
+            className={classNames(styles.wrapper, {
+                [props.className]: props.className
+            })}
             onClick={props.onClick}
         >
             <Typography
