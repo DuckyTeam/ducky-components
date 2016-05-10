@@ -1,13 +1,14 @@
 .wrapper {
     position: relative;
     height: 24px;
+    width: 100%;
 }
 .icon{
     display: inline;
     position: absolute;
 }
 
-.cb{
+.cb {
     vertical-align: text-bottom;
     vertical-align: top;
 }
