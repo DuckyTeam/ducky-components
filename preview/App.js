@@ -9,6 +9,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
@@ -208,15 +209,70 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="/Button">
-                    <Button
-                        onClick={this.handleButtonClick}
-                        type="secondary"
-                    >
-                        {"Secondary button"}
-                    </Button>
-                    <Button onClick={this.handleButtonClick}>
-                        {"Primary button"}
-                    </Button>
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
+                    <br />{'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
                 </Preview>
 
                 <Preview
@@ -451,6 +507,8 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
+                    <br />
+                    <Typography type={'buttonText'}>{"buttonText (14px)"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
@@ -743,6 +801,16 @@ export default class App extends React.Component {
                         category={'social'}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={"10"}
+                            points={"8"}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
