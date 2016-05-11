@@ -3,6 +3,7 @@ import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
+import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
 import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
 import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
@@ -882,6 +883,21 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         title="Icon on left"
                     />
+                </Preview>
+
+                <Preview title={"SectionHeaderTitle"}
+                    width={'200'}
+                >
+                    <SectionHeaderTitle title="Some title" />
+                    <SectionHeaderTitle title="Title">
+                        <LabelPair
+                            co2={'10'}
+                            points={'8'}
+                        />
+                    </SectionHeaderTitle>
+                    <SectionHeaderTitle title="Some title">
+                        <span style={{fontSize: 10}}>Whatever you want</span>
+                    </SectionHeaderTitle>
                 </Preview>
 
                 <Preview
