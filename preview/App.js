@@ -740,6 +740,7 @@ export default class App extends React.Component {
                     </div>
                     <HeaderCompositUser
                         avatar={AVATAR_URL}
+                        category={'social'}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
                         title={"Dette er et langt navn"}

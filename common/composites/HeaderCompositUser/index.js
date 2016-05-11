@@ -36,6 +36,9 @@ function HeaderCompositUser(props) {
                     icon={props.icon}
                   />
                 : <Icon
+                    className={classNames({
+                        [styles[(props.category) + 'Icon']]: props.category
+                    })}
                     icon={props.icon}
                     onClick={props.onIconClick}
                     size="standard"
@@ -47,6 +50,7 @@ function HeaderCompositUser(props) {
 
 HeaderCompositUser.propTypes = {
     avatar: PropTypes.string,
+    category: PropTypes.oneOf(['food', 'consumption', 'energy', 'transport', 'social']),
     children: PropTypes.node,
     className: PropTypes.string,
     icon: PropTypes.string,
