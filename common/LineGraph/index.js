@@ -10,12 +10,12 @@ class LineGraph extends React.Component {
         d3Chart.create(document.getElementById("chart"), {
             width: 400,
             height: 300
-        }, this.getChartState());
+        }, this.getChartState(), this.props.formatting);
     }
 
     componentDidUpdate() {
         var el = ReactDOM.findDOMNode(this);
-        d3Chart.update(el, this.getChartState());
+        d3Chart.update(el, this.getChartState(), this.props.formatting);
     }
 
     getChartState() {

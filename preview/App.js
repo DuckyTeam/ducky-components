@@ -54,6 +54,7 @@ import CreatePostFooter from '../desktop/CreatePostFooter';
 import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import IconSVG from '../common/IconSVG';
 import styles from './App.css';
+import moment from 'moment';
 const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
 "funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
@@ -1150,21 +1151,25 @@ export default class App extends React.Component {
                     <LineGraph
                         data={[
                             {
-                                data: [{date: 1, value: this.state.value}, {date: 6, value: 5}],
-                                color: "#607D8B",
-                                label: "Strek1"
-                            },
-                            {
-                                data: [{date: 2, value: 2}, {date: 4, value: 4}],
-                                color: "#D2DADE",
+                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 12), value: 40+ this.state.value*10}],
+                                strokeColor: "#90A4AE",
+                                strokeWidth: 2,
                                 label: "Strek1"
                             },{
-                                data: [{date: 3, value: this.state.value*0.4}, {date: 5, value: 1}],
-                                color: "#EDF0F2",
+                                data: [{date: new Date(2016, 4, 12), value: 0},{date: new Date(2016, 4, 14), value: 200}, {date: new Date(2016, 5, 12), value: 1000}],
+                                strokeColor: "#FFC107",
+                                strokeWidth: 2,
                                 label: "Strek1"
-                            },
+                            },{
+                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 3), value: 150}, {date: new Date(2016, 5, 10), value: 850}],
+                                strokeColor: "#8BC34A",
+                                strokeWidth: 4,
+                                label: "Strek1",
+                                area: true
+                            }
                         ]}
-                        domain={{x: [0,6], y: [0, 8]}}
+                        domain={{x: [new Date(2016, 4, 12), new Date(2016, 5, 12)], y: [0, 1200]}}
+                        formatting= {function(value) {return moment(value).format("Do MMM")}}
                     />
                 </Preview>
 
