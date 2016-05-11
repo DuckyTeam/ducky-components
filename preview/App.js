@@ -19,6 +19,7 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LabelLarge from "../common/LabelLarge";
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -585,6 +586,14 @@ export default class App extends React.Component {
                     </div>
                     <LabelStandard
                         content={"425"}
+                        icon={'icon-brightness_high'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {"Large Label"}
+                    </div>
+                    <LabelLarge
+                        content={"9999"}
                         icon={'icon-brightness_high'}
                         onClick={this.handleButtonClick}
                     />
