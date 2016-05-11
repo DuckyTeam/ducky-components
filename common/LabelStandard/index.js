@@ -1,13 +1,17 @@
 import Icon from '../Icon';
 import React from 'react';
 import Typography from '../Typography';
-import styles from './LabelStandard.css';
+import classNames from 'classnames';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function LabelStandard(props) {
     return (
         <span className={styles.wrapper}>
             <Icon
+                className={classNames({
+                        [styles.co2Icon]: props.icon === 'icon-leaf'
+                    })}
                 icon={props.icon}
                 onClick={props.onClick}
                 size={'small'}
