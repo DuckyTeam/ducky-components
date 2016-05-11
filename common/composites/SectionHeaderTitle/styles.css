@@ -1,0 +1,11 @@
+.wrapper {
+  width: 100%;
+}
+
+.title {
+  flex: 1;
+}
+
+.children {
+  margin: 3px 0 3px 16px;
+}
