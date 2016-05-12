@@ -11,7 +11,7 @@ function ProgressBar(props) {
         >
             <div
                 className={styles.progress}
-                style={{width: `${props.percent}%`}}
+                style={{width: `${props.percent}%`, backgroundColor: props.color}}
             ></div>
         </div>
     );
@@ -19,6 +19,7 @@ function ProgressBar(props) {
 
 ProgressBar.propTypes = {
     className: PropTypes.string,
+    color: PropTypes.string,
     onClick: PropTypes.func,
     percent: PropTypes.number
 };

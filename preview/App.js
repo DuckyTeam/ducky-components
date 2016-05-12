@@ -955,7 +955,12 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="ProgressBar">
-                    <ProgressBar percent={10} />
+                    <ProgressBar percent={70} />
+                    <br />
+                    <ProgressBar
+                        color="#8BC34A"
+                        percent={30}
+                    />
                 </Preview>
 
                 <h1>{"/mobile"}</h1>
