@@ -13,7 +13,8 @@ function ButtonRaised(props) {
     return (
         <button
             className={classNames(styles.raised, {
-                [styles.darkBackground]: props.theme === 'dark'
+                [styles.darkBackground]: props.theme === 'dark',
+                [props.className]: props.className
             })}
             disabled={disabled}
             onClick={props.onClick}
@@ -31,6 +32,7 @@ function ButtonRaised(props) {
 
 ButtonRaised.propTypes = {
     children: React.PropTypes.node,
+    className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     theme: React.PropTypes.string
