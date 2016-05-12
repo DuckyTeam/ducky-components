@@ -30,7 +30,7 @@ function Button(props) {
 Button.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    disabled: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     theme: React.PropTypes.string
 };

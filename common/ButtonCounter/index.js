@@ -31,7 +31,7 @@ function ButtonCounter(props) {
                 className={styles.number}
                 type={'caption2Normal'}
             >
-                {counter}
+                {props.prefix}{counter}
             </Typography>
         </span>
     );
@@ -41,6 +41,7 @@ ButtonCounter.propTypes = {
     className: PropTypes.string,
     number: PropTypes.number,
     onClick: PropTypes.func,
+    prefix: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'standard']),
     style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
         [React.PropTypes.number, React.PropTypes.string]
