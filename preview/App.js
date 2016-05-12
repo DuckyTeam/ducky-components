@@ -26,6 +26,7 @@ import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
+import RadioButton from '../common/RadioButton';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
@@ -144,6 +145,10 @@ export default class App extends React.Component {
 
     handleOnAvatarClicked() {
         console.log('avatar clicked');
+    }
+
+    handleRadioButtonClick() {
+        console.log('Clicked radio button');
     }
 
     /* eslint-enable no-console */
@@ -281,6 +286,23 @@ export default class App extends React.Component {
                         </ButtonRaised>
                     </div>
                 </Preview>
+
+                <Preview title="/RadioButton">
+                    {'RadioButton active'}
+                        <RadioButton
+                            checked
+                            onClick={this.handleRadioButtonClick}
+                        >
+                        </RadioButton>
+
+                    {'RadioButton default'}
+                            <RadioButton
+                                onClick={this.handleRadioButtonClick}
+                            >
+                            </RadioButton>
+
+                </Preview>
+
 
                 <Preview
                     title="/TextOnlyElement"
