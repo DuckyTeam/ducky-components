@@ -142,6 +142,10 @@ export default class App extends React.Component {
         console.log('selected file', event.target.files);
     }
 
+    handleOnAvatarClicked() {
+        console.log('avatar clicked');
+    }
+
     /* eslint-enable no-console */
 
     render() {
@@ -518,7 +522,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"small"}
                     />
                     <div className={styles.subHeader}>
@@ -526,7 +530,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"standard"}
                     />
                     <div className={styles.subHeader}>
@@ -534,7 +538,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"large"}
                     />
                     <div className={styles.subHeader}>
@@ -542,7 +546,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display1"}
                     />
                     <div className={styles.subHeader}>
@@ -550,7 +554,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display2"}
                     />
                 </Preview>
