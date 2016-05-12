@@ -12,7 +12,7 @@ function HeaderCompositActivity(props) {
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <IconSVG
                 icon={props.activityIcon}
-                size={"large"}
+                size={"standard"}
             />
             <div className={styles.content}>
                 <Typography
