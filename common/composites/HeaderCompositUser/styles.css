@@ -25,3 +25,23 @@
   flex-direction: row;
   align-items: flex-start;
 }
+
+.foodIcon {
+    color: #F6BA75;
+}
+
+.consumptionIcon {
+    color: #EF5F8A;
+}
+
+.energyIcon {
+    color: #00A1C9;
+}
+
+.transportIcon {
+    color: #AA75BA;
+}
+
+.socialIcon {
+    color: #3999E3;
+}

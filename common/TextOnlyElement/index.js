@@ -1,6 +1,7 @@
 import React from 'react';
 import {PropTypes} from 'react';
 import Typography from '../Typography';
+import classNames from 'classnames';
 import styles from './styles.css';
 const BREAK_TEXT_LENGTH = 415;
 
@@ -22,7 +23,10 @@ function TextOnlyElement(props) {
     if (textLength > BREAK_TEXT_LENGTH && !props.showFullText) {
         return (
             <div
-                className={styles.shadowWrapper}
+                className={classNames(styles.shadowWrapper, {
+                    [styles[`${props.category}Wrapper`]]: props.category,
+                    [props.className]: props.className
+                })}
                 onClick={props.onClick}
             >
                 <Typography
@@ -31,14 +35,22 @@ function TextOnlyElement(props) {
                 >
                     {props.children}
                 </Typography>
-                <div className={styles.gradient}></div>
+                <div
+                    className={classNames(styles.gradient, {
+                        [styles[`${props.category}Gradient`]]: props.category
+                    })}
+                >
+                </div>
             </div>
         );
     }
 
     return (
         <div
-            className={styles.wrapper}
+            className={classNames(styles.wrapper, {
+                [styles[`${props.category}Wrapper`]]: props.category,
+                [props.className]: props.className
+            })}
             onClick={props.onClick}
         >
             <Typography
@@ -52,7 +64,9 @@ function TextOnlyElement(props) {
 }
 
 TextOnlyElement.propTypes = {
+    category: PropTypes.oneOf(['food', 'consumption', 'energy', 'transport', 'social']),
     children: PropTypes.node,
+    className: PropTypes.string,
     onClick: PropTypes.func,
     showFullText: PropTypes.bool
 };
