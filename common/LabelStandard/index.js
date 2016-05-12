@@ -10,8 +10,8 @@ function LabelStandard(props) {
         <span className={styles.wrapper}>
             <Icon
                 className={classNames({
-                        [styles.co2Icon]: props.icon === 'icon-leaf'
-                    })}
+                    [styles.co2Icon]: props.icon === 'icon-leaf'
+                })}
                 icon={props.icon}
                 onClick={props.onClick}
                 size={'small'}

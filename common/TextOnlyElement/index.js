@@ -24,7 +24,7 @@ function TextOnlyElement(props) {
         return (
             <div
                 className={classNames(styles.shadowWrapper, {
-                    [styles[(props.category) + 'Wrapper']]: props.category,
+                    [styles[`${props.category}Wrapper`]]: props.category,
                     [props.className]: props.className
                 })}
                 onClick={props.onClick}
@@ -37,8 +37,9 @@ function TextOnlyElement(props) {
                 </Typography>
                 <div
                     className={classNames(styles.gradient, {
-                        [styles[(props.category) + 'Gradient']]: props.category
-                    })}>
+                        [styles[`${props.category}Gradient`]]: props.category
+                    })}
+                >
                 </div>
             </div>
         );
@@ -47,7 +48,7 @@ function TextOnlyElement(props) {
     return (
         <div
             className={classNames(styles.wrapper, {
-                [styles[(props.category) + 'Wrapper']]: props.category,
+                [styles[`${props.category}Wrapper`]]: props.category,
                 [props.className]: props.className
             })}
             onClick={props.onClick}
@@ -65,6 +66,7 @@ function TextOnlyElement(props) {
 TextOnlyElement.propTypes = {
     category: PropTypes.oneOf(['food', 'consumption', 'energy', 'transport', 'social']),
     children: PropTypes.node,
+    className: PropTypes.string,
     onClick: PropTypes.func,
     showFullText: PropTypes.bool
 };

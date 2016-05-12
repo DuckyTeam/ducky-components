@@ -10,9 +10,9 @@ function LabelSmall(props) {
         <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
                 className={classNames(styles.pad, {
-                        [styles.pointsIcon]: props.icon === 'icon-brightness_high',
-                        [styles.co2Icon]: props.icon === 'icon-leaf'
-                    })}
+                    [styles.pointsIcon]: props.icon === 'icon-brightness_high',
+                    [styles.co2Icon]: props.icon === 'icon-leaf'
+                })}
                 icon={props.icon}
                 onClick={props.onClick}
                 size={'micro'}

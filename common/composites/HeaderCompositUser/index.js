@@ -37,7 +37,7 @@ function HeaderCompositUser(props) {
                   />
                 : <Icon
                     className={classNames({
-                        [styles[(props.category) + 'Icon']]: props.category
+                        [styles[`${props.category}Icon`]]: props.category
                     })}
                     icon={props.icon}
                     onClick={props.onIconClick}
