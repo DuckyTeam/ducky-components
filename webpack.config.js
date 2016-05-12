@@ -42,7 +42,6 @@ const options = {
                 }
             },
             {test: /\.json?$/, loader: 'json'},
-            {test: /\.html$/, loader: "file?name=[name].[ext]"},
             {
                 test: /\.css$/,
                 loader: ExtractTextPlugin.extract('style',
