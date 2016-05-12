@@ -1,0 +1,32 @@
+.wrapper {
+    display: inline-block;
+    text-align: center;
+    height: 38px;
+    width: 70px;
+    background: #d8e3e2;
+}
+
+.wrapperdark {
+    display: inline-block;
+    text-align: center;
+    height: 38px;
+    width: 70px;
+    background: #1e4a54;
+}
+
+.number {
+  text-align: center;
+}
+
+.darknumber {
+  color: #FFF;
+}
+
+.textcontent {
+  text-align: center;
+  color: #90A4AE;
+}
+
+.darktextcontent {
+  color: #B0BEC5;
+}

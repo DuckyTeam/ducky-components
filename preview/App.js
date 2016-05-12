@@ -19,6 +19,7 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LabelNumber from "../common/LabelNumber";
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -587,6 +588,22 @@ export default class App extends React.Component {
                         content={"425"}
                         icon={'icon-brightness_high'}
                         onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {"Label Number darkbg"}
+                    </div>
+                    <LabelNumber
+                        number={"45,677"}
+                        textcontent={"deltagere"}
+                        bgcolor={"darkbg"}
+                    />
+                    <br/>
+                    <div className={styles.subHeader}>
+                        {"Label Number lightbg"}
+                    </div>
+                    <LabelNumber
+                        number={"45,677"}
+                        textcontent={"deltagere"}
                     />
                 </Preview>
 
