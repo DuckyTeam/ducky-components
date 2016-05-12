@@ -19,7 +19,7 @@ class ActionItemSummaryComposit extends React.Component {
     componentDidMount() {
         const icons = this.renderIcons();
 
-        ReactDOM.render(<div>{icons}></div>, this.container);
+        ReactDOM.render(<div>{icons}</div>, this.container);
     }
 
     handleRef = (component) => {

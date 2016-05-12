@@ -756,13 +756,30 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title={"IconSVG"}>
+                    <div className={styles.subHeader}>Small</div>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"small"}
+                    />
+                    <div className={styles.subHeader}>Standard</div>
                     <IconSVG
                         icon={"Consumption01"}
                         size={"standard"}
                     />
+                    <div className={styles.subHeader}>large</div>
                     <IconSVG
                         icon={"Consumption03"}
                         size={"large"}
+                    />
+                    <div className={styles.subHeader}>display1</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display1"}
+                    />
+                    <div className={styles.subHeader}>display2</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display2"}
                     />
                 </Preview>
 
@@ -777,7 +794,7 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
@@ -789,14 +806,14 @@ export default class App extends React.Component {
                     </HeaderCompositActivity>
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
                     />
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         title={"Dette er et langt navn"}
                     >
                         {"Whatever you want"}
