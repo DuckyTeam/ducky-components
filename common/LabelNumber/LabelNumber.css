@@ -1,17 +1,8 @@
 .wrapper {
-    display: inline-block;
+    display: inline-block flex;
     text-align: center;
     height: 38px;
-    width: 70px;
-    background: #d8e3e2;
-}
-
-.wrapperdark {
-    display: inline-block;
-    text-align: center;
-    height: 38px;
-    width: 70px;
-    background: #1e4a54;
+    flex-grow: 1;
 }
 
 .number {

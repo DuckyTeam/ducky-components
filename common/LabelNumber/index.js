@@ -7,7 +7,7 @@ const PropTypes = React.PropTypes;
 function LabelNumber(props) {
     return(
       <span>
-        <div className={classNames(styles.wrapper , {[styles.wrapperdark]: props.bgcolor === 'darkbg'})}>
+        <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
         <Typography type= {'ingressStrong'}
                     className={classNames(styles.number , {[styles.darknumber]: props.bgcolor === 'darkbg' })}>
                 {props.number}

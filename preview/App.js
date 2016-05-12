@@ -592,19 +592,23 @@ export default class App extends React.Component {
                     <div className={styles.subHeader}>
                         {"Label Number darkbg"}
                     </div>
-                    <LabelNumber
+                    <div style={{backgroundColor: '#1e4a54' , width: 70}}>
+                      <LabelNumber
                         number={"45,677"}
                         textcontent={"deltagere"}
                         bgcolor={"darkbg"}
-                    />
+                        />
+                    </div>
                     <br/>
                     <div className={styles.subHeader}>
                         {"Label Number lightbg"}
                     </div>
-                    <LabelNumber
+                    <div style={{backgroundColor: '#d8e3e2' , width: 70}}>
+                      <LabelNumber
                         number={"45,677"}
                         textcontent={"deltagere"}
-                    />
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
