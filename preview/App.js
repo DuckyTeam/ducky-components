@@ -12,6 +12,7 @@ import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
+import CheckBox from '../common/CheckBox';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -128,6 +129,10 @@ export default class App extends React.Component {
 
     handleButtonClick() {
         console.log('Clicked button');
+    }
+
+    handleCheckBoxClick() {
+        console.log('Clicked checkbox');
     }
 
     handleOnTextAreaSubmit() {
@@ -280,6 +285,22 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
+                </Preview>
+
+                <Preview title="/Checkbox">
+                    {'CheckBox active'}
+                        <CheckBox
+                            checked
+                            onClick={this.handleCheckBoxClick}
+                        >
+                        </CheckBox>
+
+                    {'CheckBox default'}
+                            <CheckBox
+                                onClick={this.handleCheckBoxClick}
+                            >
+                            </CheckBox>
+
                 </Preview>
 
                 <Preview
