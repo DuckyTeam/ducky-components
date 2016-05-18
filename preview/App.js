@@ -970,23 +970,20 @@ export default class App extends React.Component {
                       {'Duckypoint Savings'}
                     </div>
                     <div style={{backgroundColor: 'lightgrey'}}>
-                    <ListCompositeSavings
-                      	icon={'icon-brightness_high'}
-                        bodyText={'Duckypoints'}
-                        savings={5}
-                      />
-                      </div>
-                      <br/>
-                      <div className={styles.subHeader}>
-                        {'CO2 Savings'}
-                      </div>
-                      <div style={{backgroundColor: 'lightgrey'}}>
-                      <ListCompositeSavings
-                        	icon={'icon-leaf'}
-                          bodyText={'Innsparing kgCO2e'}
-                          savings={2.7}
+                        <ListCompositeSavings
+                            savings={5}
+                            type={'points'}
                         />
-                        </div>
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'CO2 Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={2.7}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/labels">
