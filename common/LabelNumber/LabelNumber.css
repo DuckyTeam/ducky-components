@@ -1,0 +1,23 @@
+.wrapper {
+    display: inline-block flex;
+    text-align: center;
+    height: 38px;
+    flex-grow: 1;
+}
+
+.number {
+  text-align: center;
+}
+
+.darknumber {
+  color: #FFF;
+}
+
+.textcontent {
+  text-align: center;
+  color: #90A4AE;
+}
+
+.darktextcontent {
+  color: #B0BEC5;
+}
