@@ -14,12 +14,12 @@ class ActionItemSummaryComposit extends React.Component {
     constructor(props) {
         super(props);
         this.renderIcons = this.renderIcons.bind(this);
-        this.isRendered = false;
     }
 
     componentDidMount() {
-        this.isRendered = true;
-        this.forceUpdate();
+        const icons = this.renderIcons();
+
+        ReactDOM.render(<div>{icons}</div>, this.container);
     }
 
     handleRef = (component) => {
@@ -28,48 +28,43 @@ class ActionItemSummaryComposit extends React.Component {
 
     renderIcons() {
         let lastLeft = 0;
-
-        if (this.isRendered) {
-            const width = ReactDOM.findDOMNode(this.container).offsetWidth;
-            const number = Math.floor((width - SPACE) / (ICON_WIDTH - OVERLAP));
-            const iconsMap = this.props.icons.slice(0, number).map((icon, key) => {
-                lastLeft = key * (ICON_WIDTH - OVERLAP);
-                return (
-                    <IconSVG
-                        className={styles.icon}
-                        icon={icon}
-                        key={key}
-                        size={"small"}
-                        style={{left: key * (ICON_WIDTH - OVERLAP)}}
-                    />
-                );
-            });
-            const numberLeft = this.props.icons.length - number;
-
-            return [iconsMap,
-                numberLeft > 0
-                    ? <ButtonCounter
-                        className={styles.cb}
-                        key={"bc"}
-                        number={`+${numberLeft}`}
-                        size={'small'}
-                        style={{position: "absolute", left: lastLeft + ICON_WIDTH - OVERLAP}}
-                      /> : null,
-                <Icon
-                    className={classNames(styles.arrow, {[styles.expanded]: this.props.expanded})}
-                    icon={"icon-keyboard_arrow_down"}
-                    key={"icon"}
-                    onClick={this.props.onClick}
-                    size={"standard"}
+        const width = ReactDOM.findDOMNode(this.container).offsetWidth;
+        const number = Math.floor((width - SPACE) / (ICON_WIDTH - OVERLAP));
+        const iconsMap = this.props.icons.slice(0, number).map((icon, key) => {
+            lastLeft = key * (ICON_WIDTH - OVERLAP);
+            return (
+                <IconSVG
+                    className={styles.icon}
+                    icon={icon}
+                    key={key}
+                    size={"small"}
+                    style={{left: key * (ICON_WIDTH - OVERLAP)}}
                 />
-            ];
-        }
-        return null;
+            );
+        });
+        const numberLeft = this.props.icons.length - number;
+
+        return [iconsMap,
+            numberLeft > 0
+                ? <ButtonCounter
+                    className={styles.cb}
+                    key={"bc"}
+                    number={numberLeft}
+                    prefix={'+'}
+                    size={'small'}
+                    style={{position: "absolute", left: lastLeft + ICON_WIDTH - OVERLAP}}
+                  /> : null,
+            <Icon
+                className={classNames(styles.arrow, {[styles.expanded]: this.props.expanded})}
+                icon={"icon-keyboard_arrow_down"}
+                key={"icon"}
+                onClick={this.props.onClick}
+                size={"standard"}
+            />
+        ];
     }
 
     render() {
-        const icons = this.renderIcons();
-
         return (
             <div
                 className={classNames(styles.wrapper, {
@@ -77,7 +72,6 @@ class ActionItemSummaryComposit extends React.Component {
                 })}
                 ref={this.handleRef}
             >
-                {icons}
             </div>
         );
     }

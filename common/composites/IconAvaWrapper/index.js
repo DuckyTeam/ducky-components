@@ -19,7 +19,7 @@ function IconAvaWrapper(props) {
             >
                 <Avatar
                     image={props.avatar}
-                    link={'/'}
+                    link={props.link}
                     size={'small'}
                 />
             </Wrapper>
@@ -47,6 +47,7 @@ IconAvaWrapper.propTypes = {
     avatar: PropTypes.string,
     className: PropTypes.string,
     icon: PropTypes.string,
+    link: PropTypes.string,
     onClick: PropTypes.func
 };
 

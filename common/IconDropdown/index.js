@@ -13,6 +13,7 @@ function IconDropdown(props) {
             onClick={props.onClick}
         >
             <Icon
+                className={styles.icon}
                 icon={props.icon}
                 size="standard"
             />

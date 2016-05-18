@@ -3,6 +3,7 @@ import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
+import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
 import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
 import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
@@ -20,6 +21,7 @@ import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LabelNumber from "../common/LabelNumber";
+import LabelLarge from "../common/LabelLarge";
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -37,6 +39,7 @@ import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
 import IconSVG from '../common/IconSVG';
+import ProgressBar from '../common/ProgressBar';
 import styles from './App.css';
 const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
@@ -138,6 +141,10 @@ export default class App extends React.Component {
 
     handleOnFileSelected(event) {
         console.log('selected file', event.target.files);
+    }
+
+    handleOnAvatarClicked() {
+        console.log('avatar clicked');
     }
 
     /* eslint-enable no-console */
@@ -280,7 +287,9 @@ export default class App extends React.Component {
                     title="/TextOnlyElement"
                     width={300}
                 >
-                    <TextOnlyElement>
+                    <TextOnlyElement
+                        category={'transport'}
+                    >
                         {[
                             "Dette er en kjempe fin tekst." +
                             " Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så\n",
@@ -296,6 +305,7 @@ export default class App extends React.Component {
                     </TextOnlyElement>
                     <br />
                     <TextOnlyElement
+                        category={'social'}
                         onClick={this.handleTextOnlyElementClick}
                         showFullText={this.state.showFullText}
                     >
@@ -505,8 +515,6 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
-                    <br />
-                    <Typography type={'buttonText'}>{"buttonText (14px)"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
@@ -515,7 +523,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"small"}
                     />
                     <div className={styles.subHeader}>
@@ -523,7 +531,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"standard"}
                     />
                     <div className={styles.subHeader}>
@@ -531,7 +539,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"large"}
                     />
                     <div className={styles.subHeader}>
@@ -539,7 +547,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display1"}
                     />
                     <div className={styles.subHeader}>
@@ -547,7 +555,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display2"}
                     />
                 </Preview>
@@ -590,23 +598,31 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                     />
                     <div className={styles.subHeader}>
+                        {"Large Label"}
+                    </div>
+                    <LabelLarge
+                        content={"9999"}
+                        icon={'icon-brightness_high'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
                         {"Label Number darkbg"}
                     </div>
-                    <div style={{backgroundColor: '#1e4a54' , width: 70}}>
-                      <LabelNumber
-                        number={"45,677"}
-                        textcontent={"deltagere"}
-                        bgcolor={"darkbg"}
+                    <div style={{backgroundColor: '#1e4a54', width: 70}}>
+                        <LabelNumber
+                            bgcolor={"darkbg"}
+                            number={"45,677"}
+                            textcontent={"deltagere"}
                         />
                     </div>
-                    <br/>
+                    <br />
                     <div className={styles.subHeader}>
                         {"Label Number lightbg"}
                     </div>
-                    <div style={{backgroundColor: '#d8e3e2' , width: 70}}>
-                      <LabelNumber
-                        number={"45,677"}
-                        textcontent={"deltagere"}
+                    <div style={{backgroundColor: '#d8e3e2', width: 70}}>
+                        <LabelNumber
+                            number={"45,677"}
+                            textcontent={"deltagere"}
                         />
                     </div>
                 </Preview>
@@ -616,7 +632,7 @@ export default class App extends React.Component {
                         {'Small Button Counter'}
                     </div>
                     <ButtonCounter
-                        number={'45'}
+                        number={45}
                         onClick={this.handleButtonClick}
                         size={'small'}
                     />
@@ -624,7 +640,7 @@ export default class App extends React.Component {
                         {'Standard Button Counter'}
                     </div>
                     <ButtonCounter
-                        number={'1002'}
+                        number={1002}
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
@@ -647,14 +663,14 @@ export default class App extends React.Component {
                         {'Horizontal Ruler'}
                     </div>
                     <Spacer
-                        hr={'true'}
+                        hr={Boolean(true)}
                         size={'hr1'}
                     />
                     <div className={styles.subHeader}>
                         {'Horizontal Ruler with Margins'}
                     </div>
                     <Spacer
-                        hr={'true'}
+                        hr={Boolean(true)}
                         size={'hr2'}
                     />
                 </Preview>
@@ -764,18 +780,35 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview>
+                <Preview title={"IconSVG"}>
+                    <div className={styles.subHeader}>Small</div>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"small"}
+                    />
+                    <div className={styles.subHeader}>Standard</div>
                     <IconSVG
                         icon={"Consumption01"}
                         size={"standard"}
                     />
+                    <div className={styles.subHeader}>large</div>
                     <IconSVG
-                        icon={"Consumption_03"}
-                        size={"large1"}
+                        icon={"Consumption03"}
+                        size={"large"}
+                    />
+                    <div className={styles.subHeader}>display1</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display1"}
+                    />
+                    <div className={styles.subHeader}>display2</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display2"}
                     />
                 </Preview>
 
-                <Preview>
+                <Preview title="SectionFooterClose">
                     <SectionFooterClose />
                 </Preview>
 
@@ -786,26 +819,26 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            points={"10"}
-                            time={"2016-01-05T01:32:21.196Z"}
+                            points={10}
+                            time={1463044694799}
                         />
                     </HeaderCompositActivity>
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
                     />
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         title={"Dette er et langt navn"}
                     >
                         {"Whatever you want"}
@@ -816,13 +849,14 @@ export default class App extends React.Component {
                     </div>
                     <HeaderCompositUser
                         avatar={AVATAR_URL}
+                        category={'social'}
                         icon={"icon-pig"}
                         onIconClick={this.handleButtonClick}
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={"10"}
-                            points={"8"}
+                            co2={10}
+                            points={8}
                         />
                     </HeaderCompositUser>
                     <br />
@@ -831,8 +865,8 @@ export default class App extends React.Component {
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={"10"}
-                            points={"8"}
+                            co2={10}
+                            points={8}
                         />
                     </HeaderCompositUser>
                     <br />
@@ -841,8 +875,8 @@ export default class App extends React.Component {
                         title={"Dette er et langt navn"}
                     >
                         <LabelPair
-                            co2={"10"}
-                            points={"8"}
+                            co2={10}
+                            points={8}
                         />
                     </HeaderCompositUser>
                     <br />
@@ -860,7 +894,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title={"SectionHeaderGeneral"}
-                    width={'200'}
+                    width={200}
                 >
                     <SectionHeaderGeneral
                         onClick={this.handleButtonClick}
@@ -868,8 +902,8 @@ export default class App extends React.Component {
                         title="Right icon"
                     >
                         <LabelPair
-                            co2={'10'}
-                            points={'8'}
+                            co2={10}
+                            points={8}
                         />
                     </SectionHeaderGeneral>
                     <br />
@@ -880,8 +914,8 @@ export default class App extends React.Component {
                         title="This is a long text"
                     >
                         <LabelPair
-                            co2={'10'}
-                            points={'8'}
+                            co2={10}
+                            points={8}
                         />
                     </SectionHeaderGeneral>
                     <br />
@@ -896,8 +930,23 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title={"SectionHeaderTitle"}
+                    width={200}
+                >
+                    <SectionHeaderTitle title="Some title" />
+                    <SectionHeaderTitle title="Title">
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </SectionHeaderTitle>
+                    <SectionHeaderTitle title="Some title">
+                        <span style={{fontSize: 10}}>Whatever you want</span>
+                    </SectionHeaderTitle>
+                </Preview>
+
                 <Preview
-                    title="Action Item Summary Composite"
+                    title="ActionItemSummaryComposite"
                     width={100}
                 >
                     <ActionItemSummaryComposit
@@ -920,17 +969,17 @@ export default class App extends React.Component {
                         {'Label Pair'}
                     </div>
                     <LabelPair
-                        co2={'165'}
+                        co2={165}
                         onClick={this.handleButtonClick}
-                        points={'12'}
+                        points={12}
                     />
                     <div className={styles.subHeader}>
                         {'Label Pair - timestamp'}
                     </div>
                     <LabelPair
                         onClick={this.handleButtonClick}
-                        points={'12'}
-                        time={'2016-02-22 09:30:00'}
+                        points={12}
+                        time={1463044694799}
                     />
                 </Preview>
 
@@ -948,6 +997,15 @@ export default class App extends React.Component {
                     <IconAvaWrapper
                         avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
+                <Preview title="ProgressBar">
+                    <ProgressBar percent={70} />
+                    <br />
+                    <ProgressBar
+                        color="#8BC34A"
+                        percent={30}
                     />
                 </Preview>
 
