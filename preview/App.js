@@ -657,7 +657,7 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: '#1e4a54', width: 70}}>
                         <LabelNumber
                             bgcolor={"darkbg"}
-                            number={"45,677"}
+                            number={45.677}
                             textcontent={"deltagere"}
                         />
                     </div>
@@ -667,7 +667,7 @@ export default class App extends React.Component {
                     </div>
                     <div style={{backgroundColor: '#d8e3e2', width: 70}}>
                         <LabelNumber
-                            number={"45,677"}
+                            number={45.677}
                             textcontent={"deltagere"}
                         />
                     </div>

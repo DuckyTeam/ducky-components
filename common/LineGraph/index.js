@@ -55,11 +55,24 @@ class LineGraph extends React.Component {
 
 LineGraph.propTypes = {
     data: React.PropTypes.arrayOf(
-        React.PropTypes.objectOf(
-
-        )
+        React.PropTypes.shape({
+            data: React.PropTypes.arrayOf(
+                React.PropTypes.shape({
+                    date: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.shape({})]),
+                    value: React.PropTypes.number
+                })
+            ),
+            label: React.PropTypes.string,
+            strokeColor: React.PropTypes.string,
+            strokeWidth: React.PropTypes.number
+        })
     ),
-    domain: React.PropTypes.objectOf(),
+    domain: React.PropTypes.shape({
+        xDomain: React.PropTypes.arrayOf(React.PropTypes.oneOfType(
+            [React.PropTypes.string, React.PropTypes.shape({})]
+        )),
+        yDomain: React.PropTypes.arrayOf(React.PropTypes.number)
+    }),
     formatting: React.PropTypes.func,
     graphID: React.PropTypes.number,
     height: React.PropTypes.string
