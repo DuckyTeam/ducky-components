@@ -1,0 +1,18 @@
+.wrapper {
+  display: flex;
+  background: transparent;
+}
+
+.bodyText {
+  text-overflow: ellipsis;
+  flex: auto;
+  margin: 2px 16px;
+}
+
+.savings{
+  flex: none;
+}
+
+.icon{
+  flex:none;
+}

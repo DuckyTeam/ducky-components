@@ -12,6 +12,7 @@ import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
+import CheckBox from '../common/CheckBox';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -20,12 +21,15 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
+import RadioButton from '../common/RadioButton';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
@@ -130,6 +134,10 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
+    handleCheckBoxClick() {
+        console.log('Clicked checkbox');
+    }
+
     handleOnTextAreaSubmit() {
         console.log('TextArea submitted');
     }
@@ -140,6 +148,14 @@ export default class App extends React.Component {
 
     handleOnFileSelected(event) {
         console.log('selected file', event.target.files);
+    }
+
+    handleOnAvatarClicked() {
+        console.log('avatar clicked');
+    }
+
+    handleRadioButtonClick() {
+        console.log('Clicked radio button');
     }
 
     /* eslint-enable no-console */
@@ -276,6 +292,29 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
+                </Preview>
+                <Preview title="/Checkbox">
+                    {'CheckBox active'}
+                    <CheckBox
+                        checked
+                        onClick={this.handleCheckBoxClick}
+                    />
+                    {'CheckBox default'}
+                    <CheckBox
+                        onClick={this.handleCheckBoxClick}
+                    />
+                </Preview>
+
+                <Preview title="/RadioButton">
+                    {'RadioButton active'}
+                    <RadioButton
+                        checked
+                        onClick={this.handleRadioButtonClick}
+                    />
+                    {'RadioButton default'}
+                    <RadioButton
+                        onClick={this.handleRadioButtonClick}
+                    />
                 </Preview>
 
                 <Preview
@@ -518,7 +557,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"small"}
                     />
                     <div className={styles.subHeader}>
@@ -526,7 +565,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"standard"}
                     />
                     <div className={styles.subHeader}>
@@ -534,7 +573,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"large"}
                     />
                     <div className={styles.subHeader}>
@@ -542,7 +581,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display1"}
                     />
                     <div className={styles.subHeader}>
@@ -550,7 +589,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display2"}
                     />
                 </Preview>
@@ -600,6 +639,26 @@ export default class App extends React.Component {
                         icon={'icon-brightness_high'}
                         onClick={this.handleButtonClick}
                     />
+                    <div className={styles.subHeader}>
+                        {"Label Number darkbg"}
+                    </div>
+                    <div style={{backgroundColor: '#1e4a54', width: 70}}>
+                        <LabelNumber
+                            bgcolor={"darkbg"}
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label Number lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 70}}>
+                        <LabelNumber
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -756,13 +815,30 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title={"IconSVG"}>
+                    <div className={styles.subHeader}>Small</div>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"small"}
+                    />
+                    <div className={styles.subHeader}>Standard</div>
                     <IconSVG
                         icon={"Consumption01"}
                         size={"standard"}
                     />
+                    <div className={styles.subHeader}>large</div>
                     <IconSVG
                         icon={"Consumption03"}
                         size={"large"}
+                    />
+                    <div className={styles.subHeader}>display1</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display1"}
+                    />
+                    <div className={styles.subHeader}>display2</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display2"}
                     />
                 </Preview>
 
@@ -777,7 +853,7 @@ export default class App extends React.Component {
                         {'HeaderCompositActivity'}
                     </div>
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
@@ -789,14 +865,14 @@ export default class App extends React.Component {
                     </HeaderCompositActivity>
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         icon={"icon-pig"}
                         iconValue={"10"}
                         title={"Dette er et langt navn"}
                     />
                     <br />
                     <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
+                        activityIcon={"Consumption01"}
                         title={"Dette er et langt navn"}
                     >
                         {"Whatever you want"}
@@ -920,6 +996,27 @@ export default class App extends React.Component {
                             "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
                         ]}
                     />
+                </Preview>
+
+                <Preview title="/ListCompositeSavings">
+                    <div className={styles.subHeader}>
+                      {'Duckypoint Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={5}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'CO2 Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={2.7}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/labels">
