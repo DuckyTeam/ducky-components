@@ -9,7 +9,7 @@ import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
-//import BarChart from '../common/Charts/BarChart';
+import PieChart from '../common/PieChart';
 import Button from '../common/Button';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
@@ -1073,7 +1073,7 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview width={"500px"}>
+                <Preview width={500}>
                     <LineGraph
                         height={"300px"}
                         data={[
@@ -1098,6 +1098,9 @@ export default class App extends React.Component {
                         domain={{x: [new Date(2016, 4, 12), new Date(2016, 5, 18)], y: [0, 1200]}}
                         formatting= {function(value) {return moment(value).format("Do MMM")}}
                     />
+                </Preview>
+                <Preview width={500}>
+                    <PieChart data={[3, 3, 2, 4]}/>
                 </Preview>
 
                 <h1>{"/mobile"}</h1>

@@ -61,6 +61,8 @@ const options = {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            template: 'preview/index.tpl.html',
+            inject: 'body',
             filename: 'index.html'
         }),
         new webpack.optimize.OccurenceOrderPlugin(),
