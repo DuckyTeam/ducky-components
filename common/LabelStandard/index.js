@@ -7,7 +7,7 @@ const PropTypes = React.PropTypes;
 
 function LabelStandard(props) {
     return (
-        <span className={styles.wrapper}>
+        <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
                 className={classNames({
                     [styles.co2Icon]: props.icon === 'icon-leaf'
@@ -24,6 +24,7 @@ function LabelStandard(props) {
 
 LabelStandard.displayName = 'LabelStandard';
 LabelStandard.propTypes = {
+    className: PropTypes.string,
     content: PropTypes.node,
     icon: PropTypes.string,
     onClick: React.PropTypes.func
