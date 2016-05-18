@@ -1,0 +1,80 @@
+.svgCanvas {
+    height: 300px;
+}
+
+.line {
+    fill: none;
+}
+
+.yAxis > path {
+    display: none;
+}
+
+.yAxis > g > text {
+    text-anchor: end;
+}
+
+.xAxis > .tick{
+    display: none;
+}
+
+.xAxis > path {
+    display: none;
+}
+
+.xAxis, .yAxis > g > text {
+    fill: #607D8B;
+    font-family: Montserrat, Arial;
+    font-size: 10px;
+}
+
+.bars {
+
+}
+
+.startEndDates {
+    fill: #263238;
+    font-weight: bold;
+}
+
+.area {
+    fill: rgba(139, 195, 74, 0.2);
+}
+
+.dot {
+
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.pointSeries > circle:not(first-child):not(last-child) {
+    fill: none;
+    stroke: none;
+}
+
+.pointSeries > circle:first-child {
+    fill: white;
+    stroke: inherit;
+    stroke-width: 2px;
+}
+
+.pointSeries > circle:last-child {
+    fill: inherit;
+    stroke: inherit;
+    stroke-width: 2px;
+}
+
+.chart {
+    height: 100%;
+}

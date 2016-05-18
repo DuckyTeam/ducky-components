@@ -21,6 +21,7 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
@@ -44,6 +45,7 @@ import Wrapper from '../common/Wrapper';
 import IconSVG from '../common/IconSVG';
 import ProgressBar from '../common/ProgressBar';
 import styles from './App.css';
+import moment from 'moment';
 const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 
@@ -64,8 +66,14 @@ export default class App extends React.Component {
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
-            textAreaValue: ""
+            showCopyLink: false,
+            textAreaValue: "",
+            tabIndexSelected: 0,
+            value: 0
         };
+        setInterval(() => {
+            this.setState({value: this.state.value + 0.3});
+        }, 1000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
@@ -129,6 +137,10 @@ export default class App extends React.Component {
     }
 
     /* eslint-enable react/no-set-state */
+
+    formatFunction(value) {
+        return moment(value).format("Do MMM");
+    }
 
     handleButtonClick() {
         console.log('Clicked button');
@@ -439,8 +451,8 @@ export default class App extends React.Component {
                         onClick={this.handleImageElementClick}
                         onModalHide={this.handleImageElementModalHide}
                         showModal={this.state.showImageModal}
-                        url={"http://funnyasduck.net/wp-content/uploads/2013/01/" +
-                        "funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"}
+                        url={"https://s-media-cache-ak0.pinimg.com/736x" +
+                         "/a3/53/af/a353af6cf5b0d93e67ab6ab72b9d4da9.jpg"}
                     />
                 </Preview>
 
@@ -645,7 +657,7 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: '#1e4a54', width: 70}}>
                         <LabelNumber
                             bgcolor={"darkbg"}
-                            number={"45,677"}
+                            number={45.677}
                             textcontent={"deltagere"}
                         />
                     </div>
@@ -655,7 +667,7 @@ export default class App extends React.Component {
                     </div>
                     <div style={{backgroundColor: '#d8e3e2', width: 70}}>
                         <LabelNumber
-                            number={"45,677"}
+                            number={45.677}
                             textcontent={"deltagere"}
                         />
                     </div>
@@ -1064,6 +1076,47 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview width={500}>
+                    <LineGraph
+                        data={[
+                            {
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 5, 12), value: 40}
+                                ],
+                                strokeColor: "#90A4AE",
+                                strokeWidth: 2,
+                                label: "Strek1"
+                            }, {
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 4, 14), value: 200},
+                                    {date: new Date(2016, 5, 12), value: 1000}
+                                ],
+                                strokeColor: "#FFC107",
+                                strokeWidth: 2,
+                                label: "Strek1"
+                            }, {
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 5, 3), value: 150},
+                                    {date: new Date(2016, 5, 10), value: 850}
+                                ],
+                                strokeColor: "#8BC34A",
+                                strokeWidth: 4,
+                                label: "Strek1",
+                                area: true
+                            }
+                        ]}
+                        domain={{
+                            xDomain: [new Date(2016, 4, 12), new Date(2016, 5, 12)],
+                            yDomain: [0, 1200]
+                        }}
+                        formatting={this.formatFunction}
+                        graphID={1}
+                        height={"300px"}
+                    />
+                </Preview>
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
