@@ -291,18 +291,14 @@ export default class App extends React.Component {
 
                 <Preview title="/RadioButton">
                     {'RadioButton active'}
-                        <RadioButton
-                            checked
-                            onClick={this.handleRadioButtonClick}
-                        >
-                        </RadioButton>
-
+                    <RadioButton
+                        checked
+                        onClick={this.handleRadioButtonClick}
+                    />
                     {'RadioButton default'}
-                            <RadioButton
-                                onClick={this.handleRadioButtonClick}
-                            >
-                            </RadioButton>
-
+                    <RadioButton
+                        onClick={this.handleRadioButtonClick}
+                    />
                 </Preview>
 
 
