@@ -5,7 +5,7 @@ const PropTypes = React.PropTypes;
 
 function Avatar(props) {
     return (
-        <a href={props.link}>
+        <a onClick={props.onClick}>
             <img
                 alt={props.name}
                 className={classNames(styles.item, {
@@ -21,8 +21,8 @@ Avatar.displayName = 'Avatar';
 Avatar.propTypes = {
     className: PropTypes.string,
     image: PropTypes.string,
-    link: PropTypes.string,
     name: PropTypes.string,
+    onClick: PropTypes.func,
     size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"])
 };
 export default Avatar;

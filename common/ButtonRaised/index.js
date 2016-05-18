@@ -3,7 +3,7 @@ import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function Button(props) {
+function ButtonRaised(props) {
     let disabled = false;
 
     if (props.disabled) {
@@ -12,7 +12,9 @@ function Button(props) {
 
     return (
         <button
-            className={classNames(styles.flat, {[props.className]: props.className})}
+            className={classNames(styles.raised, {
+                [styles.darkBackground]: props.theme === 'dark'
+            })}
             disabled={disabled}
             onClick={props.onClick}
         >
@@ -27,12 +29,11 @@ function Button(props) {
     );
 }
 
-Button.propTypes = {
+ButtonRaised.propTypes = {
     children: React.PropTypes.node,
-    className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     theme: React.PropTypes.string
 };
 
-export default Button;
+export default ButtonRaised;

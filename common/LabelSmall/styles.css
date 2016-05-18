@@ -1,0 +1,17 @@
+.wrapper {
+    line-height: 14px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.pad {
+    padding-right: 4px;
+}
+
+.pointsIcon {
+    color: #8BC34A;
+}
+
+.co2Icon{
+    color: #00AB97;
+}

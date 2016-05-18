@@ -1,0 +1,27 @@
+.wrapper {
+    position: relative;
+    height: 24px;
+    width: 100%;
+}
+.icon{
+    display: inline;
+    position: absolute;
+}
+
+.cb {
+    vertical-align: text-bottom;
+    vertical-align: top;
+}
+
+.arrow {
+    right: 0;
+    position: absolute;
+    transition-duration: .5s;
+    transition-property: transform;
+}
+
+.expanded {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+}

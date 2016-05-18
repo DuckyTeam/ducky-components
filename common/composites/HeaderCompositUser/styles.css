@@ -1,0 +1,47 @@
+.wrapper {
+  height: 36px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 16px;
+  overflow: hidden;
+  width: 100%;
+  align-self: center;
+}
+
+.title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.labelWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.foodIcon {
+    color: #F6BA75;
+}
+
+.consumptionIcon {
+    color: #EF5F8A;
+}
+
+.energyIcon {
+    color: #00A1C9;
+}
+
+.transportIcon {
+    color: #AA75BA;
+}
+
+.socialIcon {
+    color: #3999E3;
+}

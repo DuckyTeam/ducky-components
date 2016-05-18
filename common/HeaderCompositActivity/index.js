@@ -1,5 +1,6 @@
 
 import Icon from '../Icon';
+import IconSVG from '../IconSVG';
 import React from 'react';
 import Typography from '../Typography';
 import LabelStandard from '../LabelStandard';
@@ -9,9 +10,9 @@ import styles from './styles.css';
 function HeaderCompositActivity(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Icon
+            <IconSVG
                 icon={props.activityIcon}
-                size={"large1"}
+                size={"standard"}
             />
             <div className={styles.content}>
                 <Typography

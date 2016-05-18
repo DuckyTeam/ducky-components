@@ -1,62 +1,53 @@
 import 'font-awesome/css/font-awesome.css';
 import './material-ui/css/material-design-iconic-font.css';
 import "../common/icons.css";
+import HeaderCompositUser from '../common/composites/HeaderCompositUser';
+import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
+import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
+import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
+import IconAvaWrapper from '../common/composites/IconAvaWrapper';
+import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
-import ActionItemSummaryComposit from '../common/ActionItemSummaryComposit';
 import Avatar from "../common/Avatar";
 //import BarChart from '../common/Charts/BarChart';
 import Button from '../common/Button';
+import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
-import Comment from '../common/Comment';
-import CommentCarousel from '../common/CommentCarousel';
-import CommentInput from '../common/CommentInput';
-import CopyLink from '../common/CopyLink';
+import CheckBox from '../common/CheckBox';
 import Popup from '../common/Popup';
-import FeedbackTextInput from "../common/FeedbackTextInput";
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
-import HeaderCompositUser from '../common/HeaderCompositUser';
 import Icon from '../common/Icon';
-import IconAvaWrapper from '../common/IconAvaWrapper';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
-import LabelFooterAction from '../common/LabelFooterAction';
-import LabelPair from '../common/LabelPair';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
-import TabMenuIconButtons from '../common/TabMenuIconButtons';
+import LabelNumber from "../common/LabelNumber";
+import LabelLarge from "../common/LabelLarge";
+import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
-import MenuHeader from '../common/MenuHeader';
-import MenuItem from '../common/MenuItem';
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
-import NotificationItem from './../common/NotificationItem';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
+import RadioButton from '../common/RadioButton';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
-import SectionHeaderGeneral from '../common/SectionHeaderGeneral';
-import ShareMenuItem from '../common/ShareMenuItem';
 import Spacer from '../common/Spacer';
-import SuggestedHashtags from '../common/SuggestedHashtags';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
-import TopNavigationBar from '../common/TopNavigationBar';
 import Typography from '../common/Typography';
-import CreatePostHeader from '../desktop/CreatePostHeader';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
 import Wrapper from '../common/Wrapper';
-import CreatePostFooter from '../desktop/CreatePostFooter';
-import CreatePostNavigationFooter from '../common/CreatePostNavigationFooter';
 import IconSVG from '../common/IconSVG';
+import ProgressBar from '../common/ProgressBar';
 import styles from './App.css';
 import moment from 'moment';
-const IMAGE_URL = "http://www.amusingtime.com/images/045/" +
-"funny-duck-taking-selfie-with-their-friends-picture-for-whatsapp.jpg";
+const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
 const AVATAR_URL = "http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg";
 
 export default class App extends React.Component {
@@ -91,18 +82,11 @@ export default class App extends React.Component {
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
         this.handleLeftMenuHide = this.handleLeftMenuHide.bind(this);
         this.handleRightMenuHide = this.handleRightMenuHide.bind(this);
-        this.handleTabIndexChanged = this.handleTabIndexChanged.bind(this);
         this.handleTextOnlyElementClick = this.handleTextOnlyElementClick.bind(this);
         this.handleTextImageElementClick = this.handleTextImageElementClick.bind(this);
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
-        this.handleCopyLinkButtonClick = this.handleCopyLinkButtonClick.bind(this);
-        this.handleCopyLinkHide = this.handleCopyLinkHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
-    }
-
-    handleTabIndexChanged(key) {
-        this.setState({tabIndexSelected: key});
     }
 
     handleModalButtonClick() {
@@ -145,14 +129,6 @@ export default class App extends React.Component {
         this.setState({showImageModal: false});
     }
 
-    handleCopyLinkButtonClick() {
-        this.setState({showCopyLink: true});
-    }
-
-    handleCopyLinkHide() {
-        this.setState({showCopyLink: false});
-    }
-
     handleOnTextAreaChange(event) {
         this.setState({textAreaValue: event.target.value});
     }
@@ -167,76 +143,8 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
-    handleClickOne() {
-        console.log("item1");
-    }
-
-    handleClickTwo() {
-        console.log("item2");
-    }
-
-    handleFavoriteClicked() {
-        console.log('Clicked favorite');
-    }
-
-    handleOutlinedFavoriteClicked() {
-        console.log('Clicked favorite outlined');
-    }
-
-    handleBookmarkClicked() {
-        console.log('Clicked bookmark');
-    }
-
-    handleMainActionButtonClicked() {
-        console.log('Clicked MainActionButton');
-    }
-
-    handleIconNanoClick() {
-        console.log("IconNano");
-    }
-
-    handleIconMicroClick() {
-        console.log("IconMicro");
-    }
-
-    handleIconMiniClick() {
-        console.log("IconMini");
-    }
-
-    handleIconSmallClick() {
-        console.log("IconSmall");
-    }
-
-    handleIconStandardClick() {
-        console.log("IconStandard");
-    }
-
-    handleIconLargeOneClick() {
-        console.log("IconLargeOne");
-    }
-
-    handleIconLargeTwoClick() {
-        console.log("IconLargeTwo");
-    }
-
-    handleIconDisplayOneClick() {
-        console.log("IconDisplayOne");
-    }
-
-    handleIconDisplayTwoClick() {
-        console.log("IconDisplayTwo");
-    }
-
-    handleIconDropdownClick() {
-        console.log("IconDropdown clicked");
-    }
-
-    handleSubmit() {
-        console.log('submitted');
-    }
-
-    handleCreatePostHeaderClick() {
-        console.log('CreatePostHeader clicked');
+    handleCheckBoxClick() {
+        console.log('Clicked checkbox');
     }
 
     handleOnTextAreaSubmit() {
@@ -251,12 +159,43 @@ export default class App extends React.Component {
         console.log('selected file', event.target.files);
     }
 
+    handleOnAvatarClicked() {
+        console.log('avatar clicked');
+    }
+
+    handleRadioButtonClick() {
+        console.log('Clicked radio button');
+    }
+
     /* eslint-enable no-console */
 
     render() {
         return (
             <div className={styles.wrapper}>
                 <h1>{"/common"}</h1>
+
+                <Preview title={"Menu Wrapper"}>
+                    <button onClick={this.handleLeftMenuButtonClick}>
+                        {'Show Left Menu'}
+                    </button>
+                    <MenuWrapper
+                        alignment={'left'}
+                        onHide={this.handleLeftMenuHide}
+                        show={this.state.showLeftMenu}
+                    >
+                        <b>{'MenuContent'}</b>
+                    </MenuWrapper>
+                    <button onClick={this.handleRightMenuButtonClick}>
+                        {'Show Right Menu'}
+                    </button>
+                    <MenuWrapper
+                        alignment={'right'}
+                        onHide={this.handleRightMenuHide}
+                        show={this.state.showRightMenu}
+                    >
+                        <b>{'MenuContent'}</b>
+                    </MenuWrapper>
+                </Preview>
 
                 <Preview
                     title="/Popup"
@@ -298,53 +237,102 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="/Button">
-                    <Button
-                        onClick={this.handleButtonClick}
-                        type="secondary"
-                    >
-                        {"Secondary button"}
-                    </Button>
-                    <Button onClick={this.handleButtonClick}>
-                        {"Primary button"}
-                    </Button>
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
+                    <br />{'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <Button
+                            disabled
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button disabled"}
+                        </Button>
+                        <Button
+                            onClick={this.handleButtonClick}
+                        >
+                            {"Flat button"}
+                        </Button>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#aeacaa', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            theme={'dark'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonRaised
+                            disabled
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button disabled"}
+                        </ButtonRaised>
+                        <ButtonRaised
+                            onClick={this.handleButtonClick}
+                            type={'raised'}
+                        >
+                            {"Raised button"}
+                        </ButtonRaised>
+                    </div>
                 </Preview>
-
-                <Preview
-                    title={"TopNavigationBar"}
-                    width={900}
-                >
-                    <TopNavigationBar
-                        notifications={0}
-                        title={'Title'}
+                <Preview title="/Checkbox">
+                    {'CheckBox active'}
+                    <CheckBox
+                        checked
+                        onClick={this.handleCheckBoxClick}
+                    />
+                    {'CheckBox default'}
+                    <CheckBox
+                        onClick={this.handleCheckBoxClick}
                     />
                 </Preview>
 
-                <Preview title="/LabelFooterAction">
-                    <LabelFooterAction
-                        icon={'icon-favorite'}
-                        onClick={this.handleFavoriteClicked}
-                    >
-                        {8}
-                    </LabelFooterAction>
-
-                    <LabelFooterAction
-                        icon={'icon-favorite_border'}
-                        onClick={this.handleOutlinedFavoriteClicked}
+                <Preview title="/RadioButton">
+                    {'RadioButton active'}
+                    <RadioButton
+                        checked
+                        onClick={this.handleRadioButtonClick}
                     />
-
-                    <LabelFooterAction
-                        icon={'icon-trophy-outline'}
-                        onClick={this.handleBookmarkClicked}
-                    >
-                        {12}
-                    </LabelFooterAction>
+                    {'RadioButton default'}
+                    <RadioButton
+                        onClick={this.handleRadioButtonClick}
+                    />
                 </Preview>
 
                 <Preview
                     title="/TextOnlyElement"
                     width={300}
                 >
-                    <TextOnlyElement>
+                    <TextOnlyElement
+                        category={'transport'}
+                    >
                         {[
                             "Dette er en kjempe fin tekst." +
                             " Jeg trodde ikke tekst kunne bli vakkert, helt til jeg så\n",
@@ -360,6 +348,7 @@ export default class App extends React.Component {
                     </TextOnlyElement>
                     <br />
                     <TextOnlyElement
+                        category={'social'}
                         onClick={this.handleTextOnlyElementClick}
                         showFullText={this.state.showFullText}
                     >
@@ -470,7 +459,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-pig'}
-                        onClick={this.handleIconNanoClick}
+                        onClick={this.handleButtonClick}
                         size={'nano'}
                     />
                     <div className={styles.subHeader}>
@@ -478,7 +467,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-cow'}
-                        onClick={this.handleIconMicroClick}
+                        onClick={this.handleButtonClick}
                         size={'micro'}
                     />
                     <div className={styles.subHeader}>
@@ -486,7 +475,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-tune'}
-                        onClick={this.handleIconMiniClick}
+                        onClick={this.handleButtonClick}
                         size={'mini'}
                     />
                     <div className={styles.subHeader}>
@@ -494,7 +483,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-work'}
-                        onClick={this.handleIconSmallClick}
+                        onClick={this.handleButtonClick}
                         size={'small'}
                     />
                     <div className={styles.subHeader}>
@@ -502,7 +491,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-lens'}
-                        onClick={this.handleIconStandardClick}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                     <div className={styles.subHeader}>
@@ -510,7 +499,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-star'}
-                        onClick={this.handleIconLargeOneClick}
+                        onClick={this.handleButtonClick}
                         size={'large1'}
                     />
                     <div className={styles.subHeader}>
@@ -518,7 +507,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-fish'}
-                        onClick={this.handleIconLargeTwoClick}
+                        onClick={this.handleButtonClick}
                         size={'large2'}
                     />
                     <div className={styles.subHeader}>
@@ -526,7 +515,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-pets'}
-                        onClick={this.handleIconDisplayOneClick}
+                        onClick={this.handleButtonClick}
                         size={'display1'}
                     />
                     <div className={styles.subHeader}>
@@ -534,7 +523,7 @@ export default class App extends React.Component {
                     </div>
                     <Icon
                         icon={'icon-duck'}
-                        onClick={this.handleIconDisplayTwoClick}
+                        onClick={this.handleButtonClick}
                         size={'display2'}
                     />
                 </Preview>
@@ -577,7 +566,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"small"}
                     />
                     <div className={styles.subHeader}>
@@ -585,7 +574,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"standard"}
                     />
                     <div className={styles.subHeader}>
@@ -593,7 +582,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"large"}
                     />
                     <div className={styles.subHeader}>
@@ -601,7 +590,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display1"}
                     />
                     <div className={styles.subHeader}>
@@ -609,7 +598,7 @@ export default class App extends React.Component {
                     </div>
                     <Avatar
                         image={AVATAR_URL}
-                        link={"/"}
+                        onClick={this.handleOnAvatarClicked}
                         size={"display2"}
                     />
                 </Preview>
@@ -620,7 +609,7 @@ export default class App extends React.Component {
                     </div>
                     <ActionButton
                         icon={'icon-star'}
-                        onClick={this.handleMainActionButtonClicked}
+                        onClick={this.handleButtonClick}
                         size={'main'}
                     />
                     <div className={styles.subHeader}>
@@ -628,7 +617,7 @@ export default class App extends React.Component {
                     </div>
                     <ActionButton
                         icon={'icon-room'}
-                        onClick={this.handleMainActionButtonClicked}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                 </Preview>
@@ -640,7 +629,7 @@ export default class App extends React.Component {
                     <LabelSmall
                         content={"45"}
                         icon={'icon-tram'}
-                        onClick={this.handleIconDisplayTwoClick}
+                        onClick={this.handleButtonClick}
                         type={"caption2Normal"}
                     />
                     <div className={styles.subHeader}>
@@ -649,24 +638,36 @@ export default class App extends React.Component {
                     <LabelStandard
                         content={"425"}
                         icon={'icon-brightness_high'}
-                        onClick={this.handleIconDisplayTwoClick}
+                        onClick={this.handleButtonClick}
                     />
                     <div className={styles.subHeader}>
-                            {'Label Pair - timestamp-points'}
+                        {"Large Label"}
                     </div>
-                    <LabelPair
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                        time={'2016-02-22 09:30:00'}
+                    <LabelLarge
+                        content={"9999"}
+                        icon={'icon-brightness_high'}
+                        onClick={this.handleButtonClick}
                     />
                     <div className={styles.subHeader}>
-                        {'Label Pair - points-co2'}
+                        {"Label Number darkbg"}
                     </div>
-                    <LabelPair
-                        co2={'165'}
-                        onClick={this.handleIconDisplayTwoClick}
-                        points={'12'}
-                    />
+                    <div style={{backgroundColor: '#1e4a54', width: 70}}>
+                        <LabelNumber
+                            bgcolor={"darkbg"}
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label Number lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 70}}>
+                        <LabelNumber
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -674,16 +675,16 @@ export default class App extends React.Component {
                         {'Small Button Counter'}
                     </div>
                     <ButtonCounter
-                        number={'45'}
-                        onClick={this.handleIconNanoClick}
+                        number={45}
+                        onClick={this.handleButtonClick}
                         size={'small'}
                     />
                     <div className={styles.subHeader}>
                         {'Standard Button Counter'}
                     </div>
                     <ButtonCounter
-                        number={'1002'}
-                        onClick={this.handleIconNanoClick}
+                        number={1002}
+                        onClick={this.handleButtonClick}
                         size={'standard'}
                     />
                 </Preview>
@@ -705,14 +706,14 @@ export default class App extends React.Component {
                         {'Horizontal Ruler'}
                     </div>
                     <Spacer
-                        hr={'true'}
+                        hr={Boolean(true)}
                         size={'hr1'}
                     />
                     <div className={styles.subHeader}>
                         {'Horizontal Ruler with Margins'}
                     </div>
                     <Spacer
-                        hr={'true'}
+                        hr={Boolean(true)}
                         size={'hr2'}
                     />
                 </Preview>
@@ -768,257 +769,9 @@ export default class App extends React.Component {
                     </Wrapper>
                 </Preview>
 
-                <Preview title="/Icon avatar with wrapper">
-                    <div className={styles.subHeader}>
-                        {'Wrapped Icon'}
-                    </div>
-                    <IconAvaWrapper
-                        icon={'icon-tram'}
-                        onClick={this.handleButtonClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Wrapped Avatar'}
-                    </div>
-                    <IconAvaWrapper
-                        avatar={AVATAR_URL}
-                        onClick={this.handleButtonClick}
-                    />
-                </Preview>
-
-                <Preview title={"FeedbackTextInput"}>
-                    <FeedbackTextInput prompt={"Skriv noe..."} />
-                </Preview>
-
-                <Preview title={"Notification Item"}>
-                    <NotificationItem dateTime={"2016-03-01 01:32:21"}
-                        icon={"icon-leaf"}
-                        onClick={this.handleButtonClick}
-                        text={"Du har gjort noe bra!"}
-                    >
-                        <Avatar
-                            image={AVATAR_URL}
-                            size={"standard"}
-                        />
-                    </NotificationItem>
-                </Preview>
-
                 <Preview title={"Popover Menu"}>
                     <PopoverMenu onClick={this.handleButtonClick}
                         text={"Hei pa deg!"}
-                    />
-                </Preview>
-
-                <Preview title={"HeaderComposits"}>
-                    <div className={styles.subHeader}>
-                        {'HeaderCompositActivity'}
-                    </div>
-                    <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
-                        icon={"icon-pig"}
-                        iconValue={"10"}
-                        title={"Dette er et langt navn"}
-                    >
-                        <LabelPair
-                            points={"10"}
-                            time={"2016-01-05T01:32:21.196Z"}
-                        />
-                    </HeaderCompositActivity>
-                    <br />
-                    <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
-                        icon={"icon-pig"}
-                        iconValue={"10"}
-                        title={"Dette er et langt navn"}
-                    />
-                    <br />
-                    <HeaderCompositActivity
-                        activityIcon={"icon-brightness_high"}
-                        title={"Dette er et langt navn"}
-                    >
-                        {"Whatever you want"}
-                    </HeaderCompositActivity>
-                    <br />
-                    <div className={styles.subHeader}>
-                        {'HeaderCompositUser'}
-                    </div>
-                    <HeaderCompositUser
-                        avatar={AVATAR_URL}
-                        icon={"icon-pig"}
-                        onIconClick={this.handleButtonClick}
-                        title={"Dette er et langt navn"}
-                    >
-                        <LabelPair
-                            co2={"10"}
-                            points={"8"}
-                        />
-                    </HeaderCompositUser>
-                    <br />
-                    <HeaderCompositUser
-                        avatar={AVATAR_URL}
-                        title={"Dette er et langt navn"}
-                    >
-                        <LabelPair
-                            co2={"10"}
-                            points={"8"}
-                        />
-                    </HeaderCompositUser>
-                    <br />
-                    <HeaderCompositUser
-                        avatar={AVATAR_URL}
-                        title={"Dette er et langt navn"}
-                    >
-                        {"Whatever you want"}
-                    </HeaderCompositUser>
-                    <br />
-                    <HeaderCompositUser
-                        avatar={AVATAR_URL}
-                        title={"Dette er et langt navn"}
-                    />
-                </Preview>
-
-                <Preview title={"SectionHeaderGeneral"}
-                    width={'200'}
-                >
-                    <SectionHeaderGeneral
-                        onClick={this.handleButtonClick}
-                        rightIcon={"icon-pig"}
-                        title="Right icon"
-                    >
-                        <LabelPair
-                            co2={'10'}
-                            points={'8'}
-                        />
-                    </SectionHeaderGeneral>
-                    <br />
-
-                    <SectionHeaderGeneral
-                        onClick={this.handleButtonClick}
-                        rightIcon={"icon-pig"}
-                        title="This is a long text"
-                    >
-                        <LabelPair
-                            co2={'10'}
-                            points={'8'}
-                        />
-                    </SectionHeaderGeneral>
-                    <br />
-
-                    <SectionHeaderGeneral title="Only text" />
-                    <br />
-
-                    <SectionHeaderGeneral
-                        leftIcon={"icon-pig"}
-                        onClick={this.handleButtonClick}
-                        title="Icon on left"
-                    />
-                </Preview>
-
-                <Preview title="/mainMenu">
-                    <div className={styles.subHeader}>
-                        {'Menu Header'}
-                    </div>
-                    <MenuHeader
-                        icon1={'icon-duckylogo'}
-                        icon2={'icon-navigate_before'}
-                        onClick={this.handleButtonClick}
-                    />
-                    <div className={styles.subHeader}>
-                        {'Menu Item'}
-                    </div>
-                    <MenuItem
-                        icon={'icon-trophy-outline'}
-                        name={'Feed'}
-                        onClick={this.handleIconSmallClick}
-                    />
-                </Preview>
-                <div className={styles.subHeader}>
-                    {'MenuWrapper'}
-                </div>
-                <button onClick={this.handleLeftMenuButtonClick}>
-                    {'Show Left Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'left'}
-                    onHide={this.handleLeftMenuHide}
-                    show={this.state.showLeftMenu}
-                >
-                    <MenuHeader
-                        icon1={'icon-duckylogo'}
-                        icon2={'icon-navigate_before'}
-                        onClick={this.handleButtonClick}
-                    />
-                </MenuWrapper>
-                <button onClick={this.handleRightMenuButtonClick}>
-                    {'Show Right Menu'}
-                </button>
-                <MenuWrapper
-                    alignment={'right'}
-                    onHide={this.handleRightMenuHide}
-                    show={this.state.showRightMenu}
-                >
-                    <MenuItem
-                        icon={'icon-trophy-outline'}
-                        name={'Feed'}
-                        onClick={this.handleIconSmallClick}
-                    />
-                </MenuWrapper>
-
-                <Preview title="/ShareMenu">
-                    <CopyLink
-                        link={"https://ducky.no/1049/posts/VDbdeR"}
-                        onModalHide={this.handleCopyLinkHide}
-                        showModal={this.state.showCopyLink}
-                    />
-                    <ShareMenuItem
-                        onClick={this.handleButtonClick}
-                        share={'fb'}
-                    />
-                    <ShareMenuItem
-                        onClick={this.handleCopyLinkButtonClick}
-                        share={'link'}
-                    />
-                </Preview>
-
-                <Preview
-                    title="CommentCarousel"
-                    width={250}
-                >
-                    <CommentCarousel
-                        avatar={AVATAR_URL}
-                        name={"Gunnar"}
-                    >
-                        {"This is absolutely fantastic! What a great comment! ;)"}
-                    </CommentCarousel>
-                </Preview>
-
-                <Preview
-                    title="Comment"
-                    width={250}
-                >
-                    <Comment
-                        avatar={AVATAR_URL}
-                        name={"Gunnar Gunnersen long name"}
-                        published={Date.now()}
-                    >
-                      {"This is absolutely fantastic! What a great comment! ;)"}
-                    </Comment>
-                    <br />
-                    <Comment
-                        avatar={AVATAR_URL}
-                        name={"Gunnar"}
-                        published={Date.now()}
-                    >
-                      {"This is absolutely fantastic! What a great comment! ;)"}
-                    </Comment>
-                </Preview>
-
-                <Preview
-                    title="CommentInput"
-                    width={300}
-                >
-                    <CommentInput
-                        onSubmit={this.handleSubmit}
-                        placeholder={"Write something here..."}
                     />
                 </Preview>
 
@@ -1040,8 +793,203 @@ export default class App extends React.Component {
                     <LogButton checked />
                 </Preview>
 
+                <Preview title="IconDropdown">
+                    <IconDropdown
+                        icon="icon-home"
+                        onClick={this.handleButtonClick}
+                    />
+                    <IconDropdown
+                        icon="icon-data_usage"
+                        onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
+                <Preview title="TextArea">
+                    <TextArea
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
+                    />
+                </Preview>
+
                 <Preview
-                    title="Action Item Summary Composite"
+                    title="RemoveImage"
+                    width={300}
+                >
+                    <RemoveImage
+                        image={IMAGE_URL}
+                        onClick={this.handleRemoveImageClick}
+                    />
+                </Preview>
+
+                <Preview title={"IconSVG"}>
+                    <div className={styles.subHeader}>Small</div>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"small"}
+                    />
+                    <div className={styles.subHeader}>Standard</div>
+                    <IconSVG
+                        icon={"Consumption01"}
+                        size={"standard"}
+                    />
+                    <div className={styles.subHeader}>large</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"large"}
+                    />
+                    <div className={styles.subHeader}>display1</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display1"}
+                    />
+                    <div className={styles.subHeader}>display2</div>
+                    <IconSVG
+                        icon={"Consumption03"}
+                        size={"display2"}
+                    />
+                </Preview>
+
+                <Preview title="SectionFooterClose">
+                    <SectionFooterClose />
+                </Preview>
+
+                <h1>{"/Composite Components"}</h1>
+
+                <Preview title={"HeaderComposits"}>
+                    <div className={styles.subHeader}>
+                        {'HeaderCompositActivity'}
+                    </div>
+                    <HeaderCompositActivity
+                        activityIcon={"Consumption01"}
+                        icon={"icon-pig"}
+                        iconValue={"10"}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            points={10}
+                            time={1463044694799}
+                        />
+                    </HeaderCompositActivity>
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"Consumption01"}
+                        icon={"icon-pig"}
+                        iconValue={"10"}
+                        title={"Dette er et langt navn"}
+                    />
+                    <br />
+                    <HeaderCompositActivity
+                        activityIcon={"Consumption01"}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositActivity>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'HeaderCompositUser'}
+                    </div>
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        category={'social'}
+                        icon={"icon-pig"}
+                        onIconClick={this.handleButtonClick}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    >
+                        {"Whatever you want"}
+                    </HeaderCompositUser>
+                    <br />
+                    <HeaderCompositUser
+                        avatar={AVATAR_URL}
+                        title={"Dette er et langt navn"}
+                    />
+                </Preview>
+
+                <Preview title={"SectionHeaderGeneral"}
+                    width={200}
+                >
+                    <SectionHeaderGeneral
+                        onClick={this.handleButtonClick}
+                        rightIcon={"icon-pig"}
+                        title="Right icon"
+                    >
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </SectionHeaderGeneral>
+                    <br />
+
+                    <SectionHeaderGeneral
+                        onClick={this.handleButtonClick}
+                        rightIcon={"icon-pig"}
+                        title="This is a long text"
+                    >
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </SectionHeaderGeneral>
+                    <br />
+
+                    <SectionHeaderGeneral title="Only text" />
+                    <br />
+
+                    <SectionHeaderGeneral
+                        leftIcon={"icon-pig"}
+                        onClick={this.handleButtonClick}
+                        title="Icon on left"
+                    />
+                </Preview>
+
+                <Preview title={"SectionHeaderTitle"}
+                    width={200}
+                >
+                    <SectionHeaderTitle title="Some title" />
+                    <SectionHeaderTitle title="Title">
+                        <LabelPair
+                            co2={10}
+                            points={8}
+                        />
+                    </SectionHeaderTitle>
+                    <SectionHeaderTitle title="Some title">
+                        <span style={{fontSize: 10}}>Whatever you want</span>
+                    </SectionHeaderTitle>
+                </Preview>
+
+                <Preview
+                    title="ActionItemSummaryComposite"
                     width={100}
                 >
                     <ActionItemSummaryComposit
@@ -1059,92 +1007,70 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="IconDropdown">
-                    <IconDropdown
-                        icon="icon-home"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                    <IconDropdown
-                        icon="icon-data_usage"
-                        onClick={this.handleIconDropdownClick}
-                    />
-                </Preview>
-
-                <Preview title="TextArea">
-                    <TextArea
-                        onChange={this.handleOnTextAreaChange}
-                        onSubmit={this.handleOnTextAreaSubmit}
-                        placeholder={"Write something..."}
-                        value={this.state.textAreaValue}
-                    />
-                </Preview>
-
-                <Preview title="CreatePostNavigationFooter">
-                    <div style={{marginTop: 10}}>
-                        <CreatePostNavigationFooter />
+                <Preview title="/ListCompositeSavings">
+                    <div className={styles.subHeader}>
+                      {'Duckypoint Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={5}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'CO2 Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={2.7}
+                        />
                     </div>
                 </Preview>
 
-                <Preview
-                    title="RemoveImage"
-                    width={300}
-                >
-                    <RemoveImage
-                        image={IMAGE_URL}
-                        onClick={this.handleRemoveImageClick}
+                <Preview title="/labels">
+                    <div className={styles.subHeader}>
+                        {'Label Pair'}
+                    </div>
+                    <LabelPair
+                        co2={165}
+                        onClick={this.handleButtonClick}
+                        points={12}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Label Pair - timestamp'}
+                    </div>
+                    <LabelPair
+                        onClick={this.handleButtonClick}
+                        points={12}
+                        time={1463044694799}
                     />
                 </Preview>
 
-                <Preview
-                    title="Tab Menu 1 - Icon Buttons"
-                    width={300}
-                >
-                    <TabMenuIconButtons
-                        icons={["icon-fish", "icon-food-apple", "icon-cow", "icon-carrot"]}
-                        selected={2}
-                    >
-                        <div>
-                            <Typography type={"bodyTextStrong"}>{"Tab 3 Header! "}</Typography>
-                            <Typography
-                                type={"bodyTextNormal"}
-                            >
-                                {"Hello there! I am the third item on this tab menu. I am groot!"}
-                            </Typography>
-                        </div>
-                    </TabMenuIconButtons>
-                </Preview>
-
-                <Preview
-                    title="Suggested Hashtags"
-                    width={400}
-                >
-                    <SuggestedHashtags
-                        hashtags={[
-                            "lolrerewedsdsfdsfsfsdfdsfddsas",
-                            "yolo",
-                            "lol",
-                            "yolo",
-                            "lol",
-                            "lol",
-                            "yolo",
-                            "jegharikkeheltskjøntpoengetmedhasfdfsdfdsfdhtags"
-                        ]}
+                <Preview title="/Icon avatar with wrapper">
+                    <div className={styles.subHeader}>
+                        {'Wrapped Icon'}
+                    </div>
+                    <IconAvaWrapper
+                        icon={'icon-tram'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Wrapped Avatar'}
+                    </div>
+                    <IconAvaWrapper
+                        avatar={AVATAR_URL}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 
-                <Preview>
-                    <IconSVG
-                        icon={"Consumption01"}
-                        size={"standard"}
+                <Preview title="ProgressBar">
+                    <ProgressBar percent={70} />
+                    <br />
+                    <ProgressBar
+                        color="#8BC34A"
+                        percent={30}
                     />
-                    <IconSVG
-                        icon={"Consumption_03"}
-                        size={"large1"}
-                    />
-                </Preview>
-
-                <Preview>
-                    <SectionFooterClose />
                 </Preview>
 
                 <Preview width={"500px"}>
@@ -1177,54 +1103,6 @@ export default class App extends React.Component {
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
-
-                <Preview title="CreatePostHeader">
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(false)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={0}
-                        textActivated={Boolean(false)}
-                    />
-
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(false)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={10}
-                        textActivated={Boolean(true)}
-                    />
-
-                    <CreatePostHeader
-                        avatar={AVATAR_URL}
-                        imageActivated={Boolean(true)}
-                        name="Gunnar Gunnersen"
-                        onClick={this.handleCreatePostHeaderClick}
-                        points={20}
-                        textActivated={Boolean(true)}
-                    />
-                </Preview>
-
-
-                <Preview title="CreatePostFooter">
-                    <CreatePostFooter
-                        onFileSelected={this.handleOnFileSelected}
-                    >
-                        <ActionButton
-                            icon="icon-restaurant"
-                            size="standard"
-                        />
-                    </CreatePostFooter>
-
-                    <CreatePostFooter image={Boolean(true)}>
-                        <ActionButton
-                            icon="icon-restaurant"
-                            size="standard"
-                        />
-                    </CreatePostFooter>
-                </Preview>
             </div>
         );
     }
