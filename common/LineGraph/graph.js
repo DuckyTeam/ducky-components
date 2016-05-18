@@ -1,132 +1,126 @@
 import d3 from 'd3';
 import styles from './styles.css';
-var d3Chart = {};
+const d3Chart = {};
 
-d3Chart.margin = {top: 10, bottom: 40, left: 30, right: 10};
-d3Chart.width;
-d3Chart.height;
-
-var isLast = function(d, scale) {
-    return d.toString() === scale.domain()[1].toString();
-};
-
-var isFirst = function(d, scale) {
-    return d.toString() === scale.domain()[0].toString();
-};
-
-d3Chart.create = function(el, props, state, formatting) {
-    this.width = props.width - this.margin.left - this.margin.right;
-    this.height = props.height - this.margin.top - this.margin.bottom;
-    var xAxisOffset = this.height + this.margin.top + 20;
-    console.log(props);
-    var svg = d3.select(el).append('svg')
-        .attr('class', 'd3Line')
+d3Chart.create = (el, props, state, formatting) => {
+    const xAxisOffset = props.height + props.margin.top + 20;
+    const svg = d3.select(el).append('svg')
+        .attr('class', `d3Chart${props.id}`)
         .attr('width', props.width)
         .attr('height', props.height);
 
     svg.append('g')
         .attr('class', 'lines')
-        .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', 'area')
-        .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', 'dots')
-        .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', styles.bars)
-        .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', styles.yAxis)
-        .attr("transform", "translate(" + (this.margin.left*2) + "," + this.margin.top + ")");
+        .attr("transform", `translate(${props.margin.left * 2}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', styles.xAxis)
-        .attr("transform", "translate(" + this.margin.left + "," + xAxisOffset + ")");
+        .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
 
-    this.update(el, state, formatting);
+    d3Chart.update(el, state, props, formatting);
 };
 
-d3Chart.update = function(el, state, props, formatting) {
-   this.width = props.width - this.margin.left - this.margin.right;
-   this.height = props.height - this.margin.top - this.margin.bottom;
-    console.log(props);
-    //Resize svg-canvas
-    d3.select(".d3Line")
+d3Chart.update = (el, state, props, formatting) => {
+    const height = props.height - props.margin.top - props.margin.bottom;
+    const xAxisOffset = height + props.margin.top + 20;
+
+    // Resize svg-canvas
+    d3.select(`.d3Chart${props.id}`)
         .attr('width', props.width)
         .attr('height', props.height);
 
-    //Move xaxis
-    var xAxisOffset =this.height + this.margin.top + 20;
-    d3.select("."+styles.xAxis).attr("transform", "translate(" + this.margin.left + "," + xAxisOffset + ")");
+    // Move xaxis
+    d3.select(`.${styles.xAxis}`)
+        .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
 
     // Re-compute the scales, and render the data points
-    var scales = this._scales(el, state.domain);
-    this._drawLines(el, scales, state.data, formatting);
+    const scales = d3Chart._scales(el, props, state.domain);
+
+    d3Chart._drawLines(el, scales, props, state.data, formatting);
 };
 
-d3Chart.destroy = function(el) {
+d3Chart.destroy = () => {
     // Any clean-up would go here
     // in this example there is nothing to do
 };
 
-d3Chart._drawLines = function(el, scales, data, formatting) {
-    var g = d3.select(el).selectAll('.lines');
-    var ga = d3.select(el).selectAll('.area');
-    var gd = d3.select(el).selectAll('.dots');
+d3Chart._drawLines = (el, scales, props, data, formatting) => {
+    const width = props.width - props.margin.left - props.margin.right;
+    const height = props.height - props.margin.top - props.margin.bottom;
+    const gl = d3.select(el).selectAll('.lines');
+    const ga = d3.select(el).selectAll('.area');
+    const gd = d3.select(el).selectAll('.dots');
 
-    var xAxisTicks = function(d, i) {
-        var point = d.toString();
-        var last = scales.x.domain()[1].toString();
-        var numberOfTicks =this.width/60;
-        var numberOfPoints = (scales.x.domain()[1] - scales.x.domain()[0])/(1000*60*60*24);
-        if(i === 0 || last === point ||
-            (i % Math.ceil(numberOfPoints/numberOfTicks) === 0
-                && (i*60*numberOfTicks/numberOfPoints) < (width-50))) {
-            return formatting(d);
+    const xAxisTicks = (xad, index) => {
+        const point = xad.toString();
+        const last = scales.xScale.domain()[1].toString();
+        const numberOfTicks = width / 60;
+        const numberOfPoints =
+            (scales.xScale.domain()[1] - scales.xScale.domain()[0]) / (1000 * 60 * 60 * 24);
+
+        if (index === 0 || last === point ||
+            (index % Math.ceil(numberOfPoints / numberOfTicks) === 0 &&
+                (index * 60 * numberOfTicks / numberOfPoints) < (width - 50))) {
+            return formatting(xad);
         }
+
         return null;
     };
 
-    var lineDrawer = d3.svg.line().interpolate("basic")
-        .x(function(d) { return scales.x(d.date); })
-        .y(function(d) { return scales.y(d.value); });
+    const lineDrawer = d3.svg.line().interpolate("basic")
+        .x((ld) => scales.xScale(ld.date))
+        .y((ld) => scales.yScale(ld.value));
 
-    var areaDrawer = d3.svg.area().interpolate("basic")
-        .x(function(d) { return scales.x(d.date); })
-        .y0(this.height + this.margin.top)
-        .y1(function(d) { return scales.y(d.value); });
+    const areaDrawer = d3.svg.area().interpolate("basic")
+        .x((ad) => scales.xScale(ad.date))
+        .y0(height + props.margin.top)
+        .y1((ad) => scales.yScale(ad.value));
 
-    var yAxis = d3.svg.axis()
-        .scale(scales.y)
+    const yAxis = d3.svg.axis()
+        .scale(scales.yScale)
         .ticks(7)
         .outerTickSize(2)
-        .tickFormat(function(d) { return (d===0) ? "" : d; })
+        .tickFormat((dtp) => {
+            return (dtp === 0) ? "" : dtp;
+        })
         .orient("left");
 
-    var xAxis = d3.svg.axis()
-        .scale(scales.x)
+    const xAxis = d3.svg.axis()
+        .scale(scales.xScale)
         .ticks(d3.time.day)
         .tickFormat(xAxisTicks)
         .orient("bottom");
 
-    d3.select(el).selectAll("." + styles.yAxis).call(yAxis);
-    d3.select(el).selectAll("." + styles.xAxis).call(xAxis);
+    d3.select(el).selectAll(`.${styles.yAxis}`).call(yAxis);
+    d3.select(el).selectAll(`.${styles.xAxis}`).call(xAxis);
 
     d3.select(el).selectAll("g.tick")
-        .filter(function(d) {
-            var point = d.toString();
-            var domain = scales.x.domain();
-            return point===domain[0].toString() || point===domain[1].toString();
+        .filter((dt) => {
+            const point = dt.toString();
+            const domain = scales.xScale.domain();
+
+            return point === domain[0].toString() || point === domain[1].toString();
         })
-        .attr("class", "tick " + styles.startEndDates);
+        .attr("class", `tick ${styles.startEndDates}`);
 
-    var line = g.selectAll("." + styles.line)
+    const line = gl.selectAll(`.${styles.line}`)
         .data(data);
 
-    var area = ga.selectAll('.' + styles.area)
+    const area = ga.selectAll(`.${styles.area}`)
         .data(data);
 
-    var dots = gd.selectAll("." + styles.pointSeries)
+    const dots = gd.selectAll(`.${styles.pointSeries}`)
         .data(data);
 
     // ENTER
@@ -137,31 +131,30 @@ d3Chart._drawLines = function(el, scales, data, formatting) {
     dots.enter().append("g")
         .attr("class", styles.pointSeries)
         .attr("stroke-width", 2)
-        .attr("fill", function(d) {
-            return d.strokeColor;
-        })
-        .attr("stroke", function(d) {
-            return d.strokeColor;
-        });
+        .attr("fill", (dfc) => dfc.strokeColor)
+        .attr("stroke", (dsc) => dsc.strokeColor);
 
     // ENTER & UPDATE
     line
-        .attr("d", function(d) { return lineDrawer(d.data); })
-        .attr("stroke", function(d) { return d.strokeColor; } )
-        .attr("stroke-width", function(d) { return d.strokeWidth; } );
+        .attr("d", (lined) => lineDrawer(lined.data))
+        .attr("stroke", (stroked) => stroked.strokeColor)
+        .attr("stroke-width", (swd) => swd.strokeWidth);
     area
-        .attr("d", function(d) { return areaDrawer(d.data); })
-        .attr("display", function(d) { return d.area ? true : "none"; });
+        .attr("d", (dd) => areaDrawer(dd.data))
+        .attr("display", (disd) => {
+            return disd.area ? true : "none";
+        });
 
-    var points = gd.selectAll('.' + styles.pointSeries).selectAll(".point")
-        .data(function(d) { return d.data; });
+    const points = gd.selectAll(`.${styles.pointSeries}`).selectAll(".point")
+        .data((dd) => dd.data);
 
-    points.enter().append("circle")
-        .attr("class", "point")
+    points.enter()
+        .append("circle")
+        .attr("class", "point");
     points
         .attr("r", 4.5)
-        .attr("cx", function(d) { return scales.x(d.date); })
-        .attr("cy", function(d) { return scales.y(d.value); });
+        .attr("cx", (dd) => scales.xScale(dd.date))
+        .attr("cy", (dd) => scales.yScale(dd.value));
 
     // EXIT
     line.exit()
@@ -170,25 +163,25 @@ d3Chart._drawLines = function(el, scales, data, formatting) {
         .remove();
     points.exit().remove();
     dots.exit().remove();
-
-
-
 };
 
-d3Chart._scales = function(el, domain) {
+d3Chart._scales = (el, props, domain) => {
+    const height = props.height - props.margin.top - props.margin.bottom;
+    const width = props.width - props.margin.left - props.margin.right;
+
     if (!domain) {
         return null;
     }
 
-    var x = d3.time.scale()
-        .range([this.margin.left,this.width - this.margin.right])
-        .domain(domain.x);
+    const xScale = d3.time.scale()
+        .range([props.margin.left, width - props.margin.right])
+        .domain(domain.xDomain);
 
-    var y = d3.scale.linear()
-        .range([this.height + this.margin.top, this.margin.top])
-        .domain(domain.y);
+    const yScale = d3.scale.linear()
+        .range([height + props.margin.top, props.margin.top])
+        .domain(domain.yDomain);
 
-    return {x: x, y: y};
+    return {xScale, yScale};
 };
 
 export default d3Chart;

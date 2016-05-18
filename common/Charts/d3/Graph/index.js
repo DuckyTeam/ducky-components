@@ -5,8 +5,8 @@ class Graph extends React.Component {
     constructor(props) {
         super(props);
         this.graph = graph;
-        this.graph._draw = this.props.draw;
-        this.graph._scale = this.props.scale;
+        this.graph.draw = this.props.draw;
+        this.graph.scale = this.props.scale;
     }
 
     componentDidMount() {

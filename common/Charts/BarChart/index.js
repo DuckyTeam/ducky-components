@@ -5,7 +5,6 @@ import {scale, draw} from "./../d3/simpleBarChart";
 
 class BarChart extends React.Component {
     render() {
-        console.log(this.props);
         return (
             <div>
                 {this.props.data.title
@@ -16,7 +15,7 @@ class BarChart extends React.Component {
                 ) : null}
                 <Graph
                     data={this.props.data}
-                    domain={{x: [0,10], y: [0, 5]}}
+                    domain={{xDomain: [0, 10], Domain: [0, 5]}}
                     draw={draw}
                     height={300}
                     scale={scale}

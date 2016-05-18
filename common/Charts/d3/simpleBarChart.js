@@ -8,10 +8,10 @@ export function scale(el, domain) {
     return {
         xScale: d3.scale.linear()
             .range([0, el.offsetWidth])
-            .domain(domain.x),
+            .domain(domain.xDomain),
         yScale: d3.scale.linear()
             .range([el.offsetHeight, 0])
-            .domain(domain.y)
+            .domain(domain.yDomain)
     };
 }
 

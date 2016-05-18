@@ -9,7 +9,6 @@ import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
-import PieChart from '../common/PieChart';
 import Button from '../common/Button';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
@@ -73,7 +72,7 @@ export default class App extends React.Component {
             value: 0
         };
         setInterval(() => {
-            this.setState({value: this.state.value +0.3});
+            this.setState({value: this.state.value + 0.3});
         }, 1000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
@@ -138,6 +137,10 @@ export default class App extends React.Component {
     }
 
     /* eslint-enable react/no-set-state */
+
+    formatFunction(value) {
+        return moment(value).format("Do MMM");
+    }
 
     handleButtonClick() {
         console.log('Clicked button');
@@ -1075,34 +1078,45 @@ export default class App extends React.Component {
 
                 <Preview width={500}>
                     <LineGraph
-                        height={"300px"}
                         data={[
                             {
-                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 12), value: 40}],
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 5, 12), value: 40}
+                                ],
                                 strokeColor: "#90A4AE",
                                 strokeWidth: 2,
                                 label: "Strek1"
-                            },{
-                                data: [{date: new Date(2016, 4, 12), value: 0},{date: new Date(2016, 4, 14), value: 200}, {date: new Date(2016, 5, 12), value: 1000}],
+                            }, {
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 4, 14), value: 200},
+                                    {date: new Date(2016, 5, 12), value: 1000}
+                                ],
                                 strokeColor: "#FFC107",
                                 strokeWidth: 2,
                                 label: "Strek1"
-                            },{
-                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 3), value: 150}, {date: new Date(2016, 5, 10), value: 850}],
+                            }, {
+                                data: [
+                                    {date: new Date(2016, 4, 12), value: 0},
+                                    {date: new Date(2016, 5, 3), value: 150},
+                                    {date: new Date(2016, 5, 10), value: 850}
+                                ],
                                 strokeColor: "#8BC34A",
                                 strokeWidth: 4,
                                 label: "Strek1",
                                 area: true
                             }
                         ]}
-                        domain={{x: [new Date(2016, 4, 12), new Date(2016, 5, 18)], y: [0, 1200]}}
-                        formatting= {function(value) {return moment(value).format("Do MMM")}}
+                        domain={{
+                            xDomain: [new Date(2016, 4, 12), new Date(2016, 5, 12)],
+                            yDomain: [0, 1200]
+                        }}
+                        formatting={this.formatFunction}
+                        graphID={1}
+                        height={"300px"}
                     />
                 </Preview>
-                <Preview width={500}>
-                    <PieChart data={[3, 3, 2, 4]}/>
-                </Preview>
-
                 <h1>{"/mobile"}</h1>
                 <h1>{"/pad"}</h1>
                 <h1>{"/desktop"}</h1>
