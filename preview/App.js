@@ -451,8 +451,8 @@ export default class App extends React.Component {
                         onClick={this.handleImageElementClick}
                         onModalHide={this.handleImageElementModalHide}
                         showModal={this.state.showImageModal}
-                        url={"http://funnyasduck.net/wp-content/uploads/2013/01/" +
-                        "funny-big-massive-rubber-duck-river-water-quack-motherducker-pics.jpg"}
+                        url={"https://s-media-cache-ak0.pinimg.com/736x" +
+                         "/a3/53/af/a353af6cf5b0d93e67ab6ab72b9d4da9.jpg"}
                     />
                 </Preview>
 

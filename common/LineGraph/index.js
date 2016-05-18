@@ -58,7 +58,9 @@ LineGraph.propTypes = {
         React.PropTypes.shape({
             data: React.PropTypes.arrayOf(
                 React.PropTypes.shape({
-                    date: React.PropTypes.oneOfType([React.PropTypes.string, React.PropTypes.shape({})]),
+                    date: React.PropTypes.oneOfType(
+                        [React.PropTypes.string, React.PropTypes.shape({})]
+                    ),
                     value: React.PropTypes.number
                 })
             ),
