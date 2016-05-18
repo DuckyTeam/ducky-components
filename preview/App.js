@@ -20,7 +20,9 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
+import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -626,6 +628,26 @@ export default class App extends React.Component {
                         icon={'icon-brightness_high'}
                         onClick={this.handleButtonClick}
                     />
+                    <div className={styles.subHeader}>
+                        {"Label Number darkbg"}
+                    </div>
+                    <div style={{backgroundColor: '#1e4a54', width: 70}}>
+                        <LabelNumber
+                            bgcolor={"darkbg"}
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label Number lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 70}}>
+                        <LabelNumber
+                            number={"45,677"}
+                            textcontent={"deltagere"}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -963,6 +985,27 @@ export default class App extends React.Component {
                             "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
                         ]}
                     />
+                </Preview>
+
+                <Preview title="/ListCompositeSavings">
+                    <div className={styles.subHeader}>
+                      {'Duckypoint Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={5}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'CO2 Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={2.7}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/labels">
