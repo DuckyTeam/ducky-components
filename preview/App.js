@@ -22,6 +22,7 @@ import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -962,6 +963,27 @@ export default class App extends React.Component {
                             "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
                         ]}
                     />
+                </Preview>
+
+                <Preview title="/ListCompositeSavings">
+                    <div className={styles.subHeader}>
+                      {'Duckypoint Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={5}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'CO2 Savings'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSavings
+                            savings={2.7}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/labels">
