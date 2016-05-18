@@ -35,7 +35,7 @@ function ListCompositeSavings(props) {
 ListCompositeSavings.propTypes = {
     className: PropTypes.string,
     savings: PropTypes.number,
-    type: PropTypes.oneOf(['points', 'co2'])
+    type: PropTypes.oneOf(['points'])
 };
 
 export default ListCompositeSavings;
