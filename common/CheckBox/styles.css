@@ -1,0 +1,8 @@
+.default {
+    color: #455A64;
+    cursor: pointer;
+}
+
+.checked > span {
+    color: #00AB97;
+}
