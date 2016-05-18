@@ -1149,9 +1149,10 @@ export default class App extends React.Component {
 
                 <Preview width={"500px"}>
                     <LineGraph
+                        height={"300px"}
                         data={[
                             {
-                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 12), value: 40+ this.state.value*10}],
+                                data: [{date: new Date(2016, 4, 12), value: 0}, {date: new Date(2016, 5, 12), value: 40}],
                                 strokeColor: "#90A4AE",
                                 strokeWidth: 2,
                                 label: "Strek1"
@@ -1168,7 +1169,7 @@ export default class App extends React.Component {
                                 area: true
                             }
                         ]}
-                        domain={{x: [new Date(2016, 4, 12), new Date(2016, 5, 12)], y: [0, 1200]}}
+                        domain={{x: [new Date(2016, 4, 12), new Date(2016, 5, 18)], y: [0, 1200]}}
                         formatting= {function(value) {return moment(value).format("Do MMM")}}
                     />
                 </Preview>

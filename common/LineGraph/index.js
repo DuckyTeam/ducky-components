@@ -8,14 +8,17 @@ class LineGraph extends React.Component {
     componentDidMount() {
         var el = ReactDOM.findDOMNode(this);
         d3Chart.create(document.getElementById("chart"), {
-            width: 400,
-            height: 300
+            width: document.getElementById("chart").offsetWidth,
+            height: document.getElementById("chart").offsetHeight
         }, this.getChartState(), this.props.formatting);
     }
 
     componentDidUpdate() {
         var el = ReactDOM.findDOMNode(this);
-        d3Chart.update(el, this.getChartState(), this.props.formatting);
+        d3Chart.update(el, this.getChartState(), {
+            width: document.getElementById("chart").offsetWidth,
+            height: document.getElementById("chart").offsetHeight
+        }, this.props.formatting);
     }
 
     getChartState() {
@@ -32,7 +35,7 @@ class LineGraph extends React.Component {
 
     render() {
         return (
-            <div id="chart" className="Chart"></div>
+            <div style={{height: this.props.height}} id="chart" className="Chart"></div>
         );
     }
 }

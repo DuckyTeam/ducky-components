@@ -13,7 +13,7 @@ var isFirst = function(d, scale) {
     return d.toString() === scale.domain()[0].toString();
 };
 
-d3Chart.create = function(el, props, state, formattting) {
+d3Chart.create = function(el, props, state, formatting) {
     width = props.width - margin.left - margin.right;
     height = props.height - margin.top - margin.bottom;
     var xAxisOffset = height + margin.top + 20;
@@ -41,10 +41,22 @@ d3Chart.create = function(el, props, state, formattting) {
         .attr('class', styles.xAxis)
         .attr("transform", "translate(" + margin.left + "," + xAxisOffset + ")");
 
-    this.update(el, state, formattting);
+    this.update(el, state, formatting);
 };
 
-d3Chart.update = function(el, state, formatting) {
+d3Chart.update = function(el, state, props, formatting) {
+    width = props.width - margin.left - margin.right;
+    height = props.height - margin.top - margin.bottom;
+
+    //Resize svg-canvas
+    d3.select(".d3")
+        .attr('width', props.width)
+        .attr('height', props.height);
+
+    //Move xaxis
+    var xAxisOffset = height + margin.top + 20;
+    d3.select("."+styles.xAxis).attr("transform", "translate(" + margin.left + "," + xAxisOffset + ")");
+
     // Re-compute the scales, and render the data points
     var scales = this._scales(el, state.domain);
     this._drawLines(el, scales, state.data, formatting);
@@ -66,7 +78,7 @@ d3Chart._drawLines = function(el, scales, data, formatting) {
         var numberOfTicks = width/60;
         var numberOfPoints = (scales.x.domain()[1] - scales.x.domain()[0])/(1000*60*60*24);
         if(i === 0 || last === point ||
-            (i % Math.floor(numberOfPoints/numberOfTicks) === 0
+            (i % Math.ceil(numberOfPoints/numberOfTicks) === 0
                 && (i*60*numberOfTicks/numberOfPoints) < (width-50))) {
             return formatting(d);
         }
@@ -84,7 +96,7 @@ d3Chart._drawLines = function(el, scales, data, formatting) {
 
     var yAxis = d3.svg.axis()
         .scale(scales.y)
-        .ticks(9)
+        .ticks(7)
         .outerTickSize(2)
         .tickFormat(function(d) { return (d===0) ? "" : d; })
         .orient("left");
