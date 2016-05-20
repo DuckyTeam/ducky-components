@@ -77,7 +77,7 @@ module.exports = {
         "consistent-return": 2,
         "curly": 2,
         "default-case": 2,
-        "dot-location": 2,
+        "dot-location": [2, "property"],
         "dot-notation": 2,
         "eqeqeq": 2,
         "guard-for-in": 2,
@@ -151,7 +151,7 @@ module.exports = {
         "no-undef": 2,
         "no-undef-init": 2,
         "no-undefined": 2,
-        "no-unused-vars": 2,
+        "no-unused-vars": [2, {"argsIgnorePattern": "^_" }],
         "no-use-before-define": 2,
         // Node.js and CommonJS
         // These rules are specific to JavaScript running on Node.js or using CommonJS in the browser.
@@ -179,7 +179,7 @@ module.exports = {
         "consistent-this": 2,
         "eol-last": 2,
         "func-names": 2,
-        "func-style": [2, "declaration"],
+        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
         "id-blacklist": 2,
         "id-length": 2,
         "id-match": 2,
@@ -193,8 +193,9 @@ module.exports = {
         "max-len": [2, LINE_LENGTH, TAB_SPACES],
         // Reason: By popular demand, the upper limit is set to the optional upper limit in pep8.
         "max-nested-callbacks": 2,
-        "max-params": 2,
-        "max-statements": 2,
+        "max-params": ['error', 5],
+        // Reason: Need more parameters for graphing-functions
+        "max-statements": [2, 29],
         "new-cap": 2,
         "new-parens": 2,
         "newline-after-var": 2,
@@ -216,7 +217,8 @@ module.exports = {
         "no-ternary": 0,
         // Reason: By popular demand, they are very nice in react components
         "no-trailing-spaces": 2,
-        "no-underscore-dangle": 2,
+        "no-underscore-dangle": 0,
+        // Reason: By popular demand, used for describing unused params
         "no-unneeded-ternary": 2,
         "no-whitespace-before-property": 2,
         "object-curly-spacing": 2,
@@ -266,7 +268,8 @@ module.exports = {
         "object-shorthand": 2,
         "prefer-arrow-callback": 2,
         "prefer-const": 2,
-        "prefer-reflect": 2,
+        "prefer-reflect": 0,
+        // Reason d3 has its own 'call' function
         "prefer-rest-params": 2,
         "prefer-spread": 2,
         "prefer-template": 2,
