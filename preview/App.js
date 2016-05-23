@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
@@ -671,6 +672,20 @@ export default class App extends React.Component {
                             textcontent={"deltagere"}
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}>LabelDouble</div>
+                    <LabelDouble
+                        color="#FF0000"
+                        description="41%"
+                        icon="icon-cow"
+                        label="Mat"
+                    />
+                    <LabelDouble
+                        color="#00FF00"
+                        description="2%"
+                        icon="icon-pig"
+                        label="Transport"
+                    />
                 </Preview>
 
                 <Preview title="/buttonCounters">

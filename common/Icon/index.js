@@ -11,6 +11,7 @@ function Icon(props) {
                 [props.className]: props.className
             })}
             onClick={props.onClick}
+            style={props.style}
         >
         </span>
     );
@@ -21,7 +22,8 @@ Icon.propTypes = {
     icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     size: React.PropTypes.oneOf(['nano', 'micro', 'mini', 'small', 'standard',
-        'large1', 'large2', 'display1', 'display2'])
+        'large1', 'large2', 'display1', 'display2']),
+    style: React.PropTypes.shape({})
 };
 
 export default Icon;
