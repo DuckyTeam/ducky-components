@@ -179,7 +179,7 @@ module.exports = {
         "consistent-this": 2,
         "eol-last": 2,
         "func-names": 2,
-        "func-style": ["error", "declaration", { "allowArrowFunctions": true }],
+        "func-style": [2, "declaration", { "allowArrowFunctions": true }],
         "id-blacklist": 2,
         "id-length": 2,
         "id-match": 2,
@@ -193,7 +193,7 @@ module.exports = {
         "max-len": [2, LINE_LENGTH, TAB_SPACES],
         // Reason: By popular demand, the upper limit is set to the optional upper limit in pep8.
         "max-nested-callbacks": 2,
-        "max-params": ['error', 5],
+        "max-params": [2, 5],
         // Reason: Need more parameters for graphing-functions
         "max-statements": [2, 29],
         "new-cap": 2,
