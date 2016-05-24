@@ -30,6 +30,7 @@ import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
+import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -1109,7 +1110,10 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview width={500}>
+                <Preview
+                    title="LineGraph"
+                    width={500}
+                >
                     <LineGraph
                         data={[
                             {
@@ -1148,6 +1152,30 @@ export default class App extends React.Component {
                         formatting={this.formatFunction}
                         graphID={1}
                         height={"300px"}
+                    />
+                </Preview>
+                <Preview title="PieChart">
+                    <PieChart
+                        calheight={200}
+                        calwidth={300}
+                        data={{
+                            title: 'Piechart example',
+                            total: 100,
+                            stats: [{
+                                color: '#444',
+                                label: 'Transport',
+                                percentage: 20
+                            }, {
+                                color: '#FF8888',
+                                label: 'Food',
+                                percentage: 50
+                            }, {
+                                color: '#8888FF',
+                                label: 'Energy',
+                                percentage: 30
+                            }]
+                        }}
+                        id="pieChart"
                     />
                 </Preview>
                 <h1>{"/mobile"}</h1>
