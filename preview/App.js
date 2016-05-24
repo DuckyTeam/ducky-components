@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelDisplay from "../common/LabelDisplay";
 import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
@@ -686,6 +687,23 @@ export default class App extends React.Component {
                         icon="icon-pig"
                         label="Transport"
                     />
+                    <br />
+                    <div className={styles.subHeader}>LabelDisplay</div>
+                    <LabelDisplay
+                        icon="icon-fish"
+                        iconColor="#FF0000"
+                        label="Total innsparing"
+                        value={1399}
+                    />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelDisplay
+                            icon="icon-fish"
+                            iconColor="#FF0000"
+                            label="Total innsparing"
+                            theme="dark"
+                            value={1399}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">

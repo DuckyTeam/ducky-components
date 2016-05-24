@@ -1,0 +1,22 @@
+.label {
+  text-align: center;
+  color: #90A4AE;
+}
+
+.labelDarkTheme {
+  color: #B0BEC5;
+}
+
+.valueWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.icon {
+  margin: 8px 8px 8px 0;
+}
+
+.valueDarkTheme {
+  color: #fff;
+}
