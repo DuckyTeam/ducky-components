@@ -55,7 +55,9 @@ export function createGraph(DOMNode, props) {
     const data = [];
 
     props.data.forEach((svgPathDefinition) => {
-        data.push(svgPathDefinition.percentage);
+        if (svgPathDefinition.percentage) {
+            data.push(svgPathDefinition.percentage);
+        }
     });
     // enter data and draw pie chart
     svgGroupContainer
@@ -64,25 +66,12 @@ export function createGraph(DOMNode, props) {
     .data(pie)
     .enter()
     .append("path")
-    .attr("class", (svgPathDefinition, index) => {
-        return `piechart ${props.data[index].label}`;
+    .attr("fill", (svgPathDefinition) => {
+        return props.data.find((category) => {
+            return category.percentage === svgPathDefinition.data;
+        }).color;
     })
-    .attr("fill", (svgPathDefinition, index) => {
-        return props.data[index].color;
-    })
-    .attr("d", arc)
-    .on("mouseover", (svgPathDefinition, index) => {
-        d3.select(this).style("fill", "green");
-        d3.select("#number").text(`${props.data[index].value} kg`);
-        d3.select("#numberLabel").text(`${props.data[index].label}:`);
-    })
-    .on("mouseout", (svgPathDefinition, index) => {
-        d3.select(this).style("fill", () => {
-            return props.data[index].color;
-        });
-        d3.select("#number").text(`${props.total} kg`);
-        d3.select("#numberLabel").text("Total:");
-    });
+    .attr("d", arc);
 }
 
 /**
@@ -94,7 +83,9 @@ export function updateGraph(DOMNode, props) {
     const data = [];
 
     props.data.forEach((svgPathDefinition) => {
-        data.push(svgPathDefinition.percentage);
+        if (svgPathDefinition.percentage) {
+            data.push(svgPathDefinition.percentage);
+        }
     });
 
     const min = Math.min(props.calwidth, props.calheight);
@@ -149,8 +140,10 @@ export function updateGraph(DOMNode, props) {
     .data(pie)
     .enter()
     .append("path")
-    .attr("class", (svgPathDefinition, index) => {
-        return `piechartey ${props.data[index].label}`;
+    .attr("fill", (svgPathDefinition) => {
+        return props.data.find((category) => {
+            return category.percentage === svgPathDefinition.data;
+        }).color;
     })
     .attr("d", arc)
     .each((svgPathDefinition) => {
