@@ -1157,9 +1157,8 @@ export default class App extends React.Component {
                 <Preview title="PieChart">
                     <PieChart
                         calheight={200}
-                        calwidth={300}
+                        calwidth={200}
                         data={{
-                            title: 'Piechart example',
                             total: 100,
                             stats: [{
                                 color: '#444',

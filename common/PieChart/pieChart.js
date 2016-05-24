@@ -5,9 +5,10 @@
  */
 import d3 from "d3";
 const MARGINS = {top: 0, right: 0, bottom: 0, left: 0};
-const INNER_RADIUS_MULTIPLIER = 0.6;
-const OUTER_RADIUS_MULTIPLIER = 0.9;
+const INNER_RADIUS_MULTIPLIER = 0.8;
+const OUTER_RADIUS_MULTIPLIER = 1;
 const TRANSITION_DURATION = 1000;
+const PADDING = 0.03;
 
 
 /**
@@ -19,7 +20,6 @@ export function createGraph(DOMNode, props) {
     // draw and append the container
     const svg = d3
         .select(DOMNode)
-        .select(".pieChart")
         .append("svg")
         .attr("id", "svg")
         .attr("width", props.calwidth)
@@ -30,9 +30,14 @@ export function createGraph(DOMNode, props) {
     const innerRadius = min / 2 * INNER_RADIUS_MULTIPLIER;
 
     // construct default pie laoyut
-    const pie = d3.layout.pie().value((svgPathDefinition) => {
+    const pie = d3
+    .layout
+    .pie()
+    .value((svgPathDefinition) => {
         return svgPathDefinition;
-    }).sort(null);
+    })
+    .sort(null)
+    .padAngle(PADDING);
 
     // construct arc generator
     const arc = d3.svg.arc()
@@ -116,9 +121,14 @@ export function updateGraph(DOMNode, props) {
         };
     }
 
-    const pie = d3.layout.pie().value((svgPathDefinition) => {
+    const pie = d3
+    .layout
+    .pie()
+    .value((svgPathDefinition) => {
         return svgPathDefinition;
-    }).sort(null);
+    })
+    .sort(null)
+    .padAngle(PADDING);
 
     // add transition to new path
     d3
