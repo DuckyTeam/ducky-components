@@ -5,16 +5,18 @@ const PropTypes = React.PropTypes;
 
 function Avatar(props) {
     return (
-        <img
-            alt={props.name}
-            className={classNames(styles.item, {
-                [styles[props.size]]: props.size,
-                [props.className]: props.className
-            })}
-            onClick={props.onClick}
-            src={props.image}
-            style={props.style}
-        />
+        <div>
+            <img
+                alt={props.name}
+                className={classNames(styles.item, {
+                    [styles[props.size]]: props.size,
+                    [props.className]: props.className
+                })}
+                onClick={props.onClick}
+                src={props.image}
+                style={props.style}
+            />
+        </div>
     );
 }
 Avatar.displayName = 'Avatar';
