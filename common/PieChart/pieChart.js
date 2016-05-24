@@ -7,7 +7,6 @@ import d3 from "d3";
 const MARGINS = {top: 0, right: 0, bottom: 0, left: 0};
 const INNER_RADIUS_MULTIPLIER = 0.6;
 const OUTER_RADIUS_MULTIPLIER = 0.9;
-const CONTAINER_Y_OFFSET = 20;
 const TRANSITION_DURATION = 1000;
 
 
