@@ -1,0 +1,18 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.icon {
+  margin-bottom: 8px;
+}
+
+.label {
+  color: #263238;
+  margin-bottom: 4px;
+}
+
+.description {
+  color: #90A4AE;
+}

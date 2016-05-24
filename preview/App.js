@@ -19,6 +19,8 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelDisplay from "../common/LabelDisplay";
+import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
@@ -28,6 +30,7 @@ import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
+import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -671,6 +674,37 @@ export default class App extends React.Component {
                             textcontent={"deltagere"}
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}>LabelDouble</div>
+                    <LabelDouble
+                        color="#FF0000"
+                        description="41%"
+                        icon="icon-cow"
+                        label="Mat"
+                    />
+                    <LabelDouble
+                        color="#00FF00"
+                        description="2%"
+                        icon="icon-pig"
+                        label="Transport"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>LabelDisplay</div>
+                    <LabelDisplay
+                        icon="icon-fish"
+                        iconColor="#FF0000"
+                        label="Total innsparing"
+                        value={1399}
+                    />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelDisplay
+                            icon="icon-fish"
+                            iconColor="#FF0000"
+                            label="Total innsparing"
+                            theme="dark"
+                            value={1399}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -1076,7 +1110,10 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview width={500}>
+                <Preview
+                    title="LineGraph"
+                    width={500}
+                >
                     <LineGraph
                         data={[
                             {
@@ -1115,6 +1152,30 @@ export default class App extends React.Component {
                         formatting={this.formatFunction}
                         graphID={1}
                         height={"300px"}
+                    />
+                </Preview>
+                <Preview title="PieChart">
+                    <PieChart
+                        calheight={200}
+                        calwidth={300}
+                        data={{
+                            title: 'Piechart example',
+                            total: 100,
+                            stats: [{
+                                color: '#444',
+                                label: 'Transport',
+                                percentage: 20
+                            }, {
+                                color: '#FF8888',
+                                label: 'Food',
+                                percentage: 50
+                            }, {
+                                color: '#8888FF',
+                                label: 'Energy',
+                                percentage: 30
+                            }]
+                        }}
+                        id="pieChart"
                     />
                 </Preview>
                 <h1>{"/mobile"}</h1>
