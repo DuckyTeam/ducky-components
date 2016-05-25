@@ -4,7 +4,9 @@ const d3Chart = {};
 
 d3Chart.create = (el, props, state, formatting) => {
     const xAxisOffset = props.height + props.margin.top + 20;
-    const svg = d3.select(el).append('svg')
+    const svg = d3
+        .select(el)
+        .append('svg')
         .attr('class', `d3Chart${props.id}`)
         .attr('width', props.width)
         .attr('height', props.height);
@@ -78,16 +80,24 @@ d3Chart._drawLines = (el, scales, props, data, formatting) => {
         return null;
     };
 
-    const lineDrawer = d3.svg.line().interpolate("basic")
+    const lineDrawer = d3
+        .svg
+        .line()
+        .interpolate("basic")
         .x((ld) => scales.xScale(ld.date))
         .y((ld) => scales.yScale(ld.value));
 
-    const areaDrawer = d3.svg.area().interpolate("basic")
+    const areaDrawer = d3
+        .svg
+        .area()
+        .interpolate("basic")
         .x((ad) => scales.xScale(ad.date))
         .y0(height + props.margin.top)
         .y1((ad) => scales.yScale(ad.value));
 
-    const yAxis = d3.svg.axis()
+    const yAxis = d3
+        .svg
+        .axis()
         .scale(scales.yScale)
         .ticks(7)
         .outerTickSize(2)
@@ -96,7 +106,9 @@ d3Chart._drawLines = (el, scales, props, data, formatting) => {
         })
         .orient("left");
 
-    const xAxis = d3.svg.axis()
+    const xAxis = d3
+        .svg
+        .axis()
         .scale(scales.xScale)
         .ticks(d3.time.day)
         .tickFormat(xAxisTicks)
@@ -128,11 +140,13 @@ d3Chart._drawLines = (el, scales, props, data, formatting) => {
         .attr('class', styles.line);
     area.enter().append('path')
         .attr('class', styles.area);
-    dots.enter().append("g")
-        .attr("class", styles.pointSeries)
-        .attr("stroke-width", 2)
-        .attr("fill", (dfc) => dfc.strokeColor)
-        .attr("stroke", (dsc) => dsc.strokeColor);
+    dots
+    .enter()
+    .append("g")
+    .attr("class", styles.pointSeries)
+    .attr("stroke-width", 2)
+    .attr("fill", (dfc) => dfc.strokeColor)
+    .attr("stroke", (dsc) => dsc.strokeColor);
 
     // ENTER & UPDATE
     line
