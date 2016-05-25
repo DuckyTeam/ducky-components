@@ -804,6 +804,14 @@ export default class App extends React.Component {
                     >
                         <img src={'http://placehold.it/100x50'} />
                     </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Midget Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'midget'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title={"Popover Menu"}>
