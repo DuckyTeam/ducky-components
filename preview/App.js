@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelIcon from '../common/LabelIcon';
 import LabelDisplay from "../common/LabelDisplay";
 import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
@@ -564,6 +565,8 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
+                    <br />
+                    <Typography type={'button'}>{"button"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
@@ -705,6 +708,16 @@ export default class App extends React.Component {
                             value={1399}
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}>LabelIcon</div>
+                    <LabelIcon
+                        icon="icon-room"
+                        label="Very Long Tab Label 1"
+                    />
+                    <LabelIcon
+                        icon="icon-data_usage"
+                        label="Tab Label 2"
+                    />
                 </Preview>
 
                 <Preview title="/buttonCounters">

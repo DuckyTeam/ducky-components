@@ -1,0 +1,12 @@
+.wrapper {
+    display: flex;
+}
+
+.icon {
+    color: #90a4ae;
+    margin-right: 8px;
+}
+
+.label {
+    color: #90a4ae;
+}
