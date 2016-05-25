@@ -32,7 +32,8 @@ Typography.propTypes = {
         'header1',
         'display1',
         'display2',
-        'display3'
+        'display3',
+        'button'
     ])
 };
 

@@ -17,7 +17,7 @@ function LabelIcon(props) {
                 className={classNames(styles.value, {
                     [styles.valueDarkTheme]: props.theme === 'dark'
                 })}
-                type="display1"
+                type="button"
             >
                 {props.text}
             </Typography>

@@ -564,6 +564,8 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
+                    <br />
+                    <Typography type={'button'}>{"button"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
