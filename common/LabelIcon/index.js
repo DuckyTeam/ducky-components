@@ -14,12 +14,10 @@ function LabelIcon(props) {
                 size="standard"
             />
             <Typography
-                className={classNames(styles.value, {
-                    [styles.valueDarkTheme]: props.theme === 'dark'
-                })}
+                className={styles.label}
                 type="button"
             >
-                {props.text}
+                {props.label}
             </Typography>
         </div>
     );
@@ -28,9 +26,7 @@ function LabelIcon(props) {
 LabelIcon.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    label: PropTypes.string,
-    text: PropTypes.string,
-    theme: PropTypes.oneOf(['dark', 'light'])
+    label: PropTypes.string
 };
 
 export default LabelIcon;

@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelIcon from '../common/LabelIcon';
 import LabelDisplay from "../common/LabelDisplay";
 import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
@@ -705,6 +706,19 @@ export default class App extends React.Component {
                             label="Total innsparing"
                             theme="dark"
                             value={1399}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>LabelIcon</div>
+                        <LabelIcon
+                            icon="icon-room"
+                            label="Tab1"
+                        />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelIcon
+                            icon="icon-lens"
+                            label="Tab2"
+                            theme="dark"
                         />
                     </div>
                 </Preview>
