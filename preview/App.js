@@ -723,12 +723,12 @@ export default class App extends React.Component {
                     <div className={styles.subHeader}>LabelHorisontal</div>
                     <LabelHorisontal
                         icon="icon-duck"
-                        text="Texty"
+                        text="Savings"
                     />
                     <div style={{backgroundColor: "#333"}}>
                         <LabelHorisontal
                             icon="icon-star"
-                            text="Texty"
+                            text="Points"
                             theme="dark"
                         />
                     </div>
