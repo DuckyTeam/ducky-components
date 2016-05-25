@@ -5,7 +5,7 @@ import d3Chart from './graph';
 class LineGraph extends React.Component {
     constructor() {
         super();
-        this.margin = {top: 10, bottom: 40, left: 30, right: 30};
+        this.margin = {top: 10, bottom: 40, left: 30, right: 20};
         this.container = null;
     }
     componentDidMount() {
