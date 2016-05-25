@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelMini from '../common/LabelMini';
 import LabelHorisontal from '../common/LabelHorisontal';
 import LabelIcon from '../common/LabelIcon';
 import LabelDisplay from "../common/LabelDisplay";
@@ -679,7 +680,7 @@ export default class App extends React.Component {
                         />
                     </div>
                     <br />
-                    <div className={styles.subHeader}>LabelDouble</div>
+                    <div className={styles.subHeader}>{"Label Double"}</div>
                     <LabelDouble
                         color="#FF0000"
                         description="41%"
@@ -693,7 +694,7 @@ export default class App extends React.Component {
                         label="Transport"
                     />
                     <br />
-                    <div className={styles.subHeader}>LabelDisplay</div>
+                    <div className={styles.subHeader}>{"Label Display"}</div>
                     <LabelDisplay
                         icon="icon-fish"
                         iconColor="#FF0000"
@@ -710,7 +711,7 @@ export default class App extends React.Component {
                         />
                     </div>
                     <br />
-                    <div className={styles.subHeader}>LabelIcon</div>
+                    <div className={styles.subHeader}>{"Label Icon"}</div>
                     <LabelIcon
                         icon="icon-room"
                         label="Very Long Tab Label 1"
@@ -720,7 +721,13 @@ export default class App extends React.Component {
                         label="Tab Label 2"
                     />
                     <br />
-                    <div className={styles.subHeader}>LabelHorisontal</div>
+                    <div className={styles.subHeader}>{"Label Mini"}</div>
+                    <LabelMini
+                        icon="icon-tune"
+                        label="Label"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>{"Label Horisontal"}</div>
                     <LabelHorisontal
                         icon="icon-duck"
                         text="Savings"
