@@ -710,17 +710,14 @@ export default class App extends React.Component {
                     </div>
                     <br />
                     <div className={styles.subHeader}>LabelIcon</div>
-                        <LabelIcon
-                            icon="icon-room"
-                            label="Tab1"
-                        />
-                    <div style={{backgroundColor: "#333"}}>
-                        <LabelIcon
-                            icon="icon-lens"
-                            label="Tab2"
-                            theme="dark"
-                        />
-                    </div>
+                    <LabelIcon
+                        icon="icon-room"
+                        label="Very Long Tab Label 1"
+                    />
+                    <LabelIcon
+                        icon="icon-data_usage"
+                        label="Tab Label 2"
+                    />
                 </Preview>
 
                 <Preview title="/buttonCounters">
