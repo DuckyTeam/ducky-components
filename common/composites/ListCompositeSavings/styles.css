@@ -3,16 +3,10 @@
   background: transparent;
 }
 
-.bodyText {
-  text-overflow: ellipsis;
+.label {
   flex: auto;
-  margin: 2px 16px;
 }
 
 .savings{
   flex: none;
-}
-
-.icon{
-  flex:none;
 }
