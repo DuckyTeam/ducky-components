@@ -1,6 +1,6 @@
-import Icon from '../../Icon';
+import Icon from '../Icon';
 import React from 'react';
-import Typography from '../../Typography';
+import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
@@ -8,15 +8,19 @@ const PropTypes = React.PropTypes;
 function LabelHorisontal(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <div className={styles.icon}>
-                <Icon
-                    icon={props.icon}
-                    size={'standard'}
-                />
-            </div>
-            <div className={styles.bodyText}>
-                <Typography type="bodyTextNormal">{props.text}</Typography>
-            </div>
+            <Icon
+                className={styles.icon}
+                icon={props.icon}
+                size={'standard'}
+            />
+            <Typography
+                className={classNames(styles.value, {
+                    [styles.valueDarkTheme]: props.theme === 'dark'
+                })}
+                type="bodyTextNormal"
+            >
+                {props.text}
+            </Typography>
         </div>
     );
 }
@@ -24,7 +28,8 @@ function LabelHorisontal(props) {
 LabelHorisontal.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    text: PropTypes.number
+    text: PropTypes.number,
+    theme: PropTypes.string
 };
 
 export default LabelHorisontal;

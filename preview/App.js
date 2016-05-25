@@ -19,6 +19,7 @@ import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelHorisontal from '../common/LabelHorisontal';
 import LabelIcon from '../common/LabelIcon';
 import LabelDisplay from "../common/LabelDisplay";
 import LabelDouble from "../common/LabelDouble";
@@ -717,6 +718,12 @@ export default class App extends React.Component {
                     <LabelIcon
                         icon="icon-data_usage"
                         label="Tab Label 2"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>LabelHorisontal</div>
+                    <LabelHorisontal
+                        icon="icon-duck"
+                        text="Texty"
                     />
                 </Preview>
 
