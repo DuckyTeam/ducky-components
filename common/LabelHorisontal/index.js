@@ -14,8 +14,8 @@ function LabelHorisontal(props) {
                 size={'standard'}
             />
             <Typography
-                className={classNames(styles.value, {
-                    [styles.valueDarkTheme]: props.theme === 'dark'
+                className={classNames(styles.text, {
+                    [styles.textDarkTheme]: props.theme === 'dark'
                 })}
                 type="bodyTextNormal"
             >

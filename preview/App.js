@@ -725,6 +725,13 @@ export default class App extends React.Component {
                         icon="icon-duck"
                         text="Texty"
                     />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelHorisontal
+                            icon="icon-star"
+                            text="Texty"
+                            theme="dark"
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/buttonCounters">
