@@ -26,8 +26,7 @@ function LabelMini(props) {
 LabelMini.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    label: PropTypes.number,
-    theme: PropTypes.string
+    label: PropTypes.number
 };
 
 export default LabelMini;
