@@ -30,7 +30,9 @@ function TextOnlyElement(props) {
                 onClick={props.onClick}
             >
                 <Typography
-                    className={styles.text}
+                    className={classNames(styles.text, {
+                        [styles.noCategory]: !props.category
+                    })}
                     type="bodyTextNormal"
                 >
                     {props.children}
@@ -54,7 +56,9 @@ function TextOnlyElement(props) {
             onClick={props.onClick}
         >
             <Typography
-                className={styles.text}
+                className={classNames(styles.text, {
+                    [styles.noCategory]: !props.category
+                })}
                 type="bodyTextNormal"
             >
                 {props.children}
