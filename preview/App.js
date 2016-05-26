@@ -35,6 +35,7 @@ import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
+import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
 import React from 'react';
@@ -860,6 +861,10 @@ export default class App extends React.Component {
                     <PopoverMenu onClick={this.handleButtonClick}
                         text={"Hei pa deg!"}
                     />
+                    <div className={styles.subHeader}>
+                        {'Popover Menu Item'}
+                    </div>
+                    <PopoverMenuItem />
                 </Preview>
 
                 <Preview

@@ -1,15 +1,21 @@
+.wrapper {
+    display: flex;
+    cursor: pointer;
+}
+
 .wrapper:hover {
     background-color: #ECEFF1;
 }
 
 .icon {
-
+    flex: none;
 }
 
 .text {
-
+    flex: auto;
+    margin: 0 16px;
 }
 
 .checked {
-
+    flex: none;
 }

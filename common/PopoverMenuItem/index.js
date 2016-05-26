@@ -22,7 +22,9 @@ function PopoverMenuItem(props) {
             <Typography
                 className={styles.text}
                 type={'ingressNormal'}
-            />
+            >
+                {'Text'}
+            </Typography>
             <Icon
                 className={styles.checked}
                 icon={'icon-check'}
