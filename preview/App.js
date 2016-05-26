@@ -867,11 +867,13 @@ export default class App extends React.Component {
                     <PopoverMenuItem
                         icon={'icon-barley'}
                         label={'Selected'}
+                        onClick={this.handleButtonClick}
                         selected
                     />
                     <PopoverMenuItem
                         icon={'icon-key-variant'}
                         label={'Not Selected'}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 
