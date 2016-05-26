@@ -12,10 +12,13 @@ function PopoverMenuItem(props) {
             className={classNames(styles.wrapper, {
                 [props.className]: props.className}
             )}
+            onClick={props.onClick}
             size={'squat'}
         >
             <Icon
-                className={styles.icon}
+                className={classNames(styles.icon, {
+                    [styles.selected]: props.selected}
+                )}
                 icon={props.icon}
                 size={'standard'}
             />
@@ -38,6 +41,7 @@ PopoverMenuItem.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
     label: PropTypes.string,
+    onClick: PropTypes.func,
     selected: PropTypes.bool
 };
 

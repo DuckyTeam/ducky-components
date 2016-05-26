@@ -11,6 +11,10 @@
     flex: none;
 }
 
+.selected {
+    color: #00AB97;
+}
+
 .text {
     flex: auto;
     margin: 0 16px;
