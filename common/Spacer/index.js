@@ -4,7 +4,7 @@ import styles from './Spacer.css';
 const PropTypes = React.PropTypes;
 
 function Spacer(props) {
-    if (props.hr === 'true') {
+    if (props.hr) {
         return (
             <div className={classNames({[styles[props.size]]: props.size})}>
                 <div className={styles.hr}></div>
