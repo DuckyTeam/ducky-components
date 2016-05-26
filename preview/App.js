@@ -864,7 +864,15 @@ export default class App extends React.Component {
                     <div className={styles.subHeader}>
                         {'Popover Menu Item'}
                     </div>
-                    <PopoverMenuItem />
+                    <PopoverMenuItem
+                        icon={'icon-barley'}
+                        label={'Selected'}
+                        selected
+                    />
+                    <PopoverMenuItem
+                        icon={'icon-key-variant'}
+                        label={'Not Selected'}
+                    />
                 </Preview>
 
                 <Preview

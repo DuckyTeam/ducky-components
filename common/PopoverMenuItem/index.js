@@ -16,18 +16,18 @@ function PopoverMenuItem(props) {
         >
             <Icon
                 className={styles.icon}
-                icon={'icon-fish'}
+                icon={props.icon}
                 size={'standard'}
             />
             <Typography
                 className={styles.text}
                 type={'ingressNormal'}
             >
-                {'Text'}
+                {props.label}
             </Typography>
             <Icon
                 className={styles.checked}
-                icon={'icon-check'}
+                icon={props.selected ? 'icon-check' : ''}
                 size={'standard'}
             />
         </Wrapper>
@@ -37,7 +37,8 @@ function PopoverMenuItem(props) {
 PopoverMenuItem.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    label: PropTypes.number
+    label: PropTypes.string,
+    selected: PropTypes.bool
 };
 
 export default PopoverMenuItem;
