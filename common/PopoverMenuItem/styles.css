@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #ECEFF1;
+}
+
+.icon {
+    flex: none;
+}
+
+.selected {
+    color: #00AB97;
+}
+
+.text {
+    flex: auto;
+    margin: 0 16px;
+}
+
+.checked {
+    flex: none;
+}
