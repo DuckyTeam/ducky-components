@@ -5,7 +5,7 @@ import styles from './styles.css';
 import Typography from '../Typography';
 import Icon from '../Icon';
 
-function LabelIcon(props) {
+function LabelTab(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
@@ -23,10 +23,10 @@ function LabelIcon(props) {
     );
 }
 
-LabelIcon.propTypes = {
+LabelTab.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
     label: PropTypes.string
 };
 
-export default LabelIcon;
+export default LabelTab;

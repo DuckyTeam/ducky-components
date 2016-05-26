@@ -21,7 +21,7 @@ import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
 import LabelMini from '../common/LabelMini';
 import LabelHorisontal from '../common/LabelHorisontal';
-import LabelIcon from '../common/LabelIcon';
+import LabelTab from '../common/LabelTab';
 import LabelDisplay from "../common/LabelDisplay";
 import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
@@ -711,12 +711,12 @@ export default class App extends React.Component {
                         />
                     </div>
                     <br />
-                    <div className={styles.subHeader}>{"Label Icon"}</div>
-                    <LabelIcon
+                    <div className={styles.subHeader}>{"Label Tab"}</div>
+                    <LabelTab
                         icon="icon-room"
                         label="Very Long Tab Label 1"
                     />
-                    <LabelIcon
+                    <LabelTab
                         icon="icon-data_usage"
                         label="Tab Label 2"
                     />
