@@ -10,6 +10,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CheckBox from '../common/CheckBox';
@@ -157,6 +158,10 @@ export default class App extends React.Component {
 
     handleButtonClick() {
         console.log('Clicked button');
+    }
+
+    handleButtonIconClick() {
+        console.log('Clicked button icon');
     }
 
     handleCheckBoxClick() {
@@ -329,6 +334,46 @@ export default class App extends React.Component {
                         </ButtonRaised>
                     </div>
                 </Preview>
+
+                <Preview title="/ButtonIcon">
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#ededed', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIcon>
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                        {"INACTIVE"}
+                        </ButtonIcon>
+
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                </Preview>
+
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox
