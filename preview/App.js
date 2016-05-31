@@ -83,6 +83,7 @@ export default class App extends React.Component {
         }, 1000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
+        this.handleFullsizeModalButtonClick = this.handleFullsizeModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
         this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
@@ -99,8 +100,13 @@ export default class App extends React.Component {
         this.setState({showModal: true});
     }
 
+    handleFullsizeModalButtonClick() {
+        this.setState({showFullsizeModal: true});
+    }
+
     handleModalHide() {
         this.setState({showModal: false});
+        this.setState({showFullsizeModal: false});
     }
 
     handleLeftMenuButtonClick() {
@@ -226,6 +232,17 @@ export default class App extends React.Component {
                         show={this.state.showModal}
                     >
                         {"Modal content"}
+                    </Modal>
+                    <button onClick={this.handleFullsizeModalButtonClick}>
+                        {"Show fullsize modal"}
+                    </button>
+                    <Modal
+                        fullSize={Boolean(true)}
+                        onHide={this.handleModalHide}
+                        show={this.state.showFullsizeModal}
+                    >
+                        {"Fullsize Modal content"}
+                        <button onClick={this.handleModalHide}>{"Hide modal"}</button>
                     </Modal>
                 </Preview>
 
