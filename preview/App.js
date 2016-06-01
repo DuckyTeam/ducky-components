@@ -42,6 +42,7 @@ import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
+import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
@@ -181,6 +182,10 @@ export default class App extends React.Component {
 
     handleRadioButtonClick() {
         console.log('Clicked radio button');
+    }
+
+    handleSwitchToggleClick() {
+        console.log('Switch toggled');
     }
 
     /* eslint-enable no-console */
@@ -776,6 +781,35 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
+                </Preview>
+
+                <Preview title={"Switch Toggle Button"}>
+                    {'Dark theme'}
+                    <div style={{backgroundColor: '#686766', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                    </div>
+                    <br />
+                    {'Light theme'}
+                    <div style={{backgroundColor: '#f1ece6', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                    </div>
+
                 </Preview>
 
                 <Preview title="/spacer">
