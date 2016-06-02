@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
-import styles from './ToolTip.css';
+import styles from './styles.css';
 
 function ToolTip(props) {
     return (
@@ -13,7 +13,7 @@ function ToolTip(props) {
                 <Typography className={classNames(styles.content)}
                     type={'caption2Normal'}
                 >
-                    {props.content}
+                    {props.children}
                 </Typography>
             </Wrapper>
         </span>
@@ -22,8 +22,8 @@ function ToolTip(props) {
 
 ToolTip.displayName = 'ToolTip';
 ToolTip.propTypes = {
-    className: React.PropTypes.string,
-    content: React.PropTypes.string
+    children: React.PropTypes.string,
+    className: React.PropTypes.string
 };
 
 export default ToolTip;

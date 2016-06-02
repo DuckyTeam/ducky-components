@@ -972,11 +972,9 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="ToolTip">
-                    <ToolTip content={"Velg kategori nedenfor"} />
+                    <ToolTip>Velg kategori nedenfor</ToolTip>
                     <br />
-                    <ToolTip className={styles.testToolTip}
-                        content={"Energi"}
-                    />
+                    <ToolTip className={styles.testToolTip}>Energi</ToolTip>
                 </Preview>
 
                 <Preview title="SectionFooterClose">
