@@ -7,7 +7,7 @@ import Icon from '../Icon';
 
 function LabelTab(props) {
     return (
-        <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
+        <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
                 className={styles.icon}
                 icon={props.icon}
@@ -19,7 +19,7 @@ function LabelTab(props) {
             >
                 {props.label}
             </Typography>
-        </div>
+        </span>
     );
 }
 
