@@ -45,6 +45,7 @@ import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
+import ToolTip from '../common/ToolTip';
 import Typography from '../common/Typography';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
@@ -968,6 +969,12 @@ export default class App extends React.Component {
                         icon={"Consumption03"}
                         size={"display2"}
                     />
+                </Preview>
+
+                <Preview title="ToolTip">
+                    <ToolTip>Velg kategori nedenfor</ToolTip>
+                    <br />
+                    <ToolTip className={styles.testToolTip}>Energi</ToolTip>
                 </Preview>
 
                 <Preview title="SectionFooterClose">

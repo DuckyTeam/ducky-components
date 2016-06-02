@@ -1,0 +1,11 @@
+.wrapper {
+    background-color: #263238;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+.content {
+    color: #FFF;
+    text-align: center
+}
