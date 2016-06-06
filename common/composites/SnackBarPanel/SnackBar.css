@@ -1,0 +1,30 @@
+.Wrapper {
+    background-color: #263238;
+    bottom: 5px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    overflow-x: hidden;
+    position: fixed;
+    transition: 5s ease;
+}
+
+.wrapperIcon {
+    background-color: #e5eaed;
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+}
+
+.label {
+    margin-left: 16px;
+    color: #FFFFFF !important;
+}
+
+.msgText{
+    margin-left: 16px;
+    color: #FFFFFF;
+}
+
+.typo {
+    color: #FFFFFF !important;
+}

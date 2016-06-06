@@ -17,7 +17,12 @@ function LabelStandard(props) {
                 size={'small'}
             />
             <br />
-            <Typography type={'bodyTextTitle'}>{props.content}</Typography>
+            <Typography
+                className={classNames({[props.className]: props.className})}
+                type={'bodyTextTitle'}
+            >
+                {props.content}
+            </Typography>
         </span>
     );
 }
