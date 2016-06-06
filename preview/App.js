@@ -13,6 +13,7 @@ import Button from '../common/Button';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CheckBox from '../common/CheckBox';
+import CardLabel2 from '../common/ChallengeCardLabel2';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -940,6 +941,19 @@ export default class App extends React.Component {
                     <RemoveImage
                         image={IMAGE_URL}
                         onClick={this.handleRemoveImageClick}
+                    />
+                </Preview>
+
+                <Preview title="ChallengeCardLabel2">
+                    <div className={styles.subHeader}>Card Label 2</div>
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Sluttet 23. Apr"}
+                    />
+
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Fullført 23. Apr"}
                     />
                 </Preview>
 
