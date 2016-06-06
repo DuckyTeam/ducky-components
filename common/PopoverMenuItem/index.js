@@ -24,7 +24,7 @@ function PopoverMenuItem(props) {
             />
             <Typography
                 className={styles.text}
-                type={'ingressNormal'}
+                type="bodyTextNormal"
             >
                 {props.label}
             </Typography>

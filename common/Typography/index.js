@@ -9,6 +9,7 @@ function Typography(props) {
                 [styles[props.type]]: props.type,
                 [props.className]: props.className
             })}
+            onClick={props.onClick}
         >
           {props.children}
         </span>
@@ -18,6 +19,7 @@ function Typography(props) {
 Typography.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    onClick: React.PropTypes.func,
     type: React.PropTypes.oneOf([
         'caption1Normal',
         'caption1Strong',
