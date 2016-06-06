@@ -1,0 +1,45 @@
+.button {
+    height: 36px;
+    min-width: 80px;
+    padding: 0 16px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.flat {
+    composes: button;
+}
+
+.flat:disabled > span{
+    cursor: auto;
+    opacity: 0.5;
+    color: #607D8B !important;
+}
+
+.icon {
+    color: #00AB97;
+}
+
+.text:disabled{
+    padding-left: 8px
+}
+
+.text{
+    color: #00AB97;
+    padding-left: 8px
+}
+
+.darkIcon {
+    color: white;
+}
+
+.darkText {
+    background-color: transparent;
+    color: white;
+    padding-left: 8px
+
+}
