@@ -3,7 +3,7 @@ import LabelStandard from '../../LabelStandard';
 import React from 'react';
 import Typography from '../../Typography';
 import Wrapper from '../../Wrapper';
-import styles from './SnackBar.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 class SnackBarPanel extends React.Component {
