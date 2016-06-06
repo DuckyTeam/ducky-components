@@ -11,19 +11,18 @@ function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Avatar
+                className={classNames({[styles.link]: props.onProfileClick})}
                 image={props.avatar}
-                link={props.profileLink}
+                onClick={props.onProfileClick}
                 size={"standard"}
             />
             <div className={styles.content}>
                 <Typography
-                    className={styles.title}
+                    className={classNames(styles.title, {[styles.link]: props.onProfileClick})}
                     onClick={props.onProfileClick}
                     type="bodyTextTitle"
                 >
-                    <a href={props.profileLink}>
-                        {props.title}
-                    </a>
+                    {props.title}
                 </Typography>
                 <div className={styles.labelWrapper}>
                     {props.children}
@@ -57,7 +56,6 @@ HeaderCompositUser.propTypes = {
     iconValue: PropTypes.string,
     onIconClick: PropTypes.func,
     onProfileClick: PropTypes.func,
-    profileLink: PropTypes.string,
     title: PropTypes.string
 };
 

@@ -11,6 +11,7 @@ import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
 import ButtonIconRaised from '../common/ButtonIconRaised';
+import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CheckBox from '../common/CheckBox';
@@ -46,6 +47,7 @@ import Spacer from '../common/Spacer';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
+import ToolTip from '../common/ToolTip';
 import Typography from '../common/Typography';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
@@ -335,8 +337,7 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title="/Button Icon Raised">
-                    <br />
+                <Preview title="/ButtonIcon">
                     {'DarkTheme'}
                     <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
                         <ButtonIconRaised
@@ -373,6 +374,43 @@ export default class App extends React.Component {
                         >
                             {"BUTTON ICON"}
                         </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#ededed', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIcon>
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                        {"INACTIVE"}
+                        </ButtonIcon>
+
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
                     </div>
                 </Preview>
 
@@ -1015,6 +1053,12 @@ export default class App extends React.Component {
                         icon={"Consumption03"}
                         size={"display2"}
                     />
+                </Preview>
+
+                <Preview title="ToolTip">
+                    <ToolTip>Velg kategori nedenfor</ToolTip>
+                    <br />
+                    <ToolTip className={styles.testToolTip}>Energi</ToolTip>
                 </Preview>
 
                 <Preview title="SectionFooterClose">
