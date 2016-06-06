@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './SwitchToggleButton.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function SwitchToggleButton(props) {
