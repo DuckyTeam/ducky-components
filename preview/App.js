@@ -10,6 +10,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIconRaised from '../common/ButtonIconRaised';
 import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
@@ -31,6 +32,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
@@ -44,6 +46,7 @@ import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
+import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
@@ -171,7 +174,7 @@ export default class App extends React.Component {
     }
 
     handleButtonIconClick() {
-        console.log('Clicked button icon');
+        console.log('Clicked Button Icon');
     }
 
     handleCheckBoxClick() {
@@ -196,6 +199,10 @@ export default class App extends React.Component {
 
     handleRadioButtonClick() {
         console.log('Clicked radio button');
+    }
+
+    handleSwitchToggleClick() {
+        console.log('Switch toggled');
     }
 
     /* eslint-enable no-console */
@@ -360,6 +367,44 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="/ButtonIcon">
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
                     {'LightTheme'}
                     <div style={{backgroundColor: '#ededed', padding: 10}}>
                         <ButtonIcon
@@ -826,6 +871,20 @@ export default class App extends React.Component {
                             theme="dark"
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}> {"Label Title for small page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="small"
+                        text="Utfordringer"
+                    />
+                    <div className={styles.subHeader}> {"Label Title for big page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="large"
+                        text="Utfordringer"
+                    />
+
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -845,6 +904,35 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
+                </Preview>
+
+                <Preview title={"Switch Toggle Button"}>
+                    {'Dark theme'}
+                    <div style={{backgroundColor: '#686766', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                    </div>
+                    <br />
+                    {'Light theme'}
+                    <div style={{backgroundColor: '#f1ece6', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                    </div>
+
                 </Preview>
 
                 <Preview title="/spacer">
