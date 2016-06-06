@@ -2,7 +2,7 @@ import Icon from '../Icon';
 import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
-import styles from './LabelTitle.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function LabelTitle(props) {
