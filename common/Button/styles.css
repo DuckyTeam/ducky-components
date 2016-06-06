@@ -5,6 +5,7 @@
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     background: transparent;
     border: none;
     cursor: pointer;

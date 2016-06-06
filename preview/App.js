@@ -14,6 +14,7 @@ import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CheckBox from '../common/CheckBox';
+import ConfirmationModal from '../common/ConfirmationModal';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -71,6 +72,7 @@ export default class App extends React.Component {
         this.state = {
             ASICExpanded: false,
             showModal: false,
+            showConfirmationModal: false,
             showImageModal: false,
             showFullImageText: false,
             showFullText: false,
@@ -96,10 +98,16 @@ export default class App extends React.Component {
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+        this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
+        .bind(this);
     }
 
     handleModalButtonClick() {
         this.setState({showModal: true});
+    }
+
+    handleConfirmationModalButtonClick() {
+        this.setState({showConfirmationModal: true});
     }
 
     handleFullsizeModalButtonClick() {
@@ -109,6 +117,7 @@ export default class App extends React.Component {
     handleModalHide() {
         this.setState({showModal: false});
         this.setState({showFullsizeModal: false});
+        this.setState({showConfirmationModal: false});
     }
 
     handleLeftMenuButtonClick() {
@@ -227,7 +236,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    title="/Modal"
+                    title="Modal"
                     width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
@@ -250,6 +259,20 @@ export default class App extends React.Component {
                         {"Fullsize Modal content"}
                         <button onClick={this.handleModalHide}>{"Hide modal"}</button>
                     </Modal>
+                </Preview>
+
+                <Preview title="ConfirmationModal">
+                    <ConfirmationModal
+                        onCancel={this.handleModalHide}
+                        onConfirm={this.handleModalHide}
+                        show={this.state.showConfirmationModal}
+                        title="Slett innlegg"
+                    >
+                        Er du sikker på at du vil slette dette innlegget?
+                    </ConfirmationModal>
+                    <button onClick={this.handleConfirmationModalButtonClick}>
+                        Show confirmation modal
+                    </button>
                 </Preview>
 
                 <Preview
