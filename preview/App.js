@@ -10,6 +10,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIconRaised from '../common/ButtonIconRaised';
 import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
@@ -171,7 +172,7 @@ export default class App extends React.Component {
     }
 
     handleButtonIconClick() {
-        console.log('Clicked button icon');
+        console.log('Clicked Button Icon');
     }
 
     handleCheckBoxClick() {
@@ -360,6 +361,44 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="/ButtonIcon">
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
                     {'LightTheme'}
                     <div style={{backgroundColor: '#ededed', padding: 10}}>
                         <ButtonIcon
