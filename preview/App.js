@@ -29,6 +29,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
@@ -758,6 +759,20 @@ export default class App extends React.Component {
                             theme="dark"
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}> {"Label Title for small page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="small"
+                        text="Utfordringer"
+                    />
+                    <div className={styles.subHeader}> {"Label Title for big page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="large"
+                        text="Utfordringer"
+                    />
+
                 </Preview>
 
                 <Preview title="/buttonCounters">
