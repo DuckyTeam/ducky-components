@@ -1,7 +1,7 @@
 .groove {
     width: 34px;
     height: 14px;
-    border-radius: 50%;
+    border-radius: 10px;
     display: inline-block;
     background-color: rgba(38,50,56,0.30);
     position: relative;
@@ -22,7 +22,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(38,50,56,0.30);
-  border-radius: 50%;
+  border-radius: 10px;
   -webkit-transition: .1s;
   transition: .1s;
 }
@@ -41,7 +41,7 @@
       transition: .1s;
       width: 20px;
       height: 20px;
-      border-radius: 50%;
+      border-radius: 10px;
 }
 
 .darkslider:before {
