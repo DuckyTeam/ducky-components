@@ -20,6 +20,7 @@ import Food03 from 'ducky-assets/vector_graphics/act_food_03_veggie_dinner.svg';
 import Food04 from 'ducky-assets/vector_graphics/act_food_04_veggie_day.svg';
 import Food05 from 'ducky-assets/vector_graphics/act_food_05_more_green.svg';
 import Food06 from 'ducky-assets/vector_graphics/act_food_06_fish.svg';
+import Social from 'ducky-assets/vector_graphics/social.svg';
 import Social01 from 'ducky-assets/vector_graphics/act_social_01_compliment.svg';
 import Social02 from 'ducky-assets/vector_graphics/act_social_02_smile.svg';
 import Social03 from 'ducky-assets/vector_graphics/act_social_03_converse.svg';
@@ -32,6 +33,7 @@ import Transport03 from 'ducky-assets/vector_graphics/act_transport_03_pool_work
 import Transport04 from 'ducky-assets/vector_graphics/act_transport_04_bike_leisure.svg';
 import Transport05 from 'ducky-assets/vector_graphics/act_transport_05_public_leisure.svg';
 import Transport06 from 'ducky-assets/vector_graphics/act_transport_06_pool_leisure.svg';
+import NoShopping from 'ducky-assets/vector_graphics/activity-no-shopping.svg';
 
 const source = {
     Consumption01,
@@ -51,6 +53,7 @@ const source = {
     Food04,
     Food05,
     Food06,
+    Social,
     Social01,
     Social02,
     Social03,
@@ -62,7 +65,8 @@ const source = {
     Transport03,
     Transport04,
     Transport05,
-    Transport06
+    Transport06,
+    NoShopping
 };
 
 function IconSVG(props) {
