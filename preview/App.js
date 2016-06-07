@@ -14,6 +14,7 @@ import ButtonIconRaised from '../common/ButtonIconRaised';
 import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
+import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import ConfirmationModal from '../common/ConfirmationModal';
@@ -1345,6 +1346,143 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         points={12}
                         time={1463044694799}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - goal">
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - challenge not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={147}
+                        points={149}
+                        progPercent={147}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - Leader - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader -not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                        user={'leader'}
                     />
                 </Preview>
 
