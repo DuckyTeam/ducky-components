@@ -11,7 +11,8 @@ function LabelSmall(props) {
             <Icon
                 className={classNames(styles.pad, {
                     [styles.pointsIcon]: props.icon === 'icon-brightness_high',
-                    [styles.co2Icon]: props.icon === 'icon-leaf'
+                    [styles.co2Icon]: props.icon === 'icon-leaf',
+                    [props.className]: props.className
                 })}
                 icon={props.icon}
                 onClick={props.onClick}

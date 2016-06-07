@@ -1,0 +1,45 @@
+.labelSmall {
+    margin-left: auto;
+    font-weight: bold;
+    color: #263238;
+}
+
+.leader {
+    color: #FFC107;
+}
+
+.user {
+    color: #607D8B;
+}
+
+.wrapper{
+    display:flex;
+    justify-content: flex-start;
+}
+
+.general {
+    margin-right: 6px;
+    font-weight: bold;
+    color: #263238;
+}
+
+.co2{
+    color: #00AB97;
+}
+
+.points{
+    color: #8BC34A;
+}
+
+.activities{
+    color: #0099A9;
+}
+
+.typoText{
+    color: #607D8B;
+}
+
+.pad{
+    margin-left: auto;
+    color: #263238;
+}
