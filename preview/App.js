@@ -10,10 +10,13 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIconRaised from '../common/ButtonIconRaised';
+import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
+import ConfirmationModal from '../common/ConfirmationModal';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -30,6 +33,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
@@ -43,6 +47,7 @@ import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
+import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
@@ -71,6 +76,7 @@ export default class App extends React.Component {
         this.state = {
             ASICExpanded: false,
             showModal: false,
+            showConfirmationModal: false,
             showImageModal: false,
             showFullImageText: false,
             showFullText: false,
@@ -96,10 +102,16 @@ export default class App extends React.Component {
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+        this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
+        .bind(this);
     }
 
     handleModalButtonClick() {
         this.setState({showModal: true});
+    }
+
+    handleConfirmationModalButtonClick() {
+        this.setState({showConfirmationModal: true});
     }
 
     handleFullsizeModalButtonClick() {
@@ -109,6 +121,7 @@ export default class App extends React.Component {
     handleModalHide() {
         this.setState({showModal: false});
         this.setState({showFullsizeModal: false});
+        this.setState({showConfirmationModal: false});
     }
 
     handleLeftMenuButtonClick() {
@@ -161,6 +174,10 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
+    handleButtonIconClick() {
+        console.log('Clicked Button Icon');
+    }
+
     handleCheckBoxClick() {
         console.log('Clicked checkbox');
     }
@@ -183,6 +200,10 @@ export default class App extends React.Component {
 
     handleRadioButtonClick() {
         console.log('Clicked radio button');
+    }
+
+    handleSwitchToggleClick() {
+        console.log('Switch toggled');
     }
 
     /* eslint-enable no-console */
@@ -223,7 +244,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    title="/Modal"
+                    title="Modal"
                     width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
@@ -246,6 +267,20 @@ export default class App extends React.Component {
                         {"Fullsize Modal content"}
                         <button onClick={this.handleModalHide}>{"Hide modal"}</button>
                     </Modal>
+                </Preview>
+
+                <Preview title="ConfirmationModal">
+                    <ConfirmationModal
+                        onCancel={this.handleModalHide}
+                        onConfirm={this.handleModalHide}
+                        show={this.state.showConfirmationModal}
+                        title="Slett innlegg"
+                    >
+                        Er du sikker på at du vil slette dette innlegget?
+                    </ConfirmationModal>
+                    <button onClick={this.handleConfirmationModalButtonClick}>
+                        Show confirmation modal
+                    </button>
                 </Preview>
 
                 <Preview
@@ -331,6 +366,84 @@ export default class App extends React.Component {
                         </ButtonRaised>
                     </div>
                 </Preview>
+
+                <Preview title="/ButtonIcon">
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#ededed', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIcon>
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                        {"INACTIVE"}
+                        </ButtonIcon>
+
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                </Preview>
+
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox
@@ -759,6 +872,20 @@ export default class App extends React.Component {
                             theme="dark"
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}> {"Label Title for small page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="small"
+                        text="Utfordringer"
+                    />
+                    <div className={styles.subHeader}> {"Label Title for big page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="large"
+                        text="Utfordringer"
+                    />
+
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -778,6 +905,35 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
+                </Preview>
+
+                <Preview title={"Switch Toggle Button"}>
+                    {'Dark theme'}
+                    <div style={{backgroundColor: '#686766', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                    </div>
+                    <br />
+                    {'Light theme'}
+                    <div style={{backgroundColor: '#f1ece6', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                    </div>
+
                 </Preview>
 
                 <Preview title="/spacer">

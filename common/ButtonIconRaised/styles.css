@@ -5,7 +5,6 @@
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -15,26 +14,24 @@
     composes: button;
     background-color: #00AB97;
     box-shadow: 0 1px 6px rgba(0,0,0,0.12);
+    color: #FFFFFF;
+}
+
+.icon {
+    color: white;
 }
 
 .text {
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: normal;
-    text-transform: uppercase;
-    color: #FFFFFF;
+    padding-left: 8px;
+    color: white;
 }
 
 .darkBackground {
     background-color: #00AB97;
 }
 
-.darkText{
-    color: white;
-}
 .darkBackground:disabled {
     box-shadow: none;
-    background-color: #607D8B;
     opacity: 0.5;
 }
 
