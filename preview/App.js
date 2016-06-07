@@ -39,6 +39,7 @@ import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
+import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
 import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -233,6 +234,10 @@ export default class App extends React.Component {
                     >
                         <b>{'MenuContent'}</b>
                     </MenuWrapper>
+                </Preview>
+
+                <Preview title="PopoverMenuAnchor2">
+                    <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
                 </Preview>
 
                 <Preview
