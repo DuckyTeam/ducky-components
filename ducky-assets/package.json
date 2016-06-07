@@ -1,0 +1,72 @@
+{
+  "_args": [
+    [
+      "ducky-assets@git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+      "/Users/christianalfoni/Development/ducky-components"
+    ]
+  ],
+  "_from": "git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+  "_id": "ducky-assets@0.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/ducky-assets",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/DuckyTeam/ducky-assets/master/package.json",
+      "gitUrl": "git://github.com/DuckyTeam/ducky-assets.git",
+      "httpsUrl": "git+https://github.com/DuckyTeam/ducky-assets.git",
+      "shortcut": "github:DuckyTeam/ducky-assets",
+      "ssh": "git@github.com:DuckyTeam/ducky-assets.git",
+      "sshUrl": "git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+      "type": "github"
+    },
+    "name": "ducky-assets",
+    "raw": "ducky-assets@git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+    "rawSpec": "git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+    "scope": null,
+    "spec": "git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+ssh://git@github.com/DuckyTeam/ducky-assets.git#3e96ca8b78a95d4940ed90ad671a0aff82c0e387",
+  "_shasum": "2216f58271a16fb5a9751e7ebfc680efe259b87f",
+  "_shrinkwrap": null,
+  "_spec": "ducky-assets@git+ssh://git@github.com/DuckyTeam/ducky-assets.git",
+  "_where": "/Users/christianalfoni/Development/ducky-components",
+  "author": {
+    "email": "emil.lysholm@gmail.com",
+    "name": "Emil Lysholm"
+  },
+  "bugs": {
+    "url": "https://github.com/DuckyTeam/ducky-assets/issues"
+  },
+  "dependencies": {},
+  "description": "static assets for ducky applications",
+  "devDependancies": {},
+  "devDependencies": {},
+  "gitHead": "3e96ca8b78a95d4940ed90ad671a0aff82c0e387",
+  "homepage": "https://github.com/DuckyTeam/ducky-assets#readme",
+  "keywords": [
+    "ducky",
+    "images",
+    "fonts",
+    "icons"
+  ],
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "name": "ducky-assets",
+  "optionalDependencies": {},
+  "readme": "# ducky-assets\n\nStatic assets for use in ducky projects.\nIf you have any questions, send them to Arne Skeie <arneskeie@gmail.com>.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DuckyTeam/ducky-assets.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.1"
+}

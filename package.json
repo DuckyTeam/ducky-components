@@ -114,6 +114,6 @@
     "url-loader": "^0.5.7"
   },
   "optionalDependencies": {
-    "ducky-assets": "git+ssh://git@github.com:DuckyTeam/ducky-assets.git"
+    
   }
 }

@@ -75,6 +75,9 @@ const options = {
         new webpack.ProvidePlugin({fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"})
     ],
     resolve: {
+        alias: {
+            'ducky-assets': path.resolve('ducky-assets')
+        },
         extensions: ["", ".js", ".jsx"],
         root: [
             path.resolve(__dirname, "common"),
