@@ -6,7 +6,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin"),
     autoprefixer = require("autoprefixer"),
     cssnext = require("postcss-cssnext"),
     path = require("path"),
-    webpack = require("webpack");
+    webpack = require("webpack"),
+    CarteBlanche = require('carte-blanche');
 
 const options = {
     entry: [
@@ -61,6 +62,9 @@ const options = {
         publicPath: '/'
     },
     plugins: [
+        new CarteBlanche({
+            componentRoot: './common'
+        }),
         new HtmlWebpackPlugin({
             filename: 'index.html'
         }),
