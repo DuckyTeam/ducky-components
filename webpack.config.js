@@ -46,8 +46,7 @@ const options = {
             {test: /\.html$/, loader: "file?name=[name].[ext]"},
             {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style',
-                    'css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss')
+                loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]!postcss'
             },
             {
                 test: [/\.woff/, /\.eot/, /\.woff2/, /\.ttf/, /\.svg/],
@@ -71,7 +70,7 @@ const options = {
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
-        new ExtractTextPlugin('[name]-[hash].min.css', {allChunks: true}),
+        // new ExtractTextPlugin('[name]-[hash].min.css', {allChunks: true}),
         new webpack.ProvidePlugin({fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"})
     ],
     resolve: {
