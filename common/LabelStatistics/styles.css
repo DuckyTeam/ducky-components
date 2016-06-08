@@ -1,0 +1,22 @@
+.wrapper {
+    background: transparent;
+    width: 120px;
+    height: 68px;
+}
+
+.number {
+  text-align: center;
+}
+
+.darknumber {
+  color: #FFF;
+}
+
+.textcontent {
+  text-align: center;
+  color: #90A4AE;
+}
+
+.darktextcontent {
+  color: #B0BEC5;
+}
