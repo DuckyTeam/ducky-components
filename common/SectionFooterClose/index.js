@@ -1,12 +1,12 @@
 import React from 'react';
 import Button from './../Button';
 import styles from './styles.css';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 class SectionFooterClose extends React.Component {
     render() {
         return (
-            <div className={classnames(styles.wrapper, {
+            <div className={classNames(styles.wrapper, {
                 [this.props.className]: this.props.className}
                 )}
             >
