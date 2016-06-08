@@ -823,21 +823,36 @@ export default class App extends React.Component {
                     <div className={styles.subHeader}>
                         {"Label statistics darkbg"}
                     </div>
-                    <div style={{backgroundColor: '#1e4a54', width: 70}}>
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
                         <LabelStatistics
                             bgcolor={"darkbg"}
-                            statistics={45.677}
-                            textcontent={"deltagere"}
+                            statistics={999.675}
+                            textcontent={"I år"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={9675}
+                            textcontent={"Denne måned"}
                         />
                     </div>
                     <br />
                     <div className={styles.subHeader}>
                         {"Label statistics lightbg"}
                     </div>
-                    <div style={{backgroundColor: '#d8e3e2', width: 70}}>
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
                         <LabelStatistics
-                            statistics={45.677}
-                            textcontent={"deltagere"}
+                            statistics={67.25}
+                            textcontent={"Idag"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67}
+                            textcontent={"Denne uken"}
                         />
                     </div>
                     <br />

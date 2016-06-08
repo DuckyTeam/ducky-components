@@ -5,6 +5,15 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 function LabelStatistics(props) {
+    let number = Number(props.statistics);
+
+    if (number > 999 || number % 1 === 0) {
+        number = number.toFixed(0);
+        number = Number(number).toLocaleString();
+    } else {
+        number = number.toFixed(1);
+    }
+
     return (
         <span>
             <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
@@ -13,7 +22,7 @@ function LabelStatistics(props) {
                         [styles.darknumber]: props.bgcolor === 'darkbg'})}
                     type={'display1'}
                 >
-                    {props.statistics}
+                    {number}
                 </Typography>
                 <Spacer size={'standard'} />
                 <Typography
@@ -30,7 +39,7 @@ function LabelStatistics(props) {
 LabelStatistics.propTypes = {
     bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
-    statistics: React.PropTypes.number,
+    statistics: React.PropTypes.string,
     textcontent: React.PropTypes.string
 };
 
