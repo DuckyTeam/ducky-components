@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+}
+
+.text {
+  color: #00AB97;
+  margin: 0 16px;
+}
