@@ -1,0 +1,13 @@
+.wrapper {
+    text-align: center;
+}
+
+.label {
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.text {
+    text-align: center;
+    color: #607d8b;
+}
