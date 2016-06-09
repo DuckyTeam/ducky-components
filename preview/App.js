@@ -15,6 +15,7 @@ import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
+import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import ConfirmationModal from '../common/ConfirmationModal';
@@ -1117,6 +1118,12 @@ export default class App extends React.Component {
                         labelContent={"2,355"}
                         text={"Fullført 23. Apr"}
                     />
+                </Preview>
+
+                <Preview title="ChallengeCardLabel2">
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ChalOverHead1 />
+                    </div>
                 </Preview>
 
                 <Preview title={"IconSVG"}>
