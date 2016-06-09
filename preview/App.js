@@ -1394,6 +1394,20 @@ export default class App extends React.Component {
                         progPercent={147}
                         type={'activities'}
                     />
+                    <br />
+                    <div className={styles.subHeader}
+                        style={{width: 120}}
+                    >
+                        {'Progress'}
+                        <br />
+                        <CardLabel1
+                            goal
+                            percentValue={147}
+                            points={149}
+                            progPercent={147}
+                            type={'activities'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="Challenge Card Label 1 - no goal">

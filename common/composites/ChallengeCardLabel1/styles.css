@@ -37,6 +37,11 @@
 
 .typoText{
     color: #607D8B;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    text-wrap: none;
 }
 
 .pad{
