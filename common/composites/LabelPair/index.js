@@ -30,6 +30,7 @@ function LabelPair(props) {
         <span>
             <Time
                 dateTime={props.time}
+                onlyDays={props.onlyDays}
                 short={Boolean(true)}
             />
             <span className={styles.pad}>
@@ -48,6 +49,7 @@ LabelPair.displayName = 'LabelPair';
 LabelPair.propTypes = {
     co2: PropTypes.number,
     onClick: PropTypes.func,
+    onlyDays: PropTypes.bool,
     points: PropTypes.number,
     time: PropTypes.number
 };
