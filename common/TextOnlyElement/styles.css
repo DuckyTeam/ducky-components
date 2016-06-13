@@ -1,10 +1,14 @@
 .wrapper {
-  background-color: #607D8B;
-  padding: 16px;
+    background-color: #FFFFFF;
+    padding: 0 16px 16px 16px;
 }
 
 .text {
   color: #fff !important;
+}
+
+.noCategory {
+    color: #000000 !important;
 }
 
 .shadowWrapper {
@@ -20,7 +24,7 @@
   left: 0;
   width: 100%;
   height: 50px;
-  background: linear-gradient(to bottom, rgba(96,125,139,0) 0%, rgba(96,125,139,1) 77%, rgba(96,125,139,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 77%, rgba(255,255,255,1) 100%);
   padding-bottom: 30px;
 }
 
@@ -31,6 +35,7 @@ a {
 
 .foodWrapper {
     background-color: #F6BA75;
+    padding: 16px;
 }
 
 .foodGradient {
@@ -40,6 +45,7 @@ a {
 
 .consumptionWrapper {
     background-color: #EF5F8A;
+    padding: 16px;
 }
 
 .consumptionGradient {
@@ -49,6 +55,7 @@ a {
 
 .energyWrapper {
     background-color: #00A1C9;
+    padding: 16px;
 }
 
 .energyGradient {
@@ -58,6 +65,7 @@ a {
 
 .transportWrapper {
     background-color: #AA75BA;
+    padding: 16px;
 }
 
 .transportGradient {
@@ -67,6 +75,7 @@ a {
 
 .socialWrapper {
     background-color: #3999E3;
+    padding: 16px;
 }
 
 .socialGradient {

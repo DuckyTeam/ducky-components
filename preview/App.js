@@ -10,34 +10,50 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIconRaised from '../common/ButtonIconRaised';
+import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
+import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import CheckBox from '../common/CheckBox';
+import CardLabel2 from '../common/ChallengeCardLabel2';
+import ConfirmationModal from '../common/ConfirmationModal';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
 import Icon from '../common/Icon';
 import IconImage from '../common/IconImage';
 import ImageElement from '../common/ImageElement';
+import LabelMini from '../common/LabelMini';
+import LabelHorisontal from '../common/LabelHorisontal';
+import LabelTab from '../common/LabelTab';
+import LabelDisplay from "../common/LabelDisplay";
+import LabelDouble from "../common/LabelDouble";
 import LabelSmall from "../common/LabelSmall";
 import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
+import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
+import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
+import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
+import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
+import ToolTip from '../common/ToolTip';
 import Typography from '../common/Typography';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
@@ -62,6 +78,7 @@ export default class App extends React.Component {
         this.state = {
             ASICExpanded: false,
             showModal: false,
+            showConfirmationModal: false,
             showImageModal: false,
             showFullImageText: false,
             showFullText: false,
@@ -76,6 +93,7 @@ export default class App extends React.Component {
         }, 1000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
+        this.handleFullsizeModalButtonClick = this.handleFullsizeModalButtonClick.bind(this);
         this.handleModalHide = this.handleModalHide.bind(this);
         this.handleLeftMenuButtonClick = this.handleLeftMenuButtonClick.bind(this);
         this.handleRightMenuButtonClick = this.handleRightMenuButtonClick.bind(this);
@@ -86,14 +104,26 @@ export default class App extends React.Component {
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+        this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
+        .bind(this);
     }
 
     handleModalButtonClick() {
         this.setState({showModal: true});
     }
 
+    handleConfirmationModalButtonClick() {
+        this.setState({showConfirmationModal: true});
+    }
+
+    handleFullsizeModalButtonClick() {
+        this.setState({showFullsizeModal: true});
+    }
+
     handleModalHide() {
         this.setState({showModal: false});
+        this.setState({showFullsizeModal: false});
+        this.setState({showConfirmationModal: false});
     }
 
     handleLeftMenuButtonClick() {
@@ -146,6 +176,10 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
+    handleButtonIconClick() {
+        console.log('Clicked Button Icon');
+    }
+
     handleCheckBoxClick() {
         console.log('Clicked checkbox');
     }
@@ -168,6 +202,10 @@ export default class App extends React.Component {
 
     handleRadioButtonClick() {
         console.log('Clicked radio button');
+    }
+
+    handleSwitchToggleClick() {
+        console.log('Switch toggled');
     }
 
     /* eslint-enable no-console */
@@ -200,6 +238,10 @@ export default class App extends React.Component {
                     </MenuWrapper>
                 </Preview>
 
+                <Preview title="PopoverMenuAnchor2">
+                    <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
+                </Preview>
+
                 <Preview
                     title="/Popup"
                     width={200}
@@ -208,7 +250,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    title="/Modal"
+                    title="Modal"
                     width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
@@ -220,6 +262,31 @@ export default class App extends React.Component {
                     >
                         {"Modal content"}
                     </Modal>
+                    <button onClick={this.handleFullsizeModalButtonClick}>
+                        {"Show fullsize modal"}
+                    </button>
+                    <Modal
+                        fullSize={Boolean(true)}
+                        onHide={this.handleModalHide}
+                        show={this.state.showFullsizeModal}
+                    >
+                        {"Fullsize Modal content"}
+                        <button onClick={this.handleModalHide}>{"Hide modal"}</button>
+                    </Modal>
+                </Preview>
+
+                <Preview title="ConfirmationModal">
+                    <ConfirmationModal
+                        onCancel={this.handleModalHide}
+                        onConfirm={this.handleModalHide}
+                        show={this.state.showConfirmationModal}
+                        title="Slett innlegg"
+                    >
+                        Er du sikker på at du vil slette dette innlegget?
+                    </ConfirmationModal>
+                    <button onClick={this.handleConfirmationModalButtonClick}>
+                        Show confirmation modal
+                    </button>
                 </Preview>
 
                 <Preview
@@ -305,6 +372,84 @@ export default class App extends React.Component {
                         </ButtonRaised>
                     </div>
                 </Preview>
+
+                <Preview title="/ButtonIcon">
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#ededed', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIcon>
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                        {"INACTIVE"}
+                        </ButtonIcon>
+
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                </Preview>
+
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox
@@ -561,6 +706,8 @@ export default class App extends React.Component {
                     <Typography type={'display2'}>{"display2 (48px)"}</Typography>
                     <br />
                     <Typography type={'display3'}>{"display3 (56px)"}</Typography>
+                    <br />
+                    <Typography type={'button'}>{"button"}</Typography>
                 </Preview>
 
                 <Preview title="/avatars">
@@ -671,6 +818,80 @@ export default class App extends React.Component {
                             textcontent={"deltagere"}
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}>{"Label Double"}</div>
+                    <LabelDouble
+                        color="#FF0000"
+                        description="41%"
+                        icon="icon-cow"
+                        label="Mat"
+                    />
+                    <LabelDouble
+                        color="#00FF00"
+                        description="2%"
+                        icon="icon-pig"
+                        label="Transport"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>{"Label Display"}</div>
+                    <LabelDisplay
+                        icon="icon-fish"
+                        iconColor="#FF0000"
+                        label="Total innsparing"
+                        value={1399}
+                    />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelDisplay
+                            icon="icon-fish"
+                            iconColor="#FF0000"
+                            label="Total innsparing"
+                            theme="dark"
+                            value={1399}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>{"Label Tab"}</div>
+                    <LabelTab
+                        icon="icon-room"
+                        label="Very Long Tab Label 1"
+                    />
+                    <LabelTab
+                        icon="icon-data_usage"
+                        label="Tab Label 2"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>{"Label Mini"}</div>
+                    <LabelMini
+                        icon="icon-tune"
+                        label="Label"
+                    />
+                    <br />
+                    <div className={styles.subHeader}>{"Label Horisontal"}</div>
+                    <LabelHorisontal
+                        icon="icon-duck"
+                        text="Savings"
+                    />
+                    <div style={{backgroundColor: "#333"}}>
+                        <LabelHorisontal
+                            icon="icon-star"
+                            text="Points"
+                            theme="dark"
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}> {"Label Title for small page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="small"
+                        text="Utfordringer"
+                    />
+                    <div className={styles.subHeader}> {"Label Title for big page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="large"
+                        text="Utfordringer"
+                    />
+
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -690,6 +911,35 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
+                </Preview>
+
+                <Preview title={"Switch Toggle Button"}>
+                    {'Dark theme'}
+                    <div style={{backgroundColor: '#686766', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                    </div>
+                    <br />
+                    {'Light theme'}
+                    <div style={{backgroundColor: '#f1ece6', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                    </div>
+
                 </Preview>
 
                 <Preview title="/spacer">
@@ -770,11 +1020,41 @@ export default class App extends React.Component {
                     >
                         <img src={'http://placehold.it/100x50'} />
                     </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Midget Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'midget'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Squat Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'squat'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title={"Popover Menu"}>
                     <PopoverMenu onClick={this.handleButtonClick}
                         text={"Hei pa deg!"}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Popover Menu Item'}
+                    </div>
+                    <PopoverMenuItem
+                        icon={'icon-barley'}
+                        label={'Selected'}
+                        onClick={this.handleButtonClick}
+                        selected
+                    />
+                    <PopoverMenuItem
+                        icon={'icon-key-variant'}
+                        label={'Not Selected'}
+                        onClick={this.handleButtonClick}
                     />
                 </Preview>
 
@@ -826,6 +1106,19 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="ChallengeCardLabel2">
+                    <div className={styles.subHeader}>Card Label 2</div>
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Sluttet 23. Apr"}
+                    />
+
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Fullført 23. Apr"}
+                    />
+                </Preview>
+
                 <Preview title={"IconSVG"}>
                     <div className={styles.subHeader}>Small</div>
                     <IconSVG
@@ -852,6 +1145,12 @@ export default class App extends React.Component {
                         icon={"Consumption03"}
                         size={"display2"}
                     />
+                </Preview>
+
+                <Preview title="ToolTip">
+                    <ToolTip>Velg kategori nedenfor</ToolTip>
+                    <br />
+                    <ToolTip className={styles.testToolTip}>Energi</ToolTip>
                 </Preview>
 
                 <Preview title="SectionFooterClose">
@@ -1050,6 +1349,143 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="Challenge Card Label 1 - goal">
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - challenge not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={147}
+                        points={149}
+                        progPercent={147}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - Leader - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader -not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                        user={'leader'}
+                    />
+                </Preview>
+
                 <Preview title="/Icon avatar with wrapper">
                     <div className={styles.subHeader}>
                         {'Wrapped Icon'}
@@ -1076,7 +1512,10 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview width={500}>
+                <Preview
+                    title="LineGraph"
+                    width={500}
+                >
                     <LineGraph
                         data={[
                             {
@@ -1115,6 +1554,29 @@ export default class App extends React.Component {
                         formatting={this.formatFunction}
                         graphID={1}
                         height={"300px"}
+                    />
+                </Preview>
+                <Preview title="PieChart">
+                    <PieChart
+                        calheight={200}
+                        calwidth={200}
+                        data={{
+                            total: 100,
+                            stats: [{
+                                color: '#444',
+                                label: 'Transport',
+                                percentage: 20
+                            }, {
+                                color: '#FF8888',
+                                label: 'Food',
+                                percentage: 50
+                            }, {
+                                color: '#8888FF',
+                                label: 'Energy',
+                                percentage: 30
+                            }]
+                        }}
+                        id="pieChart"
                     />
                 </Preview>
                 <h1>{"/mobile"}</h1>

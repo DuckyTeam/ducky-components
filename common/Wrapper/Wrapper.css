@@ -1,5 +1,5 @@
 .wrapper {
-    background-color: c1e6f9;
+    background-color: transparent;
     display: inline-flex;
 }
 
@@ -25,4 +25,12 @@
 
 .short{
     padding: 12px 16px;
+}
+
+.midget {
+    padding: 4px 16px;
+}
+
+.squat {
+    padding: 8px 16px;
 }

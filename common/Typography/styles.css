@@ -1,5 +1,5 @@
 .wrapper {
-
+  word-wrap: break-word;
 }
 
 .caption1Normal {
@@ -98,4 +98,12 @@
   line-height: 72px;
   font-weight: bold;
   color: #263238;
+}
+
+.button {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #00AB97;
 }

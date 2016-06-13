@@ -22,9 +22,14 @@ class Modal extends React.Component {
                 })}
                 onClick={this.props.onHide}
             >
-                <div className={styles.modalWrapper}>
+                <div className={classNames(styles.modalWrapper, {
+                    [styles.fullSize]: this.props.fullSize
+                })}
+                >
                     <div
-                        className={styles.modal}
+                        className={classNames(styles.modal, {
+                            [styles.fullSize]: this.props.fullSize
+                        })}
                         onClick={this.handleClick}
                     >
                         <i
@@ -42,6 +47,7 @@ class Modal extends React.Component {
 Modal.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    fullSize: React.PropTypes.bool,
     onHide: React.PropTypes.func.isRequired,
     show: React.PropTypes.bool
 };

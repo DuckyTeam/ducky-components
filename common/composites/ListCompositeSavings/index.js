@@ -1,4 +1,4 @@
-import Icon from '../../Icon';
+import LabelHorisontal from '../../LabelHorisontal';
 import React from 'react';
 import Typography from '../../Typography';
 import classNames from 'classnames';
@@ -16,14 +16,11 @@ function ListCompositeSavings(props) {
 
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <div className={styles.icon}>
-                <Icon
+            <div className={styles.label}>
+                <LabelHorisontal
                     icon={icon}
-                    size={'standard'}
+                    text={text}
                 />
-            </div>
-            <div className={styles.bodyText}>
-                <Typography type="bodyTextNormal">{text}</Typography>
             </div>
             <div className={styles.savings}>
                 <Typography type="ingressStrong">+{props.savings}</Typography>
