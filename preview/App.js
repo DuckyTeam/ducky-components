@@ -51,7 +51,7 @@ import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
 import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
-import TextLinkElement from '../common/TextLinkElement';
+import TextSingleLinkElement from '../common/TextSingleLinkElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
 import ToolTip from '../common/ToolTip';
@@ -526,11 +526,11 @@ export default class App extends React.Component {
                     </TextOnlyElement>
                 </Preview>
 
-                <Preview title="/TextLinkElement">
-                    <TextLinkElement>
+                <Preview title="/TextSingleLinkElement">
+                    <TextSingleLinkElement>
                         {"Dette er en kjempe fin tekst. " +
                             "Jeg trodde ikke tekst kunne blie vakkert, helt til jeg så denne"}
-                    </TextLinkElement>
+                    </TextSingleLinkElement>
                 </Preview>
 
                 <Preview

@@ -1,0 +1,21 @@
+.wrapper {
+  width: 250px;
+  padding: 0 16px 16px 16px;
+}
+
+.url {
+    padding: 0;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: blue;
+    white-space: nowrap;
+    float: auto;
+}
+
+.close {
+  cursor: pointer;
+  right: 5px;
+  top: 5px;
+  color: #DDD;
+}
