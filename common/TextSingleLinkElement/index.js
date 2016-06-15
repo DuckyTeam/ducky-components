@@ -1,6 +1,7 @@
 import React from 'react';
 import TextImageElement from '../TextImageElement';
 import IconAvaWrapper from '../composites/IconAvaWrapper';
+import LogButton from '../LogButton';
 import styles from './styles.css';
 let opt = '';
 
@@ -20,21 +21,18 @@ class TextLinkElement extends React.Component {
     }
 
     handleLinkAddition() {
-        // document.getElementById("form").style.display = "block";
         opt = (
-            <div id="form">
+            <div className={styles.wrapper}>
                 <textarea
                     id="link"
                     onSubmit={this.handleTextAreaChange}
                     placeholder={"Enter URL..."}
                     value={this.state.textAreaValue}
                 />
-                <br />
-                <button
+                <LogButton checked
+                    className={styles.logButton}
                     onClick={this.handleAddLinkToText}
-                >
-                    {"Add Link"}
-                </button>
+                />
             </div>
         );
     }
@@ -51,7 +49,7 @@ class TextLinkElement extends React.Component {
         }
         if (url) {
             opt = (
-                <div>
+                <div className={styles.wrapper}>
                     <a href={url}
                         target={"_blank"}
                     >
@@ -65,8 +63,7 @@ class TextLinkElement extends React.Component {
                     />
                 </div>
         );
-        }
-        else {
+        } else {
             opt = '';
         }
     }

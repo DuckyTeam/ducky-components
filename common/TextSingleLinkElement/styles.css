@@ -3,14 +3,18 @@
   padding: 0 16px 16px 16px;
 }
 
+.logButton {
+    float: right;
+    color: blue;
+}
+
 .url {
     padding: 0;
-    display: inline-block;
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     color: blue;
     white-space: nowrap;
-    float: auto;
 }
 
 .close {
@@ -18,4 +22,5 @@
   right: 5px;
   top: 5px;
   color: #DDD;
+  float: right;
 }
