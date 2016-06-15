@@ -1228,7 +1228,7 @@ export default class App extends React.Component {
                     </button>
                     <br />
                     <SnackBarPanel
-                        co2Pt={"+45"}
+                        co2Pt={10}
                         duckyIcon={'icon-duck'}
                         msgText={'Du er ein skikkelig miljohelt!'}
                         show={this.state.showCo2SnackBar}
