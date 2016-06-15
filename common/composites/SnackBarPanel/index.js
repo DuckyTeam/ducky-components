@@ -19,65 +19,54 @@ class SnackBarPanel extends React.Component {
     animateValue() {
         const range = this.props.co2Pt;
         const stepTime = Math.abs(Math.floor(2000 / range));
+
         interval = setInterval(() => {
             current += 1;
-            console.log(current);
             document.getElementById('typo').innerHTML = current;
             if (current === this.props.co2Pt) {
-                console.log("equals");
-                console.log(interval);
                 clearInterval(interval);
             }
         }, stepTime);
-        //return current;
     }
 
-    callMe() {
+    render() {
         let opt = '';
+
+        if (!this.props.show) {
+            return null;
+        }
 
         if (this.props.type === 'co2') {
             opt = (
-                <div>
-                    <Icon icon={'icon-leaf'} />
-                    <br />
-                    <div id="typo">
-                        <Typography size={'standard'}>
-                            {"+"}{this.animateValue()}
-                        </Typography>
-                    </div>
-                </div>
-        );
-        } else if (this.props.type === 'points') {
-        opt = (
-            <LabelStandard
-                className={styles.typo}
-                content={this.props.duckyPt}
-                icon={'icon-brightness_high'}
-            />
-        );
-    } else {
-        opt = (
-            <div>
                 <LabelStandard
                     className={styles.typo}
                     content={this.props.co2Pt}
                     icon={'icon-leaf'}
                 />
+        );
+        } else if (this.props.type === 'points') {
+            opt = (
                 <LabelStandard
                     className={styles.typo}
                     content={this.props.duckyPt}
                     icon={'icon-brightness_high'}
                 />
-            </div>
-        );
-    }
-    return opt;
-    }
-    render() {
-        //let opt = '';
-
-        if (!this.props.show) {
-            return null;
+            );
+        } else {
+            opt = (
+                <div>
+                    <LabelStandard
+                        className={styles.typo}
+                        content={this.props.co2Pt}
+                        icon={'icon-leaf'}
+                    />
+                    <LabelStandard
+                        className={styles.typo}
+                        content={this.props.duckyPt}
+                        icon={'icon-brightness_high'}
+                    />
+                </div>
+            );
         }
 
         return (
@@ -99,7 +88,7 @@ class SnackBarPanel extends React.Component {
                 </Typography>
 
                 <div className={styles.label}>
-                    {this.callMe()}
+                    {opt}
                 </div>
             </Wrapper>
     );
