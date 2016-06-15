@@ -15,3 +15,8 @@
 *{
   box-sizing: border-box;
 }
+
+.testToolTip {
+    margin: 30px;
+
+}

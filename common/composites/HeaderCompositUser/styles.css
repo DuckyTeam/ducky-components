@@ -45,3 +45,7 @@
 .socialIcon {
     color: #3999E3;
 }
+
+.link {
+  cursor: pointer;
+}

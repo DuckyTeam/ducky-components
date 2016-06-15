@@ -10,9 +10,14 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonIconRaised from '../common/ButtonIconRaised';
+import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
+import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import CheckBox from '../common/CheckBox';
+import CardLabel2 from '../common/ChallengeCardLabel2';
+import ConfirmationModal from '../common/ConfirmationModal';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -29,12 +34,14 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
+import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
 import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -43,9 +50,11 @@ import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import SnackBarPanel from '../common/composites/SnackBarPanel';
 import Spacer from '../common/Spacer';
+import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
+import ToolTip from '../common/ToolTip';
 import Typography from '../common/Typography';
 import TextArea from '../common/TextArea';
 import RemoveImage from '../common/RemoveImage';
@@ -70,6 +79,7 @@ export default class App extends React.Component {
         this.state = {
             ASICExpanded: false,
             showModal: false,
+            showConfirmationModal: false,
             showImageModal: false,
             showSnackBar: false,
             showCo2SnackBar: false,
@@ -102,10 +112,16 @@ export default class App extends React.Component {
         this.handleShowCo2SnackBar = this.handleShowCo2SnackBar.bind(this);
         this.handleShowPtSnackBar = this.handleShowPtSnackBar.bind(this);
         this.handleHideSnackBar = this.handleHideSnackBar.bind(this);
+        this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
+        .bind(this);
     }
 
     handleModalButtonClick() {
         this.setState({showModal: true});
+    }
+
+    handleConfirmationModalButtonClick() {
+        this.setState({showConfirmationModal: true});
     }
 
     handleFullsizeModalButtonClick() {
@@ -115,6 +131,7 @@ export default class App extends React.Component {
     handleModalHide() {
         this.setState({showModal: false});
         this.setState({showFullsizeModal: false});
+        this.setState({showConfirmationModal: false});
     }
 
     handleLeftMenuButtonClick() {
@@ -183,6 +200,10 @@ export default class App extends React.Component {
         console.log('Clicked button');
     }
 
+    handleButtonIconClick() {
+        console.log('Clicked Button Icon');
+    }
+
     handleCheckBoxClick() {
         console.log('Clicked checkbox');
     }
@@ -205,6 +226,10 @@ export default class App extends React.Component {
 
     handleRadioButtonClick() {
         console.log('Clicked radio button');
+    }
+
+    handleSwitchToggleClick() {
+        console.log('Switch toggled');
     }
 
     /* eslint-enable no-console */
@@ -237,6 +262,10 @@ export default class App extends React.Component {
                     </MenuWrapper>
                 </Preview>
 
+                <Preview title="PopoverMenuAnchor2">
+                    <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
+                </Preview>
+
                 <Preview
                     title="/Popup"
                     width={200}
@@ -245,7 +274,7 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    title="/Modal"
+                    title="Modal"
                     width={200}
                 >
                     <button onClick={this.handleModalButtonClick}>
@@ -268,6 +297,20 @@ export default class App extends React.Component {
                         {"Fullsize Modal content"}
                         <button onClick={this.handleModalHide}>{"Hide modal"}</button>
                     </Modal>
+                </Preview>
+
+                <Preview title="ConfirmationModal">
+                    <ConfirmationModal
+                        onCancel={this.handleModalHide}
+                        onConfirm={this.handleModalHide}
+                        show={this.state.showConfirmationModal}
+                        title="Slett innlegg"
+                    >
+                        Er du sikker på at du vil slette dette innlegget?
+                    </ConfirmationModal>
+                    <button onClick={this.handleConfirmationModalButtonClick}>
+                        Show confirmation modal
+                    </button>
                 </Preview>
 
                 <Preview
@@ -353,6 +396,84 @@ export default class App extends React.Component {
                         </ButtonRaised>
                     </div>
                 </Preview>
+
+                <Preview title="/ButtonIcon">
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#e3d9cd', padding: 10}}>
+                        <ButtonIconRaised
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIconRaised>
+                        <ButtonIconRaised
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            type={'raised'}
+                        >
+                            {"BUTTON ICON"}
+                        </ButtonIconRaised>
+                    </div>
+                    <br />
+                    {'LightTheme'}
+                    <div style={{backgroundColor: '#ededed', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"INACTIVE"}
+                        </ButtonIcon>
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                    <br />
+                    {'DarkTheme'}
+                    <div style={{backgroundColor: '#4b4a5b', padding: 10}}>
+                        <ButtonIcon
+                            disabled
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                        {"INACTIVE"}
+                        </ButtonIcon>
+
+                        <ButtonIcon
+                            icon={'icon-star_border'}
+                            onClick={this.handleButtonIconClick}
+                            theme={'dark'}
+                        >
+                            {"BUTTON-ICON"}
+                        </ButtonIcon>
+                    </div>
+                </Preview>
+
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox
@@ -781,6 +902,20 @@ export default class App extends React.Component {
                             theme="dark"
                         />
                     </div>
+                    <br />
+                    <div className={styles.subHeader}> {"Label Title for small page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="small"
+                        text="Utfordringer"
+                    />
+                    <div className={styles.subHeader}> {"Label Title for big page titles"} </div>
+                    <LabelTitle
+                        icon="icon-trophy"
+                        size="large"
+                        text="Utfordringer"
+                    />
+
                 </Preview>
 
                 <Preview title="/buttonCounters">
@@ -800,6 +935,35 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         size={'standard'}
                     />
+                </Preview>
+
+                <Preview title={"Switch Toggle Button"}>
+                    {'Dark theme'}
+                    <div style={{backgroundColor: '#686766', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                            theme={'dark'}
+                        />
+                    </div>
+                    <br />
+                    {'Light theme'}
+                    <div style={{backgroundColor: '#f1ece6', padding: 10}}>
+                        <SwitchToggleButton
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                        <hr />
+                        <SwitchToggleButton
+                            checked
+                            onClick={this.handleSwitchToggleClick}
+                        />
+                    </div>
+
                 </Preview>
 
                 <Preview title="/spacer">
@@ -966,6 +1130,19 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="ChallengeCardLabel2">
+                    <div className={styles.subHeader}>Card Label 2</div>
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Sluttet 23. Apr"}
+                    />
+
+                    <CardLabel2
+                        labelContent={"2,355"}
+                        text={"Fullført 23. Apr"}
+                    />
+                </Preview>
+
                 <Preview title={"IconSVG"}>
                     <div className={styles.subHeader}>Small</div>
                     <IconSVG
@@ -992,6 +1169,12 @@ export default class App extends React.Component {
                         icon={"Consumption03"}
                         size={"display2"}
                     />
+                </Preview>
+
+                <Preview title="ToolTip">
+                    <ToolTip>Velg kategori nedenfor</ToolTip>
+                    <br />
+                    <ToolTip className={styles.testToolTip}>Energi</ToolTip>
                 </Preview>
 
                 <Preview title="SectionFooterClose">
@@ -1187,6 +1370,143 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         points={12}
                         time={1463044694799}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - goal">
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - challenge not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress towards goal - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        goal
+                        percentValue={147}
+                        points={149}
+                        progPercent={147}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                    />
+                </Preview>
+
+                <Preview title="Challenge Card Label 1 - Leader - no goal">
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader -not started'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - points'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={26}
+                        points={43}
+                        progPercent={29}
+                        type={'points'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - co2'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={77}
+                        points={234.6}
+                        progPercent={77}
+                        type={'co2'}
+                        user={'leader'}
+                    />
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Progress if no goal set - Leader - activities'}
+                    </div>
+                    <br />
+                    <CardLabel1
+                        percentValue={13}
+                        points={149}
+                        progPercent={77}
+                        type={'activities'}
+                        user={'leader'}
                     />
                 </Preview>
 
