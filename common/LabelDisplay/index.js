@@ -42,7 +42,7 @@ LabelDisplay.propTypes = {
     iconColor: PropTypes.string,
     label: PropTypes.string,
     theme: PropTypes.oneOf(['dark', 'light']),
-    value: PropTypes.number
+    value: PropTypes.string
 };
 
 export default LabelDisplay;
