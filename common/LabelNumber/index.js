@@ -1,7 +1,7 @@
 import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
-import styles from './LabelNumber.css';
+import styles from './styles.css';
 
 function LabelNumber(props) {
     return (
@@ -29,7 +29,7 @@ function LabelNumber(props) {
 LabelNumber.propTypes = {
     bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
-    number: React.PropTypes.number,
+    number: React.PropTypes.string,
     textcontent: React.PropTypes.string
 };
 
