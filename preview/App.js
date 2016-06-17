@@ -1588,11 +1588,11 @@ export default class App extends React.Component {
                         calheight={200}
                         calwidth={200}
                         data={{
-                            total: 100,
+                            total: 80 + this.state.value,
                             stats: [{
                                 color: '#444',
                                 label: 'Transport',
-                                percentage: 20
+                                percentage: this.state.value
                             }, {
                                 color: '#FF8888',
                                 label: 'Food',
