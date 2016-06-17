@@ -66,6 +66,7 @@ export function createGraph(DOMNode, props) {
     // creates the pie chart container
     const xTransform = (props.calwidth / 2 + MARGINS.left);
     const yTransform = (props.calheight / 2 + MARGINS.top);
+
     svg.append("g")
         .attr("id", "g")
         .attr("transform", `translate(${xTransform},${yTransform})`);
