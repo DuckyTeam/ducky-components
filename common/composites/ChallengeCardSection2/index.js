@@ -20,16 +20,13 @@ function ChallengeCardLabel1(props) {
             />
     );
         optTwo = (
-            <div>
-                <Spacer size={'double'} />
-                <CardLabel1
-                    goal
-                    percentValue={props.percentValue}
-                    points={props.points}
-                    progPercent={props.progPercent}
-                    type={props.cardLabelType}
-                />
-            </div>
+            <CardLabel1
+                goal
+                percentValue={props.percentValue}
+                points={props.points}
+                progPercent={props.progPercent}
+                type={props.cardLabelType}
+            />
     );
     } else {
         optOne = (
@@ -56,6 +53,7 @@ function ChallengeCardLabel1(props) {
                 {props.textOne}
             </Typography>
             {optOne}
+            <Spacer size={'double'} />
             {optTwo}
         </div>
         );
