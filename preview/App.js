@@ -35,6 +35,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
@@ -849,6 +850,42 @@ export default class App extends React.Component {
                         <LabelNumber
                             number={45.677}
                             textcontent={"deltagere"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics darkbg"}
+                    </div>
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={999.675}
+                            textcontent={"I år"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={9675}
+                            textcontent={"Denne måned"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67.25}
+                            textcontent={"Idag"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67}
+                            textcontent={"Denne uken"}
                         />
                     </div>
                     <br />
