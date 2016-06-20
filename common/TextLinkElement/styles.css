@@ -1,0 +1,34 @@
+.wrapper {
+  width: 100%;
+  padding-top: 16px;
+  border-top: 1px solid rgba(38,50,56,0.12);
+}
+
+.text {
+  color: #00AB97;
+}
+
+.food {
+  background-color: #F6BA75;
+  color: #004750;
+}
+
+.consumption {
+  background-color: #EF5F8A;
+  color: #004750;
+}
+
+.energy {
+  background-color: #00A1C9;
+  color: #004750;
+}
+
+.transportation {
+  background-color: #AA75BA;
+  color: #004750;
+}
+
+.social {
+  background-color: #3999E3;
+  color: #004750;
+}

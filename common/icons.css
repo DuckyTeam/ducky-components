@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+:global .icon-link_checked:before {
+  content: "\e938";
+}
+
 :global .icon-duckylogo_beta:before {
     content: "\e936";
 }
