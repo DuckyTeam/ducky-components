@@ -43,6 +43,7 @@ import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
 import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
+import PopoverMenuAnchor3 from './../common/PopoverMenuAnchor3';
 import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -259,6 +260,10 @@ export default class App extends React.Component {
 
                 <Preview title="PopoverMenuAnchor2">
                     <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
+                </Preview>
+
+                <Preview title="PopoverMenuAnchor3">
+                    <PopoverMenuAnchor3>Anchor</PopoverMenuAnchor3>
                 </Preview>
 
                 <Preview
