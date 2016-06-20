@@ -12,7 +12,7 @@ function TimeStamp(props) {
                     dateTime={isoString(props.dateTime)}
                     style={Object.assign({}, props.style)}
                 >
-                    {timeSince(props.dateTime, props.short)}
+                    {timeSince(props.dateTime, props.short, props.onlyDays)}
                 </time>
             }
             icon={'icon-schedule'}
@@ -25,6 +25,7 @@ TimeStamp.displayName = 'TimeStamp';
 TimeStamp.propTypes = {
     className: PropTypes.string,
     dateTime: PropTypes.number,
+    onlyDays: PropTypes.bool,
     short: PropTypes.bool,
     style: PropTypes.shape({})
 };

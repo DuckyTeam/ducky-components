@@ -52,7 +52,7 @@ PieChart.propTypes = {
             label: PropTypes.string,
             percentage: PropTypes.number
         })),
-        total: PropTypes.number
+        total: PropTypes.string
     }),
     id: PropTypes.string.isRequired
 };
