@@ -16,6 +16,7 @@ function StateCarousal1(props) {
                     theme={props.theme}
                 />
             </div>
+            <Spacer size={'double'} />
             <div className={styles.innerWrapper}>
                 <div className={classNames(styles.previous, {
                     [styles.darkPrevious]: props.theme === 'dark'})}
