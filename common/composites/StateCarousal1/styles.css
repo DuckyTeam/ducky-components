@@ -1,0 +1,26 @@
+.wrapper{
+    display: inline-block;
+}
+
+.labelWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerWrapper{
+    display: flex;
+    align-items: center;
+}
+
+.previous {
+    opacity: 0.7;
+    font-weight: bold;
+    padding-right: 8px;
+    margin-right: 8px;
+    border-right: 1px solid rgba(38,50,56,0.12);
+}
+
+.darkPrevious {
+    border-right: 1px solid rgba(255,255,255,0.12);
+}
