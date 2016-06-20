@@ -34,14 +34,15 @@ moment.locale(getLocale(), {
 
 /**
  * @param {object} date: date to convert
- * @param {bool} short: remove suffixes
+ * @param {boolean} short: remove suffixes
+ * @param {boolean} onlyDays: remove suffixes
  * @returns {string}: human readable time string
  */
-export function timeSince(date, short = false) {
+export function timeSince(date, short = false, onlyDays = false) {
     if (moment().date() === moment(date).date() &&
         moment().month() === moment(date).month() &&
         moment().year() === moment(date).year()) {
-        return moment(date).fromNow(short);
+        return onlyDays ? "i dag" : moment(date).fromNow(short);
     }
     return moment(date).calendar();
 }

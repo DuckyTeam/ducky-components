@@ -52,6 +52,7 @@ import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
 import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
+import TextLinkElement from '../common/TextLinkElement';
 import TextOnlyElement from '../common/TextOnlyElement';
 import IconDropdown from '../common/IconDropdown';
 import ToolTip from '../common/ToolTip';
@@ -87,7 +88,9 @@ export default class App extends React.Component {
             showCopyLink: false,
             textAreaValue: "",
             tabIndexSelected: 0,
-            value: 0
+            value: 0,
+            linkValue: "",
+            hasSavedLinkElement: false
         };
         setInterval(() => {
             this.setState({value: this.state.value + 0.3});
@@ -107,6 +110,9 @@ export default class App extends React.Component {
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
         this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
         .bind(this);
+        this.handleOnLinkSave = this.handleOnLinkSave.bind(this);
+        this.handleOnLinkCancel = this.handleOnLinkCancel.bind(this);
+        this.handleOnLinkChange = this.handleOnLinkChange.bind(this);
     }
 
     handleModalButtonClick() {
@@ -165,6 +171,18 @@ export default class App extends React.Component {
     handleASICPressed() {
         console.log("Preddes");
         this.setState({ASICExpanded: !this.state.ASICExpanded});
+    }
+
+    handleOnLinkCancel() {
+        this.setState({hasSavedLinkElement: false});
+    }
+
+    handleOnLinkSave() {
+        this.setState({hasSavedLinkElement: true});
+    }
+
+    handleOnLinkChange(event) {
+        this.setState({linkValue: event.target.value});
     }
 
     /* eslint-enable react/no-set-state */
@@ -524,6 +542,15 @@ export default class App extends React.Component {
                             "helt til jeg så denne. Dette er en kjempe fin tekst.\n"
                         ].join("")}
                     </TextOnlyElement>
+                </Preview>
+
+                <Preview
+                    title="/TextLinkElement"
+                    width={250}
+                >
+                    <TextLinkElement>http://www.google.com</TextLinkElement>
+                    <br />
+                    <TextLinkElement category="food">http://www.google.com</TextLinkElement>
                 </Preview>
 
                 <Preview
@@ -1401,6 +1428,20 @@ export default class App extends React.Component {
                         progPercent={147}
                         type={'activities'}
                     />
+                    <br />
+                    <div className={styles.subHeader}
+                        style={{width: 120}}
+                    >
+                        {'Progress'}
+                        <br />
+                        <CardLabel1
+                            goal
+                            percentValue={147}
+                            points={149}
+                            progPercent={147}
+                            type={'activities'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="Challenge Card Label 1 - no goal">
@@ -1568,11 +1609,11 @@ export default class App extends React.Component {
                         calheight={200}
                         calwidth={200}
                         data={{
-                            total: 100,
+                            total: 80 + this.state.value,
                             stats: [{
                                 color: '#444',
                                 label: 'Transport',
-                                percentage: 20
+                                percentage: this.state.value
                             }, {
                                 color: '#FF8888',
                                 label: 'Food',
