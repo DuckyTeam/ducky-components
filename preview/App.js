@@ -19,6 +19,7 @@ import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
+import CardSection2 from '../common/composites/ChallengeCardSection2';
 import ConfirmationModal from '../common/ConfirmationModal';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
@@ -1193,6 +1194,34 @@ export default class App extends React.Component {
                 <Preview title="ChallengeOverviewHeader2">
                     <div style={{backgroundColor: 'lightgrey', width: 230}}>
                         <ChalOverHeader />
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeCardSection2">
+                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
+                        <CardSection2
+                            cardLabelType={'points'}
+                            labelContent={"2,355"}
+                            percentValue={125}
+                            points={43}
+                            progPercent={120}
+                            textOne={"Utfordring med veldig langt navn og det er det"}
+                            textTwo={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            userParticipate
+                            userText={"23.Apr"}
+                        />
+                    </div>
+                    <hr />
+                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
+                        <CardSection2
+                            labelContent={"2,355"}
+                            textOne={"Utfordring med veldig langt navn og det er det"}
+                            textTwo={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            userText={"23.Apr"}
+                        />
                     </div>
                 </Preview>
 
