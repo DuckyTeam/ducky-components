@@ -15,6 +15,7 @@ import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
+import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import CardSection2 from '../common/composites/ChallengeCardSection2';
@@ -35,6 +36,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
@@ -43,6 +45,7 @@ import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
 import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
+import PopoverMenuAnchor3 from './../common/PopoverMenuAnchor3';
 import PopoverMenuItem from '../common/PopoverMenuItem';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -259,6 +262,10 @@ export default class App extends React.Component {
 
                 <Preview title="PopoverMenuAnchor2">
                     <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
+                </Preview>
+
+                <Preview title="PopoverMenuAnchor3">
+                    <PopoverMenuAnchor3>Anchor</PopoverMenuAnchor3>
                 </Preview>
 
                 <Preview
@@ -847,6 +854,42 @@ export default class App extends React.Component {
                         />
                     </div>
                     <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics darkbg"}
+                    </div>
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={999.675}
+                            textcontent={"I år"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={9675}
+                            textcontent={"Denne måned"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67.25}
+                            textcontent={"Idag"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67}
+                            textcontent={"Denne uken"}
+                        />
+                    </div>
+                    <br />
                     <div className={styles.subHeader}>{"Label Double"}</div>
                     <LabelDouble
                         color="#FF0000"
@@ -1172,6 +1215,12 @@ export default class App extends React.Component {
                                 ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
                             userText={"23.Apr"}
                         />
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeOverviewHeader1">
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ChalOverHead1 />
                     </div>
                 </Preview>
 
