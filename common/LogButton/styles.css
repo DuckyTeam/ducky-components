@@ -14,8 +14,8 @@
 }
 
 .checked{
-    background-color: #607D8B;
-    border-color: #607D8B;
+    background-color: #00AB97;
+    border-color: #00AB97;
 }
 
 .checked > span {
@@ -23,19 +23,19 @@
 }
 
 .wrapper:hover{
-    border-color: #607D8B;
+    border: 2px solid #00AB97;
     background-color: white;
 }
 
 .wrapper:hover > span{
-    color: #607D8B;
+    color: #00AB97;
 }
 
 .checked:hover{
-    border-color: #78909C;;
-    background-color: #78909C;
+    border-color: #009483;;
+    background-color: #009483;
 }
 
 .checked:hover > span{
-    color: white;
+    color: #FFFFFF;
 }
