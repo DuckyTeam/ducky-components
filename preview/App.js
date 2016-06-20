@@ -16,6 +16,7 @@ import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
+import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import ConfirmationModal from '../common/ConfirmationModal';
@@ -35,6 +36,7 @@ import LabelStandard from "../common/LabelStandard";
 import LineGraph from '../common/LineGraph';
 import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
+import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import LogButton from "../common/LogButton";
@@ -852,6 +854,42 @@ export default class App extends React.Component {
                         />
                     </div>
                     <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics darkbg"}
+                    </div>
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={999.675}
+                            textcontent={"I år"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
+                        <LabelStatistics
+                            bgcolor={"darkbg"}
+                            statistics={9675}
+                            textcontent={"Denne måned"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {"Label statistics lightbg"}
+                    </div>
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67.25}
+                            textcontent={"Idag"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: '#d8e3e2', width: 120, height: 68}}>
+                        <LabelStatistics
+                            statistics={67}
+                            textcontent={"Denne uken"}
+                        />
+                    </div>
+                    <br />
                     <div className={styles.subHeader}>{"Label Double"}</div>
                     <LabelDouble
                         color="#FF0000"
@@ -1155,6 +1193,12 @@ export default class App extends React.Component {
                 <Preview title="ChallengeOverviewHeader2">
                     <div style={{backgroundColor: 'lightgrey', width: 230}}>
                         <ChalOverHeader />
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeOverviewHeader1">
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ChalOverHead1 />
                     </div>
                 </Preview>
 
