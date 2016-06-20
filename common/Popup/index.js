@@ -1,11 +1,11 @@
 import React from 'react';
 import {PropTypes} from 'react';
 import styles from './styles.css';
-import classnames from 'classnames';
+import classNames from 'classnames';
 
 function Popup(props) {
     return (
-        <div className={classnames(styles.wrapper, props.className)}>
+        <div className={classNames(styles.wrapper, props.className)}>
             {props.children}
         </div>
     );
