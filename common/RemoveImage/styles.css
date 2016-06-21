@@ -4,6 +4,7 @@
 }
 
 .button {
+  background-color: rgba(38, 50, 56, 0.7);
   position: absolute;
   top: 25px;
   right: 25px;
