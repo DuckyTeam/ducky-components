@@ -1,3 +1,8 @@
+.wrapper{
+        position: relative;
+        display: block;
+        overflow: hidden;
+}
 
 .textOnePart {
     color: #263238;
