@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './LogButton.css';
+import styles from './styles.css';
 import Icon from './../Icon';
 
 function LogButton(props) {
