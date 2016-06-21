@@ -55,6 +55,7 @@ import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
+import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
 import TextImageElement from '../common/TextImageElement';
 import TextLinkElement from '../common/TextLinkElement';
@@ -861,7 +862,7 @@ export default class App extends React.Component {
                     </div>
                     <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
                         <LabelStatistics
-                            bgcolor={"darkbg"}
+                            bgcolor={"dark"}
                             statistics={999.675}
                             textcontent={"I år"}
                         />
@@ -869,7 +870,7 @@ export default class App extends React.Component {
                     <br />
                     <div style={{backgroundColor: '#1e4a54', width: 120, height: 68}}>
                         <LabelStatistics
-                            bgcolor={"darkbg"}
+                            bgcolor={"dark"}
                             statistics={9675}
                             textcontent={"Denne måned"}
                         />
@@ -1375,6 +1376,37 @@ export default class App extends React.Component {
                         avatar={AVATAR_URL}
                         title={"Dette er et langt navn"}
                     />
+                </Preview>
+
+                <Preview title={"StateCarousal1"}>
+                    <div className={styles.subHeader}>
+                      {'Light Background'}
+                    </div>
+                    <div style={{backgroundColor: '#e3d9cd'}}>
+                        <StateCarousal1
+                            icon={"icon-people"}
+                            labelText={"Aktive brukere"}
+                            statOne={9261}
+                            statTwo={13345}
+                            textOne={"Forrige uke"}
+                            textTwo={"Denne uken"}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                      {'Dark Background'}
+                    </div>
+                    <div style={{backgroundColor: '#4b4a5b'}}>
+                        <StateCarousal1
+                            icon={"icon-people"}
+                            labelText={"Aktive brukere"}
+                            statOne={9261}
+                            statTwo={13345}
+                            textOne={"Forrige uke"}
+                            textTwo={"Denne uken"}
+                            theme={"dark"}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title={"SectionHeaderGeneral"}

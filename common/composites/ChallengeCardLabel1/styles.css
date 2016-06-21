@@ -41,7 +41,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
-    text-wrap: none;
+    white-space: nowrap;
 }
 
 .pad{
