@@ -19,7 +19,7 @@ function LabelStatistics(props) {
             <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
                 <Typography
                     className={classNames(styles.number, {
-                        [styles.darknumber]: props.bgcolor === 'darkbg'})}
+                        [styles.darknumber]: props.bgcolor === 'dark'})}
                     type={'display1'}
                 >
                     {number}
@@ -27,7 +27,7 @@ function LabelStatistics(props) {
                 <Spacer size={'standard'} />
                 <Typography
                     className={classNames(styles.textcontent, {
-                        [styles.darktextcontent]: props.bgcolor === 'darkbg'})}
+                        [styles.darktextcontent]: props.bgcolor === 'dark'})}
                     type={'bodyTextNormal'}
                 >
                     {props.textcontent}
