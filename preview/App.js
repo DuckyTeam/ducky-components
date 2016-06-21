@@ -15,6 +15,7 @@ import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
+import ChallengeCard2 from '../common/composites/ChallengeCard2';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
@@ -1206,8 +1207,6 @@ export default class App extends React.Component {
                             points={43}
                             progPercent={120}
                             textOne={"Utfordring med veldig langt navn og det er det"}
-                            textTwo={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
                             userParticipate
                             userText={"23.Apr"}
                         />
@@ -1221,6 +1220,34 @@ export default class App extends React.Component {
                                 ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
                                 ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
                             userText={"23.Apr"}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeCard2">
+                    <div style={{width: 310}}>
+                        <ChallengeCard2
+                            cardLabelContent={"2,355"}
+                            cardLabelType={'points'}
+                            date={"23.Apr"}
+                            image={IMAGE_URL}
+                            percentValue={125}
+                            points={43}
+                            progPercent={120}
+                            titleText={"Utfordring med veldig langt navn og det er det"}
+                            userParticipate
+                        />
+                    </div>
+                    <hr />
+                    <div style={{width: 310}}>
+                        <ChallengeCard2
+                            bodyText={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            cardLabelContent={"2,355"}
+                            date={"23.Apr"}
+                            image={IMAGE_URL}
+                            titleText={"Utfordring med veldig langt navn og det er det"}
                         />
                     </div>
                 </Preview>

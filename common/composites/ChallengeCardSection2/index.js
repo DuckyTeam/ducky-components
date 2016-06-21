@@ -6,7 +6,7 @@ import React from 'react';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-function ChallengeCardLabel1(props) {
+function ChallengeCardSection2(props) {
     let optOne = '';
     let optTwo = '';
     const prefix = props.userParticipate ? 'Fullført ' : 'Sluttet ';
@@ -45,7 +45,7 @@ function ChallengeCardLabel1(props) {
     }
 
     return (
-        <div>
+        <div className={styles.wrapper}>
             <Typography
                 className={props.userParticipate ? styles.textOnePart : styles.textOneNotPart}
                 type={'bodyTextStrong'}
@@ -60,7 +60,7 @@ function ChallengeCardLabel1(props) {
 }
 
 
-ChallengeCardLabel1.propTypes = {
+ChallengeCardSection2.propTypes = {
     cardLabelType: PropTypes.string,
     labelContent: PropTypes.string,
     percentValue: PropTypes.number,
@@ -71,4 +71,4 @@ ChallengeCardLabel1.propTypes = {
     userParticipate: PropTypes.bool,
     userText: PropTypes.string
 };
-export default ChallengeCardLabel1;
+export default ChallengeCardSection2;
