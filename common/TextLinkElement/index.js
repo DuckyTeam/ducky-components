@@ -6,6 +6,15 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 
 function TextLinkElement(props) {
+    function openTab() {
+        if (props.onClick) {
+            props.onClick();
+        }
+        const win = window.open(props.children, '_blank');
+
+        win.focus();
+    }
+
     return (
         <Wrapper
             className={classNames(styles.wrapper, styles[props.category], {
@@ -13,8 +22,9 @@ function TextLinkElement(props) {
             })}
             size="side-bottom"
         >
-            <a
-                href={props.children}
+            <div
+                className={styles.link}
+                onClick={openTab}
                 target="_blank"
             >
                 <Typography
@@ -23,7 +33,7 @@ function TextLinkElement(props) {
                 >
                     {props.children}
                 </Typography>
-            </a>
+            </div>
         </Wrapper>
     );
 }
@@ -31,7 +41,8 @@ function TextLinkElement(props) {
 TextLinkElement.propTypes = {
     category: PropTypes.string,
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    onClick: PropTypes.func
 };
 
 export default TextLinkElement;
