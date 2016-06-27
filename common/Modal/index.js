@@ -32,10 +32,6 @@ class Modal extends React.Component {
                         })}
                         onClick={this.handleClick}
                     >
-                        <i
-                            className={`icon-close ${styles.close}`}
-                            onClick={this.props.onHide}
-                        />
                         {this.props.children}
                     </div>
                 </div>
