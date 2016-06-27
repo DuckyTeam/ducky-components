@@ -4,8 +4,14 @@
   border-top: 1px solid rgba(38,50,56,0.12);
 }
 
+.link {
+  cursor: pointer;
+  width: 100%;
+}
+
 .text {
   color: #00AB97;
+  word-break: break-word;
 }
 
 .food {

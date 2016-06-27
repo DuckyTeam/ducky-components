@@ -26,21 +26,34 @@ function LabelPair(props) {
         );
     }
 
+    if (props.time) {
+        return (
+            <span>
+                <Time
+                    dateTime={props.time}
+                    onlyDays={props.onlyDays}
+                    short={Boolean(true)}
+                />
+                <span className={styles.pad}>
+                    <LabelSmall
+                        content={props.points}
+                        icon={'icon-brightness_high'}
+                        onClick={props.onClick}
+                        type={"caption2Strong"}
+                    />
+                </span>
+            </span>
+        );
+    }
+
     return (
         <span>
-            <Time
-                dateTime={props.time}
-                onlyDays={props.onlyDays}
-                short={Boolean(true)}
+            <LabelSmall
+                content={props.points}
+                icon={'icon-brightness_high'}
+                onClick={props.onClick}
+                type={"caption2Strong"}
             />
-            <span className={styles.pad}>
-                <LabelSmall
-                    content={props.points}
-                    icon={'icon-brightness_high'}
-                    onClick={props.onClick}
-                    type={"caption2Strong"}
-                />
-            </span>
         </span>
     );
 }
