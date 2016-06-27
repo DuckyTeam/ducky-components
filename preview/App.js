@@ -1111,6 +1111,14 @@ export default class App extends React.Component {
                     >
                         <img src={'http://placehold.it/100x50'} />
                     </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Slender Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'slender'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title={"Popover Menu"}>
