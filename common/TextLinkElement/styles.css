@@ -11,6 +11,7 @@
 
 .text {
   color: #00AB97;
+  word-break: break-word;
 }
 
 .food {
