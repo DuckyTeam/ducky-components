@@ -15,6 +15,7 @@ import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
+import CarouselNavigator1 from '../common/CarouselNavigator1';
 import ChallengeCard2 from '../common/composites/ChallengeCard2';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
@@ -1291,6 +1292,15 @@ export default class App extends React.Component {
                     <ToolTip>Velg kategori nedenfor</ToolTip>
                     <br />
                     <ToolTip className={styles.testToolTip}>Energi</ToolTip>
+                </Preview>
+
+                <Preview title="CarouselNavigator1">
+                    <div style={{backgroundColor: 'darkgrey'}}>
+                        <CarouselNavigator1
+                            slideCount={5}
+                            theme={'dark'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="SectionFooterClose">
