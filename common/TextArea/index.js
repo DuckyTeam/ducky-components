@@ -1,6 +1,7 @@
 import React from 'react';
 import TypographyCSS from '../Typography/styles.css';
 import ReactTextArea from 'react-textarea-autosize';
+import classNames from 'classnames';
 import styles from './styles.css';
 const ENTER_KEY_ID = 13;
 
@@ -25,7 +26,9 @@ class TextArea extends React.Component {
 
         return (
             <ReactTextArea
-                className={`${styles.textarea} ${TypographyCSS[textType]}`}
+                className={classNames(styles.textarea, TypographyCSS[textType], {
+                    [this.props.className]: this.props.className
+                })}
                 onChange={this.props.onChange}
                 onKeyPress={this.handleKeyPress}
                 placeholder={this.props.placeholder}
@@ -36,6 +39,7 @@ class TextArea extends React.Component {
 }
 
 TextArea.propTypes = {
+    className: React.PropTypes.string,
     onChange: React.PropTypes.func,
     onClick: React.PropTypes.func,
     onSubmit: React.PropTypes.func,
