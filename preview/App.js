@@ -56,6 +56,7 @@ import RadioButton from '../common/RadioButton';
 import React from 'react';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
+import SnackBarPanel from '../common/composites/SnackBarPanel';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
@@ -90,6 +91,9 @@ export default class App extends React.Component {
             showModal: false,
             showConfirmationModal: false,
             showImageModal: false,
+            showSnackBar: false,
+            showCo2SnackBar: false,
+            showPtSnackBar: false,
             showFullImageText: false,
             showFullText: false,
             showMenu: false,
@@ -116,6 +120,10 @@ export default class App extends React.Component {
         this.handleImageElementClick = this.handleImageElementClick.bind(this);
         this.handleImageElementModalHide = this.handleImageElementModalHide.bind(this);
         this.handleOnTextAreaChange = this.handleOnTextAreaChange.bind(this);
+        this.handleShowSnackBar = this.handleShowSnackBar.bind(this);
+        this.handleShowCo2SnackBar = this.handleShowCo2SnackBar.bind(this);
+        this.handleShowPtSnackBar = this.handleShowPtSnackBar.bind(this);
+        this.handleHideSnackBar = this.handleHideSnackBar.bind(this);
         this.handleConfirmationModalButtonClick = this.handleConfirmationModalButtonClick
         .bind(this);
         this.handleOnLinkSave = this.handleOnLinkSave.bind(this);
@@ -155,6 +163,22 @@ export default class App extends React.Component {
 
     handleRightMenuHide() {
         this.setState({showRightMenu: false});
+    }
+
+    handleShowSnackBar() {
+        this.setState({showSnackBar: true});
+    }
+
+    handleShowCo2SnackBar() {
+        this.setState({showCo2SnackBar: true});
+    }
+
+    handleShowPtSnackBar() {
+        this.setState({showPtSnackBar: true});
+    }
+
+    handleHideSnackBar() {
+        this.setState({showSnackBar: false});
     }
 
     handleTextOnlyElementClick() {
@@ -1708,6 +1732,48 @@ export default class App extends React.Component {
                     <IconAvaWrapper
                         avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
+                <Preview title="SnackBarPanel">
+                    {'Both'}
+                    <button onClick={this.handleShowSnackBar}>
+                        {'Show Both'}
+                    </button>
+                    <br />
+                    <SnackBarPanel
+                        co2Pt={"+1.7"}
+                        duckyIcon={'icon-duck'}
+                        duckyPt={"+45"}
+                        msgText={'Du er ein skikkelig miljohelt!'}
+                        show={this.state.showSnackBar}
+                        type={'both'}
+                    />
+                    <br />
+                    {'Co2 Savings'}
+                    <button onClick={this.handleShowCo2SnackBar}>
+                        {'Show Co2 savings'}
+                    </button>
+                    <br />
+                    <SnackBarPanel
+                        co2Pt={"+10"}
+                        duckyIcon={'icon-duck'}
+                        msgText={'Du er ein skikkelig miljohelt!'}
+                        show={this.state.showCo2SnackBar}
+                        type={'co2'}
+                    />
+                    <br />
+                    {'Ducky Points'}
+                    <button onClick={this.handleShowPtSnackBar}>
+                        {'Show ducky points'}
+                    </button>
+                    <br />
+                    <SnackBarPanel
+                        duckyIcon={'icon-duck'}
+                        duckyPt={"+425"}
+                        msgText={'Du er ein skikkelig miljohelt!'}
+                        show={this.state.showPtSnackBar}
+                        type={'points'}
                     />
                 </Preview>
 
