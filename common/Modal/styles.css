@@ -7,14 +7,11 @@
   height: 100%;
   text-align: center;
   z-index: 99999;
-  display: flex;
-  align-items: center;
-  align-content: center;
+  overflow: auto;
 }
 
 .modalWrapper {
   display: flex;
-  max-height: 100%;
   max-width: 100%;
   width: 100%;
   flex-direction: column;

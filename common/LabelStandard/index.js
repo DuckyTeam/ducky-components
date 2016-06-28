@@ -7,13 +7,15 @@ const PropTypes = React.PropTypes;
 
 function LabelStandard(props) {
     return (
-        <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
+        <span
+            className={classNames(styles.wrapper, {[props.className]: props.className})}
+            onClick={props.onClick}
+        >
             <Icon
                 className={classNames({
                     [styles.co2Icon]: props.icon === 'icon-leaf'
                 })}
                 icon={props.icon}
-                onClick={props.onClick}
                 size={'small'}
             />
             <br />
