@@ -23,7 +23,7 @@ Wrapper.propTypes = {
     hr: PropTypes.bool,
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['standard', 'side-bottom', 'side', 'narrow', 'slim',
-        'short', 'midget', 'squat'])
+        'short', 'midget', 'squat', 'slender'])
 };
 
 export default Wrapper;

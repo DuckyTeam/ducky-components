@@ -10,6 +10,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonCircle from '../common/ButtonCircle';
 import ButtonIconRaised from '../common/ButtonIconRaised';
 import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
@@ -402,6 +403,10 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
+                </Preview>
+
+                <Preview title="ButtonCircle">
+                    <ButtonCircle>Vis mer</ButtonCircle>
                 </Preview>
 
                 <Preview title="/ButtonIcon">
@@ -1109,6 +1114,14 @@ export default class App extends React.Component {
                     </div>
                     <Wrapper
                         size={'squat'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Slender Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'slender'}
                     >
                         <img src={'http://placehold.it/100x50'} />
                     </Wrapper>

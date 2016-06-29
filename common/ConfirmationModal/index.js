@@ -16,7 +16,11 @@ function ConfirmationModal(props) {
             onHide={props.onCancel}
             show={props.show}
         >
-            <SectionHeaderGeneral title={props.title} />
+            <SectionHeaderGeneral
+                onClick={props.onCancel}
+                rightIcon="icon-close"
+                title={props.title}
+            />
             <Wrapper size="standard">
                 <Typography type="bodyTextNormal">{props.children}</Typography>
             </Wrapper>
