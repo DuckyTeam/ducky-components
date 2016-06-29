@@ -25,6 +25,7 @@ import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import CardSection2 from '../common/composites/ChallengeCardSection2';
 import ConfirmationModal from '../common/ConfirmationModal';
+import EndOfContent from '../common/EndOfContent';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -409,6 +410,12 @@ export default class App extends React.Component {
 
                 <Preview title="ButtonCircle">
                     <ButtonCircle>Vis mer</ButtonCircle>
+                </Preview>
+
+                <Preview title="EndOfContent">
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <EndOfContent />
+                    </div>
                 </Preview>
 
                 <Preview title="/ButtonIcon">
