@@ -9,7 +9,11 @@ function LabelHorisontal(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
-                className={styles.icon}
+                className={classNames(
+                    styles.icon,
+                    {[styles.pointsIcon]: props.icon === 'icon-brightness_high'},
+                    {[styles.co2Icon]: props.icon === 'icon-leaf'}
+                )}
                 icon={props.icon}
                 size={'standard'}
             />
