@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   background: transparent;
+  width: 100%;
 }
 
 .label {

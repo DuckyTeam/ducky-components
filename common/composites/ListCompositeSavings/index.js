@@ -18,6 +18,10 @@ function ListCompositeSavings(props) {
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <div className={styles.label}>
                 <LabelHorisontal
+                    className={classNames(
+                        {[styles.pointsIcon]: text === 'Duckypoints'},
+                        {[styles.co2Icon]: text === 'Innsparing kgCO\u2082e'}
+                    )}
                     icon={icon}
                     text={text}
                 />
