@@ -43,6 +43,7 @@ import LabelLarge from "../common/LabelLarge";
 import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
+import ListCompositeActivity from '../common/composites/ListCompositeActivity';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -1520,6 +1521,17 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey'}}>
                         <ListCompositeSavings
                             savings={2.7}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="/ListCompositeActivity">
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <ListCompositeActivity
+                            co2={2.7}
+                            iconSVG={'Transport01'}
+                            points={15}
+                            title={'Aktvitet med langt navn'}
                         />
                     </div>
                 </Preview>

@@ -1,0 +1,27 @@
+.wrapper {
+    display: flex;
+    background: transparent;
+    height: 36px;
+    align-items: center;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+.composite {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    margin-left: 16px;
+}
+
+.typo{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    cursor: pointer;
+}
