@@ -4,6 +4,7 @@ import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
 import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
+import ActionItemDefault from '../common/composites/ActionItemDefault';
 import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
 import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
@@ -1528,6 +1529,17 @@ export default class App extends React.Component {
                 <Preview title="/ListCompositeActivity">
                     <div style={{backgroundColor: 'lightgrey', width: 200}}>
                         <ListCompositeActivity
+                            co2={2.7}
+                            iconSVG={'Transport01'}
+                            points={15}
+                            title={'Aktvitet med langt navn'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="/ActionItemDefaultComposite">
+                    <div style={{width: 250}}>
+                        <ActionItemDefault
                             co2={2.7}
                             iconSVG={'Transport01'}
                             points={15}

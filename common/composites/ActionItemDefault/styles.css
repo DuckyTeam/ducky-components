@@ -1,0 +1,31 @@
+.wrapper {
+    display: flex;
+    background: transparent;
+    align-items: center;
+}
+
+.composite{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.compositeButton{
+    display: flex;
+}
+
+.actionButton {
+    cursor:pointer;
+    background-color: transparent;
+    color: #90A4AE;
+}
+
+.logButton{
+    cursor: pointer;
+}
+
+.actionButton:hover {
+    background-color: transparent;
+    color: #00AB97;
+}
