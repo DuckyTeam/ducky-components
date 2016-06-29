@@ -13,7 +13,9 @@ function ActionButton(props) {
             onClick={props.onClick}
         >
             <Icon
-                className={styles.icon}
+                className={classNames(styles.icon, {
+                    [props.className]: props.className
+                })}
                 icon={props.icon}
                 size="standard"
             />
