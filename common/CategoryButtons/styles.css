@@ -1,0 +1,56 @@
+.button {
+    margin-left: 4px;
+    background-color: transparent !important;
+}
+
+.button span {
+    color: #78909C !important;
+}
+
+.button:hover {
+    background-color: #ECEFF1 !important;
+}
+
+.active span {
+    color: #FFFFFF !important;
+}
+
+.foodActive {
+    background-color: #F6BA75 !important;
+}
+
+.foodActive:hover {
+    background-color: #F6BA75 !important;
+}
+
+.consumptionActive {
+    background-color: #EF5F8A !important;
+}
+
+.consumptionActive:hover {
+    background-color: #EF5F8A !important;
+}
+
+.energyActive {
+    background-color: #00A1C9 !important;
+}
+
+.energyActive:hover {
+    background-color: #00A1C9 !important;
+}
+
+.transportActive {
+    background-color: #AA75BA !important;
+}
+
+.transportActive:hover {
+    background-color: #AA75BA !important;
+}
+
+.socialActive {
+    background-color: #3999E3 !important;
+}
+
+.socialActive:hover {
+    background-color: #3999E3 !important;
+}

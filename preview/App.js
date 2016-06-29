@@ -10,6 +10,7 @@ import LabelPair from '../common/composites/LabelPair';
 import ActionButton from '../common/ActionButton';
 import Avatar from "../common/Avatar";
 import Button from '../common/Button';
+import ButtonCircle from '../common/ButtonCircle';
 import ButtonIconRaised from '../common/ButtonIconRaised';
 import ButtonIcon from '../common/ButtonIcon';
 import ButtonRaised from '../common/ButtonRaised';
@@ -42,6 +43,7 @@ import LabelLarge from "../common/LabelLarge";
 import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
+import ListCompositeActivity from '../common/composites/ListCompositeActivity';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -401,6 +403,10 @@ export default class App extends React.Component {
                             {"Raised button"}
                         </ButtonRaised>
                     </div>
+                </Preview>
+
+                <Preview title="ButtonCircle">
+                    <ButtonCircle>Vis mer</ButtonCircle>
                 </Preview>
 
                 <Preview title="/ButtonIcon">
@@ -1111,6 +1117,14 @@ export default class App extends React.Component {
                     >
                         <img src={'http://placehold.it/100x50'} />
                     </Wrapper>
+                    <div className={styles.subHeader}>
+                        {'Slender Wrapper'}
+                    </div>
+                    <Wrapper
+                        size={'slender'}
+                    >
+                        <img src={'http://placehold.it/100x50'} />
+                    </Wrapper>
                 </Preview>
 
                 <Preview title={"Popover Menu"}>
@@ -1507,6 +1521,17 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey'}}>
                         <ListCompositeSavings
                             savings={2.7}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="/ListCompositeActivity">
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <ListCompositeActivity
+                            co2={2.7}
+                            iconSVG={'Transport01'}
+                            points={15}
+                            title={'Aktvitet med langt navn'}
                         />
                     </div>
                 </Preview>

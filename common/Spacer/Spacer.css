@@ -10,12 +10,20 @@
     height: 16px;
 }
 
+.fat {
+  height: 80px;
+}
+
 .hr1 {
     padding: 7.5px 0 7.5px 0;
 }
 
 .hr2 {
     padding: 7.5px 16px 7.5px 68px;
+}
+
+.hr3 {
+  padding: 15.5px 0 15.5px 0;
 }
 
 .hr {

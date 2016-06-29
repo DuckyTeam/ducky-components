@@ -32,7 +32,7 @@ function LabelHorisontal(props) {
 LabelHorisontal.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    text: PropTypes.number,
+    text: PropTypes.node,
     theme: PropTypes.string
 };
 

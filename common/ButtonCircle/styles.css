@@ -1,0 +1,17 @@
+.wrapper {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #00AB97;
+  display:flex;
+  border-radius:50%;
+  justify-content: center;
+  align-items: center;
+  box-sizing:border-box;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.text {
+  color: #00AB97;
+  text-align: center;
+}
