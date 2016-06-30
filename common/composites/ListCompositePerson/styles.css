@@ -1,0 +1,26 @@
+.wrapper {
+    display: flex;
+    background: transparent;
+    height: 36px;
+    align-items: center;
+}
+
+.avatar{
+    vertical-align: middle;
+}
+
+.composite {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    margin-left: 16px;
+}
+
+.nameTypo{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+}
