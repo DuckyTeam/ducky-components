@@ -46,6 +46,7 @@ import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import ListCompositeActivity from '../common/composites/ListCompositeActivity';
+import ListCompositePerson from '../common/composites/ListCompositePerson';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import Modal from '../common/Modal';
@@ -1562,6 +1563,34 @@ export default class App extends React.Component {
                             iconSVG={'Transport01'}
                             points={15}
                             title={'Aktvitet med langt navn'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="ListCompositePerson">
+                    <div style={{backgroundColor: 'lightgrey', width: 230}}>
+                        <ListCompositePerson
+                            avatarImage={AVATAR_URL}
+                            mutualNumber={3}
+                            type={'mutual'}
+                            userName={'LangntNavn LangntNavnesen'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 230}}>
+                        <ListCompositePerson
+                            avatarImage={AVATAR_URL}
+                            location={'Trondheim'}
+                            type={'location'}
+                            userName={'LangntNavn LangntNavnesen'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 230}}>
+                        <ListCompositePerson
+                            avatarImage={AVATAR_URL}
+                            date={'Aug. 2011'}
+                            userName={'Navn Navnesen'}
                         />
                     </div>
                 </Preview>
