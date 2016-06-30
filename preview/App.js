@@ -49,6 +49,7 @@ import ListCompositeActivity from '../common/composites/ListCompositeActivity';
 import ListCompositePerson from '../common/composites/ListCompositePerson';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
+import NotificationItem from '../common/NotificationItem';
 import Modal from '../common/Modal';
 import PieChart from '../common/PieChart';
 import PopoverMenu from './../common/PopoverMenu';
@@ -1791,6 +1792,41 @@ export default class App extends React.Component {
                         avatar={AVATAR_URL}
                         onClick={this.handleButtonClick}
                     />
+                </Preview>
+
+                <Preview title="NotificationItem">
+                    <div className={styles.subHeader}>
+                        {'General Notification'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <NotificationItem
+                            dateTime={1467281653000}
+                            icon={'icon-textsms'}
+                            name={'Navn Navnesen'}
+                            onClick={this.handleButtonClick}
+                            text={'kommenterte innlegget ditt'}
+                        >
+                            <Avatar
+                                image={AVATAR_URL}
+                                onClick={this.handleOnAvatarClicked}
+                                size={"standard"}
+                            />
+                        </NotificationItem>
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Challenge Notification'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <NotificationItem
+                            dateTime={1467281653000}
+                            icon={'icon-trophy'}
+                            name={'Utfordring med veldig langt navn'}
+                            onClick={this.handleButtonClick}
+                            text={'er tilgjengelig under Utfordringer! Blir du med?'}
+                            type={'challenge'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="ProgressBar">
