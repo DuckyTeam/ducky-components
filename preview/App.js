@@ -4,6 +4,7 @@ import "../common/icons.css";
 import HeaderCompositUser from '../common/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
 import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
+import ActionItemDefault from '../common/composites/ActionItemDefault';
 import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
 import IconAvaWrapper from '../common/composites/IconAvaWrapper';
 import LabelPair from '../common/composites/LabelPair';
@@ -24,6 +25,7 @@ import CheckBox from '../common/CheckBox';
 import CardLabel2 from '../common/ChallengeCardLabel2';
 import CardSection2 from '../common/composites/ChallengeCardSection2';
 import ConfirmationModal from '../common/ConfirmationModal';
+import EndOfContent from '../common/EndOfContent';
 import Popup from '../common/Popup';
 import Header from '../common/Header';
 import HeaderCompositActivity from '../common/HeaderCompositActivity';
@@ -52,6 +54,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
 import PopoverMenuAnchor3 from './../common/PopoverMenuAnchor3';
 import PopoverMenuItem from '../common/PopoverMenuItem';
+import PopoverMenuItem4 from '../common/PopoverMenuItem4';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
 import React from 'react';
@@ -408,6 +411,12 @@ export default class App extends React.Component {
 
                 <Preview title="ButtonCircle">
                     <ButtonCircle>Vis mer</ButtonCircle>
+                </Preview>
+
+                <Preview title="EndOfContent">
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <EndOfContent />
+                    </div>
                 </Preview>
 
                 <Preview title="/ButtonIcon">
@@ -1148,6 +1157,14 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title={"Popover Menu Item 4"}>
+                    <PopoverMenuItem4
+                        icon={'icon-cow'}
+                        label={'Item name'}
+                        onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
                 <Preview
                     title="ScrollContainer"
                     width={300}
@@ -1541,6 +1558,17 @@ export default class App extends React.Component {
                 <Preview title="/ListCompositeActivity">
                     <div style={{backgroundColor: 'lightgrey', width: 200}}>
                         <ListCompositeActivity
+                            co2={2.7}
+                            iconSVG={'Transport01'}
+                            points={15}
+                            title={'Aktvitet med langt navn'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="/ActionItemDefaultComposite">
+                    <div style={{width: 250}}>
+                        <ActionItemDefault
                             co2={2.7}
                             iconSVG={'Transport01'}
                             points={15}

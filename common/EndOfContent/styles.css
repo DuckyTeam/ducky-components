@@ -1,0 +1,33 @@
+.wrapper {
+    max-width: 288px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.textOne {
+    color: #90A4AE;
+    text-align:center;
+}
+
+.textTwo{
+    color: #00AB97;
+    text-align:center;
+    cursor: pointer;
+}
+
+.actionButton{
+    cursor:pointer;
+    color: #90A4AE;
+    border-radius: 100%;
+    background-color: transparent;
+    display: flex;
+    border: 2px solid #00AB97;
+    margin: 0 auto;
+    width: 36px;
+    height: 36px;
+    align-items: center;
+    justify-content: center;
+
+}
