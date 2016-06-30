@@ -64,6 +64,7 @@ import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
+import TabMenu from '../common/TabMenu';
 import TextImageElement from '../common/TextImageElement';
 import TextLinkElement from '../common/TextLinkElement';
 import TextOnlyElement from '../common/TextOnlyElement';
@@ -1337,6 +1338,18 @@ export default class App extends React.Component {
 
                 <Preview title="SectionFooterClose">
                     <SectionFooterClose />
+                </Preview>
+
+                <Preview title="Tab Menu">
+                    <TabMenu
+                        alignment={'center'}
+                        disabled={[]}
+                        selected={0}
+                        tabs={[
+                            {label: 'Foo', icon: 'icon-cow'},
+                            {label: 'Bar', icon: 'icon-duck'}
+                        ]}
+                    />
                 </Preview>
 
                 <h1>{"/Composite Components"}</h1>
