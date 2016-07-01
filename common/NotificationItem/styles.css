@@ -1,0 +1,40 @@
+.typo {
+    color: #607D8B;
+}
+
+.name {
+    font-weight: bold;
+    color: #263238;
+}
+
+.child {
+    margin-right: 16px;
+}
+
+.challengeIcon {
+    margin-right:28px;
+    color: #00AB97;
+}
+
+.icon {
+    float: left;
+    margin-right: 12px;
+}
+
+.timeStamp {
+    float: left;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.true {
+    background-color: transparent;
+    width: 100%;
+}
+
+.false {
+    background-color: #FFFFFF;
+    width: 100%;
+}
