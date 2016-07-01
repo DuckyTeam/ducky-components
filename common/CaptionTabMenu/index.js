@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-class TabMenu extends React.Component {
+class CaptionTabMenu extends React.Component {
 
     handleTabClick(index) {
         this.props.changeTab(index);
@@ -63,7 +63,7 @@ class TabMenu extends React.Component {
     }
 }
 
-TabMenu.propTypes = {
+CaptionTabMenu.propTypes = {
     alignment: PropTypes.oneOf(['left', 'center', 'split']),
     changeTab: PropTypes.func,
     className: PropTypes.string,
@@ -77,4 +77,4 @@ TabMenu.propTypes = {
     )
 };
 
-export default TabMenu;
+export default CaptionTabMenu;
