@@ -1,0 +1,54 @@
+.wrapper {
+    display: flex;
+    height: 48px;
+    justify-content: center;
+    vertical-align: middle;
+    text-align: center;
+    align-items: center;
+}
+
+.composite{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    direction: rtl;
+}
+
+.divider {
+    display: flex;
+    height: 32px;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: auto;
+}
+
+input {
+    border: none;
+    background-color: inherit;
+}
+
+input[type="text"] {
+    color:#263238;
+}
+
+::-webkit-input-placeholder {
+    color: #90A4AE;
+}
+
+:-moz-placeholder {
+    color: #90A4AE;
+}
+
+::-moz-placeholder {
+    color: #90A4AE;
+}
+
+:-ms-input-placeholder {
+    color: #90A4AE;
+}
