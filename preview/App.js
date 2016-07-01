@@ -66,7 +66,8 @@ import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
-import TabMenu from '../common/TabMenu';
+import CaptionTabMenu from '../common/CaptionTabMenu';
+import IconTabMenu from '../common/IconTabMenu';
 import TextImageElement from '../common/TextImageElement';
 import TextLinkElement from '../common/TextLinkElement';
 import TextOnlyElement from '../common/TextOnlyElement';
@@ -1357,13 +1358,29 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="Tab Menu">
-                    <TabMenu
-                        alignment={'center'}
+                    <div className={styles.subHeader}>
+                        {'Captioned Tab Menu'}
+                    </div>
+                    <CaptionTabMenu
+                        alignment={'split'}
                         disabled={[]}
                         selected={0}
                         tabs={[
                             {label: 'Foo', icon: 'icon-cow'},
                             {label: 'Bar', icon: 'icon-duck'}
+                        ]}
+                    />
+                    <div className={styles.subHeader}>
+                        {'Icon Tab Menu'}
+                    </div>
+                    <IconTabMenu
+                        disabled={[1]}
+                        selected={3}
+                        tabs={[
+                            'icon-people',
+                            'icon-star',
+                            'icon-home',
+                            'icon-fish'
                         ]}
                     />
                 </Preview>
