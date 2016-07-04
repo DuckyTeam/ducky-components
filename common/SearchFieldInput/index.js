@@ -1,20 +1,18 @@
 import IconAvaWrapper from '../composites/IconAvaWrapper';
 import React from 'react';
-// import Typography from '../Typography';
-// import TextArea from '../TextArea';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function SearchFieldInput(props) {
-    if (props.editable) {
+    if (props.startEdit) {
         return (
             <Wrapper className={classNames(styles.wrapper,
                 {[props.className]: props.className})}
                 size={'standard'}
             >
-                <form>
+                <form className={styles.textWrapper}>
                     <input
                         placeholder="Søk"
                         required="required"
@@ -22,6 +20,7 @@ function SearchFieldInput(props) {
                         value={props.children}
                     />
                 </form>
+
                 <div className={styles.icon}>
                     <IconAvaWrapper
                         icon={"icon-search"}
@@ -63,9 +62,9 @@ function SearchFieldInput(props) {
 SearchFieldInput.propTypes = {
     children: PropTypes.string,
     className: PropTypes.string,
-    editable: PropTypes.editable,
     onClear: PropTypes.func,
-    onSearchSubmit: PropTypes.func
+    onSearchSubmit: PropTypes.func,
+    startEdit: PropTypes.startEdit
 };
 
 export default SearchFieldInput;

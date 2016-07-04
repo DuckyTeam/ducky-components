@@ -1,17 +1,22 @@
 .wrapper {
     display: flex;
     height: 48px;
-    justify-content: center;
     vertical-align: middle;
     text-align: center;
     align-items: center;
 }
 
-.composite{
+.composite {
     display: block;
     overflow: hidden;
     white-space: nowrap;
     direction: rtl;
+}
+
+.textWrapper {
+    display:block;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .divider {
@@ -25,7 +30,7 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    width: auto;
+    margin-right: -20px;
 }
 
 input {
@@ -35,6 +40,9 @@ input {
 
 input[type="text"] {
     color:#263238;
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: normal;
 }
 
 ::-webkit-input-placeholder {

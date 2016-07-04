@@ -1210,13 +1210,13 @@ export default class App extends React.Component {
                 <Preview title="SearchFieldInput">
                     <div style={{backgroundColor: 'lightgrey', width: 250}}>
                         <SearchFieldInput>
-                        {'Veldig langt søkeord etter et n'}
+                        {'Veldig langt søkeord etter et søkeord'}
                         </SearchFieldInput>
                     </div>
                     <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
                         <SearchFieldInput
-                            editable
+                            startEdit
                         />
                     </div>
                 </Preview>
