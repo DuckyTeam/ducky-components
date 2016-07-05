@@ -18,6 +18,7 @@ import ButtonRaised from '../common/ButtonRaised';
 import ButtonCounter from '../common/ButtonCounter';
 import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../common/CarouselNavigator1';
+import CarouselStandard1 from '../common/CarouselStandard1';
 import ChallengeCard2 from '../common/composites/ChallengeCard2';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
@@ -1868,6 +1869,28 @@ export default class App extends React.Component {
                         color="#8BC34A"
                         percent={30}
                     />
+                </Preview>
+
+                <Preview title="CarouselStandard1">
+                    <div style={{backgroundColor: 'darkgrey'}}>
+                        <CarouselStandard1
+                            rightactive
+                            slideCount={5}
+                            theme={'dark'}
+                        >
+                            <div style={{backgroundColor: 'lightblue', height: 200, width: 200}} />
+                        </CarouselStandard1>
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'darkgrey'}}>
+                        <CarouselStandard1
+                            leftactive
+                            slideCount={5}
+                            theme={'dark'}
+                        >
+                            <div style={{backgroundColor: 'lightgreen', height: 200, width: 200}} />
+                        </CarouselStandard1>
+                    </div>
                 </Preview>
 
                 <Preview
