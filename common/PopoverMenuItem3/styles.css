@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.wrapper:hover {
+    background-color: #ECEFF1;
+}
+
+.selected {
+    background-color: #ECEFF1;
+}
+
+.icon {
+    color: #607D8B;
+}
+
+.text {
+    flex-grow: 1;
+    margin-right: 16px;
+}
