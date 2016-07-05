@@ -61,6 +61,7 @@ import PopoverMenuItem4 from '../common/PopoverMenuItem4';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
 import React from 'react';
+import SearchFieldInput from '../common/SearchFieldInput';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import Spacer from '../common/Spacer';
@@ -1205,6 +1206,20 @@ export default class App extends React.Component {
                         placeholder={"Write something..."}
                         value={this.state.textAreaValue}
                     />
+                </Preview>
+
+                <Preview title="SearchFieldInput">
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <SearchFieldInput>
+                        {'Veldig langt søkeord etter et søkeord'}
+                        </SearchFieldInput>
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <SearchFieldInput
+                            startEdit
+                        />
+                    </div>
                 </Preview>
 
                 <Preview
