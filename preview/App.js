@@ -57,6 +57,7 @@ import PopoverMenu from './../common/PopoverMenu';
 import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
 import PopoverMenuAnchor3 from './../common/PopoverMenuAnchor3';
 import PopoverMenuItem from '../common/PopoverMenuItem';
+import PopoverMenuItem3 from '../common/PopoverMenuItem3';
 import PopoverMenuItem4 from '../common/PopoverMenuItem4';
 import Preview from './Preview';
 import RadioButton from '../common/RadioButton';
@@ -1159,6 +1160,19 @@ export default class App extends React.Component {
                         icon={'icon-key-variant'}
                         label={'Not Selected'}
                         onClick={this.handleButtonClick}
+                    />
+                </Preview>
+
+                <Preview title={"Popover Menu Item 3"}>
+                    <PopoverMenuItem3
+                        label={'Not selected'}
+                        onClick={this.handleButtonClick}
+                    />
+                    <br />
+                    <PopoverMenuItem3
+                        label={'Selected'}
+                        onClick={this.handleButtonClick}
+                        selected
                     />
                 </Preview>
 
