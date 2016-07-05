@@ -1,0 +1,36 @@
+.outerWrapper{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin:auto;
+}
+
+.mySlides{
+
+}
+
+.innerWrapper {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carouselNavigator {
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.iconActive{
+    background: transparent;
+    color: #FFF;
+    cursor: pointer;
+}
+
+.iconInactive {
+    background: transparent;
+    color: #FFF;
+    cursor: pointer;
+    opacity: 0.4;
+}
