@@ -1,0 +1,13 @@
+.wrapper {
+    background-color: transparent;
+    display:flex;
+    justify-content:space-between;
+}
+
+.buttonIcon{
+    margin: 6px;
+}
+
+.iconWrapper {
+    cursor: pointer;
+}
