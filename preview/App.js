@@ -68,6 +68,7 @@ import SearchFieldInput from '../common/SearchFieldInput';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderActivityModal from '../common/composites/SectionHeaderActivityModal';
+import SnackBarPanel1 from '../common/SnackBarPanel1';
 import SnackBarWrapper from '../common/SnackBarWrapper';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
@@ -293,7 +294,12 @@ export default class App extends React.Component {
                     <SnackBarWrapper
                         show={this.state.showSnackBar}
                     >
-                        {'SnackBar content'}
+                        <div style={{width: 300}}>
+                            <SnackBarPanel1
+                                button
+                                text={"Long and long, and quite long and longer message text"}
+                            />
+                        </div>
                     </SnackBarWrapper>
                 </Preview>
 
@@ -1205,6 +1211,20 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title={"SnackBarPanel1"}>
+                    <div style={{width: 250}}>
+                        <SnackBarPanel1
+                            button
+                            text={"Long and long, and quite long and longer message text"}
+                        />
+                    </div>
+                    <br />
+                    <div style={{width: 230}}>
+                        <SnackBarPanel1
+                            text={"Long long long long long long message text"}
+                        />
+                    </div>
+                </Preview>
                 <Preview
                     title="ScrollContainer"
                     width={300}
