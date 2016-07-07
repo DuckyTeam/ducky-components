@@ -1,0 +1,22 @@
+.wrapper {
+    display: flex;
+    background-color: #263238;
+}
+
+.typo {
+    color: #fff;
+}
+
+.composite{
+    display: block;
+    overflow: visible;
+}
+
+.buttonWrapper {
+    margin: -10px -10px -10px 16px;
+}
+
+.button > span {
+    color: #90A4AE;
+    font-weight: bold;
+}
