@@ -68,6 +68,7 @@ import SearchFieldInput from '../common/SearchFieldInput';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderActivityModal from '../common/composites/SectionHeaderActivityModal';
+import SnackBarWrapper from '../common/SnackBarWrapper';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
@@ -108,6 +109,7 @@ export default class App extends React.Component {
             showFullText: false,
             showMenu: false,
             showCopyLink: false,
+            showSnackBar: false,
             textAreaValue: "",
             tabIndexSelected: 0,
             value: 0,
@@ -135,6 +137,7 @@ export default class App extends React.Component {
         this.handleOnLinkSave = this.handleOnLinkSave.bind(this);
         this.handleOnLinkCancel = this.handleOnLinkCancel.bind(this);
         this.handleOnLinkChange = this.handleOnLinkChange.bind(this);
+        this.handleSnackBarClick = this.handleSnackBarClick.bind(this);
     }
 
     handleModalButtonClick() {
@@ -207,6 +210,10 @@ export default class App extends React.Component {
         this.setState({linkValue: event.target.value});
     }
 
+    handleSnackBarClick() {
+        this.setState({showSnackBar: true});
+    }
+
     /* eslint-enable react/no-set-state */
 
     formatFunction(value) {
@@ -277,6 +284,17 @@ export default class App extends React.Component {
                     >
                         <b>{'MenuContent'}</b>
                     </MenuWrapper>
+                </Preview>
+
+                <Preview title={"SnackBar Wrapper"}>
+                    <button onClick={this.handleSnackBarClick}>
+                        {'Show SnackBar'}
+                    </button>
+                    <SnackBarWrapper
+                        show={this.state.showSnackBar}
+                    >
+                        {'SnackBar content'}
+                    </SnackBarWrapper>
                 </Preview>
 
                 <Preview title="PopoverMenuAnchor2">
