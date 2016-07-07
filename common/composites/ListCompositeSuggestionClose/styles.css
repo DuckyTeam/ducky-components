@@ -1,0 +1,18 @@
+.wrapper {
+    display: flex;
+    background: transparent;
+    align-items: center;
+}
+
+.composite {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    margin-right: 16px;
+}
+
+.icon {
+    cursor: pointer;
+}

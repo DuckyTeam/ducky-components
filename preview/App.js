@@ -49,6 +49,7 @@ import ListComposite from "../common/composites/ListComposite";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import ListCompositeActivity from '../common/composites/ListCompositeActivity';
 import ListCompositePerson from '../common/composites/ListCompositePerson';
+import ListCompositeSugClose from '../common/composites/ListCompositeSuggestionClose';
 import LogButton from "../common/LogButton";
 import MenuWrapper from '../common/MenuWrapper';
 import NotificationItem from '../common/NotificationItem';
@@ -1676,6 +1677,36 @@ export default class App extends React.Component {
                             date={'Aug. 2011'}
                             userName={'Navn Navnesen'}
                         />
+                    </div>
+                </Preview>
+
+                <Preview title="ListCompositeSugClose">
+                    <div className={styles.subHeader}>
+                        {'ListCompositePerson Suggestion Close'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 200}}>
+                        <ListCompositeSugClose>
+                            <ListCompositePerson
+                                avatarImage={AVATAR_URL}
+                                mutualNumber={3}
+                                type={'mutual'}
+                                userName={'LangntNavn LangntNavnesen'}
+                            />
+                        </ListCompositeSugClose>
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'ListCompositeActivity Suggestion Close'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ListCompositeSugClose>
+                            <ListCompositeActivity
+                                co2={2.7}
+                                iconSVG={'Transport01'}
+                                points={15}
+                                title={'Aktvitet med langt navn'}
+                            />
+                        </ListCompositeSugClose>
                     </div>
                 </Preview>
 
