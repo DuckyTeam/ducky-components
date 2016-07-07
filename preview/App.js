@@ -45,6 +45,7 @@ import LabelNumber from "../common/LabelNumber";
 import LabelLarge from "../common/LabelLarge";
 import LabelStatistics from "../common/LabelStatistics";
 import LabelTitle from "../common/LabelTitle";
+import ListComposite from "../common/composites/ListComposite";
 import ListCompositeSavings from '../common/composites/ListCompositeSavings';
 import ListCompositeActivity from '../common/composites/ListCompositeActivity';
 import ListCompositePerson from '../common/composites/ListCompositePerson';
@@ -1594,6 +1595,28 @@ export default class App extends React.Component {
                             "Transport02", "Energy02", "Energy01", "Transport02", "Energy02"
                         ]}
                     />
+                </Preview>
+
+                <Preview title="/ListComposite">
+                    <div className={styles.subHeader}>
+                      {'Challenge'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 150}}>
+                        <ListComposite
+                            challenge
+                            challengeName={'Utfordringer navn'}
+                            info={225}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                      {'Hashtag'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 150}}>
+                        <ListComposite
+                            info={3}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/ListCompositeSavings">
