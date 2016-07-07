@@ -69,6 +69,7 @@ import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
 import SectionHeaderActivityModal from '../common/composites/SectionHeaderActivityModal';
 import SnackBarPanel1 from '../common/SnackBarPanel1';
+import SnackBarWrapper from '../common/SnackBarWrapper';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
@@ -109,6 +110,7 @@ export default class App extends React.Component {
             showFullText: false,
             showMenu: false,
             showCopyLink: false,
+            showSnackBar: false,
             textAreaValue: "",
             tabIndexSelected: 0,
             value: 0,
@@ -136,6 +138,7 @@ export default class App extends React.Component {
         this.handleOnLinkSave = this.handleOnLinkSave.bind(this);
         this.handleOnLinkCancel = this.handleOnLinkCancel.bind(this);
         this.handleOnLinkChange = this.handleOnLinkChange.bind(this);
+        this.handleSnackBarClick = this.handleSnackBarClick.bind(this);
     }
 
     handleModalButtonClick() {
@@ -208,6 +211,10 @@ export default class App extends React.Component {
         this.setState({linkValue: event.target.value});
     }
 
+    handleSnackBarClick() {
+        this.setState({showSnackBar: true});
+    }
+
     /* eslint-enable react/no-set-state */
 
     formatFunction(value) {
@@ -278,6 +285,22 @@ export default class App extends React.Component {
                     >
                         <b>{'MenuContent'}</b>
                     </MenuWrapper>
+                </Preview>
+
+                <Preview title={"SnackBar Wrapper"}>
+                    <button onClick={this.handleSnackBarClick}>
+                        {'Show SnackBar'}
+                    </button>
+                    <SnackBarWrapper
+                        show={this.state.showSnackBar}
+                    >
+                        <div style={{width: 300}}>
+                            <SnackBarPanel1
+                                button
+                                text={"Long and long, and quite long and longer message text"}
+                            />
+                        </div>
+                    </SnackBarWrapper>
                 </Preview>
 
                 <Preview title="PopoverMenuAnchor2">
