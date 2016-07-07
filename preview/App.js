@@ -66,6 +66,7 @@ import React from 'react';
 import SearchFieldInput from '../common/SearchFieldInput';
 import ScrollContainer from '../common/ScrollContainer';
 import SectionFooterClose from './../common/SectionFooterClose';
+import SectionHeaderActivityModal from '../common/composites/SectionHeaderActivityModal';
 import Spacer from '../common/Spacer';
 import StateCarousal1 from '../common/composites/StateCarousal1';
 import SwitchToggleButton from '../common/SwitchToggleButton';
@@ -1563,6 +1564,18 @@ export default class App extends React.Component {
                     <SectionHeaderTitle title="Some title">
                         <span style={{fontSize: 10}}>Whatever you want</span>
                     </SectionHeaderTitle>
+                </Preview>
+
+                <Preview title={"SectionHeaderActivityModal"}>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <SectionHeaderActivityModal
+                            favorite
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <SectionHeaderActivityModal />
+                    </div>
                 </Preview>
 
                 <Preview

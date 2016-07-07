@@ -12,17 +12,20 @@ function ListCompositeActivity(props) {
             <IconSVG
                 className={styles.icon}
                 icon={props.iconSVG}
+                onClick={props.onIconClick}
                 size={"standard"}
             />
             <div className={styles.composite}>
-                <Typography className={styles.typo}
-                    type="bodyTextTitle"
+                <Typography
+                    className={styles.typo}
+                    onClick={props.onTextClick}
+                    type={"bodyTextTitle"}
                 >
                     {props.title}
                 </Typography>
                 <LabelPair
                     co2={props.co2}
-                    onClick={props.onClick}
+                    onClick={props.onLabelClick}
                     points={props.points}
                 />
             </div>
@@ -34,7 +37,9 @@ ListCompositeActivity.propTypes = {
     className: PropTypes.string,
     co2: PropTypes.number,
     iconSVG: PropTypes.string,
-    onClick: PropTypes.func,
+    onIconClick: PropTypes.func,
+    onLabelClick: PropTypes.func,
+    onTextClick: PropTypes.func,
     points: PropTypes.number,
     title: PropTypes.string
 };
