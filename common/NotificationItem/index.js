@@ -46,7 +46,7 @@ function NotificationItem(props) {
                 </div>
                 <div>
                     <div className={styles.top}>
-                        <Typo className={props.type === 'challenge' ? styles.name : styles.typo}
+                        <Typo className={styles.name}
                             type={"caption2Normal"}
                         >
                             {props.name}
