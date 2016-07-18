@@ -14,7 +14,7 @@ function LogButton(props) {
         >
             <Icon
                 icon={"icon-check"}
-                size={"standard"}
+                size={"small"}
             />
         </div>
     );
