@@ -20,6 +20,7 @@ import CardLabel1 from '../common/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../common/CarouselNavigator1';
 import CarouselStandard1 from '../common/CarouselStandard1';
 import ChallengeCard2 from '../common/composites/ChallengeCard2';
+import ChallengeMetaJoin from '../common/ChallengeMetaJoin';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
@@ -1358,6 +1359,19 @@ export default class App extends React.Component {
                             titleText={"Utfordring med veldig langt navn og det er det"}
                         />
                     </div>
+                </Preview>
+
+                <Preview title="ChallengeMetaJoin">
+                    <ChallengeMetaJoin
+                        endDate={'21-Jul-2016'}
+                        joined
+                        startDate={'15-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'21-Jul-2016'}
+                        startDate={'15-Jul-2016'}
+                    />
                 </Preview>
 
                 <Preview title="ChallengeOverviewHeader1">
