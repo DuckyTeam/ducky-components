@@ -1,91 +1,89 @@
-import 'font-awesome/css/font-awesome.css';
-import './material-ui/css/material-design-iconic-font.css';
-import "../common/icons.css";
-import HeaderCompositUser from '../common/composites/HeaderCompositUser';
-import SectionHeaderGeneral from '../common/composites/SectionHeaderGeneral';
-import SectionHeaderTitle from '../common/composites/SectionHeaderTitle';
-import ActionItemDefault from '../common/composites/ActionItemDefault';
-import ActionItemSummaryComposit from '../common/composites/ActionItemSummaryComposit';
-import IconAvaWrapper from '../common/composites/IconAvaWrapper';
-import LabelPair from '../common/composites/LabelPair';
-import ActionButton from '../common/ActionButton';
-import Avatar from "../common/Avatar";
-import Button from '../common/Button';
-import ButtonCircle from '../common/ButtonCircle';
-import ButtonIconRaised from '../common/ButtonIconRaised';
-import ButtonIcon from '../common/ButtonIcon';
-import ButtonRaised from '../common/ButtonRaised';
-import ButtonCounter from '../common/ButtonCounter';
-import CardLabel1 from '../common/composites/ChallengeCardLabel1';
-import CarouselNavigator1 from '../common/CarouselNavigator1';
-import CarouselStandard1 from '../common/CarouselStandard1';
-import ChallengeCard2 from '../common/composites/ChallengeCard2';
-import ChalOverHeader from '../common/ChallengeOverviewHeader2';
-import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
-import CheckBox from '../common/CheckBox';
-import CardLabel2 from '../common/ChallengeCardLabel2';
-import CardSection2 from '../common/composites/ChallengeCardSection2';
-import ConfirmationModal from '../common/ConfirmationModal';
-import EndOfContent from '../common/EndOfContent';
-import Popup from '../common/Popup';
-import Header from '../common/Header';
-import HeaderCompositActivity from '../common/HeaderCompositActivity';
-import Icon from '../common/Icon';
-import IconImage from '../common/IconImage';
-import ImageElement from '../common/ImageElement';
-import LabelMini from '../common/LabelMini';
-import LabelHorisontal from '../common/LabelHorisontal';
-import LabelTab from '../common/LabelTab';
-import LabelDisplay from "../common/LabelDisplay";
-import LabelDouble from "../common/LabelDouble";
-import LabelSmall from "../common/LabelSmall";
-import LabelStandard from "../common/LabelStandard";
-import LineGraph from '../common/LineGraph';
-import LabelNumber from "../common/LabelNumber";
-import LabelLarge from "../common/LabelLarge";
-import LabelStatistics from "../common/LabelStatistics";
-import LabelTitle from "../common/LabelTitle";
-import ListComposite from "../common/composites/ListComposite";
-import ListCompositeSavings from '../common/composites/ListCompositeSavings';
-import ListCompositeActivity from '../common/composites/ListCompositeActivity';
-import ListCompositePerson from '../common/composites/ListCompositePerson';
-import ListCompositeSugClose from '../common/composites/ListCompositeSuggestionClose';
-import LogButton from "../common/LogButton";
-import MenuWrapper from '../common/MenuWrapper';
-import NotificationItem from '../common/NotificationItem';
-import Modal from '../common/Modal';
-import PieChart from '../common/PieChart';
-import PopoverMenu from './../common/PopoverMenu';
-import PopoverMenuAnchor2 from './../common/PopoverMenuAnchor2';
-import PopoverMenuAnchor3 from './../common/PopoverMenuAnchor3';
-import PopoverMenuItem from '../common/PopoverMenuItem';
-import PopoverMenuItem3 from '../common/PopoverMenuItem3';
-import PopoverMenuItem4 from '../common/PopoverMenuItem4';
+import "../src/icons.css";
+import HeaderCompositUser from '../src/composites/HeaderCompositUser';
+import SectionHeaderGeneral from '../src/composites/SectionHeaderGeneral';
+import SectionHeaderTitle from '../src/composites/SectionHeaderTitle';
+import ActionItemDefault from '../src/composites/ActionItemDefault';
+import ActionItemSummaryComposit from '../src/composites/ActionItemSummaryComposit';
+import IconAvaWrapper from '../src/composites/IconAvaWrapper';
+import LabelPair from '../src/composites/LabelPair';
+import ActionButton from '../src/ActionButton';
+import Avatar from "../src/Avatar";
+import Button from '../src/Button';
+import ButtonCircle from '../src/ButtonCircle';
+import ButtonIconRaised from '../src/ButtonIconRaised';
+import ButtonIcon from '../src/ButtonIcon';
+import ButtonRaised from '../src/ButtonRaised';
+import ButtonCounter from '../src/ButtonCounter';
+import CardLabel1 from '../src/composites/ChallengeCardLabel1';
+import CarouselNavigator1 from '../src/CarouselNavigator1';
+import CarouselStandard1 from '../src/CarouselStandard1';
+import ChallengeCard2 from '../src/composites/ChallengeCard2';
+import ChalOverHeader from '../src/ChallengeOverviewHeader2';
+import ChalOverHead1 from '../src/ChallengeOverviewHeader1';
+import CheckBox from '../src/CheckBox';
+import CardLabel2 from '../src/ChallengeCardLabel2';
+import CardSection2 from '../src/composites/ChallengeCardSection2';
+import ConfirmationModal from '../src/ConfirmationModal';
+import EndOfContent from '../src/EndOfContent';
+import Popup from '../src/Popup';
+import Header from '../src/Header';
+import HeaderCompositActivity from '../src/HeaderCompositActivity';
+import Icon from '../src/Icon';
+import IconImage from '../src/IconImage';
+import iconImageImage from "../src/assets/SVGIcons/social.svg";
+import ImageElement from '../src/ImageElement';
+import LabelMini from '../src/LabelMini';
+import LabelHorisontal from '../src/LabelHorisontal';
+import LabelTab from '../src/LabelTab';
+import LabelDisplay from "../src/LabelDisplay";
+import LabelDouble from "../src/LabelDouble";
+import LabelSmall from "../src/LabelSmall";
+import LabelStandard from "../src/LabelStandard";
+import LineGraph from '../src/LineGraph';
+import LabelNumber from "../src/LabelNumber";
+import LabelLarge from "../src/LabelLarge";
+import LabelStatistics from "../src/LabelStatistics";
+import LabelTitle from "../src/LabelTitle";
+import ListComposite from "../src/composites/ListComposite";
+import ListCompositeSavings from '../src/composites/ListCompositeSavings';
+import ListCompositeActivity from '../src/composites/ListCompositeActivity';
+import ListCompositePerson from '../src/composites/ListCompositePerson';
+import ListCompositeSugClose from '../src/composites/ListCompositeSuggestionClose';
+import LogButton from "../src/LogButton";
+import MenuWrapper from '../src/MenuWrapper';
+import NotificationItem from '../src/NotificationItem';
+import Modal from '../src/Modal';
+import PieChart from '../src/PieChart';
+import PopoverMenu from './../src/PopoverMenu';
+import PopoverMenuAnchor2 from './../src/PopoverMenuAnchor2';
+import PopoverMenuAnchor3 from './../src/PopoverMenuAnchor3';
+import PopoverMenuItem from '../src/PopoverMenuItem';
+import PopoverMenuItem3 from '../src/PopoverMenuItem3';
+import PopoverMenuItem4 from '../src/PopoverMenuItem4';
 import Preview from './Preview';
-import RadioButton from '../common/RadioButton';
+import RadioButton from '../src/RadioButton';
 import React from 'react';
-import SearchFieldInput from '../common/SearchFieldInput';
-import ScrollContainer from '../common/ScrollContainer';
-import SectionFooterClose from './../common/SectionFooterClose';
-import SectionHeaderActivityModal from '../common/composites/SectionHeaderActivityModal';
-import SnackBarPanel1 from '../common/SnackBarPanel1';
-import SnackBarWrapper from '../common/SnackBarWrapper';
-import Spacer from '../common/Spacer';
-import StateCarousal1 from '../common/composites/StateCarousal1';
-import SwitchToggleButton from '../common/SwitchToggleButton';
-import CaptionTabMenu from '../common/CaptionTabMenu';
-import IconTabMenu from '../common/IconTabMenu';
-import TextImageElement from '../common/TextImageElement';
-import TextLinkElement from '../common/TextLinkElement';
-import TextOnlyElement from '../common/TextOnlyElement';
-import IconDropdown from '../common/IconDropdown';
-import ToolTip from '../common/ToolTip';
-import Typography from '../common/Typography';
-import TextArea from '../common/TextArea';
-import RemoveImage from '../common/RemoveImage';
-import Wrapper from '../common/Wrapper';
-import IconSVG from '../common/IconSVG';
-import ProgressBar from '../common/ProgressBar';
+import SearchFieldInput from '../src/SearchFieldInput';
+import ScrollContainer from '../src/ScrollContainer';
+import SectionFooterClose from './../src/SectionFooterClose';
+import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
+import SnackBarPanel1 from '../src/SnackBarPanel1';
+import SnackBarWrapper from '../src/SnackBarWrapper';
+import Spacer from '../src/Spacer';
+import StateCarousal1 from '../src/composites/StateCarousal1';
+import SwitchToggleButton from '../src/SwitchToggleButton';
+import CaptionTabMenu from '../src/CaptionTabMenu';
+import IconTabMenu from '../src/IconTabMenu';
+import TextImageElement from '../src/TextImageElement';
+import TextLinkElement from '../src/TextLinkElement';
+import TextOnlyElement from '../src/TextOnlyElement';
+import IconDropdown from '../src/IconDropdown';
+import ToolTip from '../src/ToolTip';
+import Typography from '../src/Typography';
+import TextArea from '../src/TextArea';
+import RemoveImage from '../src/RemoveImage';
+import Wrapper from '../src/Wrapper';
+import ProgressBar from '../src/ProgressBar';
 import styles from './App.css';
 import moment from 'moment';
 const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
@@ -359,19 +357,12 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview
-                    title="/IconImage"
-                    width={200}
-                >
-                    <IconImage />
-                </Preview>
-
-                <Preview
                     title="/Header"
                     width={300}
                 >
                     <Header
                         subTitle="Favoritter (0)"
-                        title="Logg aktiviteter"
+                        title="Logg aktivter"
                     />
                 </Preview>
 
@@ -1366,30 +1357,30 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title={"IconSVG"}>
+                <Preview title={"IconImage"}>
                     <div className={styles.subHeader}>Small</div>
-                    <IconSVG
-                        icon={"Consumption01"}
+                    <IconImage
+                        icon={iconImageImage}
                         size={"small"}
                     />
                     <div className={styles.subHeader}>Standard</div>
-                    <IconSVG
-                        icon={"Consumption01"}
+                    <IconImage
+                        icon={iconImageImage}
                         size={"standard"}
                     />
                     <div className={styles.subHeader}>large</div>
-                    <IconSVG
-                        icon={"Consumption03"}
+                    <IconImage
+                        icon={iconImageImage}
                         size={"large"}
                     />
                     <div className={styles.subHeader}>display1</div>
-                    <IconSVG
-                        icon={"Consumption03"}
+                    <IconImage
+                        icon={iconImageImage}
                         size={"display1"}
                     />
                     <div className={styles.subHeader}>display2</div>
-                    <IconSVG
-                        icon={"Consumption03"}
+                    <IconImage
+                        icon={iconImageImage}
                         size={"display2"}
                     />
                 </Preview>
