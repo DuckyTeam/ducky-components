@@ -32,6 +32,7 @@ import Icon from '../src/Icon';
 import IconImage from '../src/IconImage';
 import iconImageImage from "../src/assets/SVGIcons/social.svg";
 import ImageElement from '../src/ImageElement';
+import Input from '../src/Input';
 import LabelMini from '../src/LabelMini';
 import LabelHorisontal from '../src/LabelHorisontal';
 import LabelTab from '../src/LabelTab';
@@ -113,7 +114,8 @@ export default class App extends React.Component {
             tabIndexSelected: 0,
             value: 0,
             linkValue: "",
-            hasSavedLinkElement: false
+            hasSavedLinkElement: false,
+            inputErrorMessage: null
         };
         setInterval(() => {
             this.setState({value: this.state.value + 0.3});
@@ -137,6 +139,7 @@ export default class App extends React.Component {
         this.handleOnLinkCancel = this.handleOnLinkCancel.bind(this);
         this.handleOnLinkChange = this.handleOnLinkChange.bind(this);
         this.handleSnackBarClick = this.handleSnackBarClick.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
     handleModalButtonClick() {
@@ -211,6 +214,14 @@ export default class App extends React.Component {
 
     handleSnackBarClick() {
         this.setState({showSnackBar: true});
+    }
+
+    handleInputChange(event) {
+        if (event.target.value.length > 5 && !this.state.inputErrorMessage) {
+            this.setState({inputErrorMessage: "Use less than 6 characters"});
+        } else if (event.target.value.length <= 5 && this.state.inputErrorMessage) {
+            this.setState({inputErrorMessage: null});
+        }
     }
 
     /* eslint-enable react/no-set-state */
@@ -314,6 +325,14 @@ export default class App extends React.Component {
                     width={200}
                 >
                     <Popup>{'hey'}</Popup>
+                </Preview>
+
+                <Preview title="Input">
+                    <Input
+                        errorMessage={this.state.inputErrorMessage}
+                        onChange={this.handleInputChange}
+                        placeholder="Write a text"
+                    />
                 </Preview>
 
                 <Preview

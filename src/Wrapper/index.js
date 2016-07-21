@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Wrapper.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function Wrapper(props) {
