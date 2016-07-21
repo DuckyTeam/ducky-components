@@ -564,7 +564,7 @@ export default class App extends React.Component {
                     {'RadioButton with label'}
                     <RadioButton
                         checked
-                        label="E-post"
+                        label="Label"
                         onClick={this.handleRadioButtonClick}
                     />
                 </Preview>
