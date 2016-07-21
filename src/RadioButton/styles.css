@@ -1,8 +1,17 @@
 .default {
     color: #455A64;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 .checked > span {
     color: #00AB97;
+}
+
+.label {
+  color: #263238 !important;
+  padding-left: 8px;
+  padding-top: 1px;
 }
