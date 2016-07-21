@@ -1,0 +1,44 @@
+.wrapper {
+    position: relative;
+}
+
+.input {
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  width: 100%;
+  background-color: #f4f7f9;
+  border-color: #cfd8dc;
+  color: #263238;
+  transition: border-color 0.25s;
+}
+
+.input:focus {
+  border-color: #90a4ae;
+  outline:0;
+}
+
+.input::-webkit-input-placeholder, .input::-moz-placeholder, .input:-ms-input-placeholder, .input:-moz-placeholder {
+  color: #90a4ae;
+}
+
+.error {
+  border-color: #e0487b !important;
+}
+
+.errorMessage {
+  position: absolute;
+  padding-top: 0;
+  opacity: 0;
+  display: block;
+  line-height: 20px;
+  color: #e0487b;
+  width: 100%;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.errorMessageActive {
+  padding-top: 8px;
+  opacity: 1;
+}
