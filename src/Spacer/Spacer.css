@@ -10,8 +10,12 @@
     height: 16px;
 }
 
+.large {
+    height: 32px;
+}
+
 .fat {
-  height: 80px;
+    height: 80px;
 }
 
 .hr1 {
@@ -23,7 +27,7 @@
 }
 
 .hr3 {
-  padding: 15.5px 0 15.5px 0;
+    padding: 15.5px 0 15.5px 0;
 }
 
 .hr {
