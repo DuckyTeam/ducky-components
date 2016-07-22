@@ -1,5 +1,4 @@
 .wrapper {
-    position: relative;
     width: 100%;
 }
 
@@ -21,6 +20,7 @@
 
 .input::-webkit-input-placeholder, .input::-moz-placeholder, .input:-ms-input-placeholder, .input:-moz-placeholder {
   color: #90a4ae;
+  text-transform: capitalize;
 }
 
 .error {
@@ -28,7 +28,6 @@
 }
 
 .errorMessage {
-  position: absolute;
   padding-top: 0;
   opacity: 0;
   display: block;
