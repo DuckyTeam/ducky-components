@@ -21,7 +21,32 @@ moment.locale('nb', {
 class ChallengeMetaJoin extends React.Component {
 
     getJoinedIndicatorInfo(joined) {
-        if (joined === false) {
+        if (joined === true) {
+            let daysRemainingToEnd = moment(this.props.endDate)
+                                        .diff(moment(Date.now()), 'days') + 1;
+            let daysRemainingToStart = moment(this.props.startDate)
+                                        .diff(moment(Date.now()), 'days') + 1;
+
+            if (moment(Date.now()) > moment(this.props.startDate) && daysRemainingToEnd <= 7) {
+                return (
+                    <Typography
+                        className={styles.text}
+                        type={'caption2Normal'}
+                    >
+                        {'Slutter om '}{daysRemainingToEnd}{' dager'}
+                    </Typography>
+                );
+            } else if
+                (moment(Date.now()) < moment(this.props.startDate) && daysRemainingToStart <= 7) {
+                return (
+                    <Typography
+                        className={styles.text}
+                        type={'caption2Normal'}
+                    >
+                        {'Starter om '}{daysRemainingToStart}{' dager'}
+                    </Typography>
+                );
+            }
             return (
                 <Typography
                     className={styles.text}

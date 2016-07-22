@@ -21,6 +21,7 @@ import CarouselNavigator1 from '../common/CarouselNavigator1';
 import CarouselStandard1 from '../common/CarouselStandard1';
 import ChallengeCard2 from '../common/composites/ChallengeCard2';
 import ChallengeMetaJoin from '../common/ChallengeMetaJoin';
+import ChallengeCardSection1 from '../common/ChallengeCardSection1';
 import ChalOverHeader from '../common/ChallengeOverviewHeader2';
 import ChalOverHead1 from '../common/ChallengeOverviewHeader1';
 import CheckBox from '../common/CheckBox';
@@ -1363,15 +1364,81 @@ export default class App extends React.Component {
 
                 <Preview title="ChallengeMetaJoin">
                     <ChallengeMetaJoin
-                        endDate={'21-Jul-2016'}
+                        endDate={'23-Jul-2016'}
                         joined
                         startDate={'15-Jul-2016'}
                     />
                     <br />
                     <ChallengeMetaJoin
-                        endDate={'21-Jul-2016'}
+                        endDate={'30-Jul-2016'}
+                        joined
+                        startDate={'25-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'24-Aug-2016'}
+                        joined
+                        startDate={'10-Aug-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'01-Aug-2016'}
+                        joined
+                        startDate={'21-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'15-Jul-2016'}
                         startDate={'15-Jul-2016'}
                     />
+                </Preview>
+
+                <Preview title="ChallengeCardSection1">
+                    <div className={styles.subHeader}>User Not Joined</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeDescription={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Jul-2016'}
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        />
+                    </div>
+                    <div className={styles.subHeader}>User Joined no goal set</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Aug-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'26-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
+                    </div>
+                    <div className={styles.subHeader}>User Joined and challenge to end soon</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'28-Jul-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                percentValue={26}
+                                points={43}
+                                progPercent={29}
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
+                    </div>
                 </Preview>
 
                 <Preview title="ChallengeOverviewHeader1">
