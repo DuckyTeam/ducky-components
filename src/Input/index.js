@@ -19,7 +19,10 @@ function Input(props) {
                       [styles.error]: props.errorMessage
                   })
                 }
+                onBlur={props.onBlur}
+                onChange={props.onChange}
                 placeholder={capitalizeFirstLetter(props.placeholder)}
+                type={props.type}
             />
             <Typography
                 className={classNames(styles.errorMessage, {
@@ -36,7 +39,10 @@ function Input(props) {
 Input.propTypes = {
     className: PropTypes.string,
     errorMessage: PropTypes.node,
-    placeholder: PropTypes.string
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string,
+    type: PropTypes.string
 };
 
 export default Input;
