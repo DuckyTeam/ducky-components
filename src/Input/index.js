@@ -7,6 +7,10 @@ import TypographyStyles from '../Typography/styles.css';
 import Typography from '../Typography';
 
 function Input(props) {
+    const capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    };
+
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <input
@@ -15,7 +19,7 @@ function Input(props) {
                       [styles.error]: props.errorMessage
                   })
                 }
-                {...props}
+                placeholder={capitalizeFirstLetter(props.placeholder)}
             />
             <Typography
                 className={classNames(styles.errorMessage, {
@@ -31,7 +35,8 @@ function Input(props) {
 
 Input.propTypes = {
     className: PropTypes.string,
-    errorMessage: PropTypes.node
+    errorMessage: PropTypes.node,
+    placeholder: PropTypes.string
 };
 
 export default Input;
