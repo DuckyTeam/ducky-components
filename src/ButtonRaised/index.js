@@ -18,6 +18,7 @@ function ButtonRaised(props) {
             })}
             disabled={disabled}
             onClick={props.onClick}
+            type={props.type}
         >
             <Typography
                 className={classNames(styles.text, {
@@ -35,7 +36,8 @@ ButtonRaised.propTypes = {
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
-    theme: React.PropTypes.string
+    theme: React.PropTypes.string,
+    type: React.PropTypes.string
 };
 
 export default ButtonRaised;

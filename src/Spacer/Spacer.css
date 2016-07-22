@@ -10,20 +10,27 @@
     height: 16px;
 }
 
+.large {
+    height: 32px;
+}
+
 .fat {
-  height: 80px;
+    height: 80px;
 }
 
 .hr1 {
     padding: 7.5px 0 7.5px 0;
+    width: 100%;
 }
 
 .hr2 {
     padding: 7.5px 16px 7.5px 68px;
+    width: 100%;
 }
 
 .hr3 {
-  padding: 15.5px 0 15.5px 0;
+    padding: 15.5px 0 15.5px 0;
+    width: 100%;
 }
 
 .hr {

@@ -26,7 +26,7 @@ function Spacer(props) {
 Spacer.propTypes = {
     className: PropTypes.string,
     hr: PropTypes.bool,
-    size: PropTypes.oneOf(['standard', 'double', 'fat', 'hr1', 'hr2', 'hr3'])
+    size: PropTypes.oneOf(['standard', 'double', 'large', 'fat', 'hr1', 'hr2', 'hr3'])
 };
 
 export default Spacer;
