@@ -15,6 +15,7 @@ function Button(props) {
             className={classNames(styles.flat, {[props.className]: props.className})}
             disabled={disabled}
             onClick={props.onClick}
+            type={props.type}
         >
             <Typography
                 className={classNames(styles.text, {
@@ -32,7 +33,8 @@ Button.propTypes = {
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func,
-    theme: React.PropTypes.string
+    theme: React.PropTypes.string,
+    type: React.PropTypes.string
 };
 
 export default Button;
