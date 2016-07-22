@@ -20,7 +20,6 @@
 
 .input::-webkit-input-placeholder, .input::-moz-placeholder, .input:-ms-input-placeholder, .input:-moz-placeholder {
   color: #90a4ae;
-  text-transform: capitalize;
 }
 
 .error {
