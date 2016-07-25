@@ -12,7 +12,7 @@ class SectionFooterOK extends React.Component {
                     disabled
                     onClick={this.props.onClick}
                 >
-                    {"OK"}
+                    {this.props.buttonName}
                 </ButtonRaised>
             );
         }
@@ -21,7 +21,7 @@ class SectionFooterOK extends React.Component {
                 className={styles.button}
                 onClick={this.props.onClick}
             >
-                {"OK"}
+                {this.props.buttonName}
             </ButtonRaised>
         );
     }
@@ -38,6 +38,7 @@ class SectionFooterOK extends React.Component {
 }
 
 SectionFooterOK.propTypes = {
+    buttonName: React.PropTypes.string,
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
     onClick: React.PropTypes.func
