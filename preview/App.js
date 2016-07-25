@@ -575,9 +575,12 @@ export default class App extends React.Component {
 
                 <Preview title="/SectionFooterOK">
                     <div className={styles.subHeader}> {"Active OK"} </div>
-                    <SectionFooterOK />
+                    <SectionFooterOK
+                        buttonName={"OK"}
+                    />
                     <div className={styles.subHeader}> {"Inactive OK for user Input"} </div>
                     <SectionFooterOK
+                        buttonName={"LAGRE"}
                         disabled
                     />
                 </Preview>
