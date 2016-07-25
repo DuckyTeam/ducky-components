@@ -69,6 +69,7 @@ import React from 'react';
 import SearchFieldInput from '../src/SearchFieldInput';
 import ScrollContainer from '../src/ScrollContainer';
 import SectionFooterClose from './../src/SectionFooterClose';
+import SectionFooterOK from './../src/SectionFooterOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -568,6 +569,15 @@ export default class App extends React.Component {
                         checked
                         label="Label"
                         onClick={this.handleRadioButtonClick}
+                    />
+                </Preview>
+
+                <Preview title="/SectionFooterOK">
+                    <div className={styles.subHeader}> {"Active OK"} </div>
+                    <SectionFooterOK />
+                    <div className={styles.subHeader}> {"Inactive OK for user Input"} </div>
+                    <SectionFooterOK
+                        disabled
                     />
                 </Preview>
 
