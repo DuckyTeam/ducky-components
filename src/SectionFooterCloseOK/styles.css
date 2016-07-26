@@ -1,0 +1,17 @@
+.wrapper {
+    border-top: 1px solid rgba(38,50,56,0.12);
+    height: 48px;
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+}
+
+.button {
+    margin-left: 6px;
+    float: left;
+}
+
+.raisedButton {
+    margin-right: 6px;
+    float: right;
+}

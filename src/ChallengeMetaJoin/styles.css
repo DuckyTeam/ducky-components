@@ -1,0 +1,21 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    flex-grow: 1;
+}
+
+.button {
+    margin-left: 16px;
+    background-color: #00AB97;
+}
+
+.label {
+    margin-left: 16px;
+}
+
+.label > span {
+    color: #263238;
+}

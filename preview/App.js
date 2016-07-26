@@ -19,6 +19,8 @@ import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
 import ChallengeCard2 from '../src/composites/ChallengeCard2';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
+import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
+import ChallengeCardSection1 from '../src/ChallengeCardSection1';
 import ChalOverHead1 from '../src/ChallengeOverviewHeader1';
 import CheckBox from '../src/CheckBox';
 import CardLabel2 from '../src/ChallengeCardLabel2';
@@ -67,6 +69,8 @@ import React from 'react';
 import SearchFieldInput from '../src/SearchFieldInput';
 import ScrollContainer from '../src/ScrollContainer';
 import SectionFooterClose from './../src/SectionFooterClose';
+import SectionFooterOK from './../src/SectionFooterOK';
+import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -567,6 +571,24 @@ export default class App extends React.Component {
                         label="Label"
                         onClick={this.handleRadioButtonClick}
                     />
+                </Preview>
+
+                <Preview title="/SectionFooterOK">
+                    <div className={styles.subHeader}> {"Active OK"} </div>
+                    <SectionFooterOK
+                        buttonName={"OK"}
+                    />
+                    <div className={styles.subHeader}> {"Inactive OK for user Input"} </div>
+                    <SectionFooterOK
+                        buttonName={"LAGRE"}
+                        disabled
+                    />
+                </Preview>
+
+                <Preview title="/SectionFooterCloseOK">
+                    <div style={{backgroundColor: "lightgrey", width: 230}}>
+                        <SectionFooterCloseOK />
+                    </div>
                 </Preview>
 
                 <Preview
@@ -1373,6 +1395,85 @@ export default class App extends React.Component {
                             image={IMAGE_URL}
                             titleText={"Utfordring med veldig langt navn og det er det"}
                         />
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeMetaJoin">
+                    <ChallengeMetaJoin
+                        endDate={'23-Jul-2016'}
+                        joined
+                        startDate={'15-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'30-Jul-2016'}
+                        joined
+                        startDate={'25-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'24-Aug-2016'}
+                        joined
+                        startDate={'10-Aug-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'01-Aug-2016'}
+                        joined
+                        startDate={'21-Jul-2016'}
+                    />
+                    <br />
+                    <ChallengeMetaJoin
+                        endDate={'15-Jul-2016'}
+                        startDate={'15-Jul-2016'}
+                    />
+                </Preview>
+
+                <Preview title="ChallengeCardSection1">
+                    <div className={styles.subHeader}>User Not Joined</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeDescription={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Jul-2016'}
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        />
+                    </div>
+                    <div className={styles.subHeader}>User Joined no goal set</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Aug-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'26-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
+                    </div>
+                    <div className={styles.subHeader}>User Joined and challenge to end soon</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'28-Jul-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                percentValue={26}
+                                points={43}
+                                progPercent={29}
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
                     </div>
                 </Preview>
 
