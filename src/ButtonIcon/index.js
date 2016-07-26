@@ -37,7 +37,7 @@ ButtonIcon.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     disabled: React.PropTypes.bool,
-    icon: React.PropTypes.icon,
+    icon: React.PropTypes.string,
     onClick: React.PropTypes.func,
     theme: React.PropTypes.string
 };
