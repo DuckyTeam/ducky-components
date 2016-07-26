@@ -86,6 +86,7 @@ import IconDropdown from '../src/IconDropdown';
 import ToolTip from '../src/ToolTip';
 import Typography from '../src/Typography';
 import TextArea from '../src/TextArea';
+import TextField from '../src/TextField';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
 import ProgressBar from '../src/ProgressBar';
@@ -1297,6 +1298,16 @@ export default class App extends React.Component {
                         onChange={this.handleOnTextAreaChange}
                         onSubmit={this.handleOnTextAreaSubmit}
                         placeholder={"Write something..."}
+                        value={this.state.textAreaValue}
+                    />
+                </Preview>
+
+                <Preview title="TextField">
+                    <TextField
+                        maxLength={140}
+                        onChange={this.handleOnTextAreaChange}
+                        onSubmit={this.handleOnTextAreaSubmit}
+                        placeholder={"Beskrivelse"}
                         value={this.state.textAreaValue}
                     />
                 </Preview>

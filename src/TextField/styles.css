@@ -1,0 +1,80 @@
+.wrapper {
+    width: 100%;
+}
+
+.textField {
+    display: flex;
+    min-height: 48px;
+}
+
+.controlLabel {
+    font-size: 14px;
+    line-height:20px;
+    font-weight: normal;
+    color: #b0bec5;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(0, 23px, 0);
+    transform-origin: left top;
+    transition: 200ms;
+}
+
+.textField.focused-size .controlLabel {
+    transform: translate3d(0, 0, 0);
+    font-size: 12px;
+}
+
+.textField.focused-color .controlLabel {
+    color: #00ab97;
+}
+
+.formControlTextArea {
+    align-self: flex-end;
+    resize:none;
+    font-family: Montserrat;
+    font-size: 14px;
+    line-height:30px;
+    min-height:30px;
+    width:100%;
+    margin-top:18px;
+    padding: 0;
+    border:0;
+    border-bottom: 1px solid rgba(38,50,56,0.12);
+    border-radius: 0;
+    box-sizing: border-box;
+    -webkit-transition: all 100ms ease-in-out; /* Safari */
+    transition: all 100ms ease-in-out;
+}
+
+.formControlTextArea: focus {
+    outline:0;
+    border-bottom: 1px solid #00ab97;
+}
+
+.counter {
+    font-size: 12px;
+    text-align: right;
+    width:100%;
+    color: #b0bec5;
+    margin-top: 8px;
+}
+
+.error {
+  border-color: #e0487b !important;
+}
+
+.errorMessage {
+  padding-top: 0;
+  opacity: 0;
+  display: block;
+  line-height: 20px;
+  color: #e0487b;
+  width: 100%;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.errorMessageActive {
+  padding-top: 8px;
+  opacity: 1;
+}
