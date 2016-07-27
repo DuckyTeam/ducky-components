@@ -1,36 +1,4 @@
 import moment from "moment";
-const supportedLocales = ["nb"];
-
-function getLocale() {
-    return supportedLocales[0];
-}
-
-/* eslint-disable id-length */
-moment.locale(getLocale(), {
-    calendar: {
-        lastDay: "igår",
-        sameDay: "[i dag kl] LT",
-        nextDay: "D.MMM",
-        lastWeek: "D.MMM",
-        nextWeek: "D.MMM",
-        sameElse: "D.MMM"
-    },
-    relativeTime: {
-        future: "in %s",
-        past: "%s",
-        d: "1 dag",
-        dd: "%d dager",
-        M: "1 måned",
-        MM: "%d måneder",
-        y: "1 år",
-        yy: "%d år",
-        s: "Nå",
-        m: "%d m",
-        mm: "%d m",
-        h: "%d t",
-        hh: "%d t"
-    }
-});
 
 /**
  * @param {object} date: date to convert
