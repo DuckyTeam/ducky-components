@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.innerWrapper {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.divider {
+   border-right: 1px solid rgba(38,50,56,0.12);
+}
+
+.icon {
+    color: #00ab97;
+    cursor: pointer;
+}
+
+.iconFollowing {
+    color: #90a4ae;
+    cursor: pointer;
+}

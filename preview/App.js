@@ -31,6 +31,7 @@ import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
 import Popup from '../src/Popup';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
+import ProfilePageMetaFollowers from '../src/composites/ProfilePageMetaFollowers';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
 import Icon from '../src/Icon';
@@ -1875,6 +1876,42 @@ export default class App extends React.Component {
                                 title={'Aktvitet med langt navn'}
                             />
                         </ListCompositeSugClose>
+                    </div>
+                </Preview>
+
+                <Preview title="/ProfilePageMetaFollowers">
+                    <div className={styles.subHeader}>
+                        {'Your own profile'}
+                    </div>
+                    <div style={{width: 250}}>
+                        <ProfilePageMetaFollowers
+                            followedByYou={677}
+                            type={'search'}
+                            yourFollowers={83}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Person you are not following yet'}
+                    </div>
+                    <div style={{width: 250}}>
+                        <ProfilePageMetaFollowers
+                            followedByYou={357}
+                            type={'people'}
+                            yourFollowers={37}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Person you are following'}
+                    </div>
+                    <div style={{width: 250}}>
+                        <ProfilePageMetaFollowers
+                            followedByYou={357}
+                            isFollowing
+                            type={'people'}
+                            yourFollowers={37}
+                        />
                     </div>
                 </Preview>
 
