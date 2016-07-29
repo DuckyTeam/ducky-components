@@ -27,6 +27,7 @@ import CardLabel2 from '../src/ChallengeCardLabel2';
 import CardSection2 from '../src/composites/ChallengeCardSection2';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
+import GoalButtonBig from '../src/GoalButtonBig';
 import Popup from '../src/Popup';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
@@ -464,6 +465,10 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey', width: 200}}>
                         <EndOfContent />
                     </div>
+                </Preview>
+
+                <Preview title="GoalButtonBig">
+                    <GoalButtonBig />
                 </Preview>
 
                 <Preview title="/ButtonIcon">
