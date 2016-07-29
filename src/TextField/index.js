@@ -26,7 +26,7 @@ function TextField(props) {
             </div>
             <div className={styles.counter}>
                 <span id={'totalChars'}>
-                    {'0'}
+                    {0}
                 </span>
                 {'/'} {props.maxLength}
             </div>
