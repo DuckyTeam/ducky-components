@@ -1,0 +1,13 @@
+.wrapper {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.typo {
+    margin-left: 16px;
+    flex-grow: 1;
+    text-align: center;
+    color: #607d8b;
+    font-weight: bold;
+}

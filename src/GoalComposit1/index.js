@@ -1,35 +1,36 @@
-import Icon from '../Icon';
+import GoalButtonBig from '../GoalButtonBig';
+import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function GoalButtonBig(props) {
+function GoalComposit1(props) {
     return (
-        <div
+        <Wrapper
             className={classNames(styles.wrapper, {
                 [props.className]: props.className
             })}
-            onClick={props.onClick}
+            size={'standard'}
         >
-            <Icon
-                className={styles.icon}
-                icon={'icon-add'}
-                size="small"
-            />
+            <div>
+                <GoalButtonBig
+                    onclick={props.onClick}
+                />
+            </div>
             <Typography
                 className={styles.typo}
                 style={'caption2Normal'}
             >
-                {'Sett nytt mål'}
+                {'Bygg en vane eller sett deg et innsparingsmål iløpet av en fastsatt periode.'}
             </Typography>
-        </div>
+        </Wrapper>
     );
 }
 
-GoalButtonBig.propTypes = {
+GoalComposit1.propTypes = {
     className: React.PropTypes.string,
     onClick: React.PropTypes.func
 };
 
-export default GoalButtonBig;
+export default GoalComposit1;
