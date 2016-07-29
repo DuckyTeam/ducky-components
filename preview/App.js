@@ -32,6 +32,7 @@ import GoalComposit1 from '../src/GoalComposit1';
 import Popup from '../src/Popup';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
 import ProfilePageMetaFollowers from '../src/composites/ProfilePageMetaFollowers';
+import ProfileSectionOverallStats from '../src/ProfileSectionOverallStats';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
 import Icon from '../src/Icon';
@@ -1983,6 +1984,14 @@ export default class App extends React.Component {
                             type={'points'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title="/ProfileSectionOverallStats">
+                    <ProfileSectionOverallStats
+                        activities={330}
+                        co2={12567}
+                        points={4565}
+                    />
                 </Preview>
 
                 <Preview title="/ActionItemDefaultComposite">
