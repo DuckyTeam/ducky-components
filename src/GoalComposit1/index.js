@@ -20,7 +20,7 @@ function GoalComposit1(props) {
             </div>
             <Typography
                 className={styles.typo}
-                style={'caption2Normal'}
+                type={'caption2Normal'}
             >
                 {'Bygg en vane eller sett deg et innsparingsmål iløpet av en fastsatt periode.'}
             </Typography>

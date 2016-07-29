@@ -19,7 +19,7 @@ function GoalButtonBig(props) {
             />
             <Typography
                 className={styles.typo}
-                style={'caption2Normal'}
+                type={'caption2Normal'}
             >
                 {'Sett nytt mål'}
             </Typography>

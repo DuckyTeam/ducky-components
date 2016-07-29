@@ -30,6 +30,7 @@ import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
 import Popup from '../src/Popup';
+import ProfilePageMeta from '../src/composites/ProfilePageMeta';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
 import Icon from '../src/Icon';
@@ -1874,6 +1875,76 @@ export default class App extends React.Component {
                                 title={'Aktvitet med langt navn'}
                             />
                         </ListCompositeSugClose>
+                    </div>
+                </Preview>
+
+                <Preview title="/ProfilePageMeta">
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMeta - CO2'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfilePageMeta
+                            totalUser={12567}
+                            type={'co2'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMeta - Aktiviteter'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfilePageMeta
+                            totalUser={848}
+                            type={'aktiviteter'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMeta - Points'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfilePageMeta
+                            totalUser={4565}
+                            type={'points'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="/ProfilePageMetaWithComparsion">
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMetaWithComparsion - CO2'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ProfilePageMeta
+                            toBeCompared
+                            totalComparison={12567}
+                            totalUser={9567}
+                            type={'co2'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMetaWithComparsion - Aktiviteter'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ProfilePageMeta
+                            toBeCompared
+                            totalComparison={848}
+                            totalUser={456}
+                            type={'aktiviteter'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'ProfilePageMetaWithComparsion - Points'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ProfilePageMeta
+                            toBeCompared
+                            totalComparison={4565}
+                            totalUser={2567}
+                            type={'points'}
+                        />
                     </div>
                 </Preview>
 
