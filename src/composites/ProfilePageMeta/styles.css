@@ -1,0 +1,51 @@
+.wrapper {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.typo {
+    width: 80px;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 8px;
+}
+
+.typoInner {
+    text-align: left;
+}
+
+.totalUser {
+    flex-grow: 1;
+    text-align: right;
+    margin-left: 8px;
+}
+
+.totalUserWhenCompared {
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 8px;
+    color: #90a4ae;
+}
+
+.totalComparison {
+    flex-grow: 1;
+    text-align: center;
+    margin-left: 8px;
+    color: #263238;
+}
+
+.co2Icon {
+    color: #00ab97;
+}
+
+.pointsIcon {
+    color: #8bc34a;
+}
+
+.aktiviteterIcon {
+    color: #0099a9;
+}
