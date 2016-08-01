@@ -1,0 +1,39 @@
+.wrapper {
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.innerWrapper {
+    flex-grow: 1;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.labelTab > span {
+    color: #00ab97;
+}
+
+.caption {
+    color: #607d8b;
+}
+
+.buttonIcon {
+    margin-left: 8px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.buttonIcon > span, .buttonIconActivity > span {
+    color: #00ab97;
+}
+
+.buttonIconActivity {
+    margin-left: 8px;
+    cursor: pointer;
+    background-color: transparent;
+    border: 2px solid #00ab97;
+}

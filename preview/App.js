@@ -30,6 +30,7 @@ import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
 import Popup from '../src/Popup';
+import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
 import ProfilePageMetaFollowers from '../src/composites/ProfilePageMetaFollowers';
 import ProfileSectionOverallStats from '../src/ProfileSectionOverallStats';
@@ -1885,6 +1886,68 @@ export default class App extends React.Component {
                                 title={'Aktvitet med langt navn'}
                             />
                         </ListCompositeSugClose>
+                    </div>
+                </Preview>
+
+                <Preview title={"/ProfileMenuItem"}>
+                    <div className={styles.subHeader}>
+                        {'Personal goal'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            numberGoals={3}
+                            type={'personal'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Activity'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            dateOfLastActivity={'20. Jan 2016'}
+                            type={'Activity'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Insight'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            totalSavings={23234}
+                            type={'Insight'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'FootPrint - over'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            percentCompare={19}
+                            type={'FootPrint'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'FootPrint - under'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            percentCompare={-5}
+                            type={'FootPrint'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Challenges'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            numberChallenges={2}
+                            type={'Challenges'}
+                        />
                     </div>
                 </Preview>
 
