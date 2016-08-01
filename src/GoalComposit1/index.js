@@ -6,6 +6,22 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 function GoalComposit1(props) {
+    let typoContent = '';
+
+    if (props.finishedGoal) {
+        typoContent = (
+            <div>
+                <br />
+                <Typography
+                    className={styles.typoFinishedGoal}
+                    onClick={props.handleTypoClick}
+                    type={'caption2Normal'}
+                >
+                    {'Vis tidligere mål'}
+                </Typography>
+            </div>
+        );
+    }
     return (
         <Wrapper
             className={classNames(styles.wrapper, {
@@ -18,18 +34,23 @@ function GoalComposit1(props) {
                     onclick={props.onClick}
                 />
             </div>
-            <Typography
-                className={styles.typo}
-                type={'caption2Normal'}
-            >
-                {'Bygg en vane eller sett deg et innsparingsmål iløpet av en fastsatt periode.'}
-            </Typography>
+            <div className={styles.innerWrapper}>
+                <Typography
+                    className={styles.typoCreateGoal}
+                    type={'caption2Normal'}
+                >
+                    {'Bygg en vane eller fullfør prestasjoner iløpet av en fastsatt periode.'}
+                </Typography>
+                {typoContent}
+            </div>
         </Wrapper>
     );
 }
 
 GoalComposit1.propTypes = {
     className: React.PropTypes.string,
+    finishedGoal: React.PropTypes.bool,
+    handleTypoClick: React.PropTypes.func,
     onClick: React.PropTypes.func
 };
 

@@ -476,8 +476,16 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="GoalComposit1">
-                    <div style={{backgroundColor: 'lightgrey', width: 340}}>
+                    {'Create New Goal Only'}
+                    <div style={{backgroundColor: 'lightgrey', width: 320}}>
                         <GoalComposit1 />
+                    </div>
+                    <br />
+                    {'With finished goals'}
+                    <div style={{backgroundColor: 'lightgrey', width: 320}}>
+                        <GoalComposit1
+                            finishedGoal
+                        />
                     </div>
                 </Preview>
 
