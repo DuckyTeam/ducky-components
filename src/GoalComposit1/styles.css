@@ -4,10 +4,20 @@
     align-items: center;
 }
 
-.typo {
+.innerWrapper {
+    align-items: center;
+    text-align: center;
     margin-left: 16px;
     flex-grow: 1;
-    text-align: center;
+}
+
+.typoCreateGoal {
     color: #607d8b;
+    font-weight: bold;
+}
+
+.typoFinishedGoal {
+    color: #00ab97;
+    cursor: pointer;
     font-weight: bold;
 }
