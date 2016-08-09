@@ -17,7 +17,6 @@ import ButtonCounter from '../src/ButtonCounter';
 import CardLabel1 from '../src/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
-import ChallengeCard2 from '../src/composites/ChallengeCard2';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import CheckBox from '../src/CheckBox';
@@ -1371,35 +1370,6 @@ export default class App extends React.Component {
                         <ChalOverHeader />
                     </div>
                 </Preview>
-
-                {/*<Preview title="ChallengeCard2">
-                    <div style={{width: 310}}>
-                        <ChallengeCard2
-                            cardLabelContent={"2,355"}
-                            cardLabelType={'points'}
-                            date={"23.Apr"}
-                            image={IMAGE_URL}
-                            percentValue={125}
-                            points={43}
-                            progPercent={120}
-                            titleText={"Utfordring med veldig langt navn og det er det"}
-                            userParticipate
-                        />
-                    </div>
-                    <hr />
-                    <div style={{width: 310}}>
-                        <ChallengeCard2
-                            bodyText={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            cardLabelContent={"2,355"}
-                            date={"23.Apr"}
-                            image={IMAGE_URL}
-                            titleText={"Utfordring med veldig langt navn og det er det"}
-                        />
-                    </div>
-                </Preview>
-              */}
 
                 <Preview title="ChallengeMetaJoin">
                     <ChallengeMetaJoin
