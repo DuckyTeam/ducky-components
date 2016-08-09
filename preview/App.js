@@ -20,7 +20,6 @@ import CarouselStandard1 from '../src/CarouselStandard1';
 import ChallengeCard2 from '../src/composites/ChallengeCard2';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
-import ChallengeCardSection1 from '../src/ChallengeCardSection1';
 import CheckBox from '../src/CheckBox';
 import CardLabel2 from '../src/ChallengeCardLabel2';
 import CardSection2 from '../src/composites/ChallengeCardSection2';
@@ -1458,54 +1457,6 @@ export default class App extends React.Component {
                         endDate={'15-Jul-2016'}
                         startDate={'15-Jul-2016'}
                     />
-                </Preview>
-
-                <Preview title="ChallengeCardSection1">
-                    <div className={styles.subHeader}>User Not Joined</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeDescription={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            challengeName={'Utfordring navn'}
-                            endDate={'23-Jul-2016'}
-                            participantText={'1,248 deltagere'}
-                            startDate={'15-Jul-2016'}
-                        />
-                    </div>
-                    <div className={styles.subHeader}>User Joined no goal set</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeName={'Utfordring navn'}
-                            endDate={'23-Aug-2016'}
-                            joined
-                            participantText={'1,248 deltagere'}
-                            startDate={'26-Jul-2016'}
-                        >
-                            <CardLabel1
-                                goal
-                                type={'points'}
-                            />
-                        </ChallengeCardSection1>
-                    </div>
-                    <div className={styles.subHeader}>User Joined and challenge to end soon</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeName={'Utfordring navn'}
-                            endDate={'28-Jul-2016'}
-                            joined
-                            participantText={'1,248 deltagere'}
-                            startDate={'15-Jul-2016'}
-                        >
-                            <CardLabel1
-                                goal
-                                percentValue={26}
-                                points={43}
-                                progPercent={29}
-                                type={'points'}
-                            />
-                        </ChallengeCardSection1>
-                    </div>
                 </Preview>
 
                 <Preview title={"IconImage"}>
