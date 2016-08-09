@@ -22,7 +22,6 @@ import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import CheckBox from '../src/CheckBox';
 import CardLabel2 from '../src/ChallengeCardLabel2';
-import CardSection2 from '../src/composites/ChallengeCardSection2';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
@@ -1370,32 +1369,6 @@ export default class App extends React.Component {
                 <Preview title="ChallengeOverviewHeader2">
                     <div style={{backgroundColor: 'lightgrey', width: 230}}>
                         <ChalOverHeader />
-                    </div>
-                </Preview>
-
-                <Preview title="ChallengeCardSection2">
-                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
-                        <CardSection2
-                            cardLabelType={'points'}
-                            labelContent={"2,355"}
-                            percentValue={125}
-                            points={43}
-                            progPercent={120}
-                            textOne={"Utfordring med veldig langt navn og det er det"}
-                            userParticipate
-                            userText={"23.Apr"}
-                        />
-                    </div>
-                    <hr />
-                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
-                        <CardSection2
-                            labelContent={"2,355"}
-                            textOne={"Utfordring med veldig langt navn og det er det"}
-                            textTwo={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            userText={"23.Apr"}
-                        />
                     </div>
                 </Preview>
 
