@@ -95,6 +95,7 @@ import TextArea from '../src/TextArea';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
 import ProgressBar from '../src/ProgressBar';
+import PeopleLabel from '../src/PeopleLabel';
 import styles from './App.css';
 import moment from 'moment';
 const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
@@ -488,6 +489,12 @@ export default class App extends React.Component {
                             finishedGoal
                         />
                     </div>
+                </Preview>
+
+                <Preview title="PeopleLabel">
+                    <PeopleLabel
+                      people={[AVATAR_URL, IMAGE_URL]}
+                    />
                 </Preview>
 
                 <Preview title="/ButtonIcon">
