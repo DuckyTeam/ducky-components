@@ -1479,7 +1479,9 @@ export default class App extends React.Component {
 
                 <Preview title="ChallengeOverviewHeader1">
                     <div style={{backgroundColor: 'lightgrey'}}>
-                        <ChalOverHead1 />
+                        <ChalOverHead1 
+                          title={'Title'}
+                          text={'Description of the things'}/>
                     </div>
                 </Preview>
 
