@@ -80,10 +80,10 @@ ChallengeCardSection1.propTypes = {
     challengeName: React.PropTypes.string,
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    endDate: React.PropTypes.string,
+    endDate: React.PropTypes.number,
     joined: React.PropTypes.bool,
-    participantText: React.PropTypes.string,
-    startDate: React.PropTypes.string
+    participantText: React.PropTypes.number,
+    startDate: React.PropTypes.number
 };
 
 export default ChallengeCardSection1;

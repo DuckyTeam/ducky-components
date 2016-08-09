@@ -109,10 +109,10 @@ class ChallengeMetaJoin extends React.Component {
 ChallengeMetaJoin.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    endDate: React.PropTypes.string,
+    endDate: React.PropTypes.number,
     joined: React.PropTypes.bool,
     onClick: React.PropTypes.func,
-    startDate: React.PropTypes.string
+    startDate: React.PropTypes.number
 };
 
 export default ChallengeMetaJoin;

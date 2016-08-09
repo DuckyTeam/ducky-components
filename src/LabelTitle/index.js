@@ -27,7 +27,7 @@ LabelTitle.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
     size: PropTypes.string,
-    text: PropTypes.number
+    text: PropTypes.string
 };
 
 export default LabelTitle;
