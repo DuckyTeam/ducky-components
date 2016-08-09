@@ -4,19 +4,20 @@ import Typography from '../../Typography';
 import Spacer from '../../Spacer';
 import React from 'react';
 import styles from './styles.css';
+import moment from 'moment';
 const PropTypes = React.PropTypes;
 
 function ChallengeCardSection2(props) {
     let optOne = '';
     let optTwo = '';
     const prefix = props.userParticipate ? 'Fullført ' : 'Sluttet ';
-    let userText = prefix + props.userText;
+    let endedText = prefix + moment(props.endDatetime).calendar();
 
     if (props.userParticipate) {
         optOne = (
             <CardLabel2
                 labelContent={props.labelContent}
-                text={userText}
+                text={endedText}
             />
     );
         optTwo = (
@@ -39,7 +40,7 @@ function ChallengeCardSection2(props) {
         optTwo = (
             <CardLabel2
                 labelContent={props.labelContent}
-                text={userText}
+                text={endedText}
             />
     );
     }
@@ -69,6 +70,6 @@ ChallengeCardSection2.propTypes = {
     textOne: PropTypes.string,
     textTwo: PropTypes.string,
     userParticipate: PropTypes.bool,
-    userText: PropTypes.string
+    endDatetime: PropTypes.number
 };
 export default ChallengeCardSection2;

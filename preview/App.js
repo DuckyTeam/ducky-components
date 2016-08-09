@@ -1394,7 +1394,7 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title="ChallengeCard2">
+                {/*<Preview title="ChallengeCard2">
                     <div style={{width: 310}}>
                         <ChallengeCard2
                             cardLabelContent={"2,355"}
@@ -1421,6 +1421,7 @@ export default class App extends React.Component {
                         />
                     </div>
                 </Preview>
+              */}
 
                 <Preview title="ChallengeMetaJoin">
                     <ChallengeMetaJoin
@@ -1503,7 +1504,7 @@ export default class App extends React.Component {
 
                 <Preview title="ChallengeOverviewHeader1">
                     <div style={{backgroundColor: 'lightgrey'}}>
-                        <ChalOverHead1 
+                        <ChalOverHead1
                           title={'Title'}
                           text={'Description of the things'}/>
                     </div>
