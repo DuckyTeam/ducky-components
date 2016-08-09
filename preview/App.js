@@ -21,7 +21,6 @@ import ChallengeCard2 from '../src/composites/ChallengeCard2';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeCardSection1 from '../src/ChallengeCardSection1';
-import ChalOverHead1 from '../src/ChallengeOverviewHeader1';
 import CheckBox from '../src/CheckBox';
 import CardLabel2 from '../src/ChallengeCardLabel2';
 import CardSection2 from '../src/composites/ChallengeCardSection2';
@@ -1506,14 +1505,6 @@ export default class App extends React.Component {
                                 type={'points'}
                             />
                         </ChallengeCardSection1>
-                    </div>
-                </Preview>
-
-                <Preview title="ChallengeOverviewHeader1">
-                    <div style={{backgroundColor: 'lightgrey'}}>
-                        <ChalOverHead1
-                          title={'Title'}
-                          text={'Description of the things'}/>
                     </div>
                 </Preview>
 
