@@ -79,7 +79,7 @@ ChallengeCardLabel1.propTypes = {
     percentValue: PropTypes.number,
     points: PropTypes.number,
     progPercent: PropTypes.number,
-    type: PropTypes.string,
+    type: PropTypes.oneOf(['points', 'co2', 'activities']),
     user: PropTypes.string
 };
 export default ChallengeCardLabel1;
