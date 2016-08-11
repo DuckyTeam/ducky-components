@@ -1,0 +1,21 @@
+.outerWrapper{
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.iconActive{
+  icon color: #607d8b;
+  background: transparent;
+  cursor: pointer;
+}
+
+.iconInactive {
+  visibility: hidden;
+}
+
+.typo {
+  color: #90a4ae;
+  text-align:center;
+}

@@ -29,6 +29,7 @@ import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
+import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
 import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
@@ -488,6 +489,24 @@ export default class App extends React.Component {
                             finishedGoal
                         />
                     </div>
+                </Preview>
+
+                <Preview title="GoalInfoNavigation">
+                    <GoalInfoNavigation
+                        currentSlide={2}
+                        slideCount={5}
+                    />
+                    <br />
+                    <GoalInfoNavigation
+                        currentSlide={5}
+                        slideCount={5}
+                    />
+                    <br />
+                    <GoalInfoNavigation
+                        currentSlide={1}
+                        slideCount={5}
+                    />
+                    <br />
                 </Preview>
 
                 <Preview title="/ButtonIcon">
@@ -1503,7 +1522,7 @@ export default class App extends React.Component {
 
                 <Preview title="ChallengeOverviewHeader1">
                     <div style={{backgroundColor: 'lightgrey'}}>
-                        <ChalOverHead1 
+                        <ChalOverHead1
                           title={'Title'}
                           text={'Description of the things'}/>
                     </div>
