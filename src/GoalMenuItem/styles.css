@@ -1,0 +1,56 @@
+.wrapper {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.icon {
+  margin-right: 16px;
+}
+
+.innerWrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.caption {
+    color: #607d8b;
+}
+
+.buttonIcon {
+  margin-left: 8px;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.text {
+  margin-top: 2px;
+  color: #90a4ae;
+}
+
+.buttonIcon > span {
+  color: #00AB97;
+}
+
+.pointsIcon {
+  color: #8bc34a;
+}
+
+.activityIcon {
+  color: #0099a9;
+}
+
+.habitIcon {
+  color: #35b8c4;
+}
+
+.co2Icon {
+  color: #00ab97;
+}

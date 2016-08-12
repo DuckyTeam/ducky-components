@@ -29,6 +29,7 @@ import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
+import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
 import ProfileMenuItem from '../src/ProfileMenuItem';
@@ -507,6 +508,29 @@ export default class App extends React.Component {
                         slideCount={5}
                     />
                     <br />
+                </Preview>
+
+                <Preview title="GoalMenuItem">
+                    <div style={{backgroundColor: '#4b4a5b', width: 350}}>
+                        <GoalMenuItem
+                            type={'POINTS'}
+                        />
+                    </div>
+                    <div style={{backgroundColor: '#4b4a5b', width: 350}}>
+                        <GoalMenuItem
+                            type={'ACTIVITY'}
+                        />
+                    </div>
+                    <div style={{backgroundColor: '#4b4a5b', width: 350}}>
+                        <GoalMenuItem
+                            type={'CO2'}
+                        />
+                    </div>
+                    <div style={{backgroundColor: '#4b4a5b', width: 350}}>
+                        <GoalMenuItem
+                            type={'HABIT'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="/ButtonIcon">
