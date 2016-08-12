@@ -3,6 +3,7 @@ import HeaderCompositUser from '../src/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../src/composites/SectionHeaderGeneral';
 import SectionHeaderTitle from '../src/composites/SectionHeaderTitle';
 import ActionItemDefault from '../src/composites/ActionItemDefault';
+import ActionItemSelectComposit from '../src/composites/ActionItemSelectComposit';
 import ActionItemSummaryComposit from '../src/composites/ActionItemSummaryComposit';
 import IconAvaWrapper from '../src/composites/IconAvaWrapper';
 import LabelPair from '../src/composites/LabelPair';
@@ -1869,7 +1870,7 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey', width: 200}}>
                         <ListCompositeActivity
                             co2={2.7}
-                            iconSVG={'Transport01'}
+                            icon={iconImageImage}
                             points={15}
                             title={'Aktvitet med langt navn'}
                         />
@@ -1926,11 +1927,22 @@ export default class App extends React.Component {
                         <ListCompositeSugClose>
                             <ListCompositeActivity
                                 co2={2.7}
-                                iconSVG={'Transport01'}
+                                icon={iconImageImage}
                                 points={15}
                                 title={'Aktvitet med langt navn'}
                             />
                         </ListCompositeSugClose>
+                    </div>
+                </Preview>
+
+                <Preview title={"/ActionItemSelectComposit"}>
+                    <div style={{width: 200}}>
+                        <ActionItemSelectComposit
+                            co2={992.7}
+                            icon={iconImageImage}
+                            points={15}
+                            title={'Aktivitet med langt navn navnesan'}
+                        />
                     </div>
                 </Preview>
 
