@@ -31,8 +31,8 @@ function ActionItemSelectComposit(props) {
 ActionItemSelectComposit.propTypes = {
     className: PropTypes.string,
     co2: PropTypes.number,
-    onClick: PropTypes.func,
     icon: PropTypes.string,
+    onClick: PropTypes.func,
     points: PropTypes.number,
     title: PropTypes.string
 };

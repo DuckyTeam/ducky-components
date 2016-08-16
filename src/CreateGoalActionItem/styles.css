@@ -1,0 +1,30 @@
+.wrapper {
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+}
+
+.innerWrapper {
+    align-items: center;
+    text-align: center;
+    margin-left: 16px;
+    flex-grow: 1;
+}
+
+.typoCreateGoal {
+    color: #607d8b;
+    font-weight: bold;
+}
+
+.typoFinishedGoal {
+    color: #00ab97;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.actionItemComposite {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap;
+}
