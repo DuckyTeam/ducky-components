@@ -1,0 +1,17 @@
+.actionButton {
+  cursor:pointer;
+  background-color: transparent;
+}
+
+.actionButton > span {
+  color: #b0bec5;
+}
+
+.actionButton:hover > span {
+  color: #607d8b;
+}
+
+.popOverMenu {
+  min-width: 200px;
+  margin-left: -170px;
+}
