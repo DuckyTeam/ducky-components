@@ -31,6 +31,7 @@ import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalComposit1 from '../src/GoalComposit1';
+import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
@@ -490,6 +491,45 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey', width: 320}}>
                         <GoalComposit1
                             finishedGoal
+                        />
+                    </div>
+                </Preview>
+
+
+                <Preview title="GoalDescriptionGeneral">
+                    {'Activity'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            numberDays={30}
+                            numberRegistration={24}
+                            selectedActivityName={'Sykle til jobben'}
+                            type={'activity'}
+                        />
+                    </div>
+                    <br />
+                    {'Points'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            goalPointsAmount={1000}
+                            numberDays={14}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    {'CO2'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            numberDays={45}
+                            savingsAmount={500}
+                            type={'co2'}
+                        />
+                    </div>
+                    <br />
+                    {'Habit'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            selectedActivityName={'Unnga matkasting'}
+                            type={'habit'}
                         />
                     </div>
                 </Preview>

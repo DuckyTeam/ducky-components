@@ -1,0 +1,41 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.goalPop {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.innerWrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  text-justify: none;
+}
+
+.text {
+  color: #607d8b;
+}
+
+.pointsIcon {
+  color: #8bc34a;
+}
+
+.activityIcon {
+  color: #0099a9;
+}
+
+.habitIcon {
+  color: #35b8c4;
+}
+
+.co2Icon {
+  color: #00ab97;
+}
