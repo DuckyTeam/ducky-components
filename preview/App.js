@@ -26,6 +26,7 @@ import CardLabel2 from '../src/ChallengeCardLabel2';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
+import GoalButtonPopOverMenuItem from '../src/GoalButtonPopOverMenuItem';
 import GoalComposit1 from '../src/GoalComposit1';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
@@ -493,8 +494,17 @@ export default class App extends React.Component {
 
                 <Preview title="PeopleLabel">
                     <PeopleLabel
-                      people={[AVATAR_URL, IMAGE_URL]}
+                        people={[AVATAR_URL, IMAGE_URL]}
                     />
+                </Preview>
+
+                <Preview title="GoalButtonPopOverMenuItem">
+                    <GoalButtonPopOverMenuItem />
+                    <br />
+                    <GoalButtonPopOverMenuItem
+                        show
+                    />
+                </Preview>
 
                 <Preview title="GoalInfoNavigation">
                     <GoalInfoNavigation
