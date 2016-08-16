@@ -21,7 +21,7 @@ function ChallengeCardLabel1(props) {
     } else if (props.type === 'co2') {
         pColor = '#00AB97';
         iconName = 'icon-leaf';
-        typoText = 'kgCO2e';
+        typoText = 'kgCO\u2082e';
     } else if (props.type === 'activities') {
         pColor = '#0099A9';
         iconName = 'icon-check_circle';
