@@ -491,11 +491,12 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
+<<<<<<< HEAD
                 <Preview title="PeopleLabel">
                     <PeopleLabel
                       people={[AVATAR_URL, IMAGE_URL]}
                     />
-
+=======
                 <Preview title="GoalInfoNavigation">
                     <GoalInfoNavigation
                         currentSlide={2}
@@ -535,6 +536,7 @@ export default class App extends React.Component {
                             type={'HABIT'}
                         />
                     </div>
+>>>>>>> 69ee9c4fd177870cc64d00c5ce11b65e0329c764
                 </Preview>
 
                 <Preview title="/ButtonIcon">
@@ -1446,6 +1448,65 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+<<<<<<< HEAD
+=======
+                <Preview title="ChallengeCardSection1">
+                    <div className={styles.subHeader}>User Not Joined</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeDescription={["En relativt lang tagline"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
+                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Jul-2016'}
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        />
+                    </div>
+                    <div className={styles.subHeader}>User Joined no goal set</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'23-Aug-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'26-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
+                    </div>
+                    <div className={styles.subHeader}>User Joined and challenge to end soon</div>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <ChallengeCardSection1
+                            challengeName={'Utfordring navn'}
+                            endDate={'28-Jul-2016'}
+                            joined
+                            participantText={'1,248 deltagere'}
+                            startDate={'15-Jul-2016'}
+                        >
+                            <CardLabel1
+                                goal
+                                percentValue={26}
+                                points={43}
+                                progPercent={29}
+                                type={'points'}
+                            />
+                        </ChallengeCardSection1>
+                    </div>
+                </Preview>
+
+                <Preview title="ChallengeOverviewHeader1">
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <ChalOverHead1
+                          title={'Title'}
+                          text={'Description of the things'}/>
+                    </div>
+                </Preview>
+
+>>>>>>> 69ee9c4fd177870cc64d00c5ce11b65e0329c764
                 <Preview title={"IconImage"}>
                     <div className={styles.subHeader}>Small</div>
                     <IconImage
