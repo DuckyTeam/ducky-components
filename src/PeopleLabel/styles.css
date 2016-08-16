@@ -1,0 +1,33 @@
+.wrapper {
+    position: relative;
+    height: 24px;
+    background-color: #FFFFFF;
+}
+
+.avatar {
+    position: absolute;
+    border: 2px solid #FFF;
+    display: inline;
+    top: -12px;
+    margin: 0 auto;
+}
+
+.oneItem {
+    right: 0px;
+}
+
+.twoItem {
+    right: 10px;
+}
+
+.threeItem {
+    right: 25px;
+}
+
+.fourItem {
+    right: 40px;
+}
+
+.fiveItem {
+    right: 55px;
+}

@@ -18,15 +18,11 @@ import ButtonCounter from '../src/ButtonCounter';
 import CardLabel1 from '../src/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
-import ChallengeCard2 from '../src/composites/ChallengeCard2';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
-import ChallengeCardSection1 from '../src/ChallengeCardSection1';
-import ChalOverHead1 from '../src/ChallengeOverviewHeader1';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
 import CardLabel2 from '../src/ChallengeCardLabel2';
-import CardSection2 from '../src/composites/ChallengeCardSection2';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
@@ -100,6 +96,7 @@ import TextArea from '../src/TextArea';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
 import ProgressBar from '../src/ProgressBar';
+import PeopleLabel from '../src/PeopleLabel';
 import styles from './App.css';
 import moment from 'moment';
 const IMAGE_URL = "http://rocketpost.com/media/458905753-e1404928920315.jpg";
@@ -495,6 +492,7 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
+<<<<<<< HEAD
 
                 <Preview title="GoalDescriptionGeneral">
                     {'Activity'}
@@ -532,6 +530,12 @@ export default class App extends React.Component {
                             type={'habit'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title="PeopleLabel">
+                    <PeopleLabel
+                      people={[AVATAR_URL, IMAGE_URL]}
+                    />
                 </Preview>
 
                 <Preview title="GoalInfoNavigation">
@@ -1453,60 +1457,6 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title="ChallengeCardSection2">
-                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
-                        <CardSection2
-                            cardLabelType={'points'}
-                            labelContent={"2,355"}
-                            percentValue={125}
-                            points={43}
-                            progPercent={120}
-                            textOne={"Utfordring med veldig langt navn og det er det"}
-                            userParticipate
-                            userText={"23.Apr"}
-                        />
-                    </div>
-                    <hr />
-                    <div style={{backgroundColor: 'lightgrey', width: 210}}>
-                        <CardSection2
-                            labelContent={"2,355"}
-                            textOne={"Utfordring med veldig langt navn og det er det"}
-                            textTwo={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            userText={"23.Apr"}
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title="ChallengeCard2">
-                    <div style={{width: 310}}>
-                        <ChallengeCard2
-                            cardLabelContent={"2,355"}
-                            cardLabelType={'points'}
-                            date={"23.Apr"}
-                            image={IMAGE_URL}
-                            percentValue={125}
-                            points={43}
-                            progPercent={120}
-                            titleText={"Utfordring med veldig langt navn og det er det"}
-                            userParticipate
-                        />
-                    </div>
-                    <hr />
-                    <div style={{width: 310}}>
-                        <ChallengeCard2
-                            bodyText={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            cardLabelContent={"2,355"}
-                            date={"23.Apr"}
-                            image={IMAGE_URL}
-                            titleText={"Utfordring med veldig langt navn og det er det"}
-                        />
-                    </div>
-                </Preview>
-
                 <Preview title="ChallengeMetaJoin">
                     <ChallengeMetaJoin
                         endDate={'23-Jul-2016'}
@@ -1536,62 +1486,6 @@ export default class App extends React.Component {
                         endDate={'15-Jul-2016'}
                         startDate={'15-Jul-2016'}
                     />
-                </Preview>
-
-                <Preview title="ChallengeCardSection1">
-                    <div className={styles.subHeader}>User Not Joined</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeDescription={["En relativt lang tagline"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"] +
-                                ["for denne utfordringen her men ellipsis er brukt, skal vi se!"]}
-                            challengeName={'Utfordring navn'}
-                            endDate={'23-Jul-2016'}
-                            participantText={'1,248 deltagere'}
-                            startDate={'15-Jul-2016'}
-                        />
-                    </div>
-                    <div className={styles.subHeader}>User Joined no goal set</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeName={'Utfordring navn'}
-                            endDate={'23-Aug-2016'}
-                            joined
-                            participantText={'1,248 deltagere'}
-                            startDate={'26-Jul-2016'}
-                        >
-                            <CardLabel1
-                                goal
-                                type={'points'}
-                            />
-                        </ChallengeCardSection1>
-                    </div>
-                    <div className={styles.subHeader}>User Joined and challenge to end soon</div>
-                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
-                        <ChallengeCardSection1
-                            challengeName={'Utfordring navn'}
-                            endDate={'28-Jul-2016'}
-                            joined
-                            participantText={'1,248 deltagere'}
-                            startDate={'15-Jul-2016'}
-                        >
-                            <CardLabel1
-                                goal
-                                percentValue={26}
-                                points={43}
-                                progPercent={29}
-                                type={'points'}
-                            />
-                        </ChallengeCardSection1>
-                    </div>
-                </Preview>
-
-                <Preview title="ChallengeOverviewHeader1">
-                    <div style={{backgroundColor: 'lightgrey'}}>
-                        <ChalOverHead1
-                          title={'Title'}
-                          text={'Description of the things'}/>
-                    </div>
                 </Preview>
 
                 <Preview title={"IconImage"}>
