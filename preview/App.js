@@ -24,6 +24,7 @@ import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeCardSection1 from '../src/ChallengeCardSection1';
 import ChalOverHead1 from '../src/ChallengeOverviewHeader1';
 import CheckBox from '../src/CheckBox';
+import CreateGoalActionItem from '../src/CreateGoalActionItem';
 import CardLabel2 from '../src/ChallengeCardLabel2';
 import CardSection2 from '../src/composites/ChallengeCardSection2';
 import ConfirmationModal from '../src/ConfirmationModal';
@@ -1938,6 +1939,17 @@ export default class App extends React.Component {
                 <Preview title={"/ActionItemSelectComposit"}>
                     <div style={{width: 200}}>
                         <ActionItemSelectComposit
+                            co2={992.7}
+                            icon={iconImageImage}
+                            points={15}
+                            title={'Aktivitet med langt navn navnesan'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={"/CreateGoalActionItem"}>
+                    <div style={{backgroundColor: 'lightgrey', width: 300}}>
+                        <CreateGoalActionItem
                             co2={992.7}
                             icon={iconImageImage}
                             points={15}
