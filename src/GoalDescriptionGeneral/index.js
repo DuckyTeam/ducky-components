@@ -1,13 +1,32 @@
 import Icon from '../Icon';
 import Typography from '../Typography';
+import GoalButtonPopOverMenuItem from '../GoalButtonPopOverMenuItem';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
+import moment from 'moment';
+
+moment.locale('nb', {
+    calendar: {
+        lastDay: "D. MMM",
+        sameDay: "D. MMM",
+        nextDay: "D. MMM",
+        lastWeek: "D. MMM",
+        nextWeek: "D. MMM",
+        sameElse: "D. MMM"
+    }
+});
 
 function GoalDescriptionGeneral(props) {
     let icon = 'icon-assignment_turned_in';
     let text = 'Gjennomføre 10 ganger for å bygge vane';
     let caption = props.selectedActivityName;
+    const momentStartDate = moment(props.startDate).startOf('day').valueOf();
+    const momentEndDate = moment(props.endDate).startOf('day').valueOf();
+    const momentToday = moment(Date.now()).startOf('day').valueOf();
+    const daysRemainingToEnd = moment(momentEndDate).diff(momentToday, 'days');
+    const daysRemainingToStart = moment(momentStartDate).diff(momentToday, 'days');
+    let dateInfo = `Starter ${props.startDate}`;
 
     if (props.type.toUpperCase() === 'ACTIVITY') {
         icon = 'icon-check_circle';
@@ -25,6 +44,24 @@ function GoalDescriptionGeneral(props) {
         caption = 'Poeng';
     }
 
+    if (props.type.toUpperCase() === 'HABIT') {
+        dateInfo = `Startet ${props.startDate}`;
+    } else if (momentToday > momentStartDate && daysRemainingToEnd === 1) {
+        dateInfo = 'Slutter imorgen';
+    } else if (momentToday > momentStartDate && daysRemainingToEnd > 1 && daysRemainingToEnd < 7) {
+        dateInfo = `Slutter om ${daysRemainingToEnd} dager`;
+    } else if (momentToday < momentStartDate && daysRemainingToStart === 1) {
+        dateInfo = 'Starter imorgen';
+    } else if
+        (momentToday < momentStartDate && daysRemainingToStart > 1 && daysRemainingToStart < 7) {
+        dateInfo = `Starter om ${daysRemainingToStart} dager`;
+    } else if (momentToday === momentEndDate && props.finished) {
+        dateInfo = `Fullført ${props.endDate}`;
+    } else if (momentToday === momentEndDate && !props.finished) {
+        dateInfo = `Sluttet  ${props.endDate}`;
+    }
+
+
     return (
         <div
             className={classNames(styles.wrapper, {
@@ -32,6 +69,11 @@ function GoalDescriptionGeneral(props) {
             })}
             size={'short'}
         >
+            <GoalButtonPopOverMenuItem
+                className={styles.goalPop}
+                onClick={props.handleMoreClick}
+                show={props.show}
+            />
             <Icon
                 className={classNames(styles.icon,
                     {[styles.pointsIcon]: icon === 'icon-brightness_high'},
@@ -57,7 +99,7 @@ function GoalDescriptionGeneral(props) {
                     className={styles.text}
                     type={'caption2Normal'}
                 >
-                    {'Slutter om 7 dager'}
+                    {dateInfo}
                 </Typography>
             </div>
         </div>
@@ -66,12 +108,17 @@ function GoalDescriptionGeneral(props) {
 
 GoalDescriptionGeneral.propTypes = {
     className: React.PropTypes.string,
+    endDate: React.PropTypes.string,
+    finished: React.PropTypes.bool,
     goalPointsAmount: React.PropTypes.number,
+    handleMoreClick: React.PropTypes.func,
     numberDays: React.PropTypes.number,
     numberRegistration: React.PropTypes.number,
     onClick: React.PropTypes.func,
     savingsAmount: React.PropTypes.number,
     selectedActivityName: React.PropTypes.string,
+    show: React.PropTypes.bool,
+    startDate: React.PropTypes.string,
     type: React.PropTypes.string
 };
 
