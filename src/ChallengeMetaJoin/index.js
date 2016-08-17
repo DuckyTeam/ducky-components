@@ -22,12 +22,14 @@ class ChallengeMetaJoin extends React.Component {
 
     getJoinedIndicatorInfo(joined) {
         if (joined === true) {
-            let daysRemainingToEnd = moment(this.props.endDate)
-                                        .diff(moment(Date.now()), 'days') + 1;
-            let daysRemainingToStart = moment(this.props.startDate)
-                                        .diff(moment(Date.now()), 'days') + 1;
+            const momentStartDate = moment(this.props.startDate).startOf('day').valueOf();
+            const momentEndDate = moment(this.props.endDate).startOf('day').valueOf();
+            const momentToday = moment(Date.now()).startOf('day').valueOf();
+            const daysRemainingToEnd = moment(momentEndDate).diff(momentToday, 'days');
+            const daysRemainingToStart = moment(momentStartDate).diff(momentToday, 'days');
 
-            if (moment(Date.now()) > moment(this.props.startDate) && daysRemainingToEnd <= 7) {
+            if (momentToday > momentStartDate &&
+                    momentToday < momentEndDate && daysRemainingToEnd <= 7) {
                 return (
                     <Typography
                         className={styles.text}
@@ -37,7 +39,7 @@ class ChallengeMetaJoin extends React.Component {
                     </Typography>
                 );
             } else if
-                (moment(Date.now()) < moment(this.props.startDate) && daysRemainingToStart <= 7) {
+                (momentToday < momentStartDate && daysRemainingToStart <= 7) {
                 return (
                     <Typography
                         className={styles.text}
@@ -52,7 +54,8 @@ class ChallengeMetaJoin extends React.Component {
                     className={styles.text}
                     type={'caption2Normal'}
                 >
-                    {`${moment(this.props.startDate).calendar()} - ${moment(this.props.endDate).calendar()}`}
+                    {`${moment(this.props.startDate).calendar()} -
+                          ${moment(this.props.endDate).calendar()}`}
                 </Typography>
             );
         }
@@ -61,7 +64,8 @@ class ChallengeMetaJoin extends React.Component {
                 className={styles.text}
                 type={'caption2Normal'}
             >
-                {`${moment(this.props.startDate).calendar()} - ${moment(this.props.endDate).calendar()}`}
+                {`${moment(this.props.startDate).calendar()} -
+                          ${moment(this.props.endDate).calendar()}`}
             </Typography>
         );
     }

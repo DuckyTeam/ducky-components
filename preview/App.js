@@ -28,6 +28,7 @@ import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalButtonPopOverMenuItem from '../src/GoalButtonPopOverMenuItem';
 import GoalComposit1 from '../src/GoalComposit1';
+import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
@@ -478,6 +479,13 @@ export default class App extends React.Component {
                     <GoalButtonBig />
                 </Preview>
 
+                <Preview title="GoalButtonPopOverMenuItem">
+                    <GoalButtonPopOverMenuItem />
+                    <GoalButtonPopOverMenuItem
+                        show
+                    />
+                </Preview>
+
                 <Preview title="GoalComposit1">
                     {'Create New Goal Only'}
                     <div style={{backgroundColor: 'lightgrey', width: 320}}>
@@ -488,6 +496,87 @@ export default class App extends React.Component {
                     <div style={{backgroundColor: 'lightgrey', width: 320}}>
                         <GoalComposit1
                             finishedGoal
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="GoalDescriptionGeneral">
+                    {'Activity'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'17-Aug-2016'}
+                            numberDays={30}
+                            numberRegistration={24}
+                            selectedActivityName={'Sykle til jobben'}
+                            startDate={'15-Aug-2016'}
+                            type={'activity'}
+                        />
+                    </div>
+                    <br />
+                    {'Activity'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'30-Aug-2016'}
+                            numberDays={30}
+                            numberRegistration={24}
+                            selectedActivityName={'Sykle til jobben'}
+                            startDate={'18-Aug-2016'}
+                            type={'activity'}
+                        />
+                    </div>
+                    <br />
+                    {'Points'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'17-Aug-2016'}
+                            finished
+                            goalPointsAmount={1000}
+                            numberDays={14}
+                            startDate={'15-Aug-2016'}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    {'Points'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'18-Aug-2016'}
+                            finished
+                            goalPointsAmount={1000}
+                            numberDays={14}
+                            startDate={'15-Aug-2016'}
+                            type={'points'}
+                        />
+                    </div>
+                    <br />
+                    {'CO2'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'20-Aug-2016'}
+                            numberDays={45}
+                            savingsAmount={500}
+                            startDate={'15-Aug-2016'}
+                            type={'co2'}
+                        />
+                    </div>
+                    <br />
+                    {'CO2'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            endDate={'30-Aug-2016'}
+                            numberDays={45}
+                            savingsAmount={500}
+                            startDate={'24-Aug-2016'}
+                            type={'co2'}
+                        />
+                    </div>
+                    <br />
+                    {'Habit'}
+                    <div style={{width: 140}}>
+                        <GoalDescriptionGeneral
+                            selectedActivityName={'Unnga matkasting'}
+                            startDate={'2-Aug-2016'}
+                            type={'habit'}
                         />
                     </div>
                 </Preview>
