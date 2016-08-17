@@ -44,7 +44,7 @@ Modal.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     fullSize: React.PropTypes.bool,
-    onHide: React.PropTypes.func.isRequired,
+    onHide: React.PropTypes.func,
     show: React.PropTypes.bool
 };
 
