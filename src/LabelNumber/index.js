@@ -2,6 +2,7 @@ import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
+import Counter from '../Counter';
 
 function LabelNumber(props) {
     return (
@@ -12,7 +13,7 @@ function LabelNumber(props) {
                         [styles.darknumber]: props.bgcolor === 'darkbg'})}
                     type={'ingressStrong'}
                 >
-                    {props.number}
+                    <Counter number={Number(props.number)} />
                 </Typography>
                 <br />
                 <Typography
