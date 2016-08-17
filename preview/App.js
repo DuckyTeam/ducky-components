@@ -32,6 +32,7 @@ import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
+import ProfileGeneralInfo from '../src/ProfileGeneralInfo';
 import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
 import ProfilePageMetaFollowers from '../src/composites/ProfilePageMetaFollowers';
@@ -2386,6 +2387,49 @@ export default class App extends React.Component {
                         >
                             <div style={{backgroundColor: 'lightgreen', height: 200, width: 200}} />
                         </CarouselStandard1>
+                    </div>
+                </Preview>
+
+                <Preview title="ProfileGeneralInfo - Your profile">
+                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
+                        <ProfileGeneralInfo
+                            avatarImageURL={AVATAR_URL}
+                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
+                            followedByPerson={83}
+                            followersOfPerson={677}
+                            imageURL={IMAGE_URL}
+                            name={'Per Thomas Normannsen'}
+                            type={'search'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="ProfileGeneralInfo - person following">
+                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
+                        <ProfileGeneralInfo
+                            avatarImageURL={AVATAR_URL}
+                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
+                            followedByPerson={83}
+                            followersOfPerson={677}
+                            imageURL={IMAGE_URL}
+                            isFollowing
+                            name={'Kort Normannsen'}
+                            type={'people'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title="ProfileGeneralInfo - not following">
+                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
+                        <ProfileGeneralInfo
+                            avatarImageURL={AVATAR_URL}
+                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
+                            followedByPerson={83}
+                            followersOfPerson={677}
+                            imageURL={IMAGE_URL}
+                            name={'Veldig veldig langt navnNavnesan navnNavnesan'}
+                            type={'people'}
+                        />
                     </div>
                 </Preview>
 
