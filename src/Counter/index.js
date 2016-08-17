@@ -27,7 +27,7 @@ class Counter extends React.Component {
     }
     componentDidUpdate(prevProps) {
         if (prevProps.number !== this.props.number) {
-            self.counter.update(this.props.number);
+            this.counter.update(this.props.number);
         }
     }
     handleRef(container) {
@@ -35,13 +35,13 @@ class Counter extends React.Component {
     }
     render() {
         return (
-            <div
+            <span
                 className={classNames(styles.wrapper, {
                     [this.props.className]: this.props.className
                 })}
                 ref={this.handleRef}
             >
-            </div>
+            </span>
         );
     }
 }
