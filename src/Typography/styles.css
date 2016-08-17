@@ -1,6 +1,6 @@
 .wrapper {
   word-wrap: break-word;
-  white-space: pre-line;
+  white-space: pre-wrap;
 }
 
 .caption1Normal {
