@@ -23,6 +23,7 @@ import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
 import CardLabel2 from '../src/ChallengeCardLabel2';
+import Counter from '../src/Counter';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
@@ -129,11 +130,15 @@ export default class App extends React.Component {
             value: 0,
             linkValue: "",
             hasSavedLinkElement: false,
-            inputErrorMessage: null
+            inputErrorMessage: null,
+            counterNumber: 10
         };
         setInterval(() => {
-            this.setState({value: this.state.value + 0.3});
+            // this.setState({value: this.state.value + 0.3});
         }, 1000);
+        setInterval(() => {
+            this.setState({counterNumber: this.state.counterNumber + 5});
+        }, 6000);
         this.handleASICPressed = this.handleASICPressed.bind(this);
         this.handleModalButtonClick = this.handleModalButtonClick.bind(this);
         this.handleFullsizeModalButtonClick = this.handleFullsizeModalButtonClick.bind(this);
@@ -328,6 +333,10 @@ export default class App extends React.Component {
 
                 <Preview title="PopoverMenuAnchor2">
                     <PopoverMenuAnchor2 icon="icon-trophy">Text</PopoverMenuAnchor2>
+                </Preview>
+
+                <Preview title="Counter">
+                    <Counter number={this.state.counterNumber} />
                 </Preview>
 
                 <Preview title="PopoverMenuAnchor3">
