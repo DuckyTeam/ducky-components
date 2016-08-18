@@ -13,7 +13,7 @@ class Counter extends React.Component {
         this.handleRef = this.handleRef.bind(this);
     }
     componentDidMount() {
-        this.counter = new CountUp(this.wrapper, 0, 0, 0, 1, {
+        this.counter = new CountUp(this.wrapper, 0, 0, this.props.decimals || 0, 1, {
             useEasing: true,
             useGrouping: true,
             separator: ' ',
@@ -48,6 +48,7 @@ class Counter extends React.Component {
 
 Counter.propTypes = {
     className: React.PropTypes.string,
+    decimals: React.PropTypes.number,
     number: React.PropTypes.number
 };
 

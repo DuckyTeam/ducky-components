@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import styles from './styles.css';
 import Typography from '../Typography';
 import Icon from '../Icon';
+import Counter from '../Counter';
 
 function LabelDisplay(props) {
     return (
@@ -29,7 +30,12 @@ function LabelDisplay(props) {
                     })}
                     type="display1"
                 >
-                    {props.value}
+                    {typeof props.value === 'number'
+                    ? <Counter
+                        decimals={2}
+                        number={props.value}
+                      />
+                    : props.value}
                 </Typography>
             </div>
         </div>
@@ -42,7 +48,7 @@ LabelDisplay.propTypes = {
     iconColor: PropTypes.string,
     label: PropTypes.string,
     theme: PropTypes.oneOf(['dark', 'light']),
-    value: PropTypes.string
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default LabelDisplay;
