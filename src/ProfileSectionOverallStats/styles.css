@@ -8,3 +8,17 @@
 .wrapper {
     display: flex;
 }
+
+.comparisonAvatarWrapper {
+  margin-left: 120px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.ownAvatarWrapper {
+  margin-left: 8px;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+}
