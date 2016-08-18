@@ -5,17 +5,14 @@ const PropTypes = React.PropTypes;
 
 function Avatar(props) {
     return (
-        <div>
-            <img
-                alt={props.name}
-                className={classNames(styles.item, {
-                    [styles[props.size]]: props.size,
-                    [props.className]: props.className
-                })}
-                onClick={props.onClick}
-                src={props.image}
-                style={props.style}
-            />
+        <div
+            className={classNames(styles.item, {
+                [styles[props.size]]: props.size,
+                [props.className]: props.className
+            })}
+            onClick={props.onClick}
+            style={{backgroundImage: `url(${props.image})`}}
+        >
         </div>
     );
 }

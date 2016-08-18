@@ -1,6 +1,8 @@
 .item {
     border: none;
     border-radius: 50%;
+    background-position: center;
+    background-size: cover;
 }
 
 .small {
