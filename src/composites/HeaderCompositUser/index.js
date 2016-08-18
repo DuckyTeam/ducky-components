@@ -53,7 +53,7 @@ HeaderCompositUser.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
     icon: PropTypes.string,
-    iconValue: PropTypes.string,
+    iconValue: PropTypes.number,
     onIconClick: PropTypes.func,
     onProfileClick: PropTypes.func,
     title: PropTypes.string

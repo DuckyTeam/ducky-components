@@ -30,7 +30,7 @@ function LabelNumber(props) {
 LabelNumber.propTypes = {
     bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
-    number: React.PropTypes.string,
+    number: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
     textcontent: React.PropTypes.string
 };
 
