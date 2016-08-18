@@ -2135,6 +2135,20 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title="/ProfileSectionOverallStats with profile comparison">
+                    <ProfileSectionOverallStats
+                      activities={12}
+                      co2={12}
+                      comparisonActivities={21}
+                      comparisonAvatarUrl={AVATAR_URL}
+                      comparisonCo2={21}
+                      comparisonPoints={21}
+                      ownAvatarUrl={'http://www.pescuitinfo.ro/media/avat_1794.jpg'}
+                      points={12}
+                      toBeCompared
+                    />
+                </Preview>
+
                 <Preview title="/ActionItemDefaultComposite">
                     <div style={{width: 250}}>
                         <ActionItemDefault
