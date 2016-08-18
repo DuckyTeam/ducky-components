@@ -12,6 +12,7 @@
   overflow: hidden;
   width: 100%;
   align-self: center;
+  flex: 1;
 }
 
 .title {
