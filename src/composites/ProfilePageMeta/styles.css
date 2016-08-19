@@ -29,6 +29,7 @@
     text-align: center;
     margin-left: 8px;
     color: #90a4ae;
+    min-width: 60px;
 }
 
 .totalComparison {
@@ -36,6 +37,7 @@
     text-align: center;
     margin-left: 8px;
     color: #263238;
+    min-width: 60px;
 }
 
 .co2Icon {
