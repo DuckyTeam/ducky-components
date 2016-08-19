@@ -33,10 +33,8 @@ import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
-import ProfileGeneralInfo from '../src/ProfileGeneralInfo';
 import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
-import ProfilePageMetaFollowers from '../src/composites/ProfilePageMetaFollowers';
 import ProfileSectionOverallStats from '../src/ProfileSectionOverallStats';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
@@ -2021,42 +2019,6 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title="/ProfilePageMetaFollowers">
-                    <div className={styles.subHeader}>
-                        {'Your own profile'}
-                    </div>
-                    <div style={{width: 250}}>
-                        <ProfilePageMetaFollowers
-                            followedByYou={677}
-                            type={'search'}
-                            yourFollowers={83}
-                        />
-                    </div>
-                    <br />
-                    <div className={styles.subHeader}>
-                        {'Person you are not following yet'}
-                    </div>
-                    <div style={{width: 250}}>
-                        <ProfilePageMetaFollowers
-                            followedByYou={357}
-                            type={'people'}
-                            yourFollowers={37}
-                        />
-                    </div>
-                    <br />
-                    <div className={styles.subHeader}>
-                        {'Person you are following'}
-                    </div>
-                    <div style={{width: 250}}>
-                        <ProfilePageMetaFollowers
-                            followedByYou={357}
-                            isFollowing
-                            type={'people'}
-                            yourFollowers={37}
-                        />
-                    </div>
-                </Preview>
-
                 <Preview title="/ProfilePageMeta">
                     <div className={styles.subHeader}>
                         {'ProfilePageMeta - CO2'}
@@ -2410,49 +2372,6 @@ export default class App extends React.Component {
                         >
                             <div style={{backgroundColor: 'lightgreen', height: 200, width: 200}} />
                         </CarouselStandard1>
-                    </div>
-                </Preview>
-
-                <Preview title="ProfileGeneralInfo - Your profile">
-                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
-                        <ProfileGeneralInfo
-                            avatarImageURL={AVATAR_URL}
-                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
-                            followedByPerson={83}
-                            followersOfPerson={677}
-                            imageURL={IMAGE_URL}
-                            name={'Per Thomas Normannsen'}
-                            type={'search'}
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title="ProfileGeneralInfo - person following">
-                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
-                        <ProfileGeneralInfo
-                            avatarImageURL={AVATAR_URL}
-                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
-                            followedByPerson={83}
-                            followersOfPerson={677}
-                            imageURL={IMAGE_URL}
-                            isFollowing
-                            name={'Kort Normannsen'}
-                            type={'people'}
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title="ProfileGeneralInfo - not following">
-                    <div style={{backgroundColor: 'darkgrey', width: 240}}>
-                        <ProfileGeneralInfo
-                            avatarImageURL={AVATAR_URL}
-                            description={'Jeg liker å gå tur i skogen og plukke sopp'}
-                            followedByPerson={83}
-                            followersOfPerson={677}
-                            imageURL={IMAGE_URL}
-                            name={'Veldig veldig langt navnNavnesan navnNavnesan'}
-                            type={'people'}
-                        />
                     </div>
                 </Preview>
 

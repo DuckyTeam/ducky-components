@@ -23,7 +23,7 @@ function ProfilePageMeta(props) {
     if (props.toBeCompared) {
         totalComparisonComp = (
             <Typography className={styles.totalComparison}
-                type={'header1'}
+                type={'ingressStrong'}
             >
                 {totalComparison}
             </Typography>
@@ -56,7 +56,7 @@ function ProfilePageMeta(props) {
             {totalComparisonComp}
             <Typography className={props.toBeCompared
                     ? styles.totalUserWhenCompared : styles.totalUser}
-                type={'header1'}
+                type={props.toBeCompared ? 'ingressStrong' : 'header1'}
             >
                 {totalUser}
             </Typography>
