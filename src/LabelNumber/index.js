@@ -13,7 +13,10 @@ function LabelNumber(props) {
                         [styles.darknumber]: props.bgcolor === 'darkbg'})}
                     type={'ingressStrong'}
                 >
-                    <Counter number={Number(props.number)} />
+                    {props.animation
+                    ? <Counter number={Number(props.number)} />
+                    : props.number}
+
                 </Typography>
                 <br />
                 <Typography
@@ -28,6 +31,7 @@ function LabelNumber(props) {
   );
 }
 LabelNumber.propTypes = {
+    animation: React.PropTypes.bool,
     bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
     number: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
