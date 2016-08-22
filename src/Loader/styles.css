@@ -1,0 +1,83 @@
+.wrapper {
+  visibility: visible;
+  opacity: 1;
+  background-color: #ECEFF1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.hide {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.text {
+  margin: 24px auto 0;
+  text-align: center;
+  max-width:288px;
+  font-size:14px;
+  line-height:20px;
+  font-weight:normal;
+  color:#90a4ae;
+}
+
+.iconWrapper {
+  visibility: visible;
+  opacity: 1;
+  margin: 0 auto;
+  width:96px;
+  text-indent: -9999em;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAMAAAAL34HQAAAAM1BMVEVMaXGQpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK6QpK55dHImAAAAEHRSTlMAoGDgwNBAEPCAMJBwIFCwFwciRQAAAo9JREFUeNrt2+tq5DAMBWD5fk/0/k+7MBQWmu1OosmJDdX3bxgKB9t1ZGVMSimllFJKKaWUUkoppZT6QbSl+ZdStrpGpBb4G18mR6sm8z+5NmiWzfN/+EgzxMAH04ONnU8wiR5lM5+SN3pOMnxaey5V4AtCokfUzAzIBUg1P9fIzOvlSoEFAoHtLGIIqrOQJaDKUnkQTmAxD57C5aYxZf5AToRR+CMFN1i44cIPljdl93zUCcHxGc7SS7Lu8BUBbJcXUONvIt3PXC9G7QOPoCzYmzp8FquoQP628ivdrYt2gIj+X9xlp4kAXlyO39roqICf1/xeIno3i3Szwe+RMFYisXhPrHjM1F3Fxkrvnw3ZbIn+Gnb/bDeLLF3yB8GXl+bd63MDxzKyMruCY3GS/FkgdKxdMlgdHev4qG7omnWwIFfHn7f5nHK1OTeeObk6m762ycwnmOd6In4vPjzUA+iMUIDVqVxA1vJyFXjykevgc+LMFqFDLiy5cnOqNLNjg39LVbAb1vzhcpFuZPkWudC9PH/O9QR64SMXWiUAy0K+lWIjoRhhKgILLLEt+eYuE62Ya6clcxV6QPJ8UaRHtOVipWiL8XmhWLE3L62OMWo3geUMIlLxLADdtzaT+QZ2jUy4d3aj5fWK5Livd4Am61gA/PuM5BggDGStJ5frksPF2UJ+0TZ/+7KMESHLa/762hkiQEtjubJoroFs0MgZWnObGLTkPBpaMleGHQnnl6oGMIu4ltb8Cro6vlWouDsOco1us0Fb3/MHrCXYbSM5X2F3e+ScJYhUMjaUPJgTh8KygS/zlvDqueaE/KoivpXjzEYCgGbc/Mum8cfWZTA90lQj2lJ2/2UvxcZBSin12/wBAnSVZAILPdoAAAAASUVORK5CYII=);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 80%;
+  background-color: transparent;
+}
+
+.loader {
+  border-top: 4px solid rgba(38, 50, 56, 0.1);
+  border-right: 4px solid rgba(38, 50, 56, 0.1);
+  border-bottom: 4px solid rgba(38, 50, 56, 0.1);
+  border-left: 4px solid #90a4ae;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation: load8 1.1s infinite linear;
+  animation: load8 1.1s infinite linear;
+}
+
+.loader,
+.loader:after {
+  border-radius: 50%;
+  width: 88px;
+  height: 88px;
+}
+
+@-webkit-keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes load8 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

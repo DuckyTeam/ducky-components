@@ -60,6 +60,7 @@ import ListCompositeSavings from '../src/composites/ListCompositeSavings';
 import ListCompositeActivity from '../src/composites/ListCompositeActivity';
 import ListCompositePerson from '../src/composites/ListCompositePerson';
 import ListCompositeSugClose from '../src/composites/ListCompositeSuggestionClose';
+import Loader from '../src/Loader';
 import LogButton from "../src/LogButton";
 import MenuWrapper from '../src/MenuWrapper';
 import NotificationItem from '../src/NotificationItem';
@@ -404,6 +405,12 @@ export default class App extends React.Component {
                         subTitle="Favoritter (0)"
                         title="Logg aktivter"
                     />
+                </Preview>
+
+                <Preview title="Loader">
+                    <Loader>
+                        Skate or bike to work; it’s always funny, save the space for deer and bunny
+                    </Loader>
                 </Preview>
 
                 <Preview title="/Button">
@@ -1446,8 +1453,8 @@ export default class App extends React.Component {
                     width={300}
                 >
                     <ScrollContainer size={200}>
-                        <div style={{backgroundColor: 'red', height: 300}}></div>
-                        <div style={{backgroundColor: 'blue', height: 300}}></div>
+                        <div style={{backgroundColor: 'red', height: 300}} />
+                        <div style={{backgroundColor: 'blue', height: 300}} />
                     </ScrollContainer>
                 </Preview>
 
@@ -2099,15 +2106,15 @@ export default class App extends React.Component {
 
                 <Preview title="/ProfileSectionOverallStats with profile comparison">
                     <ProfileSectionOverallStats
-                      activities={12}
-                      co2={12}
-                      comparisonActivities={21}
-                      comparisonAvatarUrl={AVATAR_URL}
-                      comparisonCo2={21}
-                      comparisonPoints={21}
-                      ownAvatarUrl={'http://www.pescuitinfo.ro/media/avat_1794.jpg'}
-                      points={12}
-                      toBeCompared
+                        activities={12}
+                        co2={12}
+                        comparisonActivities={21}
+                        comparisonAvatarUrl={AVATAR_URL}
+                        comparisonCo2={21}
+                        comparisonPoints={21}
+                        ownAvatarUrl={'http://www.pescuitinfo.ro/media/avat_1794.jpg'}
+                        points={12}
+                        toBeCompared
                     />
                 </Preview>
 
