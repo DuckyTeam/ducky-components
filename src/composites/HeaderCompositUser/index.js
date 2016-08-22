@@ -1,4 +1,3 @@
-import Avatar from '../../Avatar';
 import Icon from '../../Icon';
 import React from 'react';
 import {PropTypes} from 'react';
@@ -10,12 +9,6 @@ import styles from './styles.css';
 function HeaderCompositUser(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <Avatar
-                className={classNames({[styles.link]: props.onProfileClick})}
-                image={props.avatar}
-                onClick={props.onProfileClick}
-                size={"standard"}
-            />
             <div className={styles.content}>
                 <Typography
                     className={classNames(styles.title, {[styles.link]: props.onProfileClick})}
@@ -48,7 +41,6 @@ function HeaderCompositUser(props) {
 }
 
 HeaderCompositUser.propTypes = {
-    avatar: PropTypes.string,
     category: PropTypes.oneOf(['food', 'consumption', 'energy', 'transport', 'social']),
     children: PropTypes.node,
     className: PropTypes.string,
