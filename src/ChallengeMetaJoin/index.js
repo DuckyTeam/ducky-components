@@ -54,8 +54,7 @@ class ChallengeMetaJoin extends React.Component {
                     className={styles.text}
                     type={'caption2Normal'}
                 >
-                    {`${moment(this.props.startDate).calendar()} -
-                          ${moment(this.props.endDate).calendar()}`}
+                    {`${moment(this.props.startDate).calendar()} - ${moment(this.props.endDate).calendar()}`}
                 </Typography>
             );
         }
@@ -64,8 +63,7 @@ class ChallengeMetaJoin extends React.Component {
                 className={styles.text}
                 type={'caption2Normal'}
             >
-                {`${moment(this.props.startDate).calendar()} -
-                          ${moment(this.props.endDate).calendar()}`}
+                {`${moment(this.props.startDate).calendar()} - ${moment(this.props.endDate).calendar()}`}
             </Typography>
         );
     }
