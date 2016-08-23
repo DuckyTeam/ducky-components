@@ -1,38 +1,32 @@
-import Modal from '../Modal';
 import React from 'react';
 import {PropTypes} from 'react';
-import styles from './styles.css';
 
 function ImageElement(props) {
+    const style = {
+        backgroundImage: `url(${props.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        width: props.width,
+        height: props.height
+    };
+
     return (
         <div className={props.className}>
             <div
-                className={styles.image}
                 onClick={props.onClick}
-                style={{backgroundImage: `url(${props.url})`}}
+                style={style}
             />
-            {props.onClick ? (
-                <Modal
-                    onHide={props.onModalHide}
-                    show={props.showModal}
-                >
-                    <img
-                        className={styles.modalImage}
-                        src={props.url}
-                    >
-                    </img>
-                </Modal>
-            ) : null}
         </div>
     );
 }
 
 ImageElement.propTypes = {
     className: PropTypes.string,
+    height: PropTypes.string.isRequired,
+    image: PropTypes.string,
     onClick: PropTypes.func,
-    onModalHide: PropTypes.func,
-    showModal: PropTypes.bool,
-    url: PropTypes.string
+    width: PropTypes.string.isRequired
 };
 
 export default ImageElement;

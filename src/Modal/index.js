@@ -15,6 +15,13 @@ class Modal extends React.Component {
             return null;
         }
 
+        const style = {};
+
+        if (this.props.width) {
+            style.width = this.props.width;
+            style.minWidth = this.props.width;
+        }
+
         return (
             <div
                 className={classNames(styles.backdrop, {
@@ -31,6 +38,7 @@ class Modal extends React.Component {
                             [styles.fullSize]: this.props.fullSize
                         })}
                         onClick={this.handleClick}
+                        style={style}
                     >
                         {this.props.children}
                     </div>
@@ -45,7 +53,8 @@ Modal.propTypes = {
     className: React.PropTypes.string,
     fullSize: React.PropTypes.bool,
     onHide: React.PropTypes.func,
-    show: React.PropTypes.bool
+    show: React.PropTypes.bool,
+    width: React.PropTypes.string
 };
 
 export default Modal;

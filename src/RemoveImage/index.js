@@ -11,8 +11,8 @@ function RemoveImage(props) {
         backgroundSize: 'cover',
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
-        width: '100%',
-        height: `${props.height}px`
+        width: props.width,
+        height: props.height
     };
 
     return (
@@ -33,9 +33,10 @@ function RemoveImage(props) {
 
 RemoveImage.propTypes = {
     className: PropTypes.string,
-    height: PropTypes.number.isRequired,
+    height: PropTypes.string.isRequired,
     image: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    width: PropTypes.string.isRequired
 };
 
 export default RemoveImage;
