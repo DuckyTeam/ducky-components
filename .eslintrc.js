@@ -279,7 +279,7 @@ module.exports = {
         // React specific linting rules for ESLint
 
         "react/display-name": 2,
-        "react/forbid-prop-types": 2,
+        "react/forbid-prop-types": 0,
         "react/no-danger": 2,
         "react/no-deprecated": 2,
         "react/no-did-mount-set-state": 2,

@@ -6,15 +6,21 @@ import Wrapper from '../Wrapper';
 import ActionButton from '../ActionButton';
 
 function RemoveImage(props) {
+    const style = {
+        backgroundImage: `url(${props.image})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        width: '100%',
+        height: `${props.height}px`
+    };
+
     return (
         <Wrapper
             className={classNames(styles.wrapper, {[props.className]: props.className})}
             size="standard"
+            style={style}
         >
-            <img
-                className={styles.image}
-                src={props.image}
-            ></img>
             <ActionButton
                 className={styles.button}
                 icon="icon-close"
@@ -27,6 +33,7 @@ function RemoveImage(props) {
 
 RemoveImage.propTypes = {
     className: PropTypes.string,
+    height: PropTypes.number.isRequired,
     image: PropTypes.string,
     onClick: PropTypes.func
 };

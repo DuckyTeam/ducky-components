@@ -11,6 +11,7 @@ function Wrapper(props) {
                 [props.className]: props.className
             })}
             onClick={props.onClick}
+            style={props.style}
         >
             {props.children}
         </div>
@@ -23,7 +24,8 @@ Wrapper.propTypes = {
     hr: PropTypes.bool,
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['standard', 'side-bottom', 'side', 'narrow', 'slim',
-        'short', 'midget', 'squat', 'slender'])
+        'short', 'midget', 'squat', 'slender']),
+    style: PropTypes.object
 };
 
 export default Wrapper;
