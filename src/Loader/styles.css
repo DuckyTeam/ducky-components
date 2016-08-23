@@ -56,8 +56,8 @@
 .loader,
 .loader:after {
   border-radius: 50%;
-  width: 88px;
-  height: 88px;
+  width: 96px;
+  height: 96px;
 }
 
 @-webkit-keyframes load8 {
