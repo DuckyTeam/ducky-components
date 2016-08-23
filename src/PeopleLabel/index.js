@@ -3,9 +3,6 @@ import Avatar from '../Avatar';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-const ICON_WIDTH = 24;
-const OVERLAP = 7;
-
 function PeopleLabel(props) {
     return (
         <div
@@ -16,17 +13,10 @@ function PeopleLabel(props) {
             {props.people.slice(0, 5).map((url, key) => {
                 return (
                     <Avatar
-                        className={classNames(styles.avatar, {
-                            [styles.oneItem]: props.people.length <= 1,
-                            [styles.twoItem]: props.people.length === 2,
-                            [styles.threeItem]: props.people.length === 3,
-                            [styles.fourItem]: props.people.length === 4,
-                            [styles.fiveItem]: props.people.length >= 5
-                        })}
+                        className={styles.avatar}
                         image={url}
                         key={key}
                         size={"small"}
-                        style={{left: key * (ICON_WIDTH + OVERLAP)}}
                         />
                 );
             })}
