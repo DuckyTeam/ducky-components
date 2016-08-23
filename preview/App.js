@@ -22,6 +22,7 @@ import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
+import CreateGoalValueInput from '../src/CreateGoalValueInput';
 import CardLabel2 from '../src/ChallengeCardLabel2';
 import ConfirmationModal from '../src/ConfirmationModal';
 import EndOfContent from '../src/EndOfContent';
@@ -478,13 +479,6 @@ export default class App extends React.Component {
 
                 <Preview title="GoalButtonBig">
                     <GoalButtonBig />
-                </Preview>
-
-                <Preview title="GoalButtonPopOverMenuItem">
-                    <GoalButtonPopOverMenuItem />
-                    <GoalButtonPopOverMenuItem
-                        show
-                    />
                 </Preview>
 
                 <Preview title="GoalComposit1">
@@ -1948,6 +1942,21 @@ export default class App extends React.Component {
                             title={'Aktivitet med langt navn navnesan'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title={"/CreateGoalValueInput"}>
+                    {'Activity'}
+                    <CreateGoalValueInput
+                        type={'activity'}
+                    />
+                  {'Points'}
+                    <CreateGoalValueInput
+                        type={'points'}
+                    />
+                  {'CO2'}
+                    <CreateGoalValueInput
+                        type={'co2'}
+                    />
                 </Preview>
 
                 <Preview title={"/ProfileMenuItem"}>
