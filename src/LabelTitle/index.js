@@ -15,7 +15,7 @@ function LabelTitle(props) {
             />
             <Typography
                 className={styles.text}
-                type={props.size === 'small' ? 'ingressTitles' : 'display1'}
+                type={props.size === 'small' ? 'ingressTitle' : 'display1'}
             >
                 {props.text}
             </Typography>

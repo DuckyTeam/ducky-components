@@ -8,7 +8,7 @@
  */
 
 
-const LINE_LENGTH = 100;
+const LINE_LENGTH = 150;
 const TAB_SPACES = 4;
 const MAX_CHAINS_BEFORE_BREAK = 5;
 

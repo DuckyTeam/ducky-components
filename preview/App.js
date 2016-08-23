@@ -44,6 +44,7 @@ import IconImage from '../src/IconImage';
 import iconImageImage from "../src/assets/SVGIcons/social.svg";
 import ImageElement from '../src/ImageElement';
 import Input from '../src/Input';
+import InputLarge from '../src/InputLarge';
 import LabelMini from '../src/LabelMini';
 import LabelHorisontal from '../src/LabelHorisontal';
 import LabelTab from '../src/LabelTab';
@@ -96,6 +97,7 @@ import IconDropdown from '../src/IconDropdown';
 import ToolTip from '../src/ToolTip';
 import Typography from '../src/Typography';
 import TextArea from '../src/TextArea';
+import TextAreaLarge from '../src/TextAreaLarge';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
 import ProgressBar from '../src/ProgressBar';
@@ -131,7 +133,8 @@ export default class App extends React.Component {
             linkValue: "",
             hasSavedLinkElement: false,
             inputErrorMessage: null,
-            counterNumber: 10
+            counterNumber: 10,
+            inputValue: ""
         };
         setInterval(() => {
             // this.setState({value: this.state.value + 0.3});
@@ -237,9 +240,11 @@ export default class App extends React.Component {
 
     handleInputChange(event) {
         if (event.target.value.length > 5 && !this.state.inputErrorMessage) {
-            this.setState({inputErrorMessage: "Use less than 6 characters"});
+            this.setState({inputErrorMessage: "Use less than 6 characters", inputValue: event.target.value});
         } else if (event.target.value.length <= 5 && this.state.inputErrorMessage) {
-            this.setState({inputErrorMessage: null});
+            this.setState({inputErrorMessage: null, inputValue: event.target.value});
+        } else {
+            this.setState({inputValue: event.target.value});
         }
     }
 
@@ -356,6 +361,26 @@ export default class App extends React.Component {
                         onChange={this.handleInputChange}
                         placeholder="Write a text"
                     />
+                </Preview>
+
+                <Preview title="InputLarge">
+                    <InputLarge
+                        errorMessage={this.state.inputErrorMessage}
+                        label="Write a text"
+                        onChange={this.handleInputChange}
+                        value={this.state.inputValue}
+                    />
+                </Preview>
+
+                <Preview title="TextAreaLarge">
+                    <TextAreaLarge
+                        errorMessage={this.state.inputErrorMessage}
+                        label="Write a text"
+                        maxLength={50}
+                        onChange={this.handleInputChange}
+                        value={this.state.inputValue}
+                    />
+
                 </Preview>
 
                 <Preview
