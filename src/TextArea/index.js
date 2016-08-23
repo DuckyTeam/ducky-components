@@ -29,7 +29,10 @@ class TextArea extends React.Component {
                 className={classNames(styles.textarea, TypographyCSS[textType], {
                     [this.props.className]: this.props.className
                 })}
+                maxLength={this.props.maxLength}
+                onBlur={this.props.onBlur}
                 onChange={this.props.onChange}
+                onFocus={this.props.onFocus}
                 onKeyPress={this.handleKeyPress}
                 placeholder={this.props.placeholder}
                 value={this.props.value}
@@ -40,8 +43,11 @@ class TextArea extends React.Component {
 
 TextArea.propTypes = {
     className: React.PropTypes.string,
+    maxLength: React.PropTypes.node,
+    onBlur: React.PropTypes.func,
     onChange: React.PropTypes.func,
     onClick: React.PropTypes.func,
+    onFocus: React.PropTypes.func,
     onSubmit: React.PropTypes.func,
     placeholder: React.PropTypes.string,
     showFullText: React.PropTypes.bool,
