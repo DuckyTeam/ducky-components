@@ -1,0 +1,21 @@
+.wrapper {
+    background: transparent;
+    display: flex;
+    align-items: flex-start;
+}
+
+.labelHorisontal {
+    margin-bottom: 5px;
+}
+
+.points {
+  color: #8bc34a;
+}
+
+.activity {
+  color: #0099a9;
+}
+
+.co2 {
+  color: #00ab97;
+}
