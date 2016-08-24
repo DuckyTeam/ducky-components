@@ -83,6 +83,7 @@ import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
+import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
 import Spacer from '../src/Spacer';
 import StateCarousal1 from '../src/composites/StateCarousal1';
@@ -125,6 +126,7 @@ export default class App extends React.Component {
             showMenu: false,
             showCopyLink: false,
             showSnackBar: false,
+            showSnackBar3: false,
             textAreaValue: "",
             tabIndexSelected: 0,
             value: 0,
@@ -158,6 +160,7 @@ export default class App extends React.Component {
         this.handleOnLinkCancel = this.handleOnLinkCancel.bind(this);
         this.handleOnLinkChange = this.handleOnLinkChange.bind(this);
         this.handleSnackBarClick = this.handleSnackBarClick.bind(this);
+        this.handleSnackBar3Click = this.handleSnackBar3Click.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
@@ -233,6 +236,10 @@ export default class App extends React.Component {
 
     handleSnackBarClick() {
         this.setState({showSnackBar: true});
+    }
+
+    handleSnackBar3Click() {
+        this.setState({showSnackBar3: true});
     }
 
     handleInputChange(event) {
@@ -326,6 +333,26 @@ export default class App extends React.Component {
                             <SnackBarPanel1
                                 button
                                 text={"Long and long, and quite long and longer message text"}
+                            />
+                        </div>
+                    </SnackBarWrapper>
+                </Preview>
+
+                <Preview title={"SnackBar Panel 3 display"}>
+                    <button onClick={this.handleSnackBar3Click}>
+                        {'Show SnackBar'}
+                    </button>
+                    <SnackBarWrapper
+                        show={this.state.showSnackBar3}
+                    >
+                        <div style={{width: 300}}>
+                            <SnackBarPanel3
+                                co2Pt={15.7}
+                                duckyIcon={'icon-tram'}
+                                duckyPt={5}
+                                msgText={'Long and long, and quite long and longer message text'}
+                                show
+                                type={'both'}
                             />
                         </div>
                     </SnackBarWrapper>
