@@ -1,0 +1,21 @@
+.svg {
+  height: 100px;
+  width: 100px
+}
+
+.circleBase {
+  cx: 50px;
+  cy: 50px;
+  r: 48px;
+  stroke: rgba(38,50,56,0.12);
+  stroke-width: 4px;
+  fill: transparent;
+}
+
+.circleProgress {
+  cx: 50px;
+  cy: 50px;
+  r: 48px;
+  stroke-width: 4px;
+  fill: transparent;
+}
