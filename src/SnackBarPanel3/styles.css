@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  flex: 1;
+  background-color: #263238;
+}
+
+.wrapperIcon {
+    background-color: #e5eaed;
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+}
+
+.label {
+    margin-left: 16px;
+    display: flex;
+}
+
+.labelTwo {
+    margin-left: 16px;
+    float: left;
+    flex-grow: 1;
+}
+
+.msgText{
+    margin-left: 16px;
+    color: #FFFFFF;
+}
+
+.typo > span {
+  color: #FFFFFF;
+}
