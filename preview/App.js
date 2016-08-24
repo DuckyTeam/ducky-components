@@ -36,6 +36,7 @@ import GoalInfoNavigation from '../src/GoalInfoNavigation';
 import Popup from '../src/Popup';
 import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
+import ProfilePageTabMenu from '../src/ProfilePageTabMenu';
 import ProfileSectionOverallStats from '../src/ProfileSectionOverallStats';
 import Header from '../src/Header';
 import HeaderCompositActivity from '../src/HeaderCompositActivity';
@@ -1679,6 +1680,15 @@ export default class App extends React.Component {
                             'icon-fish'
                         ]}
                     />
+                    <div className={styles.subHeader}>
+                        {'Profile page Tab Menu'}
+                    </div>
+                    <div style={{width: 600}}>
+                        <ProfilePageTabMenu
+                            disabled={[]}
+                            selected={1}
+                        />
+                    </div>
                 </Preview>
 
                 <h1>{"/Composite Components"}</h1>
