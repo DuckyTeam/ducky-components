@@ -41,6 +41,14 @@
   background-color: transparent;
 }
 
+.iconWrapper_large {
+  width: 126px;
+}
+
+.iconWrapper_small {
+  width: 76px;
+}
+
 .loader {
   border-top: 4px solid rgba(38, 50, 56, 0.1);
   border-right: 4px solid rgba(38, 50, 56, 0.1);
@@ -58,6 +66,16 @@
   border-radius: 50%;
   width: 96px;
   height: 96px;
+}
+
+.loader_large {
+  width: 126px;
+  height: 126px;
+}
+
+.loader_small {
+  width: 76px;
+  height: 76px;
 }
 
 @-webkit-keyframes load8 {
