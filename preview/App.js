@@ -103,6 +103,7 @@ import TextAreaLarge from '../src/TextAreaLarge';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
 import ProgressBar from '../src/ProgressBar';
+import ProgressCircle from '../src/ProgressCircle';
 import PeopleLabel from '../src/PeopleLabel';
 import styles from './App.css';
 import moment from 'moment';
@@ -2428,6 +2429,32 @@ export default class App extends React.Component {
                     <ProgressBar
                         color="#8BC34A"
                         percent={30}
+                    />
+                </Preview>
+
+                <Preview title="ProgressCircle">
+                    {'ACTIVITY - 10%'}
+                    <ProgressCircle
+                        percent={10}
+                        type={'activity'}
+                    />
+                    <br />
+                    {'HABIT - 92%'}
+                    <ProgressCircle
+                        percent={92}
+                        type={'habit'}
+                    />
+                    <br />
+                    {'CO2 - 36%'}
+                    <ProgressCircle
+                        percent={36}
+                        type={'co2'}
+                    />
+                    <br />
+                    {'POINTS - 100%'}
+                    <ProgressCircle
+                        percent={100}
+                        type={'points'}
                     />
                 </Preview>
 
