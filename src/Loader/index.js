@@ -10,13 +10,18 @@ function Loader(props) {
         })}>
             <div>
                 <div className={classNames(styles.iconWrapper, {
-                    [styles.hide]: props.hide
+                    [styles.hide]: props.hide,
+                    [styles[`iconWrapper_${props.size}`]]: props.size
                 })}>
-                    <div className={styles.loader} />
+                    <div className={classNames(styles.loader, {
+                        [styles[`loader_${props.size}`]]: props.size
+                    })} />
                 </div>
-                <div className={styles.text}>
+                {props.children
+                ? <div className={styles.text}>
                     {props.children}
                 </div>
+                : null}
             </div>
         </div>
     );
@@ -25,7 +30,8 @@ function Loader(props) {
 Loader.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
-    hide: React.PropTypes.bool
+    hide: React.PropTypes.bool,
+    size: React.PropTypes.oneOf(['small', 'standard', 'large'])
 };
 
 export default Loader;
