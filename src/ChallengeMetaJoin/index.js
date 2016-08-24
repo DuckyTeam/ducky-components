@@ -80,6 +80,7 @@ class ChallengeMetaJoin extends React.Component {
         }
         return (
             <ButtonRaised
+                disabled={this.props.disabled}
                 className={styles.button}
                 onClick={this.props.onClick}
             >
@@ -109,6 +110,7 @@ class ChallengeMetaJoin extends React.Component {
 ChallengeMetaJoin.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
+    disabled: React.PropTypes.bool,
     endDate: React.PropTypes.number,
     joined: React.PropTypes.bool,
     onClick: React.PropTypes.func,
