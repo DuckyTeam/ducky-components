@@ -679,6 +679,7 @@ export default class App extends React.Component {
                 <Preview title="GoalMenuItem">
                     <div style={{backgroundColor: '#4b4a5b', width: 350}}>
                         <GoalMenuItem
+                            inactive
                             type={'POINTS'}
                         />
                     </div>
@@ -689,6 +690,7 @@ export default class App extends React.Component {
                     </div>
                     <div style={{backgroundColor: '#4b4a5b', width: 350}}>
                         <GoalMenuItem
+                            inactive
                             type={'CO2'}
                         />
                     </div>
