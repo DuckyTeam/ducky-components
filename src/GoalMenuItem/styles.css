@@ -9,6 +9,14 @@
   background-color: #f4f7f9;
 }
 
+.wrapperInactive {
+  cursor: default;
+}
+
+.wrapperInactive:hover {
+  background-color: #fff;
+}
+
 .icon {
   margin-right: 16px;
 }
@@ -53,4 +61,12 @@
 
 .co2Icon {
   color: #00ab97;
+}
+
+.inactiveColor {
+  color: #90a4ae;
+}
+
+.inactiveButtonIcon {
+  visibility: hidden;
 }

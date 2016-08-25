@@ -8,28 +8,29 @@ import styles from './styles.css';
 
 function GoalMenuItem(props) {
     let icon = 'icon-assignment_turned_in';
-    let text = 'Vaner gir deg mulighet til å autoregistrere aktiviteter.';
+    let text = props.inactive ? 'Du er allerede igang med å bygge en vane.' : 'Vaner gir deg mulighet til å autoregistrere aktiviteter.';
     let caption = 'Bygg en ny vane';
 
     if (props.type.toUpperCase() === 'ACTIVITY') {
         icon = 'icon-check_circle';
-        text = 'F.eks. “Gjennomfør en aktivitet 24 ganger iløpet av 30 dager”';
+        text = props.inactive ? 'Du har allerede et aktivt aktivitetsmål.' : 'F.eks. “Gjennomfør en aktivitet 24 ganger iløpet av 30 dager”';
         caption = 'Aktivitetsmål';
     } else if (props.type.toUpperCase() === 'CO2') {
         icon = 'icon-leaf';
-        text = 'F.eks. “Spare inn 150 kgCO\u2082e iløpet av 30 dager”';
+        text = props.inactive ? 'Du har allerede et aktivt innsparingsmål.' : 'F.eks. “Spare inn 150 kgCO\u2082e iløpet av 30 dager”';
         caption = 'Innsparingsmål';
     } else if (props.type.toUpperCase() === 'POINTS') {
         icon = 'icon-brightness_high';
-        text = 'F.eks. “Tjene opp 300 poeng iløpet av 14 dager”';
+        text = props.inactive ? 'Du har allerede et aktivt poengmål' : 'F.eks. “Tjene opp 300 poeng iløpet av 14 dager”';
         caption = 'Poengmål';
     }
 
     return (
         <Wrapper
-            className={classNames(styles.wrapper, {
-                [props.className]: props.className
-            })}
+            className={classNames(styles.wrapper,
+                {[props.className]: props.className},
+                {[styles.wrapperInactive]: props.inactive}
+            )}
             size={'short'}
         >
             <Icon
@@ -38,13 +39,16 @@ function GoalMenuItem(props) {
                     {[styles.co2Icon]: caption === 'Innsparingsmål'},
                     {[styles.activityIcon]: caption === 'Aktivitetsmål'},
                     {[styles.habitIcon]: caption === 'Bygg en ny vane'},
+                    {[styles.inactiveColor]: props.inactive}
                 )}
                 icon={icon}
                 size={'large1'}
             />
             <div className={styles.innerWrapper}>
                 <Typography
-                    className={styles.caption}
+                    className={classNames(styles.caption,
+                        {[styles.inactiveColor]: props.inactive}
+                      )}
                     type={'bodyTextTitle'}
                 >
                     {caption}
@@ -58,7 +62,9 @@ function GoalMenuItem(props) {
             </div>
             <div>
                 <ActionButton
-                    className={styles.buttonIcon}
+                    className={classNames(styles.buttonIcon,
+                        {[styles.inactiveButtonIcon]: props.inactive}
+                      )}
                     icon={'icon-keyboard_arrow_right'}
                     onClick={props.onClick}
                     size={'standard'}
@@ -70,6 +76,7 @@ function GoalMenuItem(props) {
 
 GoalMenuItem.propTypes = {
     className: React.PropTypes.string,
+    inactive: React.PropTypes.bool,
     onClick: React.PropTypes.func,
     type: React.PropTypes.string
 };
