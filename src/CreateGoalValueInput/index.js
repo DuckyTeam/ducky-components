@@ -10,7 +10,8 @@ class CreateGoalValueInput extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            inputErrorMessage: null
+            inputErrorMessage: null,
+            inputValue: ""
         };
         this.handleInputChange = this.handleInputChange.bind(this);
     }
@@ -41,9 +42,10 @@ class CreateGoalValueInput extends React.Component {
 
     handleInputChange(event) {
         if (event.target.value.length === 0 || isNaN(event.target.value)) {
-            this.setState({inputErrorMessage: "Du må fylle inn en tallverdi i feltet"});
+            event.target.value = null;
+            this.setState({inputErrorMessage: "Du må fylle inn en tallverdi i feltet", inputValue: event.target.value});
         } else {
-            this.setState({inputErrorMessage: null});
+            this.setState({inputErrorMessage: null, inputValue: event.target.value});
         }
     }
 
@@ -61,6 +63,7 @@ class CreateGoalValueInput extends React.Component {
                         errorMessage={this.state.inputErrorMessage}
                         onChange={this.handleInputChange}
                         placeholder="Skriv inn antall ..."
+                        value={this.state.inputValue}
                     />
                 </div>
             </Wrapper>
