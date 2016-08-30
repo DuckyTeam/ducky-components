@@ -30,6 +30,7 @@ import EndOfContent from '../src/EndOfContent';
 import GoalButtonBig from '../src/GoalButtonBig';
 import GoalButtonPopOverMenuItem from '../src/GoalButtonPopOverMenuItem';
 import GoalComposit1 from '../src/GoalComposit1';
+import GoalCompositeProgressInfo from '../src/GoalCompositeProgressInfo';
 import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
@@ -643,6 +644,55 @@ export default class App extends React.Component {
                             type={'habit'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title={"GoalCompositeProgressInfo"}>
+                    {'Points'}
+                    <div style={{width: 300}}>
+                        <GoalCompositeProgressInfo
+                            content={'634 / 1000'}
+                            endDate={'15-Sep-2016'}
+                            goalPointsAmount={1000}
+                            numberDays={14}
+                            percentage={69}
+                            startDate={'01-Sep-2016'}
+                            type={'points'}
+                        />
+                    </div>
+                  {'Habit'}
+                    <GoalCompositeProgressInfo
+                        content={'6 / 10'}
+                        icon={iconImageImage}
+                        percentage={69}
+                        selectedActivityName={'Unnga matkasting'}
+                        startDate={'03-Sep-2015'}
+                        type={'habit'}
+                    />
+                  {'Activity'}
+                    <GoalCompositeProgressInfo
+                        content={'16 / 24'}
+                        endDate={'15-Sep-2016'}
+                        goalPointsAmount={1000}
+                        icon={iconImageImage}
+                        numberDays={14}
+                        numberRegistration={24}
+                        percentage={69}
+                        selectedActivityName={'Sykle til jobben'}
+                        startDate={'01-Sep-2016'}
+                        type={'activity'}
+                    />
+                  {'CO2'}
+                    <GoalCompositeProgressInfo
+                        content={'500 / 500'}
+                        endDate={'03-Sep-2016'}
+                        finished
+                        goalPointsAmount={1000}
+                        numberDays={14}
+                        percentage={100}
+                        savingsAmount={500}
+                        startDate={'22-Aug-2016'}
+                        type={'co2'}
+                    />
                 </Preview>
 
                 <Preview title="PeopleLabel">

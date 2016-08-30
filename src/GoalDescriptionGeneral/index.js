@@ -44,7 +44,7 @@ function GoalDescriptionGeneral(props) {
         caption = 'Poeng';
     }
 
-    if (props.type.toUpperCase() === 'HABIT') {
+    if (props.type.toUpperCase() === 'HABIT' && momentToday > momentStartDate) {
         dateInfo = `Startet ${props.startDate}`;
     } else if (momentToday > momentStartDate && daysRemainingToEnd === 1) {
         dateInfo = 'Slutter imorgen';
