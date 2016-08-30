@@ -15,7 +15,7 @@ function ActionButton(props) {
             <Icon
                 className={styles.icon}
                 icon={props.icon}
-                size="standard"
+                size={props.size === 'standard' ? 'small' : 'standard'}
             />
         </div>
     );
