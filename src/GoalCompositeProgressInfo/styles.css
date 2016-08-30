@@ -1,0 +1,8 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+}
+
+.innerWrapper {
+  margin-left: 16px;
+}
