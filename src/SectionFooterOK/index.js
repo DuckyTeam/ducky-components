@@ -12,7 +12,7 @@ class SectionFooterOK extends React.Component {
                     disabled
                     onClick={this.props.onClick}
                 >
-                    {this.props.buttonName}
+                    <span className={styles.buttonName}>{this.props.buttonName}</span>
                 </ButtonRaised>
             );
         }
@@ -21,7 +21,7 @@ class SectionFooterOK extends React.Component {
                 className={styles.button}
                 onClick={this.props.onClick}
             >
-                {this.props.buttonName}
+                <span className={styles.buttonName}>{this.props.buttonName}</span>
             </ButtonRaised>
         );
     }
@@ -29,8 +29,7 @@ class SectionFooterOK extends React.Component {
         return (
             <div className={classNames(styles.wrapper, {
                 [this.props.className]: this.props.className}
-                )}
-            >
+            )}>
                 {this.renderRaisedButton(this.props.disabled)}
             </div>
         );

@@ -1,0 +1,36 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.typo {
+  text-align: center;
+  margin-top: -70px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+.innerElement {
+  margin-top: -77px;
+  margin-bottom: 30px;
+  margin-left: 25px;
+  display: block;
+}
+
+.pointsIcon {
+  color: #8bc34a;
+}
+
+.activityIcon {
+  color: #0099a9;
+}
+
+.habitIcon {
+  color: #35b8c4;
+}
+
+.co2Icon {
+  color: #00ab97;
+}

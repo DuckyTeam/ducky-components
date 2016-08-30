@@ -11,6 +11,10 @@
   margin-bottom: 4px;
 }
 
+.title::first-letter {
+  text-transform: capitalize;
+}
+
 .rightIconWrapper {
   margin: -12px -12px -12px 16px;
 }

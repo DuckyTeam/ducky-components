@@ -45,6 +45,10 @@
   border-bottom: 1px solid #00ab97;
 }
 
+.label::first-letter {
+  text-transform: capitalize;
+}
+
 .label {
   line-height: 20px;
   font-weight: normal;

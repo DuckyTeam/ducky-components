@@ -53,6 +53,10 @@
   width: 100%;
 }
 
+.label::first-letter {
+  text-transform: capitalize;
+}
+
 .label {
   line-height: 20px;
   font-weight: normal;

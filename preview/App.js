@@ -33,6 +33,7 @@ import GoalComposit1 from '../src/GoalComposit1';
 import GoalDescriptionGeneral from '../src/GoalDescriptionGeneral';
 import GoalMenuItem from '../src/GoalMenuItem';
 import GoalInfoNavigation from '../src/GoalInfoNavigation';
+import GoalProgressBarGeneral from '../src/GoalProgressBarGeneral';
 import Popup from '../src/Popup';
 import ProfileMenuItem from '../src/ProfileMenuItem';
 import ProfilePageMeta from '../src/composites/ProfilePageMeta';
@@ -672,6 +673,39 @@ export default class App extends React.Component {
                     <GoalInfoNavigation
                         currentSlide={1}
                         slideCount={5}
+                    />
+                    <br />
+                </Preview>
+
+                <Preview title="GoalProgressBarGeneral">
+                    {'Points'}
+                    <GoalProgressBarGeneral
+                        content={"682 / 1000"}
+                        percentage={69}
+                        type={'points'}
+                    />
+                    <br />
+                    {'Habit'}
+                    <GoalProgressBarGeneral
+                        content={"6 / 10"}
+                        icon={iconImageImage}
+                        percentage={69}
+                        type={'habit'}
+                    />
+                    <br />
+                    {'Activity'}
+                    <GoalProgressBarGeneral
+                        content={"16 / 24"}
+                        icon={iconImageImage}
+                        percentage={75}
+                        type={'activity'}
+                    />
+                    <br />
+                    {'CO2'}
+                    <GoalProgressBarGeneral
+                        content={"412.3 / 500"}
+                        percentage={75}
+                        type={'co2'}
                     />
                     <br />
                 </Preview>
