@@ -22,6 +22,12 @@ class ActionItemSummaryComposit extends React.Component {
         ReactDOM.render(<div>{icons}</div>, this.container);
     }
 
+    componentDidUpdate() {
+        const icons = this.renderIcons();
+
+        ReactDOM.render(<div>{icons}</div>, this.container);
+    }
+
     handleRef = (component) => {
         this.container = component;
     };
@@ -36,7 +42,7 @@ class ActionItemSummaryComposit extends React.Component {
                 <IconImage
                     className={styles.icon}
                     icon={icon}
-                    key={key}
+                    key={`${key}_${Math.random()}`}
                     size={"small"}
                     style={{left: key * (ICON_WIDTH - OVERLAP)}}
                 />

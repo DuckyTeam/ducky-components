@@ -1,6 +1,8 @@
 .label {
   text-align: center;
   color: #90A4AE;
+  display: flex;
+  justify-content: center;
 }
 
 .labelDarkTheme {

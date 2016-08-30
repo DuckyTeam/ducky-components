@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Duckycon-Font';
-    src: url('./Duckycon-Font.woff?5rsj0p') format('woff');
+    src: url('./Duckycon-Font.woff?pr6vlq') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"], [class*=" icon"] {
     /* use !important to prevent issues with browser extensions that change fonts */
     font-family: 'Duckycon-Font' !important;
     speak: none;
@@ -20,10 +20,15 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-:global .icon-link_checked:before {
-  content: "\e938";
+:global .icon-account-follower:before {
+    content: "\e939";
 }
-
+:global .icon-account-following:before {
+    content: "\e93a";
+}
+:global .icon-link_checked:before {
+    content: "\e938";
+}
 :global .icon-duckylogo_beta:before {
     content: "\e936";
 }
@@ -44,6 +49,9 @@
 }
 :global .icon-leaderboard:before {
     content: "\e904";
+}
+:global .icon-flag-checkered:before {
+    content: "\e937";
 }
 :global .icon-star-off:before {
     content: "\e935";
@@ -575,6 +583,9 @@
 }
 :global .icon-delete:before {
     content: "\e872";
+}
+:global .icon-:before {
+    content: "\e93b";
 }
 :global .icon-exit_to_app:before {
     content: "\e879";
