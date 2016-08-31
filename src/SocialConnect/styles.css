@@ -1,0 +1,30 @@
+.wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;;
+  border: 2px solid #00ab97;
+}
+
+.checkedWrapper {
+  border: 0;
+  background-color: #00ab97;
+}
+
+.icon {
+  align-self: center;
+  color: #00ab97;
+}
+
+.checkedIcon {
+  color: #FFFFFF;
+}
+
+.buttonMini {
+  margin-top: -18px;
+  margin-left: 34px;
+}
