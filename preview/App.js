@@ -13,6 +13,7 @@ import Button from '../src/Button';
 import ButtonCircle from '../src/ButtonCircle';
 import ButtonIconRaised from '../src/ButtonIconRaised';
 import ButtonIcon from '../src/ButtonIcon';
+import ButtonMini from '../src/ButtonMini';
 import ButtonRaised from '../src/ButtonRaised';
 import ButtonCounter from '../src/ButtonCounter';
 import CardLabel1 from '../src/composites/ChallengeCardLabel1';
@@ -862,6 +863,18 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
+                <Preview tite="/ButtonMini">
+                    {'ButtonMini'}
+                    <ButtonMini
+                        icon={'icon-add'}
+                        theme={'fill'}
+                    />
+                    <br />
+                    <ButtonMini
+                        icon={'icon-add'}
+                        theme={'border'}
+                    />
+                </Preview>
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox

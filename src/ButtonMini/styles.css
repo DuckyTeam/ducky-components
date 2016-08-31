@@ -1,0 +1,32 @@
+.wrapper {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.fillWrapper {
+  border: 0;
+  background-color: #00ab97;
+}
+
+.borderWrapper {
+  background-color: #FFFFFF;
+  border: 2px solid #00ab97;
+}
+
+.icon {
+  align-self: center;
+}
+
+.fillIcon {
+  color: #FFFFFF;
+}
+
+.borderIcon {
+  color: #00ab97;
+}
