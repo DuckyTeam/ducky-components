@@ -90,6 +90,7 @@ import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityM
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
+import SocialConnect from '../src/SocialConnect';
 import Spacer from '../src/Spacer';
 import StateCarousal1 from '../src/composites/StateCarousal1';
 import SwitchToggleButton from '../src/SwitchToggleButton';
@@ -875,6 +876,29 @@ export default class App extends React.Component {
                         theme={'border'}
                     />
                 </Preview>
+
+                <Preview title="/SocialConnect">
+                    {'Not connected yet'}
+                    <SocialConnect
+                        socialMedia={'facebook'}
+                    />
+                    <br />
+                    <SocialConnect
+                        socialMedia={'google+'}
+                    />
+                    <br />
+                    {'Connected'}
+                    <SocialConnect
+                        connected
+                        socialMedia={'twitter'}
+                    />
+                    <br />
+                    <SocialConnect
+                        connected
+                        socialMedia={'instagram'}
+                    />
+                </Preview>
+
                 <Preview title="/Checkbox">
                     {'CheckBox active'}
                     <CheckBox
