@@ -25,6 +25,7 @@
 }
 
 .text {
+    width: 100%;
     font-size: 14px;
     line-height: 24px;
     font-weight: normal;
