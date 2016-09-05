@@ -1,4 +1,5 @@
 import "../src/icons.css";
+import SettingsItem from '../src/SettingsItem';
 import HeaderCompositUser from '../src/composites/HeaderCompositUser';
 import SectionHeaderGeneral from '../src/composites/SectionHeaderGeneral';
 import SectionHeaderTitle from '../src/composites/SectionHeaderTitle';
@@ -470,6 +471,16 @@ export default class App extends React.Component {
                     <Loader>
                         Skate or bike to work; it’s always funny, save the space for deer and bunny
                     </Loader>
+                </Preview>
+
+                <Preview title="Settings Item">
+                    <SettingsItem />
+                    <SettingsItem expanded>
+                      <Header
+                          subTitle="Favoritter (0)"
+                          title="Logg aktivter"
+                      />
+                    </SettingsItem>
                 </Preview>
 
                 <Preview title="/Button">
