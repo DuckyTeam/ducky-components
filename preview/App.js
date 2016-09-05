@@ -79,6 +79,7 @@ import PopoverMenuItem from '../src/PopoverMenuItem';
 import PopoverMenuItem3 from '../src/PopoverMenuItem3';
 import PopoverMenuItem4 from '../src/PopoverMenuItem4';
 import Preview from './Preview';
+import ProfileSectionPersonalGoal from '../src/ProfileSectionPersonalGoal';
 import RadioButton from '../src/RadioButton';
 import React from 'react';
 import SearchFieldInput from '../src/SearchFieldInput';
@@ -2161,11 +2162,23 @@ export default class App extends React.Component {
 
                 <Preview title={"/ProfileMenuItem"}>
                     <div className={styles.subHeader}>
-                        {'Personal goal'}
+                        {'Personal goal -  self'}
                     </div>
                     <div style={{backgroundColor: 'lightgrey', width: 250}}>
                         <ProfileMenuItem
                             numberGoals={3}
+                            profileType={'self'}
+                            type={'personal'}
+                        />
+                    </div>
+                    <br />
+                    <div className={styles.subHeader}>
+                        {'Personal goal - others'}
+                    </div>
+                    <div style={{backgroundColor: 'lightgrey', width: 250}}>
+                        <ProfileMenuItem
+                            numberGoals={3}
+                            profileType={'others'}
                             type={'personal'}
                         />
                     </div>
@@ -2218,6 +2231,68 @@ export default class App extends React.Component {
                             numberChallenges={2}
                             type={'Challenges'}
                         />
+                    </div>
+                </Preview>
+
+                <Preview title="/ProfileSectionPersonalGoal">
+                    <div style={{width: 300}}>
+                        <div className={styles.subHeader}>
+                            {'NO GOALS - SELF'}
+                        </div>
+                        <ProfileSectionPersonalGoal
+                            profileType={'self'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{width: 300}}>
+                        <div className={styles.subHeader}>
+                            {'GOALS PRESENT - SELF'}
+                        </div>
+                        <ProfileSectionPersonalGoal
+                            currentSlide={3}
+                            numberGoals={2}
+                            profileType={'self'}
+                            slideCount={5}
+                        >
+                            <GoalCompositeProgressInfo
+                                content={'6 / 10'}
+                                icon={iconImageImage}
+                                percentage={69}
+                                selectedActivityName={'Unnga matkasting'}
+                                startDate={'03-Sep-2015'}
+                                type={'habit'}
+                            />
+                        </ProfileSectionPersonalGoal>
+                    </div>
+                    <div style={{width: 300}}>
+                        <div className={styles.subHeader}>
+                            {'NO GOALS - OTHERS'}
+                        </div>
+                        <ProfileSectionPersonalGoal
+                            profileType={'others'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{width: 300}}>
+                        <div className={styles.subHeader}>
+                            {'GOALS PRESENT - OTHERS'}
+                        </div>
+                        <ProfileSectionPersonalGoal
+                            currentSlide={1}
+                            numberGoals={3}
+                            profileType={'others'}
+                            slideCount={5}
+                        >
+                            <GoalCompositeProgressInfo
+                                content={'634 / 1000'}
+                                endDate={'30-Sep-2016'}
+                                goalPointsAmount={1000}
+                                numberDays={14}
+                                percentage={69}
+                                startDate={'15-Sep-2016'}
+                                type={'points'}
+                            />
+                        </ProfileSectionPersonalGoal>
                     </div>
                 </Preview>
 

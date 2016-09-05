@@ -37,3 +37,11 @@
     background-color: transparent;
     border: 2px solid #00ab97;
 }
+
+.otherProfile {
+  visibility: hidden;
+}
+
+.selfProfile {
+  visibility: visible;
+}
