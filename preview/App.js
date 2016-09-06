@@ -75,6 +75,7 @@ import PieChart from '../src/PieChart';
 import PopoverMenu from './../src/PopoverMenu';
 import PopoverMenuAnchor2 from './../src/PopoverMenuAnchor2';
 import PopoverMenuAnchor3 from './../src/PopoverMenuAnchor3';
+import PopoverMenuAnchor4 from './../src/PopoverMenuAnchor4';
 import PopoverMenuItem from '../src/PopoverMenuItem';
 import PopoverMenuItem3 from '../src/PopoverMenuItem3';
 import PopoverMenuItem4 from '../src/PopoverMenuItem4';
@@ -380,6 +381,19 @@ export default class App extends React.Component {
 
                 <Preview title="PopoverMenuAnchor3">
                     <PopoverMenuAnchor3>Anchor</PopoverMenuAnchor3>
+                </Preview>
+
+                <Preview title="PopoverMenuAnchor4">
+                    <PopoverMenuAnchor4>Option2</PopoverMenuAnchor4>
+                    <br /><br />
+                    <PopoverMenuAnchor4>Option1</PopoverMenuAnchor4>
+                    <Popup>
+                        <PopoverMenu text="Option1" />
+                        <br />
+                        <PopoverMenu text="Option2" />
+                        <br />
+                        <PopoverMenu text="Option3" />
+                    </Popup>
                 </Preview>
 
                 <Preview
