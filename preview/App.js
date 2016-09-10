@@ -9,6 +9,7 @@ import IconAvaWrapper from '../src/composites/IconAvaWrapper';
 import LabelPair from '../src/composites/LabelPair';
 import ActionButton from '../src/ActionButton';
 import Avatar from "../src/Avatar";
+import BarChart from '../src/BarChart';
 import Button from '../src/Button';
 import ButtonCircle from '../src/ButtonCircle';
 import ButtonIconRaised from '../src/ButtonIconRaised';
@@ -2733,6 +2734,47 @@ export default class App extends React.Component {
                         }}
                         formatting={this.formatFunction}
                         graphID={1}
+                        height={"300px"}
+                    />
+                </Preview>
+                <Preview
+                    title="BarChart"
+                    width={500}
+                >
+                    <BarChart
+                        data={[
+                            {
+                                value: 5,
+                                color: "#90A4AE",
+                                image: "http//:fsfkjsld.no/img.jpg",
+                                label: "Strek1"
+                            },
+                            {
+                                value: 8,
+                                color: "#942A4E",
+                                image: "http//:fsfkjsld.no/img.jpg",
+                                label: "Strek2"
+                            },
+                            {
+                                value: this.state.counterNumber*0.2,
+                                color: "#9764AE",
+                                image: "http//:fsfkjsld.no/img.jpg",
+                                label: "Strek3"
+                            },
+                            {
+                                value: 8,
+                                color: "#942A4E",
+                                image: "http//:fsfkjsld.no/img.jpg",
+                                label: "Strek4"
+                            },
+                            {
+                                value: this.state.counterNumber*0.4,
+                                color: "#9764AE",
+                                image: "http//:fsfkjsld.no/img.jpg",
+                                label: "Strek5"
+                            }
+                        ].slice(0, 1 + ((this.state.counterNumber/5) % 5))}
+                        graphID={2}
                         height={"300px"}
                     />
                 </Preview>
