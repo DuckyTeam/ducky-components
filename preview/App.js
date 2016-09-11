@@ -2745,31 +2745,31 @@ export default class App extends React.Component {
                         data={[
                             {
                                 value: 5,
-                                color: "#90A4AE",
+                                color: "#8BC34A",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek1"
                             },
                             {
                                 value: 8,
-                                color: "#942A4E",
+                                color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek2"
                             },
                             {
                                 value: this.state.counterNumber*0.2,
-                                color: "#9764AE",
+                                color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek3"
                             },
                             {
                                 value: 8,
-                                color: "#942A4E",
+                                color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek4"
                             },
                             {
                                 value: this.state.counterNumber*0.4,
-                                color: "#9764AE",
+                                color: "#FFC107",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek5"
                             }
