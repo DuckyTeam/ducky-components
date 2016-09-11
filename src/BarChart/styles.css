@@ -1,0 +1,35 @@
+.yAxis > path {
+    display: none;
+}
+
+.yAxis > g > text {
+    text-anchor: end;
+}
+
+.xAxis > .tick{
+    display: none;
+}
+
+.xAxis > path {
+    display: none;
+}
+
+.bars{
+}
+
+.rectangle {
+}
+
+.xAxis > g > text {
+  fill: #263238;
+  font-weight: bold;
+}
+
+.yAxis > g > text {
+  fill: #607D8B;
+}
+
+.xAxis, .yAxis > g > text {
+    font-family: Montserrat, Arial;
+    font-size: 10px;
+}
