@@ -90,6 +90,7 @@ import SectionFooterClose from './../src/SectionFooterClose';
 import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
+import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -2634,6 +2635,10 @@ export default class App extends React.Component {
                             type={'challenge'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title={'SettingsPrivacyGeneral'}>
+                    <SettingsPrivacyGeneral />
                 </Preview>
 
                 <Preview title="ProgressBar">
