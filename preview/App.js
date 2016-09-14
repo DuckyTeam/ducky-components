@@ -57,6 +57,7 @@ import LabelDisplay from "../src/LabelDisplay";
 import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
+import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -1451,6 +1452,12 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title={'LeaderboardHeader2'}>
+                    <div style={{width: 600}}>
+                        <LeaderboardHeader2 />
+                    </div>
+                </Preview>
+
                 <Preview title={"Switch Toggle Button"}>
                     {'Dark theme'}
                     <div style={{backgroundColor: '#686766', padding: 10}}>
@@ -1655,6 +1662,7 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
+                    <LogButton inactive />
                 </Preview>
 
                 <Preview title="IconDropdown">
