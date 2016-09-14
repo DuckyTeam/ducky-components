@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #F4F7F9;
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+}
+
+.icon {
+  color: #90A4AE;
+  margin: 0 22px;
+}
+
+.team {
+  flex-grow: 1;
+}
+
+.member {
+  width: 120px;
+  float: right;
+}
+
+.activity {
+  width: 120px;
+  float: right;
+}
+
+.co2Saved {
+  width: 120px;
+  float: right;
+}
