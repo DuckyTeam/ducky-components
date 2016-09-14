@@ -90,6 +90,8 @@ import SectionFooterClose from './../src/SectionFooterClose';
 import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
+import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
+import SettingsSectionApplications from '../src/SettingsSectionApplications';
 import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
@@ -2639,6 +2641,31 @@ export default class App extends React.Component {
 
                 <Preview title={'SettingsPrivacyGeneral'}>
                     <SettingsPrivacyGeneral />
+                </Preview>
+
+                <Preview title={'SettingsItemAppConnect'}>
+                    <div style={{width: 230}}>
+                        <SettingsItemAppConnect
+                            connected
+                            socialMedia={'Facebook'}
+                            userName={'Sara Kannan'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{width: 230}}>
+                        <SettingsItemAppConnect
+                            socialMedia={'TWITTER'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={'SettingsSectionApplications'}>
+                    <div style={{width: 250}}>
+                        <SettingsSectionApplications
+                            twitterConnected
+                            userName={'Sara Kannan'}
+                        />
+                    </div>
                 </Preview>
 
                 <Preview title="ProgressBar">
