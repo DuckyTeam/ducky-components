@@ -1,0 +1,11 @@
+.wrapper {
+  background-color: #f4f7f9;
+}
+
+.innerWrapper {
+  display: block;
+}
+
+.version {
+  margin-bottom: 16px;
+}
