@@ -1,0 +1,20 @@
+.wrapper {
+  width: 4px;
+  height: 36px;
+  border-radius:4px;
+  background-color: rgba(38,50,56,0.12);
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapperInactive {
+  background-color: rgba(38,50,56,0.4);
+}
+
+.progress {
+  width: 4px;
+  border-radius:4px;
+  height: 0%;
+  bottom: 0;
+  position: absolute;
+}
