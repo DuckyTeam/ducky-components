@@ -82,6 +82,9 @@ import PopoverMenuItem3 from '../src/PopoverMenuItem3';
 import PopoverMenuItem4 from '../src/PopoverMenuItem4';
 import Preview from './Preview';
 import ProfileSectionPersonalGoal from '../src/ProfileSectionPersonalGoal';
+import ProgressBar from '../src/ProgressBar';
+import ProgressBarVertical from '../src/ProgressBarVertical';
+import ProgressCircle from '../src/ProgressCircle';
 import RadioButton from '../src/RadioButton';
 import React from 'react';
 import SearchFieldInput from '../src/SearchFieldInput';
@@ -112,8 +115,6 @@ import TextArea from '../src/TextArea';
 import TextAreaLarge from '../src/TextAreaLarge';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
-import ProgressBar from '../src/ProgressBar';
-import ProgressCircle from '../src/ProgressCircle';
 import PeopleLabel from '../src/PeopleLabel';
 import styles from './App.css';
 import moment from 'moment';
@@ -2674,6 +2675,25 @@ export default class App extends React.Component {
                     <ProgressBar
                         color="#8BC34A"
                         percent={30}
+                    />
+                </Preview>
+
+                <Preview title="ProgressBarVertical">
+                    {'CO2'}
+                    <ProgressBarVertical
+                        percent={30}
+                        type={'co2'}
+                    />
+                    <br />
+                    {'POINTS'}
+                    <ProgressBarVertical
+                        percent={70}
+                        type={'points'}
+                    />
+                    <br />
+                    {'INACTIVE'}
+                    <ProgressBarVertical
+                        inactive
                     />
                 </Preview>
 
