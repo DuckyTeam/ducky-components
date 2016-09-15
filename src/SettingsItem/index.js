@@ -2,41 +2,78 @@ import React from 'react';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import ButtonRaised from '../ButtonRaised';
+import Spacer from '../Spacer';
+import IconAvaWrapper from '../src/composites/IconAvaWrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-function SettingsItem(props) {
+class SettingsItem extends React.Component {
+  renderExpandedSettings() {
     return (
-        <Wrapper
-          size={'standard'}
-          >
-            <Typography
-              size={'bodyTextNormal'}
-              >
-                {'text 1'}
-            </Typography>
-            {props.expanded
+      <div>
+        <div className={styles.submit}>
+          <ButtonRaised />
+          <IconAvaWrapper
+            icon={'icon-close'}
+            onClick={this.props.closeClick}
+          />
+        </div>
+        <div>
+          {this.props.children}
+        </div>
+        <Spacer size={'double'} />
+      </div>
+    )
+  }
+
+  render() {
+    return (
+      <Wrapper
+        className={classNames(styles.wrapper, {
+            [this.props.className]: this.props.className
+        })}
+        onClick={this.props.onClick}
+        size={'standard'}
+        >
+          <Typography
+            className={styles.label}
+            size={'bodyTextNormal'}
+            >
+              {this.props.label}
+          </Typography>
+          {this.props.expanded
+            ?
+              this.renderExpandedSettings()
+            :
+              this.props.value
               ?
-                <div>
-                  <ButtonRaised />
-                  <div>
-                    {props.children}
-                  </div>
-                </div>
+              <Typography
+                className={styles.value}
+                size={'bodyTextStrong'}
+                >
+                  {this.props.value}
+              </Typography>
               :
-                <Typography
-                  size={'bodyTextStrong'}
-                  >
-                    {'text 2'}
-                </Typography>
-              }
-          </Wrapper>
+              <Typography
+                className={styles.noValue}
+                size={'bodyTextStrong'}
+                >
+                  {'Legg til'}
+              </Typography>
+            }
+      </Wrapper>
     );
+  }
 }
 
 SettingsItem.propTypes = {
-    expanded: PropTypes.bool
+    className: PropTypes.string,
+    closeClick: PropTypes.func,
+    label: PropTypes.string,
+    expanded: PropTypes.bool,
+    onClick: PropTypes.func,
+    value: PropTypes.value
 };
 
 export default SettingsItem;

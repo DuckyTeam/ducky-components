@@ -143,7 +143,8 @@ export default class App extends React.Component {
             hasSavedLinkElement: false,
             inputErrorMessage: null,
             counterNumber: 10,
-            inputValue: ""
+            inputValue: "",
+            showExpanedSettings: false
         };
         setInterval(() => {
             // this.setState({value: this.state.value + 0.3});
@@ -172,6 +173,11 @@ export default class App extends React.Component {
         this.handleSnackBarClick = this.handleSnackBarClick.bind(this);
         this.handleSnackBar3Click = this.handleSnackBar3Click.bind(this);
         this.handleInputChange = this.handleInputChange.bind(this);
+        this.handleExpandSettings = this.handleExpandSettings.bind(this);
+    }
+
+    handleExpandSettings() {
+      this.setState({showExpanedSettings: true});
     }
 
     handleModalButtonClick() {
@@ -474,8 +480,20 @@ export default class App extends React.Component {
                 </Preview>
 
                 <Preview title="Settings Item">
-                    <SettingsItem />
-                    <SettingsItem expanded>
+                    <SettingsItem
+                      label={'Label 1'}
+                      //value={'Value 1'}
+                      />
+                      <SettingsItem
+                        label={'Label 1.5'}
+                        value={'Value 1.5'}
+                        />
+                    <SettingsItem
+                      label={'Label 2'}
+                      expanded={this.state.showExpanedSettings}
+                      onClick={this.handleExpandSettings}
+                      value={'Value 2'}
+                      >
                       <Header
                           subTitle="Favoritter (0)"
                           title="Logg aktivter"

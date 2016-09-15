@@ -1,0 +1,28 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+  cursor: pointer;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.label {
+  line-height: 24px;
+  flex-grow: 1;
+}
+
+.noValue {
+  color: #ff9800;
+}
+
+.value {
+  padding-right: 16px;
+  color: #00ab97;
+}
+
+.submit {
+  flex-grow: 1;
+}
