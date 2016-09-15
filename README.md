@@ -7,10 +7,11 @@ Basic React components used to create www.ducky.no
 - Have the latest version of [Node](https://nodejs.org/en/)
 - Clone the repo
 - Install dependencies with `npm install`
+- Install storybook with `sudo npm install -g getstorybook`
 
 ## Running the project
-- Run the development server with `npm start`
-- Open `localhost:3005`
+- Run the development server with `npm run storybook`
+- Open `localhost:6006`
 
 ## Project structure
 Create a component folder in `common` with `index.js` and `styles.css` files. Each component is to be developed as a function or a class if required.
