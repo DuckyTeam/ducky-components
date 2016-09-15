@@ -1,0 +1,26 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+  cursor: pointer;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.composite {
+  width: 100%;
+}
+
+.typoTitle {
+  line-height: 24px;
+  flex-grow: 1;
+  color: #90a4ae;
+}
+
+.typoContent {
+  padding-left: 16px;
+  color: #90a4ae;
+  float: right;
+}

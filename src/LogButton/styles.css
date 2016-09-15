@@ -22,6 +22,15 @@
     color: #FFFFFF;
 }
 
+.inactive {
+  border: 2px solid #eceff1;
+  cursor: default;
+}
+
+.inactive > span {
+  color: #cfd8dc;
+}
+
 .wrapper:hover{
     border: 2px solid #00AB97;
     background-color: white;
@@ -38,4 +47,13 @@
 
 .checked:hover > span{
     color: #FFFFFF;
+}
+
+.inactive:hover{
+  border: 2px solid #eceff1;
+  cursor: default;
+}
+
+.inactive:hover > span {
+  color: #cfd8dc;
 }
