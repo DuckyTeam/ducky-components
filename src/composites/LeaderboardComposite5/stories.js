@@ -1,47 +1,49 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
-import LeaderboardComposite4 from '../LeaderboardComposite4';
+import LeaderboardComposite5 from '../LeaderboardComposite5';
 
-storiesOf('LeaderboardComposite4', module)
-  .add('any team', () => (
-      <LeaderboardComposite4
-          level={3}
-          teamActionsCount={145}
-          teamMemberCount={140}
-          teamName={'Nord-Norge'}
-          teamRanking={2}
-          teamTotalCo2={4946}
+storiesOf('LeaderboardComposite5', module)
+  .add('any household', () => (
+      <LeaderboardComposite5
+          avatarURL={'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg'}
+          householdActionsCount={14}
+          householdCo2InChallenge={43}
+          householdMemberCount={2}
+          householdName={'Any Householding Navn'}
+          householdRanking={5}
+          progressRelativePercent={40}
       />
   ))
-  .add('your team', () => (
-      <LeaderboardComposite4
-          level={0}
-          teamActionsCount={2}
-          teamMemberCount={140}
-          teamName={'Nord-Norge'}
-          teamRanking={20}
-          teamTotalCo2={30}
-          yourTeam
+  .add('your household', () => (
+      <LeaderboardComposite5
+          avatarURL={'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg'}
+          householdActionsCount={14}
+          householdCo2InChallenge={43}
+          householdMemberCount={2}
+          householdName={'My Householding Navn'}
+          householdRanking={5}
+          progressRelativePercent={40}
+          yourHousehold
       />
   ))
-  .add('leader team', () => (
-      <LeaderboardComposite4
+  .add('leader household', () => (
+      <LeaderboardComposite5
+          avatarURL={'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg'}
+          householdActionsCount={14}
+          householdCo2InChallenge={120}
+          householdMemberCount={2}
+          householdName={'Leader Householding Navn'}
           isLeader
-          level={3}
-          teamActionsCount={140}
-          teamMemberCount={140}
-          teamName={'Midt-Norge'}
-          teamTotalCo2={908}
       />
   ))
-  .add('you are leader', () => (
-      <LeaderboardComposite4
+  .add('you are in leader household', () => (
+      <LeaderboardComposite5
+          avatarURL={'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg'}
+          householdActionsCount={14}
+          householdCo2InChallenge={120}
+          householdMemberCount={2}
+          householdName={'I am part of leader household'}
           isLeader
-          level={3}
-          teamActionsCount={140}
-          teamMemberCount={140}
-          teamName={'Midt-Norge'}
-          teamTotalCo2={908}
-          yourTeam
+          yourHousehold
       />
   ));
