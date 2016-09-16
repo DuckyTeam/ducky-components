@@ -1,0 +1,69 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 48px;
+  background-color: #f4f7f9;
+}
+
+.householdRanking {
+  width: 56px;
+  text-align: center;
+  color: #607d8b;
+}
+
+.avatar {
+  margin: 0 16px 0 12px;
+}
+
+.yourHouseholdRanking {
+  width: 36px;
+  text-align: center;
+  color: #263238;
+}
+
+.leader {
+  width: 36px;
+  margin-right: 10px;
+  margin-left: 6px;
+}
+
+.leader > span:first-child {
+    color: #ffc107;
+}
+
+.householdName {
+  line-height: 22px;
+  width: 156px;
+  margin-right: 16px;
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.labelSmallWrapperOne {
+  width: 120px;
+}
+
+.labelSmallWrapperTwo {
+  width: 92px;
+}
+
+.labelSmall {
+  color: #607d8b;
+}
+
+.labelSmall > span {
+    color: #90a4ae;
+}
+
+.progressBar {
+  width: 80px;
+}
+
+.co2Wrapper {
+  width: 84px;
+  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+}

@@ -59,6 +59,7 @@ import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
 import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
 import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
+import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -1509,6 +1510,49 @@ export default class App extends React.Component {
                             yourTeam
                         />
                     </div>
+                </Preview>
+
+                <Preview title={'LeaderboardComposite5'}>
+                    {'ANY HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={43}
+                        householdMemberCount={2}
+                        householdName={'Any Householding Navn'}
+                        householdRanking={5}
+                        progressRelativePercent={40}
+                    />
+                  {'YOUR HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={43}
+                        householdMemberCount={2}
+                        householdName={'My Householding Navn'}
+                        householdRanking={5}
+                        progressRelativePercent={40}
+                        yourHousehold
+                    />
+                  {'LEADER HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={120}
+                        householdMemberCount={2}
+                        householdName={'Leader Householding Navn'}
+                        isLeader
+                    />
+                    {'I AM THE LEADER'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={120}
+                        householdMemberCount={2}
+                        householdName={'I am part of leader household'}
+                        isLeader
+                        yourHousehold
+                    />
                 </Preview>
 
                 <Preview title={"Switch Toggle Button"}>
