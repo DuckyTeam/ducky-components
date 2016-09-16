@@ -58,6 +58,7 @@ import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
 import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
+import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -1455,6 +1456,58 @@ export default class App extends React.Component {
                 <Preview title={'LeaderboardHeader2'}>
                     <div style={{width: 600}}>
                         <LeaderboardHeader2 />
+                    </div>
+                </Preview>
+
+                <Preview title={'LeaderboardComposite4'}>
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'ANY TEAM'}
+                        <LeaderboardComposite4
+                            level={1}
+                            teamActionsCount={145}
+                            teamMemberCount={140}
+                            teamName={'Nord-Norge'}
+                            teamRanking={2}
+                            teamTotalCo2={550}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'YOUR TEAM'}
+                        <LeaderboardComposite4
+                            level={0}
+                            teamActionsCount={2}
+                            teamMemberCount={140}
+                            teamName={'Nord-Norge'}
+                            teamRanking={20}
+                            teamTotalCo2={30}
+                            yourTeam
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'LEADER TEAM'}
+                        <LeaderboardComposite4
+                            isLeader
+                            level={3}
+                            teamActionsCount={140}
+                            teamMemberCount={140}
+                            teamName={'Midt-Norge'}
+                            teamTotalCo2={908}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'YOU ARE THE LEADER'}
+                        <LeaderboardComposite4
+                            isLeader
+                            level={3}
+                            teamActionsCount={140}
+                            teamMemberCount={140}
+                            teamName={'Midt-Norge'}
+                            teamTotalCo2={908}
+                            yourTeam
+                        />
                     </div>
                 </Preview>
 
