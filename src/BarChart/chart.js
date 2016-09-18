@@ -3,11 +3,11 @@ import styles from './styles.css';
 const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
-    const xAxisOffset = props.height + props.margin.top + 20;
+    const xAxisOffset = props.height + props.margin.top;
     const svg = d3
         .select(el)
         .append('svg')
-        .attr('class', `d3Chart${props.id}`)
+        .attr('class', `d3Chart${props.id} ${styles.svg}`)
         .attr('width', props.width)
         .attr('height', props.height);
 
@@ -26,8 +26,10 @@ d3Chart.create = (el, props, state) => {
 
 d3Chart.update = (el, state, props) => {
     const height = props.height - props.margin.top - props.margin.bottom;
-    const xAxisOffset = height + props.margin.top + 20;
+    const xAxisOffset = height + props.margin.top;
     const speed = 250;
+    const textPadding = 3;
+    const barTextFontSize = 20;
 
     // Resize svg-canvas
     var svg = d3.select(`.d3Chart${props.id}`)
@@ -40,11 +42,11 @@ d3Chart.update = (el, state, props) => {
 
     const xScale = d3.scale.ordinal()
       .domain(state.data.map(d => d.label))
-      .rangeBands([0, props.width - props.margin.left - props.margin.right], 0.45);
+      .rangeBands([0, props.width - props.margin.left - props.margin.right], 0.67);
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max(state.data, d => d.value)])
-      .range([height, 0]);
+      .range([height, xScale.rangeBand() + barTextFontSize + textPadding*2]); //Make sure all the stuff on top of graph actually fits inside canvas
 
     const xAxis = d3
         .svg
@@ -58,27 +60,40 @@ d3Chart.update = (el, state, props) => {
         .scale(yScale)
         .orient("left");
 
-    const rects = svg.select(`.${styles.bars}`).selectAll("rect").data(state.data);
+    const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data);
 
     //Transition in new axis
     svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
     svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis);
 
     //Enter new reactangles and set them to height 0
-    rects.enter().append("rect")
+    var entered = rects.enter().append("g")
+    entered.append("rect")
       .attr('class', styles.rectangle)
-      .attr('rx', 5)
+      .attr('rx', 2)
       .attr('x', d => xScale(d.label))
       .attr('y', height)
       .attr('height', 0)
       .attr('width', d => xScale.rangeBand())
-      .attr('fill', d => d.color)
-      .append('image').attr({
+      .attr('fill', d => d.color);
+
+    entered.append('image').attr({
         "xlink:href": "https://upload.wikimedia.org/wikipedia/commons/d/d8/Compass_card_(de).svg",
-        width: 100,
-        height: 100,
+        width: d => xScale.rangeBand(),
+        height: d => xScale.rangeBand(),
         x: d => xScale(d.label),
-        y: d => yScale(d.value)
+        y: d => height,
+        opacity: 0
+      });
+
+    entered.append('text')
+      .attr({
+        class: styles.barText,
+        text: d => d.value,
+        x: d => xScale(d.label) + 0.5*xScale.rangeBand(),
+        y: d => height,
+        width: d => xScale.rangeBand(),
+        height: d => xScale.rangeBand()
       });
 
     //Remove unnessescary rectangles
@@ -88,15 +103,46 @@ d3Chart.update = (el, state, props) => {
       .remove();
 
     //Transition the x position after removing rectangles
-    rects.transition().delay(speed).duration(speed)
+    var transX = rects.transition().delay(speed).duration(speed);
+
+    transX.select("rect")
       .attr('x', d => xScale(d.label))
       .attr('width', d => xScale.rangeBand())
       .attr('fill', d => d.color);
 
+    transX.select("image")
+      .attr({
+          x: d => xScale(d.label)
+        });
+
+    transX.select("text")
+    .text(d => d.value)
+    .attr({
+        'font-size': barTextFontSize,
+        x: d => xScale(d.label) + 0.5*xScale.rangeBand()
+      });
+
     //Transition the y position after x position
-    rects.transition().delay(speed*2)
+    var transY = rects.transition().delay(speed*2)
+
+    transY.select("rect")
       .attr('y', d => yScale(d.value))
       .attr('height', d => height - yScale(d.value));
+
+    transY.select("image")
+      .attr({
+        y: d => yScale(d.value) - xScale.rangeBand() - 2*textPadding - barTextFontSize,
+        width: d => xScale.rangeBand(),
+        height: d => xScale.rangeBand(),
+        opacity: 1
+      });
+
+    transY.select("text")
+      .text(d => d.value)
+      .attr({
+        y: d => yScale(d.value) - textPadding
+      });
+
 
 };
 

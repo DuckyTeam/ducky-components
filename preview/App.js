@@ -2744,31 +2744,31 @@ export default class App extends React.Component {
                     <BarChart
                         data={[
                             {
-                                value: 5,
+                                value: 500,
                                 color: "#8BC34A",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek1"
                             },
                             {
-                                value: 8,
+                                value: 1523,
                                 color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek2"
                             },
                             {
-                                value: this.state.counterNumber*0.2,
+                                value: this.state.counterNumber*43,
                                 color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek3"
                             },
                             {
-                                value: 8,
+                                value: 454,
                                 color: "#CFD8FC",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek4"
                             },
                             {
-                                value: this.state.counterNumber*0.4,
+                                value: 324*this.state.counterNumber*0.4,
                                 color: "#FFC107",
                                 image: "http//:fsfkjsld.no/img.jpg",
                                 label: "Strek5"

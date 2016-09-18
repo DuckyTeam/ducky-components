@@ -21,7 +21,7 @@
 }
 
 .xAxis > g > text {
-  fill: #263238;
+  fill: #607D8B;
   font-weight: bold;
 }
 
@@ -30,6 +30,16 @@
 }
 
 .xAxis, .yAxis > g > text {
-    font-family: Montserrat, Arial;
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
     font-size: 10px;
+}
+
+.barText {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  fill:white;
+  text-anchor: middle;
+}
+
+.svg {
+  background-color: #003741;
 }
