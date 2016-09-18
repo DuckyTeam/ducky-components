@@ -57,6 +57,9 @@ import LabelDisplay from "../src/LabelDisplay";
 import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
+import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
+import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
+import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -82,6 +85,9 @@ import PopoverMenuItem3 from '../src/PopoverMenuItem3';
 import PopoverMenuItem4 from '../src/PopoverMenuItem4';
 import Preview from './Preview';
 import ProfileSectionPersonalGoal from '../src/ProfileSectionPersonalGoal';
+import ProgressBar from '../src/ProgressBar';
+import ProgressBarVertical from '../src/ProgressBarVertical';
+import ProgressCircle from '../src/ProgressCircle';
 import RadioButton from '../src/RadioButton';
 import React from 'react';
 import SearchFieldInput from '../src/SearchFieldInput';
@@ -90,6 +96,9 @@ import SectionFooterClose from './../src/SectionFooterClose';
 import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
+import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
+import SettingsSectionApplications from '../src/SettingsSectionApplications';
+import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -109,8 +118,6 @@ import TextArea from '../src/TextArea';
 import TextAreaLarge from '../src/TextAreaLarge';
 import RemoveImage from '../src/RemoveImage';
 import Wrapper from '../src/Wrapper';
-import ProgressBar from '../src/ProgressBar';
-import ProgressCircle from '../src/ProgressCircle';
 import PeopleLabel from '../src/PeopleLabel';
 import styles from './App.css';
 import moment from 'moment';
@@ -1447,6 +1454,107 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
+                <Preview title={'LeaderboardHeader2'}>
+                    <div style={{width: 600}}>
+                        <LeaderboardHeader2 />
+                    </div>
+                </Preview>
+
+                <Preview title={'LeaderboardComposite4'}>
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'ANY TEAM'}
+                        <LeaderboardComposite4
+                            level={1}
+                            teamActionsCount={145}
+                            teamMemberCount={140}
+                            teamName={'Nord-Norge'}
+                            teamRanking={2}
+                            teamTotalCo2={550}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'YOUR TEAM'}
+                        <LeaderboardComposite4
+                            level={0}
+                            teamActionsCount={2}
+                            teamMemberCount={140}
+                            teamName={'Nord-Norge'}
+                            teamRanking={20}
+                            teamTotalCo2={30}
+                            yourTeam
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'LEADER TEAM'}
+                        <LeaderboardComposite4
+                            isLeader
+                            level={3}
+                            teamActionsCount={140}
+                            teamMemberCount={140}
+                            teamName={'Midt-Norge'}
+                            teamTotalCo2={908}
+                        />
+                    </div>
+                    <br />
+                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
+                        {'YOU ARE THE LEADER'}
+                        <LeaderboardComposite4
+                            isLeader
+                            level={3}
+                            teamActionsCount={140}
+                            teamMemberCount={140}
+                            teamName={'Midt-Norge'}
+                            teamTotalCo2={908}
+                            yourTeam
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={'LeaderboardComposite5'}>
+                    {'ANY HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={43}
+                        householdMemberCount={2}
+                        householdName={'Any Householding Navn'}
+                        householdRanking={5}
+                        progressRelativePercent={40}
+                    />
+                  {'YOUR HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={43}
+                        householdMemberCount={2}
+                        householdName={'My Householding Navn'}
+                        householdRanking={5}
+                        progressRelativePercent={40}
+                        yourHousehold
+                    />
+                  {'LEADER HOUSEHOLD'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={120}
+                        householdMemberCount={2}
+                        householdName={'Leader Householding Navn'}
+                        isLeader
+                    />
+                    {'I AM THE LEADER'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        householdActionsCount={14}
+                        householdCo2InChallenge={120}
+                        householdMemberCount={2}
+                        householdName={'I am part of leader household'}
+                        isLeader
+                        yourHousehold
+                    />
+                </Preview>
+
                 <Preview title={"Switch Toggle Button"}>
                     {'Dark theme'}
                     <div style={{backgroundColor: '#686766', padding: 10}}>
@@ -1651,6 +1759,7 @@ export default class App extends React.Component {
                 >
                     <LogButton />
                     <LogButton checked />
+                    <LogButton inactive />
                 </Preview>
 
                 <Preview title="IconDropdown">
@@ -2636,12 +2745,60 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
+                <Preview title={'SettingsPrivacyGeneral'}>
+                    <SettingsPrivacyGeneral />
+                </Preview>
+
+                <Preview title={'SettingsItemAppConnect'}>
+                    <div style={{width: 230}}>
+                        <SettingsItemAppConnect
+                            connected
+                            socialMedia={'Facebook'}
+                            userName={'Sara Kannan'}
+                        />
+                    </div>
+                    <br />
+                    <div style={{width: 230}}>
+                        <SettingsItemAppConnect
+                            socialMedia={'TWITTER'}
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={'SettingsSectionApplications'}>
+                    <div style={{width: 250}}>
+                        <SettingsSectionApplications
+                            twitterConnected
+                            userName={'Sara Kannan'}
+                        />
+                    </div>
+                </Preview>
+
                 <Preview title="ProgressBar">
                     <ProgressBar percent={70} />
                     <br />
                     <ProgressBar
                         color="#8BC34A"
                         percent={30}
+                    />
+                </Preview>
+
+                <Preview title="ProgressBarVertical">
+                    {'CO2'}
+                    <ProgressBarVertical
+                        percent={30}
+                        type={'co2'}
+                    />
+                    <br />
+                    {'POINTS'}
+                    <ProgressBarVertical
+                        percent={70}
+                        type={'points'}
+                    />
+                    <br />
+                    {'INACTIVE'}
+                    <ProgressBarVertical
+                        inactive
                     />
                 </Preview>
 
