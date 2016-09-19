@@ -21,6 +21,7 @@ import CardLabel1 from '../src/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
+import ChallengeDailyScorebars from '../src/ChallengeDailyScorebars';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
@@ -1928,6 +1929,47 @@ export default class App extends React.Component {
                     <ChallengeMetaJoin
                         endDate={'15-Jul-2016'}
                         startDate={'15-Jul-2016'}
+                    />
+                </Preview>
+
+                <Preview title="ChallengeDailyScorebars">
+                    {'Profile Challenges'}
+                    <ChallengeDailyScorebars
+                        barType={'co2'}
+                        challengeEndDate={'01-Oct-2016'}
+                        challengeStartDate={'01-Sep-2016'}
+                        dailyActivitiesCount={
+                            {
+                                1473976800000: 10,
+                                1474063200000: 15,
+                                1474236000000: 12
+                            }
+                          }
+                        todayDate={'19-Sep-2016'}
+                        totalActivitiesCount={15}
+                    />
+                    <br />
+                    {'Household Challenges'}
+                    <ChallengeDailyScorebars
+                        barType={'co2'}
+                        challengeEndDate={'01-Oct-2016'}
+                        challengeStartDate={'01-Sep-2016'}
+                        dailyActivitiesCount={
+                            {
+                                1473976800000: 10,
+                                1474063200000: 15,
+                                1474236000000: 12
+                            }
+                          }
+                        householdChallenge
+                        loggedDays={
+                            {
+                                1473976800000: true,
+                                1474236000000: true
+                            }
+                        }
+                        todayDate={'19-Sep-2016'}
+                        totalActivitiesCount={15}
                     />
                 </Preview>
 

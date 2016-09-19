@@ -4,17 +4,20 @@ import styles from './styles.css';
 import classNames from 'classnames';
 
 function ProgressBarVertical(props) {
-    // color for POINTS and default
-    let color = '#8BC34A';
+    let color = '';
 
     if (props.type && props.type.toUpperCase() === 'CO2') {
         color = '#1cbaa5';
+    } else if (props.type && props.type.toUpperCase() === 'POINTS') {
+        color = '#8BC34A';
+    } else {
+        color = props.type;
     }
 
     return (
         <div
             className={classNames(styles.wrapper, {
-                [styles.inactiveWrapper]: [props.inactive],
+                [styles.inactiveWrapper]: props.inactive,
                 [props.className]: props.className})}
         >
             <div
