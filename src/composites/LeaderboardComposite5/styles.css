@@ -5,7 +5,7 @@
   background-color: #f4f7f9;
 }
 
-.householdRanking {
+.ranking {
   width: 56px;
   text-align: center;
   color: #607d8b;
@@ -13,12 +13,6 @@
 
 .avatar {
   margin: 0 16px 0 12px;
-}
-
-.yourHouseholdRanking {
-  width: 36px;
-  text-align: center;
-  color: #263238;
 }
 
 .leader {
@@ -31,7 +25,7 @@
     color: #ffc107;
 }
 
-.householdName {
+.name {
   line-height: 22px;
   width: 156px;
   margin-right: 16px;
@@ -46,7 +40,7 @@
 }
 
 .labelSmallWrapperTwo {
-  width: 92px;
+  width: 76px;
 }
 
 .labelSmall {
