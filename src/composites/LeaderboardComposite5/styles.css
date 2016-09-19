@@ -33,7 +33,6 @@
 
 .householdName {
   line-height: 22px;
-  width: 156px;
   margin-right: 16px;
   flex-grow: 1;
   white-space: nowrap;
@@ -46,7 +45,7 @@
 }
 
 .labelSmallWrapperTwo {
-  width: 92px;
+  width: 76px;
 }
 
 .labelSmall {
