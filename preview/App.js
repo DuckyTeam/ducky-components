@@ -59,6 +59,7 @@ import LabelDisplay from "../src/LabelDisplay";
 import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
+import LeaderboardHeader from "../src/LeaderboardHeader";
 import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
 import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
 import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
@@ -1489,6 +1490,20 @@ export default class App extends React.Component {
                 <Preview title={'LeaderboardHeader2'}>
                     <div style={{width: 600}}>
                         <LeaderboardHeader2 />
+                    </div>
+                </Preview>
+
+                <Preview title={'LeaderboardHeader'}>
+                    {'Individual Team'}
+                    <div style={{width: 600}}>
+                        <LeaderboardHeader />
+                    </div>
+                    <br />
+                    {'Householding Team'}
+                    <div style={{width: 600}}>
+                        <LeaderboardHeader
+                            householdChallenge
+                        />
                     </div>
                 </Preview>
 
