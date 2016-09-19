@@ -1,0 +1,51 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.currentDate {
+  text-transform: capitalize;
+  color: #263238;
+  line-height: 22px;
+}
+
+.challengeCaption {
+  color: #607d8b;
+}
+
+.dateWrapper {
+  width: 124px;
+  margin-right: 16px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.loggedActivities, .loggedPoints, .loggedCo2 {
+  width: 48px;
+}
+
+.loggedActivities span:last-child, .loggedPoints span:last-child, .loggedCo2 span:last-child {
+  color: #263238;
+}
+
+.loggedActivities span:first-child {
+  color: #00AB97;
+}
+
+.loggedPoints span:first-child {
+  color: #8bc34a;
+}
+
+.loggedCo2 span:first-child {
+  color: #00AB97;
+}
+
+.inactiveCurrentDate, .inactiveChallengeCaption,
+.inactiveLoggedActivities span:first-child, .inactiveLoggedPoints span:first-child, .inactiveLoggedCo2 span:first-child,
+.inactiveLoggedActivities span:last-child, .inactiveLoggedPoints span:last-child, .inactiveLoggedCo2 span:last-child
+{
+  color: #b0bec5 !important;
+}

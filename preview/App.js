@@ -22,6 +22,7 @@ import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
+import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
 import CreateGoalValueInput from '../src/CreateGoalValueInput';
@@ -407,6 +408,36 @@ export default class App extends React.Component {
                     width={200}
                 >
                     <Popup>{'hey'}</Popup>
+                </Preview>
+
+                <Preview title="/ChallengeDailyScoreInfo">
+                  {'inactive challenge - has not started'}
+                  <ChallengeDailyScoreInfo
+                    activities={'12'}
+                    challengeType={'household'}
+                    challengeStartDatetimeUTC={1474894600551}
+                    challengeEndDatetimeUTC={1475758626218}
+                    co2={'34'}
+                    currentDate={1474030728395}
+                    />
+                  {'ongoing challenge'}
+                  <ChallengeDailyScoreInfo
+                    activities={'12'}
+                    challengeType={'household'}
+                    challengeStartDatetimeUTC={1473846941465}
+                    challengeEndDatetimeUTC={1476006953142}
+                    co2={'34'}
+                    currentDate={1474278923240}
+                    />
+                  {'challenge ended'}
+                  <ChallengeDailyScoreInfo
+                    activities={'21'}
+                    challengeType={'points'}
+                    challengeStartDatetimeUTC={1473846941465}
+                    challengeEndDatetimeUTC={1473166641553}
+                    points={'43'}
+                    currentDate={1474030728395}
+                    />
                 </Preview>
 
                 <Preview title="Input">
