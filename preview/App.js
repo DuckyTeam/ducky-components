@@ -413,11 +413,11 @@ export default class App extends React.Component {
                 <Preview title="/ChallengeDailyScoreInfo">
                   {'inactive challenge - has not started'}
                   <ChallengeDailyScoreInfo
-                    activities={'12'}
+                    activities={'-'}
                     challengeType={'household'}
                     challengeStartDatetimeUTC={1474894600551}
                     challengeEndDatetimeUTC={1475758626218}
-                    co2={'34'}
+                    co2={'-'}
                     currentDate={1474030728395}
                     />
                   {'ongoing challenge'}
