@@ -11,10 +11,13 @@ function LabelNumber(props) {
                 <Typography
                     className={classNames(styles.number, {
                         [styles.darknumber]: props.bgcolor === 'darkbg'})}
-                    type={'ingressStrong'}
+                    type="ingressStrong"
                 >
                     {props.animation
-                    ? <Counter number={Number(props.number)} />
+                    ? <Counter
+                        decimals={props.decimals}
+                        number={props.number}
+                      />
                     : props.number}
 
                 </Typography>
@@ -22,7 +25,7 @@ function LabelNumber(props) {
                 <Typography
                     className={classNames(styles.textcontent, {
                         [styles.darktextcontent]: props.bgcolor === 'darkbg'})}
-                    type={'caption2Normal'}
+                    type="caption2Normal"
                 >
                     {props.textcontent}
                 </Typography>
@@ -34,7 +37,8 @@ LabelNumber.propTypes = {
     animation: React.PropTypes.bool,
     bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
-    number: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
+    decimals: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
+    number: React.PropTypes.number,
     textcontent: React.PropTypes.string
 };
 
