@@ -27,7 +27,6 @@ class BarChart extends React.Component {
     }
 
     componentWillUnmount() {
-        d3Chart.destroy(this.container);
     }
 
     handleRef = (element) => {
