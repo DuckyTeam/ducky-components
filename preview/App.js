@@ -1547,40 +1547,84 @@ export default class App extends React.Component {
                     {'ANY HOUSEHOLD'}
                     <LeaderboardComposite5
                         avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={43}
+                        challengeType={'household'}
+                        actionsCount={14}
+                        co2InChallenge={43}
                         householdMemberCount={2}
-                        householdName={'Any Householding Navn'}
-                        householdRanking={5}
+                        name={'Any Householding Navn'}
+                        ranking={5}
                         progressRelativePercent={40}
                     />
                   {'YOUR HOUSEHOLD'}
                     <LeaderboardComposite5
                         avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={43}
+                        challengeType={'household'}
+                        actionsCount={14}
+                        co2InChallenge={43}
                         householdMemberCount={2}
-                        householdName={'My Householding Navn'}
-                        householdRanking={5}
+                        name={'My Householding Navn'}
+                        ranking={5}
                         progressRelativePercent={40}
                         yourHousehold
                     />
                   {'LEADER HOUSEHOLD'}
                     <LeaderboardComposite5
                         avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={120}
+                        challengeType={'household'}
+                        actionsCount={14}
+                        co2InChallenge={120}
                         householdMemberCount={2}
-                        householdName={'Leader Householding Navn'}
+                        name={'Leader Householding Navn'}
                         isLeader
                     />
                     {'I AM THE LEADER'}
                     <LeaderboardComposite5
                         avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={120}
+                        challengeType={'household'}
+                        actionsCount={14}
+                        co2InChallenge={120}
                         householdMemberCount={2}
-                        householdName={'I am part of leader household'}
+                        name={'I am part of leader household'}
+                        isLeader
+                        yourHousehold
+                    />
+                  {'Any profile'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        challengeType={'profile'}
+                        actionsCount={14}
+                        co2InChallenge={43}
+                        name={'Any Profile Navn'}
+                        ranking={5}
+                        progressRelativePercent={40}
+                    />
+                  {'Your profile'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        challengeType={'profile'}
+                        actionsCount={14}
+                        co2InChallenge={43}
+                        name={'My Profile Navn'}
+                        ranking={5}
+                        progressRelativePercent={40}
+                        yourHousehold
+                    />
+                  {'Leader Profile'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        challengeType={'profile'}
+                        actionsCount={14}
+                        co2InChallenge={120}
+                        name={'Leader Profile Navn'}
+                        isLeader
+                    />
+                  {'I am the leader'}
+                    <LeaderboardComposite5
+                        avatarURL={AVATAR_URL}
+                        challengeType={'profile'}
+                        actionsCount={14}
+                        co2InChallenge={120}
+                        name={'I am the of leader profile'}
                         isLeader
                         yourHousehold
                     />

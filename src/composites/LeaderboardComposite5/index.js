@@ -8,31 +8,31 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 function LeaderboardComposite5(props) {
-    let householdRanking = (
+    let ranking = (
         <Typography
-            className={styles.householdRanking}
+            className={styles.ranking}
             type={'caption1Normal'}
         >
-            {props.householdRanking}
+            {props.ranking}
         </Typography>
     );
 
     if (props.yourHousehold && !props.isLeader) {
-        householdRanking = (
+        ranking = (
             <Typography
-                className={styles.householdRanking}
+                className={styles.ranking}
                 type={'caption1Strong'}
             >
-                {props.householdRanking}
+                {props.ranking}
             </Typography>
       );
     }
 
     if (props.isLeader) {
-        householdRanking = (
+        ranking = (
             <LabelStandard
                 className={styles.leader}
-                content={props.householdRanking || 1}
+                content={props.ranking || 1}
                 icon={'icon-crown'}
                 type={'caption2Normal'}
             />
@@ -46,7 +46,7 @@ function LeaderboardComposite5(props) {
             })}
         >
 
-            {householdRanking}
+            {ranking}
             <Avatar
                 className={styles.avatar}
                 image={props.avatarURL}
@@ -54,23 +54,28 @@ function LeaderboardComposite5(props) {
                 size={props.yourHousehold || props.isLeader ? 'standard' : 'small'}
             />
             <Typography
-                className={styles.householdName}
+                className={styles.name}
                 type={'bodyTextStrong'}
             >
-                {props.householdName}
+                {props.name}
             </Typography>
-            <div className={styles.labelSmallWrapperOne}>
-                <LabelSmall
-                    className={styles.labelSmall}
-                    content={props.householdMemberCount}
-                    icon={'icon-people'}
-                    type={"caption2Normal"}
-                />
-            </div>
+            {
+              props.challengeType === 'household' ?
+                <div className={styles.labelSmallWrapperOne}>
+                    <LabelSmall
+                        className={styles.labelSmall}
+                        content={props.householdMemberCount}
+                        icon={'icon-people'}
+                        type={"caption2Normal"}
+                    />
+                </div>
+            :
+              null
+            }
             <div className={styles.labelSmallWrapperTwo}>
                 <LabelSmall
                     className={styles.labelSmall}
-                    content={props.householdActionsCount}
+                    content={props.actionsCount}
                     icon={'icon-check_circle'}
                     type={"caption2Normal"}
                 />
@@ -82,7 +87,7 @@ function LeaderboardComposite5(props) {
             />
             <div className={styles.co2Wrapper}>
                 <LabelSmall
-                    content={props.householdCo2InChallenge}
+                    content={props.co2InChallenge}
                     icon={'icon-leaf'}
                     type={'caption2Normal'}
                 />
@@ -93,13 +98,14 @@ function LeaderboardComposite5(props) {
 
 LeaderboardComposite5.propTypes = {
     avatarURL: React.PropTypes.string,
+    challengeType: React.PropTypes.string,
     className: React.PropTypes.string,
     handleOnAvatarClicked: React.PropTypes.func,
-    householdActionsCount: React.PropTypes.string,
-    householdCo2InChallenge: React.PropTypes.number,
+    actionsCount: React.PropTypes.string,
+    co2InChallenge: React.PropTypes.number,
     householdMemberCount: React.PropTypes.number,
-    householdName: React.PropTypes.string,
-    householdRanking: React.PropTypes.number,
+    name: React.PropTypes.string,
+    ranking: React.PropTypes.number,
     isLeader: React.PropTypes.bool,
     progressRelativePercent: React.PropTypes.number,
     yourHousehold: React.PropTypes.bool
