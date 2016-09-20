@@ -16,10 +16,11 @@ function LabelStandard(props) {
                     [styles.co2Icon]: props.icon === 'icon-leaf'
                 })}
                 icon={props.icon}
-                size={'small'}
+                size="small"
             />
-            <br />
-            <Typography type={'bodyTextTitle'}>{props.content}</Typography>
+            <div>
+                <Typography type="bodyTextTitle">{props.content}</Typography>
+            </div>
         </span>
     );
 }
