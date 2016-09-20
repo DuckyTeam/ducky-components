@@ -103,6 +103,7 @@ import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityM
 import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
 import SettingsSectionApplications from '../src/SettingsSectionApplications';
 import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
+import SettingsSectionPrivacy from '../src/SettingsSectionPrivacy';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -2991,6 +2992,13 @@ export default class App extends React.Component {
 
                 <Preview title={'SettingsPrivacyGeneral'}>
                     <SettingsPrivacyGeneral />
+                    <SettingsPrivacyGeneral
+                        privacySettings={'private'}
+                    />
+                </Preview>
+
+                <Preview title={'SettingsSectionPrivacy'}>
+                    <SettingsSectionPrivacy />
                 </Preview>
 
                 <Preview title={'SettingsItemAppConnect'}>
