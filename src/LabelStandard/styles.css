@@ -1,7 +1,8 @@
 .wrapper {
-    display: inline-block;
     text-align: center;
     height: 36px;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .co2Icon{

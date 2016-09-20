@@ -3,11 +3,6 @@ import { storiesOf, action, linkTo } from '@kadira/storybook';
 import ProgressBarVertical from '../ProgressBarVertical';
 
 storiesOf('ProgressBarVertical', module)
-  .add('inactive', () => (
-      <ProgressBarVertical
-          inactive
-      />
-  ))
   .add('CO2', () => (
       <ProgressBarVertical
           percent={75}
@@ -16,7 +11,12 @@ storiesOf('ProgressBarVertical', module)
   ))
   .add('points', () => (
       <ProgressBarVertical
-          percent={50}
+          percent={30}
           type={'points'}
+      />
+  ))
+  .add('inactive', () => (
+      <ProgressBarVertical
+          inactive
       />
   ));

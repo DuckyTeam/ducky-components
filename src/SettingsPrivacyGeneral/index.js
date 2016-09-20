@@ -22,7 +22,7 @@ function SettingsPrivacyGeneral(props) {
                     className={styles.typoContent}
                     type={'bodyTextStrong'}
                 >
-                    {'normal'}
+                    {props.privacySettings || 'normal'}
                 </Typography>
             </div>
         </Wrapper>
@@ -31,7 +31,8 @@ function SettingsPrivacyGeneral(props) {
 
 SettingsPrivacyGeneral.propTypes = {
     className: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    privacySettings: PropTypes.string
 };
 
 export default SettingsPrivacyGeneral;

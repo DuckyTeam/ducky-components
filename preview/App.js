@@ -21,6 +21,8 @@ import CardLabel1 from '../src/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
+import ChallengeDailyScorebars from '../src/ChallengeDailyScorebars';
+import ChallengeDailyScoreComposite from '../src/ChallengeDailyScoreComposite';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
@@ -58,9 +60,10 @@ import LabelDisplay from "../src/LabelDisplay";
 import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
+// import LeaderboardHeader from "../src/LeaderboardHeader";
 import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
-import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
-import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
+// import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
+// import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -98,8 +101,12 @@ import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
+import SettingsItemEmail from '../src/SettingsItemEmail';
+import SettingsItemGender from '../src/SettingsItemGender';
+import SettingsItemLocation from '../src/SettingsItemLocation';
 import SettingsSectionApplications from '../src/SettingsSectionApplications';
 import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
+import SettingsSectionPrivacy from '../src/SettingsSectionPrivacy';
 import SnackBarPanel1 from '../src/SnackBarPanel1';
 import SnackBarPanel3 from '../src/SnackBarPanel3';
 import SnackBarWrapper from '../src/SnackBarWrapper';
@@ -414,31 +421,31 @@ export default class App extends React.Component {
 
                 <Preview title="/ChallengeDailyScoreInfo">
                   {'inactive challenge - has not started'}
-                  <ChallengeDailyScoreInfo
-                    activities={'-'}
-                    challengeType={'household'}
-                    challengeStartDatetimeUTC={1474894600551}
-                    challengeEndDatetimeUTC={1475758626218}
-                    co2={'-'}
-                    currentDate={1474030728395}
+                    <ChallengeDailyScoreInfo
+                        activities={'-'}
+                        challengeEndDatetimeUTC={1475758626218}
+                        challengeStartDatetimeUTC={1474894600551}
+                        challengeType={'household'}
+                        co2={'-'}
+                        currentDate={1474030728395}
                     />
                   {'ongoing challenge'}
-                  <ChallengeDailyScoreInfo
-                    activities={'12'}
-                    challengeType={'household'}
-                    challengeStartDatetimeUTC={1473846941465}
-                    challengeEndDatetimeUTC={1476006953142}
-                    co2={'34'}
-                    currentDate={1474278923240}
+                    <ChallengeDailyScoreInfo
+                        activities={'12'}
+                        challengeEndDatetimeUTC={1476006953142}
+                        challengeStartDatetimeUTC={1473846941465}
+                        challengeType={'household'}
+                        co2={'34'}
+                        currentDate={1474278923240}
                     />
                   {'challenge ended'}
-                  <ChallengeDailyScoreInfo
-                    activities={'21'}
-                    challengeType={'points'}
-                    challengeStartDatetimeUTC={1473846941465}
-                    challengeEndDatetimeUTC={1473166641553}
-                    points={'43'}
-                    currentDate={1474030728395}
+                    <ChallengeDailyScoreInfo
+                        activities={'21'}
+                        challengeEndDatetimeUTC={1473166641553}
+                        challengeStartDatetimeUTC={1473846941465}
+                        challengeType={'points'}
+                        currentDate={1474030728395}
+                        points={'43'}
                     />
                 </Preview>
 
@@ -1491,101 +1498,6 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title={'LeaderboardComposite4'}>
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'ANY TEAM'}
-                        <LeaderboardComposite4
-                            level={1}
-                            teamActionsCount={145}
-                            teamMemberCount={140}
-                            teamName={'Nord-Norge'}
-                            teamRanking={2}
-                            teamTotalCo2={550}
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'YOUR TEAM'}
-                        <LeaderboardComposite4
-                            level={0}
-                            teamActionsCount={2}
-                            teamMemberCount={140}
-                            teamName={'Nord-Norge'}
-                            teamRanking={20}
-                            teamTotalCo2={30}
-                            yourTeam
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'LEADER TEAM'}
-                        <LeaderboardComposite4
-                            isLeader
-                            level={3}
-                            teamActionsCount={140}
-                            teamMemberCount={140}
-                            teamName={'Midt-Norge'}
-                            teamTotalCo2={908}
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'YOU ARE THE LEADER'}
-                        <LeaderboardComposite4
-                            isLeader
-                            level={3}
-                            teamActionsCount={140}
-                            teamMemberCount={140}
-                            teamName={'Midt-Norge'}
-                            teamTotalCo2={908}
-                            yourTeam
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title={'LeaderboardComposite5'}>
-                    {'ANY HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={43}
-                        householdMemberCount={2}
-                        householdName={'Any Householding Navn'}
-                        householdRanking={5}
-                        progressRelativePercent={40}
-                    />
-                  {'YOUR HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={43}
-                        householdMemberCount={2}
-                        householdName={'My Householding Navn'}
-                        householdRanking={5}
-                        progressRelativePercent={40}
-                        yourHousehold
-                    />
-                  {'LEADER HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={120}
-                        householdMemberCount={2}
-                        householdName={'Leader Householding Navn'}
-                        isLeader
-                    />
-                    {'I AM THE LEADER'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        householdActionsCount={14}
-                        householdCo2InChallenge={120}
-                        householdMemberCount={2}
-                        householdName={'I am part of leader household'}
-                        isLeader
-                        yourHousehold
-                    />
-                </Preview>
-
                 <Preview title={"Switch Toggle Button"}>
                     {'Dark theme'}
                     <div style={{backgroundColor: '#686766', padding: 10}}>
@@ -1884,6 +1796,158 @@ export default class App extends React.Component {
                     <ChallengeMetaJoin
                         endDate={'15-Jul-2016'}
                         startDate={'15-Jul-2016'}
+                    />
+                </Preview>
+
+                <Preview title="ChallengeDailyScorebars">
+                    {'Profile Challenge'}
+                    <ChallengeDailyScorebars
+                        barType={'co2'}
+                        challengeEndDatetimeUTC={1475272800000}
+                        challengeStartDatetimeUTC={1472680800000}
+                        currentDate={1474322400000}
+                        dailyActivitiesCount={
+                            {
+                                1473976800000: 10,
+                                1474063200000: 15,
+                                1474236000000: 12,
+                                1474322400000: 3
+                            }
+                          }
+                        totalActivitiesCount={15}
+                    />
+                    <br />
+                    {'Household Challenge'}
+                    <ChallengeDailyScorebars
+                        barType={'co2'}
+                        challengeEndDatetimeUTC={1475272800000}
+                        challengeStartDatetimeUTC={1472680800000}
+                        currentDate={1474322400000}
+                        dailyActivitiesCount={
+                            {
+                                1473976800000: 10,
+                                1474063200000: 15,
+                                1474236000000: 12,
+                                1474322400000: 3
+                            }
+                          }
+                        householdChallenge
+                        loggedDays={
+                            {
+                                1473976800000: true,
+                                1474236000000: true
+                            }
+                        }
+                        totalActivitiesCount={15}
+                    />
+                </Preview>
+
+                <Preview title={'ChallengeDailyScoreComposite'}>
+                    {'Profile Challenge -  CO2'}
+                    <div style={{width: 800}}>
+                        <ChallengeDailyScoreComposite
+                            activitiesLoggedCurrentDate={12}
+                            barType={'co2'}
+                            challengeEndDatetimeUTC={1475272800000}
+                            challengeStartDatetimeUTC={1472680800000}
+                            challengeType={'individual'}
+                            co2={27.3}
+                            currentDate={1474322400000}
+                            dailyActivitiesCount={
+                                {
+                                    1472767200000: 10,
+                                    1473458400000: 15,
+                                    1474236000000: 7,
+                                    1474322400000: 12
+                                }
+                              }
+                            totalActivitiesCount={15}
+                        />
+                    </div>
+                  {'Household Challenge - CO2'}
+                    <ChallengeDailyScoreComposite
+                        activitiesLoggedCurrentDate={12}
+                        barType={'co2'}
+                        challengeEndDatetimeUTC={1475272800000}
+                        challengeStartDatetimeUTC={1472680800000}
+                        challengeType={'household'}
+                        co2={27.3}
+                        currentDate={1474322400000}
+                        dailyActivitiesCount={
+                            {
+                                1472767200000: 10,
+                                1473458400000: 15,
+                                1474236000000: 7,
+                                1474322400000: 12
+                            }
+                          }
+                        householdChallenge
+                        loggedDays={
+                            {
+                                1472767200000: true,
+                                1474236000000: true
+                            }
+                        }
+                        totalActivitiesCount={15}
+                    />
+                    <br />
+                    {'Profile Challenge - points'}
+                    <ChallengeDailyScoreComposite
+                        activitiesLoggedCurrentDate={12}
+                        barType={'points'}
+                        challengeEndDatetimeUTC={1475272800000}
+                        challengeStartDatetimeUTC={1472680800000}
+                        challengeType={'individual'}
+                        currentDate={1474322400000}
+                        dailyActivitiesCount={
+                            {
+                                1472767200000: 10,
+                                1473458400000: 15,
+                                1474236000000: 7,
+                                1474322400000: 12
+                            }
+                          }
+                        points={35}
+                        totalActivitiesCount={15}
+                    />
+                    <br />
+                    {'Household challenge - points'}
+                    <ChallengeDailyScoreComposite
+                        activitiesLoggedCurrentDate={12}
+                        barType={'points'}
+                        challengeEndDatetimeUTC={1475272800000}
+                        challengeStartDatetimeUTC={1472680800000}
+                        challengeType={'household'}
+                        currentDate={1474322400000}
+                        dailyActivitiesCount={
+                            {
+                                1472767200000: 10,
+                                1473458400000: 15,
+                                1474236000000: 7,
+                                1474322400000: 12
+                            }
+                          }
+                        householdChallenge
+                        loggedDays={
+                            {
+                                1472767200000: true,
+                                1474236000000: true
+                            }
+                        }
+                        points={30}
+                        totalActivitiesCount={15}
+                    />
+                    <br />
+                    {'Challenge Not started'}
+                    <ChallengeDailyScoreComposite
+                        activitiesLoggedCurrentDate={'-'}
+                        barType={'co2'}
+                        challengeEndDatetimeUTC={1477000800000}
+                        challengeStartDatetimeUTC={1474408800000}
+                        challengeType={'individual'}
+                        co2={'-'}
+                        currentDate={1474322400000}
+                        totalActivitiesCount={15}
                     />
                 </Preview>
 
@@ -2778,6 +2842,13 @@ export default class App extends React.Component {
 
                 <Preview title={'SettingsPrivacyGeneral'}>
                     <SettingsPrivacyGeneral />
+                    <SettingsPrivacyGeneral
+                        privacySettings={'private'}
+                    />
+                </Preview>
+
+                <Preview title={'SettingsSectionPrivacy'}>
+                    <SettingsSectionPrivacy />
                 </Preview>
 
                 <Preview title={'SettingsItemAppConnect'}>
@@ -2794,6 +2865,53 @@ export default class App extends React.Component {
                             socialMedia={'TWITTER'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title={'SettingsItemGender'}>
+                  {'Default'}
+                    <div style={{width: 400}}>
+                        <SettingsItemGender
+                            gender={'Kvinne'}
+                        />
+                    </div>
+                    <br />
+                    {'Edit mode'}
+                    <SettingsItemGender
+                        editMode
+                        gender={'Kvinne'}
+                    />
+                </Preview>
+
+                <Preview title={'SettingsItemEmail'}>
+                    {'Active'}
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <SettingsItemEmail
+                            email={'veldiglangepostadresse@hotmail.com'}
+                        />
+                    </div>
+                    <br />
+                    {'Inactive'}
+                    <div style={{backgroundColor: 'lightgrey', width: 260}}>
+                        <SettingsItemEmail
+                            email={'veldiglangepostadresse@hotmail.com'}
+                            inactive
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={'SettingsItemLocation'}>
+                    {'Default'}
+                    <div style={{width: 300}}>
+                        <SettingsItemLocation
+                            selectedCounty={'Sør-Trøndelag'}
+                        />
+                    </div>
+                    <br />
+                    {'Edit mode'}
+                    <SettingsItemLocation
+                        editMode
+                        selectedCounty={'Sør-Trøndelag'}
+                    />
                 </Preview>
 
                 <Preview title={'SettingsSectionApplications'}>
