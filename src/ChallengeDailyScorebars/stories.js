@@ -6,8 +6,9 @@ storiesOf('ChallengeDailyScorebars', module)
   .add('profileChallenge', () => (
       <ChallengeDailyScorebars
           barType={'co2'}
-          challengeEndDate={'01-Oct-2016'}
-          challengeStartDate={'01-Sep-2016'}
+          challengeEndDatetimeUTC={1475272800000}
+          challengeStartDatetimeUTC={1472680800000}
+          currentDate={1474236000000}
           dailyActivitiesCount={
               {
                   1473976800000: 10,
@@ -15,15 +16,15 @@ storiesOf('ChallengeDailyScorebars', module)
                   1474236000000: 12
               }
             }
-          todayDate={'19-Sep-2016'}
           totalActivitiesCount={15}
       />
 ))
 .add('householdChallenge', () => (
     <ChallengeDailyScorebars
         barType={'co2'}
-        challengeEndDate={'01-Oct-2016'}
-        challengeStartDate={'01-Sep-2016'}
+        challengeEndDatetimeUTC={1475272800000}
+        challengeStartDatetimeUTC={1472680800000}
+        currentDate={1474236000000}
         dailyActivitiesCount={
             {
                 1473976800000: 10,
@@ -38,7 +39,6 @@ storiesOf('ChallengeDailyScorebars', module)
                 1474236000000: true
             }
         }
-        todayDate={'19-Sep-2016'}
         totalActivitiesCount={15}
     />
 ));

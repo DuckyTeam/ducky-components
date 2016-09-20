@@ -7,17 +7,18 @@ const PropTypes = React.PropTypes;
 
 function ChallengeDailyScorebars(props) {
     const allDates = [];
-    const dailyActivitiesCount = props.dailyActivitiesCount;
+    let dailyActivitiesCount = props.dailyActivitiesCount;
     const loggedDays = props.loggedDays || [];
-    const startDate = moment(props.challengeStartDate).startOf('day').valueOf();
-    const endDate = moment(props.challengeEndDate).startOf('day').valueOf();
-    const todayDate = moment(props.todayDate).startOf('day').valueOf();
+    const startDate = moment(props.challengeStartDatetimeUTC).startOf('day').valueOf();
+    const endDate = moment(props.challengeEndDatetimeUTC).startOf('day').valueOf();
+    const todayDate = moment(props.currentDate).startOf('day').valueOf();
 
     for (let date = startDate; date <= endDate; date = moment(date).add(1, 'days').startOf('day').valueOf()) {
         allDates.push(moment(date).startOf('day').valueOf());
     }
 
     const renderElement = allDates.map((eachDate, key) => {
+        dailyActivitiesCount = dailyActivitiesCount || {};
         const percent = ((dailyActivitiesCount[eachDate] || 0) / props.totalActivitiesCount) * 100;
 
         if (eachDate < todayDate) {
@@ -66,13 +67,13 @@ function ChallengeDailyScorebars(props) {
 
 ChallengeDailyScorebars.propTypes = {
     barType: PropTypes.string,
-    challengeEndDate: PropTypes.string,
-    challengeStartDate: PropTypes.string,
+    challengeEndDatetimeUTC: PropTypes.string,
+    challengeStartDatetimeUTC: PropTypes.string,
     className: PropTypes.string,
+    currentDate: PropTypes.string,
     dailyActivitiesCount: PropTypes.object,
     householdChallenge: PropTypes.bool,
     loggedDays: PropTypes.object,
-    todayDate: PropTypes.string,
     totalActivitiesCount: PropTypes.number
 };
 
