@@ -60,10 +60,10 @@ import LabelDisplay from "../src/LabelDisplay";
 import LabelDouble from "../src/LabelDouble";
 import LabelSmall from "../src/LabelSmall";
 import LabelStandard from "../src/LabelStandard";
-import LeaderboardHeader from "../src/LeaderboardHeader";
+// import LeaderboardHeader from "../src/LeaderboardHeader";
 import LeaderboardHeader2 from "../src/composites/LeaderboardHeader2";
-import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
-import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
+// import LeaderboardComposite4 from '../src/composites/LeaderboardComposite4';
+// import LeaderboardComposite5 from '../src/composites/LeaderboardComposite5';
 import LineGraph from '../src/LineGraph';
 import LabelNumber from "../src/LabelNumber";
 import LabelLarge from "../src/LabelLarge";
@@ -101,6 +101,7 @@ import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
+import SettingsItemGender from '../src/SettingsItemGender';
 import SettingsSectionApplications from '../src/SettingsSectionApplications';
 import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
 import SettingsSectionPrivacy from '../src/SettingsSectionPrivacy';
@@ -1495,159 +1496,6 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
-                <Preview title={'LeaderboardHeader'}>
-                    {'Individual Team'}
-                    <div style={{width: 600}}>
-                        <LeaderboardHeader />
-                    </div>
-                    <br />
-                    {'Householding Team'}
-                    <div style={{width: 600}}>
-                        <LeaderboardHeader
-                            householdChallenge
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title={'LeaderboardComposite4'}>
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'ANY TEAM'}
-                        <LeaderboardComposite4
-                            level={1}
-                            teamActionsCount={145}
-                            teamMemberCount={140}
-                            teamName={'Nord-Norge'}
-                            teamRanking={2}
-                            teamTotalCo2={550}
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'YOUR TEAM'}
-                        <LeaderboardComposite4
-                            level={0}
-                            teamActionsCount={2}
-                            teamMemberCount={140}
-                            teamName={'Nord-Norge'}
-                            teamRanking={20}
-                            teamTotalCo2={30}
-                            yourTeam
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'LEADER TEAM'}
-                        <LeaderboardComposite4
-                            isLeader
-                            level={3}
-                            teamActionsCount={140}
-                            teamMemberCount={140}
-                            teamName={'Midt-Norge'}
-                            teamTotalCo2={908}
-                        />
-                    </div>
-                    <br />
-                    <div style={{backgroundColor: 'lightgrey', width: 550}}>
-                        {'YOU ARE THE LEADER'}
-                        <LeaderboardComposite4
-                            isLeader
-                            level={3}
-                            teamActionsCount={140}
-                            teamMemberCount={140}
-                            teamName={'Midt-Norge'}
-                            teamTotalCo2={908}
-                            yourTeam
-                        />
-                    </div>
-                </Preview>
-
-                <Preview title={'LeaderboardComposite5'}>
-                    {'ANY HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'household'}
-                        actionsCount={14}
-                        co2InChallenge={43}
-                        householdMemberCount={2}
-                        name={'Any Householding Navn'}
-                        ranking={5}
-                        progressRelativePercent={40}
-                    />
-                  {'YOUR HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'household'}
-                        actionsCount={14}
-                        co2InChallenge={43}
-                        householdMemberCount={2}
-                        name={'My Householding Navn'}
-                        ranking={5}
-                        progressRelativePercent={40}
-                        yourHousehold
-                    />
-                  {'LEADER HOUSEHOLD'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'household'}
-                        actionsCount={14}
-                        co2InChallenge={120}
-                        householdMemberCount={2}
-                        name={'Leader Householding Navn'}
-                        isLeader
-                    />
-                    {'I AM THE LEADER'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'household'}
-                        actionsCount={14}
-                        co2InChallenge={120}
-                        householdMemberCount={2}
-                        name={'I am part of leader household'}
-                        isLeader
-                        yourHousehold
-                    />
-                  {'Any profile'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'profile'}
-                        actionsCount={14}
-                        co2InChallenge={43}
-                        name={'Any Profile Navn'}
-                        ranking={5}
-                        progressRelativePercent={40}
-                    />
-                  {'Your profile'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'profile'}
-                        actionsCount={14}
-                        co2InChallenge={43}
-                        name={'My Profile Navn'}
-                        ranking={5}
-                        progressRelativePercent={40}
-                        yourHousehold
-                    />
-                  {'Leader Profile'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'profile'}
-                        actionsCount={14}
-                        co2InChallenge={120}
-                        name={'Leader Profile Navn'}
-                        isLeader
-                    />
-                  {'I am the leader'}
-                    <LeaderboardComposite5
-                        avatarURL={AVATAR_URL}
-                        challengeType={'profile'}
-                        actionsCount={14}
-                        co2InChallenge={120}
-                        name={'I am the of leader profile'}
-                        isLeader
-                        yourHousehold
-                    />
-                </Preview>
-
                 <Preview title={"Switch Toggle Button"}>
                     {'Dark theme'}
                     <div style={{backgroundColor: '#686766', padding: 10}}>
@@ -3015,6 +2863,20 @@ export default class App extends React.Component {
                             socialMedia={'TWITTER'}
                         />
                     </div>
+                </Preview>
+
+                <Preview title={'SettingsItemGender'}>
+                  {'Default'}
+                    <div style={{width: 400}}>
+                        <SettingsItemGender
+                            gender={'Kvinne'}
+                        />
+                    </div>
+                    {'Edit mode'}
+                    <SettingsItemGender
+                        editMode
+                        gender={'Kvinne'}
+                    />
                 </Preview>
 
                 <Preview title={'SettingsSectionApplications'}>
