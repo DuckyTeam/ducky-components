@@ -3,7 +3,7 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import ButtonRaised from '../ButtonRaised';
 import Spacer from '../Spacer';
-import IconAvaWrapper from '../src/composites/IconAvaWrapper';
+import IconAvaWrapper from '../composites/IconAvaWrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
