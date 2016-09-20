@@ -36,7 +36,10 @@ class BarChart extends React.Component {
     getChartState() {
         return {
             data: this.props.data,
-            domain: this.props.domain
+            domain: this.props.domain,
+            leader: this.props.leader,
+            selected: this.props.selected,
+            member: this.props.member
         };
     }
 

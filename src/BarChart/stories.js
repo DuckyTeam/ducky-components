@@ -9,37 +9,42 @@ stories.add('Initial', () => (
     <BarChart
         data={[
             {
+                id: 12,
                 value: number("Bar 1 value", 403),
-                color: "#8BC34A",
+                color: "#00ab97",
                 image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek1"
+                label: "Strek1",
+                onClick: console.log
             },
             {
+                id: 13,
                 value: number("Bar 2 value", 436),
-                color: "#CFD8FC",
                 image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek2"
+                label: "Strek2",
+                onClick: console.log
             },
             {
-                value: number("Bar 3 value", 231),
-                color: "#CFD8FC",
+                id: 14,
+                value: number("Bar 3 value", 531),
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek3"
             },
             {
+                id: 15,
                 value: number("Bar 4 value", 173),
-                color: "#CFD8FC",
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek4"
             },
             {
+                id: 16,
                 value: number("Bar 5 value", 273),
-                color: "#FFC107",
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek5"
             }
         ].slice(0, number("Number of bars", 5))}
         graphID={2}
         height={"300px"}
+        selected={number("Selected", 12)}
+        member={number("Member of", 12)}
     />
   ));
