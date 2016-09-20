@@ -2,14 +2,40 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import Button from '../Button';
 import IconAvaWrapper from '../composites/IconAvaWrapper';
-import RadioButton from '../RadioButton';
+import PopoverMenuAnchor4 from '../PopoverMenuAnchor4';
+import PopoverMenu from '../PopoverMenu';
+import Popup from '../Popup';
 import React from 'react';
 import Spacer from '../Spacer';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-function SettingsItemGender(props) {
+function SettingsItemLocation(props) {
+    const renderPopup = (
+        <Popup className={styles.popup}>
+            <PopoverMenu text={'Østfold'} /><br />
+            <PopoverMenu text={'Akershus'} /><br />
+            <PopoverMenu text={'Oslo'} /><br />
+            <PopoverMenu text={'Hedmark'} /><br />
+            <PopoverMenu text={'Oppland'} /><br />
+            <PopoverMenu text={'Buskerud'} /><br />
+            <PopoverMenu text={'Vestfold'} /><br />
+            <PopoverMenu text={'Telemark'} /><br />
+            <PopoverMenu text={'Aust-Agder'} /><br />
+            <PopoverMenu text={'Vest-Agder'} /><br />
+            <PopoverMenu text={'Rogaland'} /><br />
+            <PopoverMenu text={'Hordaland'} /><br />
+            <PopoverMenu text={'Sogn og Fjordane'} /><br />
+            <PopoverMenu text={'Møre og Romsdal'} /><br />
+            <PopoverMenu text={'Sør-Trøndelag'} /><br />
+            <PopoverMenu text={'Nord-Trøndelag'} /><br />
+            <PopoverMenu text={'Nordland'} /><br />
+            <PopoverMenu text={'Troms'} /><br />
+            <PopoverMenu text={'Finnmark'} /><br />
+        </Popup>
+    );
+
     return (
             props.editMode
               ? <div>
@@ -22,7 +48,7 @@ function SettingsItemGender(props) {
                               className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
                               type={'bodyTextNormal'}
                           >
-                              {'Kjønn'}
+                              {'Bosted'}
                           </Typography>
                           <Button
                               className={styles.saveButton}
@@ -37,27 +63,22 @@ function SettingsItemGender(props) {
                           />
                       </div>
                   </Wrapper>
-                  <Wrapper className={styles.radioButtons}
+                  <Wrapper className={styles.expandedContent}
                       size={'standard'}
                   >
-                      <RadioButton
-                          checked={props.gender.toLowerCase() === 'kvinne'}
-                          label={'Kvinne'}
-                          onClick={props.onRadioButtonClicked}
-                      />
-                      <Spacer size={'double'} />
-                      <RadioButton
-                          checked={props.gender.toLowerCase() === 'mann'}
-                          label={'Mann'}
-                          onClick={props.onRadioButtonClicked}
-                      />
-                      <Spacer size={'double'} />
-                      <RadioButton
-                          checked={props.gender.toLowerCase() === 'kjøttpinne'}
-                          label={'Kjøttpinne'}
-                          onClick={props.onRadioButtonClicked}
-                      />
+                      <Typography
+                          className={styles.typoTitle}
+                          typ={'bodyTextNormal'}
+                      >
+                          {'Velg fylke:'}
+                      </Typography>
+                      <PopoverMenuAnchor4
+                          onClick={props.onPopOverMenuClicked}
+                      >
+                          {props.selectedCounty}
+                      </PopoverMenuAnchor4>
                   </Wrapper>
+                  {props.isFilterPopupOpen ? renderPopup : null}
                   <Spacer size={'double'} />
               </div>
               : <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
@@ -69,28 +90,30 @@ function SettingsItemGender(props) {
                           className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
                           type={'bodyTextNormal'}
                       >
-                          {'Kjønn'}
+                          {'Bosted'}
                       </Typography>
                       <Typography
                           className={props.inactive ? styles.typoContentInactive : styles.typoContent}
                           type={'bodyTextStrong'}
                       >
-                          {props.gender}
+                          {props.selectedCounty}
                       </Typography>
                   </div>
               </Wrapper>
     );
 }
 
-SettingsItemGender.propTypes = {
+SettingsItemLocation.propTypes = {
     className: PropTypes.string,
     editMode: PropTypes.bool,
-    gender: PropTypes.string,
     handleIconAvaWrapperClosed: PropTypes.func,
     handleSaveButtonClicked: PropTypes.func,
     inactive: PropTypes.bool,
+    isFilterPopupOpen: PropTypes.bool,
     onClick: PropTypes.func,
-    onRadioButtonClicked: PropTypes.func
+    onPopOverMenuClicked: PropTypes.func,
+    onRadioButtonClicked: PropTypes.func,
+    selectedCounty: PropTypes.string
 };
 
-export default SettingsItemGender;
+export default SettingsItemLocation;

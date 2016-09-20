@@ -101,7 +101,9 @@ import SectionFooterOK from './../src/SectionFooterOK';
 import SectionFooterCloseOK from './../src/SectionFooterCloseOK';
 import SectionHeaderActivityModal from '../src/composites/SectionHeaderActivityModal';
 import SettingsItemAppConnect from '../src/SettingsItemAppConnect';
+import SettingsItemEmail from '../src/SettingsItemEmail';
 import SettingsItemGender from '../src/SettingsItemGender';
+import SettingsItemLocation from '../src/SettingsItemLocation';
 import SettingsSectionApplications from '../src/SettingsSectionApplications';
 import SettingsPrivacyGeneral from '../src/SettingsPrivacyGeneral';
 import SettingsSectionPrivacy from '../src/SettingsSectionPrivacy';
@@ -2872,10 +2874,43 @@ export default class App extends React.Component {
                             gender={'Kvinne'}
                         />
                     </div>
+                    <br />
                     {'Edit mode'}
                     <SettingsItemGender
                         editMode
                         gender={'Kvinne'}
+                    />
+                </Preview>
+
+                <Preview title={'SettingsItemEmail'}>
+                    {'Active'}
+                    <div style={{backgroundColor: 'lightgrey'}}>
+                        <SettingsItemEmail
+                            email={'veldiglangepostadresse@hotmail.com'}
+                        />
+                    </div>
+                    <br />
+                    {'Inactive'}
+                    <div style={{backgroundColor: 'lightgrey', width: 260}}>
+                        <SettingsItemEmail
+                            email={'veldiglangepostadresse@hotmail.com'}
+                            inactive
+                        />
+                    </div>
+                </Preview>
+
+                <Preview title={'SettingsItemLocation'}>
+                    {'Default'}
+                    <div style={{width: 300}}>
+                        <SettingsItemLocation
+                            selectedCounty={'Sør-Trøndelag'}
+                        />
+                    </div>
+                    <br />
+                    {'Edit mode'}
+                    <SettingsItemLocation
+                        editMode
+                        selectedCounty={'Sør-Trøndelag'}
                     />
                 </Preview>
 
