@@ -1,0 +1,25 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: transparent;
+}
+
+.name {
+    text-overflow: ellipsis;
+    line-height: 22px;
+    color: #fff;
+}
+
+.statsWrapper {
+  flex-direction: row;
+}
+
+.members {
+  color: rgba(255,255,255,0.7);
+  padding-right: 8px;
+}
+
+.label {
+  color: rgba(255,255,255,0.4);
+}

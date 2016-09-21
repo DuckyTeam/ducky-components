@@ -24,6 +24,8 @@ import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeDailyScorebars from '../src/ChallengeDailyScorebars';
 import ChallengeDailyScoreComposite from '../src/ChallengeDailyScoreComposite';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
+import ChallengeMeta4 from '../src/ChallengeMeta4';
+import ChallengeMeta5 from '../src/ChallengeMeta5';
 import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
@@ -1325,7 +1327,7 @@ export default class App extends React.Component {
                         onClick={this.handleButtonClick}
                         type={"caption2Normal"}
                     />
-                    <div className={styles.subHeader}>
+                  <div className={styles.subHeader}>
                         {"Standard Label"}
                     </div>
                     <LabelStandard
@@ -1768,11 +1770,66 @@ export default class App extends React.Component {
                     </div>
                 </Preview>
 
+                <Preview title="ChallengeMeta4">
+                  <div style={{backgroundColor: '#07495d'}}>
+                    <ChallengeMeta4
+                      members={123}
+                      name={'Group Name'}
+                      team
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d'}}>
+                    <ChallengeMeta4
+                      isLeader
+                      members={123}
+                      name={'Group Name'}
+                      team
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d'}}>
+                    <ChallengeMeta4
+                      isLeader
+                      members={123}
+                      name={'Group Name'}
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d'}}>
+                    <ChallengeMeta4
+                      members={123}
+                      name={'Group Name'}
+                    />
+                  </div>
+                </Preview>
+
+                <Preview title="ChallengeMeta5">
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={1000}
+                      level={1}
+                      progress={25.72}
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={2000}
+                      level={2}
+                      progress={65.72}
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={3000}
+                      level={3}
+                      progress={82.72}
+                    />
+                  </div>
+                </Preview>
+
                 <Preview title="ChallengeMetaJoin">
                     <ChallengeMetaJoin
-                        endDate={'23-Jul-2016'}
-                        joined
-                        startDate={'15-Jul-2016'}
+                      endDate={'23-Jul-2016'}
+                      joined
+                      startDate={'15-Jul-2016'}
                     />
                     <br />
                     <ChallengeMetaJoin
