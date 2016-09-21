@@ -5,7 +5,7 @@ import d3Chart from './chart';
 class BarChart extends React.Component {
     constructor() {
         super();
-        this.margin = {top: 10, bottom: 40, left: 50, right: 20};
+        this.margin = {top: 10, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {
@@ -39,7 +39,8 @@ class BarChart extends React.Component {
             domain: this.props.domain,
             leader: this.props.leader,
             selected: this.props.selected,
-            member: this.props.member
+            member: this.props.member,
+            goals: this.props.goals
         };
     }
 

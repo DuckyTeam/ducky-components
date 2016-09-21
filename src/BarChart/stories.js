@@ -20,7 +20,7 @@ stories.add('Initial', () => (
                 id: 13,
                 value: number("Bar 2 value", 436),
                 image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek2",
+                label: "De nye Gitarkameratene",
                 onClick: console.log
             },
             {
@@ -37,14 +37,27 @@ stories.add('Initial', () => (
             },
             {
                 id: 16,
-                value: number("Bar 5 value", 273),
+                value: number("Bar 4 value", 173),
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek5"
+            },
+            {
+                id: 17,
+                value: number("Bar 4 value", 173),
+                image: "http//:fsfkjsld.no/img.jpg",
+                label: "Strek6"
+            },
+            {
+                id: 18,
+                value: number("Bar 5 value", 273),
+                image: "http//:fsfkjsld.no/img.jpg",
+                label: "Strek7"
             }
         ].slice(0, number("Number of bars", 5))}
         graphID={2}
         height={"300px"}
         selected={number("Selected", 12)}
         member={number("Member of", 12)}
+        goals={[1000, 2000, 3000]}
     />
   ));
