@@ -32,7 +32,7 @@ ProgressBarVertical.propTypes = {
     className: PropTypes.string,
     inactive: PropTypes.bool,
     percent: PropTypes.number,
-    type: PropTypes.strings
+    type: PropTypes.string
 };
 
 export default ProgressBarVertical;
