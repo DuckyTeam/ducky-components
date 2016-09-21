@@ -4,7 +4,7 @@ import ChallengeMeta4 from './index';
 
 storiesOf('ChallengeMeta4', module)
   .add('Your team', () => (
-    <div style={{backgroundColor: '#07495d'}}>
+    <div style={{backgroundColor: '#07495d', width: '200px'}}>
       <ChallengeMeta4
         members={123}
         name={'Group Name'}
@@ -13,7 +13,7 @@ storiesOf('ChallengeMeta4', module)
     </div>
   ))
   .add('Your team is in the lead', () => (
-    <div style={{backgroundColor: '#07495d'}}>
+    <div style={{backgroundColor: '#07495d', width: '200px'}}>
       <ChallengeMeta4
         isLeader
         members={123}
@@ -23,7 +23,7 @@ storiesOf('ChallengeMeta4', module)
     </div>
   ))
   .add('Leader team', () => (
-    <div style={{backgroundColor: '#07495d'}}>
+    <div style={{backgroundColor: '#07495d', width: '200px'}}>
       <ChallengeMeta4
         isLeader
         members={123}
@@ -32,7 +32,7 @@ storiesOf('ChallengeMeta4', module)
     </div>
   ))
   .add('Other team', () => (
-    <div style={{backgroundColor: '#07495d'}}>
+    <div style={{backgroundColor: '#07495d', width: '200px'}}>
       <ChallengeMeta4
         members={123}
         name={'Group Name'}

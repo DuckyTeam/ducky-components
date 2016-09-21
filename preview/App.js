@@ -24,6 +24,7 @@ import ChalOverHeader from '../src/ChallengeOverviewHeader2';
 import ChallengeDailyScorebars from '../src/ChallengeDailyScorebars';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeMeta4 from '../src/ChallengeMeta4';
+import ChallengeMeta5 from '../src/ChallengeMeta5';
 import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
@@ -1944,6 +1945,30 @@ export default class App extends React.Component {
                     <ChallengeMeta4
                       members={123}
                       name={'Group Name'}
+                    />
+                  </div>
+                </Preview>
+
+                <Preview title="ChallengeMeta5">
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={1000}
+                      level={1}
+                      progress={25.72}
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={2000}
+                      level={2}
+                      progress={65.72}
+                    />
+                  </div>
+                  <div style={{backgroundColor: '#07495d', width: '320px'}}>
+                    <ChallengeMeta5
+                      goal={3000}
+                      level={3}
+                      progress={82.72}
                     />
                   </div>
                 </Preview>

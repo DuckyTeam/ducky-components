@@ -26,7 +26,7 @@ storiesOf('ChallengeMeta5', module)
       <ChallengeMeta5
         goal={3000}
         level={3}
-        progress={2.72}
+        progress={82.72}
       />
     </div>
   ));
