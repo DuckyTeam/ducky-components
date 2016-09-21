@@ -4,6 +4,7 @@
 
 .yAxis > g > text {
     text-anchor: end;
+    display: none;
 }
 
 .xAxis > .tick{

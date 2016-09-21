@@ -26,7 +26,7 @@ d3Chart.create = (el, props, state) => {
         .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
     svg.append('g')
         .attr('class', styles.yAxis)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
+        .attr("transform", `translate(0, ${props.margin.top})`);
     svg.append('g')
         .attr('class', styles.xAxis)
         .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
@@ -122,7 +122,7 @@ d3Chart.update = (el, state, props) => {
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max([highestScore, nextGoal()])])
-      .range([height - 4, xScale.rangeBand() + barTextFontSize + textPadding*2]); //Make sure all the stuff on top of graph actually fits inside canvas
+      .range([height - 4, 15 + barTextFontSize + textPadding*2]); //Make sure all the stuff on top of graph actually fits inside canvas
 
     const xAxis = d3
         .svg
@@ -135,9 +135,7 @@ d3Chart.update = (el, state, props) => {
         .axis()
         .scale(yScale)
         .tickValues(state.goals.slice(0, d3.min([state.goals.indexOf(nextGoal()), state.goals.length]) + 1))
-        .innerTickSize(- (props.width))
-        .outerTickSize(0)
-        .tickPadding(-10)
+        .tickSize(- (props.width), 0, 0)
         .orient("left");
 
     const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, d => d.id).attr({
@@ -167,10 +165,7 @@ d3Chart.update = (el, state, props) => {
       x: props.width - 30,
       y: yScale,
     }).select('path').attr({
-      class: (d, i) => {
-        console.log(d, yourScore)
-        return d <= yourScore ? styles[`faceActive${i}`] : styles.faceInactive
-      }
+      class: (d, i) => d <= yourScore ? styles[`faceActive${i}`] : styles.faceInactive
     });
 
     //Enter new reactangles and set them to height 0
