@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    background-color: transparent;
+}
+
+.progressBar {
+  margin: 9px 0;
+  background-color: rgba(0,0,0,0.12);
+}
+
+.statsWrapper {
+  display: inline-flex;
+}
+
+.goal > span:last-child {
+  color: #fff;
+}
+
+.goal > span:first-child {
+  color: #00ab97;
+}
+
+.label {
+  margin-left: 5px;
+  color: rgba(255,255,255,0.7);
+}
+
+.percent {
+  color: #fff;
+  margin-left: auto;
+  margin-right: 0;
+}
