@@ -1,0 +1,24 @@
+.wrapper {
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.iconTeam {
+  margin-right: 19px;
+  color: #90a4ae;
+}
+
+.meta {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+}
+
+.iconCheck {
+  margin-left: 16px;
+  color: #00ab97;
+}
