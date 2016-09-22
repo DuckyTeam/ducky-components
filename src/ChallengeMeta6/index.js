@@ -2,39 +2,56 @@ import React from 'react';
 import ChallengeMeta4 from '../ChallengeMeta4';
 import Wrapper from '../Wrapper';
 import Icon from '../Icon';
+import classNames from 'classnames';
 import styles from './styles.css';
 
 function ChallengeMeta6(props) {
   return (
     <div>
       <Wrapper
-        className={styles.wrapper}
+        className={classNames(styles.wrapper, {
+          [props.className]: props.className
+        })}
+        onClick={props.onClick}
         size={'standard'}
       >
         <Icon
-          className={styles.teamIcon}
-          icon={'icon-team'}
-          size={'large'}
+          className={classNames(styles.teamIcon, {
+            [styles.selectedTeamIcon]: props.selected
+          })}
+          icon={'icon-people'}
+          size={'large1'}
         />
         <ChallengeMeta4
-          members={123}
-          name={'Group Name'}
-          team
+          className={styles.meta}
+          isLeader={props.isLeader}
+          members={props.members}
+          name={props.name}
+          team={props.yourTeam}
         />
+      {props.selected
+      ?
         <Icon
-          className={styles.selectedIcon}
+          className={styles.checkIcon}
           icon={'icon-check'}
-          size={'large'}
+          size={'large1'}
         />
+      :
+        null
+      }
       </Wrapper>
     </div>
   );
 }
 
-ChallengeMeta4.propTypes = {
-  goal: React.PropTypes.number,
-  level: React.PropTypes.number,
-  progress: React.PropTypes.number
+ChallengeMeta6.propTypes = {
+  className: React.PropTypes.string,
+  isLeader: React.PropTypes.bool,
+  members: React.PropTypes.number,
+  name: React.PropTypes.string,
+  onClick: React.PropTypes.func,
+  selected: React.PropTypes.bool,
+  yourTeam: React.PropTypes.string
 };
 
 export default ChallengeMeta6;

@@ -7,18 +7,17 @@ import styles from './styles.css';
 function ChallengeMeta4(props) {
   let teamLabel = '';
 
-  if (props.team) {
+  if (props.yourTeam) {
     teamLabel = '(Ditt lag)';
   }
-  if (props.team && props.isLeader) {
+  if (props.yourTeam && props.isLeader) {
     teamLabel = '(Ditt lag - Leder)';
   }
-  if (props.isLeader && !props.team) {
+  if (props.isLeader && !props.yourTeam) {
     teamLabel = '(Leader)';
   }
   return (
     <div className={classNames(styles.wrapper, {
-      [styles.darkBackground]: props.theme === 'dark',
       [props.className]: props.className
     })}>
       <Typography
@@ -56,8 +55,8 @@ ChallengeMeta4.propTypes = {
   isLeader: React.PropTypes.bool,
   members: React.PropTypes.number,
   name: React.PropTypes.string,
-  team: React.PropTypes.string,
-  theme: React.PropTypes.string
+  theme: React.PropTypes.string,
+  yourTeam: React.PropTypes.bool
 };
 
 export default ChallengeMeta4;
