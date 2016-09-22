@@ -5,21 +5,36 @@
     background-color: transparent;
 }
 
-.name {
+.nameDarkBackground {
     text-overflow: ellipsis;
     line-height: 22px;
     color: #fff;
+}
+
+.nameLightBackground {
+  color: #263238;
+  text-overflow: ellipsis;
+  line-height: 22px;
 }
 
 .statsWrapper {
   flex-direction: row;
 }
 
-.members {
+.membersDarkBackground {
   color: rgba(255,255,255,0.7);
   padding-right: 8px;
 }
 
-.label {
+.membersLightBackground {
+  color: #607d8b;
+  padding-right: 8px;
+}
+
+.labelDarkBackground {
   color: rgba(255,255,255,0.4);
+}
+
+.labelLightBackground {
+  color: #90a4ae;
 }
