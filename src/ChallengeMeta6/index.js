@@ -19,7 +19,7 @@ function ChallengeMeta6(props) {
           className={classNames(styles.teamIcon, {
             [styles.selectedTeamIcon]: props.selected
           })}
-          icon={'icon-people'}
+          icon={'icon-team'}
           size={'large1'}
         />
         <ChallengeMeta4

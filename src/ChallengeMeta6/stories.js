@@ -1,5 +1,5 @@
 import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {storiesOf, linkTo} from '@kadira/storybook';
 import ChallengeMeta6 from './index';
 
 storiesOf('ChallengeMeta6', module)
@@ -8,6 +8,7 @@ storiesOf('ChallengeMeta6', module)
       <ChallengeMeta6
         members={321}
         name={'Awesome Team Name'}
+        onClick={linkTo('ChallengeMeta6', 'Selected')}
       />
     </div>
   ))
