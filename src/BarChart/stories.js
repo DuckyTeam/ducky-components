@@ -10,7 +10,7 @@ stories.add('Initial', () => (
         data={[
             {
                 id: 12,
-                value: number("Bar 1 value", 403),
+                value: number("Bar 1 value", 220),
                 color: "#00ab97",
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek1",
@@ -18,14 +18,14 @@ stories.add('Initial', () => (
             },
             {
                 id: 13,
-                value: number("Bar 2 value", 436),
+                value: number("Bar 2 value", 333),
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "De nye Gitarkameratene",
                 onClick: console.log
             },
             {
                 id: 14,
-                value: number("Bar 3 value", 531),
+                value: number("Bar 3 value", 400),
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek3"
             },
@@ -34,30 +34,12 @@ stories.add('Initial', () => (
                 value: number("Bar 4 value", 173),
                 image: "http//:fsfkjsld.no/img.jpg",
                 label: "Strek4"
-            },
-            {
-                id: 16,
-                value: number("Bar 4 value", 173),
-                image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek5"
-            },
-            {
-                id: 17,
-                value: number("Bar 4 value", 173),
-                image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek6"
-            },
-            {
-                id: 18,
-                value: number("Bar 5 value", 273),
-                image: "http//:fsfkjsld.no/img.jpg",
-                label: "Strek7"
             }
         ].slice(0, number("Number of bars", 5))}
         graphID={2}
         height={"300px"}
         selected={number("Selected", 12)}
         member={number("Member of", 12)}
-        goals={[200, 400, 600, 800]}
+        goals={[200, 400, 600, 800, 5000]}
     />
   ));

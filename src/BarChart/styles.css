@@ -128,3 +128,24 @@
 .faceInactive {
   fill: #035d67;
 }
+
+.yAxisTickValuesGroup {}
+
+.progressedGoalsText {
+  fill: #ffffff;
+  fill-opacity: 1;
+}
+
+.toBeProgressedGoalsText {
+  fill: #ffffff;
+  fill-opacity: 0.4;
+}
+
+.progressedGoalsCheck {
+  fill: #00ab97;
+}
+
+.toBeProgressedGoalsLeaf {
+  fill: #ffffff;
+  fill-opacity: 0.4;
+}

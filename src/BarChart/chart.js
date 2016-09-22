@@ -9,7 +9,8 @@ const paths = {
       "M384 511.5c48 0 88.5-25.5 111-63h52.5c-25.5 66-88.5 111-163.5 111s-138-45-163.5-111h52.5c22.5 37.5 63 63 111 63zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5zM223.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48zM448.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48z",
       "M384 559.5c-75 0-138-45-163.5-111h327c-25.5 66-88.5 111-163.5 111zM271.5 352.5c-27 0-48-21-48-48s21-48 48-48 48 21 48 48-21 48-48 48zM496.5 352.5c-27 0-48-21-48-48s21-48 48-48 48 21 48 48-21 48-48 48zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5z",
       "M384 559.5c-75 0-138-45-163.5-111h327c-25.5 66-88.5 111-163.5 111zM283.5 318l-33 34.5-34.5-34.5 67.5-67.5 69 67.5-34.5 34.5zM415.5 318l69-67.5 67.5 67.5-34.5 34.5-33-34.5-34.5 34.5zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5z"
-    ]
+    ],
+    check: "M288 517.5l339-339 45 45-384 384-178.5-178.5 45-45z"
 };
 
 d3Chart.create = (el, props, state) => {
@@ -34,6 +35,9 @@ d3Chart.create = (el, props, state) => {
     svg.append('g')
       .attr('class', styles.faceGroup);
 
+    svg.append('g')
+      .attr('class', styles.yAxisTickValuesGroup);
+
     d3Chart.update(el, state, props);
 };
 
@@ -50,6 +54,10 @@ d3Chart.update = (el, state, props) => {
 
     const faceValues = state.goals.map((goal, index) => {
       return index > 0 ? state.goals[index] - (goal - state.goals[index - 1]) / 2 : goal / 2;
+    }).slice(0,4);
+
+    const yAxisTickValues = state.goals.map((goal, index) => {
+      return state.goals[index] + 20;
     }).slice(0,4);
 
     const getPath = d => {
@@ -142,13 +150,13 @@ d3Chart.update = (el, state, props) => {
       class: getClasses
     });
     const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
+    const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(yAxisTickValues);
 
     //Transition in new axis
     svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
     svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis).selectAll('.tick').attr('id', d => isSelectedByName(d) ? styles.selectedXTick : null);
 
     const enteredFaces = faces.enter();
-
     enteredFaces.append('svg').attr({
       viewBox: "0 0 768 768",
       x: props.width,
@@ -158,7 +166,6 @@ d3Chart.update = (el, state, props) => {
     }).append('path').attr({
       d: (d, i) => paths.faces[i]
     });
-
     faces.exit().remove();
 
     faces.transition().delay(speed).duration(speed).attr({
@@ -166,6 +173,39 @@ d3Chart.update = (el, state, props) => {
       y: yScale,
     }).select('path').attr({
       class: (d, i) => d <= yourScore ? styles[`faceActive${i}`] : styles.faceInactive
+    });
+
+    // For y axis tick values
+    const enteredTickValues = yAxisTicks.enter();
+    enteredTickValues.append('svg').attr({
+      viewBox: "0 0 768 768",
+      x: 20,
+      y: d => yScale(d),
+      width: 12,
+      height: 12
+    })
+    .append('path').attr({
+      d: (d) => (d - 20 <= yourScore) ? paths.check : paths.leaf,
+      class: (d, i) => (d - 20 <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf
+    });
+
+    enteredTickValues.append('text')
+      .text((d) => Number(d - 20).toLocaleString())
+      .attr({
+        class: (d, i) => (d - 20 <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText,
+        x: 35,
+        y: d => yScale(d) + 10,
+        'font-size': '10px'
+      });
+    yAxisTicks.exit().remove();
+
+    yAxisTicks.transition().delay(speed).duration(speed).select('path').attr({
+      d: (d) => (d - 20 <= yourScore) ? paths.check : paths.leaf,
+      class: (d, i) => (d - 20 <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf
+    });
+
+    yAxisTicks.select('text').attr({
+        class: (d, i) => (d - 20 <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
     });
 
     //Enter new reactangles and set them to height 0

@@ -21,12 +21,9 @@ import CardLabel1 from '../src/composites/ChallengeCardLabel1';
 import CarouselNavigator1 from '../src/CarouselNavigator1';
 import CarouselStandard1 from '../src/CarouselStandard1';
 import ChalOverHeader from '../src/ChallengeOverviewHeader2';
-import ChallengeDailyScorebars from '../src/ChallengeDailyScorebars';
-import ChallengeDailyScoreComposite from '../src/ChallengeDailyScoreComposite';
 import ChallengeMetaJoin from '../src/ChallengeMetaJoin';
 import ChallengeMeta4 from '../src/ChallengeMeta4';
 import ChallengeMeta5 from '../src/ChallengeMeta5';
-import ChallengeDailyScoreInfo from '../src/ChallengeDailyScoreInfo';
 import CheckBox from '../src/CheckBox';
 import CreateGoalActionItem from '../src/CreateGoalActionItem';
 import CreateGoalValueInput from '../src/CreateGoalValueInput';
@@ -421,35 +418,6 @@ export default class App extends React.Component {
                     <Popup>{'hey'}</Popup>
                 </Preview>
 
-                <Preview title="/ChallengeDailyScoreInfo">
-                  {'inactive challenge - has not started'}
-                    <ChallengeDailyScoreInfo
-                        activities={'-'}
-                        challengeEndDatetimeUTC={1475758626218}
-                        challengeStartDatetimeUTC={1474894600551}
-                        challengeType={'household'}
-                        co2={'-'}
-                        currentDate={1474030728395}
-                    />
-                  {'ongoing challenge'}
-                    <ChallengeDailyScoreInfo
-                        activities={'12'}
-                        challengeEndDatetimeUTC={1476006953142}
-                        challengeStartDatetimeUTC={1473846941465}
-                        challengeType={'household'}
-                        co2={'34'}
-                        currentDate={1474278923240}
-                    />
-                  {'challenge ended'}
-                    <ChallengeDailyScoreInfo
-                        activities={'21'}
-                        challengeEndDatetimeUTC={1473166641553}
-                        challengeStartDatetimeUTC={1473846941465}
-                        challengeType={'points'}
-                        currentDate={1474030728395}
-                        points={'43'}
-                    />
-                </Preview>
 
                 <Preview title="Input">
                     <Input
@@ -1856,157 +1824,6 @@ export default class App extends React.Component {
                     />
                 </Preview>
 
-                <Preview title="ChallengeDailyScorebars">
-                    {'Profile Challenge'}
-                    <ChallengeDailyScorebars
-                        barType={'co2'}
-                        challengeEndDatetimeUTC={1475272800000}
-                        challengeStartDatetimeUTC={1472680800000}
-                        currentDate={1474322400000}
-                        dailyActivitiesCount={
-                            {
-                                1473976800000: 10,
-                                1474063200000: 15,
-                                1474236000000: 12,
-                                1474322400000: 3
-                            }
-                          }
-                        totalActivitiesCount={15}
-                    />
-                    <br />
-                    {'Household Challenge'}
-                    <ChallengeDailyScorebars
-                        barType={'co2'}
-                        challengeEndDatetimeUTC={1475272800000}
-                        challengeStartDatetimeUTC={1472680800000}
-                        currentDate={1474322400000}
-                        dailyActivitiesCount={
-                            {
-                                1473976800000: 10,
-                                1474063200000: 15,
-                                1474236000000: 12,
-                                1474322400000: 3
-                            }
-                          }
-                        householdChallenge
-                        loggedDays={
-                            {
-                                1473976800000: true,
-                                1474236000000: true
-                            }
-                        }
-                        totalActivitiesCount={15}
-                    />
-                </Preview>
-
-                <Preview title={'ChallengeDailyScoreComposite'}>
-                    {'Profile Challenge -  CO2'}
-                    <div style={{width: 800}}>
-                        <ChallengeDailyScoreComposite
-                            activitiesLoggedCurrentDate={12}
-                            barType={'co2'}
-                            challengeEndDatetimeUTC={1475272800000}
-                            challengeStartDatetimeUTC={1472680800000}
-                            challengeType={'individual'}
-                            co2={27.3}
-                            currentDate={1474322400000}
-                            dailyActivitiesCount={
-                                {
-                                    1472767200000: 10,
-                                    1473458400000: 15,
-                                    1474236000000: 7,
-                                    1474322400000: 12
-                                }
-                              }
-                            totalActivitiesCount={15}
-                        />
-                    </div>
-                  {'Household Challenge - CO2'}
-                    <ChallengeDailyScoreComposite
-                        activitiesLoggedCurrentDate={12}
-                        barType={'co2'}
-                        challengeEndDatetimeUTC={1475272800000}
-                        challengeStartDatetimeUTC={1472680800000}
-                        challengeType={'household'}
-                        co2={27.3}
-                        currentDate={1474322400000}
-                        dailyActivitiesCount={
-                            {
-                                1472767200000: 10,
-                                1473458400000: 15,
-                                1474236000000: 7,
-                                1474322400000: 12
-                            }
-                          }
-                        householdChallenge
-                        loggedDays={
-                            {
-                                1472767200000: true,
-                                1474236000000: true
-                            }
-                        }
-                        totalActivitiesCount={15}
-                    />
-                    <br />
-                    {'Profile Challenge - points'}
-                    <ChallengeDailyScoreComposite
-                        activitiesLoggedCurrentDate={12}
-                        barType={'points'}
-                        challengeEndDatetimeUTC={1475272800000}
-                        challengeStartDatetimeUTC={1472680800000}
-                        challengeType={'individual'}
-                        currentDate={1474322400000}
-                        dailyActivitiesCount={
-                            {
-                                1472767200000: 10,
-                                1473458400000: 15,
-                                1474236000000: 7,
-                                1474322400000: 12
-                            }
-                          }
-                        points={35}
-                        totalActivitiesCount={15}
-                    />
-                    <br />
-                    {'Household challenge - points'}
-                    <ChallengeDailyScoreComposite
-                        activitiesLoggedCurrentDate={12}
-                        barType={'points'}
-                        challengeEndDatetimeUTC={1475272800000}
-                        challengeStartDatetimeUTC={1472680800000}
-                        challengeType={'household'}
-                        currentDate={1474322400000}
-                        dailyActivitiesCount={
-                            {
-                                1472767200000: 10,
-                                1473458400000: 15,
-                                1474236000000: 7,
-                                1474322400000: 12
-                            }
-                          }
-                        householdChallenge
-                        loggedDays={
-                            {
-                                1472767200000: true,
-                                1474236000000: true
-                            }
-                        }
-                        points={30}
-                        totalActivitiesCount={15}
-                    />
-                    <br />
-                    {'Challenge Not started'}
-                    <ChallengeDailyScoreComposite
-                        activitiesLoggedCurrentDate={'-'}
-                        barType={'co2'}
-                        challengeEndDatetimeUTC={1477000800000}
-                        challengeStartDatetimeUTC={1474408800000}
-                        challengeType={'individual'}
-                        co2={'-'}
-                        currentDate={1474322400000}
-                        totalActivitiesCount={15}
-                    />
-                </Preview>
 
                 <Preview title={"IconImage"}>
                     <div className={styles.subHeader}>Small</div>
