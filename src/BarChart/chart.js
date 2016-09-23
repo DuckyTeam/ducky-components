@@ -149,7 +149,7 @@ d3Chart.update = (el, state, props) => {
   });
   const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
   const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(yAxisTickValues);
-  const textLables = svg.select(`.${styles.textLables}`).selectAll('g').data(yAxisTickValues);
+  const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(yAxisTickValues);
 
   // Transition in new axis
   svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
@@ -189,7 +189,7 @@ d3Chart.update = (el, state, props) => {
     viewBox: "0 0 768 768",
     width: 40,
     height: 12,
-    y: data => yScale(data)
+    y: data => yScale(data) + 10
   }).append('path').attr({
     d: (data) => {
       return (data <= yourScore) ? paths.check : paths.leaf;
@@ -200,7 +200,7 @@ d3Chart.update = (el, state, props) => {
   });
   yAxisTicks.exit().remove();
   yAxisTicks.transition().duration(speed).delay(speed).attr({
-    y: yScale,
+    y: data => yScale(data) - 10,
     x: 10
   }).select('path')
   .attr({
@@ -213,7 +213,7 @@ d3Chart.update = (el, state, props) => {
   });
 
   // For y axis tick text
-  const textLablesValues = textLables.enter().append('g');
+  const textLablesValues = textLables.enter();
 
   textLablesValues.append('text')
     .text((data) => Number(data).toLocaleString())
@@ -227,16 +227,15 @@ d3Chart.update = (el, state, props) => {
     });
   textLables.exit().remove();
 
-  textLables.transition().duration(speed).delay(speed).attr({
-    y: yScale,
-    x: 40
-  }).select('text')
+  textLables.transition().duration(speed).delay(speed)
     .text((data) => Number(data).toLocaleString())
     .attr({
       class: (data) => {
         return (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
       },
-      'font-size': '10px'
+      'font-size': '10px',
+      y: yScale,
+      x: 40
     });
 
   // Enter new reactangles and set them to height 0
