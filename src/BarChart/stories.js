@@ -40,6 +40,6 @@ stories.add('Initial', () => (
         height={"300px"}
         selected={number("Selected", 12)}
         member={number("Member of", 12)}
-        goals={[200, 400, 600, 800, 5000]}
+        goals={[200, 400, 600, 800]}
     />
   ));
