@@ -418,7 +418,6 @@ export default class App extends React.Component {
                     <Popup>{'hey'}</Popup>
                 </Preview>
 
-
                 <Preview title="Input">
                     <Input
                         errorMessage={this.state.inputErrorMessage}
@@ -1823,7 +1822,6 @@ export default class App extends React.Component {
                         startDate={'15-Jul-2016'}
                     />
                 </Preview>
-
 
                 <Preview title={"IconImage"}>
                     <div className={styles.subHeader}>Small</div>

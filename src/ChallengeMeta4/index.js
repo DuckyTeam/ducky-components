@@ -1,37 +1,46 @@
 import React from 'react';
 import Typography from '../Typography';
 import LabelSmall from '../LabelSmall';
+import classNames from 'classnames';
 import styles from './styles.css';
 
 function ChallengeMeta4(props) {
   let teamLabel = '';
 
-  if (props.team) {
+  if (props.yourTeam) {
     teamLabel = '(Ditt lag)';
   }
-  if (props.team && props.isLeader) {
+  if (props.yourTeam && props.isLeader) {
     teamLabel = '(Ditt lag - Leder)';
   }
-  if (props.isLeader && !props.team) {
+  if (props.isLeader && !props.yourTeam) {
     teamLabel = '(Leader)';
   }
   return (
-    <div className={styles.wrapper}>
+    <div className={classNames(styles.wrapper, {
+      [props.className]: props.className
+    })}>
       <Typography
-        className={styles.name}
+        className={classNames(styles.nameLightBackground, {
+          [styles.nameDarkBackground]: props.theme === 'dark'
+        })}
         type="bodyTextStrong"
       >
         {props.name}
       </Typography>
       <div className={styles.statsWrapper}>
         <LabelSmall
-          className={styles.members}
+          className={classNames(styles.membersLightBackground, {
+            [styles.membersDarkBackground]: props.theme === 'dark'
+          })}
           content={props.members}
           icon={'icon-people'}
           type={"caption2Normal"}
         />
         <Typography
-          className={styles.label}
+          className={classNames(styles.labelLightBackground, {
+            [styles.labelDarkBackground]: props.theme === 'dark'
+          })}
           type="caption2Normal"
         >
           {teamLabel}
@@ -42,10 +51,12 @@ function ChallengeMeta4(props) {
 }
 
 ChallengeMeta4.propTypes = {
+  className: React.PropTypes.string,
   isLeader: React.PropTypes.bool,
   members: React.PropTypes.number,
   name: React.PropTypes.string,
-  team: React.PropTypes.string
+  theme: React.PropTypes.string,
+  yourTeam: React.PropTypes.bool
 };
 
 export default ChallengeMeta4;

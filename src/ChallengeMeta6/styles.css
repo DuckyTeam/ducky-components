@@ -1,0 +1,29 @@
+.wrapper {
+  background-color: #fff;
+  cursor: pointer;
+  display: flex;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.teamIcon {
+  margin-right: 19px;
+  color: #90a4ae;
+}
+
+.selectedTeamIcon {
+  margin-right: 19px;
+  color: #00ab97;
+}
+
+.meta {
+  flex-grow: 1;
+  text-overflow: ellipsis;
+}
+
+.checkIcon {
+  color: #00ab97;
+  margin-left: 16px;
+}

@@ -5,7 +5,7 @@ import d3Chart from './graph';
 class LineGraph extends React.Component {
     constructor() {
         super();
-        this.margin = {top: 10, bottom: 40, left: 30, right: 20};
+        this.margin = {top: 10, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {
@@ -26,9 +26,7 @@ class LineGraph extends React.Component {
         }, this.props.formatting);
     }
 
-    componentWillUnmount() {
-        d3Chart.destroy(this.container);
-    }
+    componentWillUnmount() {}
 
     handleRef = (element) => {
         this.container = element;
@@ -37,7 +35,8 @@ class LineGraph extends React.Component {
     getChartState() {
         return {
             data: this.props.data,
-            domain: this.props.domain
+            startDate: this.props.startDate,
+            endDate: this.props.endDate
         };
     }
 
@@ -70,12 +69,7 @@ LineGraph.propTypes = {
             strokeWidth: React.PropTypes.number
         })
     ),
-    domain: React.PropTypes.shape({
-        xDomain: React.PropTypes.arrayOf(React.PropTypes.oneOfType(
-            [React.PropTypes.string, React.PropTypes.shape({})]
-        )),
-        yDomain: React.PropTypes.arrayOf(React.PropTypes.number)
-    }),
+
     formatting: React.PropTypes.func,
     graphID: React.PropTypes.number,
     height: React.PropTypes.string
