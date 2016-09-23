@@ -36,7 +36,8 @@ class LineGraph extends React.Component {
         return {
             data: this.props.data,
             startDate: this.props.startDate,
-            endDate: this.props.endDate
+            endDate: this.props.endDate,
+            goals: this.props.goals
         };
     }
 
