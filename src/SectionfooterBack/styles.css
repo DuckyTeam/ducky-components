@@ -1,0 +1,13 @@
+.wrapper {
+    height: 48px;
+    border-top: 1px solid rgba(38,50,56,0.12);
+    display:flex;
+    align-items:center;
+    justify-content: flex-start;
+}
+
+.button {
+    margin: 6px;
+    float: left;
+    align-self: center;
+}
