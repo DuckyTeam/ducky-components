@@ -1,5 +1,6 @@
 import d3 from 'd3';
 import styles from './styles.css';
+import utils from './utils';
 const d3Chart = {};
 const paths = {
 leaf: "M544 256c-288 64-355.2 261.44-421.76 426.88l60.48 21.12 30.4-73.6c15.36 5.44 31.36 9.6 42.88 9.6 352 0 448-544 448-544-32 64-256 72-416 104s-224 168-224 232c0 64 56 120 56 120 104-296 424-296 424-296z",
@@ -14,23 +15,15 @@ crown: "M160 512l-64-352 176 224 112-224 112 224 176-224-64 352h-448zM608 608c0 
 };
 
 d3Chart.create = (el, props, state) => {
-  const xAxisOffset = props.height + props.margin.top + 5;
-  const svg = d3
-        .select(el)
-        .append('svg')
-        .attr('class', `d3Chart${props.id} ${styles.svg}`)
-        .attr('width', props.width)
-        .attr('height', props.height);
+  props.xAxisOffset = props.height + props.margin.top + 5;
+
+  const svg = utils.drawSVG(el, props);
+  utils.drawXAxisGroup(svg, props);
+  utils.drawYAxisGroup(svg, props);
 
   svg.append('g')
         .attr('class', styles.bars)
         .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-  svg.append('g')
-        .attr('class', styles.yAxis)
-        .attr("transform", `translate(0, ${props.margin.top})`);
-  svg.append('g')
-        .attr('class', styles.xAxis)
-        .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
   svg.append('g')
       .attr('class', styles.faceGroup);
   svg.append('g')
@@ -105,13 +98,12 @@ d3Chart.update = (el, state, props) => {
   };
 
   // Resize svg-canvas
-  const svg = d3.select(`.d3Chart${props.id}`)
+  const svg = utils.selectSVG(props.id)
       .attr('width', props.width)
       .attr('height', props.height);
 
   // Move xaxis
-  d3.select(`.${styles.xAxis}`)
-      .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
+  utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
 
   const highestScore = d3.max(state.data, (data) => data.value);
 
@@ -152,8 +144,8 @@ d3Chart.update = (el, state, props) => {
   const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(yAxisTickValues);
 
   // Transition in new axis
-  svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
-  svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis)
+  utils.selectYAxisGroup(svg).transition().duration(speed).delay(speed).call(yAxis);
+  utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis)
     .selectAll('.tick')
     .attr('id', (data) => {
       return isSelectedByName(data) ? styles.selectedXTick : null;
