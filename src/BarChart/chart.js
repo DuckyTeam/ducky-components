@@ -1,64 +1,47 @@
 import d3 from 'd3';
 import styles from './styles.css';
 import utils from './utils';
+import paths from './svgpaths';
 const d3Chart = {};
-const paths = {
-leaf: "M544 256c-288 64-355.2 261.44-421.76 426.88l60.48 21.12 30.4-73.6c15.36 5.44 31.36 9.6 42.88 9.6 352 0 448-544 448-544-32 64-256 72-416 104s-224 168-224 232c0 64 56 120 56 120 104-296 424-296 424-296z",
-crown: "M160 512l-64-352 176 224 112-224 112 224 176-224-64 352h-448zM608 608c0 17.673-14.327 32-32 32h-384c-17.673 0-32-14.327-32-32v-32h448v32z",
-  faces: [
-    "M384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5zM223.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48zM448.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48zM288 448.5h192v48h-192v-48z",
-    "M384 511.5c48 0 88.5-25.5 111-63h52.5c-25.5 66-88.5 111-163.5 111s-138-45-163.5-111h52.5c22.5 37.5 63 63 111 63zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5zM223.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48zM448.5 304.5c0-27 21-48 48-48s48 21 48 48-21 48-48 48-48-21-48-48z",
-    "M384 559.5c-75 0-138-45-163.5-111h327c-25.5 66-88.5 111-163.5 111zM271.5 352.5c-27 0-48-21-48-48s21-48 48-48 48 21 48 48-21 48-48 48zM496.5 352.5c-27 0-48-21-48-48s21-48 48-48 48 21 48 48-21 48-48 48zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5z",
-    "M384 559.5c-75 0-138-45-163.5-111h327c-25.5 66-88.5 111-163.5 111zM283.5 318l-33 34.5-34.5-34.5 67.5-67.5 69 67.5-34.5 34.5zM415.5 318l69-67.5 67.5 67.5-34.5 34.5-33-34.5-34.5 34.5zM384 640.5c141 0 256.5-115.5 256.5-256.5s-115.5-256.5-256.5-256.5-256.5 115.5-256.5 256.5 115.5 256.5 256.5 256.5zM384 64.5c177 0 319.5 142.5 319.5 319.5s-142.5 319.5-319.5 319.5-319.5-142.5-319.5-319.5 142.5-319.5 319.5-319.5z"
-  ],
-  check: "M288 517.5l339-339 45 45-384 384-178.5-178.5 45-45z"
-};
 
 d3Chart.create = (el, props, state) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
 
   const svg = utils.drawSVG(el, props);
+
   utils.drawXAxisGroup(svg, props);
   utils.drawYAxisGroup(svg, props);
+  utils.drawChartGroup(svg, props, styles.bars);
+  utils.drawChartGroup(svg, props, styles.faceGroup);
+  utils.drawChartGroup(svg, props, styles.yAxisTickValuesGroup);
+  utils.drawChartGroup(svg, props, styles.textLables);
 
-  svg.append('g')
-        .attr('class', styles.bars)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-  svg.append('g')
-      .attr('class', styles.faceGroup);
-  svg.append('g')
-      .attr('class', styles.yAxisTickValuesGroup);
-  svg.append('g')
-      .attr('class', styles.textLables);
   d3Chart.update(el, state, props);
 };
 
 d3Chart.update = (el, state, props) => {
   const height = props.height - props.margin.top - props.margin.bottom;
   const xAxisOffset = height + props.margin.top + 5;
-  const speed = 250;
-  const textPadding = 6;
+  state.speed = 250;
+  state.leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
   const barTextFontSize = 20;
-  const leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
-
-  const getClasses = (data) => `${styles.rectangleGroup} ${data.id === state.member ? styles.member : null}
-                                ${data.id === leaderId ? styles.leader : null} ${data.id === state.selected ? styles.selected : null}`;
+  const textPadding = 6;
 
   const faceValues = state.goals.map((goal, index) => {
     return index > 0 ? state.goals[index] - (goal - state.goals[index - 1]) / 2 : goal / 2;
   }).slice(0, 4);
 
   const getPath = (data) => {
-    if (data.id === state.member && data.id !== leaderId) {
+    if (data.id === state.member && data.id !== state.leaderId) {
       return paths.leaf;
-    } else if (data.id === leaderId) {
+    } else if (data.id === state.leaderId) {
       return paths.crown;
     }
     return '';
   };
 
   const getIconClass = (data) => {
-    if (data.id === leaderId) {
+    if (data.id === state.leaderId) {
       return `${styles.leaderIcon} ${styles.iconPaths}`;
     } else if (data.id === state.member) {
       return `${styles.memberIcon} ${styles.iconPaths}`;
@@ -86,16 +69,8 @@ d3Chart.update = (el, state, props) => {
     .rangeBands([0, props.width - props.margin.left - props.margin.right], 0.67);
 
   const getBarWidth = () => d3.min([xScale.rangeBand(), 24]);
-  const getBarX = (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2;
+
   const getTextX = (data) => getBarX(data) + getBarWidth(data) / 2;
-  const getFontSize = (data) => {
-    if (data.value < 10000) {
-      return '14px';
-    } else if (data.value < 1000000) {
-      return '12px';
-    }
-    return '10px';
-  };
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -136,16 +111,13 @@ d3Chart.update = (el, state, props) => {
       .tickSize(-props.width, 0, 0)
       .orient("left");
 
-  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, (data) => data.id).attr({
-    class: getClasses
-  });
   const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
   const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(yAxisTickValues);
   const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(yAxisTickValues);
 
   // Transition in new axis
-  utils.selectYAxisGroup(svg).transition().duration(speed).delay(speed).call(yAxis);
-  utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis)
+  utils.selectYAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(yAxis);
+  utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis)
     .selectAll('.tick')
     .attr('id', (data) => {
       return isSelectedByName(data) ? styles.selectedXTick : null;
@@ -155,7 +127,7 @@ d3Chart.update = (el, state, props) => {
 
   enteredFaces.append('svg').attr({
     viewBox: "0 0 768 768",
-    x: props.width,
+    x: props.width - props.margin.right - 20,
     y: data => yScale(data),
     width: 20,
     height: 20
@@ -164,14 +136,12 @@ d3Chart.update = (el, state, props) => {
   });
   faces.exit().remove();
 
-  faces.transition().delay(speed).duration(speed).attr({
-    x: props.width - 30,
+  faces.transition().delay(state.speed).duration(state.speed).attr({
+    x: props.width - props.margin.right - props.margin.left - 15,
     y: yScale,
   }).select('path')
     .attr({
-      class: (data, index) => {
-        return (data <= yourScore ? styles[`faceActive${index}`] : styles.faceInactive);
-      }
+      class: (data, index) => data <= yourScore ? styles[`faceActive${index}`] : styles.faceInactive
     });
 
   // For y axis tick lables
@@ -181,7 +151,8 @@ d3Chart.update = (el, state, props) => {
     viewBox: "0 0 768 768",
     width: 40,
     height: 12,
-    y: data => yScale(data) + 10
+    y: data => yScale(data) - 10,
+    x: -300
   }).append('path').attr({
     d: (data) => {
       return (data <= yourScore) ? paths.check : paths.leaf;
@@ -191,9 +162,9 @@ d3Chart.update = (el, state, props) => {
     }
   });
   yAxisTicks.exit().remove();
-  yAxisTicks.transition().duration(speed).delay(speed).attr({
+  yAxisTicks.transition().duration(state.speed).delay(state.speed).attr({
     y: data => yScale(data) - 10,
-    x: 10
+    x: -30
   }).select('path')
   .attr({
     d: (data) => {
@@ -210,7 +181,7 @@ d3Chart.update = (el, state, props) => {
   textLablesValues.append('text')
     .text((data) => Number(data).toLocaleString())
     .attr({
-      x: 40,
+      x: -80,
       y: data => yScale(data),
       class: (data) => {
         return (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
@@ -219,7 +190,7 @@ d3Chart.update = (el, state, props) => {
     });
   textLables.exit().remove();
 
-  textLables.transition().duration(speed).delay(speed)
+  textLables.transition().duration(state.speed).delay(state.speed)
     .text((data) => Number(data).toLocaleString())
     .attr({
       class: (data) => {
@@ -227,29 +198,69 @@ d3Chart.update = (el, state, props) => {
       },
       'font-size': '10px',
       y: yScale,
-      x: 40
+      x: 0
     });
 
-  // Enter new reactangles and set them to height 0
+  drawBars(svg, state, props, xScale, yScale);
+};
+
+const drawBars = (svg, state, props, xScale, yScale) => {
+
+  //Bunch of messy helper functions and variables
+  const height = props.height - props.margin.top - props.margin.bottom;
+  const textPadding = 6;
+  const barTextFontSize = 20;
+  const leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
+  const getBarWidth = () => d3.min([xScale.rangeBand(), 24]);
+  const getBarX = (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2
+  const getIconClass = (data) => {
+    if (data.id === leaderId) {
+      return `${styles.leaderIcon} ${styles.iconPaths}`;
+    } else if (data.id === state.member) {
+      return `${styles.memberIcon} ${styles.iconPaths}`;
+    }
+    return `${styles.backgroundColorIcon} ${styles.iconPaths}`;
+  };
+  const getPath = (data) => {
+    if (data.id === state.member && data.id !== leaderId) {
+      return paths.leaf;
+    } else if (data.id === leaderId) {
+      return paths.crown;
+    }
+    return '';
+  };
+  const getClasses = data => `${styles.rectangleGroup} ${data.id === state.member ? styles.member : null}
+                                ${data.id === state.leaderId ? styles.leader : null} ${data.id === state.selected ? styles.selected : null}`;
+
+  const getFontSize = data => {
+    if (data.value < 10000) {
+      return '14px';
+    } else if (data.value < 1000000) {
+      return '12px';
+    }
+    return '10px';
+  };
+  const getTextX = (data) => getBarX(data) + getBarWidth(data) / 2;
+
+  //Actually draw the rectangles
+  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, (data) => data.id).attr({class: getClasses});
   const entered = rects.enter().append("g")
-    .attr({
-      class: getClasses
-    })
+    .attr({class: getClasses})
     .on('click', (data, index) => data.onClick(data.id, index));
 
   entered.append("rect")
     .attr('class', styles.rectangle)
     .attr('rx', 2)
-    .attr('x', getBarX)
+    .attr('x', (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2)
     .attr('y', height)
     .attr('height', 0)
-    .attr('width', getBarWidth);
+    .attr('width', () => d3.min([xScale.rangeBand(), 24]));
 
   entered.append('svg').attr({
     viewBox: "0 0 768 768",
     width: xScale.rangeBand(),
     height: xScale.rangeBand(),
-    x: getBarX,
+    x: (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2,
     y: height,
     opacity: 0
   }).append('path').attr({
@@ -269,23 +280,21 @@ d3Chart.update = (el, state, props) => {
     });
 
   // Remove unnessescary rectangles
-  rects.exit().transition().duration(speed)
+  rects.exit().transition().duration(state.speed)
     .attr('y', height)
     .attr('height', 0)
     .remove();
 
   // Transition the x position after removing rectangles
-  const transX = rects.transition().delay(speed).duration(speed);
+  const transX = rects.transition().delay(state.speed).duration(state.speed);
 
   transX.select("rect")
-    .attr('x', getBarX)
-    .attr('width', getBarWidth)
+    .attr('x', (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2)
+    .attr('width', () => d3.min([xScale.rangeBand(), 24]))
     .attr('fill', (data) => data.color);
 
   transX.select("svg")
-    .attr({
-      x: getBarX
-    });
+    .attr({x: (data) => xScale(data.label) + (xScale.rangeBand() - getBarWidth()) / 2});
 
   transX.select("text")
     .text((data) => Number(data.value).toLocaleString())
@@ -295,7 +304,7 @@ d3Chart.update = (el, state, props) => {
     });
 
   // Transition the y position after x position
-  const transY = rects.transition().delay(speed * 2)
+  const transY = rects.transition().delay(state.speed * 2)
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
@@ -303,8 +312,8 @@ d3Chart.update = (el, state, props) => {
 
   transY.select("svg").attr({
     y: (data) => yScale(data.value) - getBarWidth(data) - barTextFontSize,
-    width: getBarWidth,
-    height: getBarWidth,
+    width: () => d3.min([xScale.rangeBand(), 24]),
+    height: () => d3.min([xScale.rangeBand(), 24]),
     opacity: 1
   });
 
@@ -319,6 +328,6 @@ d3Chart.update = (el, state, props) => {
       'font-size': getFontSize,
       y: (data) => yScale(data.value) - textPadding
     });
-};
+}
 
 export default d3Chart;
