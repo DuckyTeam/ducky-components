@@ -101,7 +101,7 @@ d3Chart.update = (el, state, props) => {
 
 const drawLabels = (svg, state, props, yScale) => {
 
-  //TODO: Merge into one operation, sort out blinking
+  //TODO: Merge into one operation
 
   const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(state.yAxisTickValues);
   const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(state.yAxisTickValues);
@@ -123,12 +123,17 @@ const drawLabels = (svg, state, props, yScale) => {
     }
   });
 
-  yAxisTicks.exit().remove();
+  yAxisTicks.exit().transition().duration(state.speed).attr({
+    x: -300
+  })
+  .remove();
 
   yAxisTicks.transition().duration(state.speed).delay(state.speed).attr({
     y: data => yScale(data) - 15,
     x: -30
-  }).select('path')
+  });
+
+  yAxisTicks.select('path')
   .attr({
     d: (data) => {
       return (data <= state.yourScore) ? paths.check : paths.leaf;
@@ -145,23 +150,25 @@ const drawLabels = (svg, state, props, yScale) => {
     .attr({
       x: -80,
       y: data => yScale(data),
-      class: (data) => {
-        return (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
-      },
+      class: (data) => (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText,
       'font-size': '10px'
     });
-  textLables.exit().remove();
+
+  textLables.exit().transition().duration(state.speed).attr({
+    x: -80
+  }).remove();
 
   textLables.transition().duration(state.speed).delay(state.speed)
     .text((data) => Number(data).toLocaleString())
     .attr({
-      class: (data) => {
-        return (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
-      },
       'font-size': '10px',
       y: d => yScale(d) - 5,
       x: 0
     });
+
+  textLables.attr({
+    class: (data) => (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
+  });
 }
 
 const drawFaces = (svg, state, props, yScale) => {
