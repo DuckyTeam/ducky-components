@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import utils from './../utils';
 import styles from './styles.css';
 const d3Chart = {};
 const paths = {
@@ -14,41 +15,24 @@ const paths = {
 };
 
 d3Chart.create = (el, props, state, formatting) => {
-    const height = props.height - props.margin.top - props.margin.bottom;
-    const xAxisOffset = height + props.margin.top + 5;
+  props.xAxisOffset = props.height + props.margin.top + 5;
+  console.log(props.xAxisOffset)
+  const svg = utils.drawSVG(el, props);
 
-    const svg = d3.select(el).append('svg')
-        .attr('class', `d3Chart${props.id} ${styles.svg}`)
-        .attr('width', props.width)
-        .attr('height', props.height);
+  utils.drawXAxisGroup(svg, props);
+  utils.drawYAxisGroup(svg, props);
+  utils.drawChartGroup(svg, props, styles.lines);
+  utils.drawChartGroup(svg, props, styles.areas);
+  utils.drawChartGroup(svg, props, styles.dots);
+  utils.drawChartGroup(svg, props, styles.bars);
+  utils.drawChartGroup(svg, props, styles.faceGroup);
 
-    svg.append('g')
-        .attr('class', styles.lines)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-    svg.append('g')
-        .attr('class', styles.areas)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-    svg.append('g')
-        .attr('class', styles.dots)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-    svg.append('g')
-        .attr('class', styles.bars)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
-    svg.append('g')
-        .attr('class', styles.yAxis)
-        .attr("transform", `translate(0, ${props.margin.top})`);
-    svg.append('g')
-        .attr('class', styles.xAxis)
-        .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
-    svg.append('g')
-        .attr('class', styles.faceGroup);
-
-    d3Chart.update(el, state, props, formatting);
+  d3Chart.update(el, state, props, formatting);
 };
 
 d3Chart.update = (el, state, props, formatting) => {
-    const height = props.height - props.margin.top - props.margin.bottom;
-    const xAxisOffset = height + props.margin.top + 5;
+    state.height = props.height - props.margin.top - props.margin.bottom;
+    state.xAxisOffset = state.height + props.margin.top + 5;
     const speed = 300;
 
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
@@ -80,7 +64,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max([maxValue, nextGoal()])])
-      .range([height - 4, 15]);
+      .range([state.height - 4, 15 + props.margin.top]);
 
     const lineDrawer = d3.svg.line().interpolate("basic")
         .x((d) => xScale(d.date))
@@ -88,7 +72,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const areaDrawer = d3.svg.area().interpolate("basic")
         .x(d => xScale(d.date))
-        .y0(height + props.margin.top)
+        .y0(state.height + props.margin.top)
         .y1(d => yScale(d.value));
 
     const yAxis = d3
@@ -103,8 +87,11 @@ d3Chart.update = (el, state, props, formatting) => {
         .scale(xScale)
         .orient("bottom");
 
-    svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
-    svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis);
+    // Move xaxis
+    utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
+
+    utils.selectYAxisGroup(svg).transition().duration(speed).delay(speed).call(yAxis);
+    utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
 
     const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
 

@@ -1,12 +1,12 @@
 import d3 from 'd3';
 import styles from './styles.css';
-import utils from './utils';
-import paths from './svgpaths';
+import utils from './../utils';
+import paths from './../svgpaths';
 const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
-
+  console.log(props.xAxisOffset)
   const svg = utils.drawSVG(el, props);
 
   utils.drawXAxisGroup(svg, props);
@@ -60,7 +60,7 @@ d3Chart.update = (el, state, props) => {
 
   const yScale = d3.scale.linear()
     .domain([0, d3.max([state.highestScore, state.nextGoal])])
-    .range([state.height - 4, 15 + state.barTextFontSize + state.textPadding * 2]);
+    .range([state.height - 4, 15 + props.margin.top]);
 
   state.barWidth = d3.min([xScale.rangeBand(), 24]);
 
@@ -68,9 +68,6 @@ d3Chart.update = (el, state, props) => {
   const svg = utils.selectSVG(props.id)
       .attr('width', props.width)
       .attr('height', props.height);
-
-  // Move xaxis
-  utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
 
   const xAxis = d3
       .svg
@@ -85,6 +82,9 @@ d3Chart.update = (el, state, props) => {
       .tickValues(state.yAxisTickValues)
       .tickSize(-props.width, 0, 0)
       .orient("left");
+
+  // Move xaxis
+  utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
 
   // Transition in new axis
   utils.selectYAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(yAxis);
@@ -174,9 +174,14 @@ const drawLabels = (svg, state, props, yScale) => {
 const drawFaces = (svg, state, props, yScale) => {
 
   //Variable and helper functions
+
+  const facesToShow = state.goals.reduce((acc, goal) => {
+    return goal < state.maxValue && state.goals.indexOf(goal) > acc ? state.goals.indexOf(goal) + 1 : acc
+  }, 4);
+  console.log(facesToShow)
   const faceValues = state.goals.map((goal, index) => {
     return index > 0 ? state.goals[index] - (goal - state.goals[index - 1]) / 2 : goal / 2;
-  }).slice(0, 4);
+  }).slice(0, state.goals.indexOf(state.yAxisTickValues[state.yAxisTickValues.length - 1]) + 1);
 
   //Draw faces
   const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
@@ -192,7 +197,9 @@ const drawFaces = (svg, state, props, yScale) => {
     d: (data, index) => paths.faces[index]
   });
 
-  faces.exit().remove();
+  faces.exit().transition().duration(state.speed).attr({
+    x: props.width - props.margin.right - 20
+  }).remove();
 
   faces.transition().delay(state.speed).duration(state.speed).attr({
     x: props.width - props.margin.right - props.margin.left - 15,
