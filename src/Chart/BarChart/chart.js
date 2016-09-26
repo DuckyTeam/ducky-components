@@ -3,6 +3,7 @@ import styles from './styles.css';
 import utils from './../utils';
 import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
+import drawLabels from './../common/drawGoalLabels';
 const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
@@ -13,8 +14,7 @@ d3Chart.create = (el, props, state) => {
   utils.drawXAxisGroup(svg, props);
   utils.drawYAxisGroup(svg, props);
   utils.drawChartGroup(svg, props, styles.bars);
-  utils.drawChartGroup(svg, props, styles.yAxisTickValuesGroup);
-  utils.drawChartGroup(svg, props, styles.textLables);
+  utils.drawChartGroup(svg, props, styles.labels);
   utils.drawChartGroup(svg, props, styles.faceGroup);
 
   d3Chart.update(el, state, props);
@@ -30,18 +30,9 @@ d3Chart.update = (el, state, props) => {
   state.speed = 250;
   state.highestScore = d3.max(state.data, (data) => data.value);
   state.leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
-  state.nextGoal = (() => {
-    for (let index = 0; index < state.goals.length; index += 1) {
-      if (state.goals[index] > state.highestScore) {
-        return state.goals[index];
-      }
-    }
-    return state.goals[state.goals.length - 1];
-  })();
+  state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
   state.yAxisTickValues = state.goals.slice(0, d3.min([state.goals.indexOf(state.nextGoal), state.goals.length]) + 1);
-  state.yourScore = state.data.reduce((acc, dp) => {
-    return dp.id === state.member ? acc + dp.value : acc;
-  }, 0);
+  state.yourScore = state.data.reduce((acc, dp) => dp.id === state.member ? acc + dp.value : acc, 0);
 
   const isSelectedByName = (label) => {
     let found = false;
@@ -89,14 +80,16 @@ d3Chart.update = (el, state, props) => {
 
   // Transition in new axis
   utils.selectYAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(yAxis);
-  utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis)
-    .selectAll('.tick')
-    .attr('id', (data) => {
-      return isSelectedByName(data) ? styles.selectedXTick : null;
-    });
+  utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
+  utils.selectXAxisGroup(svg).selectAll('.tick').attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null);
 
-  drawLabels(svg, state, props, yScale);
   drawBars(svg, state, props, xScale, yScale);
+
+  //Draw labels
+  const labelGroup = utils.getChartGroup(svg, styles.labels);
+  const goals = state.goals.slice(0, state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0) + 1)
+
+  drawLabels(labelGroup, state.goals, state.yourScore, yScale, state.speed)
 
   //Draw faces
   const xValue = props.width - props.margin.left - props.margin.right * 2;
@@ -104,78 +97,6 @@ d3Chart.update = (el, state, props) => {
 
   drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, state.speed);
 };
-
-const drawLabels = (svg, state, props, yScale) => {
-
-  //TODO: Merge into one operation
-
-  const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(state.yAxisTickValues);
-  const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(state.yAxisTickValues);
-
-  const enteredTickValues = yAxisTicks.enter();
-
-  enteredTickValues.append('svg').attr({
-    viewBox: "0 0 768 768",
-    width: 40,
-    height: 12,
-    y: data => yScale(data) - 15,
-    x: -300
-  }).append('path').attr({
-    d: (data) => {
-      return (data <= state.yourScore) ? paths.check : paths.leaf;
-    },
-    class: (data) => {
-      return (data <= state.yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf;
-    }
-  });
-
-  yAxisTicks.exit().transition().duration(state.speed).attr({
-    x: -300
-  })
-  .remove();
-
-  yAxisTicks.transition().duration(state.speed).delay(state.speed).attr({
-    y: data => yScale(data) - 15,
-    x: -30
-  });
-
-  yAxisTicks.select('path')
-  .attr({
-    d: (data) => {
-      return (data <= state.yourScore) ? paths.check : paths.leaf;
-    },
-    class: (data) => {
-      return (data <= state.yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf;
-    }
-  });
-
-  const textLablesValues = textLables.enter();
-
-  textLablesValues.append('text')
-    .text((data) => Number(data).toLocaleString())
-    .attr({
-      x: -80,
-      y: data => yScale(data),
-      class: (data) => (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText,
-      'font-size': '10px'
-    });
-
-  textLables.exit().transition().duration(state.speed).attr({
-    x: -80
-  }).remove();
-
-  textLables.transition().duration(state.speed).delay(state.speed)
-    .text((data) => Number(data).toLocaleString())
-    .attr({
-      'font-size': '10px',
-      y: d => yScale(d) - 5,
-      x: 0
-    });
-
-  textLables.attr({
-    class: (data) => (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
-  });
-}
 
 const drawBars = (svg, state, props, xScale, yScale) => {
 
