@@ -2,19 +2,20 @@ import d3 from 'd3';
 import styles from './styles.css';
 import utils from './../utils';
 import paths from './../svgpaths';
+import drawFaces from './../common/drawFaces';
 const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
-  console.log(props.xAxisOffset)
+
   const svg = utils.drawSVG(el, props);
 
   utils.drawXAxisGroup(svg, props);
   utils.drawYAxisGroup(svg, props);
   utils.drawChartGroup(svg, props, styles.bars);
-  utils.drawChartGroup(svg, props, styles.faceGroup);
   utils.drawChartGroup(svg, props, styles.yAxisTickValuesGroup);
   utils.drawChartGroup(svg, props, styles.textLables);
+  utils.drawChartGroup(svg, props, styles.faceGroup);
 
   d3Chart.update(el, state, props);
 };
@@ -96,7 +97,12 @@ d3Chart.update = (el, state, props) => {
 
   drawLabels(svg, state, props, yScale);
   drawBars(svg, state, props, xScale, yScale);
-  drawFaces(svg, state, props, yScale);
+
+  //Draw faces
+  const xValue = props.width - props.margin.left - props.margin.right * 2;
+  const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
+
+  drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, state.speed);
 };
 
 const drawLabels = (svg, state, props, yScale) => {
@@ -169,46 +175,6 @@ const drawLabels = (svg, state, props, yScale) => {
   textLables.attr({
     class: (data) => (data <= state.yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
   });
-}
-
-const drawFaces = (svg, state, props, yScale) => {
-
-  //Variable and helper functions
-
-  const facesToShow = state.goals.reduce((acc, goal) => {
-    return goal < state.maxValue && state.goals.indexOf(goal) > acc ? state.goals.indexOf(goal) + 1 : acc
-  }, 4);
-  console.log(facesToShow)
-  const faceValues = state.goals.map((goal, index) => {
-    return index > 0 ? state.goals[index] - (goal - state.goals[index - 1]) / 2 : goal / 2;
-  }).slice(0, state.goals.indexOf(state.yAxisTickValues[state.yAxisTickValues.length - 1]) + 1);
-
-  //Draw faces
-  const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
-  const enteredFaces = faces.enter();
-
-  enteredFaces.append('svg').attr({
-    viewBox: "0 0 768 768",
-    x: props.width - props.margin.right - 20,
-    y: data => yScale(data) - 10,
-    width: 20,
-    height: 20
-  }).append('path').attr({
-    d: (data, index) => paths.faces[index]
-  });
-
-  faces.exit().transition().duration(state.speed).attr({
-    x: props.width - props.margin.right - 20
-  }).remove();
-
-  faces.transition().delay(state.speed).duration(state.speed).attr({
-    x: props.width - props.margin.right - props.margin.left - 15,
-    y: d => yScale(d) - 10,
-  }).select('path')
-    .attr({
-      class: (data, index) => state.goals[index] <= state.yourScore ? styles[`faceActive${index}`] : styles.faceInactive
-    });
-
 }
 
 const drawBars = (svg, state, props, xScale, yScale) => {
