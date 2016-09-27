@@ -1,3 +1,4 @@
+import moment from 'moment';
 import d3 from 'd3';
 import styles from './styles.css';
 const d3Chart = {};
@@ -42,6 +43,18 @@ d3Chart.create = (el, props, state, formatting) => {
         .attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
     svg.append('g')
         .attr('class', styles.faceGroup);
+    svg.append('g')
+        .attr('class', styles.yAxisTickValuesGroup);
+    svg.append('g')
+      .attr('class', styles.textLables);
+    svg.append('g')
+      .attr('class', styles.yAxisLeader);
+    svg.append('g')
+      .attr('class', styles.leaderGroup);
+    svg.append('g')
+      .attr('class', styles.dotSeries);
+    svg.append('g')
+      .attr('class', styles.pointSeries);
 
     d3Chart.update(el, state, props, formatting);
 };
@@ -50,8 +63,9 @@ d3Chart.update = (el, state, props, formatting) => {
     const height = props.height - props.margin.top - props.margin.bottom;
     const xAxisOffset = height + props.margin.top + 5;
     const speed = 300;
-
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
+    const leaderId = state.data.filter((d) => {return d.data[Object.keys(d.data).length - 1].value === maxValue})[0].id;
+    const leaderName = state.data.filter((d) => {return d.data[Object.keys(d.data).length - 1].value === maxValue})[0].label;
 
     const nextGoal = () => {
       for (let index = 0; index < state.goals.length; index += 1) {
@@ -67,16 +81,21 @@ d3Chart.update = (el, state, props, formatting) => {
     }).slice(0, 4);
 
     const yourScore = state.data.reduce((acc, dp) => {
-      return dp.id === state.member ? acc + dp.value : acc;
+      const index = Object.keys(dp.data).length - 1;
+
+      return dp.id === state.member ? dp.data[index].value + acc : acc;
     }, 0);
 
+
+    const yAxisTickValues = state.goals.slice(0, d3.min([state.goals.indexOf(nextGoal()), state.goals.length]) + 1);
     const svg = d3.select(`.d3Chart${props.id}`)
         .attr('width', props.width)
         .attr('height', props.height);
 
     const xScale = d3.time.scale()
-        .range([0, props.width - props.margin.left - props.margin.right])
-        .domain([state.startDate, state.endDate]);
+        .range([15, props.width - props.margin.left - props.margin.right - 35])
+        .domain([moment(state.startDate).valueOf(), moment(state.endDate).valueOf()]);
+
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max([maxValue, nextGoal()])])
@@ -88,7 +107,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const areaDrawer = d3.svg.area().interpolate("basic")
         .x(d => xScale(d.date))
-        .y0(height + props.margin.top)
+        .y0(height)
         .y1(d => yScale(d.value));
 
     const yAxis = d3
@@ -99,14 +118,32 @@ d3Chart.update = (el, state, props, formatting) => {
         .tickSize(-props.width, 0, 0)
         .orient("left");
 
-    const xAxis = d3.svg.axis()
+    const yAxisLeader = d3
+        .svg
+        .axis()
+        .scale(yScale)
+        .tickValues([maxValue - 30])
+        .tickSize(-props.width, 0, 0)
+        .orient("left");
+
+   const xAxis = d3.svg.axis()
         .scale(xScale)
+        .tickFormat(d3.time.format("%b.%d"))
         .orient("bottom");
 
     svg.selectAll(`.${styles.yAxis}`).transition().duration(speed).delay(speed).call(yAxis);
-    svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis);
+    svg.selectAll(`.${styles.xAxis}`).transition().duration(speed).delay(speed).call(xAxis)
+      .selectAll('.tick')
+      .attr('id', (data) => {
+        return moment(data).valueOf() === state.startDate || moment(data).valueOf() === state.endDate ? styles.startEndDates : null;
+      });
+    svg.selectAll(`.${styles.yAxisLeader}`).transition().duration(speed).delay(speed).call(yAxisLeader);
 
     const faces = svg.select(`.${styles.faceGroup}`).selectAll('svg').data(faceValues);
+    const yAxisTicks = svg.select(`.${styles.yAxisTickValuesGroup}`).selectAll('svg').data(yAxisTickValues);
+    const textLables = svg.select(`.${styles.textLables}`).selectAll('text').data(yAxisTickValues);
+    const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue + 10]);
+    const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue + 10]);
 
     const enteredFaces = faces.enter();
 
@@ -131,10 +168,124 @@ d3Chart.update = (el, state, props, formatting) => {
         }
       });
 
+      const enteredLeaderLabel = leaderLabel.enter();
+      enteredLeaderLabel.append('svg').attr({
+        viewBox: "0 0 768 768",
+        x: 86,
+        y: data => yScale(data),
+        width: 40,
+        height: 12
+      }).append('path').attr({
+        d: paths.crown,
+        class: styles.leaderLabel
+        }
+      );
+      leaderLabel.exit().remove();
+
+      leaderLabel.transition().delay(speed).duration(speed).attr({
+        x: 86,
+        y: yScale,
+      }).select('path')
+        .attr({
+          d: paths.crown,
+          class: styles.leaderLabel
+        });
+
+        const enteredLeaderText = leaderText.enter();
+        enteredLeaderText.append('text')
+          .text((data) => Number(data - 10).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+          .attr({
+            x: 120,
+            y: data => yScale(data) + 10,
+            class: styles.leaderText,
+            'font-size': '12px'
+          });
+        leaderText.exit().remove();
+
+        leaderText.transition().delay(speed).duration(speed)
+        .text((data) => Number(data - 10).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+        .attr({
+          class: styles.leaderText,
+          'font-size': '12px',
+          y: data => yScale(data) + 10,
+          x: 120
+        });
+
+      // For y axis tick lables
+      const enteredTickValues = yAxisTicks.enter();
+      enteredTickValues.append('svg').attr({
+        viewBox: "0 0 768 768",
+        width: 40,
+        height: 12,
+        y: data => yScale(data) + 10
+      }).append('path').attr({
+        d: (data) => {
+          return (data <= yourScore) ? paths.check : paths.leaf;
+        },
+        class: (data) => {
+          return (data <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf;
+        }
+      });
+      yAxisTicks.exit().remove();
+      yAxisTicks.transition().duration(speed).delay(speed).attr({
+        y: data => yScale(data) - 10,
+        x: 10
+      }).select('path')
+      .attr({
+        d: (data) => {
+          return (data <= yourScore) ? paths.check : paths.leaf;
+        },
+        class: (data) => {
+          return (data <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf;
+        }
+      });
+
+      // For y axis tick text
+      const textLablesValues = textLables.enter();
+
+      textLablesValues.append('text')
+        .text((data) => Number(data).toLocaleString())
+        .attr({
+          x: 40,
+          y: data => yScale(data),
+          class: (data) => {
+            return (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
+          },
+          'font-size': '10px'
+        });
+      textLables.exit().remove();
+
+      textLables.transition().duration(speed).delay(speed)
+        .text((data) => Number(data).toLocaleString())
+        .attr({
+          class: (data) => {
+            return (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
+          },
+          'font-size': '10px',
+          y: yScale,
+          x: 40
+        });
+
     const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
     const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
-    const dots = svg.select(`.${styles.pointSeries}`).data(state.data);
+    const dots = svg.select(`.${styles.dotSeries}`).data(state.data);
     const points = svg.select(`.${styles.pointSeries}`).selectAll(".point").data(state.data);
+
+    const getStrokeColor = (data) => {
+      if (data.id === leaderId) {
+        return '#FFC107';
+      } else if (data.id === state.member) {
+        return '#00ab97';
+      }
+      return '#90A4AE';
+    };
+
+    const getStrokeWidth = (data) => {
+      if (data.id === state.member || data.id === state.selected) {
+        return 4;
+      }
+      return 2;
+    };
 
     // ENTER
     const enteredLines = lines.enter();
@@ -149,16 +300,18 @@ d3Chart.update = (el, state, props, formatting) => {
         .attr('class', styles.area);
 
     enteredDots.append("g")
-      .attr("class", styles.pointSeries)
-      .attr("stroke-width", 2)
-      .attr("fill", (d) => d.strokeColor)
-      .attr("stroke", (d) => d.strokeColor);
+          .attr("class", styles.pointSeries)
+          .attr("stroke-width", 2)
+          .attr("fill", (d) => {
+            getStrokeWidth(d)
+          })
+          .attr("stroke", (d) => getStrokeColor(d));
 
     // ENTER & UPDATE
     lines.attr({
       d: d => lineDrawer(d.data),
-      stroke: (d) => d.strokeColor,
-      "stroke-width": (d) => d.strokeWidth
+      stroke: (d) => getStrokeColor(d),
+      "stroke-width": (d) => getStrokeWidth(d)
     });
 
     areas.attr({
@@ -168,12 +321,18 @@ d3Chart.update = (el, state, props, formatting) => {
 
 
     enteredPoints.append("circle").attr({
-      class: 'points',
+      class: styles.points,
       r: 4.5,
-      cx: d => xScale(d.date),
-      cy: d => yScale(d.value),
-
+      cx: 65,
+      cy: d => yScale(0) + 10
     });
+
+    dots
+        .attr("class", styles.pointSeries)
+        .attr("stroke-width", 2)
+        .attr("fill", (d) => {
+          getStrokeWidth(d)})
+        .attr("stroke", (d) => getStrokeColor(d));
 
 
     // EXIT
