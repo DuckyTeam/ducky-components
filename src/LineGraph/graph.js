@@ -64,9 +64,11 @@ d3Chart.update = (el, state, props, formatting) => {
     const xAxisOffset = height + props.margin.top + 5;
     const speed = 300;
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
-    const leaderId = state.data.filter((d) => {return d.data[Object.keys(d.data).length - 1].value === maxValue})[0].id;
-    const leaderName = state.data.filter((d) => {return d.data[Object.keys(d.data).length - 1].value === maxValue})[0].label;
-
+    let leaderId;
+    let leaderName;
+    [leaderId, leaderName] = state.data.reduce((acc, d) => {
+      return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
+    }, [-1, '']);
     const nextGoal = () => {
       for (let index = 0; index < state.goals.length; index += 1) {
         if (state.goals[index] > maxValue) {
