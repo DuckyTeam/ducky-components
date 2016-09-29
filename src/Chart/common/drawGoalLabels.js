@@ -11,8 +11,8 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   enteredLabels.append('text')
     .text((data) => Number(data).toLocaleString())
     .attr({
-      x: -120,
-      y: data => yScale(data),
+      x: -130,
+      y: data => yScale(data) - 5,
       class: (data) => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText,
       'font-size': '10px'
     });
@@ -20,9 +20,9 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   enteredLabels.append('svg').attr({
     viewBox: "0 0 768 768",
     width: 40,
-    height: 12,
-    y: data => yScale(data) - 15,
-    x: -80
+    height: 16,
+    y: data => yScale(data) - 17,
+    x: -90
   }).append('path').attr({
     d: (data) => (data <= yourScore) ? paths.check : paths.leaf,
     class: (data) => (data <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf
@@ -30,8 +30,8 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
 
   //Update
   labels.select('svg').transition().delay(speed).duration(speed).attr({
-    y: data => yScale(data) -15,
-    x: 0
+    y: data => yScale(data) -17,
+    x: -40
   })
   labels.select('svg').select('path').attr({
     d: (data) => (data <= yourScore) ? paths.check : paths.leaf,
@@ -40,8 +40,8 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   labels.select('text').transition().delay(speed).duration(speed)
     .text((data) => Number(data).toLocaleString())
     .attr({
-      y: data => yScale(data),
-      x: 0
+      y: data => yScale(data) - 5,
+      x: -10
     });
   labels.select('text').attr({
     class: (data) => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
@@ -50,9 +50,9 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   //Exit
   const exit = labels.exit();
   exit.select('svg').transition().delay(speed).duration(speed).attr({
-    x: -80
+    x: -90
   });
   exit.select('text').transition().delay(speed).duration(speed).attr({
-    x: -120
+    x: -130
   });
-}
+};

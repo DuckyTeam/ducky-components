@@ -1,15 +1,21 @@
 .progressedGoalsText {
   fill: #ffffff;
   fill-opacity: 1;
-  line-height: 16px;
-  text-anchor: left;
+  line-height: 12px;
+  text-anchor: start;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .toBeProgressedGoalsText {
   fill: #ffffff;
   fill-opacity: 0.4;
-  text-anchor: left;
-  line-height: 16px;
+  text-anchor: start;
+  line-height: 12px;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
 }
 
 .progressedGoalsCheck {

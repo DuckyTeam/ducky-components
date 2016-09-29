@@ -51,10 +51,6 @@
     fill: rgba(0,171,151,0.2);
 }
 
-.dots {
-
-}
-
 .lines {
   stroke: yellow;
 }
@@ -72,24 +68,18 @@
     pointer-events: none;
 }
 
-.pointSeries > circle:not(first-child):not(last-child) {
-    fill: none;
-    stroke: none;
+.pointSeries {
+  fill: #90A4AE;
 }
 
-.pointSeries > circle:first-child {
-    fill: #00ab97;
-    stroke: #00ab97;
-    fill-opacity: 0.2;
-    stroke-width: 2px;
+.pointSeries.yourPoints {
+  fill: #00ab97;
 }
 
-/* .pointSeries > circle:last-child {
-    fill: inherit;
-    stroke: inherit;
-    stroke-width: 2px;
+.pointSeries.leaderPoints {
+  fill: #FFC107;
 }
-*/
+
 .chart {
     height: 100%;
 }
