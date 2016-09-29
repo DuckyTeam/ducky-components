@@ -1,8 +1,8 @@
 import React from 'react';
-import {storiesOf, linkTo} from '@kadira/storybook';
+import {storiesOf} from '@kadira/storybook';
 import ActionItemDefault from './index';
 
-storiesOf('ActionItemDefault', module)
+storiesOf('ActionItem', module)
   .add('ActionItemDefault', () => (
     <div style={{width: 250}}>
       <ActionItemDefault
