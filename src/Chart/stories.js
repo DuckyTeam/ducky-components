@@ -2,6 +2,7 @@ import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import { withKnobs, number} from '@kadira/storybook-addon-knobs';
 import Chart from './index';
+import moment from 'moment';
 
 const stories = storiesOf('Chart', module);
 stories.addDecorator(withKnobs);
@@ -50,44 +51,60 @@ stories.add('LineChart', () => (
     type={'line'}
     data={[
         {
+          data: [
+              {date: moment('05-May-2016'), value: 0},
+              {date: moment('14-May-2016'), value: 40},
+              {date: moment('15-May-2016'), value: 50},
+              {date: moment('16-May-2016'), value: 100},
+              {date: moment('22-May-2016'), value: 125},
+              {date: moment('25-May-2016'), value: number('ID 12 score', 150)}
+          ],
+          label: "De nye",
+          id: 12
+        },
+        {
             data: [
-                {date: new Date(2016, 4, 12), value: 0},
-                {date: new Date(2016, 5, 12), value: number('Line 1 Score', 40)}
+                {date: moment('05-May-2016'), value: 0},
+                {date: moment('06-May-2016'), value: 60},
+                {date: moment('07-May-2016'), value: 200},
+                {date: moment('16-May-2016'), value: 260},
+                {date: moment('22-May-2016'), value: 300},
+                {date: moment('25-May-2016'), value: number('ID 13 score', 450)}
             ],
-            strokeColor: "#90A4AE",
-            strokeWidth: 2,
-            label: "Strek1",
-            id: 12
-        }, {
-            data: [
-                {date: new Date(2016, 4, 12), value: 0},
-                {date: new Date(2016, 4, 14), value: 200},
-                {date: new Date(2016, 5, 12), value: 400}
-            ],
-            strokeColor: "#FFC107",
-            strokeWidth: 2,
-            label: "Strek1",
+            label: "Midt-Norge",
             id: 13
-        }, {
+        },
+        {
             data: [
-                {date: new Date(2016, 4, 12), value: 0},
-                {date: new Date(2016, 5, 3), value: 150},
-                {date: new Date(2016, 5, 10), value: 50}
+                {date: moment('05-May-2016'), value: 0},
+                {date: moment('08-May-2016'), value: 45},
+                {date: moment('09-May-2016'), value: 100},
+                {date: moment('15-May-2016'), value: 125},
+                {date: moment('23-May-2016'), value: 145},
+                {date: moment('25-May-2016'), value: number('ID 14 score', 180)}
             ],
-            strokeColor: "#8BC34A",
-            strokeWidth: 4,
-            label: "Strek1",
-            area: true,
+            label: "Nord-Norge",
             id: 14
+        },
+        {
+            data: [
+                {date: moment('05-May-2016'), value: 0},
+                {date: moment('08-May-2016'), value: 50},
+                {date: moment('09-May-2016'), value: 105},
+                {date: moment('15-May-2016'), value: 135},
+                {date: moment('23-May-2016'), value: 166},
+                {date: moment('25-May-2016'), value: number('ID 14 score', 215)}
+            ],
+            label: "Nord-Norge2",
+            id: 15
         }
-    ]}
-    startDate={new Date(2016, 4, 12)}
-    endDate={new Date(2016, 6, 12)}
-    graphID={1}
-    height={"300px"}
-    selected={number("Selected", 12)}
-    member={number("Member of", 12)}
-    member={13}
-    goals={[200, 400, 600, 800]}
+      ]}
+    endDate={moment('31-May-2016')}
+      goals={[200, 400, 600, 800]}
+      graphID={1}
+      height={"300px"}
+      member={number("Member of", 12)}
+      selected={number("Selected", 12)}
+      startDate={moment('05-May-2016')}
   />
 ));
