@@ -1,0 +1,10 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #F4F7F9;
+}
+
+.caption {
+  margin-left: 96px;
+}
