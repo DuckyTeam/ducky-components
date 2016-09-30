@@ -98,7 +98,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const xAxis = d3.svg.axis()
      .scale(xScale)
-     .tickFormat(d3.time.format("%b.%d"))
+     .tickFormat(d3.time.format("%b.%d %Hh"))
      .orient("bottom");
 
      const yAxisLeader = d3
