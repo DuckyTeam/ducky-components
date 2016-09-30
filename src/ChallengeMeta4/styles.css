@@ -5,25 +5,20 @@
     background-color: transparent;
 }
 
-.nameDarkBackground {
-    text-overflow: ellipsis;
-    line-height: 22px;
-    color: #fff;
-}
-
 .nameLightBackground {
   color: #263238;
   text-overflow: ellipsis;
   line-height: 22px;
 }
 
-.statsWrapper {
-  flex-direction: row;
+.nameDarkBackground {
+    text-overflow: ellipsis;
+    line-height: 22px;
+    color: #fff;
 }
 
-.membersDarkBackground {
-  color: rgba(255,255,255,0.7);
-  padding-right: 8px;
+.statsWrapper {
+  flex-direction: row;
 }
 
 .membersLightBackground {
@@ -31,10 +26,15 @@
   padding-right: 8px;
 }
 
-.labelDarkBackground {
-  color: rgba(255,255,255,0.4);
+.membersDarkBackground {
+  color: rgba(255,255,255,0.7);
+  padding-right: 8px;
 }
 
 .labelLightBackground {
   color: #90a4ae;
+}
+
+.labelDarkBackground {
+  color: rgba(255,255,255,0.4);
 }

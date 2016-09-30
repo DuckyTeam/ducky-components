@@ -1,21 +1,13 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import React from 'react'
+import {stories, oneOf, icon, func, className, json} from '../duckyStories';
 import ActionButton from './index';
 
-storiesOf('ActionButton', module)
-  .add('standard', () => (
-    <ActionButton
-      onClick={action('clicked')}
-      size="standard"
-    >
-      Test
-    </ActionButton>
-  ))
-  .add('main', () => (
-    <ActionButton
-      onClick={action('clicked')}
-      size="main"
-    >
-      Test
-    </ActionButton>
-  ))
+stories(module, ActionButton, [
+  'https://github.com/DuckyTeam/ducky-web/issues/624',
+  'https://github.com/DuckyTeam/ducky-web/issues/626'
+], {
+  className,
+  icon,
+  onClick: func,
+  size: oneOf('standard', 'main')
+})
