@@ -35,6 +35,8 @@ class LineGraph extends React.Component {
     getChartState() {
         return {
             data: this.props.data,
+            member: this.props.member,
+            selected: this.props.selected,
             startDate: this.props.startDate,
             endDate: this.props.endDate,
             goals: this.props.goals
@@ -66,11 +68,12 @@ LineGraph.propTypes = {
                 })
             ),
             label: React.PropTypes.string,
-            strokeColor: React.PropTypes.string,
-            strokeWidth: React.PropTypes.number
+            id: React.PropTypes.id
         })
     ),
-
+    member: React.PropTypes.number,
+    selected: React.PropTypes.number,
+    goals: React.PropTypes.array,
     formatting: React.PropTypes.func,
     graphID: React.PropTypes.number,
     height: React.PropTypes.string
