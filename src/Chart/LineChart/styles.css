@@ -48,14 +48,12 @@
 }
 
 .areas {
-    fill: rgba(139, 195, 74, 0.2);
+    fill: rgba(0,171,151,0.2);
 }
 
-.dots {
-
+.lines {
+  stroke: yellow;
 }
-
-.lines {}
 
 .tooltip {
     position: absolute;
@@ -70,21 +68,16 @@
     pointer-events: none;
 }
 
-.pointSeries > circle:not(first-child):not(last-child) {
-    fill: none;
-    stroke: none;
+.pointSeries {
+  fill: #90A4AE;
 }
 
-.pointSeries > circle:first-child {
-    fill: white;
-    stroke: inherit;
-    stroke-width: 2px;
+.pointSeries.yourPoints {
+  fill: #00ab97;
 }
 
-.pointSeries > circle:last-child {
-    fill: inherit;
-    stroke: inherit;
-    stroke-width: 2px;
+.pointSeries.leaderPoints {
+  fill: #FFC107;
 }
 
 .chart {
@@ -93,22 +86,32 @@
 
 .faceGroup {}
 
-.faceActive0 {
-  fill: #008996;
+.labels {}
+
+.leaderLine {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
+  stroke-dasharray: 4, 4;
 }
 
-.faceActive1 {
-  fill: #0099a9;
+.startEndDates > text {
+  fill: #fff !important;
 }
 
-.faceActive2 {
-  fill: #35b8c4;
+.points {
+  fill: rgba(0,171,151,0.2);
 }
 
-.faceActive3 {
-  fill: #9de2e8;
+.leaderGroup {
+
 }
 
-.faceInactive {
-  fill: #035d67;
+.leaderLabel {
+  fill: #FFC107;
+}
+
+.leaderText {
+  fill: #fff;
+  font-weight: bold;
 }
