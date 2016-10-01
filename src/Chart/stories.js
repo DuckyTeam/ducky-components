@@ -1,3 +1,44 @@
+import React from 'react'
+import {stories, oneOf, string, json, number} from '../duckyStories';
+import Chart from './index';
+
+stories(module, Chart, [
+  'https://github.com/DuckyTeam/ducky-web/issues/624',
+  'https://github.com/DuckyTeam/ducky-web/issues/626'
+], {
+  type: oneOf('bar', 'line'),
+  data: json([{
+    id: 12,
+    value: 220,
+    color: "#00ab97",
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek1",
+    onClick: console.log
+  }, {
+    id: 13,
+    value: 333,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "De nye Gitarkameratene",
+    onClick: console.log
+  }, {
+    id: 14,
+    value: 400,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek3"
+  }, {
+    id: 15,
+    value: 173,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek4"
+  }]),
+  graphID: number(2),
+  height: string('300px'),
+  selected: number(12),
+  member: number(12),
+  goals: json([200, 400, 600, 800])
+})
+
+/*
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import { withKnobs, number} from '@kadira/storybook-addon-knobs';
@@ -108,3 +149,4 @@ stories.add('LineChart', () => (
       startDate={moment('05-May-2016')}
   />
 ));
+*/
