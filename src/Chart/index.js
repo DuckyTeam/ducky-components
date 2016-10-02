@@ -1,21 +1,14 @@
 import React from 'react';
 
-import barChart from './BarChart/chart';
-import lineChart from './LineChart/chart';
-
-const charts = {
-  bar: barChart,
-  line: lineChart
-}
-
 class Chart extends React.Component {
-    constructor() {
+    constructor(props, chart) {
         super();
+        this.props = props;
+        this.chart = chart;
         this.margin = {top: 10, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {
-        this.chart = charts[this.props.type]
         this.chart.create(this.container, {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,

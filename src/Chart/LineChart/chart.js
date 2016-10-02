@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import moment from 'moment';
 import utils from './../utils';
 import styles from './styles.css';
 import paths from './../svgpaths';
@@ -64,27 +65,27 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const xScale = d3.time.scale()
         .range([40, props.width - props.margin.left - props.margin.right - 40])
-        .domain([state.startDate, state.endDate]);
+        .domain([moment(state.startDate), moment(state.endDate)]);
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max([maxValue, nextGoal()])])
       .range([state.height - 4, 15 + props.margin.top]);
 
     const lineDrawer = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(d.date))
+        .x((d) => xScale(moment(d.date)))
         .y((d) => yScale(d.value));
 
     const lineDrawerZero = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(d.date))
+        .x((d) => xScale(moment(d.date)))
         .y(state.height);
 
     const areaDrawer = d3.svg.area().interpolate("basic")
-        .x(d => xScale(d.date))
+        .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(d => yScale(d.value));
 
     const areaDrawerZero = d3.svg.area().interpolate("basic")
-        .x(d => xScale(d.date))
+        .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(state.height);
 
@@ -266,14 +267,14 @@ d3Chart.update = (el, state, props, formatting) => {
     enteredPoints.append("circle").attr({
       class: styles.pointSeries,
       r:4,
-      cx: d => xScale(d.date),
+      cx: d => xScale(moment(d.date)),
       cy: state.height,
       class: getPointClass
     });
 
     points.transition().delay(speed).duration(speed).attr({
       r:4,
-      cx: d => xScale(d.date),
+      cx: d => xScale(moment(d.date)),
       cy: d => yScale(d.value)
     });
 
