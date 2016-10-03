@@ -32,13 +32,13 @@ d3Chart.update = (el, state, props) => {
   state.leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
   state.yAxisTickValues = state.goals.slice(0, d3.min([state.goals.indexOf(state.nextGoal), state.goals.length]) + 1);
-  state.yourScore = state.data.reduce((acc, dp) => dp.id === state.member ? acc + dp.value : acc, 0);
+  state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
 
   const isSelectedByName = (label) => {
     let found = false;
 
     state.data.forEach((dp) => {
-      if (dp.label === label && dp.id === state.selected) {
+      if (dp.label === label && dp.id === state.selectedId) {
         found = true;
       }
     });
@@ -106,21 +106,21 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   const getIconClass = (data) => {
     if (data.id === leaderId) {
       return `${styles.leaderIcon} ${styles.iconPaths}`;
-    } else if (data.id === state.member) {
+    } else if (data.id === state.memberOf) {
       return `${styles.memberIcon} ${styles.iconPaths}`;
     }
     return `${styles.backgroundColorIcon} ${styles.iconPaths}`;
   };
   const getPath = (data) => {
-    if (data.id === state.member && data.id !== leaderId) {
+    if (data.id === state.memberOf && data.id !== leaderId) {
       return paths.leaf;
     } else if (data.id === leaderId) {
       return paths.crown;
     }
     return '';
   };
-  const getClasses = data => `${styles.rectangleGroup} ${data.id === state.member ? styles.member : null}
-                                ${data.id === state.leaderId ? styles.leader : null} ${data.id === state.selected ? styles.selected : null}`;
+  const getClasses = data => `${styles.rectangleGroup} ${data.id === state.memberOf ? styles.member : null}
+                                ${data.id === state.leaderId ? styles.leader : null} ${data.id === state.selectedId ? styles.selected : null}`;
 
   const getFontSize = data => {
     if (data.value < 10000) {

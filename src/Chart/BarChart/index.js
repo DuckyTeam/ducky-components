@@ -1,9 +1,10 @@
+import React from 'react';
 import chart from './chart';
 import Chart from './../index';
 
-class BarChart extends Chart {
-  constructor(props) {
-    super(props, chart);
+class BarChart extends React.Component {
+  render() {
+    return <Chart chart={chart} {...this.props} />
   }
 }
 

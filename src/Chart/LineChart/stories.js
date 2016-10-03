@@ -60,7 +60,7 @@ stories(module, LineChart, [
     goals:json([200, 400, 600, 800]),
     graphID:json(1),
     height:oneOf("300px", "400px"),
-    member: json(12),
-    selected:json(12),
+    memberOf: json(12),
+    selectedId:json(12),
     startDate:json(moment('05-May-2016'))
 }, 'Chart/LineChart');

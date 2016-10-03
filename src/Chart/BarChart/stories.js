@@ -6,12 +6,33 @@ import BarChart from './index';
 stories(module, BarChart, [
 
 ], {
-  data:json([
-      {value: 300, label: "Gunnar"}
-    ]),
+  data:json([{
+    id: 12,
+    value: 220,
+    color: "#00ab97",
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek1",
+    onClick: console.log
+  }, {
+    id: 13,
+    value: 333,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "De nye Gitarkameratene",
+    onClick: console.log
+  }, {
+    id: 14,
+    value: 400,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek3"
+  }, {
+    id: 15,
+    value: 173,
+    image: "http//:fsfkjsld.no/img.jpg",
+    label: "Strek4"
+  }]),
     goals:json([200, 400, 600, 800]),
     graphID:json(1),
     height:oneOf("300px", "400px"),
-    member: json(12),
-    selected:json(12)
+    memberOf: json(12),
+    selectedId: json(12)
 }, 'Chart/BarChart');

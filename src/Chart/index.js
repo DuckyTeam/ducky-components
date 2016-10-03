@@ -1,15 +1,13 @@
 import React from 'react';
 
 class Chart extends React.Component {
-    constructor(props, chart) {
+    constructor() {
         super();
-        this.props = props;
-        this.chart = chart;
         this.margin = {top: 10, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {
-        this.chart.create(this.container, {
+        this.props.chart.create(this.container, {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
@@ -18,7 +16,7 @@ class Chart extends React.Component {
     }
 
     componentDidUpdate() {
-        this.chart.update(this.container, this.getChartState(), {
+        this.props.chart.update(this.container, this.getChartState(), {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
@@ -49,32 +47,5 @@ class Chart extends React.Component {
         );
     }
 }
-
-Chart.propTypes = {
-    data: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            data: React.PropTypes.arrayOf(
-                React.PropTypes.shape({
-                    date: React.PropTypes.oneOfType(
-                        [React.PropTypes.string, React.PropTypes.shape({})]
-                    ),
-                    value: React.PropTypes.number
-                })
-            ),
-            label: React.PropTypes.string,
-            strokeColor: React.PropTypes.string,
-            strokeWidth: React.PropTypes.number
-        })
-    ),
-    domain: React.PropTypes.shape({
-        xDomain: React.PropTypes.arrayOf(React.PropTypes.oneOfType(
-            [React.PropTypes.string, React.PropTypes.shape({})]
-        )),
-        yDomain: React.PropTypes.arrayOf(React.PropTypes.number)
-    }),
-    formatting: React.PropTypes.func,
-    graphID: React.PropTypes.number,
-    height: React.PropTypes.string
-};
 
 export default Chart;

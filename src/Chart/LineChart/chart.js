@@ -46,16 +46,16 @@ d3Chart.update = (el, state, props, formatting) => {
       let newData = [line.data[0], line.data[d3.max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
       newData[1].id = line.id;
-      return acc.concat(newData.slice(line.id !== state.member));
+      return acc.concat(newData.slice(line.id !== state.memberOf));
     }, []);
 
     const yourScore = state.data.reduce((acc, dp) => {
-      return dp.id === state.member ? acc + dp.data[dp.data.length - 1].value : acc;
+      return dp.id === state.memberOf ? acc + dp.data[dp.data.length - 1].value : acc;
     }, 0);
 
     const getPointClass = d => {
       if (d.id === leaderId) { return `${styles.leaderPoints} ${styles.pointSeries}`; }
-      if (d.id === state.member) { return `${styles.yourPoints} ${styles.pointSeries}`; }
+      if (d.id === state.memberOf) { return `${styles.yourPoints} ${styles.pointSeries}`; }
       return styles.pointSeries;
     }
 
@@ -213,14 +213,14 @@ d3Chart.update = (el, state, props, formatting) => {
     const getStrokeColor = (data) => {
       if (data.id === leaderId) {
         return '#FFC107';
-      } else if (data.id === state.member) {
+      } else if (data.id === state.memberOf) {
         return '#00ab97';
       }
       return '#90A4AE';
     };
 
     const getStrokeWidth = (data) => {
-      if (data.id === state.member || data.id === state.selected) {
+      if (data.id === state.memberOf || data.id === state.selectedId) {
         return 4;
       }
       return 2;
@@ -257,7 +257,7 @@ d3Chart.update = (el, state, props, formatting) => {
     });
 
     areas.attr({
-       display: d => state.member === d.id ? true : "none"
+       display: d => state.memberOf === d.id ? true : "none"
      });
 
     //Draw points
