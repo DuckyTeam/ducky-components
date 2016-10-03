@@ -1,0 +1,66 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body > div, body > div > div {
+  height: 100%;
+}
+
+.wrapper {
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: stretch;
+}
+
+.backgroundToggler {
+  position: absolute;
+  right: 310px;
+  top: 10px;
+  width: 20px;
+  height: 20px;
+  background-color: #FFF;
+  border: 1px solid #EAEAEA;
+  border-radius: 3px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.1);
+}
+
+.darkBackground {
+  background: #007079;
+}
+
+.component {
+  padding: 10px;
+  flex: 1;
+}
+
+.props {
+  flex: 0 0 300px;
+  background-color: #F3F3F3;
+  border-left: 1px solid #EAEAEA;
+  box-shadow: -3px 0px 20px rgba(0,0,0, 0.1);
+  overflow: scroll;
+}
+
+.prop {
+  padding: 10px;
+  color: #333;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.prop input {
+  border: 1px solid #EAEAEA;
+  padding: 2px;
+}
+
+.textarea {
+  width: 250px;
+  resize: none;
+}
+
+.jsonError {
+  border: 1px solid red;
+}
