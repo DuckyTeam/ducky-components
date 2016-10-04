@@ -1,29 +1,16 @@
 import React from 'react'
-import {stories, oneOf, func, className, string} from '../duckyStories';
+import {stories, oneOf, bool, func, className, string} from '../duckyStories';
 import Loader from './index';
 
 stories(module, Loader, [
   'https://github.com/DuckyTeam/ducky-web/issues/1527',
   'https://github.com/DuckyTeam/ducky-web/issues/1528'
 ], {
+  children: string(),
   className: className(),
-  //size: oneOf('mini', 'small', 'standard', 'large')
-
-})
-
-.add('Large', () => (
-  <Loader
-    size={'large'}/>
-))
-
-.add('Small', () => (
-  <Loader
-    size={'small'}/>
-))
-.add('Mini', () => (
-  <Loader
-    size={'mini'}/>
-))
+  hide: bool(false),
+  size: oneOf('mini', 'small', 'standard', 'large')
+});
 
 /*import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
