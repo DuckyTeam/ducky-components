@@ -1,24 +1,31 @@
 import React from 'react';
 
-import d3Chart from './graph';
+import barChart from './BarChart/chart';
+import lineChart from './LineChart/chart';
 
-class LineGraph extends React.Component {
+const charts = {
+  bar: barChart,
+  line: lineChart
+}
+
+class Chart extends React.Component {
     constructor() {
         super();
-        this.margin = {top: 10, bottom: 40, left: 30, right: 20};
+        this.margin = {top: 10, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {
-        d3Chart.create(this.container, {
+        this.chart = charts[this.props.type]
+        this.chart.create(this.container, {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
             id: this.props.graphID
-        }, this.getChartState(), this.props.formatting);
+        }, this.getChartState());
     }
 
     componentDidUpdate() {
-        d3Chart.update(this.container, this.getChartState(), {
+        this.chart.update(this.container, this.getChartState(), {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
@@ -27,7 +34,6 @@ class LineGraph extends React.Component {
     }
 
     componentWillUnmount() {
-        d3Chart.destroy(this.container);
     }
 
     handleRef = (element) => {
@@ -35,10 +41,7 @@ class LineGraph extends React.Component {
     }
 
     getChartState() {
-        return {
-            data: this.props.data,
-            domain: this.props.domain
-        };
+        return Object.assign({}, this.props);
     }
 
     render() {
@@ -54,7 +57,7 @@ class LineGraph extends React.Component {
     }
 }
 
-LineGraph.propTypes = {
+Chart.propTypes = {
     data: React.PropTypes.arrayOf(
         React.PropTypes.shape({
             data: React.PropTypes.arrayOf(
@@ -81,4 +84,4 @@ LineGraph.propTypes = {
     height: React.PropTypes.string
 };
 
-export default LineGraph;
+export default Chart;

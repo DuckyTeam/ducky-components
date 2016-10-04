@@ -4,6 +4,8 @@ import Spacer from '../Spacer';
 import TimeStamp from '../TimeStamp';
 import Typo from '../Typography';
 import Wrapper from '../Wrapper';
+import Button from '../ButtonRaised';
+import Label from '../LabelSmall';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -61,10 +63,28 @@ function NotificationItem(props) {
                         size={'standard'}
                     />
                     <div className={styles.bottom}>
-                        {opt}
-                        <TimeStamp className={styles.timeStamp}
-                            dateTime={props.dateTime}
-                        />
+                        <span className={props.buttonClicked ? styles.timeStamp : styles.timeStampPadded}>
+                          {opt}
+                          <TimeStamp
+                              dateTime={props.dateTime}
+                          />
+                        </span>
+                        {props.buttonClicked ?
+                          <Label
+                          className={styles.label}
+                            content={"Godkjent"}
+                            icon={"icon-check"}
+                            type={"caption2Normal"}
+                          />
+                          :
+                          <Button
+                            className={styles.button}
+                            onClick= {props.buttonOnClick}
+                            type={"raised"}
+                          >
+                            {props.buttonText}
+                          </Button>
+                        }
                     </div>
                 </div>
             </Wrapper>

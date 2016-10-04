@@ -2,16 +2,20 @@
     height: 300px;
 }
 
+.svg {
+  background-color: #003741;
+}
+
 .line {
     fill: none;
 }
 
 .yAxis > path {
-    display: none;
 }
 
 .yAxis > g > text {
     text-anchor: end;
+    display:none;
 }
 
 .xAxis > .tick{
@@ -20,6 +24,12 @@
 
 .xAxis > path {
     display: none;
+}
+
+.yAxis > g > line {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
 }
 
 .xAxis, .yAxis > g > text {
@@ -37,12 +47,12 @@
     font-weight: bold;
 }
 
-.area {
-    fill: rgba(139, 195, 74, 0.2);
+.areas {
+    fill: rgba(0,171,151,0.2);
 }
 
-.dot {
-
+.lines {
+  stroke: yellow;
 }
 
 .tooltip {
@@ -58,23 +68,50 @@
     pointer-events: none;
 }
 
-.pointSeries > circle:not(first-child):not(last-child) {
-    fill: none;
-    stroke: none;
+.pointSeries {
+  fill: #90A4AE;
 }
 
-.pointSeries > circle:first-child {
-    fill: white;
-    stroke: inherit;
-    stroke-width: 2px;
+.pointSeries.yourPoints {
+  fill: #00ab97;
 }
 
-.pointSeries > circle:last-child {
-    fill: inherit;
-    stroke: inherit;
-    stroke-width: 2px;
+.pointSeries.leaderPoints {
+  fill: #FFC107;
 }
 
 .chart {
     height: 100%;
+}
+
+.faceGroup {}
+
+.labels {}
+
+.leaderLine {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
+  stroke-dasharray: 4, 4;
+}
+
+.startEndDates > text {
+  fill: #fff !important;
+}
+
+.points {
+  fill: rgba(0,171,151,0.2);
+}
+
+.leaderGroup {
+
+}
+
+.leaderLabel {
+  fill: #FFC107;
+}
+
+.leaderText {
+  fill: #fff;
+  font-weight: bold;
 }

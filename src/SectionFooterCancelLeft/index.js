@@ -1,10 +1,9 @@
 import React from 'react';
-import ButtonRaised from './../ButtonRaised';
 import Button from './../Button';
 import styles from './styles.css';
 import classNames from 'classnames';
 
-class SectionFooterCancelOK extends React.Component {
+class SectionFooterCancelLeft extends React.Component {
     render() {
         return (
             <div className={classNames(styles.wrapper, {
@@ -13,27 +12,19 @@ class SectionFooterCancelOK extends React.Component {
             >
                 <Button
                     className={styles.button}
-                    onClick={this.props.onCancel}
+                    onClick={this.props.onClick}
                 >
                     {"AVBRYT"}
                 </Button>
-                <ButtonRaised
-                    className={styles.raisedButton}
-                    disabled={this.props.disabled}
-                    onClick={this.props.onClick}
-                >
-                    {"OK"}
-                </ButtonRaised>
             </div>
         );
     }
 }
 
-SectionFooterCancelOK.propTypes = {
+SectionFooterCancelLeft.displayName = "Section Footer Close Left";
+SectionFooterCancelLeft.propTypes = {
     className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    onCancel: React.PropTypes.func,
     onClick: React.PropTypes.func
 };
 
-export default SectionFooterCancelOK;
+export default SectionFooterCancelLeft;
