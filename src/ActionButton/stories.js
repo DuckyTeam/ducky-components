@@ -11,3 +11,5 @@ stories(module, ActionButton, [
   onClick: func(),
   size: oneOf('standard', 'main')
 })
+
+console.log('hey2');
