@@ -28,4 +28,5 @@ ActionButton.propTypes = {
     size: React.PropTypes.oneOf(['standard', 'main'])
 };
 
+console.log('hey');
 export default ActionButton;
