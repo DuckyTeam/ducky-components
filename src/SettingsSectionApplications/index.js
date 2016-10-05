@@ -1,4 +1,4 @@
-import SectionHeaderGeneral from '../composites/SectionHeaderGeneral';
+import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import SettingsItemAppConnect from '../SettingsItemAppConnect';
 import Wrapper from '../Wrapper';
 import Spacer from '../Spacer';
