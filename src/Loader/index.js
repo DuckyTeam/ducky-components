@@ -2,10 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
 
+
 function Loader(props) {
     return (
         <div className={classNames(styles.wrapper, {
             [props.className]: props.className,
+            //[styles[`wrapper_mini_${props.size}`]]: props.size
             [styles.hide]: props.hide
         })}>
             <div>
@@ -31,7 +33,7 @@ Loader.propTypes = {
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     hide: React.PropTypes.bool,
-    size: React.PropTypes.oneOf(['small', 'standard', 'large'])
+    size: React.PropTypes.string
 };
 
 export default Loader;

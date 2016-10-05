@@ -28,6 +28,6 @@ stories(module, BarChart, [
     height:oneOf("300px", "400px"),
     memberOf: json(12),
     selectedId: json(12),
-    onClick: func,
+    onClick: json(null),
     isMobile: json(true)
 }, 'Chart/BarChart');

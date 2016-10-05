@@ -1,11 +1,14 @@
 /* eslint-disable */
 import React from 'react';
+import classnames from 'classnames';
 import {storiesOf} from '@kadira/storybook';
 import {withKnobs} from '@kadira/storybook-addon-knobs';
+import styles from './duckyStories.css';
+import ReactTextArea from 'react-textarea-autosize';
 
 function issuesOf(issues) {
   return {
-    label: `Issues: ${issues.map((url) => url.split('/').pop()).join(', ')}`,
+    label: `issues: ${issues.map((url) => url.split('/').pop()).join(', ')}`,
     Issues() {
       return (
         <ul>
@@ -29,41 +32,55 @@ export function oneOf(...args) {
   };
 }
 
-export const className = {
-  type: 'className'
-};
+export function className() {
+  return {
+    type: 'className'
+  };
+}
 
-export const icon = {
-  type: 'icon'
-};
+export function func(value) {
+  return {
+    type: 'func',
+    value: value || 'Something happened!'
+  };
+}
 
-export const func = {
-  type: 'func'
-};
+export function bool(value) {
+  return {
+    type: 'bool',
+    value: value === undefined ? true : value
+  };
+}
 
-export const bool = {
-  type: 'bool'
-};
+export function number(value) {
+  return {
+    type: 'number',
+    value: value || 0
+  }
+}
 
-export const number = {
-  type: 'number'
-};
+export function string(value) {
+  return {
+    type: 'string',
+    value: value || ''
+  };
+}
 
-export const string = {
-  type: 'string'
-};
-
-export function json(data) {
+export function json(value) {
   return {
     type: 'json',
-    data: JSON.stringify(data || {}, null, 2)
+    value: JSON.stringify(value || {}, null, 2)
   };
 }
 
 class Preview extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {props: this.extractProps(props.propsDescription) }
+    this.state = {
+      props: this.extractProps(props.propsDescription),
+      useDarkBackground: false,
+      jsonError: false
+    }
   }
   extractProps(props) {
     return Object.keys(props).reduce((allProps, key) => {
@@ -73,18 +90,16 @@ class Preview extends React.Component {
         allProps[key] = prop.options[0]
       } else if (prop.type === 'className') {
         allProps[key] = 'some-class'
-      } else if (prop.type === 'icon') {
-        allProps[key] = 'icon-leaf';
       } else if (prop.type === 'func') {
-        allProps[key] = console.log
+        allProps[key] = () => {alert(prop.value)}
       } else if (prop.type === 'bool') {
-        allProps[key] = false
+        allProps[key] = prop.value
       } else if (prop.type === 'number') {
-        allProps[key] = 123
+        allProps[key] = prop.value
       } else if (prop.type === 'string') {
-        allProps[key] = 'hello'
+        allProps[key] = prop.value
       } else if (prop.type === 'json') {
-        allProps[key] = prop.data;
+        allProps[key] = prop.value;
       }
 
       return allProps;
@@ -92,15 +107,16 @@ class Preview extends React.Component {
   }
   func(propKey) {
     return (
-      <div>
-        <strong>{propKey}:</strong> () => {'{}'}
+      <div className={styles.prop}>
+        <strong>{propKey}</strong> (function)
       </div>
     )
   }
   bool(propKey) {
     return (
-      <div>
-        <strong>{propKey}:</strong> <input type="checkbox" checked={this.state.props[propKey]} onChange={(event) => {
+      <div className={styles.prop}>
+        <strong>{propKey} </strong>
+        <input type="checkbox" checked={this.state.props[propKey]} onChange={(event) => {
           this.setState({
             props: Object.assign(this.state.props, {
               [propKey]: event.target.checked
@@ -112,82 +128,89 @@ class Preview extends React.Component {
   }
   number(propKey) {
     return (
-      <div>
-        <strong>{propKey}:</strong> <input type="text" value={this.state.props[propKey]} onChange={(event) => {
-          this.setState({
-            props: Object.assign(this.state.props, {
-              [propKey]: event.target.value
+      <div className={styles.prop}>
+        <strong>{propKey}</strong>
+        <div>
+          <input type="text" value={this.state.props[propKey]} onChange={(event) => {
+            this.setState({
+              props: Object.assign(this.state.props, {
+                [propKey]: event.target.value
+              })
             })
-          })
-        }} />
+          }} />
+        </div>
       </div>
     )
   }
   string(propKey) {
     return (
-      <div>
-        <strong>{propKey}:</strong> <input type="text" value={this.state.props[propKey]} onChange={(event) => {
-          this.setState({
-            props: Object.assign(this.state.props, {
-              [propKey]: event.target.value
+      <div className={styles.prop}>
+        <strong>{propKey}</strong>
+        <div>
+          <input type="text" value={this.state.props[propKey]} onChange={(event) => {
+            this.setState({
+              props: Object.assign(this.state.props, {
+                [propKey]: event.target.value
+              })
             })
-          })
-        }} />
+          }} />
+        </div>
       </div>
     )
   }
   json(propKey) {
     return (
-      <div>
-        <strong>{propKey}:</strong> <textarea value={this.state.props[propKey]} onChange={(event) => {
-          this.setState({
-            props: Object.assign(this.state.props, {
-              [propKey]: event.target.value
-            })
-          })
-        }} />
+      <div className={styles.prop}>
+        <strong>{propKey}</strong>
+        <div>
+          <ReactTextArea
+            className={classnames(styles.textarea, {
+              [styles.jsonError]: this.state.jsonError
+            })}
+            onChange={(event) => {
+              let jsonError = false
+              try {
+                JSON.parse(event.target.value)
+              } catch (e) {
+                jsonError = true
+              }
+              this.setState({
+                props: Object.assign(this.state.props, {
+                  [propKey]: event.target.value
+                }),
+                jsonError
+              })
+            }}
+            value={this.state.props[propKey]}
+          />
+        </div>
       </div>
     )
   }
   oneOf(key, description) {
     return (
-      <div>
-        <strong>{key}: </strong>
-        <select value={this.state.props[key]} onChange={(event) => {
-          this.setState({
-            props: Object.assign(this.state.props, {
-              [key]: event.target.value
+      <div className={styles.prop}>
+        <strong>{key}</strong>
+        <div>
+          <select value={this.state.props[key]} onChange={(event) => {
+            this.setState({
+              props: Object.assign(this.state.props, {
+                [key]: event.target.value
+              })
             })
-          })
-        }}>
-          {description.options.map((option) => (
-            <option value={option}>{option}</option>
-          ))}
-        </select>
-      </div>
-    );
-  }
-  icon() {
-    return (
-      <div>
-        <strong>icon: </strong>
-        <select value={this.state.props.icon} onChange={(event) => {
-          this.setState({
-            props: Object.assign(this.state.props, {
-              icon: event.target.value
-            })
-          })
-        }}>
-          <option value="icon-leaf">icon-leaf</option>
-          <option value="icon-pig">icon-pig</option>
-        </select>
+          }}>
+            {description.options.map((option) => (
+              <option key={option} value={option}>{option}</option>
+            ))}
+          </select>
+        </div>
       </div>
     );
   }
   className() {
     return (
-      <div>
-        <strong>className:</strong> some-class
+      <div className={styles.prop}>
+        <strong>className</strong>
       </div>
     );
   }
@@ -221,14 +244,22 @@ class Preview extends React.Component {
     const component = <Component {...props}/>;
 
     return (
-      <div style={{display: 'flex'}}>
-        <div style={{flex: '1'}}>
+      <div className={classnames(styles.wrapper, {
+        [styles.darkBackground]: this.state.useDarkBackground
+      })}>
+        <div
+          className={classnames(styles.backgroundToggler, {
+            [styles.darkBackground]: !this.state.useDarkBackground
+          })}
+          onClick={() => this.setState({useDarkBackground: !this.state.useDarkBackground})}
+          />
+        <div className={styles.component}>
           {this.props.renderFunc ? this.props.renderFunc(component) : component}
         </div>
-        <div style={{flex: '0 0 300px'}}>
+        <div className={styles.props}>
           {Object.keys(this.props.propsDescription).map((key, index) => {
             return (
-              <div key={index} style={{marginBottom: '10px'}}>
+              <div key={index}>
                 {this[this.props.propsDescription[key].type](key, this.props.propsDescription[key])}
               </div>
             )
@@ -257,8 +288,5 @@ export function stories(module, Component, issues, propsDescription, name, rende
     ))
     .add('component', () => {
       return <Preview Component={Component} propsDescription={propsDescription} renderFunc={renderFunc}/>
-    })
-
-
-  return stories;
+    });
 }

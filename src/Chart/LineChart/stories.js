@@ -63,5 +63,5 @@ stories(module, LineChart, [
     memberOf: json(12),
     selectedId:json(12),
     startDate:json(moment('05-May-2016')),
-    onClick: func
+    onClick: json(null),
 }, 'Chart/LineChart');
