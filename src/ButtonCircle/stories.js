@@ -1,8 +1,9 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, className, string} from '../duckyStories';
 import ButtonCircle from './index';
 
-storiesOf('ButtonCircle', module)
-  .add('ButtonCircle', () => (
-    <ButtonCircle>Vis mer</ButtonCircle>
-));
+stories(module, ButtonCircle, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1270'
+], {
+  children: string('Vis mer'),
+  className: className()
+});

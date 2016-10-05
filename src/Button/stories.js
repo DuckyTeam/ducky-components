@@ -1,37 +1,13 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
+import {stories, oneOf, func, className, string, bool} from '../duckyStories';
 import Button from './index';
 
-storiesOf('Button', module)
-  .add('Flat Button Dark Theme', () => (
-    <div style={{backgroundColor: '#aeacaa', padding: 10, width: '500px'}}>
-      <Button
-        disabled
-        onClick={action('clicked')}
-        theme={'dark'}
-      >
-          {"Flat button disabled"}
-      </Button>
-      <Button
-        onClick={action('clicked')}
-        theme={'dark'}
-      >
-          {"Flat button"}
-      </Button>
-    </div>
-))
-  .add('Flat Button Light Theme', () => (
-    <div style={{backgroundColor: '#e3d9cd', padding: 10, width: '500px'}}>
-      <Button
-        disabled
-        onClick={action('clicked')}
-      >
-        {"Flat button disabled"}
-      </Button>
-      <Button
-        onClick={action('clicked')}
-      >
-        {"Flat button"}
-      </Button>
-    </div>
-));
+stories(module, Button, [
+  'https://github.com/DuckyTeam/ducky-web/issues/677'
+], {
+  children: string('Flat button'),
+  className: className(),
+  disabled: bool(),
+  onClick: func(),
+  theme: oneOf('light', 'dark'),
+  type: oneOf('button', 'reset', 'submit')
+});

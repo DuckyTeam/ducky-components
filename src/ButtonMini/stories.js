@@ -1,17 +1,11 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, oneOf, func, className, string} from '../duckyStories';
 import ButtonMini from './index';
 
-storiesOf('ButtonMini', module)
-  .add('Fill theme ', () => (
-    <ButtonMini
-      icon={'icon-add'}
-      theme={'fill'}
-    />
-))
-  .add('Border theme ', () => (
-    <ButtonMini
-      icon={'icon-add'}
-      theme={'border'}
-    />
-));
+stories(module, ButtonMini, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1327'
+], {
+  className: className(),
+  icon: string('icon-tram'),
+  onClick: func(),
+  theme: oneOf('border', 'fill')
+});

@@ -1,19 +1,13 @@
-import React from 'react';
-import {storiesOf, action} from '@kadira/storybook';
+import {stories, func, className, string, number, oneOf} from '../duckyStories';
 import ButtonCounter from './index';
 
-storiesOf('ButtonCounter', module)
-  .add('Small', () => (
-    <ButtonCounter
-      number={45}
-      onClick={action('clicked')}
-      size={'small'}
-    />
-))
-  .add('Standard', () => (
-    <ButtonCounter
-      number={1002}
-      onClick={action('clicked')}
-      size={'standard'}
-    />
-));
+stories(module, ButtonCounter, [
+  'https://github.com/DuckyTeam/ducky-web/issues/627',
+  'https://github.com/DuckyTeam/ducky-web/issues/628'
+], {
+  className: className(),
+  number: number(54),
+  onClick: func(),
+  prefix: string(''),
+  size: oneOf('small', 'standard')
+});
