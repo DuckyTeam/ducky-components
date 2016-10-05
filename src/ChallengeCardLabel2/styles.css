@@ -3,11 +3,11 @@
     justify-content:space-between;
 }
 
-.label {
+.memberCount {
     color: #90a4ae;
     font-weight: normal;
 }
 
-.text {
+.labelText {
     color: #90a4ae;
 }

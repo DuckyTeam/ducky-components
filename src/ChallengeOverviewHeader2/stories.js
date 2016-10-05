@@ -1,10 +1,8 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import ChalOverHeader from './index';
+import {stories, string, number, className, bool, func} from '../duckyStories';
+import ChallengeOverviewHeader2 from './index';
 
-storiesOf('ChallengeOverviewHeader2', module)
-  .add('ChallengeOverviewHeader2', () => (
-    <div style={{backgroundColor: 'lightgrey', width: 230}}>
-      <ChalOverHeader />
-    </div>
-));
+stories(module, ChallengeOverviewHeader2, [
+  'https://github.com/DuckyTeam/ducky-web/issues/972'
+], {
+  className: className()
+});

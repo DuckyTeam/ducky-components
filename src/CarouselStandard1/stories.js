@@ -1,27 +1,15 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, oneOf, number, string, func, bool, className} from '../duckyStories';
 import CarouselStandard1 from './index';
 
-storiesOf('Carousel', module)
-  .add('CarouselStandard1 Right', () => (
-    <div style={{backgroundColor: 'darkgrey', width: '300px'}}>
-      <CarouselStandard1
-        rightactive
-        slideCount={5}
-        theme={'dark'}
-      >
-        <div style={{backgroundColor: 'lightblue', height: 200, width: 200}} />
-      </CarouselStandard1>
-    </div>
-))
-  .add('CarouselStandard1 Left', () => (
-    <div style={{backgroundColor: 'darkgrey', width: '300px'}}>
-      <CarouselStandard1
-        leftactive
-        slideCount={5}
-        theme={'dark'}
-      >
-        <div style={{backgroundColor: 'lightgreen', height: 200, width: 200}} />
-      </CarouselStandard1>
-    </div>
-));
+stories(module, CarouselStandard1, [
+  'https://github.com/DuckyTeam/ducky-web/issues/859'
+], {
+  children: string('component'),
+  className: className(),
+  handleLeftClick: func(),
+  handleRightClick: func(),
+  leftactive: bool(),
+  rightactive: bool(),
+  slideCount: number(5),
+  theme: oneOf('light', 'dark')
+});

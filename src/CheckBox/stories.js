@@ -1,15 +1,10 @@
-import React from 'react';
-import {storiesOf, linkTo} from '@kadira/storybook';
+import {stories, className, bool, func} from '../duckyStories';
 import CheckBox from './index';
 
-storiesOf('CheckBox', module)
-  .add('CheckBox default', () => (
-    <CheckBox
-      onClick={linkTo('CheckBox', 'CheckBox active')}
-    />
-))
-  .add('CheckBox active', () => (
-    <CheckBox
-      checked
-    />
-));
+stories(module, CheckBox, [
+  'https://github.com/DuckyTeam/ducky-web/issues/855'
+], {
+  checked: bool(),
+  className: className(),
+  onClick: func()
+});

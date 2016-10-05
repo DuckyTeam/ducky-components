@@ -1,13 +1,10 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, string, number, className} from '../duckyStories';
 import CardLabel2 from './index';
 
-storiesOf('ChallengeCardLabel2', module)
-  .add('ChallengeCardLabel2', () => (
-    <div style={{width: '300px'}}>
-      <CardLabel2
-        labelContent={"2,355"}
-        text={"Sluttet 23. Apr"}
-      />
-  </div>
-));
+stories(module, CardLabel2, [
+  'https://github.com/DuckyTeam/ducky-web/issues/962'
+], {
+  className: className(),
+  memberCount: number(54),
+  labelText: string('Fullført')
+});

@@ -1,13 +1,10 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, oneOf, number, className} from '../duckyStories';
 import CarouselNavigator1 from './index';
 
-storiesOf('Carousel', module)
-  .add('CarouselNavigator1', () => (
-    <div style={{backgroundColor: 'darkgrey', width: '200px'}}>
-      <CarouselNavigator1
-        slideCount={5}
-        theme={'dark'}
-      />
-    </div>
-));
+stories(module, CarouselNavigator1, [
+  'https://github.com/DuckyTeam/ducky-web/issues/857'
+], {
+  className: className(),
+  slideCount: number(5),
+  theme: oneOf('light', 'dark')
+});

@@ -17,7 +17,7 @@ body > div, body > div > div {
 
 .backgroundToggler {
   position: absolute;
-  right: 310px;
+  right: 30px;
   top: 10px;
   width: 20px;
   height: 20px;
@@ -25,7 +25,7 @@ body > div, body > div > div {
   border: 1px solid #EAEAEA;
   border-radius: 3px;
   cursor: pointer;
-  box-shadow: 0px 0px 10px rgba(0,0,0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.5);
 }
 
 .darkBackground {

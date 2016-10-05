@@ -1,22 +1,13 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
+import {stories, string, number, className, bool, func} from '../duckyStories';
 import ChallengeMetaJoin from './index';
 
-storiesOf('ChallengeMetaJoin', module)
-  .add('Joined', () => (
-    <div style={{width: '300px'}}>
-      <ChallengeMetaJoin
-        endDate={'23-Jul-2016'}
-        joined
-        startDate={'15-Jul-2016'}
-      />
-    </div>
-))
-  .add('Not joined', () => (
-    <div style={{width: '300px'}}>
-      <ChallengeMetaJoin
-        endDate={'15-Jul-2016'}
-        startDate={'15-Jul-2016'}
-      />
-    </div>
-));
+stories(module, ChallengeMetaJoin, [
+  'https://github.com/DuckyTeam/ducky-web/issues/892'
+], {
+  className: className(),
+  disabled: bool(),
+  endDate: number(1477401110598),
+  joined: bool(),
+  onClick: func(),
+  startDate: number(1475241124937)
+});
