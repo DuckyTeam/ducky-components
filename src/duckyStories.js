@@ -270,21 +270,23 @@ class Preview extends React.Component {
   }
 }
 
-function functionName(fun) {
+function functionName(fun, nameSpace) {
   var ret = fun.toString();
   ret = ret.substr('function '.length);
   ret = ret.substr(0, ret.indexOf('('));
   return ret;
 }
 
-export function stories(module, Component, issues, propsDescription, renderFunc) {
+export function stories(module, Component, issues, propsDescription, name, renderFunc) {
   const {label, Issues} = issuesOf(issues || []);
 
-  return storiesOf(functionName(Component), module)
-    .add('component', () => {
-      return <Preview Component={Component} propsDescription={propsDescription} renderFunc={renderFunc}/>
-    })
+  const stories = storiesOf(name || functionName(Component), module);
+  stories.addDecorator(withKnobs);
+  stories
     .add(label, () => (
       <Issues />
     ))
+    .add('component', () => {
+      return <Preview Component={Component} propsDescription={propsDescription} renderFunc={renderFunc}/>
+    });
 }

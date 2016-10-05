@@ -6,6 +6,10 @@
   font-weight: bold;
 }
 
+.barTextHidden {
+  display: none;
+}
+
 .rectangleGroup > rect {
   fill: rgba(255,255,255,0.12);
   transition: fill 0.3s;
@@ -69,3 +73,10 @@
 .faceGroup {}
 
 .labels {}
+
+.triangleIndicator {}
+.triangleIndicator > rect {
+  fill: #004750;
+  transform-origin: 50% 50%;
+  transform: rotate(45deg);
+}
