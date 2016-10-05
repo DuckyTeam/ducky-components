@@ -22,9 +22,10 @@
 .xAxis > g > text {
   fill: #607D8B;
   font-weight: bold;
+  cursor: default;
 }
 
-.xAxis > g > text:hover {
+.xAxis.hover > g > text:hover {
   cursor: pointer;
   fill: rgba(255,255,255,0.7);
 }

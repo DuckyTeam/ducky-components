@@ -48,7 +48,7 @@
 }
 
 .areas {
-    fill: rgba(0,171,151,0.2);
+    fill: rgba(0,171,151,0.12);
 }
 
 .lines {
@@ -64,16 +64,24 @@
 .progressLine:hover {
   stroke: rgba(255,255,255,0.4);
   cursor: pointer;
-  stroke-width: 4px;
+  stroke-width: 3px;
 }
 
 .leaderStroke {
   stroke: #ffc107;
 }
 
+.progressLine.leaderStroke:hover {
+  stroke: #ffc107;
+}
+
+
+.progressLine.memberStroke:hover {
+  stroke: #00ab97;
+}
+
 .memberStroke {
   stroke: #00ab97;
-  stroke-width: 4px;
 }
 
 .selectedStroke {}
@@ -129,8 +137,18 @@
   fill: #FFC107;
 }
 
+.pointSeries.leaderPoints.yourPoints {
+  fill: #00ab97;
+}
+
 .pointSeries.selectedPoints {
-  fill: rgba(255,255,255,0.7);
+  fill: white;
+}
+.pointSeries.yourPoints.selectedPoints {
+  fill: #00ab97;
+}
+.pointSeries.leaderPoints.selectedPoints {
+  fill: #FFC107;
 }
 
 .chart {
@@ -167,4 +185,5 @@
 .leaderText {
   fill: #fff;
   font-weight: bold;
+  font-family: Montserrat, Arial;
 }

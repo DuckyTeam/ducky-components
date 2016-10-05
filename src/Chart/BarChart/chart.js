@@ -11,7 +11,7 @@ d3Chart.create = (el, props, state) => {
 
   const svg = utils.drawSVG(el, props);
 
-  utils.drawXAxisGroup(svg, props);
+  utils.drawXAxisGroup(svg, props, true);
   utils.drawYAxisGroup(svg, props);
   utils.drawChartGroup(svg, props, styles.bars);
   utils.drawChartGroup(svg, props, styles.labels);

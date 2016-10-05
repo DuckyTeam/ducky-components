@@ -16,9 +16,10 @@ exports.drawSVG = (el, props) => {
 
 exports.selectXAxisGroup = (svg) => svg.select(`.${styles.xAxis}`);
 
-exports.drawXAxisGroup = (svg, props) => {
+exports.drawXAxisGroup = (svg, props, hover) => {
+  const hoverClass = hover ? styles.hover : '';
   return svg.append('g')
-        .attr('class', styles.xAxis)
+        .attr('class', `${styles.xAxis} ${hoverClass}`)
         .attr("transform", `translate(${props.margin.left}, ${props.xAxisOffset})`);
 }
 

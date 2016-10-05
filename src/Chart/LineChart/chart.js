@@ -30,6 +30,7 @@ d3Chart.update = (el, state, props, formatting) => {
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
     let leaderId;
     let leaderName;
+    state.leaderId = leaderId;
     [leaderId, leaderName] = state.data.reduce((acc, d) => {
       return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
     }, [-1, '']);
@@ -41,6 +42,16 @@ d3Chart.update = (el, state, props, formatting) => {
       }
       return state.goals[state.goals.length - 1];
     };
+
+    const getIdbyName = name => {
+      let id = -1;
+      state.data.forEach((d) => {
+        if (d.label === name) {
+          id = d.id;
+        }
+      });
+      return id;
+    }
 
     const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
 
@@ -56,10 +67,14 @@ d3Chart.update = (el, state, props, formatting) => {
     }, 0);
 
     const getPointClass = d => {
-      if (d.id === leaderId) { return `${styles.leaderPoints} ${styles.pointSeries}`; }
-      if (d.id === state.memberOf) { return `${styles.yourPoints} ${styles.pointSeries}`; }
-      if (d.id === state.selectedId) { return `${styles.selectedPoints} ${styles.pointSeries}`; }
-      return styles.pointSeries;
+      let classes = styles.pointSeries;
+      if (d.id === leaderId) {
+        classes = `${classes} ${styles.leaderPoints}`; }
+      if (d.id === state.memberOf) {
+        classes = `${classes} ${styles.yourPoints}`; }
+      if (d.id === state.selectedId) {
+        classes = `${classes} ${styles.selectedPoints}`; }
+      return classes;
     }
 
     const svg = utils.selectSVG(props.id)
@@ -102,7 +117,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const xAxis = d3.svg.axis()
      .scale(xScale)
-     .tickFormat(d3.time.format("%b.%d %Hh"))
+     .tickFormat(d3.time.format("%d. %b"))
      .tickValues(xAxisTicks)
      .orient("bottom");
 
@@ -121,7 +136,7 @@ d3Chart.update = (el, state, props, formatting) => {
     utils.selectXAxisGroup(svg).selectAll('.tick')
         .classed(styles.startEndDates, (data, index) => {
             return index === 0 || index === (utils.selectXAxisGroup(svg).selectAll('.tick')[0].length - 1);
-      });
+      }).on('click', (data) => state.onClick(getIdbyName(data)));;
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
@@ -167,7 +182,7 @@ d3Chart.update = (el, state, props, formatting) => {
     const enteredLeaderLabel = leaderLabel.enter();
       enteredLeaderLabel.append('svg').attr({
         viewBox: "0 0 768 768",
-        x: 86,
+        x: 40,
         y: state.height,
         width: 40,
         height: 12,
@@ -180,8 +195,8 @@ d3Chart.update = (el, state, props, formatting) => {
       leaderLabel.exit().remove();
 
       leaderLabel.transition().delay(speed).duration(speed).attr({
-        x: 86,
-        y: yScale,
+        x: 40,
+        y: d => yScale(d) - 4.5,
         opacity: 1
       }).select('path')
         .attr({
@@ -191,23 +206,25 @@ d3Chart.update = (el, state, props, formatting) => {
 
         const enteredLeaderText = leaderText.enter();
         enteredLeaderText.append('text')
-          .text((data) => Number(maxValue).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
           .attr({
-            x: 120,
-            y: state.height + 10,
+            x: 72,
+            y: state.height + 6,
             opacity: 0,
             class: styles.leaderText,
             'font-size': '12px'
           });
         leaderText.exit().remove();
 
+        const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+
         leaderText.transition().delay(speed).duration(speed)
-        .text((data) => Number(maxValue).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+        .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
         .attr({
           class: styles.leaderText,
           'font-size': '12px',
-          y: data => yScale(data) + 10,
-          x: 120,
+          y: data => yScale(data) + 6,
+          x: 72,
           opacity: 1
         });
 
