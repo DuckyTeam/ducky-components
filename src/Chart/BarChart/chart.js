@@ -16,6 +16,7 @@ d3Chart.create = (el, props, state) => {
   utils.drawChartGroup(svg, props, styles.bars);
   utils.drawChartGroup(svg, props, styles.labels);
   utils.drawChartGroup(svg, props, styles.faceGroup);
+  utils.drawChartGroup(svg, props, styles.triangleIndicator);
 
   d3Chart.update(el, state, props);
 };
@@ -31,7 +32,7 @@ d3Chart.update = (el, state, props) => {
   state.highestScore = d3.max(state.data, (data) => data.value);
   state.leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
-  state.yAxisTickValues = state.goals.slice(0, d3.min([state.goals.indexOf(state.nextGoal), state.goals.length]) + 1);
+  state.yAxisTickValues = state.goals.slice(0, d3.min([state.nextGoal ? state.goals.indexOf(state.nextGoal) : state.goals.length, state.goals.length]) + 1);
   state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
 
   const isSelectedByName = (label) => {
@@ -44,6 +45,16 @@ d3Chart.update = (el, state, props) => {
     });
     return found;
   };
+
+  const getIdbyName = name => {
+    let id = -1;
+    state.data.forEach((d) => {
+      if (d.label === name) {
+        id = d.id;
+      }
+    });
+    return id;
+  }
 
   //Define x and y scales
   const xScale = d3.scale.ordinal()
@@ -80,8 +91,10 @@ d3Chart.update = (el, state, props) => {
 
   // Transition in new axis
   utils.selectYAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(yAxis);
-  utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
-  utils.selectXAxisGroup(svg).selectAll('.tick').attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null);
+  if (!state.isMobile) utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
+  utils.selectXAxisGroup(svg).selectAll('.tick')
+    .attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null)
+    .on('click', (data) => state.onClick(getIdbyName(data)));
 
   drawBars(svg, state, props, xScale, yScale);
 
@@ -113,7 +126,7 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   };
   const getPath = (data) => {
     if (data.id === state.memberOf && data.id !== leaderId) {
-      return paths.leaf;
+      return (state.isMobile || state.yourScore === 0) ? paths.check : paths.leaf;
     } else if (data.id === leaderId) {
       return paths.crown;
     }
@@ -131,7 +144,41 @@ const drawBars = (svg, state, props, xScale, yScale) => {
     return '10px';
   };
 
+  const getTextClass = d => {
+    if (state.isMobile) {
+      return styles.barTextHidden;
+    } else if (d.id === leaderId || d.id === state.memberOf) {
+      return styles.barText;
+    }
+    return styles.barTextHidden;
+  }
+
   const getTextX = (data) => getBarX(data) + state.barWidth / 2;
+
+  //Draw small triangle indicator
+  const leader = state.data.filter(d => d.id === state.selectedId);
+
+  d3.select(`.${styles.triangleIndicator}`)
+
+  const triangles = d3.select(`.${styles.triangleIndicator}`).selectAll('svg').data(leader);
+
+  triangles.enter().append('svg').attr({
+    viewBox: "0 0 16 8",
+    x: d => xScale(d.label) + (xScale.rangeBand() - 16) / 2,
+    y: state.xAxisOffset,
+    width: '16px',
+    height: '8px'
+  }).append('polygon').attr({
+    points: paths.arrow,
+    class: "st0",
+    fill: "#004750"
+  });
+
+  triangles.transition().duration(state.speed).attr({
+    x: d => xScale(d.label) + (xScale.rangeBand() - 16) / 2,
+    y: state.xAxisOffset + 26
+  });
+
 
   //Actually draw the rectangles
   const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, (data) => data.id).attr({class: getClasses});
@@ -161,7 +208,7 @@ const drawBars = (svg, state, props, xScale, yScale) => {
 
   entered.append('text')
     .attr({
-      class: styles.barText,
+      class: getTextClass,
       text: (data) => Number(data.value).toLocaleString(),
       x: (data) => xScale(data.label) + 0.5*xScale.rangeBand(),
       y: state.height,
@@ -202,7 +249,7 @@ const drawBars = (svg, state, props, xScale, yScale) => {
     .attr('height', (data) => state.height - yScale(data.value));
 
   transY.select("svg").attr({
-    y: (data) => yScale(data.value) - state.barWidth - state.barTextFontSize,
+    y: (data) => !state.isMobile ? yScale(data.value) - state.barWidth - state.barTextFontSize : yScale(data.value) - state.barWidth - 8,
     width: () => d3.min([xScale.rangeBand(), 24]),
     height: () => d3.min([xScale.rangeBand(), 24]),
     opacity: 1
@@ -211,6 +258,10 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   rects.select('svg').select('path').attr({
     d: getPath,
     class: getIconClass
+  });
+
+  rects.select('text').attr({
+    class: getTextClass
   });
 
   transY.select("text")

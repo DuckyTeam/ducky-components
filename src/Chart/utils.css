@@ -24,6 +24,11 @@
   font-weight: bold;
 }
 
+.xAxis > g > text:hover {
+  cursor: pointer;
+  fill: rgba(255,255,255,0.7);
+}
+
 .yAxis > g > text {
   fill: #607D8B;
 }

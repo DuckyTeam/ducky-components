@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import moment from 'moment';
 
 import styles from './utils.css';
 
@@ -35,4 +36,23 @@ exports.drawChartGroup = (svg, props, styleClass) => {
   return svg.append('g')
         .attr('class', styleClass)
         .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
+}
+
+exports.getDateTicks = (from, to, number) => {
+  let dates = []
+  let current = moment(from);
+  while (moment(current).isBefore(moment(to))) {
+    dates.push(new Date(current))
+    current = moment(current).add(1, 'days');
+  }
+  const eachN = Math.ceil(dates.length / number);
+  let returnDates = [];
+  for (let i = 0; i < number; i++) {
+    returnDates.push(dates[i*eachN]);
+  }
+  if (returnDates[returnDates.length - 1] !== dates[dates.length - 1]) {
+    returnDates.pop();
+    returnDates.push(dates[dates.length - 1]);
+  }
+  return returnDates;
 }

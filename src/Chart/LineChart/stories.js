@@ -62,5 +62,6 @@ stories(module, LineChart, [
     height:oneOf("300px", "400px"),
     memberOf: json(12),
     selectedId:json(12),
-    startDate:json(moment('05-May-2016'))
+    startDate:json(moment('05-May-2016')),
+    onClick: func
 }, 'Chart/LineChart');

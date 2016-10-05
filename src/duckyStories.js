@@ -76,7 +76,7 @@ class Preview extends React.Component {
       } else if (prop.type === 'icon') {
         allProps[key] = 'icon-leaf';
       } else if (prop.type === 'func') {
-        allProps[key] = () => {alert('I was clicked!')}
+        allProps[key] = console.log
       } else if (prop.type === 'bool') {
         allProps[key] = false
       } else if (prop.type === 'number') {
