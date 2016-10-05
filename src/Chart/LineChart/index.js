@@ -8,4 +8,24 @@ class LineChart extends React.Component {
   }
 }
 
+LineChart.PropTypes = {
+  goals: React.PropTypes.arrayOf(React.PropTypes.number),
+  graphID: React.PropTypes.number.isRequired,
+  height: React.PropTypes.string.isRequired,
+  memberOf: React.PropTypes.number,
+  selectedId: React.PropTypes.number,
+  onClick: React.PropTypes.func,
+  isMobile: React.PropTypes.bool,
+  startDate: React.PropTypes.string,
+  endDate: React.PropTypes.string,
+  data: React.PropTypes.arrayOf(React.PropTypes.shape({
+    label: React.PropTypes.string,
+    id: React.PropTypes.number,
+    data: React.PropTypes.arrayOf(React.PropTypes.shape({
+      date: React.PropTypes.string,
+      value: React.PropTypes.number
+    }))
+  }))
+}
+
 export default LineChart;
