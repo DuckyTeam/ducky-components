@@ -14,8 +14,8 @@ Basic React components used to create www.ducky.no
 - Open `localhost:6006`
 
 ## Project structure
-Create a component folder in `common` with `index.js` and `styles.css` files. Each component is to be developed as a function or a class if required.
-Preview the component in `preview\App.js`.
+Create a component folder in `src` with `index.js` and `styles.css` files. Each component is to be developed as a function or a class if required.
+Preview the component with Storybook by creating a `stories.js` file using duckyStories.
 
 ### CSS Modules
 CSS files loaded into components are locally scoped and you can point to class names with javascript.
