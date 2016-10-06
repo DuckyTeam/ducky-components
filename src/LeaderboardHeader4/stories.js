@@ -1,10 +1,8 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import LeaderboardHeader4 from './index.js';
+import {stories, className} from '../duckyStories';
+import LeaderboardHeader4 from './index';
 
-storiesOf('LeaderboardHeader', module)
-  .add('LeaderboardHeader4', () => (
-    <div style={{width: 300}}>
-      <LeaderboardHeader4 />
-    </div>
-  ));
+stories(module, LeaderboardHeader4, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1674'
+], {
+  className: className()
+});

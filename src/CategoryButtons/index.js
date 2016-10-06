@@ -69,7 +69,7 @@ class CategoryButtons extends React.Component {
 }
 
 CategoryButtons.propTypes = {
-    activeCategory: PropTypes.string,
+    activeCategory: PropTypes.oneOf(['food', 'consumption', 'energy', 'transport', 'social']),
     className: PropTypes.string,
     onCategoryClick: PropTypes.func
 };

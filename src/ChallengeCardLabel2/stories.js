@@ -1,7 +1,7 @@
 import {stories, string, number, className} from '../duckyStories';
-import CardLabel2 from './index';
+import ChallengeCardLabel2 from './index';
 
-stories(module, CardLabel2, [
+stories(module, ChallengeCardLabel2, [
   'https://github.com/DuckyTeam/ducky-web/issues/962'
 ], {
   className: className(),

@@ -2,6 +2,7 @@ import {stories, oneOf, func, className, string} from '../duckyStories';
 import InputLarge from './index';
 
 stories(module, InputLarge, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1395'
 ], {
   className: className(),
   errorMessage: oneOf(null, 'Error'),

@@ -12,7 +12,7 @@ function ActionItemDefault(props) {
             <div className={styles.composite}>
                 <ListCompositeActivity
                     co2={props.co2}
-                    iconSVG={props.iconSVG}
+                    icon={props.iconSVG}
                     points={props.points}
                     title={props.title}
                 />

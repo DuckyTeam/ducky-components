@@ -1,7 +1,8 @@
-import {stories, oneOf, string, number, className} from '../duckyStories';
+import {stories, string, className} from '../duckyStories';
 import LabelDouble from './index';
 
 stories(module, LabelDouble, [
+  'https://github.com/DuckyTeam/ducky-web/issues/917'
 ], {
   className: className(),
   color: string('red'),

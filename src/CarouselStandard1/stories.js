@@ -11,5 +11,5 @@ stories(module, CarouselStandard1, [
   leftactive: bool(),
   rightactive: bool(),
   slideCount: number(5),
-  theme: oneOf('light', 'dark')
+  theme: oneOf('dark')
 });

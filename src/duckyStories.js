@@ -14,7 +14,7 @@ function issuesOf(issues) {
         <ul>
           {issues.map((issue, index) => (
             <li key={index}>
-              <a href={issue}>
+              <a href={issue} target={'_blank'}>
                 {issue}
               </a>
             </li>

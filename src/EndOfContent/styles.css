@@ -29,5 +29,8 @@
     height: 36px;
     align-items: center;
     justify-content: center;
+}
 
+.actionButton > span {
+  color: #90A4AE;
 }

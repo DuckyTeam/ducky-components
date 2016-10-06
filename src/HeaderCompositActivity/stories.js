@@ -3,6 +3,7 @@ import HeaderCompositActivity from './index';
 const iconImageImage = require('../assets/SVGIcons/social.svg');
 
 stories(module, HeaderCompositActivity, [
+  'https://github.com/DuckyTeam/ducky-web/issues/568',
   'https://github.com/DuckyTeam/ducky-web/issues/623'
 ], {
   activityIcon: oneOf(iconImageImage),

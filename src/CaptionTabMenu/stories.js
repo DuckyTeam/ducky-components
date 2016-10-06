@@ -8,6 +8,6 @@ stories(module, CaptionTabMenu, [
   changeTab: func(),
   className: className(),
   disabled: json([1]),
-  selected: number(2),
+  selected: number(0),
   tabs: json([{label: "Foo", icon: "icon-cow"}, {label: "Bar", icon: "icon-duck"}])
 });
