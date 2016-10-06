@@ -83,7 +83,7 @@ ProfileMenuItem.propTypes = {
     percentCompare: React.PropTypes.number,
     profileType: React.PropTypes.oneOf(['self', 'others']),
     totalSavings: React.PropTypes.number,
-    type: React.PropTypes.string
+    type: React.PropTypes.oneOf(['personal', 'insight', 'footprint', 'challenges', 'activity'])
 };
 
 export default ProfileMenuItem;

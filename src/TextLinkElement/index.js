@@ -39,7 +39,8 @@ function TextLinkElement(props) {
 }
 
 TextLinkElement.propTypes = {
-    category: PropTypes.string,
+    category: PropTypes.oneOf(['food', 'consumption', 'energy',
+      'transportation', 'social']),
     children: PropTypes.node,
     className: PropTypes.string,
     onClick: PropTypes.func

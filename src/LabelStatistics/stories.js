@@ -1,13 +1,11 @@
-import {stories, className, func, number, bool, string} from '../duckyStories';
-import LabelStandard from './index';
+import {stories, className, oneOf, string} from '../duckyStories';
+import LabelStatistics from './index';
 
-stories(module, LabelStandard, [
-  'https://github.com/DuckyTeam/ducky-web/issues/614'
+stories(module, LabelStatistics, [
+  'https://github.com/DuckyTeam/ducky-web/issues/'
 ], {
-  animation: bool(),
   className: className(),
-  content: string(99),
-  decimals: number(1),
-  icon: string('icon-duck'),
-  onClick: func()
+  statistics: string('99.9'),
+  textcontent: string('I år'),
+  theme: oneOf('light', 'dark')
 });

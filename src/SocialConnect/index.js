@@ -45,7 +45,7 @@ SocialConnect.propTypes = {
     className: React.PropTypes.string,
     connected: React.PropTypes.bool,
     onClick: React.PropTypes.func,
-    socialMedia: React.PropTypes.string
+    socialMedia: React.PropTypes.oneOf(['facebook', 'twitter', 'google+', 'instagram'])
 };
 
 export default SocialConnect;

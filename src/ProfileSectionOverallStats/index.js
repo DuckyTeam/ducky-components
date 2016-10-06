@@ -1,6 +1,6 @@
 import Spacer from '../Spacer';
 import React from 'react';
-import ProfilePageMeta from '../composites/ProfilePageMeta';
+import ProfilePageMeta from '../ProfilePageMeta';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import Avatar from '../Avatar';
@@ -42,8 +42,8 @@ function ProfileSectionOverallStats(props) {
             >
                 <ProfilePageMeta
                     toBeCompared={props.toBeCompared}
-                    totalComparison={props.comparisonCo2}
-                    totalUser={props.co2}
+                    totalComparisonValue={props.comparisonCo2}
+                    totalUserValue={props.co2}
                     type={'co2'}
                 />
             </Wrapper>
@@ -55,8 +55,8 @@ function ProfileSectionOverallStats(props) {
             >
                 <ProfilePageMeta
                     toBeCompared={props.toBeCompared}
-                    totalComparison={props.comparisonPoints}
-                    totalUser={props.points}
+                    totalComparisonValue={props.comparisonPoints}
+                    totalUserValue={props.points}
                     type={'points'}
                 />
             </Wrapper>
@@ -68,8 +68,8 @@ function ProfileSectionOverallStats(props) {
             >
                 <ProfilePageMeta
                     toBeCompared={props.toBeCompared}
-                    totalComparison={props.comparisonActivities}
-                    totalUser={props.activities}
+                    totalComparisonValue={props.comparisonActivities}
+                    totalUserValue={props.activities}
                     type={'aktiviteter'}
                 />
             </Wrapper>
