@@ -17,7 +17,7 @@ BarChart.propTypes = {
   onClick: React.PropTypes.func,
   isMobile: React.PropTypes.bool,
   data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.number,
+    id: React.PropTypes.any,
     value: React.PropTypes.number,
     label: React.PropTypes.string
   }))
