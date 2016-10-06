@@ -1,4 +1,3 @@
-import React from 'react'
 import {stories, oneOf, bool, className, number, string} from '../duckyStories';
 import ChallengeMeta4 from './index';
 
@@ -11,4 +10,4 @@ stories(module, ChallengeMeta4, [
   name: string('Bob'),
   theme: oneOf('dark', 'light'),
   yourTeam: bool()
-})
+});

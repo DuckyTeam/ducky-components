@@ -1,16 +1,15 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func, bool, oneOf} from '../duckyStories';
 import SettingsItemGender from './index';
 
-storiesOf('SettingsItemGender', module)
-  .add('Default', () => (
-      <SettingsItemGender
-          gender={'Kvinne'}
-      />
-  ))
-  .add('Edit Mode', () => (
-      <SettingsItemGender
-          editMode
-          gender={'Kvinne'}
-      />
-  ));
+stories(module, SettingsItemGender, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1580'
+], {
+  className: className(),
+  editMode: bool(),
+  gender: oneOf('kvinne', 'mann', 'kjøttpinne'),
+  handleIconAvaWrapperClosed: func(),
+  handleSaveButtonClicked: func(),
+  inactive: bool(),
+  onClick: func(),
+  onRadioButtonClicked: func()
+});

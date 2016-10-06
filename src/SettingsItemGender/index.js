@@ -85,7 +85,7 @@ function SettingsItemGender(props) {
 SettingsItemGender.propTypes = {
     className: PropTypes.string,
     editMode: PropTypes.bool,
-    gender: PropTypes.string,
+    gender: PropTypes.oneOf(['kvinne', 'mann', 'kjøttpinne']),
     handleIconAvaWrapperClosed: PropTypes.func,
     handleSaveButtonClicked: PropTypes.func,
     inactive: PropTypes.bool,

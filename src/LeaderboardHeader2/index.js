@@ -1,6 +1,6 @@
-import Icon from '../../Icon';
+import Icon from '../Icon';
 import React from 'react';
-import Typography from '../../Typography';
+import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 

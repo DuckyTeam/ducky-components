@@ -56,7 +56,7 @@ SettingsItemAppConnect.propTypes = {
     className: PropTypes.string,
     connected: PropTypes.bool,
     onClick: PropTypes.func,
-    socialMedia: PropTypes.string,
+    socialMedia: PropTypes.oneOf(['facebook', 'twitter', 'google+', 'instagram']),
     userName: PropTypes.string
 };
 

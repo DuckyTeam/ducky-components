@@ -4,7 +4,7 @@ import Typography from '../Typography';
 import LabelSmall from '../LabelSmall';
 import styles from './styles.css';
 
-function ChallengeMeta4(props) {
+function ChallengeMeta5(props) {
   let progressColor = '#0099a9';
 
   if (props.level === 2) {
@@ -44,10 +44,10 @@ function ChallengeMeta4(props) {
   );
 }
 
-ChallengeMeta4.propTypes = {
+ChallengeMeta5.propTypes = {
   goal: React.PropTypes.number,
   level: React.PropTypes.number,
   progress: React.PropTypes.number
 };
 
-export default ChallengeMeta4;
+export default ChallengeMeta5;

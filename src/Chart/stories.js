@@ -1,4 +1,3 @@
-import React from 'react'
 import {stories, oneOf, string, json, number} from '../duckyStories';
 import Chart from './index';
 
@@ -36,7 +35,7 @@ stories(module, Chart, [
   selected: number(12),
   member: number(12),
   goals: json([200, 400, 600, 800])
-})
+});
 
 /*
 import React from 'react';

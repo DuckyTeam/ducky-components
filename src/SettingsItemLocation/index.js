@@ -113,7 +113,10 @@ SettingsItemLocation.propTypes = {
     onClick: PropTypes.func,
     onPopOverMenuClicked: PropTypes.func,
     onRadioButtonClicked: PropTypes.func,
-    selectedCounty: PropTypes.string
+    selectedCounty: PropTypes.oneOf(['Østfold', 'Akershus', 'Oslo', 'Hedmark', 'Oppland',
+      'Buskerud', 'Vestfold', 'Telemark', 'Aust-Agder', 'Vest-Agder', 'Rogaland', 'Hordaland',
+      'Sogn og Fjordane', 'Møre og Romsdal', 'Sør-Trøndelag', 'Nord-Trøndelag', 'Nordland',
+      'Troms', 'Finnmark'])
 };
 
 export default SettingsItemLocation;

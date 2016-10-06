@@ -1,18 +1,11 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func, bool, string} from '../duckyStories';
 import SettingsItemEmail from './index';
 
-storiesOf('SettingsItemEmail', module)
-  .add('default', () => (
-      <SettingsItemEmail
-          email={'veldiglangepostadresse@hotmail.com'}
-      />
-  ))
-  .add('inactive', () => (
-      <div style={{width: 250}}>
-          <SettingsItemEmail
-              email={'veldiglangepostadresse@hotmail.com'}
-              inactive
-          />
-      </div>
-  ));
+stories(module, SettingsItemEmail, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1583'
+], {
+  className: className(),
+  email: string('test@email.no'),
+  inactive: bool(),
+  onClick: func()
+});
