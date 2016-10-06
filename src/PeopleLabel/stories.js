@@ -3,7 +3,7 @@ import PeopleLabel from './index';
 const AVATAR_URL = 'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg';
 
 stories(module, PeopleLabel, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/891'
 ], {
   className: className(),
   people: json([AVATAR_URL, AVATAR_URL, AVATAR_URL, AVATAR_URL])

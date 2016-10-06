@@ -2,7 +2,7 @@ import {stories, className, string, oneOf, number} from '../duckyStories';
 import ProfileSectionPersonalGoal from './index';
 
 stories(module, ProfileSectionPersonalGoal, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/1465'
 ], {
   children: string('Component'),
   className: className(),

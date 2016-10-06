@@ -2,7 +2,7 @@ import {stories, className, func, string, bool} from '../duckyStories';
 import Modal from './index';
 
 stories(module, Modal, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/649'
 ], {
   children: string('Component'),
   className: className(),

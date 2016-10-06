@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf, action, linkTo } from '@kadira/storybook';
 import ProgressBarVertical from '../ProgressBarVertical';
-
+// https://github.com/DuckyTeam/ducky-web/issues/1632
 storiesOf('ProgressBarVertical', module)
   .add('CO2', () => (
       <ProgressBarVertical

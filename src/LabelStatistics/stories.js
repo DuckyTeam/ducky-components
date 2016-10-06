@@ -2,7 +2,7 @@ import {stories, className, oneOf, string} from '../duckyStories';
 import LabelStatistics from './index';
 
 stories(module, LabelStatistics, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/848'
 ], {
   className: className(),
   statistics: string('99.9'),

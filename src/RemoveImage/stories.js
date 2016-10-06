@@ -3,7 +3,7 @@ import RemoveImage from './index';
 const IMAGE_URL = 'http://rocketpost.com/media/458905753-e1404928920315.jpg';
 
 stories(module, RemoveImage, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/798'
 ], {
   className: className(),
   height: string('200'),

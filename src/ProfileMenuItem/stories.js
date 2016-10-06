@@ -2,7 +2,7 @@ import {stories, className, func, oneOf, number, string} from '../duckyStories';
 import ProfileMenuItem from './index';
 
 stories(module, ProfileMenuItem, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/1424'
 ], {
   className: className(),
   dateOfLastActivity: string('30-Aug-2016'),

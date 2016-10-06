@@ -2,7 +2,6 @@ import {stories, bool, oneOf, func, string, number, className} from '../duckySto
 import TextArea from './index';
 
 stories(module, TextArea, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
 ], {
   className: className(),
   maxLength: number(150),

@@ -1,8 +1,7 @@
-import {stories, bool, oneOf, func, string, number, className} from '../duckyStories';
+import {stories, oneOf, func, string, number, className} from '../duckyStories';
 import TextAreaLarge from './index';
 
 stories(module, TextAreaLarge, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
 ], {
   className: className(),
   errorMessage: oneOf(null, 'Error'),

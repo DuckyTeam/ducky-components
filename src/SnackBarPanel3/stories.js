@@ -2,7 +2,7 @@ import {stories, bool, string, oneOf, number} from '../duckyStories';
 import SnackBarPanel3 from './index';
 
 stories(module, SnackBarPanel3, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/816'
 ], {
   co2: number(23),
   duckyIcon: string('icon-add'),

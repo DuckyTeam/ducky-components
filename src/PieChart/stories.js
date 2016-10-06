@@ -1,9 +1,8 @@
 import {stories, className, string, number, json} from '../duckyStories';
-import PeopleLabel from './index';
-const AVATAR_URL = 'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg';
+import pieChart from './index';
 
-stories(module, PeopleLabel, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+stories(module, pieChart, [
+  'https://github.com/DuckyTeam/ducky-web/issues/916'
 ], {
   calheight: number(200),
   calwidth: number(200),

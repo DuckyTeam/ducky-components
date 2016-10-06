@@ -2,7 +2,7 @@ import {stories, className, bool, string, func} from '../duckyStories';
 import SearchFieldInput from './index';
 
 stories(module, SearchFieldInput, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/780'
 ], {
   children: string('Component'),
   className: className(),

@@ -3,7 +3,8 @@ import ProfileSectionOverallStats from './index';
 const AVATAR_URL = 'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg';
 
 stories(module, ProfileSectionOverallStats, [
-  'https://github.com/DuckyTeam/ducky-web/issues/'
+  'https://github.com/DuckyTeam/ducky-web/issues/1422',
+  'https://github.com/DuckyTeam/ducky-web/issues/1423'
 ], {
   activities: number(1),
   className: className(),
