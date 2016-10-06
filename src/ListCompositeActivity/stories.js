@@ -1,12 +1,13 @@
-import {stories, className, string, number, func} from '../duckyStories';
+import {stories, className, string, oneOf, number, func} from '../duckyStories';
 import ListCompositeActivity from './index';
+const iconImageImage = require('../assets/SVGIcons/social.svg');
 
 stories(module, ListCompositeActivity, [
   'https://github.com/DuckyTeam/ducky-web/issues/779'
 ], {
   className: className(),
   co2: number(12.2),
-  icon: string('icon-duck'),
+  icon: oneOf(iconImageImage),
   onIconClick: func(),
   onLabelClick: func(),
   points: number(2),
