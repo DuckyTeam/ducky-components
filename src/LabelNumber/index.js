@@ -10,7 +10,7 @@ function LabelNumber(props) {
             <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
                 <Typography
                     className={classNames(styles.number, {
-                        [styles.darknumber]: props.bgcolor === 'darkbg'})}
+                        [styles.darknumber]: props.theme === 'dark'})}
                     type="ingressStrong"
                 >
                     {props.animation
@@ -24,7 +24,7 @@ function LabelNumber(props) {
                 <br />
                 <Typography
                     className={classNames(styles.textcontent, {
-                        [styles.darktextcontent]: props.bgcolor === 'darkbg'})}
+                        [styles.darktextcontent]: props.theme === 'dark'})}
                     type="caption2Normal"
                 >
                     {props.textcontent}
@@ -35,11 +35,11 @@ function LabelNumber(props) {
 }
 LabelNumber.propTypes = {
     animation: React.PropTypes.bool,
-    bgcolor: React.PropTypes.string,
     className: React.PropTypes.string,
     decimals: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
     number: React.PropTypes.number,
-    textcontent: React.PropTypes.string
+    textcontent: React.PropTypes.string,
+    theme: React.PropTypes.oneOf(['light', 'dark'])
 };
 
 export default LabelNumber;

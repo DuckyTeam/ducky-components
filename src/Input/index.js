@@ -22,7 +22,7 @@ function Input(props) {
                 onBlur={props.onBlur}
                 onChange={props.onChange}
                 placeholder={capitalizeFirstLetter(props.placeholder)}
-                type={props.type}
+                type={props.inputType}
             />
             <Typography
                 className={classNames(styles.errorMessage, {
@@ -42,7 +42,7 @@ Input.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func,
     placeholder: PropTypes.string,
-    type: PropTypes.string
+    inputType: PropTypes.string
 };
 
 export default Input;

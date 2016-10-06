@@ -1,7 +1,7 @@
 import Icon from '../Icon';
 import React from 'react';
 import Typography from '../Typography';
-import styles from './LabelLarge.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function LabelLarge(props) {
