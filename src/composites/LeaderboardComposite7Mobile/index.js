@@ -155,7 +155,7 @@ function LeaderboardComposite7(props) {
   );
 }
 
-export default LeaderboardComposite7;
+//export default LeaderboardComposite7;
 
 LeaderboardComposite7.propTypes = {
   className: PropTypes.string,
