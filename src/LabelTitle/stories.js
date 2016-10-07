@@ -7,6 +7,6 @@ stories(module, LabelTitle, [
 ], {
   className: className(),
   icon: string('icon-duck'),
-  size: oneOf('small', 'large1'),
+  size: oneOf('small', 'large'),
   text: string('Ducky')
 });
