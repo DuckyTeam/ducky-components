@@ -3,77 +3,90 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import ButtonRaised from '../ButtonRaised';
 import Spacer from '../Spacer';
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-class SettingsItem extends React.Component {
-  renderExpandedSettings() {
-    return (
-      <div>
-        <div className={styles.submit}>
-          <ButtonRaised />
-          <IconAvaWrapper
-            icon={'icon-close'}
-            onClick={this.props.closeClick}
-          />
-        </div>
-        <div>
-          {this.props.children}
-        </div>
+function SettingsItem(props) {
+  return (
+    props.expanded
+      ? <div>
+        <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
+          onClick={props.onClick}
+          size={'standard'}
+        >
+          <div className={styles.compositeExpanded}>
+            <Typography
+              className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
+              type={'bodyTextNormal'}
+            >
+              {props.label}
+            </Typography>
+            <ButtonRaised
+              className={styles.saveButton}
+              onClick={styles.handleSaveButtonClicked}
+            >
+              {'LAGRE'}
+            </ButtonRaised>
+            <IconAvaWrapper
+              className={styles.closeButton}
+              icon={'icon-close'}
+              onClick={props.handleCloseClick}
+            />
+          </div>
+        </Wrapper>
+        <Wrapper className={styles.expandedContent}
+          size={'standard'}
+        >
+          <div>
+            {props.children}
+          </div>
+        </Wrapper>
         <Spacer size={'double'} />
       </div>
-    )
-  }
-
-  render() {
-    return (
-      <Wrapper
-        className={classNames(styles.wrapper, {
-            [this.props.className]: this.props.className
-        })}
-        onClick={this.props.onClick}
+      : <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
+        onClick={props.onClick}
         size={'standard'}
         >
+        <div className={styles.composite}>
           <Typography
-            className={styles.label}
-            size={'bodyTextNormal'}
-            >
-              {this.props.label}
+            className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
+            type={'bodyTextNormal'}
+          >
+            {props.label}
           </Typography>
-          {this.props.expanded
+          {props.value
             ?
-              this.renderExpandedSettings()
+            <Typography
+              className={props.inactive ? styles.typoContentInactive : styles.typoContent}
+              size={'bodyTextStrong'}
+            >
+              {props.value}
+            </Typography>
             :
-              this.props.value
-              ?
-              <Typography
-                className={styles.value}
-                size={'bodyTextStrong'}
-                >
-                  {this.props.value}
-              </Typography>
-              :
-              <Typography
-                className={styles.noValue}
-                size={'bodyTextStrong'}
-                >
-                  {'Legg til'}
-              </Typography>
-            }
+            <Typography
+              className={props.inactive ? styles.noValueInactive : styles.noValue}
+              size={'bodyTextStrong'}
+            >
+              {'Legg til'}
+            </Typography>
+        }
+        </div>
       </Wrapper>
-    );
-  }
+  );
 }
 
 SettingsItem.propTypes = {
-    className: PropTypes.string,
-    closeClick: PropTypes.func,
-    label: PropTypes.string,
-    expanded: PropTypes.bool,
-    onClick: PropTypes.func,
-    value: PropTypes.value
+  children: PropTypes.node,
+  className: PropTypes.string,
+  expanded: PropTypes.bool,
+  handleCloseClick: PropTypes.func,
+  handleSaveButtonClicked: PropTypes.func,
+  inactive: PropTypes.bool,
+  label: PropTypes.string,
+  onClick: PropTypes.func,
+  value: PropTypes.string
 };
 
 export default SettingsItem;
