@@ -1,4 +1,5 @@
 import d3 from 'd3';
+import moment from 'moment';
 import utils from './../utils';
 import styles from './styles.css';
 import paths from './../svgpaths';
@@ -12,8 +13,8 @@ d3Chart.create = (el, props, state, formatting) => {
 
   utils.drawXAxisGroup(svg, props);
   utils.drawYAxisGroup(svg, props);
-  utils.drawChartGroup(svg, props, styles.lines);
   utils.drawChartGroup(svg, props, styles.areas);
+  utils.drawChartGroup(svg, props, styles.lines);
   utils.drawChartGroup(svg, props, styles.pointSeries);
   utils.drawChartGroup(svg, props, styles.labels);
   utils.drawChartGroup(svg, props, styles.faceGroup);
@@ -29,6 +30,7 @@ d3Chart.update = (el, state, props, formatting) => {
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
     let leaderId;
     let leaderName;
+    state.leaderId = leaderId;
     [leaderId, leaderName] = state.data.reduce((acc, d) => {
       return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
     }, [-1, '']);
@@ -41,21 +43,38 @@ d3Chart.update = (el, state, props, formatting) => {
       return state.goals[state.goals.length - 1];
     };
 
+    const getIdbyName = name => {
+      let id = -1;
+      state.data.forEach((d) => {
+        if (d.label === name) {
+          id = d.id;
+        }
+      });
+      return id;
+    }
+
+    const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
+
     const dotData = state.data.reduce((acc, line) => {
       let newData = [line.data[0], line.data[d3.max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
       newData[1].id = line.id;
-      return acc.concat(newData.slice(line.id !== state.member));
+      return acc.concat(newData.slice(line.id !== state.memberOf));
     }, []);
 
     const yourScore = state.data.reduce((acc, dp) => {
-      return dp.id === state.member ? acc + dp.data[dp.data.length - 1].value : acc;
+      return dp.id === state.memberOf ? acc + dp.data[dp.data.length - 1].value : acc;
     }, 0);
 
     const getPointClass = d => {
-      if (d.id === leaderId) { return `${styles.leaderPoints} ${styles.pointSeries}`; }
-      if (d.id === state.member) { return `${styles.yourPoints} ${styles.pointSeries}`; }
-      return styles.pointSeries;
+      let classes = styles.pointSeries;
+      if (d.id === leaderId) {
+        classes = `${classes} ${styles.leaderPoints}`; }
+      if (d.id === state.memberOf) {
+        classes = `${classes} ${styles.yourPoints}`; }
+      if (d.id === state.selectedId) {
+        classes = `${classes} ${styles.selectedPoints}`; }
+      return classes;
     }
 
     const svg = utils.selectSVG(props.id)
@@ -64,27 +83,27 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const xScale = d3.time.scale()
         .range([40, props.width - props.margin.left - props.margin.right - 40])
-        .domain([state.startDate, state.endDate]);
+        .domain([moment(state.startDate), moment(state.endDate)]);
 
     const yScale = d3.scale.linear()
       .domain([0, d3.max([maxValue, nextGoal()])])
       .range([state.height - 4, 15 + props.margin.top]);
 
     const lineDrawer = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(d.date))
+        .x((d) => xScale(moment(d.date)))
         .y((d) => yScale(d.value));
 
     const lineDrawerZero = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(d.date))
+        .x((d) => xScale(moment(d.date)))
         .y(state.height);
 
     const areaDrawer = d3.svg.area().interpolate("basic")
-        .x(d => xScale(d.date))
+        .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(d => yScale(d.value));
 
     const areaDrawerZero = d3.svg.area().interpolate("basic")
-        .x(d => xScale(d.date))
+        .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(state.height);
 
@@ -98,7 +117,8 @@ d3Chart.update = (el, state, props, formatting) => {
 
     const xAxis = d3.svg.axis()
      .scale(xScale)
-     .tickFormat(d3.time.format("%b.%d %Hh"))
+     .tickFormat(d3.time.format("%d. %b"))
+     .tickValues(xAxisTicks)
      .orient("bottom");
 
      const yAxisLeader = d3
@@ -116,7 +136,7 @@ d3Chart.update = (el, state, props, formatting) => {
     utils.selectXAxisGroup(svg).selectAll('.tick')
         .classed(styles.startEndDates, (data, index) => {
             return index === 0 || index === (utils.selectXAxisGroup(svg).selectAll('.tick')[0].length - 1);
-      });
+      }).on('click', (data) => state.onClick(getIdbyName(data)));;
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
@@ -162,7 +182,7 @@ d3Chart.update = (el, state, props, formatting) => {
     const enteredLeaderLabel = leaderLabel.enter();
       enteredLeaderLabel.append('svg').attr({
         viewBox: "0 0 768 768",
-        x: 86,
+        x: 40,
         y: state.height,
         width: 40,
         height: 12,
@@ -175,8 +195,8 @@ d3Chart.update = (el, state, props, formatting) => {
       leaderLabel.exit().remove();
 
       leaderLabel.transition().delay(speed).duration(speed).attr({
-        x: 86,
-        y: yScale,
+        x: 40,
+        y: d => yScale(d) - 4.5,
         opacity: 1
       }).select('path')
         .attr({
@@ -186,43 +206,43 @@ d3Chart.update = (el, state, props, formatting) => {
 
         const enteredLeaderText = leaderText.enter();
         enteredLeaderText.append('text')
-          .text((data) => Number(maxValue).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
           .attr({
-            x: 120,
-            y: state.height + 10,
+            x: 72,
+            y: state.height + 6,
             opacity: 0,
             class: styles.leaderText,
             'font-size': '12px'
           });
         leaderText.exit().remove();
 
+        const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+
         leaderText.transition().delay(speed).duration(speed)
-        .text((data) => Number(maxValue).toLocaleString().concat(' (').concat(leaderName).concat(")"))
+        .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
         .attr({
           class: styles.leaderText,
           'font-size': '12px',
-          y: data => yScale(data) + 10,
-          x: 120,
+          y: data => yScale(data) + 6,
+          x: 72,
           opacity: 1
         });
 
     const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
     const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
     //const dots = svg.select(`.${styles.dotSeries}`).data(state.data);
-    const getStrokeColor = (data) => {
+    const getStrokeClass = (data) => {
+      let classes = `${styles.progressLine}`;
+      if (data.id === state.memberOf) {
+        classes = `${classes} ${styles.memberStroke}`;
+      }
       if (data.id === leaderId) {
-        return '#FFC107';
-      } else if (data.id === state.member) {
-        return '#00ab97';
+        classes = `${classes} ${styles.leaderStroke}`;
       }
-      return '#90A4AE';
-    };
-
-    const getStrokeWidth = (data) => {
-      if (data.id === state.member || data.id === state.selected) {
-        return 4;
+      if (data.id === state.selectedId) {
+        classes = `${classes} ${styles.selectedStroke}`;
       }
-      return 2;
+      return classes;
     };
 
     // ENTER
@@ -247,16 +267,16 @@ d3Chart.update = (el, state, props, formatting) => {
     });
 
     lines.attr({
-      stroke: (d) => getStrokeColor(d),
-      "stroke-width": (d) => getStrokeWidth(d)
-    });
+      class: (d) => getStrokeClass(d)
+    })
+    .on('click', (data) => state.onClick(data.id));
 
    areas.transition().delay(speed).duration(speed).attr({
       d: d => areaDrawer(d.data)
     });
 
     areas.attr({
-       display: d => state.member === d.id ? true : "none"
+       display: d => state.memberOf === d.id ? true : "none"
      });
 
     //Draw points
@@ -266,20 +286,21 @@ d3Chart.update = (el, state, props, formatting) => {
     enteredPoints.append("circle").attr({
       class: styles.pointSeries,
       r:4,
-      cx: d => xScale(d.date),
+      cx: d => xScale(moment(d.date)),
       cy: state.height,
       class: getPointClass
     });
 
     points.transition().delay(speed).duration(speed).attr({
       r:4,
-      cx: d => xScale(d.date),
+      cx: d => xScale(moment(d.date)),
       cy: d => yScale(d.value)
     });
 
     points.attr({
       class: getPointClass
-    });
+    })
+    .on('click', (data) => state.onClick(data.id));
 
     // EXIT
     lines.exit().remove();
