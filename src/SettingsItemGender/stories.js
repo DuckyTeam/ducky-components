@@ -5,11 +5,11 @@ stories(module, SettingsItemGender, [
   'https://github.com/DuckyTeam/ducky-web/issues/1580'
 ], {
   className: className(),
-  editMode: bool(),
+  expanded: bool(),
   gender: oneOf('kvinne', 'mann', 'kjøttpinne'),
-  handleIconAvaWrapperClosed: func(),
-  handleSaveButtonClicked: func(),
   inactive: bool(),
   onClick: func(),
-  onRadioButtonClicked: func()
+  onCloseClick: func(),
+  onRadioButtonClicked: func(),
+  onSaveButtonClicked: func()
 });

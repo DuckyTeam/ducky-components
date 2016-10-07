@@ -14,7 +14,6 @@ function SettingsItemEmail(props) {
 }
 
 SettingsItemEmail.propTypes = {
-  className: PropTypes.string,
   email: PropTypes.string,
   onClick: PropTypes.func
 };
