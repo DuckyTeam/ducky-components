@@ -7,5 +7,5 @@ stories(module, Loader, [
   children: string('Component'),
   className: className(),
   hide: bool(),
-  size: oneOf('small', 'standard', 'large1')
+  size: oneOf('mini', 'small', 'standard', 'large1')
 });

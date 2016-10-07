@@ -48,11 +48,60 @@
 }
 
 .areas {
-    fill: rgba(0,171,151,0.2);
+    fill: rgba(0,171,151,0.12);
 }
 
 .lines {
   stroke: yellow;
+}
+
+.progressLine {
+    fill: none;
+    stroke: #1E4E57;
+    stroke-width: 2px;
+}
+
+.progressLine:hover {
+  stroke: rgba(255,255,255,0.4);
+  cursor: pointer;
+  stroke-width: 3px;
+}
+
+.leaderStroke {
+  stroke: #ffc107;
+}
+
+.progressLine.leaderStroke:hover {
+  stroke: #ffc107;
+}
+
+
+.progressLine.memberStroke:hover {
+  stroke: #00ab97;
+}
+
+.memberStroke {
+  stroke: #00ab97;
+}
+
+.selectedStroke {}
+
+.progressLine.selectedStroke {
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 4px;
+}
+
+.progressLine.selectedStroke.memberStroke {
+  stroke: #00ab97;
+}
+
+.progressLine.selectedStroke.leaderStroke {
+  stroke-width: 4px;
+  stroke: #ffc107;
+}
+
+.progressLine.selectedStroke:hover {
+  cursor: default;
 }
 
 .tooltip {
@@ -69,14 +118,36 @@
 }
 
 .pointSeries {
-  fill: #90A4AE;
+  fill: #1E4E57;
 }
 
+/*
+.pointSeries.leaderPoints:hover,
+.pointSeries.yourPoints:hover,
+.pointSeries:hover {
+  fill: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+*/
 .pointSeries.yourPoints {
   fill: #00ab97;
 }
 
 .pointSeries.leaderPoints {
+  fill: #FFC107;
+}
+
+.pointSeries.leaderPoints.yourPoints {
+  fill: #00ab97;
+}
+
+.pointSeries.selectedPoints {
+  fill: white;
+}
+.pointSeries.yourPoints.selectedPoints {
+  fill: #00ab97;
+}
+.pointSeries.leaderPoints.selectedPoints {
   fill: #FFC107;
 }
 
@@ -100,7 +171,7 @@
 }
 
 .points {
-  fill: rgba(0,171,151,0.2);
+  fill: rgba(0,171,151,1);
 }
 
 .leaderGroup {
@@ -114,4 +185,5 @@
 .leaderText {
   fill: #fff;
   font-weight: bold;
+  font-family: Montserrat, Arial;
 }

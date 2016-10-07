@@ -1,13 +1,5 @@
 import React from 'react';
 
-import barChart from './BarChart/chart';
-import lineChart from './LineChart/chart';
-
-const charts = {
-  bar: barChart,
-  line: lineChart
-}
-
 class Chart extends React.Component {
     constructor() {
         super();
@@ -15,8 +7,7 @@ class Chart extends React.Component {
         this.container = null;
     }
     componentDidMount() {
-        this.chart = charts[this.props.type]
-        this.chart.create(this.container, {
+        this.props.chart.create(this.container, {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
@@ -25,7 +16,7 @@ class Chart extends React.Component {
     }
 
     componentDidUpdate() {
-        this.chart.update(this.container, this.getChartState(), {
+        this.props.chart.update(this.container, this.getChartState(), {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
@@ -56,32 +47,5 @@ class Chart extends React.Component {
         );
     }
 }
-
-Chart.propTypes = {
-    data: React.PropTypes.arrayOf(
-        React.PropTypes.shape({
-            data: React.PropTypes.arrayOf(
-                React.PropTypes.shape({
-                    date: React.PropTypes.oneOfType(
-                        [React.PropTypes.string, React.PropTypes.shape({})]
-                    ),
-                    value: React.PropTypes.number
-                })
-            ),
-            label: React.PropTypes.string,
-            strokeColor: React.PropTypes.string,
-            strokeWidth: React.PropTypes.number
-        })
-    ),
-    domain: React.PropTypes.shape({
-        xDomain: React.PropTypes.arrayOf(React.PropTypes.oneOfType(
-            [React.PropTypes.string, React.PropTypes.shape({})]
-        )),
-        yDomain: React.PropTypes.arrayOf(React.PropTypes.number)
-    }),
-    formatting: React.PropTypes.func,
-    graphID: React.PropTypes.number,
-    height: React.PropTypes.string
-};
 
 export default Chart;
