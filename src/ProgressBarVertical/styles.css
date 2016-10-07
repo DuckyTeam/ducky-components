@@ -1,6 +1,6 @@
 .wrapper {
   width: 4px;
-  height: 36px;
+  height: 100%;
   border-radius:4px;
   background-color: rgba(38,50,56,0.12);
   overflow: hidden;
