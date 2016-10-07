@@ -110,7 +110,6 @@ TextAreaLarge.propTypes = {
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
     size: PropTypes.string,
-    type: PropTypes.string,
     value: PropTypes.node
 };
 

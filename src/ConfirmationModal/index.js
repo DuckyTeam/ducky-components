@@ -3,7 +3,7 @@ import {PropTypes} from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Modal from '../Modal';
-import SectionHeaderGeneral from '../composites/SectionHeaderGeneral';
+import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import Button from '../Button';

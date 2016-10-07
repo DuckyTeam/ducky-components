@@ -1,0 +1,46 @@
+.svg {
+  background-color: #003741;
+}
+
+.yAxis > path {
+    display: none;
+}
+
+.yAxis > g > text {
+    text-anchor: end;
+    display: none;
+}
+
+.xAxis > .tick{
+    display: none;
+}
+
+.xAxis > path {
+    display: none;
+}
+
+.xAxis > g > text {
+  fill: #607D8B;
+  font-weight: bold;
+  cursor: default;
+}
+
+.xAxis.hover > g > text:hover {
+  cursor: pointer;
+  fill: rgba(255,255,255,0.7);
+}
+
+.yAxis > g > text {
+  fill: #607D8B;
+}
+
+.yAxis > g > line {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
+}
+
+.xAxis, .yAxis > g > text {
+    font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+}

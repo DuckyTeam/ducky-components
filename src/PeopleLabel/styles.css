@@ -2,6 +2,8 @@
     height: 24px;
     margin: 0 auto;
     display: flex;
+    width: 100%;
+    justify-content: center;
 }
 
 .avatar {

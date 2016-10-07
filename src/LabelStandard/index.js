@@ -3,6 +3,7 @@ import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
+import Counter from '../Counter';
 const PropTypes = React.PropTypes;
 
 function LabelStandard(props) {
@@ -16,18 +17,28 @@ function LabelStandard(props) {
                     [styles.co2Icon]: props.icon === 'icon-leaf'
                 })}
                 icon={props.icon}
-                size={'small'}
+                size="small"
             />
-            <br />
-            <Typography type={'bodyTextTitle'}>{props.content}</Typography>
+            <div>
+                <Typography type="bodyTextTitle">
+                  {props.animate
+                  ? <Counter
+                      decimals={props.decimals || 0}
+                      number={props.content}
+                    />
+                  : props.content}
+                </Typography>
+            </div>
         </span>
     );
 }
 
 LabelStandard.displayName = 'LabelStandard';
 LabelStandard.propTypes = {
+    animate: PropTypes.bool,
     className: PropTypes.string,
     content: PropTypes.node,
+    decimals: PropTypes.number,
     icon: PropTypes.string,
     onClick: React.PropTypes.func
 };

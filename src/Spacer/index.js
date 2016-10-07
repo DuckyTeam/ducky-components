@@ -1,12 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './Spacer.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function Spacer(props) {
     if (props.hr) {
         return (
-            <div className={classNames({[styles[props.size]]: props.size})}>
+            <div className={classNames({
+              [styles[props.size]]: props.size,
+              [props.className]: props.className
+            })}>
                 <div className={styles.hr}></div>
             </div>
         );

@@ -20,11 +20,7 @@ Avatar.displayName = 'Avatar';
 Avatar.propTypes = {
     className: PropTypes.string,
     image: PropTypes.string,
-    name: PropTypes.string,
     onClick: PropTypes.func,
-    size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"]),
-    style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
-        [React.PropTypes.number, React.PropTypes.string]
-    ))
+    size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"])
 };
 export default Avatar;

@@ -1,0 +1,40 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: transparent;
+}
+
+.nameLightBackground {
+  color: #263238;
+  text-overflow: ellipsis;
+  line-height: 22px;
+}
+
+.nameDarkBackground {
+    text-overflow: ellipsis;
+    line-height: 22px;
+    color: #fff;
+}
+
+.statsWrapper {
+  flex-direction: row;
+}
+
+.membersLightBackground {
+  color: #607d8b;
+  padding-right: 8px;
+}
+
+.membersDarkBackground {
+  color: rgba(255,255,255,0.7);
+  padding-right: 8px;
+}
+
+.labelLightBackground {
+  color: #90a4ae;
+}
+
+.labelDarkBackground {
+  color: rgba(255,255,255,0.4);
+}

@@ -9,7 +9,7 @@
 
 
 const LINE_LENGTH = 150;
-const TAB_SPACES = 4;
+const TAB_SPACES = 2;
 const MAX_CHAINS_BEFORE_BREAK = 5;
 
 module.exports = {
@@ -183,7 +183,7 @@ module.exports = {
         "id-blacklist": 2,
         "id-length": 2,
         "id-match": 2,
-        "indent": 2,
+        "indent": [2, TAB_SPACES],
         "jsx-quotes": 2,
         "key-spacing": 2,
         "keyword-spacing": 2,
@@ -305,8 +305,8 @@ module.exports = {
         "react/jsx-curly-spacing": 2,
         "react/jsx-equals-spacing": 2,
         "react/jsx-handler-names": 2,
-        "react/jsx-indent-props": 2,
-        "react/jsx-indent": 2,
+        "react/jsx-indent-props": [2, TAB_SPACES],
+        "react/jsx-indent": [2, TAB_SPACES],
         "react/jsx-key": 2,
         "react/jsx-max-props-per-line": 2,
         "react/jsx-no-bind": 0,

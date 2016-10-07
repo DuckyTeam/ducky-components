@@ -5,19 +5,19 @@ import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-function CardLabel2(props) {
+function ChallengeCardLabel2(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Typography
-                className={styles.text}
+                className={styles.labelText}
                 type="caption2Normal"
             >
-                {props.text}
+                {props.labelText}
             </Typography>
 
             <LabelSmall
-                className={styles.label}
-                content={props.labelContent}
+                className={styles.memberCount}
+                content={props.memberCount}
                 icon={"icon-people"}
                 type={"caption2Normal"}
             />
@@ -25,10 +25,10 @@ function CardLabel2(props) {
     );
 }
 
-CardLabel2.propTypes = {
+ChallengeCardLabel2.propTypes = {
     className: PropTypes.string,
-    labelContent: PropTypes.string,
-    text: PropTypes.string
+    memberCount: PropTypes.number,
+    labelText: PropTypes.string
 };
 
-export default CardLabel2;
+export default ChallengeCardLabel2;

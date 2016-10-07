@@ -1,0 +1,189 @@
+.svgCanvas {
+    height: 300px;
+}
+
+.svg {
+  background-color: #003741;
+}
+
+.line {
+    fill: none;
+}
+
+.yAxis > path {
+}
+
+.yAxis > g > text {
+    text-anchor: end;
+    display:none;
+}
+
+.xAxis > .tick{
+    display: none;
+}
+
+.xAxis > path {
+    display: none;
+}
+
+.yAxis > g > line {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
+}
+
+.xAxis, .yAxis > g > text {
+    fill: #607D8B;
+    font-family: Montserrat, Arial;
+    font-size: 10px;
+}
+
+.bars {
+
+}
+
+.startEndDates {
+    fill: #263238;
+    font-weight: bold;
+}
+
+.areas {
+    fill: rgba(0,171,151,0.12);
+}
+
+.lines {
+  stroke: yellow;
+}
+
+.progressLine {
+    fill: none;
+    stroke: #1E4E57;
+    stroke-width: 2px;
+}
+
+.progressLine:hover {
+  stroke: rgba(255,255,255,0.4);
+  cursor: pointer;
+  stroke-width: 3px;
+}
+
+.leaderStroke {
+  stroke: #ffc107;
+}
+
+.progressLine.leaderStroke:hover {
+  stroke: #ffc107;
+}
+
+
+.progressLine.memberStroke:hover {
+  stroke: #00ab97;
+}
+
+.memberStroke {
+  stroke: #00ab97;
+}
+
+.selectedStroke {}
+
+.progressLine.selectedStroke {
+  stroke: rgba(255,255,255,0.7);
+  stroke-width: 4px;
+}
+
+.progressLine.selectedStroke.memberStroke {
+  stroke: #00ab97;
+}
+
+.progressLine.selectedStroke.leaderStroke {
+  stroke-width: 4px;
+  stroke: #ffc107;
+}
+
+.progressLine.selectedStroke:hover {
+  cursor: default;
+}
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    width: 60px;
+    height: 28px;
+    padding: 2px;
+    font: 12px sans-serif;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.pointSeries {
+  fill: #1E4E57;
+}
+
+/*
+.pointSeries.leaderPoints:hover,
+.pointSeries.yourPoints:hover,
+.pointSeries:hover {
+  fill: rgba(255,255,255,0.4);
+  cursor: pointer;
+}
+*/
+.pointSeries.yourPoints {
+  fill: #00ab97;
+}
+
+.pointSeries.leaderPoints {
+  fill: #FFC107;
+}
+
+.pointSeries.leaderPoints.yourPoints {
+  fill: #00ab97;
+}
+
+.pointSeries.selectedPoints {
+  fill: white;
+}
+.pointSeries.yourPoints.selectedPoints {
+  fill: #00ab97;
+}
+.pointSeries.leaderPoints.selectedPoints {
+  fill: #FFC107;
+}
+
+.chart {
+    height: 100%;
+}
+
+.faceGroup {}
+
+.labels {}
+
+.leaderLine {
+  stroke: #fff;
+  stroke-width: 1px;
+  stroke-opacity: 0.12;
+  stroke-dasharray: 4, 4;
+}
+
+.startEndDates > text {
+  fill: #fff !important;
+}
+
+.points {
+  fill: rgba(0,171,151,1);
+}
+
+.leaderGroup {
+
+}
+
+.leaderLabel {
+  fill: #FFC107;
+}
+
+.leaderText {
+  fill: #fff;
+  font-weight: bold;
+  font-family: Montserrat, Arial;
+}

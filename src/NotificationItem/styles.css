@@ -25,6 +25,11 @@
     float: left;
 }
 
+.timeStampPadded {
+  float: left;
+  padding-top: 8px;
+}
+
 .item {
     cursor: pointer;
 }
@@ -37,4 +42,12 @@
 .false {
     background-color: #FFFFFF;
     width: 100%;
+}
+
+.label {
+  float: right;
+}
+
+.button {
+  float: right;
 }

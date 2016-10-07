@@ -1,6 +1,6 @@
 import React from 'react';
 import CarouselNavigator from '../CarouselNavigator1';
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 // import classNames from 'classnames';
 import styles from './styles.css';
 // let slideIndex = 1;

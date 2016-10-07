@@ -8,6 +8,7 @@ function LogButton(props) {
         <div
             className={classNames(styles.wrapper, {
                 [styles.checked]: props.checked,
+                [styles.inactive]: props.inactive,
                 [props.className]: props.className
             })}
             onClick={props.onClick}
@@ -23,6 +24,7 @@ function LogButton(props) {
 LogButton.propTypes = {
     checked: React.PropTypes.bool,
     className: React.PropTypes.string,
+    inactive: React.PropTypes.bool,
     onClick: React.PropTypes.func
 };
 

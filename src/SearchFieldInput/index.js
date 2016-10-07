@@ -1,4 +1,4 @@
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -64,7 +64,7 @@ SearchFieldInput.propTypes = {
     className: PropTypes.string,
     onClear: PropTypes.func,
     onSearchSubmit: PropTypes.func,
-    startEdit: PropTypes.startEdit
+    startEdit: PropTypes.bool
 };
 
 export default SearchFieldInput;
