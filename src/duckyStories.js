@@ -14,7 +14,7 @@ function issuesOf(issues) {
         <ul>
           {issues.map((issue, index) => (
             <li key={index}>
-              <a href={issue}>
+              <a href={issue} target={'_blank'}>
                 {issue}
               </a>
             </li>
@@ -283,10 +283,10 @@ export function stories(module, Component, issues, propsDescription, name, rende
   const stories = storiesOf(name || functionName(Component), module);
   stories.addDecorator(withKnobs);
   stories
-    .add(label, () => (
-      <Issues />
-    ))
     .add('component', () => {
       return <Preview Component={Component} propsDescription={propsDescription} renderFunc={renderFunc}/>
-    });
+    })
+    .add(label, () => (
+      <Issues />
+    ));
 }

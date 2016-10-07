@@ -1,11 +1,13 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func, string, bool} from '../duckyStories';
 import SettingsSectionApplications from './index';
 
-storiesOf('SettingsSectionApplications', module)
-  .add('SettingsSectionApplications', () => (
-      <SettingsSectionApplications
-          twitterConnected
-          userName={'Sara Kannan'}
-      />
-  ));
+stories(module, SettingsSectionApplications, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1593'
+], {
+  className: className(),
+  facebookConnected: bool(),
+  googlePlusConnected: bool(),
+  onClick: func(),
+  twitterConnected: bool(),
+  userName: string('Navn Navnesen')
+});

@@ -73,7 +73,7 @@ class CreateGoalValueInput extends React.Component {
 
 CreateGoalValueInput.propTypes = {
     className: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.oneOf(['points', 'activity', 'co2'])
 };
 
 export default CreateGoalValueInput;

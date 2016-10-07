@@ -102,6 +102,6 @@ NotificationItem.propTypes = {
     onClick: React.PropTypes.func,
     seen: React.PropTypes.bool,
     text: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.oneOf(['challenge', 'default'])
 };
 export default NotificationItem;

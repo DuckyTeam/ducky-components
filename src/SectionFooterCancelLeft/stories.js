@@ -1,8 +1,9 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func} from '../duckyStories';
 import SectionFooterCancelLeft from './index';
 
-storiesOf('SectionFooterCancelLeft', module)
-  .add('SectionFooterCancelLeft', () => (
-      <SectionFooterCancelLeft />
-  ));
+stories(module, SectionFooterCancelLeft, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1453'
+], {
+  className: className(),
+  onClick: func()
+});

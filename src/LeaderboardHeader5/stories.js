@@ -1,15 +1,9 @@
-import React from 'react';
-import {storiesOf} from '@kadira/storybook';
-import LeaderboardHeader5 from './index.js';
+import {stories, className, bool} from '../duckyStories';
+import LeaderboardHeader5 from './index';
 
-storiesOf('LeaderboardHeader', module)
-  .add('LeaderboardHeader5 - default challenge', () => (
-    <div style={{width: 300}}>
-      <LeaderboardHeader5 />
-    </div>
-  ))
-  .add('LeaderboardHeader5 - household challenge', () => (
-    <div style={{width: 300}}>
-      <LeaderboardHeader5 household />
-    </div>
-  ));
+stories(module, LeaderboardHeader5, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1675'
+], {
+  className: className(),
+  household: bool()
+});

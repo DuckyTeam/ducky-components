@@ -1,17 +1,12 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func, bool, oneOf, string} from '../duckyStories';
 import SettingsItemAppConnect from './index';
 
-storiesOf('SettingsItemAppConnect', module)
-  .add('connected', () => (
-      <SettingsItemAppConnect
-          connected
-          socialMedia={'Facebook'}
-          userName={'Sara Kannan'}
-      />
-  ))
-  .add('Not connected', () => (
-      <SettingsItemAppConnect
-          socialMedia={'TWITTER'}
-      />
-  ));
+stories(module, SettingsItemAppConnect, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1592'
+], {
+  className: className(),
+  onClick: func(),
+  connected: bool(),
+  socialMedia: oneOf('facebook', 'twitter', 'google+', 'instagram'),
+  userName: string('Navn Navnesen')
+});

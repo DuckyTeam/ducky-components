@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '../Typography';
 import Icon from '../Icon';
 import classNames from 'classnames';
-import styles from './ButtonIcon.css';
+import styles from './styles.css';
 
 function ButtonIcon(props) {
     let disabled = false;

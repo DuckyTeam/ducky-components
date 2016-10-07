@@ -1,8 +1,9 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func} from '../duckyStories';
 import SettingsSectionPrivacy from './index';
 
-storiesOf('SettingsSectionPrivacy', module)
-  .add('SettingsSectionPrivacy', () => (
-      <SettingsSectionPrivacy />
-  ));
+stories(module, SettingsSectionPrivacy, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1590'
+], {
+  className: className(),
+  handleButtonClick: func()
+});

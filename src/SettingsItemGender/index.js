@@ -1,7 +1,7 @@
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import Button from '../Button';
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import RadioButton from '../RadioButton';
 import React from 'react';
 import Spacer from '../Spacer';
@@ -85,7 +85,7 @@ function SettingsItemGender(props) {
 SettingsItemGender.propTypes = {
     className: PropTypes.string,
     editMode: PropTypes.bool,
-    gender: PropTypes.string,
+    gender: PropTypes.oneOf(['kvinne', 'mann', 'kjøttpinne']),
     handleIconAvaWrapperClosed: PropTypes.func,
     handleSaveButtonClicked: PropTypes.func,
     inactive: PropTypes.bool,

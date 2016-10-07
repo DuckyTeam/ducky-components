@@ -51,7 +51,7 @@ GoalCompositeProgressInfo.propTypes = {
     savingsAmount: React.PropTypes.number,
     selectedActivityName: React.PropTypes.string,
     startDate: React.PropTypes.string,
-    type: React.PropTypes.string
+    type: React.PropTypes.oneOf(['habit', 'points', 'activity', 'co2'])
 };
 
 export default GoalCompositeProgressInfo;

@@ -4,7 +4,7 @@ import styles from './styles.css';
 import classNames from 'classnames';
 import Icon from '../Icon';
 
-class SectionfooterBack extends React.Component {
+class SectionFooterBack extends React.Component {
     render() {
         return (
             <div className={classNames(styles.wrapper, {
@@ -23,10 +23,10 @@ class SectionfooterBack extends React.Component {
     }
 }
 
-SectionfooterBack.displayName = "Section Footer Back";
-SectionfooterBack.propTypes = {
+SectionFooterBack.displayName = "Section Footer Back";
+SectionFooterBack.propTypes = {
     className: React.PropTypes.string,
     onClick: React.PropTypes.func
 };
 
-export default SectionfooterBack;
+export default SectionFooterBack;

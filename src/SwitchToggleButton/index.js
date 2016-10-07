@@ -27,7 +27,7 @@ SwitchToggleButton.propTypes = {
     checked: PropTypes.bool,
     className: PropTypes.string,
     onClick: PropTypes.func,
-    theme: PropTypes.string
+    theme: PropTypes.oneOf(['light', 'dark'])
 };
 
 export default SwitchToggleButton;

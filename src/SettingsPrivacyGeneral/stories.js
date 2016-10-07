@@ -1,8 +1,10 @@
-import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
+import {stories, className, func, string} from '../duckyStories';
 import SettingsPrivacyGeneral from './index';
 
-storiesOf('SettingsPrivacyGeneral', module)
-  .add('SettingsPrivacyGeneral', () => (
-      <SettingsPrivacyGeneral />
-  ));
+stories(module, SettingsPrivacyGeneral, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1589'
+], {
+  className: className(),
+  onClick: func(),
+  privacySettings: string()
+});

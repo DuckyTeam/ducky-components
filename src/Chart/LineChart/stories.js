@@ -1,10 +1,9 @@
-import React from 'react';
 import moment from 'moment';
-import {stories, oneOf, icon, func, className, json} from './../../duckyStories';
+import {stories, oneOf, json} from './../../duckyStories';
 import LineChart from './index';
 
 stories(module, LineChart, [
-
+  'https://github.com/DuckyTeam/ducky-web/issues/1662'
 ], {
   data:json([
       {
@@ -56,12 +55,12 @@ stories(module, LineChart, [
           id: 15
       }
     ]),
-    endDate:json(moment('31-May-2016')),
-    goals:json([200, 400, 600, 800]),
-    graphID:json(1),
-    height:oneOf("300px", "400px"),
+    endDate: json(moment('31-May-2016')),
+    goals: json([200, 400, 600, 800]),
+    graphID: json(1),
+    height: oneOf("300px", "400px"),
     memberOf: json(12),
-    selectedId:json(12),
-    startDate:json(moment('05-May-2016')),
+    selectedId: json(12),
+    startDate: json(moment('05-May-2016')),
     onClick: json(null),
 }, 'Chart/LineChart');

@@ -1,4 +1,4 @@
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
