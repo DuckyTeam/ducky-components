@@ -39,9 +39,7 @@ function SettingsItem(props) {
         <Wrapper className={styles.expandedContent}
           size={'standard'}
         >
-          <div>
-            {props.children}
-          </div>
+          {props.children}
         </Wrapper>
         <Spacer size={'double'} />
       </div>
