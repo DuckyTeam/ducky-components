@@ -4,3 +4,7 @@
   flex-direction: column;
   align-items: flex-start;
 }
+
+.msgText {
+  margin: 16px 0;
+}
