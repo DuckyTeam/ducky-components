@@ -1,6 +1,10 @@
-.radioButtons {
+.passordWrapper {
   background-color: #f4f7f9;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+
+.msgText {
+  margin: 16px 0;
 }

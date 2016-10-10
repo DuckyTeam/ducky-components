@@ -2,6 +2,7 @@ import {stories, oneOf, func, string, number, className} from '../duckyStories';
 import TextAreaLarge from './index';
 
 stories(module, TextAreaLarge, [
+  'https://github.com/DuckyTeam/ducky-web/issues/1394'
 ], {
   className: className(),
   errorMessage: oneOf(null, 'Error'),
@@ -11,6 +12,6 @@ stories(module, TextAreaLarge, [
   onChange: func(),
   onFocus: func(),
   placeholder: string('Enter Text'),
-  size: string('150'),
+  size: oneOf('default', 'large', 'huge'),
   value: string('')
 });
