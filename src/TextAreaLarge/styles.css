@@ -1,8 +1,114 @@
-.passordWrapper {
+.wrapper {
+  flex-direction: column;
+  width: 100%;
+}
+
+.textareaWrapper {
   display: flex;
   flex-direction: column;
 }
 
-.msgText {
-  margin: 16px 0;
+.textarea {
+  align-self: flex-end;
+  font-family: Montserrat;
+  line-height: 20px;
+  min-height: 26px !important;
+  width: 100%;
+  padding: 0;
+  border-bottom: 1px solid rgba(38,50,56,0.12) !important;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-transition: border 100ms ease-in-out; /* Safari */
+  transition: border 100ms ease-in-out;
+  outline: none;
+  background-color: transparent;
+}
+
+.textarea:focus {
+  border-bottom: 1px solid #00ab97 !important;
+}
+
+.textareaWrapper_large {
+  min-height: 50px;
+}
+
+.textareaWrapper_huge {
+  min-height: 58px;
+}
+
+.textarea_large {
+  composes: textarea;
+  min-height: 32px !important;
+  line-height: 32px !important;
+}
+
+.textarea_huge {
+  composes: textarea;
+  min-height: 40px !important;
+  line-height: 40px !important;
+}
+
+.placeholder {
+  height: 21px;
+  width: 100%;
+}
+
+.label::first-letter {
+  text-transform: capitalize;
+}
+
+.label {
+  line-height: 20px;
+  font-weight: normal;
+  color: #b0bec5;
+  pointer-events: none;
+  position: absolute;
+  transform: translate3d(0, 0, 0) scale(1);
+  transform-origin: left top;
+  transition: 200ms;
+}
+
+.label_large {
+  line-height: 30px !important;
+}
+
+.label_huge {
+  line-height: 28px !important;
+}
+
+.labelWithInput {
+  transform: translate3d(0, -23px, 0);
+}
+
+.labelFocused {
+  composes: labelWithInput;
+  color: #00ab97;
+}
+
+.error {
+  border-color: #e0487b !important;
+}
+
+.errorMessage {
+  padding-top: 0;
+  opacity: 0;
+  display: block;
+  line-height: 20px;
+  color: #e0487b;
+  width: 100%;
+  text-align: center;
+  transition: all 0.25s;
+}
+
+.errorMessageActive {
+  padding-top: 8px;
+  opacity: 1;
+}
+
+.counter {
+  text-align: right;
+  width: 100%;
+  color: #b0bec5;
+  margin-top: 8px;
+  display: inline-block;
 }
