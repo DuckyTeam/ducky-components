@@ -12,5 +12,5 @@ stories(module, Spacer, [
 ], {
   className: className(),
   hr: bool(),
-  socialMedia: oneOf('standard', 'double', 'large', 'fat', 'hr1', 'hr2', 'hr3')
+  size: oneOf('standard', 'double', 'large', 'fat', 'hr1', 'hr2', 'hr3')
 });
