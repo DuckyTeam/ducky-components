@@ -1,40 +1,40 @@
 .wrapper {
-    background-color: transparent;
-    display: inline-flex;
+  background-color: transparent;
+  display: inline-flex;
 }
 
 .standard {
-    padding: 16px;
+  padding: 16px;
 }
 
 .side-bottom {
-    padding: 0 16px 16px;
+  padding: 0 16px 16px;
 }
 
 .side {
-    padding: 0 16px;
+  padding: 0 16px;
 }
 
 .narrow {
-    padding: 12px;
+  padding: 12px;
 }
 
 .slim {
-    padding: 4px;
+  padding: 4px;
 }
 
 .short {
-    padding: 12px 16px;
+  padding: 12px 16px;
 }
 
 .midget {
-    padding: 4px 16px;
+  padding: 4px 16px;
 }
 
 .squat {
-    padding: 8px 16px;
+  padding: 8px 16px;
 }
 
 .slender {
-    padding: 6px;
+  padding: 6px;
 }
