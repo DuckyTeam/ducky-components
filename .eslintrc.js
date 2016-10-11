@@ -301,7 +301,7 @@ module.exports = {
         // JSX-specific rules
 
         "react/jsx-boolean-value": 2,
-        "react/jsx-closing-bracket-location": 2,
+        "react/jsx-closing-bracket-location": [2, {location: "props-aligned"}],
         "react/jsx-curly-spacing": 2,
         "react/jsx-equals-spacing": 2,
         "react/jsx-handler-names": 2,
