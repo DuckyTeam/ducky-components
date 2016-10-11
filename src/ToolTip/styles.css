@@ -1,11 +1,22 @@
 .wrapper {
     background-color: #263238;
     border-radius: 4px;
-    margin-bottom: 16px;
     position: relative;
 }
 
 .content {
     color: #FFF;
     text-align: center
+}
+
+.content::first-letter {
+  text-transform: capitalize;
+}
+
+.popup > div > div {
+  background-color: transparent;
+  padding: 0;
+  box-shadow: none;
+  min-height: 0;
+  border-radius: 0;
 }

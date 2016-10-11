@@ -19,7 +19,8 @@ module.exports = function(storybookBaseConfig, configType) {
           loader: "babel",
           include: [
               path.resolve("src"),
-              path.resolve("preview")
+              path.resolve("preview"),
+              path.resolve("node_modules", "rc-tooltip", "assets")
           ],
           query: {
               presets: ["es2015", "stage-0", "react"]
@@ -35,7 +36,12 @@ module.exports = function(storybookBaseConfig, configType) {
       }
   ]);
 
-  storybookBaseConfig.entry.preview = [path.resolve('src', 'icons.css')].concat(storybookBaseConfig.entry.preview);
+  storybookBaseConfig.entry.preview = [
+    path.resolve('node_modules', 'rc-tooltip', 'assets', 'bootstrap.css'),
+    path.resolve('src', 'icons.css')
+  ].concat(storybookBaseConfig.entry.preview);
+
+  console.log(storybookBaseConfig.entry.preview);
 
   // Return the altered config
   return storybookBaseConfig;
