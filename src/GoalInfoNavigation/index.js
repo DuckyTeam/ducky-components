@@ -1,7 +1,7 @@
 import React from 'react';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
-import IconAvaWrapper from '../composites/IconAvaWrapper';
+import IconAvaWrapper from '../IconAvaWrapper';
 import styles from './styles.css';
 
 function GoalInfoNavigation(props) {

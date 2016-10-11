@@ -1,4 +1,4 @@
-import SectionHeaderGeneral from '../composites/SectionHeaderGeneral';
+import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import SettingsPrivacyGeneral from '../SettingsPrivacyGeneral';
 import Spacer from '../Spacer';
 import React from 'react';

@@ -20,7 +20,7 @@ function SnackBarPanel3(props) {
                 <LabelStandard
                     className={styles.typo}
                     content={<Counter decimals={1}
-                        number={props.co2Pt}
+                        number={props.co2}
                              />}
                     icon={'icon-leaf'}
                 />
@@ -31,7 +31,7 @@ function SnackBarPanel3(props) {
             <div className={styles.label}>
                 <LabelStandard
                     className={styles.typo}
-                    content={<Counter number={Number(props.duckyPt)} />}
+                    content={<Counter number={Number(props.points)} />}
                     icon={'icon-brightness_high'}
                 />
             </div>
@@ -42,14 +42,14 @@ function SnackBarPanel3(props) {
                 <LabelStandard
                     className={styles.typo}
                     content={<Counter decimals={1}
-                        number={props.co2Pt}
+                        number={props.co2}
                              />}
                     icon={'icon-leaf'}
                 />
                 <div className={styles.labelTwo}>
                     <LabelStandard
                         className={styles.typo}
-                        content={<Counter number={Number(props.duckyPt)} />}
+                        content={<Counter number={Number(props.points)} />}
                         icon={'icon-brightness_high'}
                     />
                 </div>
@@ -81,10 +81,10 @@ function SnackBarPanel3(props) {
 }
 
 SnackBarPanel3.propTypes = {
-    co2Pt: PropTypes.number,
-    duckyIcon: PropTypes.number,
-    duckyPt: PropTypes.number,
+    co2: PropTypes.number,
+    duckyIcon: PropTypes.string,
     msgText: PropTypes.string,
+    points: PropTypes.number,
     show: PropTypes.bool,
     type: PropTypes.oneOf(['points', 'co2', 'both'])
 };

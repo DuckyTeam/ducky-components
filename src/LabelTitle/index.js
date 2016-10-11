@@ -26,7 +26,7 @@ function LabelTitle(props) {
 LabelTitle.propTypes = {
     className: PropTypes.string,
     icon: PropTypes.string,
-    size: PropTypes.string,
+    size: PropTypes.oneOf(['small', 'large']),
     text: PropTypes.string
 };
 

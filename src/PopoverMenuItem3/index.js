@@ -33,7 +33,6 @@ function PopoverMenuItem3(props) {
 
 PopoverMenuItem3.propTypes = {
     className: PropTypes.string,
-    icon: PropTypes.string,
     label: PropTypes.string,
     onClick: PropTypes.func,
     selected: PropTypes.selected

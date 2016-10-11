@@ -21,7 +21,6 @@ function Wrapper(props) {
 Wrapper.propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    hr: PropTypes.bool,
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['standard', 'side-bottom', 'side', 'narrow', 'slim',
         'short', 'midget', 'squat', 'slender']),

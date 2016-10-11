@@ -4,6 +4,7 @@
     height: 36px;
     width: 36px;
     display: inline-block;
+    cursor: pointer;
 }
 
 .wrapper > span {

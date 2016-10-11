@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import styles from './MenuWrapper.css';
+import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 class MenuWrapper extends React.Component {
@@ -31,7 +31,7 @@ class MenuWrapper extends React.Component {
 }
 
 MenuWrapper.propTypes = {
-    alignment: PropTypes.string,
+    alignment: PropTypes.oneOf(['left', 'right']),
     children: PropTypes.node,
     className: PropTypes.string,
     show: PropTypes.bool

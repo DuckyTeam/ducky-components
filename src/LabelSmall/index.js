@@ -18,7 +18,7 @@ function LabelSmall(props) {
                 onClick={props.onClick}
                 size={'micro'}
             />
-            <Typography type={props.type}>{props.content}</Typography>
+            <Typography type={props.typographyType}>{props.content}</Typography>
         </span>
 
     );
@@ -30,6 +30,6 @@ LabelSmall.propTypes = {
     content: PropTypes.node,
     icon: PropTypes.string,
     onClick: React.PropTypes.func,
-    type: PropTypes.string
+    typographyType: PropTypes.string
 };
 export default LabelSmall;

@@ -30,3 +30,7 @@
 .typo > span {
   color: #FFFFFF;
 }
+
+.typo > div > span {
+  color: #FFFFFF;
+}

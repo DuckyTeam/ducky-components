@@ -1,14 +1,13 @@
-import React from 'react'
-import {stories, bool, oneOf, func, className, string} from '../duckyStories';
-import SectionfooterBack from './index';
+import {stories, oneOf, func, className, string, bool} from '../duckyStories';
+import ButtonIcon from './index';
 
-stories(module, SectionfooterBack, [
-  'https://github.com/DuckyTeam/ducky-web/issues/1455',
+stories(module, ButtonIcon, [
+  'https://github.com/DuckyTeam/ducky-web/issues/817'
 ], {
+  children: string('Flat icon button'),
   className: className(),
-  name:oneOf("TILBAKE" ),
-  icon: oneOf('icon-leaf',''),
+  disabled: bool(),
+  icon: string('icon-star'),
   onClick: func(),
-  theme:oneOf("dark", "light"),
-  disabled:bool()
-})
+  theme: oneOf('light', 'dark')
+});

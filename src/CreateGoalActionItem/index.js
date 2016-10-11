@@ -1,4 +1,4 @@
-import ActionItemSelectComposit from '../composites/ActionItemSelectComposit';
+import ActionItemSelectComposit from '../ActionItemSelectComposit';
 import Wrapper from '../Wrapper';
 import React from 'react';
 import classNames from 'classnames';

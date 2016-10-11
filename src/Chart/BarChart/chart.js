@@ -184,7 +184,11 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, (data) => data.id).attr({class: getClasses});
   const entered = rects.enter().append("g")
     .attr({class: getClasses})
-    .on('click', (data, index) => data.onClick(data.id, index));
+    .on('click', (data, index) => {
+      if (data.onClick) {
+        data.onClick(data.id, index);
+      }
+    });
 
   entered.append("rect")
     .attr('class', styles.rectangle)

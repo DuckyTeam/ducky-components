@@ -38,7 +38,7 @@ function ProgressCircle(props) {
 ProgressCircle.propTypes = {
     className: PropTypes.string,
     percent: PropTypes.number,
-    type: PropTypes.strings
+    type: PropTypes.oneOf(['co2', 'activity', 'habit', 'points'])
 };
 
 export default ProgressCircle;
