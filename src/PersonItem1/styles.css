@@ -1,0 +1,48 @@
+.wrapper {
+    display: flex;
+    background: transparent;
+    height: 36px;
+    align-items: center;
+
+
+}
+
+.avatar{
+    vertical-align: middle;
+}
+
+.composite {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.icon {
+    color: #00ab97;
+    padding: 6px;
+    font-size: 24px;
+}
+
+.iconFollow {
+    color: #90a4ae;
+    padding: 6px;
+    font-size: 24px;
+}
+
+.nameTypo{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    color: #263238
+}
+.button {
+  float: right;
+}
