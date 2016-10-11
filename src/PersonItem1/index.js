@@ -4,7 +4,6 @@ import React from 'react';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
-import Wrapper from '../Wrapper';
 const PropTypes = React.PropTypes;
 
 function PersonItem1(props) {
