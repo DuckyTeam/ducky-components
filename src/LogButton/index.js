@@ -11,7 +11,7 @@ function LogButton(props) {
                 [styles.inactive]: props.inactive,
                 [props.className]: props.className
             })}
-            onClick={props.onClick}
+            onClick={!props.inactive && props.onClick}
         >
             <Icon
                 icon={"icon-check"}
