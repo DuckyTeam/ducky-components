@@ -1,4 +1,4 @@
-import {stories, oneOf, json} from './../../duckyStories';
+import {stories, oneOf, json, func} from './../../duckyStories';
 import BarChart from './index';
 
 stories(module, BarChart, [
@@ -26,6 +26,6 @@ stories(module, BarChart, [
   height: oneOf("300px", "400px"),
   memberOf: json(12),
   selectedId: json(12),
-  onClick: json(null),
+  onClick: func(),
   isMobile: json(true)
 }, 'Chart/BarChart');
