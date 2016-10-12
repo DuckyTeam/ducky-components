@@ -94,7 +94,11 @@ d3Chart.update = (el, state, props) => {
   if (!state.isMobile) utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
   utils.selectXAxisGroup(svg).selectAll('.tick')
     .attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null)
-    .on('click', (data) => state.onClick(getIdbyName(data)));
+    .on('click', (data, index) => {
+      if (state.onClick) {
+        state.onClick(getIdbyName(data));
+      }
+    });
 
   drawBars(svg, state, props, xScale, yScale);
 
@@ -185,10 +189,10 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   const entered = rects.enter().append("g")
     .attr({class: getClasses})
     .on('click', (data, index) => {
-      if (data.onClick) {
-        data.onClick(data.id, index);
+      if (state.onClick) {
+        state.onClick(data.id)}
       }
-    });
+    );
 
   entered.append("rect")
     .attr('class', styles.rectangle)
