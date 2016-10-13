@@ -187,7 +187,7 @@ module.exports = {
         "jsx-quotes": 2,
         "key-spacing": 2,
         "keyword-spacing": 2,
-        "linebreak-style": 2,
+        "linebreak-style": 0,
         "lines-around-comment": 2,
         "max-depth": 2,
         "max-len": [2, LINE_LENGTH, TAB_SPACES],
