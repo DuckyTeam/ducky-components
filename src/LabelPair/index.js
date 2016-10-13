@@ -8,20 +8,20 @@ function LabelPair(props) {
     if (props.co2) {
         return (
             <span>
-                <LabelSmall
+                {/*<LabelSmall
                     content={props.points}
                     icon={'icon-brightness_high'}
                     onClick={props.onClick}
                     type={"caption2Strong"}
                 />
-                <span className={styles.pad}>
+                <span className={styles.pad}>*/}
                     <LabelSmall
                         content={props.co2}
                         icon={'icon-leaf'}
                         onClick={props.onClick}
                         type={"caption2Strong"}
                     />
-                </span>
+                  {/*</span>*/}
             </span>
         );
     }
@@ -34,14 +34,14 @@ function LabelPair(props) {
                     onlyDays={props.onlyDays}
                     short={Boolean(true)}
                 />
-                <span className={styles.pad}>
+              {/*<span className={styles.pad}>
                     <LabelSmall
                         content={props.points}
                         icon={'icon-brightness_high'}
                         onClick={props.onClick}
                         type={"caption2Strong"}
                     />
-                </span>
+                </span>*/}
             </span>
         );
     }
