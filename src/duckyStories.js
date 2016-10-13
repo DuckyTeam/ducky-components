@@ -91,7 +91,7 @@ class Preview extends React.Component {
       } else if (prop.type === 'className') {
         allProps[key] = 'some-class'
       } else if (prop.type === 'func') {
-        allProps[key] = () => {alert(prop.value)}
+        allProps[key] = console.log
       } else if (prop.type === 'bool') {
         allProps[key] = prop.value
       } else if (prop.type === 'number') {

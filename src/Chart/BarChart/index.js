@@ -23,9 +23,9 @@ BarChart.propTypes = {
   graphID: React.PropTypes.number.isRequired,
   height: React.PropTypes.string.isRequired,
   isMobile: React.PropTypes.bool,
-  memberOf: React.PropTypes.number,
+  memberOf: React.PropTypes.any,
   onClick: React.PropTypes.func,
-  selectedId: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string])
+  selectedId: React.PropTypes.any
 };
 
 export default BarChart;

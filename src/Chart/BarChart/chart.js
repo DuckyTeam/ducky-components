@@ -30,7 +30,7 @@ d3Chart.update = (el, state, props) => {
   state.textPadding = 6;
   state.speed = 250;
   state.highestScore = d3.max(state.data, (data) => data.value);
-  state.leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
+  state.leaderId = (state.highestScore === 0) ? -1 : state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
   state.yAxisTickValues = state.goals.slice(0, d3.min([state.nextGoal ? state.goals.indexOf(state.nextGoal) : state.goals.length, state.goals.length]) + 1);
   state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
@@ -94,7 +94,11 @@ d3Chart.update = (el, state, props) => {
   if (!state.isMobile) utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
   utils.selectXAxisGroup(svg).selectAll('.tick')
     .attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null)
-    .on('click', (data) => state.onClick(getIdbyName(data)));
+    .on('click', (data, index) => {
+      if (state.onClick) {
+        state.onClick(getIdbyName(data));
+      }
+    });
 
   drawBars(svg, state, props, xScale, yScale);
 
@@ -114,7 +118,7 @@ d3Chart.update = (el, state, props) => {
 const drawBars = (svg, state, props, xScale, yScale) => {
 
   //Bunch of messy helper functions and variables
-  const leaderId = state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
+  const leaderId = state.leaderId;
   const getBarX = (data) => xScale(data.label) + (xScale.rangeBand() - state.barWidth) / 2
   const getIconClass = (data) => {
     if (data.id === leaderId) {
@@ -185,10 +189,10 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   const entered = rects.enter().append("g")
     .attr({class: getClasses})
     .on('click', (data, index) => {
-      if (data.onClick) {
-        data.onClick(data.id, index);
+      if (state.onClick) {
+        state.onClick(data.id)}
       }
-    });
+    );
 
   entered.append("rect")
     .attr('class', styles.rectangle)
