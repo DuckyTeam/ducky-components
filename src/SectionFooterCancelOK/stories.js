@@ -6,6 +6,7 @@ stories(module, SectionFooterCancelOK, [
 ], {
   className: className(),
   disabled: bool(),
+  okButtonText: string(),
   onCancel: func(),
   onClick: func()
 });
