@@ -1,4 +1,4 @@
-import {stories, className, json, number, bool, string} from '../duckyStories';
+import {module, stories, className, bool, string} from '../duckyStories';
 import GoalDeleteConfirmationModal from './index';
 
 stories(module, GoalDeleteConfirmationModal, [
