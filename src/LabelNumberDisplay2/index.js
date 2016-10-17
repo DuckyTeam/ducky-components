@@ -12,8 +12,8 @@ function LabelNumberDisplay2(props) {
       placement="top"
       text={props.text}
       >
-      <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-        <div>
+      <div className={classNames({[props.className]: props.className})}>
+        <div className={styles.wrapper}>
           <LabelTitle
             className={styles.labelTitle}
             icon={props.icon}
