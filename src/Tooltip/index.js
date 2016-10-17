@@ -4,7 +4,7 @@ import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';
 import RcTooltip from 'rc-tooltip';
-import 'rc-tooltip/assets/bootstrap.css';
+import './tooltip.css';
 
 function Tooltip(props) {
   const tooltipContent = (
