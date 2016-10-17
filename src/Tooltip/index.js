@@ -28,7 +28,7 @@ function Tooltip(props) {
       mouseLeaveDelay={0}
       overlay={tooltipContent}
       overlayClassName={styles.popup}
-      placement={props.placement}
+      placement={props.placement || "top"}
       >
       <span>{props.children}</span>
     </RcTooltip>

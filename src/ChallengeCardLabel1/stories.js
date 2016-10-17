@@ -10,5 +10,5 @@ stories(module, ChallengeCardLabel1, [
   points: number(3),
   progPercent: number(25),
   type: oneOf('points', 'co2', 'activities'),
-  userPosition: oneOf('leader', 'losing')
+  position: number(1)
 });
