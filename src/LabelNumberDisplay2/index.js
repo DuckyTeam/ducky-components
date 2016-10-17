@@ -13,19 +13,21 @@ function LabelNumberDisplay2(props) {
       text={props.text}
       >
       <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-        <LabelTitle
-          className={styles.labelTitle}
-          icon={props.icon}
-          size="small"
-          text={props.title}
-          />
+        <div>
+          <LabelTitle
+            className={styles.labelTitle}
+            icon={props.icon}
+            size="small"
+            text={props.title}
+            />
+        </div>
+        <Typography
+          className={styles.text}
+          type="caption2Normal"
+          >
+          {props.children}
+        </Typography>
       </div>
-      <Typography
-        className={styles.text}
-        type="caption2Normal"
-        >
-        {props.children}
-      </Typography>
     </Tooltip>
   );
 }
