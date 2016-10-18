@@ -25,6 +25,7 @@ function Tooltip(props) {
 
   return (
     <RcTooltip
+      destroyTooltipOnHide
       mouseLeaveDelay={0}
       overlay={tooltipContent}
       overlayClassName={styles.popup}
@@ -39,7 +40,7 @@ Tooltip.displayName = 'ToolTip';
 Tooltip.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
-  placement: React.PropTypes.string,
+  placement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
   text: React.PropTypes.string
 };
 
