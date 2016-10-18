@@ -1,10 +1,12 @@
 import React from 'react';
 import LabelSmall from '../LabelSmall';
 import Wrapper from '../Wrapper';
+import classNames from 'classnames';
+import styles from './styles.css';
 
 function ShowActivitySubHeader(props) {
   return (
-    <div>
+    <div className={classNames(styles.wrapper, {[this.props.className]: this.props.className})}>
       <Wrapper
         size="side-bottom"
         >
@@ -33,9 +35,7 @@ ShowActivitySubHeader.propTypes = {
   bookmarkNumber: React.PropTypes.string,
   commentNumber: React.PropTypes.string,
   favNumber: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  shareNumber: React.PropTypes.string,
-  size: React.PropTypes.string
+  shareNumber: React.PropTypes.string
 };
 
 export default ShowActivitySubHeader;
