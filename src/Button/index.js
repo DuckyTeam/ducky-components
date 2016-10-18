@@ -4,37 +4,37 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 function Button(props) {
-    let disabled = false;
+  let disabled = false;
 
-    if (props.disabled) {
-        disabled = 'disabled';
-    }
+  if (props.disabled) {
+    disabled = 'disabled';
+  }
 
-    return (
-        <button
-            className={classNames(styles.flat, {[props.className]: props.className})}
-            disabled={disabled}
-            onClick={props.onClick}
-            type={props.type}
+  return (
+    <button
+      className={classNames(styles.flat, {[props.className]: props.className})}
+      disabled={disabled}
+      onClick={props.onClick}
+      type={props.type}
+      >
+      <Typography
+        className={classNames(styles.text, {
+          [styles.darkText]: props.theme === 'dark'
+        })}
         >
-            <Typography
-                className={classNames(styles.text, {
-                    [styles.darkText]: props.theme === 'dark'
-                })}
-            >
-                {props.children}
-            </Typography>
-        </button>
-    );
+        {props.children}
+      </Typography>
+    </button>
+  );
 }
 
 Button.propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    theme: React.PropTypes.string,
-    type: React.PropTypes.string
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  theme: React.PropTypes.string,
+  type: React.PropTypes.string
 };
 
 export default Button;
