@@ -1,0 +1,16 @@
+.wrapper {
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.wrapper:hover {
+    background-color: #ECEFF1;
+}
+.actionButton {
+  color:  white;
+  background-color: white;
+}
+.icon > span {
+  color: #000;
+  background-color: white;
+}
