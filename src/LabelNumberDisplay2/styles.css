@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  height: 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.labelTitle > span:first-child {
+  color: #00AB97;
+  margin-right: 8px;
+}
+
+.labelTitle > div:last-child {
+  color: #263238;
+  margin: 0;
+}
+
+.text {
+  height: 14px;
+  display: flex;
+  justify-content: center;
+  color: #90A4AE;
+}
