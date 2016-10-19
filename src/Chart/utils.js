@@ -42,13 +42,13 @@ exports.drawChartGroup = (svg, props, styleClass) => {
 exports.getDateTicks = (from, to, number) => {
   let dates = []
   let current = moment(from);
-  while (moment(current).isBefore(moment(to))) {
+  while (moment(current).isSameOrBefore(moment(to))) {
     dates.push(new Date(current))
     current = moment(current).add(1, 'days');
   }
   const eachN = Math.ceil(dates.length / number);
   let returnDates = [];
-  for (let i = 0; i < number; i++) {
+  for (let i = 0; i*eachN < dates.length; i++) {
     returnDates.push(dates[i*eachN]);
   }
   if (returnDates[returnDates.length - 1] !== dates[dates.length - 1]) {
