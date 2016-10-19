@@ -39,7 +39,7 @@ function ButtonCounter(props) {
 
 ButtonCounter.propTypes = {
     className: PropTypes.string,
-    number: PropTypes.number,
+    number: PropTypes.string,
     onClick: PropTypes.func,
     prefix: React.PropTypes.string,
     size: React.PropTypes.oneOf(['small', 'standard']),

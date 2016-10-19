@@ -1,11 +1,12 @@
 .wrapper {
     background-color: transparent;
-    cursor: pointer;
+    /*cursor: pointer; */
 }
 
-.wrapper:hover {
+/*.wrapper:hover {
     background-color: #ECEFF1;
 }
+*/
 .actionButton {
   color:  white;
   background-color: white;
@@ -13,4 +14,19 @@
 .icon > span {
   color: #000;
   background-color: white;
+  background-clip: content-box;
+}
+.icon > span:hover {
+  color: #d2d2d2;
+  background-attachment: #d2d2d2;
+}
+.month{
+  color: #263238;
+  font-weight:  normal;
+  padding: 8px 0;
+}
+.year{
+  color: #90a4ae;
+  font-weight:  normal;
+  padding: 8px 0;
 }

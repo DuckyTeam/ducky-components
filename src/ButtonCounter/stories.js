@@ -6,7 +6,7 @@ stories(module, ButtonCounter, [
   'https://github.com/DuckyTeam/ducky-web/issues/628'
 ], {
   className: className(),
-  number: number(54),
+  number: string(54),
   onClick: func(),
   prefix: string(''),
   size: oneOf('small', 'standard')
