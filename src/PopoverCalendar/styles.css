@@ -1,5 +1,5 @@
 .wrapper {
-    display: flex;
+    display: inline-flex;
     background-color: gray;
     /* temp bg color just for viewing purposes*/
     /*cursor: pointer; */

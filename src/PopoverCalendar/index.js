@@ -41,6 +41,7 @@ function PopoverCalendar(props) {
           icon={arrowRight}
           />
       </div>
+      <br />
       <div><Spacer size="double" /></div>
       <div>
         <Wrapper size="slender"><ButtonCounter number="M" /></Wrapper>
