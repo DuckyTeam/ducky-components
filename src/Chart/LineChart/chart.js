@@ -269,7 +269,7 @@ d3Chart.update = (el, state, props, formatting) => {
     lines.attr({
       class: (d) => getStrokeClass(d)
     })
-    .on('click', (data) => state.onClick(data.id));
+    .on('click', (data) => state.onClick && state.onClick(data.id));
 
    areas.transition().delay(speed).duration(speed).attr({
       d: d => areaDrawer(d.data)
@@ -300,7 +300,7 @@ d3Chart.update = (el, state, props, formatting) => {
     points.attr({
       class: getPointClass
     })
-    .on('click', (data) => state.onClick(data.id));
+    .on('click', (data) => state.onClick && state.onClick(data.id));
 
     // EXIT
     lines.exit().remove();

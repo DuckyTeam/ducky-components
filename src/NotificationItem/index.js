@@ -94,6 +94,8 @@ function NotificationItem(props) {
 
 NotificationItem.displayName = "Notification Item";
 NotificationItem.propTypes = {
+    buttonClicked: React.PropTypes.bool,
+    buttonText: React.PropTypes.string,
     children: React.PropTypes.node,
     className: React.PropTypes.string,
     dateTime: React.PropTypes.number,

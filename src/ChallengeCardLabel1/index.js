@@ -46,7 +46,7 @@ function ChallengeCardLabel1(props) {
         })}
         content={props.position > 0 ? props.position : '-'}
         icon={props.position === 1 ? 'icon-crown' : 'icon-hashtag'}
-        type="caption2Strong"
+        typographyType="caption2Strong"
         />
     );
   }
@@ -62,7 +62,7 @@ function ChallengeCardLabel1(props) {
           className={classNames(styles.general, styles[props.type])}
           content={props.points > 0 ? props.points : '-'}
           icon={iconName}
-          type="caption2Strong"
+          typographyType="caption2Strong"
           />
         <Typography
           className={styles.typoText}

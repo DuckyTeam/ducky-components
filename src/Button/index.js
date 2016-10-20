@@ -22,10 +22,10 @@ function Button(props) {
           [styles.darkText]: props.theme === 'dark'
         })}
         >
-              {props.children}
+        {props.children}
       </Typography>
     </button>
-    );
+  );
 }
 
 Button.propTypes = {

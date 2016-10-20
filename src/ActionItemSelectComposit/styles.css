@@ -13,6 +13,7 @@
   text-overflow: ellipsis;
   display: block;
   white-space: nowrap;
+  flex:1;
 }
 
 .buttonIcon {
