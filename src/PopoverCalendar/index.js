@@ -9,14 +9,15 @@ import Spacer from '../Spacer';
 import styles from './styles.css';
 
 function PopoverCalendar(props) {
-  let arrowLeft = 'icon-star';
+  let arrowLeft = 'icon-arrow_back';
   let arrowRight = 'icon-arrow_forward';
+
 /*
   // Days in week constructor:
 
   structDays = function() {
-    const thisIsTheDays = [M,T,O,T,F,L];
-    let index = 1;
+    const thisIsTheDays = [M,T,O,T,F,L,S];
+    let index = 0;
     const Day = thisIsTheDays[index];
     const daysInWeek = thisIsTheDays.length;
 
@@ -39,13 +40,21 @@ function PopoverCalendar(props) {
         <ActionButton className={styles.icon}
           icon={arrowRight}
           />
-      </div> <br />
-      <Spacer size="double" />
-      <Wrapper size="slender"><ButtonCounter number="M" /></Wrapper>
-      <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
-      <Wrapper size="slender"><ButtonCounter number="O" /></Wrapper>
+      </div>
+      <div><Spacer size="double" /></div>
+      <div>
+        <Wrapper size="slender"><ButtonCounter number="M" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="O" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="F" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="L" /></Wrapper>
+        <Wrapper size="slender"><ButtonCounter number="S" /></Wrapper>
+      </div>
     </Wrapper>
   );
+
+  /* !!Just temporary made the bunch of buttonCounters manually, cause struct function will be have to be done different */
 }
 
 PopoverCalendar.propTypes = {
