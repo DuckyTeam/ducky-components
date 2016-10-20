@@ -4,6 +4,8 @@ import NotificationItem from './index';
 stories(module, NotificationItem, [
   'https://github.com/DuckyTeam/ducky-web/issues/667'
 ], {
+  buttonText: string('OK'),
+  buttonClicked: bool(),
   children: string('Component'),
   className: className(),
   dateTime: number(1467281653000),
