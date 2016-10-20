@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.text{
+  color: #263238;
+  margin-right: 16px;
+}
