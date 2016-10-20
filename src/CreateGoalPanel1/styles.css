@@ -1,9 +1,9 @@
 .outerWrapper {
-    width: 100%;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
 }
 
 .button {
@@ -11,15 +11,16 @@
   float: left;
   background-color: #fff;
 }
-.wrapper {
-    height: 48px;
-    border-top: 1px solid rgba(38,50,56,0.12);
-    display:flex;
-    align-items:center;
-    justify-content: flex-start;
-}
+
 .hr2{
   margin-right:16px;
   margin-left:68px;
   width:auto;
+}
+
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color: #fff;
 }
