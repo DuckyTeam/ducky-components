@@ -1,7 +1,7 @@
-import {stories, bool, oneOf, func, string, className} from '../duckyStories';
-import ToogleButtonWithLabel from './index';
+import {stories, bool, oneOf, string, className} from '../duckyStories';
+import ToggleButtonWithLabel from './index';
 
-stories(module, ToogleButtonWithLabel, [
+stories(module, ToggleButtonWithLabel, [
   'https://github.com/DuckyTeam/ducky-web/issues/1586'
 ], {
   checked: bool(),

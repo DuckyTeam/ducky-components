@@ -5,7 +5,7 @@ import SwitchToggleButton from '../SwitchToggleButton';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-function ToogleButtonWithLabel(props) {
+function ToggleButtonWithLabel(props) {
   return (
     <div className={classNames(styles.wrapper)}>
       <Typography
@@ -23,9 +23,9 @@ function ToogleButtonWithLabel(props) {
     </div>
   );
 }
-ToogleButtonWithLabel.propTypes = {
+ToggleButtonWithLabel.propTypes = {
   checked: PropTypes.bool,
   text: PropTypes.string,
   theme: PropTypes.string
 };
-export default ToogleButtonWithLabel;
+export default ToggleButtonWithLabel;

@@ -60,7 +60,7 @@ function CreateGoalPanel1(props) {
       <SectionFooterNew
         className={styles.footer}
         text={props.text}
-        type= {'SEF005'}
+        type={'SEF005'}
         />
     </div>
   );
