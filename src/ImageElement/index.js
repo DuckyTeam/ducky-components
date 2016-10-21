@@ -4,7 +4,7 @@ import {PropTypes} from 'react';
 function ImageElement(props) {
     const style = {
         backgroundImage: `url(${props.image})`,
-        backgroundSize: 'cover',
+        backgroundSize: props.backgroundSize,
         backgroundPosition: 'center center',
         backgroundRepeat: 'no-repeat',
         width: props.width,
