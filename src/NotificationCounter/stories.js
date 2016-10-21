@@ -1,4 +1,4 @@
-import {stories, className, func, oneOf, number, string, bool} from '../duckyStories';
+import {stories, number} from '../duckyStories';
 import NotificationItem from './index';
 
 stories(module, NotificationItem, [
