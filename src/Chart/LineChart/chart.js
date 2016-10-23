@@ -59,7 +59,7 @@ d3Chart.update = (el, state, props, formatting) => {
       let newData = [line.data[0], line.data[d3.max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
       newData[1].id = line.id;
-      return acc.concat(newData.slice(line.id !== state.memberOf));
+      return acc.concat(newData);
     }, []);
 
     const yourScore = state.data.reduce((acc, dp) => {
