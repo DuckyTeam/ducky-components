@@ -20,10 +20,10 @@ d3Chart.create = (el, props, state, formatting) => {
   utils.drawChartGroup(svg, props, styles.faceGroup);
   utils.drawChartGroup(svg, props, styles.leaderLine);
   utils.drawChartGroup(svg, props, styles.leaderGroup);
-  d3Chart.update(el, state, props, formatting);
+  d3Chart.update(el, state, props, formatting, true);
 };
 
-d3Chart.update = (el, state, props, formatting) => {
+d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     state.height = props.height - props.margin.top - props.margin.bottom;
     state.xAxisOffset = state.height + props.margin.top + 5;
     const speed = 300;
@@ -131,7 +131,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
     // Move axes
     utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
-    utils.selectYAxisGroup(svg).transition().duration(speed).delay(speed).call(yAxis);
+    utils.selectYAxisGroup(svg).transition().duration(speed).delay(dontAnimateIn ? 0 : speed).call(yAxis);
     utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
     utils.selectXAxisGroup(svg).selectAll('.tick')
         .classed(styles.startEndDates, (data, index) => {
@@ -142,13 +142,13 @@ d3Chart.update = (el, state, props, formatting) => {
     const labelGroup = utils.getChartGroup(svg, styles.labels);
     const goals = state.goals.slice(0, state.goals.reduce((acc, goal) => (goal <= maxValue) ? acc + 1 : acc, 0) + 1)
 
-    drawLabels(labelGroup, goals, yourScore, yScale, speed);
+    drawLabels(labelGroup, goals, yourScore, yScale, dontAnimateIn ? 0 : speed);
 
     //Draw faces
     const xValue = props.width - props.margin.left - props.margin.right * 2;
     const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
-    drawFaces(chartGroup, goals, yourScore, maxValue, yScale, xValue, speed);
+    drawFaces(chartGroup, goals, yourScore, maxValue, yScale, xValue, dontAnimateIn ? 0 : speed);
 
     // Draw leader line
     const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);
@@ -176,8 +176,8 @@ d3Chart.update = (el, state, props, formatting) => {
       });
 
     // Leader name and value
-    const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue + 40]);
-    const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue + 40]);
+    const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue]);
+    const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue]);
 
     const enteredLeaderLabel = leaderLabel.enter();
       enteredLeaderLabel.append('svg').attr({
@@ -196,7 +196,7 @@ d3Chart.update = (el, state, props, formatting) => {
 
       leaderLabel.transition().delay(speed).duration(speed).attr({
         x: 40,
-        y: d => yScale(d) - 4.5,
+        y: d => yScale(d) - 16,
         opacity: 1
       }).select('path')
         .attr({
@@ -223,7 +223,7 @@ d3Chart.update = (el, state, props, formatting) => {
         .attr({
           class: styles.leaderText,
           'font-size': '12px',
-          y: data => yScale(data) + 6,
+          y: data => yScale(data) - 5.5,
           x: 72,
           opacity: 1
         });
