@@ -19,11 +19,14 @@ function ChallengeMoreInfoModal(props) {
         />
       <div className={styles.modal}>
         <Wrapper className={styles.textWrapper}>
-          <Typography className={styles.header}
-            type="ingressStrong"
-            >
-            {props.heading}
-          </Typography>
+          {props.heading
+            ? <Typography className={styles.header}
+              type="ingressStrong"
+              >
+              {props.heading}
+            </Typography>
+            : null
+          }
           <Typography className={styles.content}
             type="bodyTextNormal"
             >
@@ -36,7 +39,7 @@ function ChallengeMoreInfoModal(props) {
       </div>
       <Footer cancelButtonText="Lukk"
         className={styles.footer}
-        okButtonText="NESTE"
+        okButtonText="Neste"
         />
     </Modal>
 );

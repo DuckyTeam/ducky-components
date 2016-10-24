@@ -27,16 +27,17 @@
 
 .caroStyle {
   width: 100%;
+  text-align: none;
   background-color: transparent;
   align-self: center;
 }
 
 .header {
   width: 100%;
-max-width: 368px;
-padding-bottom: 16px;
-
+  max-width: 368px;
+  padding-bottom: 16px;
 }
+
 .content {
   width: 100%;
   max-width: 368px;
