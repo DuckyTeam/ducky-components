@@ -22,14 +22,14 @@ function SettingsItemNotifications(props) {
         size={'standard'}
         >
         <ToggleButtonWithLabel
-          label="Sosiale varsler"
           checked={props.checked}
+          label={'Sosiale varsler'}
           />
         <Typography
           className={styles.notificationText}
           type="caption2Normal"
           >
-          For eksempel når noen liker eller kommenterer dine aktiviteter, eller begynner å følge deg.
+          {'For eksempel når noen liker eller kommenterer dine aktiviteter, eller begynner å følge deg.'}
         </Typography>
         <Spacer size={'large'} />
 
