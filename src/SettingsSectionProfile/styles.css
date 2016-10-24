@@ -1,0 +1,41 @@
+.wrapper {
+  background-color: #ffffff;
+}
+
+.content {
+  border-bottom: none;
+}
+.coverImage {
+  width:100%;
+  height: 180px;
+  /*background-image: [URL] */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  /* on_click -> open file browser for selecting cover image */
+}
+.coverImageChange {
+  width:100%;
+  height: 180px;
+  /*background-image: [URL]*/
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  /* on_click -> open file browser for selecting cover image */
+}
+.avy {
+  margin-top: -48px; /*(or otherwise make 50% overlap with cover image)*/
+border: 2px solid #fff;
+cursor: pointer;
+/*on_click -> open file browser for selecting profile image */
+}
+.avyChange {
+  /*Centered horizontally and vertically over the avatar image
+icon_name: duckycon-photo_camera */
+background-color: rgba(38, 50, 56, 0.4);
+background-color:hover rgba(38, 50, 56, 0.7);
+cursor: pointer;
+/*on_click -> open file browser for selecting profile image */
+}

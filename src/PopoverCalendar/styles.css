@@ -1,6 +1,6 @@
 .wrapper {
-    display: inline-flex;
-    background-color: gray;
+    //display: inline-flex;
+    //background-color: gray;
     /* temp bg color just for viewing purposes*/
     /*cursor: pointer; */
 }
@@ -10,22 +10,21 @@
 }
 */
 .wrapper > div {
-  display: table-row;
+  //display: table-row;
   //background-color: blue;
 }
-.actionButton {
-  color:  white;
-  background-color: white;
+.ActionButton > div{
+  color:  red;
+  background-color: red;
 }
 .icon > span {
-  color: #000;
-  background-color: white;
-  /*background-clip: content-box; */
+  border-radius: 50%;
+  background-color: gray;
+
 }
 .icon > span:hover {
   color: #d2d2d2;
-  /*background-attachment: #d2d2d2; */
-}
+  }
 .month  {
   color: #263238;
   font-weight:  normal;
@@ -36,13 +35,24 @@
   font-weight:  normal;
   padding: 8px 0;
 }
-.bc > span{
-  color:#607d8b;
+.bc span{
+  color:#000;
+  border-radius: 50%;
   background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
 
 }
 .bc > span:hover{
-  color:#dadada;
-  background-color: transparent;
+  color:#000;
+  border-radius: 50%;
+  background-color: gray;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
 }
