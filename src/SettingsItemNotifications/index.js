@@ -18,12 +18,12 @@ function SettingsItemNotifications(props) {
       onClick={props.onClick}
       value={'tmp'}
       >
-      <Wrapper
+      <Wrapper className={styles.wrapper}
         size={'standard'}
         >
         <ToggleButtonWithLabel
+          checked={props.checkedSocialWarnings}
           label="Sosiale varsler"
-          checked={props.checked}
           />
         <Typography
           className={styles.notificationText}
@@ -32,14 +32,42 @@ function SettingsItemNotifications(props) {
           For eksempel når noen liker eller kommenterer dine aktiviteter, eller begynner å følge deg.
         </Typography>
         <Spacer size={'large'} />
-
+        <ToggleButtonWithLabel
+          checked={props.checkedChallenges}
+          label="Utfordringer"
+          />
+        <Typography
+          className={styles.notificationText}
+          type="caption2Normal"
+          >
+          Oppdateringer om fremdrift på utfordringer du deltar i, og når nye utfordringer er tilgjengelige.
+        </Typography>
+        <Spacer size={'large'} />
+        <ToggleButtonWithLabel
+          checked={props.checkedPersonalGoals}
+          label="Personlige mål"
+          />
+        <Typography
+          className={styles.notificationText}
+          type="caption2Normal"
+          >
+          Oppdateringer om fremdrift på dine personlige mål.
+        </Typography>
+        <Spacer size={'large'} />
+        <ToggleButtonWithLabel
+          checked={props.checkedNewsletter}
+          label="Motta nyhetsbrev"
+          />
       </Wrapper>
     </SettingsItem>
   );
 }
 
 SettingsItemNotifications.propTypes = {
-  checked: PropTypes.bool,
+  checkedSocialWarnings: PropTypes.bool,
+  checkedChallenges: PropTypes.bool,
+  checkedPersonalGoals: PropTypes.bool,
+  checkedNewsletter: PropTypes.bool,
   expanded: PropTypes.bool,
   inactive: PropTypes.bool,
   onClick: PropTypes.func,
