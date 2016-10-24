@@ -55,12 +55,12 @@ stories(module, LineChart, [
           id: 15
       }
     ]),
-    endDate: json(moment('23-October-2016')),
+    endDate: json(moment('25-May-2016')),
     goals: json([200, 400, 600, 800]),
     graphID: json(1),
     height: oneOf("300px", "400px"),
     memberOf: json(12),
     selectedId: json(12),
-    startDate: json(moment('18-October-2016')),
+    startDate: json(moment('05-May-2016')),
     onClick: json(null),
 }, 'Chart/LineChart');
