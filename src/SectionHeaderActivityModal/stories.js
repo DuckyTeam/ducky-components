@@ -6,6 +6,7 @@ stories(module, SectionHeaderActivityModal, [
 ], {
   className: className(),
   favorite: bool(),
+  handleButtonOnClick: func(),
   onClick: func(),
   onIconClose: func()
 });
