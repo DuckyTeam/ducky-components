@@ -4,11 +4,12 @@
   flex-direction: column;
   background-color: #ffffff;
 }
-.hr{
+
+.hr {
   background-color: #f4f7f9;
 }
 
-.div{
-background-color: #f4f7f9;
-text-align: center;
+.div {
+  background-color: #f4f7f9;
+  text-align: center;
 }

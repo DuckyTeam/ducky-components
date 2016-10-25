@@ -17,8 +17,8 @@ function SettingsSectionAccount(props) {
         title={props.title}
         />
       <SettingsItemEmail
-        OnClick={props.emailOnClick}
         email={props.email}
+        onClick={props.onEmailClick}
         />
       <SettingsItemPassword
         confirmNewPassword={props.confirmNewPassword}
@@ -62,7 +62,6 @@ SettingsSectionAccount.propTypes = {
   confirmNewPassword: PropTypes.string,
   date: PropTypes.number,
   email: PropTypes.string,
-  emailOnClick: PropTypes.func,
   expanded: PropTypes.bool,
   inactive: PropTypes.bool,
   newPassword: PropTypes.string,
@@ -71,6 +70,7 @@ SettingsSectionAccount.propTypes = {
   onChange: PropTypes.func,
   onClickPassword: PropTypes.func,
   onCloseClick: PropTypes.func,
+  onEmailClick: PropTypes.func,
   onFocus: PropTypes.func,
   onSaveButtonClicked: PropTypes.func,
   text: PropTypes.string,
