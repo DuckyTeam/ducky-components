@@ -1,0 +1,26 @@
+.outerWrapper {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.button {
+  margin-right: 8px;
+  float: left;
+  background-color: #fff;
+}
+
+.hr2{
+  margin-right:16px;
+  margin-left:68px;
+  width:auto;
+}
+
+.footer{
+  position:absolute;
+  bottom:0;
+  width:100%;
+  background-color: #fff;
+}

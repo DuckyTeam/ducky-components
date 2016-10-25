@@ -8,7 +8,10 @@ import Counter from '../Counter';
 
 function LabelDisplay(props) {
     return (
-        <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
+        <div
+          className={classNames(styles.wrapper, {[props.className]: props.className})}
+          onClick={props.onClick}
+          >
             <Typography
                 className={classNames(styles.label, {
                     [styles.labelDarkTheme]: props.theme === 'dark'
@@ -47,6 +50,7 @@ LabelDisplay.propTypes = {
     icon: PropTypes.string,
     iconColor: PropTypes.string,
     label: PropTypes.string,
+    onClick: PropTypes.func,
     theme: PropTypes.oneOf(['dark', 'light']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };

@@ -5,6 +5,7 @@ const IMAGE_URL = 'http://rocketpost.com/media/458905753-e1404928920315.jpg';
 stories(module, ImageElement, [
   'https://github.com/DuckyTeam/ducky-web/issues/617'
 ], {
+  backgroundSize: oneOf('cover', 'contain'),
   className: className(),
   height: string('150'),
   image: oneOf(IMAGE_URL),

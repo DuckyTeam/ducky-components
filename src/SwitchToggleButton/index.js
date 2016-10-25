@@ -10,7 +10,7 @@ function SwitchToggleButton(props) {
                 [props.className]: props.className
             })}
         >
-            <input checked={props.checked ? "checked" : null}
+            <input checked={props.checked}
                 type="checkbox"
             />
             <div className={classNames(styles.slider, {

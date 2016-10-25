@@ -1,4 +1,4 @@
-import {stories, oneOf, string, number, className} from '../duckyStories';
+import {stories, oneOf, string, number, func, className} from '../duckyStories';
 import LabelDisplay from './index';
 
 stories(module, LabelDisplay, [
@@ -8,6 +8,7 @@ stories(module, LabelDisplay, [
   icon: string('icon-brightness_high'),
   iconColor: string('red'),
   label: string('Total innsparing'),
+  onClick: func(),
   theme: oneOf('light', 'dark'),
   value: number(456)
 });

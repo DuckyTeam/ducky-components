@@ -18,7 +18,7 @@ function LabelPair(props) {
             content={props.co2}
             icon={'icon-leaf'}
             onClick={props.onClick}
-            type={"caption2Strong"}
+            typographyType={"caption2Strong"}
             />
         </span>
       </span>
@@ -32,14 +32,14 @@ function LabelPair(props) {
           content={props.points}
           icon={'icon-brightness_high'}
           onClick={props.onClick}
-          type={"caption2Strong"}
+          typographyType={"caption2Strong"}
           />*/}
-        <span className={styles.pad}>
+        <span /*className={styles.pad}*/>
           <LabelSmall
             content={props.co2}
             icon={'icon-leaf'}
             onClick={props.onClick}
-            type={"caption2Strong"}
+            typographyType={"caption2Strong"}
             />
         </span>
       </span>
@@ -59,7 +59,7 @@ function LabelPair(props) {
             content={props.points}
             icon={'icon-brightness_high'}
             onClick={props.onClick}
-            type={"caption2Strong"}
+            typographyType={"caption2Strong"}
             />
         </span>*/}
       </span>
@@ -72,7 +72,7 @@ function LabelPair(props) {
         content={props.points}
         icon={'icon-brightness_high'}
         onClick={props.onClick}
-        type={"caption2Strong"}
+        typographyType={"caption2Strong"}
         />
     </span>
   );

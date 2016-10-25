@@ -18,10 +18,10 @@ d3Chart.create = (el, props, state) => {
   utils.drawChartGroup(svg, props, styles.faceGroup);
   utils.drawChartGroup(svg, props, styles.triangleIndicator);
 
-  d3Chart.update(el, state, props);
+  d3Chart.update(el, state, props, true);
 };
 
-d3Chart.update = (el, state, props) => {
+d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   //A lot of calculations, functions and definitions for the chart
   state.height = props.height - props.margin.top - props.margin.bottom;
@@ -90,7 +90,7 @@ d3Chart.update = (el, state, props) => {
   utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
 
   // Transition in new axis
-  utils.selectYAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(yAxis);
+  utils.selectYAxisGroup(svg).transition().duration(dontAnimateIn ? 0 : state.speed).delay(state.speed).call(yAxis);
   if (!state.isMobile) utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
   utils.selectXAxisGroup(svg).selectAll('.tick')
     .attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null)
@@ -106,13 +106,13 @@ d3Chart.update = (el, state, props) => {
   const labelGroup = utils.getChartGroup(svg, styles.labels);
   const goals = state.goals.slice(0, state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0) + 1)
 
-  drawLabels(labelGroup, state.goals, state.yourScore, yScale, state.speed)
+  drawLabels(labelGroup, state.goals, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed)
 
   //Draw faces
   const xValue = props.width - props.margin.left - props.margin.right * 2;
   const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
-  drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, state.speed);
+  drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, dontAnimateIn ? 0 : state.speed);
 };
 
 const drawBars = (svg, state, props, xScale, yScale) => {
