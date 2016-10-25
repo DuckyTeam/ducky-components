@@ -1,12 +1,10 @@
 import React from 'react';
-
 import ActionButton from '../ActionButton';
 import Avatar from '../Avatar';
 import Spacer from '../Spacer';
 import Icon from '../IconAvaWrapper';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
-
 import styles from './styles.css';
 
 const PropTypes = React.PropTypes;
@@ -26,19 +24,17 @@ function SettingsSectionOne(props) {
           size={'main'}
           />
         <Avatar
-          size={'display2'}
-          image={props.profileImgUrl}
           className={styles.duckyAvatar}
-          onClick={props.changeProfileImage}
+          image={props.profileImgUrl}
+          onClick={props.onProfileImageChange}
+          size={'display2'}
           />
       </div>
-
-
       <div className={styles.editIconWrapper}>
         <Icon
           className={styles.editIcon}
           icon={"icon-mode_edit"}
-          onClick={props.editMode}
+          onClick={props.onEditModeClick}
           />
       </div>
       <Wrapper>
@@ -62,11 +58,11 @@ function SettingsSectionOne(props) {
 
 SettingsSectionOne.propTypes = {
   backgroundImgUrl: PropTypes.string,
-  changeProfileImage: PropTypes.func,
   description: PropTypes.string,
-  editMode: PropTypes.func,
   name: PropTypes.string,
   onCoverImageChange: PropTypes.func,
+  onEditModeClick: PropTypes.func,
+  onProfileImageChange: PropTypes.func,
   profileImgUrl: PropTypes.string
 };
 

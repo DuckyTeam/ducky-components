@@ -11,7 +11,7 @@ function SectionFooterCancelOK(props) {
         className={styles.button}
         onClick={props.onCancel}
         >
-        AVBRYT
+        {props.cancelButtonText || 'AVBRYT'}
       </Button>
       <ButtonRaised
         className={styles.raisedButton}
@@ -25,6 +25,7 @@ function SectionFooterCancelOK(props) {
 }
 
 SectionFooterCancelOK.propTypes = {
+  cancelButtonText: React.PropTypes.string,
   className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   okButtonText: React.PropTypes.string,

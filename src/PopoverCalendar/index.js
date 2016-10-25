@@ -9,8 +9,8 @@ import Spacer from '../Spacer';
 import styles from './styles.css';
 
 function PopoverCalendar(props) {
-  let arrowLeft = 'icon-arrow_back';
-  let arrowRight = 'icon-arrow_forward';
+  const arrowLeft = 'icon-arrow_back';
+  const arrowRight = 'icon-arrow_forward';
 
 /*
   // Days in week constructor:
@@ -64,7 +64,7 @@ PopoverCalendar.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
   color: React.PropTypes.string,
-  month: React.PropTypes.oneOf(),
+  month: React.PropTypes.string,
   onClick: React.PropTypes.func,
   // style: React.PropTypes.shape({}),
   structDays: React.PropTypes.func,
