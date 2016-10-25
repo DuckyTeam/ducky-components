@@ -15,7 +15,6 @@ stories(module, SettingsItemPassword, [
   onClick: func(),
   onCloseClick: func(),
   onFocus: func(),
-  onRadioButtonClicked: func(),
   onSaveButtonClicked: func(),
   textAreaLength: number(50),
   textSize: oneOf('default', 'large', 'huge')

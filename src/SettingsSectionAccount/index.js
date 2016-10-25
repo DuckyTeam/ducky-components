@@ -17,11 +17,10 @@ function SettingsSectionAccount(props) {
         title={props.title}
         />
       <SettingsItemEmail
+        OnClick={props.emailOnClick}
         email={props.email}
-        emailOnClick={props.emailOnClick}
         />
       <SettingsItemPassword
-        className={classNames({[props.className]: props.className})}
         confirmNewPassword={props.confirmNewPassword}
         expanded={props.expanded}
         inactive={props.inactive}
@@ -29,28 +28,27 @@ function SettingsSectionAccount(props) {
         oldPassword={props.oldPassword}
         onBlur={props.onBlur}
         onChange={props.onChange}
-        onClick={props.onClick}
+        onClick={props.onClickPassword}
         onCloseClick={props.onCloseClick}
         onFocus={props.onFocus}
-        onRadioButtonClicked={props.onRadioButtonClicked}
         onSaveButtonClicked={props.onSaveButtonClicked}
         size={props.textSize}
         textAreaLength={props.textAreaLength}
         textSize={props.textSize}
         />
-      <Wrapper className={classNames(styles.wrapper,
-            {[props.className]: props.className})}
-        size={'standard'}
-        >
-        <Typography
-          className={styles.text}
-          type="caption2Normal"
+      <div className={classNames(styles.div,
+          {[props.className]: props.className})}>
+        <Wrapper
+          size={'standard'}
           >
+          <Typography
+            type="caption2Normal"
+            >
             {'Aktiv Siden '}
             {moment(props.date).format("MMMM YYYY")}
-        </Typography>
-      </Wrapper>
-
+          </Typography>
+        </Wrapper>
+      </div>
       <Spacer
         className={styles.hr}
         size={'double'}
@@ -60,7 +58,6 @@ function SettingsSectionAccount(props) {
 }
 
 SettingsSectionAccount.propTypes = {
-  children: PropTypes.string,
   className: PropTypes.string,
   confirmNewPassword: PropTypes.string,
   date: PropTypes.number,
@@ -72,16 +69,14 @@ SettingsSectionAccount.propTypes = {
   oldPassword: PropTypes.string,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
-  onClick: PropTypes.func,
+  onClickPassword: PropTypes.func,
   onCloseClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onRadioButtonClicked: PropTypes.func,
   onSaveButtonClicked: PropTypes.func,
   text: PropTypes.string,
   textAreaLength: PropTypes.number,
   textSize: PropTypes.string,
   theme: PropTypes.string,
-  title: PropTypes.string,
-  type: PropTypes.string
+  title: PropTypes.string
 };
 export default SettingsSectionAccount;

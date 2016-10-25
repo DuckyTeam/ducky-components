@@ -4,32 +4,11 @@
   flex-direction: column;
   background-color: #ffffff;
 }
-
-.button {
-  margin-right: 8px;
-  float: left;
-  background-color: #fff;
-}
-
 .hr{
   background-color: #f4f7f9;
 }
 
-.footer{
-  position:absolute;
-  bottom:0;
-  width:100%;
-  background-color: #fff;
-}
-.wrapper {
-display: flex;
-justify-content: center;
+.div{
 background-color: #f4f7f9;
-
-}
-
-.text {
-    background-color: #f4f7f9;
-    text-align: center;
-    color: #607D8B;
+text-align: center;
 }
