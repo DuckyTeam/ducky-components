@@ -1,9 +1,11 @@
-import {stories, className, func} from '../duckyStories';
+import {stories, className, string, func} from '../duckyStories';
 import SettingsSectionProfile from './index';
 
 stories(module, SettingsSectionProfile, [
   'https://github.com/DuckyTeam/ducky-web/issues/1572'
 ], {
-  className: className()
+  avyURL: string('https://static.esea.net/global/images/teams/74589.0.jpg'),
+  className: className(),
+  coverImageURL: string('https://a2ua.com/sea/sea-010.jpg')
 }
 );
