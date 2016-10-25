@@ -79,7 +79,6 @@ SettingsItemPassword.propTypes = {
   onClick: PropTypes.func,
   onCloseClick: PropTypes.func,
   onFocus: PropTypes.func,
-  onRadioButtonClicked: PropTypes.func,
   onSaveButtonClicked: PropTypes.func,
   textAreaLength: PropTypes.number,
   textSize: PropTypes.oneOf(['default', 'large', 'huge'])
