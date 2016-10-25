@@ -10,22 +10,27 @@ function LabelNumberDisplay2(props) {
   return (
     <Tooltip
       placement="top"
-      text={props.text}
+      text={props.tooltipText}
       >
-      <div className={classNames({[props.className]: props.className})}>
+      <div
+        className={classNames({[props.className]: props.className})}
+        onClick={props.onClick}
+        >
         <div className={styles.wrapper}>
           <LabelTitle
+            animation={props.animation}
             className={styles.labelTitle}
+            decimals={props.decimals}
             icon={props.icon}
+            number={props.number}
             size="small"
-            text={props.title}
             />
         </div>
         <Typography
           className={styles.text}
           type="caption2Normal"
           >
-          {props.children}
+          {props.caption}
         </Typography>
       </div>
     </Tooltip>
@@ -33,11 +38,14 @@ function LabelNumberDisplay2(props) {
 }
 
 LabelNumberDisplay2.propTypes = {
-  children: PropTypes.node,
+  animation: PropTypes.bool,
+  caption: PropTypes.string,
   className: React.PropTypes.string,
+  decimals: PropTypes.number,
   icon: React.PropTypes.string,
-  text: React.PropTypes.node,
-  title: React.PropTypes.node
+  number: React.PropTypes.node,
+  onClick: PropTypes.func,
+  tooltipText: React.PropTypes.node
 };
 
 export default LabelNumberDisplay2;

@@ -12,7 +12,7 @@ class SectionFooterCancelOK extends React.Component {
           className={styles.button}
           onClick={this.props.onCancel}
           >
-          AVBRYT
+          {this.props.cancelButtonText || 'AVBRYT'}
         </Button>
         <ButtonRaised
           className={styles.raisedButton}
@@ -30,6 +30,7 @@ SectionFooterCancelOK.propTypes = {
   className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   okButtonText: React.PropTypes.string,
+  cancelButtonText: React.PropTypes.string,
   onCancel: React.PropTypes.func,
   onClick: React.PropTypes.func
 };

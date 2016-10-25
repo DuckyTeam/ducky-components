@@ -6,7 +6,7 @@ import styles from './styles.css';
 
 function ShowActivitySubHeader(props) {
   return (
-    <div className={classNames(styles.wrapper, {[this.props.className]: this.props.className})}>
+    <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Wrapper
         size="side-bottom"
         >

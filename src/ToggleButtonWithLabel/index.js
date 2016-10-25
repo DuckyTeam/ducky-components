@@ -14,7 +14,7 @@ function ToggleButtonWithLabel(props) {
         })}
         type="bodyTextNormal"
         >
-          {props.text}
+          {props.label}
       </Typography>
       <SwitchToggleButton
         checked={props.checked}
@@ -25,7 +25,7 @@ function ToggleButtonWithLabel(props) {
 }
 ToggleButtonWithLabel.propTypes = {
   checked: PropTypes.bool,
-  text: PropTypes.string,
+  label: PropTypes.string,
   theme: PropTypes.string
 };
 export default ToggleButtonWithLabel;

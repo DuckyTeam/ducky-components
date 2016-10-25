@@ -1,0 +1,12 @@
+.nCounter {
+  background-color: #ef5f8a;
+  color: #fff;
+  padding: 0 3px;
+  border-radius: 8px;
+  height: 16px;
+  min-width: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}

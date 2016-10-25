@@ -6,6 +6,6 @@ stories(module, ToggleButtonWithLabel, [
 ], {
   checked: bool(),
   className: className(),
-  text: string('Label'),
+  label: string('Label'),
   theme: oneOf('light', 'dark')
 });
