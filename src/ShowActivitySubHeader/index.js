@@ -11,15 +11,15 @@ function ShowActivitySubHeader(props) {
         size="side-bottom"
         >
         <LabelSmall
-          icon="icon-favorite_border"
+          icon={props.userLikes ? 'icon-favorite' : 'icon-favorite_border'}
           number={props.favNumber}
           />
         <LabelSmall
-          icon="icon-chat_bubble_outline"
+          icon={props.userCommented ? 'icon-chat_bubble' : 'icon-chat_bubble_outline'}
           number={props.commentNumber}
           />
         <LabelSmall
-          icon="icon-turned_in_not"
+          icon={props.userBookmarked ? 'icon-turned_in' : 'icon_turned_in_not'}
           number={props.bookmarkNumber}
           />
         <LabelSmall
@@ -33,9 +33,13 @@ function ShowActivitySubHeader(props) {
 
 ShowActivitySubHeader.propTypes = {
   bookmarkNumber: React.PropTypes.string,
+  className: React.PropTypes.string,
   commentNumber: React.PropTypes.string,
   favNumber: React.PropTypes.string,
-  shareNumber: React.PropTypes.string
+  shareNumber: React.PropTypes.string,
+  userBookmarked: React.PropTypes.bool,
+  userCommented: React.PropTypes.bool,
+  userLikes: React.PropTypes.bool
 };
 
 export default ShowActivitySubHeader;

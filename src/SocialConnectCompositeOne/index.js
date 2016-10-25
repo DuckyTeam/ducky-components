@@ -9,7 +9,9 @@ function SocialConnectCompositeOne(props) {
       <Typography
         className={styles.socialConnectText}
         type={'caption2Normal'}
-        >{'Importer dine kontakter for å finne personer å følge på Ducky. Vi lagrer ikke din data, og poster aldri noe uten din tilatelse'}</Typography>
+        >
+        {'Importer dine kontakter for å finne personer å følge på Ducky. Vi lagrer ikke din data, og poster aldri noe uten din tilatelse'}
+      </Typography>
       <div className={styles.socialConnectButton} >
         <SocialConnect
           connected={props.connectedFacebook}

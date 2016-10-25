@@ -1,4 +1,4 @@
-import {stories, string} from '../duckyStories';
+import {stories, string, bool} from '../duckyStories';
 import ShowActivitySubHeader from './index';
 
 stories(module, ShowActivitySubHeader, [
@@ -7,5 +7,7 @@ stories(module, ShowActivitySubHeader, [
   bookmarkNumber: string(),
   commentNumber: string(),
   favNumber: string(),
-  shareNumber: string()
+  shareNumber: string(),
+  userBookmarked: bool(),
+  userLikes: bool()
 });
