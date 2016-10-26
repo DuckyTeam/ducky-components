@@ -8,6 +8,7 @@ stories(module, ChallengeMetaJoin, [
   disabled: bool(),
   endDate: number(1477401110598),
   joined: bool(),
+  noAccess: bool(true),
   onClick: func(),
   startDate: number(1475241124937)
 });
