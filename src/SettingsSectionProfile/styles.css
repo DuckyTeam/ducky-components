@@ -64,8 +64,3 @@
 border: 2px solid #fff;
 cursor: pointer;
 }
-.avyChange {
-background-color: rgba(38, 50, 56, 0.4);
-background-color:hover rgba(38, 50, 56, 0.7);
-cursor: pointer;
-}
