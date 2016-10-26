@@ -1,4 +1,4 @@
-import Button from '../Button';
+import ButtonRaised from '../ButtonRaised';
 import ChallengeMeta7 from '../ChallengeMeta7';
 import classNames from 'classnames';
 import React from 'react';
@@ -36,7 +36,7 @@ function ChallengeIntroModal3(props) {
           isYourteam={props.isYourteam}
           type="bodyTextNormal"
           >
-          "Du deltar nå på denne utfordringen sammen med {props.memberCount} andre personer!"
+          {`Du deltar nå på denne utfordringen sammen med ${props.memberCount} andre personer!`}
         </Typography>
         <ChallengeMeta7
           className={classNames(styles.challengeIntro7)}
@@ -47,13 +47,13 @@ function ChallengeIntroModal3(props) {
           name={props.name}
           theme={props.theme}
           />
-        <Button
+        <ButtonRaised
           className={classNames(styles.button)}
           onClose={props.onClick}
           type={props.type}
           >
           {'OK'}
-        </Button>
+        </ButtonRaised>
       </Wrapper>
     </Modal>
   );

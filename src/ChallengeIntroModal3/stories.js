@@ -8,10 +8,11 @@ stories(module, ChallengeIntroModal3, [
   className: className(),
   onCancel: func(),
   show: bool(),
-  icon: string(),
+  icon: string("icon-leaf"),
+  img: string("http://www.authormedia.com/wp-content/uploads/2012/03/bigstock_Shocked_Computer_Nerd_1520709.jpg"),
   isLeader: bool(),
   isYourteam: bool(),
   memberCount: number(12),
-  name: string(),
+  name: string("Ducky Duck"),
   theme: string()
 });
