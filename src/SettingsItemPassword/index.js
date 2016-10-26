@@ -13,16 +13,16 @@ function SettingsItemPassword(props) {
     <SettingsItem
       className={classNames({[props.className]: props.className})}
       expanded={props.expanded}
-      handleCloseClick={props.onCloseClick}
-      handleSaveButtonClicked={props.onSaveButtonClicked}
       inactive={props.inactive}
       label={'Passord'}
       onClick={props.onClick}
+      onCloseClick={props.onCloseClick}
+      onSaveButtonClicked={props.onSaveButtonClicked}
       value={'Endre'}
-    >
+      >
       <Wrapper className={styles.passordWrapper}
         size={'standard'}
-      >
+        >
         <TextAreaLarge
           errorMessage={'Skriv inn riktig passord'}
           label={'Gammelt passord'}
@@ -33,7 +33,7 @@ function SettingsItemPassword(props) {
           placeholder={'Gammelt passord'}
           size={props.textSize}
           value={props.oldPassword}
-        />
+          />
         <Spacer size={'double'} />
         <TextAreaLarge
           errorMessage={'Skriv inn et gyldig passord'}
@@ -45,10 +45,10 @@ function SettingsItemPassword(props) {
           placeholder={'Nytt passord'}
           size={props.textSize}
           value={props.newPassword}
-        />
+          />
         <Typography className={styles.msgText}
           type="caption2Normal"
-        >
+          >
           {'Passordet bør inneholdet minst 8 tegn.'}
         </Typography>
         <TextAreaLarge
@@ -61,7 +61,7 @@ function SettingsItemPassword(props) {
           placeholder={'Gjenta nytt passord'}
           size={props.textSize}
           value={props.confirmNewPassword}
-        />
+          />
       </Wrapper>
     </SettingsItem>
   );

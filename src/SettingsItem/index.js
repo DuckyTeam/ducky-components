@@ -15,30 +15,30 @@ function SettingsItem(props) {
         <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
           onClick={props.onClick}
           size={'standard'}
-        >
+          >
           <div className={styles.compositeExpanded}>
             <Typography
               className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
               type={'bodyTextNormal'}
-            >
+              >
               {props.label}
             </Typography>
             <ButtonRaised
               className={styles.saveButton}
-              onClick={styles.handleSaveButtonClicked}
-            >
+              onClick={styles.onSaveButtonClicked}
+              >
               {'LAGRE'}
             </ButtonRaised>
             <IconAvaWrapper
               className={styles.closeButton}
               icon={'icon-close'}
-              onClick={props.handleCloseClick}
-            />
+              onClick={props.onCloseClick}
+              />
           </div>
         </Wrapper>
         <Wrapper className={styles.expandedContent}
           size={'standard'}
-        >
+          >
           {props.children}
         </Wrapper>
         <Spacer size={'double'} />
@@ -51,22 +51,20 @@ function SettingsItem(props) {
           <Typography
             className={props.inactive ? styles.typoTitleInactive : styles.typoTitle}
             type={'bodyTextNormal'}
-          >
+            >
             {props.label}
           </Typography>
           {props.value
-            ?
-            <Typography
+            ? <Typography
               className={props.inactive ? styles.typoContentInactive : styles.typoContent}
               size={'bodyTextStrong'}
-            >
+              >
               {props.value}
             </Typography>
-            :
-            <Typography
+            : <Typography
               className={props.inactive ? styles.noValueInactive : styles.noValue}
               size={'bodyTextStrong'}
-            >
+              >
               {'Legg til'}
             </Typography>
         }
@@ -79,11 +77,11 @@ SettingsItem.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   expanded: PropTypes.bool,
-  handleCloseClick: PropTypes.func,
-  handleSaveButtonClicked: PropTypes.func,
   inactive: PropTypes.bool,
   label: PropTypes.string,
   onClick: PropTypes.func,
+  onCloseClick: PropTypes.func,
+  onSaveButtonClicked: PropTypes.func,
   value: PropTypes.string
 };
 
