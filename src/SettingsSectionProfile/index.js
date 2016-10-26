@@ -24,27 +24,31 @@ function SettingsSectionProfile(props) {
   return (
     <div className={classNames(styles.outerWrapper,
       {[props.className]: props.className})}>
-      <div className={styles.coverImage}
-        style={CoverImgStyle}
-        >
-        <ActionButton className={styles.button1}
-          icon="icon-photo_camera"
-          onClick={props.handleCovImgClick}
-          size="standard"
-          />
+      <div className={styles.outerWrappertop}>
+        <div className={styles.coverImage}
+          style={CoverImgStyle}
+          >
+          <ActionButton className={styles.button1}
+            icon="icon-photo_camera"
+            onClick={props.handleCovImgClick}
+            size="standard"
+            />
+        </div>
+        <Wrapper>
+          <ActionButton className={styles.button2}
+            icon="icon-photo_camera"
+            onClick={props.handleAvyImgClick}
+            size="standard"
+            />
+          <Avatar className={styles.avy}
+            image={props.avyURL}
+            size="display2"
+            />
+        </Wrapper>
       </div>
-      <Wrapper className={styles.Wrapper}>
-        <ActionButton className={styles.button2}
-          icon="icon-photo_camera"
-          onClick={props.handleAvyImgClick}
-          size="standard"
-          />
-        <Avatar className={styles.avy}
-          image={props.avyURL}
-          size="display2"
-          />
-      </Wrapper>
-      <Wrapper>
+      <Wrapper className={styles.test3}
+        size="standard"
+        >
         <TextArea errorMessage={props.textAerrorMessage1}
           label={props.textAlabel1}
           maxLength={props.textAmaxLength1}
@@ -53,7 +57,7 @@ function SettingsSectionProfile(props) {
           value={props.textAvalue1}
           />
       </Wrapper>
-      <Wrapper>
+      <Wrapper size="side-bottom">
         <TextArea errorMessage={props.textAerrorMessage2}
           label={props.textAlabel2}
           maxLength={props.textAmaxLength2}
@@ -62,7 +66,7 @@ function SettingsSectionProfile(props) {
           value={props.textAvalue2}
           />
       </Wrapper>
-      <Wrapper>
+      <Wrapper size="standard">
         <TextArea errorMessage={props.textAerrorMessage3}
           label={props.textAlabel3}
           maxLength={props.textAmaxLength3}
@@ -106,8 +110,8 @@ SettingsSectionProfile.propTypes = {
   textAsize1: PropTypes.oneOf(['default', 'large', 'huge']),
   textAsize2: PropTypes.oneOf(['default', 'large', 'huge']),
   textAsize3: PropTypes.oneOf(['default', 'large', 'huge']),
-  textAvalue1: PropTypes.node,
-  textAvalue2: PropTypes.node,
+  textAvalue1: PropTypes.node.isRequired,
+  textAvalue2: PropTypes.node.isRequired,
   textAvalue3: PropTypes.node
 
 };
