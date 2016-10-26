@@ -28,11 +28,11 @@ class SettingsItemNotifications extends React.Component {
     return (
       <SettingsItem
         expanded={this.props.expanded}
-        handleCloseClick={this.props.onCloseClick}
-        handleSaveButtonClicked={this.props.onSaveButtonClick}
         inactive={this.props.inactive}
         label={'Nivå'}
         onClick={this.props.onClick}
+        onCloseClick={this.props.onCloseClick}
+        onSaveButtonClicked={this.props.onSaveButtonClick}
         value={this.getNotificationValue(this.props.notificationValue)}
         >
         <Wrapper className={styles.wrapper}

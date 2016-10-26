@@ -6,7 +6,6 @@ stories(module, SettingsItemLocation, [
 ], {
   className: className(),
   expanded: bool(),
-  handleSaveButtonClicked: func(),
   inactive: bool(),
   isFilterPopupOpen: bool(),
   onClick: func(),
