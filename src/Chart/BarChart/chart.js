@@ -136,7 +136,7 @@ const drawBars = (svg, state, props, xScale, yScale) => {
     }
     return '';
   };
-  const getClasses = data => `${styles.rectangleGroup} ${data.id === state.memberOf ? styles.member : null}
+  const getClasses = data => `${state.isMobile ? styles.rectangleGroupMobile : styles.rectangleGroup} ${data.id === state.memberOf ? styles.member : null}
                                 ${data.id === state.leaderId ? styles.leader : null} ${data.id === state.selectedId ? styles.selected : null}`;
 
   const getFontSize = data => {
