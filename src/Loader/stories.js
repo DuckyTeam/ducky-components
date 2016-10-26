@@ -6,6 +6,7 @@ stories(module, Loader, [
 ], {
   children: string('Component'),
   className: className(),
-  hide: bool(),
+  hide: bool(false),
+  image: bool(),
   size: oneOf('mini', 'small', 'standard', 'large1')
 });

@@ -2,15 +2,13 @@ import React from 'react';
 import chart from './chart';
 import Chart from './../index';
 
-class BarChart extends React.Component {
-  render() {
-    return (
-      <Chart
-        chart={chart}
-        {...this.props}
+function BarChart(props) {
+  return (
+    <Chart
+      chart={chart}
+      {...props}
       />
-    );
-  }
+  );
 }
 
 BarChart.propTypes = {

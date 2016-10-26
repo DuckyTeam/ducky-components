@@ -2,10 +2,8 @@ import React from 'react';
 import chart from './chart';
 import Chart from './../index';
 
-class LineChart extends React.Component {
-  render() {
-    return <Chart chart={chart} {...this.props} />
-  }
+function LineChart(props) {
+  return <Chart chart={chart} {...props} />;
 }
 
 LineChart.PropTypes = {
@@ -26,6 +24,6 @@ LineChart.PropTypes = {
       value: React.PropTypes.number
     }))
   }))
-}
+};
 
 export default LineChart;

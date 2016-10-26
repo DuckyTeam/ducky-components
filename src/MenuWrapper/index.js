@@ -6,11 +6,6 @@ const PropTypes = React.PropTypes;
 class MenuWrapper extends React.Component {
     constructor(props) {
         super(props);
-        this.handleWrapperClick = this.handleWrapperClick.bind(this);
-    }
-
-    handleWrapperClick(event) {
-        event.stopPropagation();
     }
 
     render() {
@@ -18,7 +13,6 @@ class MenuWrapper extends React.Component {
             <div className={classNames(styles.menuWrapper, {
                 [this.props.className]: this.props.className
             })}
-                onClick={this.handleWrapperClick}
             >
                 <div
                     className={styles[(this.props.show ? 'show' : '') + this.props.alignment]}

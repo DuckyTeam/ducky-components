@@ -9,7 +9,7 @@ function SettingsItemEmail(props) {
       label={'Epost'}
       onClick={props.onClick}
       value={props.email}
-    />
+      />
   );
 }
 

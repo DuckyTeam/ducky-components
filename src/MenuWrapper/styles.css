@@ -12,8 +12,8 @@
     position: absolute;
     top: 0px;
     bottom: 0px;
-    left: -320px;
-    transition: 0.2s ease;
+    left: -340px;
+    transition: 0.21s ease;
     z-index: 100;
 }
 .showleft {
@@ -26,7 +26,7 @@
     top: 0px;
     bottom: 0px;
     left: 0px;
-    transition:  0.2s ease;
+    transition:  0.21s ease;
     z-index: 100;
 }
 
@@ -36,10 +36,10 @@
     height: calc(100% - 55px);
     width: 300px;
     position: fixed;
-    right: -320px;
+    right: -340px;
     top: 56px;
     bottom: 0px;
-    transition: 0.2s ease;
+    transition: 0.21s ease;
     overflow-x: hidden;
     z-index: 100;
 }
@@ -52,7 +52,7 @@
     right: 0px;
     top: 56px;
     bottom: 0px;
-    transition: 0.2s ease;
+    transition: 0.21s ease;
     overflow-x: hidden;
     z-index: 100;
 }
