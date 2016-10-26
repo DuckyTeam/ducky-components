@@ -2,12 +2,12 @@
 import ActionButton from '../ActionButton';
 import Avatar from '../Avatar';
 import React from 'react';
-import Image from '../ImageElement';
+// import Image from '../ImageElement';
 // import {PropTypes} from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
-// import SectionFooterOK from '../SectionFooterOK';
-// import TextArea from '../TextAreaLarge';
+import SectionFooterCancelOK from '../SectionFooterCancelOK';
+import TextArea from '../TextAreaLarge';
 import Wrapper from '../Wrapper';
 const PropTypes = React.PropTypes;
 
@@ -29,22 +29,52 @@ function SettingsSectionProfile(props) {
         >
         <ActionButton className={styles.button1}
           icon="icon-photo_camera"
+          onClick={props.handleCovImgClick}
           size="standard"
           />
       </div>
-      <Wrapper>
-      <ActionButton className={styles.button2}
-        icon="icon-star"
-        size="standard"
-        />
+      <Wrapper className={styles.Wrapper}>
+        <ActionButton className={styles.button2}
+          icon="icon-photo_camera"
+          onClick={props.handleAvyImgClick}
+          size="standard"
+          />
         <Avatar className={styles.avy}
           image={props.avyURL}
           size="display2"
           />
-
-
       </Wrapper>
-
+      <Wrapper>
+        <TextArea errorMessage={props.textAerrorMessage1}
+          label={props.textAlabel1}
+          maxLength={props.textAmaxLength1}
+          placeholder={props.textAplaceholder1}
+          size="large"
+          value={props.textAvalue1}
+          />
+      </Wrapper>
+      <Wrapper>
+        <TextArea errorMessage={props.textAerrorMessage2}
+          label={props.textAlabel2}
+          maxLength={props.textAmaxLength2}
+          placeholder={props.textAplaceholder2}
+          size="large"
+          value={props.textAvalue2}
+          />
+      </Wrapper>
+      <Wrapper>
+        <TextArea errorMessage={props.textAerrorMessage3}
+          label={props.textAlabel3}
+          maxLength={props.textAmaxLength3}
+          placeholder={props.textAplaceholder3}
+          size="default"
+          value={props.textAvalue3}
+          />
+      </Wrapper>
+      <SectionFooterCancelOK okButtonText="Lagre"
+        onCancel={props.handlefooterCancel}
+        onclick={props.handleFooterOK}
+        />
     </div>
     );
 }
@@ -53,6 +83,11 @@ SettingsSectionProfile.propTypes = {
   avyURL: PropTypes.string,
   className: PropTypes.string,
   coverImageURL: PropTypes.string,
+  footerOKdisabled: PropTypes.bool,
+  handleAvyImgClick: PropTypes.func,
+  handleCovImgClick: PropTypes.func,
+  handleFooterOK: PropTypes.func,
+  handlefooterCancel: React.PropTypes.func,
   textAerrorMessage1: PropTypes.node,
   textAerrorMessage2: PropTypes.node,
   textAerrorMessage3: PropTypes.node,
@@ -71,7 +106,9 @@ SettingsSectionProfile.propTypes = {
   textAsize1: PropTypes.oneOf(['default', 'large', 'huge']),
   textAsize2: PropTypes.oneOf(['default', 'large', 'huge']),
   textAsize3: PropTypes.oneOf(['default', 'large', 'huge']),
-  textAvalue1: PropTypes.node
+  textAvalue1: PropTypes.node,
+  textAvalue2: PropTypes.node,
+  textAvalue3: PropTypes.node
 
 };
 

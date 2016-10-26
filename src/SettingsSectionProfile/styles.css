@@ -1,13 +1,15 @@
 .outerWrapper {
-  background-color: #fddded;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   }
   .Wrapper {
-    background-color: #ef0f0f;
+    background-color: #fff;
     display: flex;
+    position: relative;
+
 
     }
 /* button for changing cover picture -> */
@@ -16,83 +18,54 @@
   right: 16px;
   border-radius: 50%;
   position: absolute;
-  //display: inline-flex;
   background-color: rgba(38, 50, 56, 0.4);
   cursor: pointer;
 
 
 }
-.button1: hover {
+/*****************************/
+/* Buttons Common ***********/
+.button1:hover, .button2:hover {
   background-color: rgba(38, 50, 56, 0.7);
   cursor: pointer;
 
 
 }
-.button1 > span {
-  color: #fff;
 
-}
 /************************************/
 /* button for changing avatar -> */
 .button2 {
-  margin: auto;
+  margin-top: -18px;
+  left: 50%;
+  margin-left: -18px;
   background-color: #a4a4a4;
   border-radius: 50%;
-  position: relative;
-  
-  z-index: 78;
+  position: absolute;
   background-color: rgba(38, 50, 56, 0.4);
   cursor: pointer;
-
-
-}
-.button2: hover {
-  background-color: rgba(38, 50, 56, 0.7);
-  cursor: pointer;
-
-
-}
-.button2 > span {
-  color: #fff;
-
 }
 /*****************************************/
-.content {
+
+.contentz {
   border-bottom: none;
 }
+
 .coverImage {
-  width:500px;
-  height: 180px;
-  //display: inline;
-  /*background-image: [URL] */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  cursor: pointer;
-  /* on_click -> open file browser for selecting cover image */
-}
-.coverImageChange {
   width:100%;
   height: 180px;
-  /*background-image: [URL]*/
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
-  /* on_click -> open file browser for selecting cover image */
-}
+  }
+
 .avy {
-  margin-top: -48px; /*(or otherwise make 50% overlap with cover image)*/
+  margin-top: -48px;
 border: 2px solid #fff;
 cursor: pointer;
-//z-index: 4;
-/*on_click -> open file browser for selecting profile image */
 }
 .avyChange {
-  /*Centered horizontally and vertically over the avatar image
-icon_name: duckycon-photo_camera */
 background-color: rgba(38, 50, 56, 0.4);
 background-color:hover rgba(38, 50, 56, 0.7);
 cursor: pointer;
-/*on_click -> open file browser for selecting profile image */
 }
