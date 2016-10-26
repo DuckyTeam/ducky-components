@@ -1,13 +1,22 @@
-.Wrapper {
-  background-color: #fff;
+.outerWrapper {
+  background-color: #fddded;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   }
+  .Wrapper {
+    background-color: #ef0f0f;
+    display: flex;
+
+    }
+/* button for changing cover picture -> */
 .button1 {
-  padding-top: 16px;
-  padding-right: 16px;
-  z-index: -4;
+  top: 16px;
+  right: 16px;
+  border-radius: 50%;
+  position: absolute;
+  //display: inline-flex;
   background-color: rgba(38, 50, 56, 0.4);
   cursor: pointer;
 
@@ -20,16 +29,41 @@
 
 }
 .button1 > span {
-  color: fff;
+  color: #fff;
 
 }
+/************************************/
+/* button for changing avatar -> */
+.button2 {
+  margin: auto;
+  background-color: #a4a4a4;
+  border-radius: 50%;
+  position: relative;
+  
+  z-index: 78;
+  background-color: rgba(38, 50, 56, 0.4);
+  cursor: pointer;
 
+
+}
+.button2: hover {
+  background-color: rgba(38, 50, 56, 0.7);
+  cursor: pointer;
+
+
+}
+.button2 > span {
+  color: #fff;
+
+}
+/*****************************************/
 .content {
   border-bottom: none;
 }
 .coverImage {
-  width:100%;
+  width:500px;
   height: 180px;
+  //display: inline;
   /*background-image: [URL] */
   background-position: center;
   background-size: cover;
@@ -51,6 +85,7 @@
   margin-top: -48px; /*(or otherwise make 50% overlap with cover image)*/
 border: 2px solid #fff;
 cursor: pointer;
+//z-index: 4;
 /*on_click -> open file browser for selecting profile image */
 }
 .avyChange {

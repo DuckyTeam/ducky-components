@@ -3,32 +3,46 @@ import ActionButton from '../ActionButton';
 import Avatar from '../Avatar';
 import React from 'react';
 import Image from '../ImageElement';
-import {PropTypes} from 'react';
+// import {PropTypes} from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
-//import SectionFooterOK from '../SectionFooterOK';
-//import TextArea from '../TextAreaLarge';
+// import SectionFooterOK from '../SectionFooterOK';
+// import TextArea from '../TextAreaLarge';
 import Wrapper from '../Wrapper';
-// const PropTypes = React.PropTypes;
+const PropTypes = React.PropTypes;
 
 function SettingsSectionProfile(props) {
+  const CoverImgStyle = {
+    backgroundImage: `url(${props.coverImageURL})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundRepeat: 'no-repeat',
+    width: '100%',
+    height: '180px'
+  };
+
   return (
-    <div className={classNames(styles.Wrapper, {[props.className]: props.className})}>
-      <div>
-        <Image background-size="cover"
-          height="150"
-          image={props.coverImageURL}
-          styles={styles.coverImage}
-          width="300"
-          >
-          <ActionButton className={styles.button1} />
-        </Image>
+    <div className={classNames(styles.outerWrapper,
+      {[props.className]: props.className})}>
+      <div className={styles.coverImage}
+        style={CoverImgStyle}
+        >
+        <ActionButton className={styles.button1}
+          icon="icon-photo_camera"
+          size="standard"
+          />
       </div>
-      <Wrapper background-color="blue" >
+      <Wrapper>
+      <ActionButton className={styles.button2}
+        icon="icon-star"
+        size="standard"
+        />
         <Avatar className={styles.avy}
           image={props.avyURL}
           size="display2"
           />
+
+
       </Wrapper>
 
     </div>

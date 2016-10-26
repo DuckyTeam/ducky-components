@@ -1,4 +1,4 @@
-import {stories, className, string, func} from '../duckyStories';
+import {stories, className, string, func, oneOf} from '../duckyStories';
 import SettingsSectionProfile from './index';
 
 stories(module, SettingsSectionProfile, [
