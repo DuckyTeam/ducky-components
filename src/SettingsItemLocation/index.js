@@ -1,5 +1,4 @@
 import SettingsItem from '../SettingsItem';
-import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import PopoverMenuAnchor4 from '../PopoverMenuAnchor4';
 import PopoverMenu from '../PopoverMenu';
@@ -38,23 +37,23 @@ function SettingsItemLocation(props) {
     <SettingsItem
       className={classNames({[props.className]: props.className})}
       expanded={props.expanded}
-      handleCloseClick={props.onCloseClick}
-      handleSaveButtonClicked={props.onSaveButtonClicked}
       inactive={props.inactive}
       label={'Bosted'}
       onClick={props.onClick}
+      onCloseClick={props.onCloseClick}
+      onSaveButtonClicked={props.onSaveButtonClicked}
       value={props.selectedCounty}
-    >
+      >
       <Typography
         className={styles.typoTitle}
         typ={'bodyTextNormal'}
-      >
+        >
         {'Velg fylke:'}
       </Typography>
       <PopoverMenuAnchor4
         className={styles.typoContent}
         onClick={props.onPopOverMenuClicked}
-      >
+        >
         {props.selectedCounty}
       </PopoverMenuAnchor4>
       {props.isFilterPopupOpen ? renderPopup : null}

@@ -12,33 +12,33 @@ function SettingsItemGender(props) {
     <SettingsItem
       className={classNames({[props.className]: props.className})}
       expanded={props.expanded}
-      handleCloseClick={props.onCloseClick}
-      handleSaveButtonClicked={props.onSaveButtonClicked}
       inactive={props.inactive}
       label={'Kjønn'}
       onClick={props.onClick}
+      onCloseClick={props.onCloseClick}
+      onSaveButtonClicked={props.onSaveButtonClicked}
       value={props.gender}
-    >
+      >
       <Wrapper className={styles.radioButtons}
         size={'standard'}
-      >
+        >
         <RadioButton
           checked={props.gender.toLowerCase() === 'kvinne'}
           label={'Kvinne'}
           onClick={props.onRadioButtonClicked}
-        />
+          />
         <Spacer size={'double'} />
         <RadioButton
           checked={props.gender.toLowerCase() === 'mann'}
           label={'Mann'}
           onClick={props.onRadioButtonClicked}
-        />
+          />
         <Spacer size={'double'} />
         <RadioButton
           checked={props.gender.toLowerCase() === 'kjøttpinne'}
           label={'Kjøttpinne'}
           onClick={props.onRadioButtonClicked}
-        />
+          />
       </Wrapper>
     </SettingsItem>
   );
