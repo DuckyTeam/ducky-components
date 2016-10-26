@@ -149,6 +149,9 @@ const drawBars = (svg, state, props, xScale, yScale) => {
   };
 
   const getTextClass = d => {
+    if (d.value === 0) {
+      return styles.barTextHidden;
+    }
     if (state.isMobile) {
       return styles.barTextHidden;
     } else if (d.id === leaderId || d.id === state.memberOf) {
@@ -257,7 +260,7 @@ const drawBars = (svg, state, props, xScale, yScale) => {
     .attr('height', (data) => state.height - yScale(data.value));
 
   transY.select("svg").attr({
-    y: (data) => !state.isMobile ? yScale(data.value) - state.barWidth - state.barTextFontSize : yScale(data.value) - state.barWidth - 8,
+    y: (data) => data.value === 0 || state.isMobile ? yScale(data.value) - state.barWidth - 8 : yScale(data.value) - state.barWidth - state.barTextFontSize,
     width: () => d3.min([xScale.rangeBand(), 24]),
     height: () => d3.min([xScale.rangeBand(), 24]),
     opacity: 1
