@@ -19,3 +19,7 @@
 .label > span {
     color: #263238;
 }
+
+.noAccessText {
+  align-self: flex-end;
+}
