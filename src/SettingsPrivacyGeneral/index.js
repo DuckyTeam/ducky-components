@@ -9,7 +9,7 @@ function SettingsPrivacyGeneral(props) {
       label={'Innstilling'}
       onClick={props.onClick}
       value={props.privacySettings ? props.privacySettings : 'normal'}
-    />
+      />
   );
 }
 

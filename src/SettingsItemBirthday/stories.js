@@ -9,8 +9,8 @@ stories(module, SettingsItemBirthday, [
   month: string('March'),
   year: number(2010),
   expanded: bool(),
-  handleCloseClick: func(),
-  handleSaveButtonClicked: func(),
+  onCloseClick: func(),
+  onSaveButtonClicked: func(),
   inactive: bool(),
   onBirthdayClick: func()
 });

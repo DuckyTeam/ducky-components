@@ -9,18 +9,17 @@ const PropTypes = React.PropTypes;
 
 function SettingsItemBirthday(props) {
   return (
-
     <div className={styles.outerWrapper}>
       <SettingsItem
         expanded={props.expanded}
-        handleCloseClick={props.handleCloseClick}
-        handleSaveButtonClicked={props.handleSaveButtonClicked}
         inactive={props.inactive}
         label={'Bursdag'}
         onClick={props.onBirthdayClick}
+        onCloseClick={props.handleCloseClick}
+        onSaveButtonClicked={props.handleSaveButtonClicked}
         value={moment(props.birthday).format("Do MMMM YYYY")}
         >
-        <div className={classNames(styles.div,
+        <div className={classNames(styles.expandedContainer,
           {[props.className]: props.className})}>
           <Wrapper
             size={'standard'}

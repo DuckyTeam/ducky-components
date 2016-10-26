@@ -1,15 +1,17 @@
 .outerWrapper {
   background-color:transparent;
-  }
-.popoverWrapper{
-display: flex;
-justify-content: center;
 }
-.monthPopover{
+
+.popoverWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.monthPopover {
   margin: 0 24px;
   flex-grow: 1;
 }
-.div{
-background-color: #transparent;
 
+.expandedContainer {
+  background-color: #transparent;
 }
