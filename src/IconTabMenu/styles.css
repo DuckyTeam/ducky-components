@@ -1,56 +1,56 @@
 .container {
-    background-color: transparent;
-    display: flex;
-    height: 48px;
-    width: 100%;
-    justify-content: space-around;
-    background-color: #FFFFFF;
-    border-bottom: 2px solid rgba(38, 50, 56, 0.12);
+  background-color: transparent;
+  display: flex;
+  height: 48px;
+  width: 100%;
+  justify-content: space-around;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid rgba(38, 50, 56, 0.12);
 }
 
 .button {
-    display: inline-flex;
-    align-items: center;
-    background: transparent;
-    border: none;
-    outline: none;
-    padding: 0;
-    margin: 0;
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
 }
 
 .label {
-    margin-bottom: -2px;
+  margin-bottom: -2px;
 }
 
 .label > span {
-    color: #90AB97;
+  color: #90AB97;
 }
 
 .labelWrapper {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .label:hover > span {
-    color: #00AB97;
+  color: #00AB97;
 }
 
 .button:disabled {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .disabled {
-    cursor: default;
+  cursor: default;
 }
 
 .disabledLabel:hover > span {
-    color: #90A4AE;
+  color: #90A4AE;
 }
 
 .selected {
-    border-bottom: 2px solid #00AB97;
-    z-index: 1;
+  border-bottom: 2px solid #00AB97;
+  z-index: 1;
 }
 
 .selectedLabel > span {
-    color: #00AB97;
+  color: #00AB97;
 }
