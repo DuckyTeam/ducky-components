@@ -56,7 +56,7 @@ stories(module, LineChart, [
       }
     ]),
     endDate: json(moment('25-May-2016')),
-    goals: json([200, 400, 600, 800]),
+    goals: json([2000, 4000, 6000, 8000]),
     graphID: json(1),
     height: oneOf("300px", "400px"),
     memberOf: json(12),

@@ -6,19 +6,19 @@ stories(module, BarChart, [
 ], {
   data:json([{
     id: 12,
-    value: 220,
+    value: 0,
     label: "Strek1",
   }, {
     id: 13,
-    value: 333,
+    value: 0,
     label: "De nye Gitarkameratene",
   }, {
     id: 14,
-    value: 400,
+    value: 0,
     label: "Strek3"
   }, {
     id: 15,
-    value: 173,
+    value: 0,
     label: "Strek4"
   }]),
   goals: json([200, 400, 600, 800]),

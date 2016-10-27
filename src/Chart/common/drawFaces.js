@@ -3,8 +3,10 @@ import paths from './../svgpaths';
 
 export default (faceGroup, goals, yourScore, maxScore, yScale, xValue, tranistionSpeed) => {
 
+  const numGoals = goals.reduce((acc, goal) => (goal <= maxScore) ? acc + 1 : acc, 0) + 1;
+
   const faceValues = goals.map((goal, index) => index > 0 ? goals[index] - (goal - goals[index - 1]) / 2 : goal / 2)
-    .slice(0, goals.reduce((acc, goal) => (goal <= maxScore) ? acc + 1 : acc, 0) + 1);
+    .slice(0, d3.max([numGoals, 2]));
 
   const numberAcheieved = goals.reduce((acc, goal) => goal <= yourScore ? acc + 1 : acc, 0) + 1;
 
