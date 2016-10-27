@@ -1,13 +1,14 @@
-import {stories, string, func, className, json, number} from '../duckyStories';
-import TabMenu from './index';
+import {stories, bool, func, className, json, number} from '../duckyStories';
+import IconTabMenu from './index';
 
-stories(module, TabMenu, [
+stories(module, IconTabMenu, [
   'https://github.com/DuckyTeam/ducky-web/issues/933'
 ], {
   changeTab: func(),
   className: className(),
   disabled: json([1]),
   selected: number(2),
-  tabs: json(['icon-cow', 'icon-duck', 'icon-pig']),
-  tooltip: string('Tooltip text')
+  //tabs: json({'Tooltip 1': 'icon-cow', 'Tooltip 2': 'icon-duck', 'Tooltip 3': 'icon-pig'}),
+  tabs: json(['icon-cow', 'icon-duck', 'icon-star']),
+  tooltipRequired: bool(false)
 });

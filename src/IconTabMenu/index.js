@@ -5,13 +5,13 @@ import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
-class TabMenu extends React.Component {
+class IconTabMenu extends React.Component {
 
   handleTabClick(index) {
     this.props.changeTab(index);
   }
 
-  getTabs() {
+  getTabsWithTooltip() {
     const {tabs, selected, disabled} = this.props;
 
     return Object.keys(tabs).map((tooltip, key) => {
@@ -50,6 +50,37 @@ class TabMenu extends React.Component {
     });
   }
 
+  getTabs() {
+    return this.props.tabs.map((icon, key) => {
+      const selected = (key === this.props.selected);
+      const disabled = (this.props.disabled.indexOf(key) > -1);
+
+      return (
+        <button
+          className={styles.button}
+          disabled={disabled}
+          key={key}
+          onClick={this.handleTabClick.bind(this, key)}
+          >
+          <div
+            className={classNames(styles.labelWrapper, {
+              [styles.selected]: selected,
+              [styles.disabled]: disabled
+            })}
+            >
+            <IconAvaWrapper
+              className={classNames(styles.label, {
+                [styles.selectedLabel]: selected,
+                [styles.disabledLabel]: disabled
+              })}
+              icon={icon}
+              />
+          </div>
+        </button>
+      );
+    });
+  }
+
   render() {
     return (
       <div
@@ -57,18 +88,19 @@ class TabMenu extends React.Component {
           [this.props.className]: [this.props.className]
         })}
         >
-          {this.getTabs()}
+          {this.props.tooltipRequired && !Array.isArray(this.props.tabs) ? this.getTabsWithTooltip() : this.getTabs()}
       </div>
     );
   }
 }
 
-TabMenu.propTypes = {
+IconTabMenu.propTypes = {
   changeTab: PropTypes.func,
   className: PropTypes.string,
   disabled: PropTypes.arrayOf(React.PropTypes.number),
   selected: PropTypes.number,
-  tabs: React.PropTypes.object
+  tabs: React.PropTypes.any,
+  tooltipRequired: React.PropTypes.bool
 };
 
-export default TabMenu;
+export default IconTabMenu;
