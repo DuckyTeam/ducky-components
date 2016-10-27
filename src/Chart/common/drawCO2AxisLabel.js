@@ -11,6 +11,6 @@ export default (labelGroup) => {
       x: -38,
       y: 4,
       dy: 4,
-      dx: 34
+      dx: 35
     });
 }

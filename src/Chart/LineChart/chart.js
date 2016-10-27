@@ -5,6 +5,8 @@ import styles from './styles.css';
 import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
 import drawLabels from './../common/drawGoalLabels';
+import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
+
 const d3Chart = {};
 
 d3Chart.create = (el, props, state, formatting) => {
@@ -20,6 +22,9 @@ d3Chart.create = (el, props, state, formatting) => {
   utils.drawChartGroup(svg, props, styles.faceGroup);
   utils.drawChartGroup(svg, props, styles.leaderLine);
   utils.drawChartGroup(svg, props, styles.leaderGroup);
+
+  drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel));
+
   d3Chart.update(el, state, props, formatting, true);
 };
 
