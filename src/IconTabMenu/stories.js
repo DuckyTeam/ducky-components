@@ -1,4 +1,4 @@
-import {stories, oneOf, func, className, json, number} from '../duckyStories';
+import {stories, string, func, className, json, number} from '../duckyStories';
 import TabMenu from './index';
 
 stories(module, TabMenu, [
@@ -8,5 +8,6 @@ stories(module, TabMenu, [
   className: className(),
   disabled: json([1]),
   selected: number(2),
-  tabs: json(['icon-cow', 'icon-duck', 'icon-pig'])
+  tabs: json(['icon-cow', 'icon-duck', 'icon-pig']),
+  tooltip: string('Tooltip text')
 });
