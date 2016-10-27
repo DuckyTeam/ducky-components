@@ -44,13 +44,34 @@ function PopoverCalendar(props) {
       <br />
       <div><Spacer size="double" /></div>
       <div>
-        <Wrapper size="slender"><ButtonCounter number="M" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="O" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="F" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="L" /></Wrapper>
-        <Wrapper size="slender"><ButtonCounter number="S" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="M" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="T" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="O" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="T" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="F" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="L" /></Wrapper>
+        <Wrapper className={styles.bc}
+          size="slender"
+          >
+          <ButtonCounter number="S" /></Wrapper>
       </div>
     </Wrapper>
   );
