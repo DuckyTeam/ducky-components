@@ -68,15 +68,21 @@ class ChallengeMetaJoin extends React.Component {
   getJoinIndicator(joined, noAccess) {
     if (noAccess) {
       return (
-        <div>
-          <div>
-            <Typography
-              className={styles.noAccessText}
-              type="caption2Normal"
-              >
-              Krever invitasjon
-            </Typography>
-          </div>
+        <div className={styles.noAccessTextWrapper}>
+          <Typography
+            className={styles.noAccessText}
+            type="caption2Normal"
+            >
+            Krever invitasjon
+          </Typography>
+          <br />
+          <Typography
+            className={styles.noAccessTextNotification}
+            onClick={this.props.onNotificationsClick}
+            type="caption2Strong"
+            >
+            Se dine varsler
+          </Typography>
         </div>
       );
     }
@@ -109,7 +115,7 @@ class ChallengeMetaJoin extends React.Component {
             [this.props.className]: this.props.className
           })}
           size={'side-bottom'}
-        >
+          >
           {this.getJoinedIndicatorInfo(this.props.joined)}
           <div>
             {this.getJoinIndicator(this.props.joined, this.props.noAccess)}
@@ -127,6 +133,7 @@ ChallengeMetaJoin.propTypes = {
   joined: React.PropTypes.bool,
   noAccess: React.PropTypes.bool,
   onClick: React.PropTypes.func,
+  onNotificationsClick: React.PropTypes.func,
   startDate: React.PropTypes.number
 };
 
