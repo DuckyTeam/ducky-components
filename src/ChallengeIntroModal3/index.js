@@ -11,7 +11,7 @@ const PropTypes = React.PropTypes;
 function ChallengeIntroModal3(props) {
   return (
     <Modal
-      className={classNames(styles.wrapper, {[props.className]: props.className})}
+      className={classNames(styles.wrapper)}
       onHide={props.onCancel}
       show={props.show}
       style={styles.challengeIntroModal}
@@ -22,11 +22,11 @@ function ChallengeIntroModal3(props) {
         >
       </div>
       <Wrapper
-        className={classNames(styles.challengeIntroWrapper, {[props.className]: props.className})}
+        className={classNames(styles.challengeIntroWrapper)}
         size="standard"
         >
         <Typography
-          style={classNames(styles.tittel)}
+          style={classNames(styles.title)}
           type="ingressStrong"
           >
           {props.children}
@@ -36,10 +36,10 @@ function ChallengeIntroModal3(props) {
           isYourteam={props.isYourteam}
           type="bodyTextNormal"
           >
-          {`Du deltar nå på denne utfordringen sammen med ${props.memberCount} andre personer!`}
+          Du deltar nå på denne utfordringen sammen med {props.memberCount} andre personer!
         </Typography>
         <ChallengeMeta7
-          className={classNames(styles.challengeIntro7)}
+          className={classNames(styles.challengeMeta7)}
           icon={props.icon}
           isLeader={props.isLeader}
           isYourteam={props.isYourteam}
@@ -47,13 +47,15 @@ function ChallengeIntroModal3(props) {
           name={props.name}
           theme={props.theme}
           />
-        <ButtonRaised
-          className={classNames(styles.button)}
-          onClose={props.onClick}
-          type={props.type}
-          >
-          {'OK'}
-        </ButtonRaised>
+        <div className={classNames(styles.buttonWrap)}>
+          <ButtonRaised
+            className={classNames(styles.button)}
+            onClose={props.onClick}
+            type={props.type}
+            >
+            {'OK'}
+          </ButtonRaised>
+        </div>
       </Wrapper>
     </Modal>
   );
