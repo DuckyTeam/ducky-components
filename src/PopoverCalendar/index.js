@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+// import 'moment/locale/no';
 import classNames from 'classnames';
 // import Popup from '../Popup';
 import ActionButton from '../ActionButton';
@@ -9,14 +10,16 @@ import Wrapper from '../Wrapper';
 import Spacer from '../Spacer';
 import styles from './styles.css';
 
-class PopoverCalendar extends React.component {
-  Constructor(props) {
+class PopoverCalendar extends React.Component {
+  constructor(props) {
     super(props);
     const duckyCalendar = {
       Language: moment.locale(this.props.language)
     };
 
-    this.console.log(this.props.language);
+    console.log('thispropslanguage: ', this.props.language);
+    console.log('duckyCalendar: ', duckyCalendar);
+    console.log('current locale:', moment.localeData());
   }
 
 /*
@@ -29,11 +32,16 @@ class PopoverCalendar extends React.component {
     const daysInWeek = thisIsTheDays.length;
 */
   structWeek() {
-    const daysInWeek = moment().isoMonths().lenght();
+    let week = [];
+    week = moment.months();
+    const daysInWeek = week.length();
+    const rows = [];
 
-    for (index; index <= daysInWeek; index += 1) {
-      return (<Wrapper size="slender"><ButtonCounter number={this.days.inWeek[index]} /></Wrapper>);
+    for (let index = 0; index <= daysInWeek; index += 1) {
+      rows.push(<ButtonCounter number={this.days.inWeek[index]} />
+      );
     }
+    return (<Wrapper size="slender">{rows}</Wrapper>);
   }
   render() {
     const arrowLeft = 'icon-arrow_back';
@@ -53,16 +61,9 @@ class PopoverCalendar extends React.component {
             icon={arrowRight}
             />
         </div>
-        <br />
         <div><Spacer size="double" /></div>
         <div>
-          <Wrapper size="slender"><ButtonCounter number="M" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="O" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="T" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="F" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="L" /></Wrapper>
-          <Wrapper size="slender"><ButtonCounter number="S" /></Wrapper>
+          {this.structWeek()}
         </div>
       </Wrapper>
     );
@@ -76,7 +77,7 @@ PopoverCalendar.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
   language: React.PropTypes.string,
-  color: React.PropTypes.string,
+  // color: React.PropTypes.string,
   month: React.PropTypes.string,
   onClick: React.PropTypes.func,
   // style: React.PropTypes.shape({}),
