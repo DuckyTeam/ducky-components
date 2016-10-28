@@ -8,6 +8,7 @@ stories(module, PopoverCalendar, [
   onClick: func(),
   // style: json({color: 'blue'}),
   month: oneOf('Januar', 'Februar', 'Mars', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Desember'),
+  language: string('no'),
   year: number('2309')
 
 });
