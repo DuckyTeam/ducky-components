@@ -6,7 +6,7 @@ import Counter from '../Counter';
 
 function LabelNumber(props) {
     return (
-        <span>
+        <span className={styles.span}>
             <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
                 <Typography
                     className={classNames(styles.number, {
@@ -21,7 +21,6 @@ function LabelNumber(props) {
                     : props.number}
 
                 </Typography>
-                <br />
                 <Typography
                     className={classNames(styles.textcontent, {
                         [styles.darktextcontent]: props.theme === 'dark'})}

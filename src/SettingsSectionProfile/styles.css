@@ -1,0 +1,74 @@
+.outerWrapper {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+
+
+  }
+  .outerWrappertop {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    }
+  .Wrapper {
+    background-color: #fff;
+    display: flex;
+    position: relative;
+
+    }
+/* button for changing cover picture -> */
+.button1 {
+  top: 16px;
+  right: 16px;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(38, 50, 56, 0.4);
+  cursor: pointer;
+
+
+}
+/*****************************/
+/* Buttons Common ***********/
+.button1:hover, .button2:hover {
+  background-color: rgba(38, 50, 56, 0.7);
+  cursor: pointer;
+
+
+}
+
+/************************************/
+/* button for changing avatar -> */
+.button2 {
+  margin-top: -18px;
+  left: 50%;
+  margin-left: -18px;
+  background-color: #a4a4a4;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(38, 50, 56, 0.4);
+  cursor: pointer;
+}
+/*****************************************/
+
+.contentz {
+  border-bottom: none;
+}
+
+.coverImage {
+  width:100%;
+  height: 180px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  }
+
+.avy {
+  margin-top: -48px;
+border: 2px solid #fff;
+cursor: pointer;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 class Chart extends React.Component {
     constructor() {
         super();
-        this.margin = {top: 10, bottom: 50, left: 50, right: 20};
+        this.margin = {top: 15, bottom: 50, left: 50, right: 20};
         this.container = null;
     }
     componentDidMount() {

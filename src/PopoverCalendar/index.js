@@ -18,6 +18,7 @@ class PopoverCalendar extends React.component {
 
     this.console.log(this.props.language);
   }
+
 /*
   // Days in week constructor:
 

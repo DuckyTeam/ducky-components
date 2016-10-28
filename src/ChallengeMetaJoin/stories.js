@@ -10,5 +10,6 @@ stories(module, ChallengeMetaJoin, [
   joined: bool(),
   noAccess: bool(true),
   onClick: func(),
+  onNotificationsClick: func(),
   startDate: number(1475241124937)
 });

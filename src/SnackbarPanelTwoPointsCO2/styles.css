@@ -1,0 +1,28 @@
+.outercontainer {
+  background-color: #263238;
+}
+
+.icon {
+  margin: -8px 0 -8px -8px;
+}
+
+.textContent {
+  margin-left: 16px;
+  color: #fff;
+}
+
+.pointValueLabel {
+  margin-left: 8px;
+}
+
+.pointValueLabel > div > span{
+  color: #fff;
+}
+
+.savingValueLabel {
+  margin-left: 8px;
+}
+
+.savingValueLabel > div > span{
+  color: #fff;
+}

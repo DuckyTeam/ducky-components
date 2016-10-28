@@ -24,15 +24,19 @@ function Tooltip(props) {
   );
 
   return (
-    <RcTooltip
-      destroyTooltipOnHide
-      mouseLeaveDelay={0}
-      overlay={tooltipContent}
-      overlayClassName={styles.popup}
-      placement={props.placement || "top"}
-      >
-      <span>{props.children}</span>
-    </RcTooltip>
+    <div>
+      {props.text
+        ? <RcTooltip
+          destroyTooltipOnHide
+          mouseLeaveDelay={0}
+          overlay={tooltipContent}
+          overlayClassName={styles.popup}
+          placement={props.placement || "top"}
+          >
+          <span>{props.children}</span>
+        </RcTooltip>
+        : <span>{props.children}</span>}
+    </div>
   );
 }
 

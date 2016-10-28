@@ -5,6 +5,8 @@ import styles from './styles.css';
 import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
 import drawLabels from './../common/drawGoalLabels';
+import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
+
 const d3Chart = {};
 
 d3Chart.create = (el, props, state, formatting) => {
@@ -20,6 +22,9 @@ d3Chart.create = (el, props, state, formatting) => {
   utils.drawChartGroup(svg, props, styles.faceGroup);
   utils.drawChartGroup(svg, props, styles.leaderLine);
   utils.drawChartGroup(svg, props, styles.leaderGroup);
+
+  drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel));
+
   d3Chart.update(el, state, props, formatting, true);
 };
 
@@ -86,7 +91,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .domain([moment(state.startDate), moment(state.endDate)]);
 
     const yScale = d3.scale.linear()
-      .domain([0, d3.max([maxValue, nextGoal()])])
+      .domain([0, d3.max([maxValue, nextGoal(), state.goals[1]])])
       .range([state.height - 4, 15 + props.margin.top]);
 
     const lineDrawer = d3.svg.line().interpolate("basic")
@@ -111,7 +116,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .svg
         .axis()
         .scale(yScale)
-        .tickValues(state.goals.slice(0, d3.min([state.goals.indexOf(nextGoal()), state.goals.length]) + 1))
+        .tickValues(state.goals.slice(0, d3.max([d3.min([state.goals.indexOf(nextGoal()), state.goals.length]) + 1, 2])))
         .tickSize(-props.width, 0, 0)
         .orient("left");
 
@@ -140,7 +145,9 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
-    const goals = state.goals.slice(0, state.goals.reduce((acc, goal) => (goal <= maxValue) ? acc + 1 : acc, 0) + 1)
+    const numOfGoals = state.goals.reduce((acc, goal) => (goal <= maxValue) ? acc + 1 : acc, 0) + 1;
+
+    const goals = state.goals.slice(0, d3.max([numOfGoals, 2]))
 
     drawLabels(labelGroup, goals, yourScore, yScale, dontAnimateIn ? 0 : speed);
 

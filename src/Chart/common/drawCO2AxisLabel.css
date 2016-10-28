@@ -1,0 +1,13 @@
+.text {
+  fill: #ffffff;
+  fill-opacity: 0.4;
+  text-anchor: start;
+  line-height: 12px;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.textSub {
+  font-size:9px;
+}
