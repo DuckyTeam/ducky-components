@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-// import 'moment/locale/no';
+import norsk from 'moment/locale/nb';
+/* Linking the nb.js in my main project file automatically changed the locale for all accesses to the moment class and its methods.
+There will be no need anymore to do a moment.locale("nb"). or moment.lang("nb"). in the source code. */
 import classNames from 'classnames';
 // import Popup from '../Popup';
 import ActionButton from '../ActionButton';
@@ -14,12 +16,14 @@ class PopoverCalendar extends React.Component {
   constructor(props) {
     super(props);
     const duckyCalendar = {
-      Language: moment.locale(this.props.language)
+      Language: this.props.language
     };
+    // let norsk = moment.locale("de").format("LLL");
+
 
     console.log('thispropslanguage: ', this.props.language);
     console.log('duckyCalendar: ', duckyCalendar);
-    console.log('current locale:', moment.localeData());
+    // console.log('current locale:', moment.localeData());
   }
 
 /*
@@ -33,12 +37,19 @@ class PopoverCalendar extends React.Component {
 */
   structWeek() {
     let week = [];
-    week = moment.months();
-    const daysInWeek = week.length();
+    moment.format('ll');
+    // moment.locale("de").format("LLL");
+    console.log(moment.startOf('week'));
+    week = moment.weekdays();
+    console.log('week/moment.months: ', week, moment.weekdaysShort);
+    const daysInWeek = week.length;
+
+    console.log('days in week: ', daysInWeek);
     const rows = [];
 
-    for (let index = 0; index <= daysInWeek; index += 1) {
-      rows.push(<ButtonCounter number={this.days.inWeek[index]} />
+
+    for (let index = 0; index < daysInWeek; index += 1) {
+      rows.push(<ButtonCounter number={daysInWeek[index]} />
       );
     }
     return (<Wrapper size="slender">{rows}</Wrapper>);
@@ -69,7 +80,6 @@ class PopoverCalendar extends React.Component {
     );
   }
 
-  /* !!Just temporary made the bunch of buttonCounters manually, cause struct function will be have to be done different */
 }
 PopoverCalendar.propTypes = {
   // arrowLeft: React.PropTypes.shape(icon-arrow_back),
