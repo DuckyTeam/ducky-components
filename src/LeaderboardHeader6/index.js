@@ -11,6 +11,7 @@ function LeaderboardHeader6(props) {
       className={classNames(styles.wrapper, {
         [props.className]: props.className
       })}
+      size={'standard'}
       >
       <Typography
         className={styles.header}
