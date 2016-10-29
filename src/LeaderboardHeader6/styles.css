@@ -1,0 +1,31 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 40px;
+  background-color: #eceff1;
+}
+
+.header {
+  line-height: 22px;
+}
+
+.contentWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+
+.icon {
+  color: #607d8b;
+  margin: 0 22px 0 6px;
+}
+
+.team {
+  color: #607d8b;
+  flex-grow: 1;
+}
+
+.co2Saved {
+  color: #607d8b;
+}
