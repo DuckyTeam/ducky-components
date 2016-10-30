@@ -6,7 +6,7 @@ const PropTypes = React.PropTypes;
 class SwitchesToggleMenu extends React.Component {
   constructor(props) {
     super(props);
-    this.options = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
+    this.options = this.props.options;
     this.optionCount = this.options.length;
     this.optionWidth = `${100 / this.optionCount}%`;
     this.checkedOption = this.props.checkedOption;
@@ -39,7 +39,8 @@ class SwitchesToggleMenu extends React.Component {
 
 SwitchesToggleMenu.displayName = 'SwitchesToggleMenu';
 SwitchesToggleMenu.propTypes = {
-  checkedOption: PropTypes.number
+  checkedOption: PropTypes.number,
+  options: PropTypes.arrayOf(React.PropTypes.string)
 };
 
 export default SwitchesToggleMenu;
