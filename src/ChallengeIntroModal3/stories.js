@@ -9,7 +9,7 @@ stories(module, ChallengeIntroModal3, [
   onCancel: func(),
   show: bool(),
   icon: string("icon-leaf"),
-  img: string("https://www.ducky.no/images/landing-image-1.jpg"),
+  image: string("https://www.ducky.no/images/landing-image-1.jpg"),
   isLeader: bool(),
   isYourteam: bool(),
   memberCount: number(12),
