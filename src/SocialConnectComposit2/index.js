@@ -14,41 +14,41 @@ function SocialConnectComposit2(props) {
       })}
       >
       <Wrapper
-        className={classNames(styles.importSocialWrapper)}
+        className={styles.importSocialWrapper}
         size="short"
         >
         <Typography
-          className={classNames(styles.importContactsText)}
+          className={styles.importContactsText}
           type="caption2Normal"
           >
           Importer dine kontakter for å finne personer å følge på Ducky. Vi lagrer ikke din data, og poster aldri noe uten din tilatelse.
         </Typography>
       </Wrapper>
       <Wrapper
-        className={classNames(styles.socialWrapper)}
+        className={styles.socialWrapper}
         size="side-bottom"
         >
         <SocialConnect
-        className={classNames(styles.socialbtn)}
+          className={styles.socialbtn}
           connected={props.connectedFacebook}
           onClick={props.onClick}
           socialMedia={'facebook'}
           />
         <SocialConnect
-          className={classNames(styles.socialbtn)}
+          className={styles.socialbtn}
           connected={props.connectedGoogle}
           onClick={props.onClick}
           socialMedia={'google+'}
           />
         <SocialConnect
-          className={classNames(styles.socialbtn)}
+          className={styles.socialbtn}
           connected={props.connectedTwitter}
           onClick={props.onClick}
           socialMedia={'twitter'}
           />
       </Wrapper>
       <Spacer
-        className={classNames(styles.socialSpacer)}
+        className={styles.socialSpacer}
         size="double"
         />
     </div>

@@ -1,4 +1,4 @@
-import {stories, bool, string, func, oneOf, className} from '../duckyStories';
+import {stories, bool, func, className} from '../duckyStories';
 import SocialConnectComposit2 from './index';
 
 stories(module, SocialConnectComposit2, [
@@ -8,5 +8,5 @@ stories(module, SocialConnectComposit2, [
   connectedFacebook: bool(false),
   connectedGoogle: bool(false),
   connectedTwitter: bool(true),
-  onClick: func(),
+  onClick: func()
 });
