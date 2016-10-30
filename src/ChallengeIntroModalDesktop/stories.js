@@ -8,10 +8,10 @@ stories(module, ChallengeIntroModal3Desktop, [
   className: className(),
   onCancel: func(),
   show: bool(),
-  icon: string(),
+  icon: string("icon-leaf"),
+  image: string("https://www.ducky.no/images/landing-image-1.jpg"),
   isLeader: bool(),
   isYourteam: bool(),
   memberCount: number(12),
-  name: string(),
-  theme: string()
+  name: string("Ducky Duck")
 });

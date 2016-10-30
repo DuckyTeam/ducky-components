@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-.tittel {
+.title {
   width: 100%;
   max-width: 368px;
   padding-bottom: 16px;
@@ -40,6 +40,6 @@
   padding-bottom: 32px;
 }
 
-.button {
+.buttonWrapper {
   padding-bottom: 16px;
 }

@@ -11,49 +11,50 @@ const PropTypes = React.PropTypes;
 function ChallengeIntroModal3Desktop(props) {
   return (
     <Modal
-      className={classNames(styles.wrapper, {[props.className]: props.className})}
+      className={classNames(styles.wrapper, {
+        [props.className]: props.className
+      })}
       onHide={props.onCancel}
       show={props.show}
       style={styles.challengeIntroModal}
       >
       <div
-        className={classNames(styles.challengeIntroImage, {[props.className]: props.className})}
+        className={styles.challengeIntroImage}
         style={{backgroundImage: `url(${props.image})`}}
-        >
-      </div>
+        />
       <Wrapper
-        className={classNames(styles.challengeIntroWrapper, {[props.className]: props.className})}
+        className={styles.challengeIntroWrapper}
         size="standard"
         >
         <Typography
-          style={classNames(styles.tittel)}
+          style={styles.title}
           type="ingressStrong"
           >
           {props.children}
         </Typography>
         <Typography
-          className={classNames(styles.text)}
+          className={styles.text}
           isYourteam={props.isYourteam}
           type="bodyTextNormal"
           >
-          "Du deltar nå på denne utfordringen sammen med {props.memberCount} andre personer!"
+          Du deltar nå på denne utfordringen sammen med {props.memberCount} andre personer!
         </Typography>
         <ChallengeMeta7
-          className={classNames(styles.challengeIntro7)}
+          className={styles.challengeMeta7}
           icon={props.icon}
           isLeader={props.isLeader}
           isYourteam={props.isYourteam}
           memberCount={props.memberCount}
           name={props.name}
-          theme={props.theme}
           />
-        <ButtonRaised
-          className={classNames(styles.button)}
-          onClose={props.onClick}
-          type={props.type}
-          >
-          {'OK'}
-        </ButtonRaised>
+        <div className={styles.buttonWrapper}>
+          <ButtonRaised
+            onClose={props.onClick}
+            type={props.type}
+            >
+            {'OK'}
+          </ButtonRaised>
+        </div>
       </Wrapper>
     </Modal>
   );
@@ -71,7 +72,6 @@ ChallengeIntroModal3Desktop.propTypes = {
   onCancel: PropTypes.func,
   onClick: PropTypes.func,
   show: PropTypes.bool,
-  theme: React.PropTypes.string,
   type: React.PropTypes.node
 };
 
