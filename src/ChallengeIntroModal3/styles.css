@@ -1,0 +1,45 @@
+.challengeIntroModal {
+  width:95%;
+  max-width:520px;
+  margin: 48px auto;
+  border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22)
+}
+
+.challengeIntroImage {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 128px;
+}
+
+.challengeIntroWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  width: 100%;
+  max-width: 368px;
+  padding-bottom: 16px;
+}
+
+.challengeMeta7 {
+  max-width: 368px;
+  padding-bottom: 32px;
+}
+
+.text {
+  width: 100%;
+  max-width: 368px;
+  padding-bottom: 32px;
+}
+
+.buttonWrap {
+  padding-bottom: 16px;
+}
