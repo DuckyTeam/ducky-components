@@ -1,6 +1,7 @@
 .wrapper {
   background-color: transparent;
   display: inline-flex;
+  max-width: 100%;
 }
 
 .standard {
