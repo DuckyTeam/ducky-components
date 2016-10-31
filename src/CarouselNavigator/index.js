@@ -11,7 +11,7 @@ class CarouselNavigator extends React.Component {
   render() {
     const dotCount = this.props.slideCount;
     // Does not work in IE11 and below: const dotsArray = new Array(dotCount).fill(0);
-    const dotsArray = new Array(dotCount).join('0').split('');
+    const dotsArray = new Array(dotCount + 1).join('0').split('');
 
     let dots = dotsArray.map((dot, index) => {
       let className = classNames(styles.inactive, {
