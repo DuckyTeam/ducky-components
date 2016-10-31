@@ -18,7 +18,10 @@ function ChallengeMoreInfoModal(props) {
         style={{backgroundImage: `url(${props.imgurl})`}}
         />
       <div className={styles.modal}>
-        <Wrapper className={styles.textWrapper}>
+        <Wrapper
+          className={styles.textWrapper}
+          size={'standard'}
+          >
           {props.heading
             ? <Typography className={styles.header}
               type="ingressStrong"
@@ -37,9 +40,12 @@ function ChallengeMoreInfoModal(props) {
           <CarouselNav slideCount={props.slideCount} />
         </div>
       </div>
-      <Footer cancelButtonText="Lukk"
+      <Footer
+        cancelButtonText={props.currentSlide === 1 ? 'Lukk' : 'Tilbake'}
         className={styles.footer}
-        okButtonText="Neste"
+        okButtonText={props.currentSlide === props.slideCount ? 'OK' : 'Neste'}
+        onCancel={props.onLeftClick}
+        onClick={props.onRightClick}
         />
     </Modal>
 );
@@ -47,9 +53,12 @@ function ChallengeMoreInfoModal(props) {
 
 ChallengeMoreInfoModal.propTypes = {
   content: PropTypes.string,
+  currentSlide: PropTypes.number,
   heading: PropTypes.string,
   imgurl: PropTypes.string,
   onHide: PropTypes.func,
+  onLeftClick: React.PropTypes.func,
+  onRightClick: React.PropTypes.func,
   show: PropTypes.bool,
   slideCount: React.PropTypes.number
 };

@@ -8,6 +8,8 @@ stories(module, ChallengeMoreInfoModal,
     heading: string('This is the heading'),
     imgurl: string('https://www.ducky.no/images/landing-image-1.jpg'),
     onHide: func(),
+    onLeftClick: func(),
+    onRightClick: func(),
     show: bool(),
     slideCount: number(4)
   });
