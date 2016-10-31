@@ -39,6 +39,25 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
   state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
 
+  const getShortenedName = name => {
+    if (state.data.length < 5) {
+      if (name.length > 14) {
+        return name.substring(0, 12) + '...';
+      }
+      return name;
+    } else {
+      if (name.length > 6) {
+        return name.substring(0, 4) + '...';
+      }
+      return name;
+    }
+  };
+
+  state.data = state.data.map(el => {
+    el.label = getShortenedName(el.label);
+    return el;
+  });
+
   const isSelectedByName = (label) => {
     let found = false;
 
