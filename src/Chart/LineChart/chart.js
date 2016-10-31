@@ -6,6 +6,8 @@ import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
 import drawLabels from './../common/drawGoalLabels';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
+import calculateYAxisTicks from './../common/calculateYAxisTicks';
+
 
 const d3Chart = {};
 
@@ -33,6 +35,14 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     state.xAxisOffset = state.height + props.margin.top + 5;
     const speed = 300;
     const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
+    state.lowestScore = d3.min(state.data.map(d => {
+      if (d.data && d.data.length === 0) {
+        return 0;
+      } else if (d.data) {
+        return d.data[d.data.length - 1].value;
+      }
+      return 0;
+    }));
     let leaderId;
     let leaderName;
     state.leaderId = leaderId;
@@ -94,6 +104,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .domain([0, d3.max([maxValue, nextGoal(), state.goals[1]])])
       .range([state.height - 4, 15 + props.margin.top]);
 
+    state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
+
     const lineDrawer = d3.svg.line().interpolate("basic")
         .x((d) => xScale(moment(d.date)))
         .y((d) => yScale(d.value));
@@ -116,7 +128,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .svg
         .axis()
         .scale(yScale)
-        .tickValues(state.goals.slice(0, d3.max([d3.min([state.goals.indexOf(nextGoal()), state.goals.length]) + 1, 2])))
+        .tickValues(state.yAxisTickValues)
         .tickSize(-props.width, 0, 0)
         .orient("left");
 
@@ -145,17 +157,15 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
-    const numOfGoals = state.goals.reduce((acc, goal) => (goal <= maxValue) ? acc + 1 : acc, 0) + 1;
 
-    const goals = state.goals.slice(0, d3.max([numOfGoals, 2]))
-
-    drawLabels(labelGroup, goals, yourScore, yScale, dontAnimateIn ? 0 : speed);
+    drawLabels(labelGroup, state.yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed);
 
     //Draw faces
-    const xValue = props.width - props.margin.left - props.margin.right * 2;
+    /*const xValue = props.width - props.margin.left - props.margin.right * 2;
     const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
     drawFaces(chartGroup, goals, yourScore, maxValue, yScale, xValue, dontAnimateIn ? 0 : speed);
+    */
 
     // Draw leader line
     const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);

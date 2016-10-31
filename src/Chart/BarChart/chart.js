@@ -5,6 +5,7 @@ import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
 import drawLabels from './../common/drawGoalLabels';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
+import calculateYAxisTicks from './../common/calculateYAxisTicks';
 const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
@@ -33,9 +34,9 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   state.textPadding = 6;
   state.speed = 250;
   state.highestScore = d3.max(state.data, (data) => data.value);
+  state.lowestScore = d3.min(state.data, (data) => data.value);
   state.leaderId = (state.highestScore === 0) ? -1 : state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
-  state.yAxisTickValues = state.goals.slice(0, d3.max([d3.min([state.nextGoal ? state.goals.indexOf(state.nextGoal) : state.goals.length, state.goals.length]) + 1, 2]));
   state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
 
   const isSelectedByName = (label) => {
@@ -69,6 +70,8 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .range([state.height - 4, 15 + props.margin.top]);
 
   state.barWidth = d3.min([xScale.rangeBand(), 24]);
+  state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
+
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -107,17 +110,16 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
-  const numOfGoals = state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0) + 1;
 
-  const goals = state.goals.slice(0, d3.max([numOfGoals, 2]));
-
-  drawLabels(labelGroup, goals, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed)
+  drawLabels(labelGroup, state.yAxisTickValues, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed)
 
   //Draw faces
+  /*
   const xValue = props.width - props.margin.left - props.margin.right * 2;
   const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
   drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, dontAnimateIn ? 0 : state.speed);
+  */
 };
 
 const drawBars = (svg, state, props, xScale, yScale) => {

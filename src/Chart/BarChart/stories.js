@@ -21,7 +21,7 @@ stories(module, BarChart, [
     value: 0,
     label: "Strek4"
   }]),
-  goals: json([200, 400, 600, 800]),
+  goals: json([10, 25, 50, 100, 200, 400, 600, 800, 1000, 2000, 5000, 10000]),
   graphID: json(1),
   height: oneOf("300px", "400px"),
   memberOf: json(12),
