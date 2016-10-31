@@ -36,7 +36,7 @@ LabelNumber.propTypes = {
     animation: React.PropTypes.bool,
     className: React.PropTypes.string,
     decimals: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    number: React.PropTypes.number,
+    number: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
     textcontent: React.PropTypes.string,
     theme: React.PropTypes.oneOf(['light', 'dark'])
 };

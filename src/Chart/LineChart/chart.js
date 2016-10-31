@@ -8,7 +8,6 @@ import drawLabels from './../common/drawGoalLabels';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
 import calculateYAxisTicks from './../common/calculateYAxisTicks';
 
-
 const d3Chart = {};
 
 d3Chart.create = (el, props, state, formatting) => {
@@ -68,8 +67,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       return id;
     }
 
-    const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
 
+    const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
     const dotData = state.data.reduce((acc, line) => {
       let newData = [line.data[0], line.data[d3.max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
