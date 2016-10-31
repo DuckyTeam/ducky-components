@@ -8,7 +8,7 @@ import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 const PropTypes = React.PropTypes;
 
-function ChallengeIntroModal3Desktop(props) {
+function ChallengeIntroModal3(props) {
   return (
     <Modal
       className={classNames(styles.wrapper, {
@@ -21,7 +21,8 @@ function ChallengeIntroModal3Desktop(props) {
       <div
         className={styles.challengeIntroImage}
         style={{backgroundImage: `url(${props.image})`}}
-        />
+        >
+      </div>
       <Wrapper
         className={styles.challengeIntroWrapper}
         size="standard"
@@ -46,9 +47,11 @@ function ChallengeIntroModal3Desktop(props) {
           isYourteam={props.isYourteam}
           memberCount={props.memberCount}
           name={props.name}
+          theme={props.theme}
           />
-        <div className={styles.buttonWrapper}>
+        <div className={styles.buttonWrap}>
           <ButtonRaised
+            className={styles.button}
             onClose={props.onClick}
             type={props.type}
             >
@@ -60,7 +63,7 @@ function ChallengeIntroModal3Desktop(props) {
   );
 }
 
-ChallengeIntroModal3Desktop.propTypes = {
+ChallengeIntroModal3.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   icon: PropTypes.string,
@@ -72,7 +75,8 @@ ChallengeIntroModal3Desktop.propTypes = {
   onCancel: PropTypes.func,
   onClick: PropTypes.func,
   show: PropTypes.bool,
+  theme: React.PropTypes.string,
   type: React.PropTypes.node
 };
 
-export default ChallengeIntroModal3Desktop;
+export default ChallengeIntroModal3;
