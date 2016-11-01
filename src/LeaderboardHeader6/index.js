@@ -17,7 +17,7 @@ function LeaderboardHeader6(props) {
         className={styles.header}
         type={'bodyTextStrong'}
         >
-          {'Toppliste'}
+          {props.toplistText}
       </Typography>
       <div className={styles.contentWrapper}>
         <Icon
@@ -29,13 +29,13 @@ function LeaderboardHeader6(props) {
           className={styles.team}
           type={'caption2Strong'}
           >
-            {'Lag'}
+            {props.teamText}
         </Typography>
         <Typography
           className={styles.co2Saved}
           type={'caption2Strong'}
           >
-          {'Innspart kgCO\u2082e'}
+          {props.savingText}
         </Typography>
       </div>
     </Wrapper>
@@ -43,7 +43,10 @@ function LeaderboardHeader6(props) {
 }
 
 LeaderboardHeader6.propTypes = {
-  className: React.PropTypes.string
+  className: React.PropTypes.string,
+  savingText: React.PropTypes.string,
+  teamText: React.PropTypes.string,
+  toplistText: React.PropTypes.string
 };
 
 export default LeaderboardHeader6;

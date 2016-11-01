@@ -10,35 +10,13 @@ const PropTypes = React.PropTypes;
 function LeaderboardComposite7(props) {
   let opt = '';
 
-  if (props.yourTeam && !props.isLeader) {
+  if (props.yourTeam) {
     opt = (
       <Typography
         className={styles.typoTeam}
         type="caption2Normal"
         >
-        {'(Ditt lag)'}
-      </Typography>
-    );
-  }
-
-  if (props.isLeader && !props.yourTeam) {
-    opt = (
-      <Typography
-        className={styles.typoTeam}
-        type="caption2Normal"
-        >
-        {''}
-      </Typography>
-    );
-  }
-
-  if (props.isLeader && props.yourTeam) {
-    opt = (
-      <Typography
-        className={styles.typoTeam}
-        type="caption2Normal"
-        >
-        {'(Ditt lag)'}
+        {`(${props.yourTeamText})`}
       </Typography>
     );
   }
@@ -111,7 +89,7 @@ function LeaderboardComposite7(props) {
             className={styles.typoTeam}
             type="caption2Normal"
             >
-            {'(Ditt lag)'}
+            {`(${props.yourTeamText})`}
           </Typography>
         </div>
       </div>
@@ -134,7 +112,7 @@ function LeaderboardComposite7(props) {
         [props.className]: props.className
       })}
       onClick={props.onClick}
-    >
+      >
       {teamRanking}
       {teamName}
       <Icon
@@ -142,14 +120,14 @@ function LeaderboardComposite7(props) {
         icon={props.opened ? 'icon-keyboard_arrow_up' : 'icon-keyboard_arrow_down'}
         onClick={props.onClick}
         size="small"
-      />
+        />
       <div className={styles.labelStandardWrapper}>
         <LabelStandard
           className={styles.labelStandard}
           content={props.teamTotalCo2}
           icon="icon-leaf"
           type="caption2Normal"
-        />
+          />
       </div>
     </div>
   );
@@ -164,6 +142,7 @@ LeaderboardComposite7.propTypes = {
   teamName: PropTypes.string,
   teamRanking: PropTypes.number,
   teamTotalCo2: PropTypes.number,
-  yourTeam: PropTypes.bool
+  yourTeam: PropTypes.bool,
+  yourTeamText: PropTypes.string
 };
 export default LeaderboardComposite7;

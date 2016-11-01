@@ -12,7 +12,7 @@ function SectionFooterBack(props) {
         icon={'icon-keyboard_arrow_left'}
         onClick={props.onClick}
         >
-        {"TILBAKE"}
+        {props.backText}
       </ButtonIcon>
     </div>
   );
@@ -21,6 +21,7 @@ function SectionFooterBack(props) {
 SectionFooterBack.displayName = "Section Footer Back";
 SectionFooterBack.propTypes = {
   className: React.PropTypes.string,
+  backText: React.PropTypes.string,
   onClick: React.PropTypes.func
 };
 

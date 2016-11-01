@@ -12,7 +12,7 @@ function SectionFooterClose(props) {
         className={styles.button}
         onClick={props.onClick}
         >
-        {"LUKK"}
+        {props.closeButtonText}
       </Button>
     </div>
   );
@@ -21,6 +21,7 @@ function SectionFooterClose(props) {
 SectionFooterClose.displayName = "Section Footer Close";
 SectionFooterClose.propTypes = {
   className: React.PropTypes.string,
+  closeButtonText: React.PropTypes.string,
   onClick: React.PropTypes.func
 };
 

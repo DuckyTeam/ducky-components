@@ -19,7 +19,7 @@ function ButtonLoadMore(props) {
           className={styles.textOne}
           type="bodyTextNormal"
           >
-          Du har scrollet deg gjennom alt innholdet. Bra jobba!
+          {props.endOfContentText}
         </Typography>
         <Spacer size="double" />
         <ActionButton
@@ -33,7 +33,7 @@ function ButtonLoadMore(props) {
           className={styles.textTwo}
           type="bodyTextNormal"
           >
-          Tilbake til toppen
+          {props.backToTopText}
         </Typography>
       </div>
       : <div
@@ -44,7 +44,7 @@ function ButtonLoadMore(props) {
           className={styles.loadmoreBtnText}
           type="bodyTextNormal"
           >
-          Vis mer
+          {props.showMoreText}
         </Typography>
       </div>
     }
@@ -53,9 +53,12 @@ function ButtonLoadMore(props) {
 }
 
 ButtonLoadMore.propTypes = {
+  backToTopText: PropTypes.string,
   className: PropTypes.string,
   endOfContent: PropTypes.bool,
-  onClick: PropTypes.func
+  endOfContentText: PropTypes.string,
+  onClick: PropTypes.func,
+  showMoreText: PropTypes.string
 };
 
 export default ButtonLoadMore;

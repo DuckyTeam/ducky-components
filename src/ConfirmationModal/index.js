@@ -22,21 +22,23 @@ function ConfirmationModal(props) {
         title={props.title}
         />
       <Wrapper size="standard">
-        <Typography type="bodyTextNormal">{props.children}</Typography>
+        <Typography type="bodyTextNormal">
+          {props.children}
+        </Typography>
       </Wrapper>
       <div className={styles.buttonWrapper}>
         <Button
           className={styles.button}
           onClick={props.onCancel}
           >
-        AVBRYT
+          {props.cancelText}
         </Button>
         <ButtonRaised
           className={styles.button}
           disabled={props.disabled}
           onClick={props.onConfirm}
           >
-          OK
+          {props.okText}
         </ButtonRaised>
       </div>
     </Modal>
@@ -44,9 +46,11 @@ function ConfirmationModal(props) {
 }
 
 ConfirmationModal.propTypes = {
+  cancelText: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   disabled: PropTypes.bool,
+  okText: PropTypes.string,
   onCancel: PropTypes.func,
   onConfirm: PropTypes.func,
   show: PropTypes.bool,

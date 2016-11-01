@@ -19,24 +19,24 @@ function ChallengeMeta5(props) {
         className={styles.progressBar}
         color={progressColor}
         percent={props.progress}
-      />
+        />
       <div className={styles.statsWrapper}>
         <LabelSmall
           className={styles.goal}
           content={props.goal}
           icon={'icon-leaf'}
           type={"caption2Strong"}
-        />
+          />
         <Typography
           className={styles.label}
           type="caption2Normal"
-        >
-          {'Neste nivå'}
+          >
+          {props.nextLevelText}
         </Typography>
         <Typography
           className={styles.percent}
           type="caption2Strong"
-        >
+          >
           {`${props.progress.toFixed(0)}%`}
         </Typography>
       </div>
@@ -47,6 +47,7 @@ function ChallengeMeta5(props) {
 ChallengeMeta5.propTypes = {
   goal: React.PropTypes.number,
   level: React.PropTypes.number,
+  nextLevelText: React.PropTypes.string,
   progress: React.PropTypes.number
 };
 

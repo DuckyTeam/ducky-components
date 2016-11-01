@@ -38,7 +38,7 @@ function ChallengeIntroModal3(props) {
           isYourteam={props.isYourteam}
           type="bodyTextNormal"
           >
-          Du deltar nå på denne utfordringen sammen med {props.memberCount} andre personer!
+          {props.challengeParticipationText}
         </Typography>
         <ChallengeMeta7
           className={styles.challengeMeta7}
@@ -55,7 +55,7 @@ function ChallengeIntroModal3(props) {
             onClose={props.onClick}
             type={props.type}
             >
-            {'OK'}
+            {props.okText}
           </ButtonRaised>
         </div>
       </Wrapper>
@@ -64,6 +64,7 @@ function ChallengeIntroModal3(props) {
 }
 
 ChallengeIntroModal3.propTypes = {
+  challengeParticipationText: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   icon: PropTypes.string,
@@ -72,6 +73,7 @@ ChallengeIntroModal3.propTypes = {
   isYourteam: React.PropTypes.bool,
   memberCount: React.PropTypes.number,
   name: React.PropTypes.string,
+  okText: PropTypes.string,
   onCancel: PropTypes.func,
   onClick: PropTypes.func,
   show: PropTypes.bool,
