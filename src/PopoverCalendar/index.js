@@ -1,6 +1,8 @@
 import React from 'react';
 import moment from 'moment';
-import norsk from 'moment/locale/nb';
+import 'moment/locale/nb';
+// import 'moment/locale/de';
+// import 'moment/locale/is'; */
 /* Linking the nb.js in my main project file automatically changed the locale for all accesses to the moment class and its methods.
 There will be no need anymore to do a moment.locale("nb"). or moment.lang("nb"). in the source code. */
 import classNames from 'classnames';
@@ -12,18 +14,21 @@ import Wrapper from '../Wrapper';
 import Spacer from '../Spacer';
 import styles from './styles.css';
 
+
 class PopoverCalendar extends React.Component {
   constructor(props) {
     super(props);
     const duckyCalendar = {
-      Language: this.props.language
+      language: this.props.language
     };
-    // let norsk = moment.locale("de").format("LLL");
+    let norsk = moment;
 
+    norsk.locale(this.props.language);
+    const monthz = norsk.months();
 
+    console.log('monthz: ', monthz);
     console.log('thispropslanguage: ', this.props.language);
     console.log('duckyCalendar: ', duckyCalendar);
-    // console.log('current locale:', moment.localeData());
   }
 
 /*
@@ -36,23 +41,56 @@ class PopoverCalendar extends React.Component {
     const daysInWeek = thisIsTheDays.length;
 */
   structWeek() {
-    let week = [];
-    moment.format('ll');
-    // moment.locale("de").format("LLL");
-    console.log(moment.startOf('week'));
-    week = moment.weekdays();
-    console.log('week/moment.months: ', week, moment.weekdaysShort);
-    const daysInWeek = week.length;
+    let weekz = [];
 
-    console.log('days in week: ', daysInWeek);
+    let norsk = moment;
+      // dNow = '01_11_2016';
+
+      // norsk.locale(this.props.language);
+      // mIS.locale("is");
+      // mDE.locale("de");
+      norsk.locale(this.props.language);
+      console.log('locale is: ', norsk.locale())
+
+
+    // console.log('momentlocale??: ', moment.locale());
+    // var format = "ll";
+    // var locale = "de";
+    weekz = norsk.weekdaysMin();
+
+    console.log('moment locale week test: ', moment.weekdays(), weekz);
+    // console.log('moment locale lang test: ', mDE().fromNow());
+
+    // moment.locale('de');
+    console.log('moment locale norsk weekdays: ', norsk.weekdaysShort());
+    /* console.log('moment locale test3: ', moment().months());
+    console.log('start of week:', moment().startOf(weekz).toString());
+    console.log('end of week: ', moment().endOf(weekz).toString());
+    console.log('momentlocale??: ', moment.locale());
+
+    console.log('week/moment.months: ', weekz, mIS().weekdaysShort);
+
+
+    console.log('days in week: ', daysInWeek); */
+
+    const theSunday = weekz[0];
+    weekz.splice(0,1);
+    weekz.push(theSunday);
+    const daysInWeek = weekz.length;
     const rows = [];
 
 
     for (let index = 0; index < daysInWeek; index += 1) {
-      rows.push(<ButtonCounter number={daysInWeek[index]} />
-      );
+      rows.push(<ButtonCounter className={styles.icon}
+        number={weekz[index].toUpperCase()}
+        />);
     }
-    return (<Wrapper size="slender">{rows}</Wrapper>);
+    console.log('rows: ', {rows})
+    return (<Wrapper className={styles.iconWrapper}
+      size="slender"
+      >
+      {rows}
+    </Wrapper>);
   }
   render() {
     const arrowLeft = 'icon-arrow_back';
@@ -63,12 +101,12 @@ class PopoverCalendar extends React.Component {
         size="standard"
         >
         <div>
-          <ActionButton className={styles.icon}
+          <ActionButton className={styles.iconArrows}
             icon={arrowLeft}
             />
           <Typography className={styles.month}> {this.props.month} </Typography>
           <Typography className={styles.year}> {this.props.year} </Typography>
-          <ActionButton className={styles.icon}
+          <ActionButton className={styles.iconArrows}
             icon={arrowRight}
             />
         </div>
