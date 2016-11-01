@@ -15,7 +15,7 @@ function LeaderboardComposite7(props) {
       <Typography
         className={styles.typoTeam}
         type="caption2Normal"
-      >
+        >
         {'(Ditt lag)'}
       </Typography>
     );
@@ -26,8 +26,8 @@ function LeaderboardComposite7(props) {
       <Typography
         className={styles.typoTeam}
         type="caption2Normal"
-      >
-        {'(Leder)'}
+        >
+        {''}
       </Typography>
     );
   }
@@ -37,8 +37,8 @@ function LeaderboardComposite7(props) {
       <Typography
         className={styles.typoTeam}
         type="caption2Normal"
-      >
-        {'(Ditt lag - Leder)'}
+        >
+        {'(Ditt lag)'}
       </Typography>
     );
   }
@@ -47,7 +47,7 @@ function LeaderboardComposite7(props) {
     <Typography
       className={styles.teamRanking}
       type={'caption1Normal'}
-    >
+      >
       {props.teamRanking}
     </Typography>
   );
@@ -55,7 +55,7 @@ function LeaderboardComposite7(props) {
     <div className={styles.teamName}>
       <Typography
         type="bodyTextStrong"
-      >
+        >
         {props.teamName}
       </Typography>
       <div>
@@ -64,7 +64,7 @@ function LeaderboardComposite7(props) {
           content={props.teamMemberCount}
           icon="icon-people"
           type="caption2Normal"
-        />
+          />
         {opt}
       </div>
     </div>
@@ -77,7 +77,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking}
         icon="icon-hashtag"
         type="caption2Normal"
-      />
+        />
     );
   }
 
@@ -88,7 +88,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking || 1}
         icon="icon-crown"
         type="caption2Normal"
-      />
+        />
     );
   }
 
@@ -97,7 +97,7 @@ function LeaderboardComposite7(props) {
       <div className={styles.teamName}>
         <Typography
           type={'bodyTextStrong'}
-        >
+          >
           {props.teamName}
         </Typography>
         <div>
@@ -106,12 +106,12 @@ function LeaderboardComposite7(props) {
             content={props.teamMemberCount}
             icon="icon-people"
             type="caption2Normal"
-          />
+            />
           <Typography
             className={styles.typoTeam}
             type="caption2Normal"
-          >
-            {'(Ditt lag - Leder)'}
+            >
+            {'(Ditt lag)'}
           </Typography>
         </div>
       </div>
@@ -122,7 +122,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking || 1}
         icon="icon-crown"
         type="caption2Normal"
-      />
+        />
     );
   }
 
