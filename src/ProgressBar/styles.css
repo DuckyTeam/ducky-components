@@ -1,14 +1,21 @@
 .wrapper {
-  height:4px;
-  border-radius:4px;
   background-color: rgba(38,50,56,0.12);
   width: 100%;
   overflow: hidden;
 }
 
 .progress {
-  height: 4px;
-  border-radius: 4px;
   background-color: #00AB97;
   width: 0;
+}
+
+.standard {
+  height: 4px;
+  border-radius: 4px;
+}
+
+.wide {
+  height: 12px;
+  border-radius: 2px;
+  background-color: rgba(38,50,56,0.12);
 }

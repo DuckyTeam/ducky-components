@@ -6,11 +6,16 @@ import classNames from 'classnames';
 function ProgressBar(props) {
   return (
     <div
-      className={classNames(styles.wrapper, {[props.className]: props.className})}
+      className={classNames(styles.wrapper, {
+        [styles[props.size]]: props.size,
+        [props.className]: props.className}
+        )}
       onClick={props.onClick}
       >
       <div
-        className={styles.progress}
+        className={classNames(styles.progress, {
+          [styles[props.size]]: props.size}
+        )}
         style={{width: `${props.percent}%`, backgroundColor: props.color}}
         />
     </div>
@@ -21,7 +26,8 @@ ProgressBar.propTypes = {
   className: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
-  percent: PropTypes.number
+  percent: PropTypes.number,
+  size: PropTypes.oneOf(['standard', 'wide'])
 };
 
 export default ProgressBar;
