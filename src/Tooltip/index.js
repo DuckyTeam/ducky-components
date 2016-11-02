@@ -33,9 +33,9 @@ function Tooltip(props) {
           overlayClassName={styles.popup}
           placement={props.placement || "top"}
           >
-          <span>{props.children}</span>
+          <div>{props.children}</div>
         </RcTooltip>
-        : <span>{props.children}</span>}
+        : <div>{props.children}</div>}
     </div>
   );
 }
