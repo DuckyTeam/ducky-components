@@ -21,12 +21,7 @@ class PopoverCalendar extends React.Component {
     const duckyCalendar = {
       language: this.props.language
     };
-    let norsk = moment;
 
-    norsk.locale(this.props.language);
-    const monthz = norsk.months();
-
-    console.log('monthz: ', monthz);
     console.log('thispropslanguage: ', this.props.language);
     console.log('duckyCalendar: ', duckyCalendar);
   }
@@ -40,6 +35,35 @@ class PopoverCalendar extends React.Component {
     const Day = thisIsTheDays[index];
     const daysInWeek = thisIsTheDays.length;
 */
+structDays() {
+  let norsk = moment;
+
+  norsk.locale(this.props.language);
+  let monthWidth = norsk().daysInMonth();
+  let startOfMonth = norsk().month(this.props.month).date(0).format('ll');
+  console.log('monthwidth: ', monthWidth, 'start of month: ', startOfMonth);
+
+
+}
+
+structYear() {
+  let norsk = moment;
+  let yearz = this.props.year ? this.props.year : norsk().year();
+  console.log('yearz: ', yearz);
+  return yearz;
+}
+
+structMonth(inx) {
+  let norsk = moment;
+  let inx2 = inx-1;
+
+  norsk.locale(this.props.language ? this.props.language : 'nb');
+  const monthz = norsk.months();
+
+  console.log('monthz: ', monthz[inx2]);
+  return monthz[inx2];
+}
+
   structWeek() {
     let weekz = [];
 
@@ -49,7 +73,7 @@ class PopoverCalendar extends React.Component {
       // norsk.locale(this.props.language);
       // mIS.locale("is");
       // mDE.locale("de");
-      norsk.locale(this.props.language);
+      norsk.locale(this.props.language ? this.props.language : 'nb');
       console.log('locale is: ', norsk.locale())
 
 
@@ -104,8 +128,8 @@ class PopoverCalendar extends React.Component {
           <ActionButton className={styles.iconArrows}
             icon={arrowLeft}
             />
-          <Typography className={styles.month}> {this.props.month} </Typography>
-          <Typography className={styles.year}> {this.props.year} </Typography>
+          <Typography className={styles.month}> {this.structMonth(this.props.month ? this.props.month : 1)} </Typography>
+          <Typography className={styles.year}> {this.structYear()} </Typography>
           <ActionButton className={styles.iconArrows}
             icon={arrowRight}
             />
@@ -113,6 +137,9 @@ class PopoverCalendar extends React.Component {
         <div><Spacer size="double" /></div>
         <div>
           {this.structWeek()}
+        </div>
+        <div>
+          {this.structDays()}
         </div>
       </Wrapper>
     );
@@ -126,7 +153,7 @@ PopoverCalendar.propTypes = {
   className: React.PropTypes.string,
   language: React.PropTypes.string,
   // color: React.PropTypes.string,
-  month: React.PropTypes.string,
+  month: React.PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   onClick: React.PropTypes.func,
   // style: React.PropTypes.shape({}),
   structWeek: React.PropTypes.func,
