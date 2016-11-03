@@ -9,6 +9,6 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 152px;
+  min-width: 152px;
   margin-right: 16px;
 }
