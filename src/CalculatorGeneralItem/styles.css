@@ -1,0 +1,43 @@
+.wrapper, .wrapperExpanded {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.wrapperExpanded {
+  border-bottom: none;
+}
+
+.wrapper:hover {
+  background-color: #f4f7f9;
+}
+
+.typoQuestion {
+  line-height: 24px;
+  flex-grow: 1;
+}
+
+.typoAnswer, .typoContentInactive {
+  padding-right: 16px;
+  color: #00ab97;
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.typoContentInactive {
+  color: #90a4ae;
+}
+
+.saveButton {
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+.spacerBottom {
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+}
