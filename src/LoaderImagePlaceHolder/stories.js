@@ -7,6 +7,6 @@ stories(module, LoaderImagePlaceHolder, [
   children: string('Component'),
   className: className(),
   iconName: oneOf('icon-leaf', 'icon-duck', 'icon-photo'),
-  hide: bool(),
+  hide: bool(false),
   size: string('small')
 });

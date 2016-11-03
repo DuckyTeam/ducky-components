@@ -6,6 +6,6 @@ stories(module, LoaderImage, [
 ], {
   iconName: oneOf('icon-leaf', 'icon-duck', 'icon-photo'),
   className: className(),
-  hide: bool(),
+  hide: bool(false),
   size: string('small')
 });

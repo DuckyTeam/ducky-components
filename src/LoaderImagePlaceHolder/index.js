@@ -18,7 +18,7 @@ function LoaderImagePlaceHolder(props) {
         })} />
         <Icon
           className={styles.iconWrapper}
-          icon={props.iconName}
+          icon={'icon-photo'}
           size={props.size}
           />
       </div>
