@@ -23,7 +23,7 @@ function CalculatorGeneralItem(props) {
           className={styles.saveButton}
           onClick={props.onSaveButtonClicked}
           >
-          LAGRE
+          {props.children}
         </Button>
       </Wrapper>
       <div>
