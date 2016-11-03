@@ -29,41 +29,29 @@ function CreateGoalPanel4Mobile(props) {
           onCategoryClick={props.onCategoryClick}
           />
       </Wrapper>
-      <CreateGoalActionItem className={styles.actionItemComposite}
-        co2={props.co2}
-        icon={props.icon}
-        onClick={props.onClickGoalActionItem}
-        points={props.points}
-        title={props.titleGoal1}
-        />
-      <Spacer
-        className={styles.hr2}
-        hr={"true"}
-        size={"hr2"}
-        />
-      <CreateGoalActionItem className={styles.actionItemComposite}
-        co2={props.co2}
-        icon={props.icon}
-        onClick={props.onClickGoalActionItem}
-        points={props.points}
-        title={props.titleGoal2}
-        />
-      <Spacer
-        className={styles.hr2}
-        hr={"true"}
-        size={"hr2"}
-        />
-      <CreateGoalActionItem className={styles.actionItemComposite}
-        co2={props.co2}
-        icon={props.icon}
-        onClick={props.onClickGoalActionItem}
-        points={props.points}
-        title={props.titleGoal3}
-        />
-      <Spacer
-        hr={"true"}
-        size={'double'}
-        />
+      {
+        (props.actions || []).filter((action) => {
+          return action.type === props.activeCategory
+        })
+        .map((action, index) => {
+          return (
+            <div key={index}>
+              <CreateGoalActionItem className={styles.actionItemComposite}
+                co2={action.co2}
+                icon={props.icon}
+                onClick={props.onClickGoalActionItem}
+                points={props.points}
+                title={props.goalTitle}
+                />
+              <Spacer
+                className={styles.hr2}
+                hr={"true"}
+                size={"hr2"}
+                />
+            </div>
+          )
+        })
+      }
       <div className={styles.sectionHeaderGeneral}>
         <SectionFooterNew
           icon={props.iconSectionfooter}
@@ -76,10 +64,12 @@ function CreateGoalPanel4Mobile(props) {
 }
 
 CreateGoalPanel4Mobile.propTypes = {
+  actions: PropTypes.array,
   activeCategory: PropTypes.string,
   children: PropTypes.string,
   className: PropTypes.string,
   co2: PropTypes.number,
+  goalTitle: PropTypes.string,
   icon: PropTypes.string,
   iconSectionfooter: PropTypes.String,
   onCategoryClick: PropTypes.func,
@@ -87,10 +77,6 @@ CreateGoalPanel4Mobile.propTypes = {
   points: PropTypes.number,
   rightIcon: PropTypes.string,
   text: PropTypes.string,
-  title: PropTypes.string,
-  titleGoal1: PropTypes.string,
-  titleGoal2: PropTypes.string,
-  titleGoal3: PropTypes.string,
-  type: PropTypes.string
+  title: PropTypes.string
 };
 export default CreateGoalPanel4Mobile;
