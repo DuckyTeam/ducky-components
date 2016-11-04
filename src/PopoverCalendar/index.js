@@ -35,34 +35,37 @@ class PopoverCalendar extends React.Component {
     const Day = thisIsTheDays[index];
     const daysInWeek = thisIsTheDays.length;
 */
-structDays() {
-  let norsk = moment;
 
-  norsk.locale(this.props.language);
-  let monthWidth = norsk().daysInMonth();
-  let startOfMonth = norsk().month(this.props.month).date(0).format('ll');
-  console.log('monthwidth: ', monthWidth, 'start of month: ', startOfMonth);
+  structDays() {
+    let norsk = moment;
 
+    norsk.locale(this.props.language);
+    let monthWidth = norsk().daysInMonth();
+    let monthz = this.props.month ? this.props.month : norsk.months();
+    let startOfMonth = norsk().month(monthz).startOf('month').format('d');
+    console.log(monthz);
+    console.log('monthwidth: ', monthWidth, 'start of month: ', startOfMonth);
+    let emptybox = [];
+    let firstweek = '<div> do this later..';
+  }
 
-}
+  structYear() {
+    let norsk = moment;
+    let yearz = this.props.year ? this.props.year : norsk().year();
+    console.log('yearz: ', yearz);
+    return yearz;
+  }
 
-structYear() {
-  let norsk = moment;
-  let yearz = this.props.year ? this.props.year : norsk().year();
-  console.log('yearz: ', yearz);
-  return yearz;
-}
+  structMonth(inx) {
+    let norsk = moment;
+    let inx2 = inx-1;
 
-structMonth(inx) {
-  let norsk = moment;
-  let inx2 = inx-1;
+    norsk.locale(this.props.language ? this.props.language : 'nb');
+    const monthz = norsk.months();
 
-  norsk.locale(this.props.language ? this.props.language : 'nb');
-  const monthz = norsk.months();
-
-  console.log('monthz: ', monthz[inx2]);
-  return monthz[inx2];
-}
+    console.log('monthz: ', monthz[inx2]);
+    return monthz[inx2];
+  }
 
   structWeek() {
     let weekz = [];
@@ -98,7 +101,8 @@ structMonth(inx) {
     console.log('days in week: ', daysInWeek); */
 
     const theSunday = weekz[0];
-    weekz.splice(0,1);
+
+    weekz.splice(0, 1);
     weekz.push(theSunday);
     const daysInWeek = weekz.length;
     const rows = [];
