@@ -10,5 +10,6 @@ stories(module, CalculatorGeneralItem, [
   inactive: bool(),
   label: string("Hvor mye spiser du?"),
   onClick: func(),
+  saveButtonText: string(),
   value: string("Gjennomsnitlig")
 });

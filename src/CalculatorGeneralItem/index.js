@@ -23,7 +23,7 @@ function CalculatorGeneralItem(props) {
           className={styles.saveButton}
           onClick={props.onSaveButtonClicked}
           >
-          {props.children}
+          {props.saveButtonText}
         </Button>
       </Wrapper>
       <div>
@@ -63,6 +63,7 @@ CalculatorGeneralItem.propTypes = {
   onClick: React.PropTypes.func,
   onCloseClick: React.PropTypes.func,
   onSaveButtonClicked: React.PropTypes.func,
+  saveButtonText: React.PropTypes.string,
   value: React.PropTypes.string
 };
 
