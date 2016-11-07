@@ -39,14 +39,40 @@ class PopoverCalendar extends React.Component {
   structDays() {
     let norsk = moment;
 
+
     norsk.locale(this.props.language);
     let monthWidth = norsk().daysInMonth();
+    let yearz = this.props.year ? this.props.year : norsk().year();
     let monthz = this.props.month ? this.props.month : norsk.months();
-    let startOfMonth = norsk().month(monthz).startOf('month').format('d');
+    let startOfMonth = norsk().year(yearz).month(monthz).startOf('month').format('d');
     console.log(monthz);
     console.log('monthwidth: ', monthWidth, 'start of month: ', startOfMonth);
-    let emptybox = [];
-    let firstweek = '<div> do this later..';
+    let numberOfBlanks1 = startOfMonth;
+    let bigBox = [];
+    let firstWeek = [];
+    for (let inx2 = 0; numberOfBlanks1 > inx2; numberOfBlanks1 -= 1) {
+      firstWeek.push(
+        <Wrapper className={styles.iconWrapper}
+          size="slender"
+          >
+          <ButtonCounter className={styles.icon}
+            number=" "
+            />
+        </Wrapper>);
+      bigBox.push(firstWeek);
+      for (let inx = 0; inx < monthWidth; inx += 1) {
+        bigBox.push(
+          <Wrapper className={styles.iconWrapper}
+            size="slender"
+            >
+            <ButtonCounter className={styles.icon}
+              number={inx + 1}
+              />
+          </Wrapper>);
+      }
+    }
+    return (bigBox);
+
   }
 
   structYear() {
