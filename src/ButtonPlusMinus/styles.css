@@ -1,0 +1,23 @@
+.wrapper {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 2px solid #CFD8DC;
+  color: #607D8B;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper:hover {
+  border: 2px solid #607D8B;
+  color: #607D8B;
+}
+
+.inactive {
+  border: 2px solid #eceff1;
+  color: #cfd8dc;
+  cursor: default;
+}
