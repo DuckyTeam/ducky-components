@@ -3,10 +3,10 @@ import moment from 'moment';
 import 'moment/locale/nb';
 // import 'moment/locale/de';
 // import 'moment/locale/is'; */
-/* Linking the nb.js in my main project file automatically changed the locale for all accesses to the moment class and its methods.
-There will be no need anymore to do a moment.locale("nb"). or moment.lang("nb"). in the source code. */
+/* "Linking the nb.js in my main project file automatically changed the locale for all accesses to the moment class and its methods.
+There will be no need anymore to do a moment.locale("nb"). or moment.lang("nb"). in the source code." -!(just working as a fallback in this case)! */
 import classNames from 'classnames';
-// import Popup from '../Popup';
+import Popup from '../Popup';
 import ActionButton from '../ActionButton';
 import Typography from '../Typography';
 import ButtonCounter from '../ButtonCounter';
@@ -41,17 +41,23 @@ class PopoverCalendar extends React.Component {
 
 
     norsk.locale(this.props.language);
-    let monthWidth = norsk().daysInMonth();
+    const month = norsk.months();
     let yearz = this.props.year ? this.props.year : norsk().year();
     let monthz = this.props.month ? this.props.month : norsk.months();
-    let startOfMonth = norsk().year(yearz).month(monthz).startOf('month').format('d');
-    console.log(monthz);
-    console.log('monthwidth: ', monthWidth, 'start of month: ', startOfMonth);
+    let now = yearz + '_' + monthz;
+    let monthWidth = norsk(now, "YYYY_M").daysInMonth();
+    let tempCalc = norsk().year(yearz).month(monthz).startOf('month').format('d');
+    const startOfMonth = 7 - tempCalc;
+
+    console.log('monthz: ', monthz);
+    console.log('month: ', month);
+    console.log('month Width: ', monthWidth);
+    console.log('monthwidth: ', monthWidth, 'tempcalc: ', tempCalc, 'start of month/ number of blanks: ', startOfMonth);
     let numberOfBlanks1 = startOfMonth;
-    let bigBox = [];
-    let firstWeek = [];
+    const bigBox = [];
+
     for (let inx2 = 0; numberOfBlanks1 > inx2; numberOfBlanks1 -= 1) {
-      firstWeek.push(
+      bigBox.push(
         <Wrapper className={styles.iconWrapper}
           size="slender"
           >
@@ -59,7 +65,8 @@ class PopoverCalendar extends React.Component {
             number=" "
             />
         </Wrapper>);
-      bigBox.push(firstWeek);
+      }
+      // bigBox.push();
       for (let inx = 0; inx < monthWidth; inx += 1) {
         bigBox.push(
           <Wrapper className={styles.iconWrapper}
@@ -70,8 +77,36 @@ class PopoverCalendar extends React.Component {
               />
           </Wrapper>);
       }
-    }
-    return (bigBox);
+    console.log(bigBox);
+    // Slice them in 5 parts so they allways align!
+    const firstWeek = bigBox.slice(0, 7);
+    const secWeek = bigBox.slice(7, 14);
+    const d3Week = bigBox.slice(14, 21);
+    const th4Week = bigBox.slice(21, 28);
+    const th5Week = bigBox.slice(28, 35);
+    let lastBlanks = 42 - bigBox.length;
+
+    for (let inx2 = 0; lastBlanks > inx2; lastBlanks -= 1) {
+      bigBox.push(
+        <Wrapper className={styles.iconWrapper}
+          size="slender"
+          >
+          <ButtonCounter className={styles.icon}
+            number=" "
+            />
+        </Wrapper>);
+      }
+
+    const lastWeek = bigBox.slice(35, 42);
+
+    console.log(firstWeek);
+
+    return (<div><div>{firstWeek}</div>
+      <div>{secWeek}</div>
+      <div>{d3Week}</div>
+      <div>{th4Week}</div>
+      <div>{th5Week}</div>
+      <div>{lastWeek}</div></div>);
 
   }
 
@@ -135,43 +170,56 @@ class PopoverCalendar extends React.Component {
 
 
     for (let index = 0; index < daysInWeek; index += 1) {
-      rows.push(<ButtonCounter className={styles.icon}
-        number={weekz[index].toUpperCase()}
-        />);
+      rows.push(<Wrapper className={styles.iconWrapper}
+        size="slender"
+        >
+        <ButtonCounter className={styles.icon}
+          number={weekz[index].toUpperCase()}
+          />
+      </Wrapper>
+      );
     }
     console.log('rows: ', {rows})
-    return (<Wrapper className={styles.iconWrapper}
-      size="slender"
-      >
+    return (<div>
       {rows}
-    </Wrapper>);
+    </div>);
   }
   render() {
     const arrowLeft = 'icon-arrow_back';
     const arrowRight = 'icon-arrow_forward';
 
     return (
-      <Wrapper className={classNames(styles.wrapper, {[this.props.className]: this.props.className})}
-        size="standard"
-        >
-        <div>
-          <ActionButton className={styles.iconArrows}
-            icon={arrowLeft}
-            />
-          <Typography className={styles.month}> {this.structMonth(this.props.month ? this.props.month : 1)} </Typography>
-          <Typography className={styles.year}> {this.structYear()} </Typography>
-          <ActionButton className={styles.iconArrows}
-            icon={arrowRight}
-            />
-        </div>
-        <div><Spacer size="double" /></div>
-        <div>
-          {this.structWeek()}
-        </div>
-        <div>
-          {this.structDays()}
-        </div>
-      </Wrapper>
+      <Popup>
+        <Wrapper className={classNames(styles.wrapper, {[this.props.className]: this.props.className})}
+          size="standard"
+          >
+          <div>
+            <ActionButton className={styles.iconArrows}
+              icon={arrowLeft}
+              />
+            <Typography className={styles.month}
+              type="ingressNormal"
+              >
+              {this.structMonth(this.props.month ? this.props.month : 1)}
+            </Typography>
+            <Typography className={styles.year}
+              type="ingressNormal"
+              >
+              {this.structYear()}
+            </Typography>
+            <ActionButton className={styles.iconArrows}
+              icon={arrowRight}
+              />
+          </div>
+          <div><Spacer size="double" /></div>
+          <div>
+            {this.structWeek()}
+          </div>
+          <div>
+            {this.structDays()}
+          </div>
+        </Wrapper>
+      </Popup>
     );
   }
 

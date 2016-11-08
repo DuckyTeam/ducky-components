@@ -51,6 +51,9 @@
   font-weight:  normal;
   padding: 8px 0;
 }
+.month >  span:first-letter  {
+  text-transform: capitalize;
+}
 .year {
   color: #90a4ae;
   font-weight:  normal;
