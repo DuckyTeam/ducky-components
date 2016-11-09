@@ -11,7 +11,7 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   enteredLabels.append('text')
     .text((data) => Number(data).toLocaleString())
     .attr('x', -130)
-    .attr('yæ', data => yScale(data) - 5)
+    .attr('y', data => yScale(data) - 5)
     .attr('class', data => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText)
     .attr('font-size', '10px');
 
@@ -45,7 +45,7 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
   //Exit
   const exit = labels.exit();
   exit.select('svg').transition().delay(speed).duration(speed)
-    .attr('x': -90);
+    .attr('x', -90);
 
   exit.select('text').transition().delay(speed).duration(speed)
     .attr('x', -130);

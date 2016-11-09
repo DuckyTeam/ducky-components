@@ -105,20 +105,20 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
 
-    const lineDrawer = d3.line().curve("basic")
+    const lineDrawer = d3.line()
         .x(d => xScale(moment(d.date)))
         .y(d => yScale(d.value));
 
-    const lineDrawerZero = d3.line().curve("basic")
+    const lineDrawerZero = d3.line()
         .x(d => xScale(moment(d.date)))
         .y(state.height);
 
-    const areaDrawer = d3.area().curve("basic")
+    const areaDrawer = d3.area()
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(d => yScale(d.value));
 
-    const areaDrawerZero = d3.area().curve("basic")
+    const areaDrawerZero = d3.area()
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(state.height);
@@ -162,80 +162,71 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     // Draw leader line
     const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);
 
-    leaderLine.enter().append('line').attr({
-      class: styles.leaderLine,
-      x1: -50,
-      x2: props.width,
-      y1: yScale,
-      y2: yScale,
-      opacity: 0
-    });
+    leaderLine.enter().append('line')
+      .attr('class', styles.leaderLine)
+      .attr('x1', -50)
+      .attr('x2', props.width)
+      .attr('y1', yScale)
+      .attr('y2', yScale)
+      .attr('opacity', 0);
 
     leaderLine.exit().remove();
 
-    leaderLine.transition().delay(speed).duration(speed).attr({
-      y1: yScale,
-      y2: yScale,
-      x1: -50,
-      x2: props.width,
-      opacity: 1
-    }).select('line')
-      .attr({
-        class: styles.leaderLine,
-      });
+    leaderLine.transition().delay(speed).duration(speed)
+      .attr('y1', yScale)
+      .attr('y2', yScale)
+      .attr('x1', -50)
+      .attr('x2', props.width)
+      .attr('opacity', 1)
+      .select('line')
+        .attr('class', styles.leaderLine);
 
     // Leader name and value
     const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue]);
     const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue]);
 
     const enteredLeaderLabel = leaderLabel.enter();
-      enteredLeaderLabel.append('svg').attr({
-        viewBox: "0 0 768 768",
-        x: 40,
-        y: state.height,
-        width: 40,
-        height: 12,
-        opacity: 0
-      }).append('path').attr({
-        d: paths.crown,
-        class: styles.leaderLabel
-        }
-      );
+    enteredLeaderLabel.append('svg')
+      .attr('viewBox', "0 0 768 768")
+      .attr('x', 40)
+      .attr('y', state.height)
+      .attr('width', 40)
+      .attr('height', 12)
+      .attr('opacity', 0)
+      .append('path')
+        .attr('d', paths.crown)
+        .attr('class', styles.leaderLabel);
+
       leaderLabel.exit().remove();
 
-      leaderLabel.transition().delay(speed).duration(speed).attr({
-        x: 40,
-        y: d => yScale(d) - 16,
-        opacity: 1
-      }).select('path')
-        .attr({
-          d: paths.crown,
-          class: styles.leaderLabel
-        });
+      leaderLabel.transition().delay(speed).duration(speed)
+        .attr('x', 40)
+        .attr('y', d => yScale(d) - 16)
+        .attr('opacity', 1)
+        .select('path')
+          .attr('d', paths.crown)
+          .attr('class', styles.leaderLabel);
 
-        const enteredLeaderText = leaderText.enter();
-        enteredLeaderText.append('text')
-          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
-          .attr({
-            x: 72,
-            y: state.height + 6,
-            opacity: 0,
-            class: styles.leaderText,
-            'font-size': '12px'
-          });
-        leaderText.exit().remove();
+      const enteredLeaderText = leaderText.enter();
+      enteredLeaderText.append('text')
+        .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
+        .attr('x', 72)
+        .attr('y', state.height + 6)
+        .attr('opacity', 0)
+        .attr('class', styles.leaderText)
+        .attr('font-size', '12px');
 
-        const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+      leaderText.exit().remove();
 
-        leaderText.transition().delay(speed).duration(speed)
+      const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+
+      leaderText.transition().delay(speed).duration(speed)
         .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
-        .attr({
-          class: styles.leaderText,
-          'font-size': '12px',
-          y: data => yScale(data) - 5.5,
-          x: 72,
-          opacity: 1
-        });
+        .attr('class', styles.leaderText)
+        .attr('font-size', '12px')
+        .attr('y', data => yScale(data) - 5.5)
+        .attr('x', 72)
+        .attr('opacity', 1);
 
     const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
     const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
@@ -259,57 +250,46 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     const enteredAreas = areas.enter();
 
     enteredLines.append('path')
-        .attr({
-          class: styles.line,
-          d: d => lineDrawerZero(d.data)
-        });
+      .attr('class', styles.line)
+      .attr('d', d => lineDrawerZero(d.data));
 
     enteredAreas.append('path')
-        .attr({
-          class: styles.area,
-          d: d => areaDrawerZero(d.data)
-        });
+      .attr('class', styles.area)
+      .attr('d', d => areaDrawerZero(d.data));
 
     // ENTER & UPDATE
-    lines.transition().delay(speed).duration(speed).attr({
-      d: d => lineDrawer(d.data)
-    });
+    lines.transition().delay(speed).duration(speed)
+      .attr('d', d => lineDrawer(d.data));
 
-    lines.attr({
-      class: (d) => getStrokeClass(d)
-    })
-    .on('click', (data) => state.onClick && state.onClick(data.id));
+    lines
+      .attr('class', getStrokeClass)
+      .on('click', data => state.onClick && state.onClick(data.id));
 
-   areas.transition().delay(speed).duration(speed).attr({
-      d: d => areaDrawer(d.data)
-    });
+    areas.transition().delay(speed).duration(speed)
+      .attr('d', d => areaDrawer(d.data));
 
-    areas.attr({
-       display: d => state.memberOf === d.id ? true : "none"
-     });
+    areas
+      .attr('display', d => state.memberOf === d.id ? true : "none");
 
     //Draw points
     const points = svg.select(`.${styles.pointSeries}`).selectAll('circle').data(dotData);
     const enteredPoints = points.enter();
 
-    enteredPoints.append("circle").attr({
-      class: styles.pointSeries,
-      r:4,
-      cx: d => xScale(moment(d.date)),
-      cy: state.height,
-      class: getPointClass
-    });
+    enteredPoints.append("circle")
+      .attr('class', styles.pointSeries)
+      .attr('r', 4)
+      .attr('cx', d => xScale(moment(d.date)))
+      .attr('cy', state.height)
+      .attr('class', getPointClass);
 
-    points.transition().delay(speed).duration(speed).attr({
-      r:4,
-      cx: d => xScale(moment(d.date)),
-      cy: d => yScale(d.value)
-    });
+    points.transition().delay(speed).duration(speed)
+      .attr('r', 4)
+      .attr('cx', d => xScale(moment(d.date)))
+      .attr('cy', d => yScale(d.value));
 
-    points.attr({
-      class: getPointClass
-    })
-    .on('click', (data) => state.onClick && state.onClick(data.id));
+    points
+      .attr('class', getPointClass)
+      .on('click', data => state.onClick && state.onClick(data.id));
 
     // EXIT
     lines.exit().remove();
