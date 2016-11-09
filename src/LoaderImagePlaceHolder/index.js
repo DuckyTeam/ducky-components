@@ -22,9 +22,12 @@ function LoaderImagePlaceHolder(props) {
           size={'small'}
           />
       </div>
-      <div className={styles.text}>
-       {props.children}
-      </div>
+      {props.children
+        ? <div className={styles.text}>
+          {props.children}
+        </div>
+        : null
+      }
     </div>
   );
 }
