@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import * as d3 from 'd3';
 import moment from 'moment';
 import utils from './../utils';
 import styles from './styles.css';
@@ -95,55 +95,48 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
           .attr('width', props.width)
           .attr('height', props.height);
 
-    const xScale = d3.time.scale()
+    const xScale = d3.scaleTime()
         .range([40, props.width - props.margin.left - props.margin.right - 40])
         .domain([moment(state.startDate), moment(state.endDate)]);
 
-    const yScale = d3.scale.linear()
+    const yScale = d3.scaleLinear()
       .domain([0, d3.max([maxValue, nextGoal(), state.goals[1]])])
       .range([state.height - 4, 15 + props.margin.top]);
 
     state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
 
-    const lineDrawer = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(moment(d.date)))
-        .y((d) => yScale(d.value));
+    const lineDrawer = d3.line().curve("basic")
+        .x(d => xScale(moment(d.date)))
+        .y(d => yScale(d.value));
 
-    const lineDrawerZero = d3.svg.line().interpolate("basic")
-        .x((d) => xScale(moment(d.date)))
+    const lineDrawerZero = d3.line().curve("basic")
+        .x(d => xScale(moment(d.date)))
         .y(state.height);
 
-    const areaDrawer = d3.svg.area().interpolate("basic")
+    const areaDrawer = d3.area().curve("basic")
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(d => yScale(d.value));
 
-    const areaDrawerZero = d3.svg.area().interpolate("basic")
+    const areaDrawerZero = d3.area().curve("basic")
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(state.height);
 
     const yAxis = d3
-        .svg
-        .axis()
-        .scale(yScale)
+        .axisLeft(yScale)
         .tickValues(state.yAxisTickValues)
-        .tickSize(-props.width, 0, 0)
-        .orient("left");
+        .tickSize(-props.width, 0, 0);
 
-    const xAxis = d3.svg.axis()
-     .scale(xScale)
-     .tickFormat(d3.time.format("%d. %b"))
-     .tickValues(xAxisTicks)
-     .orient("bottom");
+    const xAxis = d3
+        .axisBottom(xScale)
+        .tickFormat(d3.timeFormat("%d. %b"))
+        .tickValues(xAxisTicks);
 
      const yAxisLeader = d3
-     .svg
-     .axis()
-     .scale(yScale)
-     .tickValues([maxValue - 30])
-     .tickSize(-props.width, 0, 0)
-     .orient("left");
+        .axisLeft(yScale)
+        .tickValues([maxValue - 30])
+        .tickSize(-props.width, 0, 0);
 
     // Move axes
     utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
@@ -151,8 +144,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
     utils.selectXAxisGroup(svg).selectAll('.tick')
         .classed(styles.startEndDates, (data, index) => {
-            return index === 0 || index === (utils.selectXAxisGroup(svg).selectAll('.tick')[0].length - 1);
-      }).on('click', (data) => state.onClick(getIdbyName(data)));;
+            return index === 0 || index === (utils.selectXAxisGroup(svg).selectAll('.tick')._groups[0].length - 1);
+        }).on('click', (data) => state.onClick(getIdbyName(data)));;
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);

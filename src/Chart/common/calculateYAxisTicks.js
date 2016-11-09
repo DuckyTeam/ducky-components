@@ -1,3 +1,5 @@
+import * as d3 from 'd3';
+
 export default (goals, nextGoal, lowestScore, yScale) => {
   const visibleGoals = goals.slice(0, d3.max([d3.min([nextGoal ? goals.indexOf(nextGoal) : goals.length, goals.length]) + 1, 2]))
   visibleGoals.reverse();

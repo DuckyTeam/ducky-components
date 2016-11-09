@@ -1,4 +1,4 @@
-import d3 from 'd3';
+import * as d3 from 'd3';
 import styles from './styles.css';
 import utils from './../utils';
 import paths from './../svgpaths';
@@ -69,15 +69,16 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   }
 
   //Define x and y scales
-  const xScale = d3.scale.ordinal()
+  const xScale = d3.scaleBand()
     .domain(state.data.map((data) => data.label))
-    .rangeBands([0, props.width - props.margin.left - props.margin.right], 0.67);
+    .range([0, props.width - props.margin.left - props.margin.right])
+    .round(true);
 
-  const yScale = d3.scale.linear()
+  const yScale = d3.scaleLinear()
     .domain([0, d3.max([state.highestScore, state.nextGoal, state.goals[1]])])
     .range([state.height - 4, 15 + props.margin.top]);
 
-  state.barWidth = d3.min([xScale.rangeBand(), 24]);
+  state.barWidth = d3.min([xScale.bandwidth(), 24]);
   state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
 
 
@@ -87,18 +88,12 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
       .attr('height', props.height);
 
   const xAxis = d3
-      .svg
-      .axis()
-      .scale(xScale)
-      .orient("bottom");
+      .axisBottom(xScale);
 
   const yAxis = d3
-      .svg
-      .axis()
-      .scale(yScale)
+      .axisLeft(yScale)
       .tickValues(state.yAxisTickValues)
-      .tickSize(-props.width, 0, 0)
-      .orient("left");
+      .tickSize(-props.width, 0, 0);
 
   // Move xaxis
   utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
@@ -112,7 +107,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
       if (state.onClick) {
         state.onClick(getIdbyName(data));
       }
-    });
+    }).select('line').attr('stroke', 'none');
 
   //Draw small triangle indicator
   const leader = state.data.filter(d => d.id === state.selectedId);
@@ -121,22 +116,20 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   const triangles = d3.select(`.${styles.triangleIndicator}`).selectAll('svg').data(leader);
 
-  triangles.enter().append('svg').attr({
-    viewBox: "0 0 16 8",
-    x: d => xScale(d.label) + (xScale.rangeBand() - 16) / 2,
-    y: state.xAxisOffset + 40,
-    width: '16px',
-    height: '8px'
-  }).append('polygon').attr({
-    points: paths.arrow,
-    class: "st0",
-    fill: "#004750"
-  });
+  triangles.enter().append('svg')
+    .attr('viewBox', "0 0 16 8")
+    .attr('width', '16px')
+    .attr('height', '8px')
+    .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
+    .attr('y', state.xAxisOffset + 40)
+    .append('polygon')
+      .attr('points', paths.arrow)
+      .attr('class', "st0")
+      .attr('fill', "#004750");
 
-  triangles.transition().duration(state.speed).attr({
-    x: d => xScale(d.label) + (xScale.rangeBand() - 16) / 2,
-    y: state.xAxisOffset + 26
-  });
+  triangles.transition().duration(state.speed)
+    .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
+    .attr('y', state.xAxisOffset + 26);
 
   drawBars(svg, state, props, xScale, yScale, styles);
 

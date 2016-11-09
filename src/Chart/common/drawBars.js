@@ -1,10 +1,11 @@
 import paths from './../svgpaths';
+import * as d3 from 'd3';
 
 const drawBars = (svg, state, props, xScale, yScale, styles) => {
 
   //Bunch of messy helper functions and variables
   const leaderId = state.leaderId;
-  const getBarX = (data) => xScale(data.label) + (xScale.rangeBand() - state.barWidth) / 2
+  const getBarX = (data) => xScale(data.label) + (xScale.bandwidth() - state.barWidth) / 2
   const getIconClass = (data) => {
     if (data.id === leaderId) {
       return `${styles.leaderIcon} ${styles.iconPaths}`;
@@ -48,9 +49,10 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   const getTextX = (data) => getBarX(data) + state.barWidth / 2;
 
   //Actually draw the rectangles
-  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, (data) => data.id).attr({class: getClasses});
+  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, data => data.id);
+
   const entered = rects.enter().append("g")
-    .attr({class: getClasses})
+    .attr('class', getClasses)
     .on('click', (data, index) => {
       if (state.onClick) {
         state.onClick(data.id)}
@@ -60,33 +62,30 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   entered.append("rect")
     .attr('class', styles.rectangle)
     .attr('rx', 2)
-    .attr('x', (data) => xScale(data.label) + (xScale.rangeBand() - state.barWidth / 2))
+    .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - state.barWidth / 2))
     .attr('y', state.height)
     .attr('height', 0)
     .attr('width', state.barWidth);
 
-  entered.append('svg').attr({
-    viewBox: "0 0 768 768",
-    width: xScale.rangeBand(),
-    height: xScale.rangeBand(),
-    x: (data) => xScale(data.label) + (xScale.rangeBand() - state.barWidth / 2),
-    y: state.height,
-    opacity: 0
-  }).append('path').attr({
-    class: getIconClass,
-    d: getPath
-  });
+  entered.append('svg')
+    .attr('viewBox', "0 0 768 768")
+    .attr('width', xScale.bandwidth())
+    .attr('height', xScale.bandwidth())
+    .attr('x', data => xScale(data.label) + (xScale.bandwidth() - state.barWidth / 2))
+    .attr('y', state.height)
+    .attr('opacity', 0)
+    .append('path')
+      .attr('class', getIconClass)
+      .attr('d', getPath);
 
   entered.append('text')
-    .attr({
-      class: getTextClass,
-      text: (data) => Number(data.value).toLocaleString(),
-      x: (data) => xScale(data.label) + 0.5*xScale.rangeBand(),
-      y: state.height,
-      width: xScale.rangeBand(),
-      height: xScale.rangeBand(),
-      'font-size': getFontSize
-    });
+    .text(data => Number(data.value).toLocaleString())
+    .attr('class', getTextClass)
+    .attr('x', data => xScale(data.label) + 0.5 * xScale.bandwidth())
+    .attr('y', state.height)
+    .attr('width', xScale.bandwidth())
+    .attr('height', xScale.bandwidth())
+    .attr('font-size', getFontSize);
 
   // Remove unnessescary rectangles
   rects.exit().transition().duration(state.speed)
@@ -100,17 +99,15 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   transX.select("rect")
     .attr('x', getBarX)
     .attr('width', state.barWidth)
-    .attr('fill', (data) => data.color);
+    .attr('fill', data => data.color);
 
   transX.select("svg")
     .attr('x', getBarX);
 
   transX.select("text")
     .text((data) => Number(data.value).toLocaleString())
-    .attr({
-      'font-size': getFontSize,
-      x: getTextX
-    });
+    .attr('font-size', getFontSize)
+    .attr('x', getTextX);
 
   // Transition the y position after x position
   const transY = rects.transition().delay(state.speed * 2)
@@ -119,28 +116,23 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('y', (data) => yScale(data.value))
     .attr('height', (data) => state.height - yScale(data.value));
 
-  transY.select("svg").attr({
-    y: (data) => data.value === 0 || state.isMobile ? yScale(data.value) - state.barWidth - 8 : yScale(data.value) - state.barWidth - state.barTextFontSize,
-    width: () => d3.min([xScale.rangeBand(), 24]),
-    height: () => d3.min([xScale.rangeBand(), 24]),
-    opacity: 1
-  });
+  transY.select("svg")
+    .attr('y', (data) => data.value === 0 || state.isMobile ? yScale(data.value) - state.barWidth - 8 : yScale(data.value) - state.barWidth - state.barTextFontSize)
+    .attr('width', () => d3.min([xScale.bandwidth(), 24]))
+    .attr('height', () => d3.min([xScale.bandwidth(), 24]))
+    .attr('opacity', 1);
 
-  rects.select('svg').select('path').attr({
-    d: getPath,
-    class: getIconClass
-  });
+  rects.select('svg').select('path')
+    .attr('d', getPath)
+    .attr('class', getIconClass);
 
-  rects.select('text').attr({
-    class: getTextClass
-  });
+  rects.select('text')
+    .attr('class', getTextClass);
 
   transY.select("text")
-    .text((data) => Number(data.value).toLocaleString())
-    .attr({
-      'font-size': getFontSize,
-      y: (data) => yScale(data.value) - state.textPadding
-    });
+    .text(data => Number(data.value).toLocaleString())
+    .attr('font-size': getFontSize)
+    .attr('y', data => yScale(data.value) - state.textPadding);
 }
 
 module.exports = drawBars;
