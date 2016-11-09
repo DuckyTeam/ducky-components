@@ -23,6 +23,7 @@ BarChart.propTypes = {
   isMobile: React.PropTypes.bool,
   memberOf: React.PropTypes.any,
   onClick: React.PropTypes.func,
+  onClickCO2: React.PropTypes.func,
   selectedId: React.PropTypes.any
 };
 
