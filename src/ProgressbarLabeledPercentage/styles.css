@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 12px;
+  width: 320px;
+}
+
+.categoryWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 152px;
+  margin-right: 16px;
+}
