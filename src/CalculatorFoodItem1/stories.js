@@ -1,4 +1,4 @@
-import {stories, className, oneOf, string, bool} from '../duckyStories';
+import {stories, className, oneOf, string, func} from '../duckyStories';
 import CalculatorFoodItem1 from './index';
 
 stories(module, CalculatorFoodItem1, [
@@ -11,5 +11,6 @@ stories(module, CalculatorFoodItem1, [
   lblEatLikeHorse: string("Som en hest"),
   lblEatTypicalWoman: string("Typisk kvinne"),
   lblEatLittle: string("Spiser lite"),
-  lblEatTypicalMan: string("Typisk mann")
+  lblEatTypicalMan: string("Typisk mann"),
+  onClick: func
 });
