@@ -15,35 +15,35 @@ function CalculatorFoodItem1(props) {
         >
         <RadioButton
           checked={props.checkedEatAmount.toLowerCase() === 'little'}
-          className={classNames([[props.className]: props.className])}
+          className={classNames({[props.className]: props.className})}
           label={props.lblEatLittle}
           onClick={props.onClick}
           />
         <Spacer />
         <RadioButton
           checked={props.checkedEatAmount.toLowerCase() === 'woman'}
-          className={classNames([[props.className]: props.className])}
+          className={classNames({[props.className]: props.className})}
           label={props.lblEatTypicalWoman}
           onClick={props.onClick}
           />
         <Spacer />
         <RadioButton
           checked={props.checkedEatAmount.toLowerCase() === 'avg'}
-          className={classNames([[props.className]: props.className])}
+          className={classNames({[props.className]: props.className})}
           label={props.lblEatAverage}
           onClick={props.onClick}
           />
         <Spacer />
         <RadioButton
           checked={props.checkedEatAmount.toLowerCase() === 'man'}
-          className={classNames([[props.className]: props.className])}
+          className={classNames({[props.className]: props.className})}
           label={props.lblEatTypicalMan}
           onClick={props.onClick}
           />
         <Spacer />
         <RadioButton
           checked={props.checkedEatAmount.toLowerCase() === 'horse'}
-          className={classNames([[props.className]: props.className])}
+          className={classNames({[props.className]: props.className})}
           label={props.lblEatLikeHorse}
           onClick={props.onClick}
           />
