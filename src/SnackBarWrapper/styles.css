@@ -1,54 +1,43 @@
 .snackbarWrapper {
-    background-color: #263238;
+  min-width: 320px;
+  max-width: 520px;
+  background-color: inherit;
+  visibility: hidden;
+  z-index: 100000;
+  margin-left: -160px;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  font-size: 17px;
 }
 
-.bottom {
-    margin: 0 auto 16px;
-    min-width: 320px;
-    max-width: 520px;
-    border-radius: 4px;
-    background-color: inherit;
-    visibility: hidden;
-    z-index: 1;
-    margin-left: -160px;
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    left: 50%;
-    bottom: 30px;
-    font-size: 17px;
-}
-
-.showbottom {
-    margin: 0 auto 16px;
-    min-width: 320px;
-    max-width: 520px;
-    border-radius: 4px;
-    background-color: inherit;
-    z-index: 1;
-    margin-left: -160px;
-    color: #fff;
-    text-align: center;
-    position: fixed;
-    left: 50%;
-    bottom: 0px;
-    font-size: 17px;
-    visibility: visible;
-    -moz-animation: cssAnimation 0.5s ease-in 4s forwards;
-    -webkit-animation: cssAnimation 0.5s ease-in 4s forwards;
-   -o-animation: cssAnimation 0.5s ease-in 4s forwards;
-    animation: cssAnimation 0.5s ease-in 4s forwards;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
+.messageWrapper {
+  background-color: #263238;
+  margin: 0 auto 16px;
+  width: 100%;
+  border-radius: 4px;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  font-size: 17px;
+  visibility: visible;
+  -moz-animation: cssAnimation 0.5s ease-in 4s forwards;
+  -webkit-animation: cssAnimation 0.5s ease-in 4s forwards;
+ -o-animation: cssAnimation 0.5s ease-in 4s forwards;
+  animation: cssAnimation 0.5s ease-in 4s forwards;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
 }
 
 @keyframes cssAnimation {
-    to {
-        opacity:0;
-    }
+  to {
+    opacity:0;
+  }
 }
 @-webkit-keyframes cssAnimation {
-    to {
-        opacity:0;
-    }
+  to {
+    opacity:0;
+  }
 }
