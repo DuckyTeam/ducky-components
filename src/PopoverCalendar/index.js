@@ -22,8 +22,8 @@ class PopoverCalendar extends React.Component {
       language: this.props.language
     };
 
-    console.log('thispropslanguage: ', this.props.language);
-    console.log('duckyCalendar: ', duckyCalendar);
+    // console.log('thispropslanguage: ', this.props.language);
+    // console.log('duckyCalendar: ', duckyCalendar);
   }
 
 /*
@@ -37,23 +37,21 @@ class PopoverCalendar extends React.Component {
 */
 
   structDays() {
-    let norsk = moment;
-
+    const norsk = moment;
 
     norsk.locale(this.props.language);
     const month = norsk.months();
-    let yearz = this.props.year ? this.props.year : norsk().year();
-    let monthz = this.props.month ? this.props.month : norsk.months();
-    let now = yearz + '_' + monthz;
-    let monthWidth = norsk(now, "YYYY_M").daysInMonth();
-    let tempCalc = norsk().year(yearz).month(monthz).startOf('month').format('d');
-    const startOfMonth = 7 - tempCalc;
+    const yearz = this.props.year ? this.props.year : norsk().year();
+    const monthz = this.props.month;
+    const now = yearz + '_' + monthz;
+    const monthWidth = norsk(now, "YYYY_M").daysInMonth();
+    const startOfMonth = norsk(now, "YYYY_M").startOf('month').format('d');
+    let numberOfBlanks1 = startOfMonth - 1;
 
     console.log('monthz: ', monthz);
     console.log('month: ', month);
-    console.log('month Width: ', monthWidth);
-    console.log('monthwidth: ', monthWidth, 'tempcalc: ', tempCalc, 'start of month/ number of blanks: ', startOfMonth);
-    let numberOfBlanks1 = startOfMonth;
+
+    console.log('monthwidth: ', monthWidth, 'tempcalc: ', startOfMonth, 'start of month/ number of blanks: ', numberOfBlanks1);
     const bigBox = [];
 
     for (let inx2 = 0; numberOfBlanks1 > inx2; numberOfBlanks1 -= 1) {
@@ -65,18 +63,18 @@ class PopoverCalendar extends React.Component {
             number=" "
             />
         </Wrapper>);
-      }
+    }
       // bigBox.push();
-      for (let inx = 0; inx < monthWidth; inx += 1) {
-        bigBox.push(
-          <Wrapper className={styles.iconWrapper}
-            size="slender"
-            >
-            <ButtonCounter className={styles.icon}
-              number={inx + 1}
-              />
-          </Wrapper>);
-      }
+    for (let inx = 0; inx < monthWidth; inx += 1) {
+      bigBox.push(
+        <Wrapper className={styles.iconWrapper}
+          size="slender"
+          >
+          <ButtonCounter className={styles.icon}
+            number={inx + 1}
+            />
+        </Wrapper>);
+    }
     console.log(bigBox);
     // Slice them in 5 parts so they allways align!
     const firstWeek = bigBox.slice(0, 7);
@@ -95,11 +93,11 @@ class PopoverCalendar extends React.Component {
             number=" "
             />
         </Wrapper>);
-      }
+    }
 
     const lastWeek = bigBox.slice(35, 42);
 
-    console.log(firstWeek);
+    // console.log(firstWeek);
 
     return (<div><div>{firstWeek}</div>
       <div>{secWeek}</div>
@@ -107,38 +105,37 @@ class PopoverCalendar extends React.Component {
       <div>{th4Week}</div>
       <div>{th5Week}</div>
       <div>{lastWeek}</div></div>);
-
   }
 
   structYear() {
-    let norsk = moment;
-    let yearz = this.props.year ? this.props.year : norsk().year();
-    console.log('yearz: ', yearz);
+    const norsk = moment;
+    const yearz = this.props.year ? this.props.year : norsk().year();
+
     return yearz;
   }
 
   structMonth(inx) {
-    let norsk = moment;
-    let inx2 = inx-1;
+    const norsk = moment;
+    const inx2 = inx - 1;
 
     norsk.locale(this.props.language ? this.props.language : 'nb');
     const monthz = norsk.months();
 
-    console.log('monthz: ', monthz[inx2]);
+    // console.log('monthz: ', monthz[inx2]);
     return monthz[inx2];
   }
 
   structWeek() {
     let weekz = [];
 
-    let norsk = moment;
+    const norsk = moment;
       // dNow = '01_11_2016';
 
       // norsk.locale(this.props.language);
       // mIS.locale("is");
       // mDE.locale("de");
-      norsk.locale(this.props.language ? this.props.language : 'nb');
-      console.log('locale is: ', norsk.locale())
+    norsk.locale(this.props.language ? this.props.language : 'nb');
+    // console.log('locale is: ', norsk.locale())
 
 
     // console.log('momentlocale??: ', moment.locale());
@@ -146,11 +143,11 @@ class PopoverCalendar extends React.Component {
     // var locale = "de";
     weekz = norsk.weekdaysMin();
 
-    console.log('moment locale week test: ', moment.weekdays(), weekz);
+    // console.log('moment locale week test: ', moment.weekdays(), weekz);
     // console.log('moment locale lang test: ', mDE().fromNow());
 
     // moment.locale('de');
-    console.log('moment locale norsk weekdays: ', norsk.weekdaysShort());
+    // console.log('moment locale norsk weekdays: ', norsk.weekdaysShort());
     /* console.log('moment locale test3: ', moment().months());
     console.log('start of week:', moment().startOf(weekz).toString());
     console.log('end of week: ', moment().endOf(weekz).toString());
@@ -179,7 +176,7 @@ class PopoverCalendar extends React.Component {
       </Wrapper>
       );
     }
-    console.log('rows: ', {rows})
+    // console.log('rows: ', {rows})
     return (<div>
       {rows}
     </div>);
@@ -193,23 +190,27 @@ class PopoverCalendar extends React.Component {
         <Wrapper className={classNames(styles.wrapper, {[this.props.className]: this.props.className})}
           size="standard"
           >
-          <div>
-            <ActionButton className={styles.iconArrows}
-              icon={arrowLeft}
-              />
+          <div className={styles.topDiv}>
+            <Wrapper className={styles.leftarrow}>
+              <ActionButton className={styles.iconArrows}
+                icon={arrowLeft}
+                />
+            </Wrapper>
             <Typography className={styles.month}
-              type="ingressNormal"
+              type="ingressTitle"
               >
               {this.structMonth(this.props.month ? this.props.month : 1)}
             </Typography>
             <Typography className={styles.year}
-              type="ingressNormal"
+              type="ingressTitle"
               >
               {this.structYear()}
             </Typography>
-            <ActionButton className={styles.iconArrows}
-              icon={arrowRight}
-              />
+            <Wrapper className={styles.rightarrow}>
+              <ActionButton className={styles.iconArrows}
+                icon={arrowRight}
+                />
+            </Wrapper>
           </div>
           <div><Spacer size="double" /></div>
           <div>
