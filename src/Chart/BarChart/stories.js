@@ -27,5 +27,6 @@ stories(module, BarChart, [
   memberOf: json(12),
   selectedId: json(12),
   onClick: func(),
+  onClickCO2: func(),
   isMobile: json(true)
 }, 'Chart/BarChart');

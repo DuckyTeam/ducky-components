@@ -1,5 +1,5 @@
 import moment from 'moment';
-import {stories, oneOf, json} from './../../duckyStories';
+import {stories, oneOf, json, func} from './../../duckyStories';
 import LineChart from './index';
 
 stories(module, LineChart, [
@@ -63,4 +63,5 @@ stories(module, LineChart, [
     selectedId: json(12),
     startDate: json(moment('05-May-2016')),
     onClick: json(null),
+    onClickCO2: func(),
 }, 'Chart/LineChart');

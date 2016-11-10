@@ -3,58 +3,52 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 class Modal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.handleClick = this.handleClick.bind(this);
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(event) {
+    event.stopPropagation();
+  }
+  render() {
+    if (!this.props.show) {
+      return null;
     }
-    handleClick(event) {
-        event.stopPropagation();
+
+    const style = {};
+
+    if (this.props.width) {
+      style.width = this.props.width;
+      style.minWidth = this.props.width;
     }
-    render() {
-        if (!this.props.show) {
-            return null;
-        }
 
-        const style = {};
-
-        if (this.props.width) {
-            style.width = this.props.width;
-            style.minWidth = this.props.width;
-        }
-
-        return (
-            <div
-                className={classNames(styles.backdrop, {
-                    [this.props.className]: this.props.className
-                })}
-                onClick={this.props.onHide}
+    return (
+      <div
+        className={classNames(styles.backdrop, {
+          [this.props.className]: this.props.className
+        })}
+        onClick={this.props.onHide}
+        >
+        <div className={styles.modalWrapper}>
+          <div
+            className={styles.modal}
+            onClick={this.handleClick}
+            style={style}
             >
-                <div className={classNames(styles.modalWrapper, {
-                    [styles.fullSize]: this.props.fullSize
-                })}
-                >
-                    <div
-                        className={classNames(styles.modal, {
-                            [styles.fullSize]: this.props.fullSize
-                        })}
-                        onClick={this.handleClick}
-                        style={style}
-                    >
-                        {this.props.children}
-                    </div>
-                </div>
-            </div>
-        );
-    }
+            {this.props.children}
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 Modal.propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    fullSize: React.PropTypes.bool,
-    onHide: React.PropTypes.func,
-    show: React.PropTypes.bool,
-    width: React.PropTypes.string
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  onHide: React.PropTypes.func,
+  show: React.PropTypes.bool,
+  width: React.PropTypes.string
 };
 
 export default Modal;

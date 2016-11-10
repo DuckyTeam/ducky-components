@@ -44,6 +44,7 @@ body > div, body > div > div {
   border-left: 1px solid #EAEAEA;
   box-shadow: -3px 0px 20px rgba(0,0,0, 0.1);
   overflow: scroll;
+  z-index: 99999999;
 }
 
 .prop {
