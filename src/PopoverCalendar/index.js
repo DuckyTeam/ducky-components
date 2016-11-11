@@ -18,23 +18,16 @@ import styles from './styles.css';
 class PopoverCalendar extends React.Component {
   constructor(props) {
     super(props);
-    const duckyCalendar = {
-      language: this.props.language
+    /* this.dayZ = {
+      IDdate: [],
+      State: [],
+      Content: [],
+      number: []
+      // onClick: selectionHandler(this.number),
     };
-
-    // console.log('thispropslanguage: ', this.props.language);
-    // console.log('duckyCalendar: ', duckyCalendar);
+    */
   }
-
-/*
-  // Days in week constructor:
-
-  structDays = function() {
-    const thisIsTheDays = [M,T,O,T,F,L,S];
-    let index = 0;
-    const Day = thisIsTheDays[index];
-    const daysInWeek = thisIsTheDays.length;
-*/
+    // console.log('thispropslanguage: ', this.props.language);
 
   structDays() {
     const norsk = moment;
@@ -43,31 +36,51 @@ class PopoverCalendar extends React.Component {
     const month = norsk.months();
     const yearz = this.props.year ? this.props.year : norsk().year();
     const monthz = this.props.month;
-    const now = yearz + '_' + monthz;
-    const monthWidth = norsk(now, "YYYY_M").daysInMonth();
-    const startOfMonth = norsk(now, "YYYY_M").startOf('month').format('d');
+    const yearMonth = yearz + '_' + monthz;
+    const monthWidth = norsk(yearMonth, "YYYY_M").daysInMonth();
+    const startOfMonth = norsk(yearMonth, "YYYY_M").startOf('month').format('d');
     let numberOfBlanks1 = startOfMonth - 1;
+
+    // hvordan få dette objektet brukbart for onDayClick() ?? ('>_ <)7
+    const dayZ = {
+      IDdate: [],
+      State: [],
+      Content: [],
+      number: []
+      // onClick: selectionHandler(this.number),
+    };
 
     console.log('monthz: ', monthz);
     console.log('month: ', month);
 
     console.log('monthwidth: ', monthWidth, 'tempcalc: ', startOfMonth, 'start of month/ number of blanks: ', numberOfBlanks1);
-    const bigBox = [];
 
+    // this is where all the pre blanks get pushed in //
     for (let inx2 = 0; numberOfBlanks1 > inx2; numberOfBlanks1 -= 1) {
-      bigBox.push(
+      dayZ.number.push("");
+      dayZ.Content.push(
         <Wrapper className={styles.iconWrapper}
           size="slender"
           >
+
           <ButtonCounter className={styles.icon}
-            number=" "
+            number=""
             />
         </Wrapper>);
     }
-      // bigBox.push();
+      // This is where all the days get pushed in.//
+      // //////////////////////////////////////////
     for (let inx = 0; inx < monthWidth; inx += 1) {
-      bigBox.push(
+      dayZ.number.push(inx + 1);
+      dayZ.State.push(1);
+      const zeDay = inx + 1;
+
+      dayZ.IDdate.push(yearz + '_' + monthz + '_' + zeDay);
+      const onClick = this.props.onDayClick.bind(null, inx);
+
+      dayZ.Content.push(
         <Wrapper className={styles.iconWrapper}
+          onClick={onClick}
           size="slender"
           >
           <ButtonCounter className={styles.icon}
@@ -75,27 +88,31 @@ class PopoverCalendar extends React.Component {
             />
         </Wrapper>);
     }
-    console.log(bigBox);
-    // Slice them in 5 parts so they allways align!
-    const firstWeek = bigBox.slice(0, 7);
-    const secWeek = bigBox.slice(7, 14);
-    const d3Week = bigBox.slice(14, 21);
-    const th4Week = bigBox.slice(21, 28);
-    const th5Week = bigBox.slice(28, 35);
-    let lastBlanks = 42 - bigBox.length;
+    console.log(dayZ);
+    // Slice them in 6 parts so they allways align! //
+    // //////////////////////////////////////////////
+    const firstWeek = dayZ.Content.slice(0, 7);
+    const secWeek = dayZ.Content.slice(7, 14);
+    const d3Week = dayZ.Content.slice(14, 21);
+    const th4Week = dayZ.Content.slice(21, 28);
+    const th5Week = dayZ.Content.slice(28, 35);
+    let lastBlanks = 42 - dayZ.Content.length;
 
+    // this is where the Post blanks get pushed in.//
+    // /////////////////////////////////////////////
     for (let inx2 = 0; lastBlanks > inx2; lastBlanks -= 1) {
-      bigBox.push(
+      dayZ.number.push("");
+      dayZ.Content.push(
         <Wrapper className={styles.iconWrapper}
           size="slender"
           >
           <ButtonCounter className={styles.icon}
-            number=" "
+            number=""
             />
         </Wrapper>);
     }
 
-    const lastWeek = bigBox.slice(35, 42);
+    const lastWeek = dayZ.Content.slice(35, 42);
 
     // console.log(firstWeek);
 
@@ -106,14 +123,12 @@ class PopoverCalendar extends React.Component {
       <div>{th5Week}</div>
       <div>{lastWeek}</div></div>);
   }
-
   structYear() {
     const norsk = moment;
     const yearz = this.props.year ? this.props.year : norsk().year();
 
     return yearz;
   }
-
   structMonth(inx) {
     const norsk = moment;
     const inx2 = inx - 1;
@@ -124,40 +139,13 @@ class PopoverCalendar extends React.Component {
     // console.log('monthz: ', monthz[inx2]);
     return monthz[inx2];
   }
-
   structWeek() {
     let weekz = [];
 
     const norsk = moment;
-      // dNow = '01_11_2016';
 
-      // norsk.locale(this.props.language);
-      // mIS.locale("is");
-      // mDE.locale("de");
     norsk.locale(this.props.language ? this.props.language : 'nb');
-    // console.log('locale is: ', norsk.locale())
-
-
-    // console.log('momentlocale??: ', moment.locale());
-    // var format = "ll";
-    // var locale = "de";
     weekz = norsk.weekdaysMin();
-
-    // console.log('moment locale week test: ', moment.weekdays(), weekz);
-    // console.log('moment locale lang test: ', mDE().fromNow());
-
-    // moment.locale('de');
-    // console.log('moment locale norsk weekdays: ', norsk.weekdaysShort());
-    /* console.log('moment locale test3: ', moment().months());
-    console.log('start of week:', moment().startOf(weekz).toString());
-    console.log('end of week: ', moment().endOf(weekz).toString());
-    console.log('momentlocale??: ', moment.locale());
-
-    console.log('week/moment.months: ', weekz, mIS().weekdaysShort);
-
-
-    console.log('days in week: ', daysInWeek); */
-
     const theSunday = weekz[0];
 
     weekz.splice(0, 1);
@@ -181,6 +169,27 @@ class PopoverCalendar extends React.Component {
       {rows}
     </div>);
   }
+  onDayClick(selection) {
+    // State 0 = deactivated, State 1 = Selectable, State 2 = hasActivity, State 3 = Selected.
+    console.log('yes runs');
+    switch (this.dayZ.State[selection]) {
+    case 1:
+      this.dayZ.State[selection] = 3;
+      this.dayZ.content[this.props.className] = styles.selectedStyle;
+      console.log('this is className: ', this.dayZ.content[this.props.className]);
+      break;
+    case 2:
+      this.dayZ.State[selection] = 3;
+      this.dayZ.content[this.props.className] = styles.selectedStyle
+      break;
+    default:
+      break;
+    }
+
+    this.dayZ.IDdate[selection]
+
+  }
+
   render() {
     const arrowLeft = 'icon-arrow_back';
     const arrowRight = 'icon-arrow_forward';
@@ -226,17 +235,26 @@ class PopoverCalendar extends React.Component {
 
 }
 PopoverCalendar.propTypes = {
-  // arrowLeft: React.PropTypes.shape(icon-arrow_back),
-  // arrowRight: React.PropTypes.shape(icon-arrow_forward),
   children: React.PropTypes.node,
   className: React.PropTypes.string,
+  // hasActivity: React.Proptypes.bool,
+  // isDisabled: React.PropTypes.bool,
+  // isSelected: React.PropTypes.bool,
+  onDayClick: React.PropTypes.func,
   language: React.PropTypes.string,
-  // color: React.PropTypes.string,
   month: React.PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   onClick: React.PropTypes.func,
-  // style: React.PropTypes.shape({}),
   structWeek: React.PropTypes.func,
   year: React.PropTypes.number
 
 };
 export default PopoverCalendar;
+
+
+const foo = function (wop) {
+  return function () {
+    return "bar" + wop
+  }
+}("woop")
+
+foo() // "bar"

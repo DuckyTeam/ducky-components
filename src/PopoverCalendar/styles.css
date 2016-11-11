@@ -40,13 +40,11 @@
   right: 22px;
 }
 .icon > span {
-  color: #607d8b;
+  color:#263238;
+  background-color: transparent;
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: transparent;
-
-
 }
 .icon > span:hover {
   cursor: pointer;
@@ -58,7 +56,27 @@
   text-align: center;
   border-radius: 0%;
   background-color: transparent;
-
+}
+.selectedStyle > span{
+  color:#FFFFFF;
+  background-color: #004750;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.hasActivity > span{
+  color:#FFFFFF;
+  background-color: #00ab97;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.inactiveStyle > span{
+  color:#b0bec5;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
 }
 .month  {
   color: #263238;
