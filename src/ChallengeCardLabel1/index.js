@@ -4,6 +4,7 @@ import LabelSmall from '../LabelSmall';
 import classNames from 'classnames';
 import Spacer from '../Spacer';
 import React from 'react';
+import Tooltip from '../Tooltip';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
@@ -51,11 +52,14 @@ function ChallengeCardLabel1(props) {
     );
   }
   return (
-    <span>
-      <ProgressBar
-        color={pColor}
-        percent={props.progPercent}
-        />
+    <div>
+      <Tooltip text="Din status">
+        <ProgressBar
+          color={pColor}
+          percent={props.progPercent}
+          size="standard"
+          />
+      </Tooltip>
       <Spacer size="standard" />
       <span className={styles.wrapper}>
         <LabelSmall
@@ -72,7 +76,7 @@ function ChallengeCardLabel1(props) {
         </Typography>
         {opt}
       </span>
-    </span>
+    </div>
   );
 }
 

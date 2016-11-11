@@ -82,6 +82,7 @@
     "d3-time-format": "^2.0.2",
     "d3-transition": "^1.0.3",
     "moment": "^2.15",
-    "rc-tooltip": "^3.4.2"
+    "rc-tooltip": "^3.4.2",
+    "react-linkify": "^0.1.3"
   }
 }

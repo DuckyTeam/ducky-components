@@ -1,9 +1,15 @@
 import styles from './drawGoalLabels.css';
 import paths from './../svgpaths';
 
-export default (labelGroup, goals, yourScore, yScale, speed) => {
+export default (labelGroup, goals, yourScore, yScale, speed, onClick) => {
 
   const labels = labelGroup.selectAll('g').data(goals, g => g);
+
+  const eventListenerCO2 = d => {
+    if (d <= yourScore) {
+      onClick({co2: d});
+    }
+  }
 
   //Enter
   const enteredLabels = labels.enter().append('g');
@@ -36,11 +42,21 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
 
   labels.select('text').transition().delay(speed).duration(speed)
     .text((data) => Number(data).toLocaleString())
+<<<<<<< HEAD
     .attr('y', data => yScale(data) - 5)
     .attr('x', -10);
 
   labels.select('text')
     .attr('class', data => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText);
+=======
+    .attr({
+      y: data => yScale(data) - 5,
+      x: -10
+    });
+  labels.select('text').attr({
+    class: (data) => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
+  }).on('click', eventListenerCO2);
+>>>>>>> master
 
   //Exit
   const exit = labels.exit();
