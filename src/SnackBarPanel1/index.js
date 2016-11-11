@@ -16,7 +16,7 @@ function SnackBarPanel1(props) {
                     className={styles.button}
                     onClick={props.onClick}
                 >
-                    {'BUTTON'}
+                    {props.buttonText}
                 </Button>
             </div>
         );
@@ -43,6 +43,7 @@ function SnackBarPanel1(props) {
 
 SnackBarPanel1.propTypes = {
     button: PropTypes.bool,
+    buttonText: PropTypes.string,
     className: PropTypes.string,
     onClick: PropTypes.func,
     text: PropTypes.string

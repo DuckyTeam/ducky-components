@@ -23,6 +23,7 @@ function ChallengeMeta7(props) {
         name={props.name}
         theme={props.theme}
         yourTeam={props.isYourteam}
+        yourTeamText={props.yourTeamText}
         />
     </div>
   );
@@ -35,7 +36,8 @@ ChallengeMeta7.propTypes = {
   isYourteam: React.PropTypes.bool,
   memberCount: React.PropTypes.number,
   name: React.PropTypes.string,
-  theme: React.PropTypes.string
+  theme: React.PropTypes.string,
+  yourTeamText: React.PropTypes.string
 };
 
 export default ChallengeMeta7;

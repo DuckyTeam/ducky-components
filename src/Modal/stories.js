@@ -6,7 +6,6 @@ stories(module, Modal, [
 ], {
   children: string('Component'),
   className: className(),
-  fullSize: bool(),
   onHide: func(),
   show: bool(),
   width: string('200')

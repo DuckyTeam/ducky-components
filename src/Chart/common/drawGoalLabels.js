@@ -1,9 +1,15 @@
 import styles from './drawGoalLabels.css';
 import paths from './../svgpaths';
 
-export default (labelGroup, goals, yourScore, yScale, speed) => {
+export default (labelGroup, goals, yourScore, yScale, speed, onClick) => {
 
-  const labels = labelGroup.selectAll('g').data(goals);
+  const labels = labelGroup.selectAll('g').data(goals, g => g);
+
+  const eventListenerCO2 = d => {
+    if (d <= yourScore) {
+      onClick({co2: d});
+    }
+  }
 
   //Enter
   const enteredLabels = labels.enter().append('g');
@@ -15,7 +21,7 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
       y: data => yScale(data) - 5,
       class: (data) => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText,
       'font-size': '10px'
-    });
+    }).on('click', eventListenerCO2);
 
   enteredLabels.append('svg').attr({
     viewBox: "0 0 768 768",
@@ -45,7 +51,7 @@ export default (labelGroup, goals, yourScore, yScale, speed) => {
     });
   labels.select('text').attr({
     class: (data) => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText
-  });
+  }).on('click', eventListenerCO2);
 
   //Exit
   const exit = labels.exit();

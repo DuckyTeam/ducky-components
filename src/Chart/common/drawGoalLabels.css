@@ -6,6 +6,7 @@
   font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: bold;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .toBeProgressedGoalsText {

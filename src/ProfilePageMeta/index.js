@@ -7,17 +7,17 @@ const PropTypes = React.PropTypes;
 
 function ProfilePageMeta(props) {
     let icon = 'icon-leaf';
-    let iconTitle = 'Innsparing';
+    let iconTitle = props.savingsText;
     let totalComparisonComp = '';
     const totalUserValue = (props.totalUserValue).toLocaleString();
     const totalComparisonValue = props.totalComparisonValue ? (props.totalComparisonValue).toLocaleString() : 0;
 
     if (props.type === 'points') {
         icon = 'icon-brightness_high';
-        iconTitle = 'Poeng';
+        iconTitle = props.pointsText;
     } else if (props.type === 'aktiviteter') {
         icon = 'icon-check_circle';
-        iconTitle = 'Aktiviteter';
+        iconTitle = props.activityText;
     }
 
     if (props.toBeCompared) {
@@ -34,9 +34,9 @@ function ProfilePageMeta(props) {
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
             <Icon
                 className={classNames(styles.icon,
-                    {[styles.pointsIcon]: iconTitle === 'Poeng'},
-                    {[styles.co2Icon]: iconTitle === 'Innsparing'},
-                    {[styles.aktiviteterIcon]: iconTitle === 'Aktiviteter'}
+                    {[styles.pointsIcon]: iconTitle === props.pointsText},
+                    {[styles.co2Icon]: iconTitle === props.savingsText},
+                    {[styles.aktiviteterIcon]: iconTitle === props.activityText}
                 )}
                 icon={icon}
                 size={'standard'}
@@ -50,7 +50,7 @@ function ProfilePageMeta(props) {
                 <Typography className={styles.typoInner}
                     type={'caption1Normal'}
                 >
-                    {'Totalt'}
+                    {props.totalText}
                 </Typography>
             </div>
             {totalComparisonComp}
@@ -65,8 +65,12 @@ function ProfilePageMeta(props) {
 }
 
 ProfilePageMeta.propTypes = {
+    activityText: PropTypes.string,
     className: PropTypes.string,
+    pointsText: PropTypes.string,
+    savingsText: PropTypes.string,
     toBeCompared: PropTypes.bool,
+    totalText: PropTypes.string,
     totalComparisonValue: PropTypes.number,
     totalUserValue: PropTypes.number,
     type: PropTypes.oneOf(['points', 'co2', 'aktiviteter'])

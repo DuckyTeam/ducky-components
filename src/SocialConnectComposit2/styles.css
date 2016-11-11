@@ -1,0 +1,21 @@
+.importSocialWrapper {
+  background: transparent;
+}
+
+.socialbtn {
+  margin: 0 8px;
+}
+
+.socialWrapper {
+  display: flex;
+  justify-content: center;
+  background: transparent;
+}
+
+.importContactsText {
+  color: #263238;
+}
+
+.socialSpacer {
+  background: transparent;
+}

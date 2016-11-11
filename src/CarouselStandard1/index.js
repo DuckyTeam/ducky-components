@@ -1,5 +1,5 @@
 import React from 'react';
-import CarouselNavigator from '../CarouselNavigator1';
+import CarouselNavigator from '../CarouselNavigator';
 import IconAvaWrapper from '../IconAvaWrapper';
 // import classNames from 'classnames';
 import styles from './styles.css';

@@ -13,7 +13,6 @@ function SettingsItem(props) {
     props.expanded
       ? <div>
         <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
-          onClick={props.onClick}
           size={'standard'}
           >
           <div className={styles.compositeExpanded}>
@@ -25,7 +24,7 @@ function SettingsItem(props) {
             </Typography>
             <ButtonRaised
               className={styles.saveButton}
-              onClick={styles.onSaveButtonClicked}
+              onClick={props.onSaveButtonClicked}
               >
               {'LAGRE'}
             </ButtonRaised>
