@@ -1,58 +1,92 @@
 .wrapper {
-    //display: inline-flex;
-    //background-color: gray;
-    /* temp bg color just for viewing purposes*/
-    /*cursor: pointer; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: gray;
+     temp bg color just for viewing purposes*/
 }
 
 /*.wrapper:hover {
     background-color: #ECEFF1;
 }
 */
-.wrapper > div {
-  //display: table-row;
-  //background-color: blue;
+
+.iconArrows > span {
+  color: #607d8b;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: white;
 }
-.ActionButton > div{
-  color:  red;
-  background-color: red;
+.iconArrows > span:hover {
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: gray;
+}
+.leftarrow {
+  position: absolute;
+  left: 22px;
+  color: #607d8b;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background-color: transparent;
+}
+.rightarrow {
+  position: absolute;
+  right: 22px;
 }
 .icon > span {
+  color:#263238;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  background-color: gray;
-
 }
 .icon > span:hover {
+  cursor: pointer;
   color: #d2d2d2;
-  }
+}
+.iconWrapper > span {
+  color:#607d8b;
+  /*padding-top: 8px;*/
+  text-align: center;
+  border-radius: 0%;
+  background-color: transparent;
+}
+.selectedStyle > span{
+  color:#FFFFFF;
+  background-color: #004750;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.hasActivity > span{
+  color:#FFFFFF;
+  background-color: #00ab97;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.inactiveStyle > span{
+  color:#b0bec5;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
 .month  {
   color: #263238;
-  font-weight:  normal;
-  padding: 8px 0;
+  padding: 8px 3px 0px 3px;
+}
+.month span:first-letter  {
+  text-transform: capitalize;
 }
 .year {
   color: #90a4ae;
   font-weight:  normal;
-  padding: 8px 0;
-}
-.bc span{
-  color:#000;
-  border-radius: 50%;
-  background-color: transparent;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-
-}
-.bc > span:hover{
-  color:#000;
-  border-radius: 50%;
-  background-color: gray;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
+  padding: 8px 3px 0px 3px;
 }
