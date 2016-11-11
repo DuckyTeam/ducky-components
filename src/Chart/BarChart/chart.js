@@ -1,4 +1,9 @@
-import * as d3 from 'd3';
+import { min, max } from 'd3-array';
+import { scaleBand, scaleLinear } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { select, selectAll } from 'd3-selection';
+import { transition } from 'd3-transition';
+
 import styles from './styles.css';
 import utils from './../utils';
 import paths from './../svgpaths';
@@ -36,9 +41,9 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //A lot of calculations, functions and definitions for the chart
   state.height = props.height - props.margin.top - props.margin.bottom;
   state.xAxisOffset = state.height + props.margin.top + 5;
-  state.highestScore = d3.max(state.data, (data) => data.value);
-  state.lowestScore = d3.min(state.data, (data) => data.value);
-  state.leaderId = (state.highestScore === 0) ? -1 : state.data.filter((data) => data.value === d3.max(state.data, data => data.value))[0].id;
+  state.highestScore = max(state.data, (data) => data.value);
+  state.lowestScore = min(state.data, (data) => data.value);
+  state.leaderId = (state.highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
   state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
   state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
 
@@ -69,16 +74,16 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   }
 
   //Define x and y scales
-  const xScale = d3.scaleBand()
+  const xScale = scaleBand()
     .domain(state.data.map((data) => data.label))
     .range([0, props.width - props.margin.left - props.margin.right])
     .round(true);
 
-  const yScale = d3.scaleLinear()
-    .domain([0, d3.max([state.highestScore, state.nextGoal, state.goals[1]])])
+  const yScale = scaleLinear()
+    .domain([0, max([state.highestScore, state.nextGoal, state.goals[1]])])
     .range([state.height - 4, 15 + props.margin.top]);
 
-  state.barWidth = d3.min([xScale.bandwidth(), 24]);
+  state.barWidth = min([xScale.bandwidth(), 24]);
   state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
 
 
@@ -87,11 +92,9 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
       .attr('width', props.width)
       .attr('height', props.height);
 
-  const xAxis = d3
-      .axisBottom(xScale);
+  const xAxis = axisBottom(xScale);
 
-  const yAxis = d3
-      .axisLeft(yScale)
+  const yAxis = axisLeft(yScale)
       .tickValues(state.yAxisTickValues)
       .tickSize(-props.width, 0, 0);
 
@@ -112,9 +115,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //Draw small triangle indicator
   const leader = state.data.filter(d => d.id === state.selectedId);
 
-  d3.select(`.${styles.triangleIndicator}`)
-
-  const triangles = d3.select(`.${styles.triangleIndicator}`).selectAll('svg').data(leader);
+  const triangles = select(`.${styles.triangleIndicator}`).selectAll('svg').data(leader);
 
   triangles.enter().append('svg')
     .attr('viewBox', "0 0 16 8")
@@ -145,6 +146,10 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, dontAnimateIn ? 0 : state.speed);
   */
+};
+
+d3Chart.destroy = (id) => {
+  utils.selectSVG(props.id).remove();
 };
 
 export default d3Chart;

@@ -1,10 +1,11 @@
 import paths from './../svgpaths';
-import * as d3 from 'd3';
+import { min, max } from 'd3-array';
 
 const drawBars = (svg, state, props, xScale, yScale, styles) => {
 
   //Bunch of messy helper functions and variables
   const leaderId = state.leaderId;
+  const barWidth = min([xScale.bandwidth(), 24]);
   const getBarX = (data) => xScale(data.label) + (xScale.bandwidth() - state.barWidth) / 2
   const getIconClass = (data) => {
     if (data.id === leaderId) {
@@ -69,8 +70,8 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
 
   entered.append('svg')
     .attr('viewBox', "0 0 768 768")
-    .attr('width', xScale.bandwidth())
-    .attr('height', xScale.bandwidth())
+    .attr('width', barWidth)
+    .attr('height', barWidth)
     .attr('x', data => xScale(data.label) + (xScale.bandwidth() - state.barWidth / 2))
     .attr('y', state.height)
     .attr('opacity', 0)
@@ -85,7 +86,8 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('y', state.height)
     .attr('width', xScale.bandwidth())
     .attr('height', xScale.bandwidth())
-    .attr('font-size', getFontSize);
+    .attr('font-size', getFontSize)
+    .attr('opacity', 0);
 
   // Remove unnessescary rectangles
   rects.exit().transition().duration(state.speed)
@@ -110,7 +112,7 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('x', getTextX);
 
   // Transition the y position after x position
-  const transY = rects.transition().delay(state.speed * 2)
+  const transY = rects.transition().delay(state.speed * 2).duration(state.speed)
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
@@ -118,8 +120,8 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
 
   transY.select("svg")
     .attr('y', (data) => data.value === 0 || state.isMobile ? yScale(data.value) - state.barWidth - 8 : yScale(data.value) - state.barWidth - state.barTextFontSize)
-    .attr('width', () => d3.min([xScale.bandwidth(), 24]))
-    .attr('height', () => d3.min([xScale.bandwidth(), 24]))
+    .attr('width', barWidth)
+    .attr('height', barWidth)
     .attr('opacity', 1);
 
   rects.select('svg').select('path')
@@ -132,7 +134,8 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   transY.select("text")
     .text(data => Number(data.value).toLocaleString())
     .attr('font-size': getFontSize)
-    .attr('y', data => yScale(data.value) - state.textPadding);
+    .attr('y', data => yScale(data.value) - state.textPadding)
+    .attr('opacity', 1);
 }
 
 module.exports = drawBars;

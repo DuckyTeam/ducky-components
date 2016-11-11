@@ -33,6 +33,10 @@
     {
       "name": "Nathan Bird",
       "email": "nathan2484@hotmail.co.uk"
+    },
+    {
+      "name": "Johannes Andersen",
+      "email": "johanes1@online.no"
     }
   ],
   "homepage": "https://github.com/DuckyTeam/ducky-components",
@@ -70,6 +74,13 @@
   "dependencies": {
     "countup.js": "^1.7.1",
     "d3": "^4.3.0",
+    "d3-array": "^1.0.1",
+    "d3-axis": "^1.0.3",
+    "d3-scale": "^1.0.3",
+    "d3-selection": "^1.0.2",
+    "d3-shape": "^1.0.3",
+    "d3-time-format": "^2.0.2",
+    "d3-transition": "^1.0.3",
     "moment": "^2.15",
     "rc-tooltip": "^3.4.2"
   }

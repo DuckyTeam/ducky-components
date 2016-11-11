@@ -1,4 +1,11 @@
-import * as d3 from 'd3';
+import { min, max } from 'd3-array';
+import { scaleTime, scaleLinear } from 'd3-scale';
+import { axisBottom, axisLeft } from 'd3-axis';
+import { select, selectAll } from 'd3-selection';
+import { line, area } from 'd3-shape';
+import { timeFormat } from 'd3-time-format';
+import { transition } from 'd3-transition';
+
 import moment from 'moment';
 import utils from './../utils';
 import styles from './styles.css';
@@ -33,8 +40,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     state.height = props.height - props.margin.top - props.margin.bottom;
     state.xAxisOffset = state.height + props.margin.top + 5;
     const speed = 300;
-    const maxValue = d3.max(state.data.map(d => d3.max(d.data.map(d => d.value))));
-    state.lowestScore = d3.min(state.data.map(d => {
+    const maxValue = max(state.data.map(d => max(d.data.map(d => d.value))));
+    state.lowestScore = min(state.data.map(d => {
       if (d.data && d.data.length === 0) {
         return 0;
       } else if (d.data) {
@@ -70,7 +77,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
     const dotData = state.data.reduce((acc, line) => {
-      let newData = [line.data[0], line.data[d3.max([line.data.length - 1, 0])]];
+      let newData = [line.data[0], line.data[max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
       newData[1].id = line.id;
       return acc.concat(newData);
@@ -95,46 +102,43 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
           .attr('width', props.width)
           .attr('height', props.height);
 
-    const xScale = d3.scaleTime()
+    const xScale = scaleTime()
         .range([40, props.width - props.margin.left - props.margin.right - 40])
         .domain([moment(state.startDate), moment(state.endDate)]);
 
-    const yScale = d3.scaleLinear()
-      .domain([0, d3.max([maxValue, nextGoal(), state.goals[1]])])
+    const yScale = scaleLinear()
+      .domain([0, max([maxValue, nextGoal(), state.goals[1]])])
       .range([state.height - 4, 15 + props.margin.top]);
 
     state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
 
-    const lineDrawer = d3.line()
+    const lineDrawer = line()
         .x(d => xScale(moment(d.date)))
         .y(d => yScale(d.value));
 
-    const lineDrawerZero = d3.line()
+    const lineDrawerZero = line()
         .x(d => xScale(moment(d.date)))
         .y(state.height);
 
-    const areaDrawer = d3.area()
+    const areaDrawer = area()
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(d => yScale(d.value));
 
-    const areaDrawerZero = d3.area()
+    const areaDrawerZero = area()
         .x(d => xScale(moment(d.date)))
         .y0(state.height)
         .y1(state.height);
 
-    const yAxis = d3
-        .axisLeft(yScale)
+    const yAxis = axisLeft(yScale)
         .tickValues(state.yAxisTickValues)
         .tickSize(-props.width, 0, 0);
 
-    const xAxis = d3
-        .axisBottom(xScale)
-        .tickFormat(d3.timeFormat("%d. %b"))
+    const xAxis = axisBottom(xScale)
+        .tickFormat(timeFormat("%d. %b"))
         .tickValues(xAxisTicks);
 
-     const yAxisLeader = d3
-        .axisLeft(yScale)
+     const yAxisLeader = axisLeft(yScale)
         .tickValues([maxValue - 30])
         .tickSize(-props.width, 0, 0);
 
@@ -230,7 +234,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
     const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
-    //const dots = svg.select(`.${styles.dotSeries}`).data(state.data);
+
     const getStrokeClass = (data) => {
       let classes = `${styles.progressLine}`;
       if (data.id === state.memberOf) {
@@ -295,8 +299,11 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     lines.exit().remove();
     areas.exit().remove();
     points.exit().remove();
-    // dots.exit().remove();
 
+};
+
+d3Chart.destroy = (id) => {
+  utils.selectSVG(props.id).remove();
 };
 
 export default d3Chart;
