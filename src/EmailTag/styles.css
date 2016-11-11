@@ -1,0 +1,29 @@
+.wrapper {
+  background-color: #eceff1;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.wrapperInvalid {
+  background-color: #eb585a;
+}
+
+.text {
+  margin-left: 4px;
+  color: #263238;
+}
+
+.icon {
+  color: #607d8b;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.icon:hover {
+  color: #263238;
+}
+
+.textInvalid, .iconInvalid {
+  color: #fff;
+}
