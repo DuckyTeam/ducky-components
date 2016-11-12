@@ -33,7 +33,6 @@ d3Chart.create = (el, props, state) => {
 };
 
 d3Chart.update = (el, state, props, dontAnimateIn) => {
-
   state.barTextFontSize = 20;
   state.textPadding = 6;
   state.speed = 250;
@@ -126,18 +125,17 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .append('polygon')
       .attr('points', paths.arrow)
       .attr('class', "st0")
-      .attr('fill', "#004750");
-
-  triangles.transition().duration(state.speed)
-    .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
-    .attr('y', state.xAxisOffset + 26);
+      .attr('fill', "#004750")
+      .merge(triangles).transition().duration(state.speed)
+        .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
+        .attr('y', state.xAxisOffset + 26);
 
   drawBars(svg, state, props, xScale, yScale, styles);
 
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, state.yAxisTickValues, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed, state.onClickCO2)
+  drawLabels(labelGroup, state.yAxisTickValues, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed, state.onClick)
 
   //Draw faces
   /*
@@ -149,7 +147,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 };
 
 d3Chart.destroy = (id) => {
-  utils.selectSVG(props.id).remove();
+  utils.selectSVG(id).selectAll('g').remove();
 };
 
 export default d3Chart;

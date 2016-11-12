@@ -95,8 +95,21 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('height', 0)
     .remove();
 
+
+  const mergedSelection = entered.merge(rects);
+
   // Transition the x position after removing rectangles
-  const transX = rects.transition().delay(state.speed).duration(state.speed);
+
+  mergedSelection.attr('class', getClasses);
+
+  mergedSelection.select('svg').select('path')
+    .attr('d', getPath)
+    .attr('class', getIconClass);
+
+  mergedSelection.select('text')
+    .attr('class', getTextClass);
+
+  const transX = mergedSelection.transition().delay(state.speed).duration(state.speed);
 
   transX.select("rect")
     .attr('x', getBarX)
@@ -112,7 +125,7 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('x', getTextX);
 
   // Transition the y position after x position
-  const transY = rects.transition().delay(state.speed * 2).duration(state.speed)
+  const transY = mergedSelection.transition().delay(state.speed * 2).duration(state.speed)
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
@@ -124,16 +137,9 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('height', barWidth)
     .attr('opacity', 1);
 
-  rects.select('svg').select('path')
-    .attr('d', getPath)
-    .attr('class', getIconClass);
-
-  rects.select('text')
-    .attr('class', getTextClass);
-
   transY.select("text")
     .text(data => Number(data.value).toLocaleString())
-    .attr('font-size': getFontSize)
+    .attr('font-size', getFontSize)
     .attr('y', data => yScale(data.value) - state.textPadding)
     .attr('opacity', 1);
 }

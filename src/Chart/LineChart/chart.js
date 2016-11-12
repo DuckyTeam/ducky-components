@@ -172,25 +172,24 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('x2', props.width)
       .attr('y1', yScale)
       .attr('y2', yScale)
-      .attr('opacity', 0);
+      .attr('opacity', 0)
+      .merge(leaderLine)
+        .transition().delay(speed).duration(speed)
+        .attr('y1', yScale)
+        .attr('y2', yScale)
+        .attr('x1', -50)
+        .attr('x2', props.width)
+        .attr('opacity', 1)
+        .select('line')
+          .attr('class', styles.leaderLine);
 
     leaderLine.exit().remove();
-
-    leaderLine.transition().delay(speed).duration(speed)
-      .attr('y1', yScale)
-      .attr('y2', yScale)
-      .attr('x1', -50)
-      .attr('x2', props.width)
-      .attr('opacity', 1)
-      .select('line')
-        .attr('class', styles.leaderLine);
 
     // Leader name and value
     const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue]);
     const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue]);
 
-    const enteredLeaderLabel = leaderLabel.enter();
-    enteredLeaderLabel.append('svg')
+    leaderLabel.enter().append('svg')
       .attr('viewBox', "0 0 768 768")
       .attr('x', 40)
       .attr('y', state.height)
@@ -199,38 +198,37 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('opacity', 0)
       .append('path')
         .attr('d', paths.crown)
-        .attr('class', styles.leaderLabel);
+        .attr('class', styles.leaderLabel)
+        .merge(leaderLabel)
+          .transition().delay(speed).duration(speed)
+          .attr('x', 40)
+          .attr('y', d => yScale(d) - 16)
+          .attr('opacity', 1)
+          .select('path')
+            .attr('d', paths.crown)
+            .attr('class', styles.leaderLabel);
 
       leaderLabel.exit().remove();
 
-      leaderLabel.transition().delay(speed).duration(speed)
-        .attr('x', 40)
-        .attr('y', d => yScale(d) - 16)
-        .attr('opacity', 1)
-        .select('path')
-          .attr('d', paths.crown)
-          .attr('class', styles.leaderLabel);
+      const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
 
-      const enteredLeaderText = leaderText.enter();
-      enteredLeaderText.append('text')
+      leaderText.enter().append('text')
         .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
         .attr('x', 72)
         .attr('y', state.height + 6)
         .attr('opacity', 0)
         .attr('class', styles.leaderText)
-        .attr('font-size', '12px');
-
-      leaderText.exit().remove();
-
-      const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
-
-      leaderText.transition().delay(speed).duration(speed)
-        .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
-        .attr('class', styles.leaderText)
         .attr('font-size', '12px')
-        .attr('y', data => yScale(data) - 5.5)
-        .attr('x', 72)
-        .attr('opacity', 1);
+        .merge(leaderText)
+          .transition().delay(speed).duration(speed)
+          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
+          .attr('class', styles.leaderText)
+          .attr('font-size', '12px')
+          .attr('y', data => yScale(data) - 5.5)
+          .attr('x', 72)
+          .attr('opacity', 1);
+
+    leaderText.exit().remove();
 
     const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
     const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
@@ -262,18 +260,25 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('d', d => areaDrawerZero(d.data));
 
     // ENTER & UPDATE
-    lines.transition().delay(speed).duration(speed)
+
+    lines.exit().remove();
+    areas.exit().remove();
+
+    const mergedLines = enteredLines.merge(lines);
+    const mergedAreas = enteredAreas.merge(areas);
+
+    mergedLines
+      .attr('class', getStrokeClass)
+      .on('click', data => state.onClick(data.id));
+
+    mergedLines.transition().delay(speed).duration(speed)
       .attr('d', d => lineDrawer(d.data));
 
-    lines
-      .attr('class', getStrokeClass)
-      .on('click', data => state.onClick && state.onClick(data.id));
-
-    areas.transition().delay(speed).duration(speed)
+    mergedAreas.transition().delay(speed).duration(speed)
       .attr('d', d => areaDrawer(d.data));
 
-    areas
-      .attr('display', d => state.memberOf === d.id ? true : "none");
+    /*mergedAreas
+      .attr('display', d => state.memberOf === d.id ? true : "none");*/
 
     //Draw points
     const points = svg.select(`.${styles.pointSeries}`).selectAll('circle').data(dotData);
@@ -286,24 +291,24 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('cy', state.height)
       .attr('class', getPointClass);
 
-    points.transition().delay(speed).duration(speed)
+    points.exit().remove();
+
+    const mergedPoints = enteredPoints.merge(points);
+
+    mergedPoints.transition().delay(speed).duration(speed)
       .attr('r', 4)
       .attr('cx', d => xScale(moment(d.date)))
       .attr('cy', d => yScale(d.value));
 
-    points
+    /*mergedPoints
       .attr('class', getPointClass)
-      .on('click', data => state.onClick && state.onClick(data.id));
+      .on('click', data => state.onClick && state.onClick(data.id));*/
 
-    // EXIT
-    lines.exit().remove();
-    areas.exit().remove();
-    points.exit().remove();
 
 };
 
 d3Chart.destroy = (id) => {
-  utils.selectSVG(props.id).remove();
+  utils.selectSVG(id).remove();
 };
 
 export default d3Chart;
