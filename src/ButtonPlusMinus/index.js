@@ -21,7 +21,6 @@ function ButtonPlusminus(props) {
 
 ButtonPlusminus.propTypes = {
   className: React.PropTypes.string,
-  icon: React.PropTypes.string,
   inactive: React.PropTypes.bool,
   onClick: React.PropTypes.func,
   operator: React.PropTypes.oneOf(['plus', 'remove'])
