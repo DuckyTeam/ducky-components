@@ -55,6 +55,17 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     [leaderId, leaderName] = state.data.reduce((acc, d) => {
       return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
     }, [-1, '']);
+
+    //Make sure that memberOf is on top
+    state.data = state.data.sort((a, b) => {
+      if (a.id === state.memberOf) {
+        return 1;
+      } else if (b.id === state.memberOf) {
+        return -1;
+      }
+      return b.id - a.id;
+    });
+
     const nextGoal = () => {
       for (let index = 0; index < state.goals.length; index += 1) {
         if (state.goals[index] > maxValue) {
@@ -230,8 +241,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     leaderText.exit().remove();
 
-    const lines = svg.select(`.${styles.lines}`).selectAll('g').data(state.data);
-    const areas = svg.select(`.${styles.areas}`).selectAll('g').data(state.data);
+    const lines = svg.select(`.${styles.lines}`).selectAll('g').data(state.data, d => d.id);
+    const areas = svg.select(`.${styles.areas}`).selectAll('g').data(state.data, d => d.id);
 
     const getStrokeClass = (data) => {
       let classes = `${styles.progressLine}`;
@@ -281,7 +292,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('display', d => state.memberOf === d.id ? true : "none");
 
     //Draw points
-    const points = svg.select(`.${styles.pointSeries}`).selectAll('g').data(dotData);
+    const points = svg.select(`.${styles.pointSeries}`).selectAll('g').data(dotData, d => `${d.id}${d.date}`);
     const enteredPoints = points.enter().append('g');
 
     enteredPoints.append("circle")
