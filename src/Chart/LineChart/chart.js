@@ -230,8 +230,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     leaderText.exit().remove();
 
-    const lines = svg.select(`.${styles.lines}`).selectAll('path').data(state.data);
-    const areas = svg.select(`.${styles.areas}`).selectAll('path').data(state.data);
+    const lines = svg.select(`.${styles.lines}`).selectAll('g').data(state.data);
+    const areas = svg.select(`.${styles.areas}`).selectAll('g').data(state.data);
 
     const getStrokeClass = (data) => {
       let classes = `${styles.progressLine}`;
@@ -248,8 +248,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     };
 
     // ENTER
-    const enteredLines = lines.enter();
-    const enteredAreas = areas.enter();
+    const enteredLines = lines.enter().append('g');
+    const enteredAreas = areas.enter().append('g');
 
     enteredLines.append('path')
       .attr('class', styles.line)
@@ -267,22 +267,22 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     const mergedLines = enteredLines.merge(lines);
     const mergedAreas = enteredAreas.merge(areas);
 
-    mergedLines
+    mergedLines.select('path')
       .attr('class', getStrokeClass)
       .on('click', data => state.onClick(data.id));
 
-    mergedLines.transition().delay(speed).duration(speed)
+    mergedLines.select('path').transition().delay(speed).duration(speed)
       .attr('d', d => lineDrawer(d.data));
 
-    mergedAreas.transition().delay(speed).duration(speed)
+    mergedAreas.select('path').transition().delay(speed).duration(speed)
       .attr('d', d => areaDrawer(d.data));
 
-    /*mergedAreas
-      .attr('display', d => state.memberOf === d.id ? true : "none");*/
+    mergedAreas.select('path')
+      .attr('display', d => state.memberOf === d.id ? true : "none");
 
     //Draw points
-    const points = svg.select(`.${styles.pointSeries}`).selectAll('circle').data(dotData);
-    const enteredPoints = points.enter();
+    const points = svg.select(`.${styles.pointSeries}`).selectAll('g').data(dotData);
+    const enteredPoints = points.enter().append('g');
 
     enteredPoints.append("circle")
       .attr('class', styles.pointSeries)
@@ -295,14 +295,14 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     const mergedPoints = enteredPoints.merge(points);
 
-    mergedPoints.transition().delay(speed).duration(speed)
+    mergedPoints.select('circle').transition().delay(speed).duration(speed)
       .attr('r', 4)
       .attr('cx', d => xScale(moment(d.date)))
       .attr('cy', d => yScale(d.value));
 
-    /*mergedPoints
+    mergedPoints.select('circle')
       .attr('class', getPointClass)
-      .on('click', data => state.onClick && state.onClick(data.id));*/
+      .on('click', data => state.onClick && state.onClick(data.id));
 
 
 };
