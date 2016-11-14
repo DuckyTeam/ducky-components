@@ -8,13 +8,7 @@ function ChallengeMeta4(props) {
   let teamLabel = '';
 
   if (props.yourTeam) {
-    teamLabel = '(Ditt lag)';
-  }
-  if (props.yourTeam && props.isLeader) {
-    teamLabel = '(Ditt lag - Leder)';
-  }
-  if (props.isLeader && !props.yourTeam) {
-    teamLabel = '(Leader)';
+    teamLabel = props.yourTeamText;
   }
   return (
     <div className={classNames(styles.wrapper, {
@@ -25,7 +19,7 @@ function ChallengeMeta4(props) {
           [styles.nameDarkBackground]: props.theme === 'dark'
         })}
         type="bodyTextStrong"
-      >
+        >
         {props.name}
       </Typography>
       <div className={styles.statsWrapper}>
@@ -36,13 +30,13 @@ function ChallengeMeta4(props) {
           content={props.members}
           icon={'icon-people'}
           type={"caption2Normal"}
-        />
+          />
         <Typography
           className={classNames(styles.labelLightBackground, {
             [styles.labelDarkBackground]: props.theme === 'dark'
           })}
           type="caption2Normal"
-        >
+          >
           {teamLabel}
         </Typography>
       </div>
@@ -56,7 +50,8 @@ ChallengeMeta4.propTypes = {
   members: React.PropTypes.number,
   name: React.PropTypes.string,
   theme: React.PropTypes.string,
-  yourTeam: React.PropTypes.bool
+  yourTeam: React.PropTypes.bool,
+  yourTeamText: React.PropTypes.string
 };
 
 export default ChallengeMeta4;

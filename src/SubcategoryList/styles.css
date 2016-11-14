@@ -1,0 +1,7 @@
+.wrapper {
+  displey: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+  padding: 16px 16px 0 16px;
+}

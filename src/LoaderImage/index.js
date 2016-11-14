@@ -15,7 +15,7 @@ function LoaderImage(props) {
       <Icon
         className={styles.iconWrapper}
         icon={props.iconName}
-        size={props.size}
+        size={'small'}
         />
     </div>
 

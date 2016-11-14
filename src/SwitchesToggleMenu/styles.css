@@ -1,0 +1,29 @@
+.optionContainer {
+  position: relative;
+  height: 32px;
+  padding: 2px;
+  background-color: #455A64;
+  display:flex;
+  border-radius: 20px;
+}
+.optionActive{
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 32px;
+  background-color: #FFF;
+  color: #455A64;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.optionInactive{
+  font-size: 14px;
+  font-weight: normal;
+  text-align: center;
+  line-height: 32px;
+  background-color: transparent;
+  color: #FFF;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}

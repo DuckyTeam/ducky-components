@@ -4,6 +4,7 @@ import LabelSmall from '../LabelSmall';
 import classNames from 'classnames';
 import Spacer from '../Spacer';
 import React from 'react';
+import Tooltip from '../Tooltip';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
@@ -17,15 +18,15 @@ function ChallengeCardLabel1(props) {
   if (props.type === 'points') {
     pColor = '#8BC34A';
     iconName = 'icon-brightness_high';
-    typoText = 'Poeng';
+    typoText = props.pointsText;
   } else if (props.type === 'co2') {
     pColor = '#00AB97';
     iconName = 'icon-leaf';
-    typoText = 'kgCO\u2082e';
+    typoText = props.co2Text;
   } else if (props.type === 'activities') {
     pColor = '#0099A9';
     iconName = 'icon-check_circle';
-    typoText = 'Aktiviteter';
+    typoText = props.activityCountText;
   }
 
   if (props.goal) {
@@ -51,11 +52,14 @@ function ChallengeCardLabel1(props) {
     );
   }
   return (
-    <span>
-      <ProgressBar
-        color={pColor}
-        percent={props.progPercent}
-        />
+    <div>
+      <Tooltip text="Din status">
+        <ProgressBar
+          color={pColor}
+          percent={props.progPercent}
+          size="standard"
+          />
+      </Tooltip>
       <Spacer size="standard" />
       <span className={styles.wrapper}>
         <LabelSmall
@@ -72,15 +76,18 @@ function ChallengeCardLabel1(props) {
         </Typography>
         {opt}
       </span>
-    </span>
+    </div>
   );
 }
 
 
 ChallengeCardLabel1.propTypes = {
+  activityCountText: PropTypes.string,
+  co2Text: PropTypes.string,
   goal: PropTypes.bool,
   percentValue: PropTypes.number,
   points: PropTypes.number,
+  pointsText: PropTypes.string,
   position: PropTypes.number,
   progPercent: PropTypes.number,
   type: PropTypes.oneOf(['points', 'co2', 'activities'])

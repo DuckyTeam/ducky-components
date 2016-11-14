@@ -28,13 +28,13 @@ class ChallengeMetaJoin extends React.Component {
       const daysRemainingToEnd = moment(momentEndDate).diff(momentToday, 'days');
       const daysRemainingToStart = moment(momentStartDate).diff(momentToday, 'days');
 
-      if (momentToday > momentStartDate && momentToday < momentEndDate && daysRemainingToEnd <= 7) {
+      if (momentToday >= momentStartDate && momentToday < momentEndDate && daysRemainingToEnd <= 7) {
         return (
           <Typography
             className={styles.text}
             type={'caption2Normal'}
             >
-              {'Slutter om '}{daysRemainingToEnd}{' dager'}
+              {`${this.props.endsInText} ${daysRemainingToEnd} ${this.props.daysText}`}
           </Typography>
         );
       } else if (momentToday < momentStartDate && daysRemainingToStart <= 7) {
@@ -43,7 +43,7 @@ class ChallengeMetaJoin extends React.Component {
             className={styles.text}
             type={'caption2Normal'}
             >
-            {'Starter om '}{daysRemainingToStart}{' dager'}
+              {`${this.props.startsInText} ${daysRemainingToStart} ${this.props.daysText}`}
           </Typography>
         );
       }
@@ -68,15 +68,21 @@ class ChallengeMetaJoin extends React.Component {
   getJoinIndicator(joined, noAccess) {
     if (noAccess) {
       return (
-        <div>
-          <div>
-            <Typography
-              className={styles.noAccessText}
-              type="caption2Normal"
-              >
-              Krever invitasjon
-            </Typography>
-          </div>
+        <div className={styles.noAccessTextWrapper}>
+          <Typography
+            className={styles.noAccessText}
+            type="caption2Normal"
+            >
+            {this.props.requiresInviteText}
+          </Typography>
+          <br />
+          <Typography
+            className={styles.noAccessTextNotification}
+            onClick={this.props.onNotificationsClick}
+            type="caption2Strong"
+            >
+            {this.props.viewNotificationsText}
+          </Typography>
         </div>
       );
     }
@@ -97,7 +103,7 @@ class ChallengeMetaJoin extends React.Component {
         disabled={this.props.disabled}
         onClick={this.props.onClick}
         >
-        Delta
+        {this.props.joinText}
       </ButtonRaised>
     );
   }
@@ -109,7 +115,7 @@ class ChallengeMetaJoin extends React.Component {
             [this.props.className]: this.props.className
           })}
           size={'side-bottom'}
-        >
+          >
           {this.getJoinedIndicatorInfo(this.props.joined)}
           <div>
             {this.getJoinIndicator(this.props.joined, this.props.noAccess)}
@@ -122,12 +128,20 @@ class ChallengeMetaJoin extends React.Component {
 
 ChallengeMetaJoin.propTypes = {
   className: React.PropTypes.string,
+  daysText: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   endDate: React.PropTypes.number,
+  endsInText: React.PropTypes.string,
+  joinText: React.PropTypes.string,
   joined: React.PropTypes.bool,
   noAccess: React.PropTypes.bool,
   onClick: React.PropTypes.func,
-  startDate: React.PropTypes.number
+  onNotificationsClick: React.PropTypes.func,
+  requiresInviteText: React.PropTypes.string,
+  startDate: React.PropTypes.number,
+  startsInText: React.PropTypes.string,
+  viewNotificationsText: React.PropTypes.string
+
 };
 
 export default ChallengeMetaJoin;

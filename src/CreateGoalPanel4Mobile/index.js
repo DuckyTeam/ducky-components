@@ -31,17 +31,17 @@ function CreateGoalPanel4Mobile(props) {
       </Wrapper>
       {
         (props.actions || []).filter((action) => {
-          return action.type === props.activeCategory
+          return action.type === props.activeCategory || !props.activeCategory;
         })
         .map((action, index) => {
           return (
             <div key={index}>
               <CreateGoalActionItem className={styles.actionItemComposite}
                 co2={action.co2}
-                icon={props.icon}
+                icon={action.icon}
                 onClick={props.onClickGoalActionItem}
-                points={props.points}
-                title={props.goalTitle}
+                points={action.points}
+                title={action.goalTitle}
                 />
               <Spacer
                 className={styles.hr2}
@@ -49,7 +49,7 @@ function CreateGoalPanel4Mobile(props) {
                 size={"hr2"}
                 />
             </div>
-          )
+          );
         })
       }
       <div className={styles.sectionHeaderGeneral}>

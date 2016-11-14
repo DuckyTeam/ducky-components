@@ -10,35 +10,13 @@ const PropTypes = React.PropTypes;
 function LeaderboardComposite7(props) {
   let opt = '';
 
-  if (props.yourTeam && !props.isLeader) {
+  if (props.yourTeam) {
     opt = (
       <Typography
         className={styles.typoTeam}
         type="caption2Normal"
-      >
-        {'(Ditt lag)'}
-      </Typography>
-    );
-  }
-
-  if (props.isLeader && !props.yourTeam) {
-    opt = (
-      <Typography
-        className={styles.typoTeam}
-        type="caption2Normal"
-      >
-        {'(Leder)'}
-      </Typography>
-    );
-  }
-
-  if (props.isLeader && props.yourTeam) {
-    opt = (
-      <Typography
-        className={styles.typoTeam}
-        type="caption2Normal"
-      >
-        {'(Ditt lag - Leder)'}
+        >
+        {`(${props.yourTeamText})`}
       </Typography>
     );
   }
@@ -47,7 +25,7 @@ function LeaderboardComposite7(props) {
     <Typography
       className={styles.teamRanking}
       type={'caption1Normal'}
-    >
+      >
       {props.teamRanking}
     </Typography>
   );
@@ -55,7 +33,7 @@ function LeaderboardComposite7(props) {
     <div className={styles.teamName}>
       <Typography
         type="bodyTextStrong"
-      >
+        >
         {props.teamName}
       </Typography>
       <div>
@@ -64,7 +42,7 @@ function LeaderboardComposite7(props) {
           content={props.teamMemberCount}
           icon="icon-people"
           type="caption2Normal"
-        />
+          />
         {opt}
       </div>
     </div>
@@ -77,7 +55,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking}
         icon="icon-hashtag"
         type="caption2Normal"
-      />
+        />
     );
   }
 
@@ -88,7 +66,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking || 1}
         icon="icon-crown"
         type="caption2Normal"
-      />
+        />
     );
   }
 
@@ -97,7 +75,7 @@ function LeaderboardComposite7(props) {
       <div className={styles.teamName}>
         <Typography
           type={'bodyTextStrong'}
-        >
+          >
           {props.teamName}
         </Typography>
         <div>
@@ -106,12 +84,12 @@ function LeaderboardComposite7(props) {
             content={props.teamMemberCount}
             icon="icon-people"
             type="caption2Normal"
-          />
+            />
           <Typography
             className={styles.typoTeam}
             type="caption2Normal"
-          >
-            {'(Ditt lag - Leder)'}
+            >
+            {`(${props.yourTeamText})`}
           </Typography>
         </div>
       </div>
@@ -122,7 +100,7 @@ function LeaderboardComposite7(props) {
         content={props.teamRanking || 1}
         icon="icon-crown"
         type="caption2Normal"
-      />
+        />
     );
   }
 
@@ -134,7 +112,7 @@ function LeaderboardComposite7(props) {
         [props.className]: props.className
       })}
       onClick={props.onClick}
-    >
+      >
       {teamRanking}
       {teamName}
       <Icon
@@ -142,14 +120,14 @@ function LeaderboardComposite7(props) {
         icon={props.opened ? 'icon-keyboard_arrow_up' : 'icon-keyboard_arrow_down'}
         onClick={props.onClick}
         size="small"
-      />
+        />
       <div className={styles.labelStandardWrapper}>
         <LabelStandard
           className={styles.labelStandard}
           content={props.teamTotalCo2}
           icon="icon-leaf"
           type="caption2Normal"
-        />
+          />
       </div>
     </div>
   );
@@ -164,6 +142,7 @@ LeaderboardComposite7.propTypes = {
   teamName: PropTypes.string,
   teamRanking: PropTypes.number,
   teamTotalCo2: PropTypes.number,
-  yourTeam: PropTypes.bool
+  yourTeam: PropTypes.bool,
+  yourTeamText: PropTypes.string
 };
 export default LeaderboardComposite7;

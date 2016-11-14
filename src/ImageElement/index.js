@@ -4,7 +4,7 @@ import {PropTypes} from 'react';
 function ImageElement(props) {
   const style = {
     backgroundImage: `url(${props.image})`,
-    backgroundSize: props.backgroundSize,
+    backgroundSize: 'cover',
     backgroundPosition: 'center center',
     backgroundRepeat: 'no-repeat',
     width: props.width,
@@ -22,7 +22,6 @@ function ImageElement(props) {
 }
 
 ImageElement.propTypes = {
-  backgroundSize: PropTypes.string.isRequired,
   className: PropTypes.string,
   height: PropTypes.string.isRequired,
   image: PropTypes.string,

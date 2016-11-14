@@ -36,6 +36,7 @@ function LabelDisplay(props) {
                     {typeof props.value === 'number'
                     ? <Counter
                         decimals={2}
+                        noAnimation={props.noAnimation}
                         number={props.value}
                       />
                     : props.value}
@@ -50,6 +51,7 @@ LabelDisplay.propTypes = {
     icon: PropTypes.string,
     iconColor: PropTypes.string,
     label: PropTypes.string,
+    noAnimation: PropTypes.bool,
     onClick: PropTypes.func,
     theme: PropTypes.oneOf(['dark', 'light']),
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])

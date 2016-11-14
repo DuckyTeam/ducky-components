@@ -7,33 +7,37 @@ stories(module, CreateGoalPanel4Mobile, [
 ], {
   actions: json([{
     type: 'food',
-    co2: 1
+    co2: 1,
+    goalTitle: 'Temp1',
+    points: 3,
+    icon: iconImageImage
   },
   {
-    type: 'energy',
-    co2: 13
+    type: 'social',
+    co2: 1,
+    goalTitle: 'Temp2',
+    points: 3,
+    icon: iconImageImage
+  },
+  {
+    type: 'food',
+    co2: 1,
+    goalTitle: 'Temp3',
+    points: 3,
+    icon: iconImageImage
   },
   {
     type: 'transport',
-    co2: 32
-  },
-  {
-    type: 'social',
-    co2: 12
-  },
-  {
-    type: 'social',
-    co2: 8
-  },
-  {
-    type: 'consumption',
-    co2: 45
+    co2: 1,
+    goalTitle: 'Temp4',
+    points: 3,
+    icon: iconImageImage
   }]),
   type: string('food'),
   className: className(),
   title: oneOf('Aktivitetsmål', 'Bygg en ny vane'),
   children: oneOf('Velg aktiviteten du ønsker å fokusere på for dette målet', 'Velg aktiviteten du ønsker å opprette som ny vane'),
-  activeCategory: oneOf('', 'food', 'consumption', 'energy', 'transport', 'social'),
+  activeCategory: oneOf(null, 'food', 'consumption', 'energy', 'transport', 'social'),
   onCategoryClick: func(),
   onClickGoalActionItem: func(),
   goalTitle: string('Action Title'),

@@ -25,7 +25,11 @@ class Counter extends React.Component {
         });
     }
     componentDidUpdate(prevProps) {
-        if (prevProps.number !== this.props.number) {
+        if (this.props.noAnimation) {
+          this.counter.startVal = this.props.number;
+          this.counter.endVal = this.props.number;
+          this.counter.start();
+        } else if (prevProps.number !== this.props.number) {
             this.counter.update(this.props.number);
         }
     }
@@ -48,6 +52,7 @@ class Counter extends React.Component {
 Counter.propTypes = {
     className: React.PropTypes.string,
     decimals: React.PropTypes.number,
+    noAnimation: React.PropTypes.bool,
     number: React.PropTypes.number
 };
 

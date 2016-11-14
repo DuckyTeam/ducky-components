@@ -1,4 +1,4 @@
-import {stories, className, bool, oneOf, string} from '../duckyStories';
+import {stories, className, bool, oneOf} from '../duckyStories';
 import LoaderImage from './index';
 
 stories(module, LoaderImage, [
@@ -6,6 +6,5 @@ stories(module, LoaderImage, [
 ], {
   iconName: oneOf('icon-leaf', 'icon-duck', 'icon-photo'),
   className: className(),
-  hide: bool(),
-  size: string('small')
+  hide: bool(false)
 });

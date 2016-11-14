@@ -20,6 +20,19 @@
     color: #263238;
 }
 
+.noAccessTextWrapper {
+  text-align: right;
+}
+
 .noAccessText {
   align-self: flex-end;
+}
+
+.noAccessTextNotification {
+  color: #00AB97;
+  align-self: flex-end;
+}
+
+.noAccessTextNotification:hover {
+  cursor: pointer;
 }

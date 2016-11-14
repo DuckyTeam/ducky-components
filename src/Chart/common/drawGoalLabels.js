@@ -3,7 +3,7 @@ import paths from './../svgpaths';
 
 export default (labelGroup, goals, yourScore, yScale, speed) => {
 
-  const labels = labelGroup.selectAll('g').data(goals);
+  const labels = labelGroup.selectAll('g').data(goals, g => g);
 
   //Enter
   const enteredLabels = labels.enter().append('g');

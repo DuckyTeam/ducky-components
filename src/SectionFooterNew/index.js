@@ -27,7 +27,9 @@ function SectionFooterNew(props) {
       <div className={classNames(styles.wrapper, props.className)}>
         <ButtonIcon
           icon={props.icon}
-          >{props.text}</ButtonIcon>
+          >
+          {props.text}
+        </ButtonIcon>
         <ButtonRaised
           theme={'dark'}
           >

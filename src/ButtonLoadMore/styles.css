@@ -1,0 +1,47 @@
+.wrapper {
+  width: 96px;
+  height: 96px;
+  border: 2px solid #00AB97;
+  display:flex;
+  border-radius:50%;
+  justify-content: center;
+  align-items: center;
+  box-sizing:border-box;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.loadmoreBtnText {
+  color: #00AB97;
+  text-align: center;
+}
+
+.innerWrapper {
+  max-width:288px;
+  display:flex;
+  flex-direction:column;
+}
+
+.textOne {
+  color: #90A4AE;
+  text-align:center;
+}
+
+.textTwo {
+  color: #00AB97;
+  text-align:center;
+  cursor: pointer;
+}
+
+.upBtn {
+  margin:0 auto;
+  color: #90A4AE;
+  border: 2px solid #00AB97;
+  box-sizing:border-box;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.upBtn > span {
+  color: #00AB97;
+}

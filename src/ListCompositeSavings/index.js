@@ -7,11 +7,11 @@ const PropTypes = React.PropTypes;
 
 function ListCompositeSavings(props) {
   let icon = 'icon-leaf';
-  let text = 'Innsparing kgCO\u2082e';
+  let text = props.savingsText;
 
   if (props.type === 'points') {
     icon = 'icon-brightness_high';
-    text = 'Duckypoints';
+    text = props.pointsText;
   }
 
   return (
@@ -19,8 +19,8 @@ function ListCompositeSavings(props) {
       <div className={styles.label}>
         <LabelHorisontal
           className={classNames(
-            {[styles.pointsIcon]: text === 'Duckypoints'},
-            {[styles.co2Icon]: text === 'Innsparing kgCO\u2082e'}
+            {[styles.pointsIcon]: text === props.pointsText},
+            {[styles.co2Icon]: text === props.savingsText}
           )}
           icon={icon}
           text={text}
@@ -37,7 +37,9 @@ function ListCompositeSavings(props) {
 
 ListCompositeSavings.propTypes = {
   className: PropTypes.string,
+  pointsText: PropTypes.string,
   savings: PropTypes.number,
+  savingsText: PropTypes.string,
   type: PropTypes.oneOf(['points'])
 };
 

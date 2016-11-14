@@ -11,14 +11,14 @@ function SectionFooterCancelOK(props) {
         className={styles.button}
         onClick={props.onCancel}
         >
-        {props.cancelButtonText || 'AVBRYT'}
+        {props.cancelButtonText}
       </Button>
       <ButtonRaised
         className={styles.raisedButton}
         disabled={props.disabled}
         onClick={props.onClick}
         >
-        {props.okButtonText || 'OK'}
+        {props.okButtonText}
       </ButtonRaised>
     </div>
   );

@@ -12,7 +12,7 @@ function SectionFooterCancelLeft(props) {
         className={styles.button}
         onClick={props.onClick}
         >
-        {"AVBRYT"}
+        {props.cancelText}
       </Button>
     </div>
   );
@@ -20,6 +20,7 @@ function SectionFooterCancelLeft(props) {
 
 SectionFooterCancelLeft.displayName = "Section Footer Close Left";
 SectionFooterCancelLeft.propTypes = {
+  cancelText: React.PropTypes.string,
   className: React.PropTypes.string,
   onClick: React.PropTypes.func
 };
