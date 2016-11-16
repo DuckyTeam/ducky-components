@@ -33,20 +33,19 @@ d3Chart.create = (el, props, state) => {
 };
 
 d3Chart.update = (el, state, props, dontAnimateIn) => {
-  state.barTextFontSize = 20;
-  state.textPadding = 6;
-  state.speed = 250;
+  const speed = 250;
 
   //A lot of calculations, functions and definitions for the chart
-  state.height = props.height - props.margin.top - props.margin.bottom;
-  state.xAxisOffset = state.height + props.margin.top + 5;
-  state.highestScore = max(state.data, (data) => data.value);
-  state.lowestScore = min(state.data, (data) => data.value);
-  state.leaderId = (state.highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
-  state.nextGoal = state.goals[state.goals.reduce((acc, goal) => (goal <= state.highestScore) ? acc + 1 : acc, 0)];
-  state.yourScore = state.data.reduce((acc, dp) => dp.id === state.memberOf ? acc + dp.value : acc, 0);
+  const { memberOf, selectedId, goals, isMobile, onClick } = state;
+  const height = props.height - props.margin.top - props.margin.bottom;
+  const xAxisOffset = height + props.margin.top + 5;
+  const highestScore = max(state.data, (data) => data.value);
+  const lowestScore = min(state.data, (data) => data.value);
+  const leaderId = (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
+  const nextGoal = goals[goals.reduce((acc, goal) => (goal <= highestScore) ? acc + 1 : acc, 0)];
+  const yourScore = state.data.reduce((acc, dp) => dp.id === memberOf ? acc + dp.value : acc, 0);
 
-  state.data = state.data.map(el => {
+  const data = state.data.map(el => {
     el.label = getShortenedName(el.label, state.data.length);
     return el;
   });
@@ -54,8 +53,8 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const isSelectedByName = (label) => {
     let found = false;
 
-    state.data.forEach((dp) => {
-      if (dp.label === label && dp.id === state.selectedId) {
+    data.forEach((dp) => {
+      if (dp.label === label && dp.id === selectedId) {
         found = true;
       }
     });
@@ -64,7 +63,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   const getIdbyName = name => {
     let id = -1;
-    state.data.forEach((d) => {
+    data.forEach((d) => {
       if (d.label === name) {
         id = d.id;
       }
@@ -74,16 +73,15 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   //Define x and y scales
   const xScale = scaleBand()
-    .domain(state.data.map((data) => data.label))
+    .domain(data.map((data) => data.label))
     .range([0, props.width - props.margin.left - props.margin.right])
     .round(true);
 
   const yScale = scaleLinear()
-    .domain([0, max([state.highestScore, state.nextGoal, state.goals[1]])])
-    .range([state.height - 4, 15 + props.margin.top]);
+    .domain([0, max([highestScore, nextGoal, goals[1]])])
+    .range([height - 4, 15 + props.margin.top]);
 
-  state.barWidth = min([xScale.bandwidth(), 24]);
-  state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
+  const yAxisTickValues = calculateYAxisTicks(goals, nextGoal, lowestScore, yScale);
 
 
   // Resize svg-canvas
@@ -94,25 +92,25 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const xAxis = axisBottom(xScale);
 
   const yAxis = axisLeft(yScale)
-      .tickValues(state.yAxisTickValues)
+      .tickValues(yAxisTickValues)
       .tickSize(-props.width, 0, 0);
 
   // Move xaxis
-  utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
+  utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
 
   // Transition in new axis
-  utils.selectYAxisGroup(svg).transition().duration(dontAnimateIn ? 0 : state.speed).delay(state.speed).call(yAxis);
-  if (!state.isMobile) utils.selectXAxisGroup(svg).transition().duration(state.speed).delay(state.speed).call(xAxis);
+  utils.selectYAxisGroup(svg).transition().duration(dontAnimateIn ? 0 : speed).delay(speed).call(yAxis);
+  if (!isMobile) utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
   utils.selectXAxisGroup(svg).selectAll('.tick')
     .attr('id', (data) => isSelectedByName(data) ? styles.selectedXTick : null)
     .on('click', (data, index) => {
-      if (state.onClick) {
-        state.onClick(getIdbyName(data));
+      if (onClick) {
+        onClick(getIdbyName(data));
       }
     }).select('line').attr('stroke', 'none');
 
   //Draw small triangle indicator
-  const leader = state.data.filter(d => d.id === state.selectedId);
+  const leader = data.filter(d => d.id === selectedId);
 
   const triangles = select(`.${styles.triangleIndicator}`).selectAll('svg').data(leader);
 
@@ -121,28 +119,28 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .attr('width', '16px')
     .attr('height', '8px')
     .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
-    .attr('y', state.xAxisOffset + 40)
+    .attr('y', xAxisOffset + 40)
     .append('polygon')
       .attr('points', paths.arrow)
       .attr('class', "st0")
       .attr('fill', "#004750")
-      .merge(triangles).transition().duration(state.speed)
+      .merge(triangles).transition().duration(speed)
         .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
-        .attr('y', state.xAxisOffset + 26);
+        .attr('y', xAxisOffset + 26);
 
-  drawBars(svg, state, props, xScale, yScale, styles);
+  drawBars(svg, data, xScale, yScale, height, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles);
 
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, state.yAxisTickValues, state.yourScore, yScale, dontAnimateIn ? 0 : state.speed, state.onClick)
+  drawLabels(labelGroup, yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed, onClick)
 
   //Draw faces
   /*
   const xValue = props.width - props.margin.left - props.margin.right * 2;
   const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
-  drawFaces(chartGroup, state.goals, state.yourScore, state.highestScore, yScale, xValue, dontAnimateIn ? 0 : state.speed);
+  drawFaces(chartGroup, goals, yourScore, highestScore, yScale, xValue, dontAnimateIn ? 0 : speed);
   */
 };
 

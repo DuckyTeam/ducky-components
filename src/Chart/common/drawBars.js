@@ -1,30 +1,31 @@
 import paths from './../svgpaths';
 import { min, max } from 'd3-array';
 
-const drawBars = (svg, state, props, xScale, yScale, styles) => {
+const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles) => {
 
   //Bunch of messy helper functions and variables
-  const leaderId = state.leaderId;
+  const barTextFontSize = 20;
+  const textPadding = 6;
   const barWidth = min([xScale.bandwidth(), 24]);
-  const getBarX = (data) => xScale(data.label) + (xScale.bandwidth() - state.barWidth) / 2
+  const getBarX = (data) => xScale(data.label) + (xScale.bandwidth() - barWidth) / 2
   const getIconClass = (data) => {
     if (data.id === leaderId) {
       return `${styles.leaderIcon} ${styles.iconPaths}`;
-    } else if (data.id === state.memberOf) {
+    } else if (data.id === memberOf) {
       return `${styles.memberIcon} ${styles.iconPaths}`;
     }
     return `${styles.backgroundColorIcon} ${styles.iconPaths}`;
   };
   const getPath = (data) => {
-    if (data.id === state.memberOf && data.id !== leaderId) {
-      return (state.isMobile || state.yourScore === 0) ? paths.check : paths.leaf;
+    if (data.id === memberOf && data.id !== leaderId) {
+      return (isMobile || yourScore === 0) ? paths.check : paths.leaf;
     } else if (data.id === leaderId) {
       return paths.crown;
     }
     return '';
   };
-  const getClasses = data => `${state.isMobile ? styles.rectangleGroupMobile : styles.rectangleGroup} ${data.id === state.memberOf ? styles.member : null}
-                                ${data.id === state.leaderId ? styles.leader : null} ${data.id === state.selectedId ? styles.selected : null}`;
+  const getClasses = data => `${isMobile ? styles.rectangleGroupMobile : styles.rectangleGroup} ${data.id === memberOf ? styles.member : null}
+                                ${data.id === leaderId ? styles.leader : null} ${data.id === selectedId ? styles.selected : null}`;
 
   const getFontSize = data => {
     if (data.value < 10000) {
@@ -39,41 +40,41 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     if (d.value === 0) {
       return styles.barTextHidden;
     }
-    if (state.isMobile) {
+    if (isMobile) {
       return styles.barTextHidden;
-    } else if (d.id === leaderId || d.id === state.memberOf) {
+    } else if (d.id === leaderId || d.id === memberOf) {
       return styles.barText;
     }
     return styles.barTextHidden;
   }
 
-  const getTextX = (data) => getBarX(data) + state.barWidth / 2;
+  const getTextX = (data) => getBarX(data) + barWidth / 2;
 
   //Actually draw the rectangles
-  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(state.data, data => data.id);
+  const rects = svg.select(`.${styles.bars}`).selectAll("g").data(data, data => data.id);
 
   const entered = rects.enter().append("g")
     .attr('class', getClasses)
     .on('click', (data, index) => {
-      if (state.onClick) {
-        state.onClick(data.id)}
+      if (onClick) {
+        onClick(data.id)}
       }
     );
 
   entered.append("rect")
     .attr('class', styles.rectangle)
     .attr('rx', 2)
-    .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - state.barWidth / 2))
-    .attr('y', state.height)
+    .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - barWidth / 2))
+    .attr('y', height)
     .attr('height', 0)
-    .attr('width', state.barWidth);
+    .attr('width', barWidth);
 
   entered.append('svg')
     .attr('viewBox', "0 0 768 768")
     .attr('width', barWidth)
     .attr('height', barWidth)
-    .attr('x', data => xScale(data.label) + (xScale.bandwidth() - state.barWidth / 2))
-    .attr('y', state.height)
+    .attr('x', data => xScale(data.label) + (xScale.bandwidth() - barWidth / 2))
+    .attr('y', height)
     .attr('opacity', 0)
     .append('path')
       .attr('class', getIconClass)
@@ -83,15 +84,15 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .text(data => Number(data.value).toLocaleString())
     .attr('class', getTextClass)
     .attr('x', data => xScale(data.label) + 0.5 * xScale.bandwidth())
-    .attr('y', state.height)
+    .attr('y', height)
     .attr('width', xScale.bandwidth())
     .attr('height', xScale.bandwidth())
     .attr('font-size', getFontSize)
     .attr('opacity', 0);
 
   // Remove unnessescary rectangles
-  rects.exit().transition().duration(state.speed)
-    .attr('y', state.height)
+  rects.exit().transition().duration(speed)
+    .attr('y', height)
     .attr('height', 0)
     .remove();
 
@@ -109,11 +110,11 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   mergedSelection.select('text')
     .attr('class', getTextClass);
 
-  const transX = mergedSelection.transition().delay(state.speed).duration(state.speed);
+  const transX = mergedSelection.transition().delay(speed).duration(speed);
 
   transX.select("rect")
     .attr('x', getBarX)
-    .attr('width', state.barWidth)
+    .attr('width', barWidth)
     .attr('fill', data => data.color);
 
   transX.select("svg")
@@ -125,14 +126,14 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
     .attr('x', getTextX);
 
   // Transition the y position after x position
-  const transY = mergedSelection.transition().delay(state.speed * 2).duration(state.speed)
+  const transY = mergedSelection.transition().delay(speed * 2).duration(speed)
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
-    .attr('height', (data) => state.height - yScale(data.value));
+    .attr('height', (data) => height - yScale(data.value));
 
   transY.select("svg")
-    .attr('y', (data) => data.value === 0 || state.isMobile ? yScale(data.value) - state.barWidth - 8 : yScale(data.value) - state.barWidth - state.barTextFontSize)
+    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - barWidth - 8 : yScale(data.value) - barWidth - barTextFontSize)
     .attr('width', barWidth)
     .attr('height', barWidth)
     .attr('opacity', 1);
@@ -140,7 +141,7 @@ const drawBars = (svg, state, props, xScale, yScale, styles) => {
   transY.select("text")
     .text(data => Number(data.value).toLocaleString())
     .attr('font-size', getFontSize)
-    .attr('y', data => yScale(data.value) - state.textPadding)
+    .attr('y', data => yScale(data.value) - textPadding)
     .attr('opacity', 1);
 }
 
