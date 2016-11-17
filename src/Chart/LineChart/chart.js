@@ -157,7 +157,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-    drawLabels(labelGroup, state.yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed);
+    drawLabels(labelGroup, state.yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed, state.onClickCO2);
 
     //Draw faces
     /*const xValue = props.width - props.margin.left - props.margin.right * 2;

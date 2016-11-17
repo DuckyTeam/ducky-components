@@ -6,6 +6,7 @@ stories(module, Input, [
 ], {
   className: className(),
   errorMessage: oneOf(null, 'Error'),
+  name: string('Used to get browsers to store credentials'),
   onBlur: func(),
   onChange: func(),
   placeholder: string('Holding place'),
