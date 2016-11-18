@@ -14,10 +14,12 @@ function ToggleButtonWithLabel(props) {
         })}
         type="bodyTextNormal"
         >
-          {props.label}
+        {props.label}
       </Typography>
       <SwitchToggleButton
+        onChange={props.onChange}
         checked={props.checked}
+        defaultChecked={props.defaultChecked}
         theme={props.theme}
         />
     </div>
