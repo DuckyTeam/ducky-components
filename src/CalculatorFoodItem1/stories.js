@@ -12,5 +12,5 @@ stories(module, CalculatorFoodItem1, [
   lblEatTypicalWoman: string("Typisk kvinne"),
   lblEatLittle: string("Spiser lite"),
   lblEatTypicalMan: string("Typisk mann"),
-  onClick: func
+  onClick: func()
 });
