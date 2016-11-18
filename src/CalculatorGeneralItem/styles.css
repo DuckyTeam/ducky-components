@@ -20,16 +20,25 @@
   flex-grow: 1;
 }
 
-.typoAnswer, .typoContentInactive {
-  padding-right: 16px;
-  color: #00ab97;
+.typoAnswer, .typoAnswerInactive {
   width: 120px;
+  flex: 0 0 120px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-right: 16px;
+}
+
+.typoAnswer {
+  color: #00ab97;
 }
 
 .typoContentInactive {
+  padding-right: 16px;
+  color: #90a4ae;
+}
+
+.typoAnswerInactive {
   color: #90a4ae;
 }
 

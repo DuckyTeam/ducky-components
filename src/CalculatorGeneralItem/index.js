@@ -45,7 +45,7 @@ function CalculatorGeneralItem(props) {
       {props.label}
     </Typography>
     <Typography
-      className={props.inactive ? styles.typoContentInactive : styles.typoAnswer}
+      className={props.inactive ? styles.typoAnswerInactive : styles.typoAnswer}
       type="bodyTextStrong"
       >
       {props.value}
