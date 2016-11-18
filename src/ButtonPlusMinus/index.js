@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ButtonMini from '../ButtonMini';
 import styles from './styles.css';
 
-function ButtonPlusminus(props) {
+function ButtonPlusMinus(props) {
   return (
     <div
       className={classNames(styles.wrapper, {
@@ -19,11 +19,11 @@ function ButtonPlusminus(props) {
   );
 }
 
-ButtonPlusminus.propTypes = {
+ButtonPlusMinus.propTypes = {
   className: React.PropTypes.string,
   inactive: React.PropTypes.bool,
   onClick: React.PropTypes.func,
   operator: React.PropTypes.oneOf(['plus', 'remove'])
 };
 
-export default ButtonPlusminus;
+export default ButtonPlusMinus;

@@ -13,11 +13,26 @@
 
 .wrapper:hover {
   border: 2px solid #607D8B;
-  color: #607D8B;
 }
 
 .inactive {
   border: 2px solid #eceff1;
+}
+
+.inactive > div > span {
+  color: #cfd8dc;
+}
+
+.inactive:hover {
+  border: 2px solid #eceff1;
+  cursor: default;
+}
+
+.inactive:hover > div {
+  cursor: default;
+}
+
+.inactive:hover > div > span {
   color: #cfd8dc;
   cursor: default;
 }
