@@ -1,0 +1,20 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.valueType {
+  flex-grow: 1;
+}
+.value {
+
+}
+.valueMuted {
+  color: #cfd8dc;
+}
+.minusButton {
+  margin-left: 16px
+}
+.plusButton {
+  margin-left: 8px
+}
