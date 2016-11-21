@@ -11,6 +11,7 @@ stories(module, CalculatorConsumptionQuality, [
   inactive: bool(),
   label: string("Hvor ofte velger du kvalitetsprodukter?"),
   onClick: func(),
+  onSaveButtonClicked: func(),
   saveButtonText: string(),
   selected: string("Av og til")
 });
