@@ -67,7 +67,7 @@ SettingsSectionPersonal.propTypes = {
   expandedBirthday: PropTypes.bool,
   expandedGender: PropTypes.bool,
   expandedLocation: PropTypes.bool,
-  gender: PropTypes.oneOf(),
+  gender: PropTypes.oneOf(['kvinne', 'mann', 'kjøttpinne']),
   handleClickBirthday: PropTypes.func,
   handleClickGender: PropTypes.func,
   handleClickLocation: PropTypes.func,

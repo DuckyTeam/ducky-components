@@ -1,10 +1,14 @@
 .wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+}
+.labelText {
+  flex-grow: 1;
 }
 
-.counterText {
-  flex-grow: 1;
+.counterTextMuted {
+  color: #cfd8dc;
 }
 
 .minus {

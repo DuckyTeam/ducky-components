@@ -8,31 +8,36 @@ function CounterInputGeneral(props) {
   return (
     <div className={classNames(styles.wrapper)}>
       <Typography
-        className={classNames(styles.counterText, [props.className]: props.className)}
+        className={classNames(
+          styles.labelText,
+        [props.className]: props.className)}
         type={'bodyTextNormal'}
         >
         {props.label}
       </Typography>
       <Typography
-        className={classNames([props.className]: props.className)}
+        className={classNames(
+          props.resultNumber === 0 ? styles.counterTextMuted : '',
+          [props.className]: props.className
+        )}
         type={'bodyTextNormal'}
         >
         {props.resultNumber}
       </Typography>
       <ButtonPlusMinus
         className={classNames(styles.minus, [props.className]: props.className)}
-        inactive={props.inactiveNegative}
-        onClick={props.onClick}
+        inactive={props.resultNumber === 0}
+        onClick={props.decreaseValue}
         operator="remove"
         />
       <ButtonPlusMinus
         className={classNames(styles.plus, [props.className]: props.className)}
         inactive={props.inactivePositive}
-        onClick={props.onClick}
+        onClick={props.increaseValue}
         operator="plus"
         />
     </div>
-  );
+      );
 }
 
 CounterInputGeneral.propTypes = {
@@ -40,7 +45,8 @@ CounterInputGeneral.propTypes = {
   inactiveNegative: React.PropTypes.bool,
   inactivePositive: React.PropTypes.bool,
   label: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  decreaseValue: React.PropTypes.func,
+  increaseValue: React.PropTypes.func,
   operator: React.PropTypes.oneOf(['plus', 'remove']),
   resultNumber: React.PropTypes.string
 };

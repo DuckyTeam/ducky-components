@@ -6,7 +6,7 @@ stories(module, SettingsItemGender, [
 ], {
   className: className(),
   expanded: bool(),
-  gender: oneOf('kvinne', 'mann', 'kjøttpinne'),
+  gender: oneOf(['kvinne', 'mann', 'kjøttpinne']),
   inactive: bool(),
   onClick: func(),
   onCloseClick: func(),
