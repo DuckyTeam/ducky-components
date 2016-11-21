@@ -9,7 +9,7 @@ import styles from './styles.css';
 function CalculatorGeneralItem(props) {
   return (
     props.expanded
-    ? <div>
+    ? <div className={styles.outerWrapper}>
       <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
         size={'standard'}
         >
@@ -34,23 +34,25 @@ function CalculatorGeneralItem(props) {
         size="double"
         />
     </div>
-  : <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
-    onClick={props.onClick}
-    size="standard"
-    >
-    <Typography
-      className={props.inactive ? styles.typoContentInactive : styles.typoQuestion}
-      type="bodyTextNormal"
+  : <div className={styles.outerWrapper}>
+    <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
+      onClick={props.onClick}
+      size="standard"
       >
-      {props.label}
-    </Typography>
-    <Typography
-      className={props.inactive ? styles.typoAnswerInactive : styles.typoAnswer}
-      type="bodyTextStrong"
-      >
-      {props.value}
-    </Typography>
-  </Wrapper>
+      <Typography
+        className={props.inactive ? styles.typoContentInactive : styles.typoQuestion}
+        type="bodyTextNormal"
+        >
+        {props.label}
+      </Typography>
+      <Typography
+        className={props.inactive ? styles.typoAnswerInactive : styles.typoAnswer}
+        type="bodyTextStrong"
+        >
+        {props.value}
+      </Typography>
+    </Wrapper>
+  </div>
   );
 }
 
