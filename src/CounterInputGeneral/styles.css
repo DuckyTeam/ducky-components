@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: row;
+<<<<<<< HEAD
   justify-content: center;
 }
 .valueType {
@@ -17,4 +18,18 @@
 }
 .plusButton {
   margin-left: 8px
+=======
+}
+
+.counterText {
+  flex-grow: 1;
+}
+
+.minus {
+  margin-left: 16px;
+}
+
+.plus {
+  margin-left: 8px;
+>>>>>>> master
 }
