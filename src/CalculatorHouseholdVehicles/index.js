@@ -22,29 +22,29 @@ function CalculatorHouseholdVehicles(props) {
         <CounterInputGeneral
           decreaseValue={props.electricValueDecreased}
           increaseValue={props.electricValueIncreased}
-          value={props.electricValue}
-          valueType={'Elektrisk bil'}
+          label={'Elektrisk bil'}
+          resultNumber={props.electricValue}
           />
         <Spacer size={'double'} />
         <CounterInputGeneral
           decreaseValue={props.hybridValueDecreased}
           increaseValue={props.hybridValueIncreased}
-          value={props.hybridValue}
-          valueType={'Hybridbil'}
+          label={'Hybridbil'}
+          resultNumber={props.hybridValue}
           />
         <Spacer size={'double'} />
         <CounterInputGeneral
           decreaseValue={props.petrolDieselValueDecreased}
           increaseValue={props.petrolDieselValueIncreased}
-          value={props.petrolDieselValue}
-          valueType={'Bensin- eller dieselbil'}
+          label={'Bensin-eller dieselbil'}
+          resultNumber={props.petrolDieselValue}
           />
         <Spacer size={'double'} />
         <CounterInputGeneral
           decreaseValue={props.motorcycleValueDecreased}
           increaseValue={props.motorcycleValueIncreased}
-          value={props.motorcycleValue}
-          valueType={'Motorsykkel'}
+          label={'Motorsykkel'}
+          resultNumber={props.motorcycleValue}
           />
       </Wrapper>
     </div>

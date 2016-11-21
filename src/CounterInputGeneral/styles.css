@@ -1,28 +1,14 @@
 .wrapper {
   display: flex;
   flex-direction: row;
-<<<<<<< HEAD
   justify-content: center;
 }
-.valueType {
+.labelText {
   flex-grow: 1;
 }
-.value {
 
-}
-.valueMuted {
+.counterTextMuted {
   color: #cfd8dc;
-}
-.minusButton {
-  margin-left: 16px
-}
-.plusButton {
-  margin-left: 8px
-=======
-}
-
-.counterText {
-  flex-grow: 1;
 }
 
 .minus {
@@ -31,5 +17,4 @@
 
 .plus {
   margin-left: 8px;
->>>>>>> master
 }
