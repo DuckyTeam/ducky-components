@@ -9,7 +9,10 @@ stories(module, CalculatorGeneralItem, [
   expanded: bool(),
   inactive: bool(),
   label: string("Hvor mye spiser du?"),
-  onClick: func(),
-  saveButtonText: string(),
+  onAlwaysSelected: func(),
+  onOccasionallySelected: func(),
+  onOftenSelected: func(),
+  onRarelySelected: func(),
+  saveButtonText: string('Lagre'),
   value: string("Gjennomsnittlig")
 });
