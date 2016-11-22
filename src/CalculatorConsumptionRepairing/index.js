@@ -18,7 +18,7 @@ function CalculatorConsumptionRepairing(props) {
         >
         <CalculatorGeneralItem
           expanded={props.expanded}
-          label={props.label}
+          label={'Hvor ofte reparerer du slitte/ødelagte ting?'}
           onSaveButtonClicked={props.onSaveButtonClicked}
           saveButtonText={'Lagre'}
           value={props.selected}
