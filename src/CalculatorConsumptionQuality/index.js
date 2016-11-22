@@ -18,7 +18,7 @@ function CalculatorConsumptionQuality(props) {
         >
         <CalculatorGeneralItem
           expanded={props.expanded}
-          label={props.label}
+          label={'Hvor ofte velger du kvalitetsprodukter?'}
           onSaveButtonClicked={props.onSaveButtonClicked}
           saveButtonText={'Lagre'}
           value={props.selected}
