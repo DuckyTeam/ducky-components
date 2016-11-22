@@ -6,7 +6,6 @@ import CalculatorGeneralItem from '../CalculatorGeneralItem';
 import RadioButton from '../RadioButton';
 
 import styles from './styles.css';
-
 const PropTypes = React.PropTypes;
 
 function CalculatorHouseholdLighting(props) {
