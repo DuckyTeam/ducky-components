@@ -9,7 +9,7 @@ import styles from './styles.css';
 
 const PropTypes = React.PropTypes;
 
-function CalculatorConsumptionQuality(props) {
+function CalculatorConsumptionEthics(props) {
   return (
     <div className={styles.outerWrapper} >
       <Wrapper
@@ -18,19 +18,19 @@ function CalculatorConsumptionQuality(props) {
         >
         <CalculatorGeneralItem
           expanded={props.expanded}
-          label={props.label}
+          label={'Hvor ofte velger du etisk og miljøvennlig?'}
           onSaveButtonClicked={props.onSaveButtonClicked}
           saveButtonText={'Lagre'}
           value={props.selected}
           >
           <RadioButton
-            checked={props.selected === 'Alltid, om mulig'}
-            label={'Alltid, om mulig'}
+            checked={props.selected === 'Prøver alltid å finne etisk alternativ!'}
+            label={'Prøver alltid å finne etisk alternativ!'}
             onClick={props.onAlwaysSelected}
             />
           <RadioButton
-            checked={props.selected === 'Ofte'}
-            label={'Ofte'}
+            checked={props.selected === 'Som oftest'}
+            label={'Som oftest'}
             onClick={props.onOftenSelected}
             />
           <RadioButton
@@ -39,13 +39,13 @@ function CalculatorConsumptionQuality(props) {
             onClick={props.onOccasionallySelected}
             />
           <RadioButton
-            checked={props.selected === 'Sjeldent'}
-            label={'Sjeldent'}
-            onClick={props.onRarelySelected}
+            checked={props.selected === 'Hva er etisk og miljøvennli?'}
+            label={'Hva er etisk og miljøvennli?'}
+            onClick={props.onWhatIsEthicalSelected}
             />
           <Spacer size={'double'} />
           <Typography type={'caption2Normal'}>
-            {'Her kommer litt info om kvalitetsprodukter, og hvordan vi definerer alternativene.'}
+            {'Her kommer litt info om etiske produkter og tjenester, og hvordan vi definerer alternativene.'}
           </Typography>
         </CalculatorGeneralItem>
       </Wrapper>
@@ -53,15 +53,15 @@ function CalculatorConsumptionQuality(props) {
   );
 }
 
-CalculatorConsumptionQuality.propTypes = {
+CalculatorConsumptionEthics.propTypes = {
   expanded: PropTypes.string,
   label: PropTypes.string,
   onAlwaysSelected: PropTypes.func,
   onOccasionallySelected: PropTypes.func,
   onOftenSelected: PropTypes.func,
-  onRarelySelected: PropTypes.func,
   onSaveButtonClicked: PropTypes.func,
+  onWhatIsEthicalSelected: PropTypes.func,
   selected: PropTypes.string
 };
 
-export default CalculatorConsumptionQuality;
+export default CalculatorConsumptionEthics;
