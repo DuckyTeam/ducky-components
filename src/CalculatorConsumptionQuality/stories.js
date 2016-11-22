@@ -10,7 +10,10 @@ stories(module, CalculatorConsumptionQuality, [
   expanded: bool(),
   inactive: bool(),
   label: string("Hvor ofte velger du kvalitetsprodukter?"),
-  onClick: func(),
+  onAlwaysSelected: func(),
+  onOccasionallySelected: func(),
+  onOftenSelected: func(),
+  onRarelySelected: func(),
   onSaveButtonClicked: func(),
   saveButtonText: string(),
   selected: string("Av og til")
