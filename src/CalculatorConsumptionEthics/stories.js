@@ -11,6 +11,10 @@ stories(module, CalculatorConsumptionRepairing, [
   inactive: bool(),
   label: string("Hvor ofte velger du etisk og miljøvennlig?"),
   onClick: func(),
+  onAlwaysSelected: func(),
+  onOccasionallySelected: func(),
+  onOftenSelected: func(),
+  onWhatIsEthicalSelected: func(),
   onSaveButtonClicked: func(),
   saveButtonText: string(),
   selected: string("Av og til")

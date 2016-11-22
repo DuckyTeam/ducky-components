@@ -10,7 +10,10 @@ stories(module, CalculatorConsumptionRepairing, [
   expanded: bool(),
   inactive: bool(),
   label: string("Hvor ofte reparerer du slitte/ødelagte ting?"),
-  onClick: func(),
+  onAlwaysSelected: func(),
+  onNeverSelected: func(),
+  onOccasionallySelected: func(),
+  onVeryRarelySelected: func(),
   onSaveButtonClicked: func(),
   saveButtonText: string(),
   selected: string("Veldig sjeldent")
