@@ -6,7 +6,7 @@ import ProgressBar from '../ProgressBar';
 import styles from './styles.css';
 import moment from 'moment';
 
-function progressBarChallengeDates(props) {
+function ProgressBarChallengeDates(props) {
   const momentStartDate = moment(props.startDate).startOf('day').valueOf();
   const momentEndDate = moment(props.endDate).startOf('day').valueOf();
   const momentToday = moment(Date.now()).startOf('day').valueOf();
@@ -38,10 +38,10 @@ function progressBarChallengeDates(props) {
   );
 }
 
-progressBarChallengeDates.propTypes = {
+ProgressBarChallengeDates.propTypes = {
   color: PropTypes.string,
   endDate: PropTypes.number,
   startDate: PropTypes.number
 };
 
-export default progressBarChallengeDates;
+export default ProgressBarChallengeDates;

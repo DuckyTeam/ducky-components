@@ -1,7 +1,7 @@
 import {stories, string, number} from '../duckyStories';
-import progressBarChallengeDates from './index';
+import ProgressBarChallengeDates from './index';
 
-stories(module, progressBarChallengeDates, [
+stories(module, ProgressBarChallengeDates, [
   'https://github.com/DuckyTeam/ducky-web/issues/2083'
 ], {
   color: string('red'),
