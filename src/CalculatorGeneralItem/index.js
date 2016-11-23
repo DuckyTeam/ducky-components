@@ -50,6 +50,7 @@ function CalculatorGeneralItem(props) {
         type="bodyTextStrong"
         >
         {props.value}
+        <span className={styles.unitsText}>{props.units}</span>
       </Typography>
     </Wrapper>
   </div>
@@ -66,6 +67,7 @@ CalculatorGeneralItem.propTypes = {
   onCloseClick: React.PropTypes.func,
   onSaveButtonClicked: React.PropTypes.func,
   saveButtonText: React.PropTypes.string,
+  units: React.PropTypes.string,
   value: React.PropTypes.string
 };
 
