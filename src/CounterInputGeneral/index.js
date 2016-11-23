@@ -23,6 +23,7 @@ function CounterInputGeneral(props) {
         type={'bodyTextNormal'}
         >
         {props.resultNumber}
+        <span className={styles.unitsText}>{props.units}</span>
       </Typography>
       <ButtonPlusMinus
         className={classNames(styles.minus, [props.className]: props.className)}
@@ -42,13 +43,14 @@ function CounterInputGeneral(props) {
 
 CounterInputGeneral.propTypes = {
   className: React.PropTypes.string,
+  decreaseValue: React.PropTypes.func,
   inactiveNegative: React.PropTypes.bool,
   inactivePositive: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  decreaseValue: React.PropTypes.func,
   increaseValue: React.PropTypes.func,
+  label: React.PropTypes.string,
   operator: React.PropTypes.oneOf(['plus', 'remove']),
-  resultNumber: React.PropTypes.string
+  resultNumber: React.PropTypes.string,
+  units: React.PropTypes.string
 };
 
 export default CounterInputGeneral;

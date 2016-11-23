@@ -6,7 +6,9 @@
 .labelText {
   flex-grow: 1;
 }
-
+.unitsText {
+  margin-left: 4px;
+}
 .counterTextMuted {
   color: #cfd8dc;
 }

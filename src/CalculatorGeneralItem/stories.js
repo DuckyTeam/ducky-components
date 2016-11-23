@@ -14,5 +14,6 @@ stories(module, CalculatorGeneralItem, [
   onOftenSelected: func(),
   onRarelySelected: func(),
   saveButtonText: string('Lagre'),
+  units: string(''),
   value: string("Gjennomsnittlig")
 });

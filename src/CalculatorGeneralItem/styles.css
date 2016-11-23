@@ -17,7 +17,9 @@
 .wrapper:hover {
   background-color: #f4f7f9;
 }
-
+.unitsText {
+  margin-left: 4px;
+}
 .typoQuestion {
   line-height: 24px;
   flex-grow: 1;
