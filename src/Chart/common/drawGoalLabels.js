@@ -39,7 +39,7 @@ export default (labelGroup, goals, yourScore, yScale, speed, onClick) => {
 
   mergedSelection.select('svg').transition().delay(speed).duration(speed)
     .attr('y', data => yScale(data) -17)
-    .attr('x', -40);
+    .attr('x', -50);
 
   mergedSelection.select('svg').select('path')
     .attr('d', data => (data <= yourScore) ? paths.check : paths.leaf)
@@ -48,7 +48,7 @@ export default (labelGroup, goals, yourScore, yScale, speed, onClick) => {
   mergedSelection.select('text').transition().delay(speed).duration(speed)
     .text((data) => Number(data).toLocaleString())
     .attr('y', data => yScale(data) - 5)
-    .attr('x', -10);
+    .attr('x', -20);
 
   mergedSelection.select('text')
     .attr('class', data => (data <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText)

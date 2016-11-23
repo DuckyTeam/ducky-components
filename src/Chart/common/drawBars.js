@@ -1,12 +1,12 @@
 import paths from './../svgpaths';
 import { min, max } from 'd3-array';
 
-const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles) => {
+const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles) => {
 
   //Bunch of messy helper functions and variables
   const barTextFontSize = 20;
   const textPadding = 6;
-  const barWidth = min([xScale.bandwidth(), 24]);
+  const barWidth = min([xScale.bandwidth(), maxWidthBar]);
   const getBarX = (data) => xScale(data.label) + (xScale.bandwidth() - barWidth) / 2
   const getIconClass = (data) => {
     if (data.id === leaderId) {
@@ -24,7 +24,7 @@ const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed,
     }
     return '';
   };
-  const getClasses = data => `${isMobile ? styles.rectangleGroupMobile : styles.rectangleGroup} ${data.id === memberOf ? styles.member : null}
+  const getClasses = data => `${styles.rectangleGroup} ${data.id === memberOf ? styles.member : null}
                                 ${data.id === leaderId ? styles.leader : null} ${data.id === selectedId ? styles.selected : null}`;
 
   const getFontSize = data => {
@@ -65,14 +65,14 @@ const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed,
     .attr('class', styles.rectangle)
     .attr('rx', 2)
     .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - barWidth / 2))
-    .attr('y', height)
+    .attr('y', height + 15)
     .attr('height', 0)
     .attr('width', barWidth);
 
   entered.append('svg')
     .attr('viewBox', "0 0 768 768")
-    .attr('width', barWidth)
-    .attr('height', barWidth)
+    .attr('width', 24)
+    .attr('height', 24)
     .attr('x', data => xScale(data.label) + (xScale.bandwidth() - barWidth / 2))
     .attr('y', height)
     .attr('opacity', 0)
@@ -118,7 +118,7 @@ const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed,
     .attr('fill', data => data.color);
 
   transX.select("svg")
-    .attr('x', getBarX);
+    .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - barWidth) / 2 + (barWidth - 24)/2);
 
   transX.select("text")
     .text((data) => Number(data.value).toLocaleString())
@@ -130,12 +130,12 @@ const drawBars = (svg, data, xScale, yScale, height, leaderId, yourScore, speed,
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
-    .attr('height', (data) => height - yScale(data.value));
+    .attr('height', (data) => height + 15 - yScale(data.value));
 
   transY.select("svg")
-    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - barWidth - 8 : yScale(data.value) - barWidth - barTextFontSize)
-    .attr('width', barWidth)
-    .attr('height', barWidth)
+    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - 24 - 8 : yScale(data.value) - barWidth - barTextFontSize)
+    .attr('width', 24)
+    .attr('height', 24)
     .attr('opacity', 1);
 
   transY.select("text")
