@@ -1,13 +1,10 @@
-import {stories, className, string, func, number, oneOf} from '../duckyStories';
-import progressBarChallenge from './index';
+import {stories, string, number} from '../duckyStories';
+import progressBarChallengeDates from './index';
 
-stories(module, progressBarChallenge, [
+stories(module, progressBarChallengeDates, [
   'https://github.com/DuckyTeam/ducky-web/issues/2083'
 ], {
-  className: className(),
   color: string('red'),
-  onClick: func(),
-  size: oneOf('standard', 'wide'),
-  endDate: string('30-Nov-2016'),
-  startDate: string('30-Oct-2016')
+  endDate: number(1481639610731),
+  startDate: number(1479480305546)
 });

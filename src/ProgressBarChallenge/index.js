@@ -1,11 +1,12 @@
 import React from 'react';
 import {PropTypes} from 'react';
-import styles from './styles.css';
-import classNames from 'classnames';
-import moment from 'moment';
 import Typography from '../Typography';
+import Spacer from '../Spacer';
+import ProgressBar from '../ProgressBar';
+import styles from './styles.css';
+import moment from 'moment';
 
-function progressBarChallenge(props) {
+function progressBarChallengeDates(props) {
   const momentStartDate = moment(props.startDate).startOf('day').valueOf();
   const momentEndDate = moment(props.endDate).startOf('day').valueOf();
   const momentToday = moment(Date.now()).startOf('day').valueOf();
@@ -15,46 +16,32 @@ function progressBarChallenge(props) {
 
   return (
     <div>
-    <span className={styles.wrapper}>
-      <Typography
-        className={styles.startDate}
-        type="caption2Normal"
-        >
-         {props.startDate}
-      </Typography>
-      <Typography
-        className={styles.endDate}
-        type="caption2Normal"
-        >
-         {props.endDate}
-      </Typography>
-    </span>
-    <div
-      className={classNames(styles.wrapper, {
-        [styles[props.size]]: props.size,
-        [props.className]: props.className}
-        )}
-      onClick={props.onClick}
-      >
-      <div
-        className={classNames(styles.progress, {
-          [styles[props.size]]: props.size}
-        )}
-        style={{width: `${percentFromStart}%`, backgroundColor: props.color}}
+      <span className={styles.wrapper}>
+        <Typography
+          type="caption2Normal"
+          >
+           {moment(props.startDate).format('D. MMMM')}
+        </Typography>
+        <Typography
+          type="caption2Normal"
+          >
+           {moment(props.endDate).format('D. MMMM')}
+        </Typography>
+      </span>
+      <Spacer size="standard" />
+      <ProgressBar
+        color={props.color}
+        percent={percentFromStart}
+        size="standard"
         />
-    </div>
     </div>
   );
 }
 
-progressBarChallenge.propTypes = {
-  className: PropTypes.string,
+progressBarChallengeDates.propTypes = {
   color: PropTypes.string,
-  endDate: React.PropTypes.string,
-  onClick: PropTypes.func,
-  percent: PropTypes.number,
-  size: PropTypes.oneOf(['standard', 'wide']),
-  startDate: React.PropTypes.string
+  endDate: PropTypes.number,
+  startDate: PropTypes.number
 };
 
-export default progressBarChallenge;
+export default progressBarChallengeDates;
