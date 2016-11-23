@@ -1,13 +1,12 @@
-import d3 from 'd3';
+import { select } from 'd3-selection';
 import moment from 'moment';
 
 import styles from './utils.css';
 
-exports.selectSVG = id => d3.select(`.d3Chart${id}`);
+exports.selectSVG = id => select(`.d3Chart${id}`);
 
 exports.drawSVG = (el, props) => {
-  return d3
-        .select(el)
+  return select(el)
         .append('svg')
         .attr('class', `d3Chart${props.id} ${styles.svg}`)
         .attr('width', props.width)

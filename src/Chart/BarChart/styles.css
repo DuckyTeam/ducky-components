@@ -91,6 +91,10 @@
   fill: white;
 }
 
+.axis > line {
+  stroke: none;
+}
+
 .faceGroup {}
 
 .labels {}

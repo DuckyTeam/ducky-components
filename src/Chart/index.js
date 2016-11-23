@@ -25,6 +25,7 @@ class Chart extends React.Component {
     }
 
     componentWillUnmount() {
+      this.props.chart.destroy(this.props.graphID);
     }
 
     handleRef = (element) => {
@@ -39,7 +40,7 @@ class Chart extends React.Component {
         return (
             <div
                 className="Chart"
-                id="chart"
+                id={`chartDiv${this.props.graphID}`}
                 ref={this.handleRef}
                 style={{height: this.props.height}}
             >
