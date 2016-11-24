@@ -19,7 +19,7 @@ function LabelNumberDisplay2(props) {
         <div className={styles.wrapper}>
           <LabelTitle
             animation={props.animation}
-            className={styles.labelTitle}
+            className={classNames(styles.labelTitle, {[styles.darkThemeNumber]: props.theme === 'dark'})}
             decimals={props.decimals}
             icon={props.icon}
             number={props.number}
@@ -27,7 +27,7 @@ function LabelNumberDisplay2(props) {
             />
         </div>
         <Typography
-          className={styles.text}
+          className={classNames(styles.text, {[styles.darkThemeText]: props.theme === 'dark'})}
           type="caption2Normal"
           >
           {props.caption}
@@ -45,6 +45,7 @@ LabelNumberDisplay2.propTypes = {
   icon: React.PropTypes.string,
   number: React.PropTypes.node,
   onClick: PropTypes.func,
+  theme: React.PropTypes.string,
   tooltipText: React.PropTypes.node
 };
 
