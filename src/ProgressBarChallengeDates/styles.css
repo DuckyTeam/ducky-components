@@ -4,3 +4,19 @@
   display: flex;
   justify-content: space-between;
 }
+
+.darkThemeProgressBar {
+  background-color: rgba(255, 255, 255, 0.40);
+}
+
+.progressBarBackground{
+  background-color: rgba(96, 125, 139, 0.12);
+
+}
+.darkText{
+ color: rgba(255, 255, 255, 0.70);
+}
+
+.lightText{
+ color: #90a4ae;
+}
