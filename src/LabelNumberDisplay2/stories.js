@@ -11,5 +11,6 @@ stories(module, LabelNumberDisplay2, [
   icon: oneOf("icon-leaf", "icon-star"),
   number: number(23),
   onClick: func(),
+  theme: oneOf('light', 'dark'),
   tooltipText: string("default")
 });
