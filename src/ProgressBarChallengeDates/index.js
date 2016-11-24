@@ -17,8 +17,12 @@ function ProgressBarChallengeDates(props) {
   const barColor = props.theme === 'dark' ? 'rgba(255, 255, 255, 0.40)' : '#90a4ae';
 
   return (
-    <div>
-      <span className={styles.wrapper}>
+    <div
+      className={classNames({
+        [props.className]: props.className}
+      )}
+      >
+      <span className={styles.textWrapper}>
         <Typography
           className={classNames({
             [styles.darkText]: props.theme === 'dark',
@@ -53,6 +57,7 @@ function ProgressBarChallengeDates(props) {
 }
 
 ProgressBarChallengeDates.propTypes = {
+  className: PropTypes.string,
   endDate: PropTypes.number,
   startDate: PropTypes.number,
   theme: PropTypes.string
