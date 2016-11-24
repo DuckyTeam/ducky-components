@@ -26,6 +26,7 @@ body > div, body > div > div {
   border-radius: 3px;
   cursor: pointer;
   box-shadow: 0px 0px 10px rgba(0,0,0, 0.5);
+  z-index: 999999999;
 }
 
 .darkBackground {
