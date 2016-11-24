@@ -1,10 +1,10 @@
-import {stories, string, number} from '../duckyStories';
+import {stories, string, number, oneOf} from '../duckyStories';
 import ProgressBarChallengeDates from './index';
 
 stories(module, ProgressBarChallengeDates, [
-  'https://github.com/DuckyTeam/ducky-web/issues/2083'
+  'https://github.com/DuckyTeam/ducky-web/issues/2097'
 ], {
-  color: string('red'),
   endDate: number(1481639610731),
-  startDate: number(1479480305546)
+  startDate: number(1479480305546),
+  theme: oneOf('dark','light')
 });
