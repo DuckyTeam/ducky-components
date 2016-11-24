@@ -19,22 +19,31 @@ function ProgressBarChallengeDates(props) {
   return (
     <div>
       <span className={styles.wrapper}>
-        <Typography className={classNames({[styles.darkText]: props.theme === 'dark',
-      [styles.lightText]: props.theme === 'light'})}
+        <Typography
+          className={classNames({
+            [styles.darkText]: props.theme === 'dark',
+            [styles.lightText]: props.theme === 'light'
+          })}
           type="caption2Normal"
           >
            {moment(props.startDate).format('D. MMMM')}
         </Typography>
-        <Typography className={classNames({[styles.darkText]: props.theme === 'dark',
-      [styles.lightText]: props.theme === 'light'})}
+        <Typography
+          className={classNames({
+            [styles.darkText]: props.theme === 'dark',
+            [styles.lightText]: props.theme === 'light'
+          })}
           type="caption2Normal"
           >
            {moment(props.endDate).format('D. MMMM')}
         </Typography>
       </span>
       <Spacer size="standard" />
-      <ProgressBar className={classNames({[styles.darkThemeProgressBar]: props.theme === 'dark',
-    [styles.progressBarBackground]: props.theme === 'light'})}
+      <ProgressBar
+        className={classNames({
+          [styles.darkThemeProgressBar]: props.theme === 'dark',
+          [styles.progressBarBackground]: props.theme === 'light'
+        })}
         color={barColor}
         percent={percentFromStart}
         size="standard"
