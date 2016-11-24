@@ -9,14 +9,14 @@
   background-color: rgba(255, 255, 255, 0.40);
 }
 
-.progressBarBackground{
+.progressBarBackground {
   background-color: rgba(96, 125, 139, 0.12);
-
 }
-.darkText{
+
+.darkText {
  color: rgba(255, 255, 255, 0.70);
 }
 
-.lightText{
+.lightText {
  color: #90a4ae;
 }

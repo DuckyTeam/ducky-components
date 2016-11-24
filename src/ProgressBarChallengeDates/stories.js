@@ -1,4 +1,4 @@
-import {stories, string, number, oneOf} from '../duckyStories';
+import {stories, number, oneOf} from '../duckyStories';
 import ProgressBarChallengeDates from './index';
 
 stories(module, ProgressBarChallengeDates, [
@@ -6,5 +6,5 @@ stories(module, ProgressBarChallengeDates, [
 ], {
   endDate: number(1481639610731),
   startDate: number(1479480305546),
-  theme: oneOf('dark','light')
+  theme: oneOf('light', 'light')
 });
