@@ -1,5 +1,5 @@
 .wrapper {
-  background-color: rgba(38,50,56,0.12);
+  background-color: rgba(96, 125, 139, 0.12);
   width: 100%;
   overflow: hidden;
 }
@@ -18,4 +18,8 @@
   height: 12px;
   border-radius: 2px;
   background-color: rgba(38,50,56,0.12);
+}
+.inactive
+{
+  background-color: rgba(96, 125, 139, 0.04);
 }
