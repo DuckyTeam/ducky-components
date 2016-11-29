@@ -1,56 +1,47 @@
 import React from 'react';
-import classNames from 'classnames';
+import styles from './styles.css';
 import ButtonPlusMinus from '../ButtonPlusMinus';
 import Typography from '../Typography';
-import styles from './styles.css';
+const PropTypes = React.PropTypes;
 
 function CounterInputGeneral(props) {
   return (
-    <div className={classNames(styles.wrapper)}>
+    <div className={styles.wrapper
+    } >
       <Typography
-        className={classNames(
-          styles.labelText,
-        [props.className]: props.className)}
+        className={styles.labelText}
         type={'bodyTextNormal'}
         >
         {props.label}
       </Typography>
       <Typography
-        className={classNames(
-          props.resultNumber === 0 ? styles.counterTextMuted : '',
-          [props.className]: props.className
-        )}
+        className={`${props.value === 0 ? styles.valueTextMuted : styles.valueText}`}
         type={'bodyTextNormal'}
         >
-        {props.resultNumber}
-        <span className={styles.unitsText}>{props.units}</span>
+        {props.value}
       </Typography>
       <ButtonPlusMinus
-        className={classNames(styles.minus, [props.className]: props.className)}
-        inactive={props.resultNumber === 0}
+        className={styles.minus}
+        inactive={props.value === 0}
         onClick={props.decreaseValue}
-        operator="remove"
+        operator={'remove'}
         />
       <ButtonPlusMinus
-        className={classNames(styles.plus, [props.className]: props.className)}
-        inactive={props.inactivePositive}
+        className={styles.plus}
         onClick={props.increaseValue}
-        operator="plus"
+        operator={'plus'}
         />
     </div>
-      );
+  );
 }
 
 CounterInputGeneral.propTypes = {
-  className: React.PropTypes.string,
-  decreaseValue: React.PropTypes.func,
-  inactiveNegative: React.PropTypes.bool,
-  inactivePositive: React.PropTypes.bool,
-  increaseValue: React.PropTypes.func,
-  label: React.PropTypes.string,
-  operator: React.PropTypes.oneOf(['plus', 'remove']),
-  resultNumber: React.PropTypes.string,
-  units: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  decreaseValue: PropTypes.func,
+  increaseValue: PropTypes.func,
+  value: PropTypes.number,
+  label: PropTypes.string
 };
 
 export default CounterInputGeneral;
