@@ -6,10 +6,11 @@
 .labelText {
   flex-grow: 1;
 }
-.unitsText {
+.valueText {
   margin-left: 4px;
 }
-.counterTextMuted {
+.valueTextMuted {
+  margin-left: 4px;
   color: #cfd8dc;
 }
 
