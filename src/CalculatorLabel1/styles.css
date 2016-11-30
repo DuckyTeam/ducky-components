@@ -1,0 +1,36 @@
+.progressWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metaWrapper {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.progressBar {
+  width: 100%;
+}
+
+.goalLabel {
+  color: #FFC107;
+}
+
+.goalLabel > span > span {
+  color: #263238;
+  font-weight: bold;
+}
+
+.labelCurrent {
+  margin-right: 6px;
+  font-weight: bold;
+  color: #00AB97;
+}
+
+.labelCurrent > span > span {
+  color: #263238;
+}
+
+.caption {
+  color: #607D8B;
+}
