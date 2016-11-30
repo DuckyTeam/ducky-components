@@ -1,0 +1,11 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.iconTextWrapper {
+  display: flex;
+  flex-grow: 1;
+  text-align: left;
+}
