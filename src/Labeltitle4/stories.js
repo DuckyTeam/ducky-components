@@ -1,7 +1,7 @@
 import {stories, className, string, json} from '../duckyStories';
-import labelTitle4 from './index';
+import LabelTitle4 from './index';
 
-stories(module, labelTitle4, [
+stories(module, LabelTitle4, [
   'https://github.com/DuckyTeam/ducky-web/issues/2102'
 ], {
   className: className(),
