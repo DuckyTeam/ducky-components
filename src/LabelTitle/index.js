@@ -6,25 +6,48 @@ import classNames from 'classnames';
 import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
+function getTypographyType(size) {
+  switch (size) {
+  case 'small':
+    return 'ingressTitle';
+  case 'regular':
+    return 'bodyTextNormal';
+  default:
+    return 'display1';
+  }
+}
+
+function getIconSize(size) {
+  switch (size) {
+  case 'small':
+    return 'small';
+  case 'regular':
+    return 'small';
+  default:
+    return 'large1';
+  }
+}
+
 function LabelTitle(props) {
   return (
     <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Icon
         className={props.size === 'small' ? styles.iconSmall : styles.iconLarge}
         icon={props.icon}
-        size={props.size === 'small' ? 'small' : 'large1'}
+        size={getIconSize(props.size)}
         />
-        {props.animation
-        ? <Counter
-          decimals={props.decimals}
-          number={props.number}
-          />
-        : <Typography
-          className={styles.text}
-          type={props.size === 'small' ? 'ingressTitle' : 'display1'}
-          >
-          {props.text}
-        </Typography>}
+      <Typography
+        className={styles.text}
+        type={getTypographyType(props.size)}
+        >
+          {props.animation
+          ? <Counter
+            decimals={props.decimals}
+            number={props.number}
+            />
+          : props.text
+          }
+      </Typography>
     </div>
   );
 }
@@ -35,7 +58,7 @@ LabelTitle.propTypes = {
   decimals: PropTypes.number,
   icon: PropTypes.string,
   number: PropTypes.number,
-  size: PropTypes.oneOf(['small', 'large']),
+  size: PropTypes.oneOf(['regular', 'small', 'large']),
   text: PropTypes.node
 };
 

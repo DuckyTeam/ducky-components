@@ -10,6 +10,6 @@ stories(module, LabelTitle, [
   decimals: number(2),
   icon: string('icon-duck'),
   number: number(6),
-  size: oneOf('small', 'large'),
+  size: oneOf('regular', 'small', 'large'),
   text: string('Ducky')
 });
