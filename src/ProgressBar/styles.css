@@ -26,6 +26,7 @@
 .goalMarker {
   border: 1px solid #263238;
   position: absolute;
+  /*right: 37px;*/
 }
 
 .goalMarkerStandard {

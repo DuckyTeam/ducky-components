@@ -10,6 +10,8 @@ function ProgressBar(props) {
       />
   );
 
+  const goalPosition = (props.value / props.maxValue) * 100;
+
   return (
     <div
       className={classNames(styles.wrapper, props.className, styles[props.size])}
@@ -27,7 +29,12 @@ function ProgressBar(props) {
                [styles.goalMarkerStandard]: props.size === "standard",
                [styles.goalMarkerWide]: props.size === "wide"
              })}
-             style={{left: `${props.goal}`}}
+             maxvalue={props.maxValue}
+             value={props.value}
+             style={{left: `${goalPosition}%`}}
+             // style={{left: `${props.goal}`}} // can maybe be used when setting goal, remove css:right is using this
+             // use Element.clientWidth?
+             // goal in numbervalue, progress in percent of px, clientWidth=max width in px
              />
              : null}
          </div>
@@ -40,9 +47,11 @@ ProgressBar.propTypes = {
   className: PropTypes.string,
   color: React.PropTypes.shape({}),
   goal: React.PropTypes.string,
+  maxValue: PropTypes.number,
   onClick: PropTypes.func,
   percent: PropTypes.number,
-  size: PropTypes.oneOf(['standard', 'wide'])
+  size: PropTypes.oneOf(['standard', 'wide']),
+  value: PropTypes.number
 };
 
 export default ProgressBar;

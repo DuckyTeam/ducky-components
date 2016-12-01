@@ -11,5 +11,7 @@ stories(module, ProgressBar, [
   goal: string("77"),
   onClick: func(),
   percent: number(25),
-  size: oneOf('standard', 'wide')
+  size: oneOf('standard', 'wide'),
+  value: number(),
+  maxValue: number()
 });
