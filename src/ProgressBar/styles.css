@@ -1,6 +1,11 @@
 .wrapper {
   background-color: rgba(96, 125, 139, 0.12);
   width: 100%;
+  position: relative;
+}
+
+.progressWrapper {
+  width: 100%;
   overflow: hidden;
 }
 
@@ -19,7 +24,6 @@
   border-radius: 2px;
   background-color: rgba(38,50,56,0.12);
 }
-.inactive
-{
+.inactive {
   background-color: rgba(96, 125, 139, 0.04);
 }

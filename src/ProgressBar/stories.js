@@ -7,7 +7,9 @@ stories(module, ProgressBar, [
   'https://github.com/DuckyTeam/ducky-web/issues/2100'
 ], {
   className: className(),
+  children: string(),
   style: json({color: '#607d8b'}),
+  goal: string("77"),
   onClick: func(),
   percent: number(25),
   size: oneOf('standard', 'wide')

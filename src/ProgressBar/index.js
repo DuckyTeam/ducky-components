@@ -6,36 +6,35 @@ import classNames from 'classnames';
 function ProgressBar(props) {
   const optBackground = (
     <div
-     className={classNames(styles.inactive, {
-       [styles[props.size]]: props.size}
-      )}
-     />
-
+      className={classNames(styles.inactive, styles[props.size])}
+      />
   );
 
   return (
     <div
-      className={classNames(styles.wrapper, {
-        [styles[props.size]]: props.size,
-        [props.className]: props.className}
-        )}
+      className={classNames(styles.wrapper, props.className, styles[props.size])}
       onClick={props.onClick}
       >
-       {(props.percent > 0) ?
-         <div
-           className={classNames(styles.progress, {
-             [styles[props.size]]: props.size}
-            )}
-           style={{width: `${props.percent}%`, backgroundColor: props.color}}
-           />
-        : optBackground}
+      <div className={styles.progressWrapper}>
+      {(props.percent > 0)
+        ? <div
+          className={classNames(styles.progress, styles[props.size])}
+          goal={props.goal}
+          style={{width: `${props.percent}%`, backgroundColor: props.color}}
+          >
+        </div>
+       : optBackground}
+      </div>
+      {props.children}
     </div>
   );
 }
 
 ProgressBar.propTypes = {
+  children: PropTypes.node,
   className: PropTypes.string,
   color: React.PropTypes.shape({}),
+  goal: React.PropTypes.string,
   onClick: PropTypes.func,
   percent: PropTypes.number,
   size: PropTypes.oneOf(['standard', 'wide'])
