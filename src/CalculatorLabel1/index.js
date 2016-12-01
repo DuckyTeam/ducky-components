@@ -8,54 +8,71 @@ import Typography from '../Typography';
 import styles from './styles.css';
 
 function CalculatorLabel1(props) {
+  const goalPosition = (props.goalValue / props.maxValue) * 100;
+  const progressPercent = (props.value / props.maxValue) * 100;
+
   return (
     <Tooltip
       placement="top"
       text={props.toolTipText}
       >
-      <ProgressBar
-        className={classNames(styles.progressBar)}
-        goal={props.goal}
-        percent={props.progressBarPercent}
-        size="wide"
-        />
-      <Spacer size="standard" />
-      <div className={classNames(styles.progressWrapper)}>
-        <div className={classNames(styles.metaWrapper)}>
-          <LabelSmall
-            className={classNames(styles.labelCurrent)}
-            content={props.contentCurrent}
-            icon={props.iconCurrent}
-            onclick={props.onClickCo2}
-            />
-          <Typography
-            className={classNames(styles.caption)}
-            type="caption2Normal"
-            >
-            {'kgCO2e'}
-          </Typography>
-        </div>
-        <LabelSmall
-          className={classNames(styles.goalLabel)}
-          content={props.contentGoal}
-          icon={props.iconGoal}
-          onclick={props.onClickGoal}
-          />
+      <div>
+        <ProgressBar
+          className={classNames(styles.progressBar)}
+          percent={progressPercent}
+          size={props.size || "standard"}
+          >
+          <div className={classNames(styles.progressWrapper)}>
+            <Spacer size="standard" />
+            <div className={classNames(styles.metaWrapper)}>
+              <LabelSmall
+                className={classNames(styles.labelCurrent)}
+                content={props.value}
+                icon={props.iconCurrent}
+                onclick={props.onClickCo2}
+                />
+              <Typography
+                className={classNames(styles.caption)}
+                type="caption2Normal"
+                >
+                {'kgCO2e'}
+              </Typography>
+            </div>
+            <div
+              className={classNames(styles.goalMarkerWrapper)}
+              style={{left: `${goalPosition}%`}}
+              >
+              <div
+                className={classNames(styles.goalMarker, {
+                  [styles.goalMarkerStandard]: props.size === "standard" || !props.size,
+                  [styles.goalMarkerWide]: props.size === "wide"
+                })}
+                />
+              <Spacer size="standard" />
+              <LabelSmall
+                className={classNames(styles.goalLabel)}
+                content={props.goalValue}
+                icon={props.iconGoal}
+                onclick={props.onClickGoal}
+                />
+            </div>
+          </div>
+        </ProgressBar>
       </div>
     </Tooltip>
   );
 }
 
 CalculatorLabel1.propTypes = {
-  contentCurrent: React.PropTypes.string,
-  contentGoal: React.PropTypes.string,
-  goal: React.PropTypes.string,
+  goalValue: React.PropTypes.number,
   iconCurrent: React.PropTypes.string,
   iconGoal: React.PropTypes.string,
+  maxValue: React.PropTypes.number,
   onClickCo2: React.PropTypes.func,
   onClickGoal: React.PropTypes.func,
-  progressBarPercent: React.PropTypes.number,
-  toolTipText: React.PropTypes.string
+  size: React.PropTypes.oneOf(['standard', 'wide']),
+  toolTipText: React.PropTypes.string,
+  value: React.PropTypes.number
 };
 
 export default CalculatorLabel1;

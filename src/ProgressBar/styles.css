@@ -1,6 +1,11 @@
 .wrapper {
   background-color: rgba(96, 125, 139, 0.12);
   width: 100%;
+  position: relative;
+}
+
+.progressWrapper {
+  width: 100%;
   overflow: hidden;
 }
 
@@ -21,18 +26,4 @@
 }
 .inactive {
   background-color: rgba(96, 125, 139, 0.04);
-}
-
-.goalMarker {
-  border: 1px solid #263238;
-  position: absolute;
-  /*right: 37px;*/
-}
-
-.goalMarkerStandard {
-  height: 4px;
-}
-
-.goalMarkerWide {
-  height: 12px;
 }

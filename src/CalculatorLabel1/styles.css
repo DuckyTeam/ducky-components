@@ -1,8 +1,3 @@
-.progressWrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
 .metaWrapper {
   display: flex;
   justify-content: flex-start;
@@ -33,4 +28,34 @@
 
 .caption {
   color: #607D8B;
+}
+
+.goalMarkerStandard {
+  height: 4px;
+}
+
+.goalMarkerWide {
+  height: 12px;
+}
+
+.progressWrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.goalMarkerWrapper {
+  position: absolute;
+  width: 100%;
+  margin-left: -50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  top: 0;
+}
+
+.goalMarker {
+  border: 1px solid #263238;
+  position: absolute;
+  left: 50%;
 }
