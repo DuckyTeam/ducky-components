@@ -1,4 +1,4 @@
-import {stories, oneOf, json, func, bool} from './../../duckyStories';
+import {stories, oneOf, json, func, bool, number} from './../../duckyStories';
 import BarChart from './index';
 
 stories(module, BarChart, [
@@ -21,12 +21,15 @@ stories(module, BarChart, [
     value: 520,
     label: "Strek4"
   }]),
-  goals: json([1, 10, 25, 50, 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 5000, 10000]),
+  goal: number(784),
+  milestones: json([1, 10, 25, 50, 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 5000, 10000]),
   graphID: json(1),
-  height: oneOf("300px", "400px"),
+  height: oneOf("180px", "300px", "400px"),
+  maxWidthBar: oneOf(24, 48),
   memberOf: json(12),
+  noLeader: bool(true),
   selectedId: json(12),
   onClick: func(),
-  isMobile: bool(false),
+  isMobile: bool(true),
   onClickCO2: func()
 }, 'Chart/BarChart');

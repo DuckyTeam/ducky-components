@@ -51,10 +51,13 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     }));
     let leaderId;
     let leaderName;
-    state.leaderId = leaderId;
-    [leaderId, leaderName] = state.data.reduce((acc, d) => {
-      return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
-    }, [-1, '']);
+
+    if (!state.noLeader) {
+      state.leaderId = leaderId;
+      [leaderId, leaderName] = state.data.reduce((acc, d) => {
+        return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
+      }, [-1, '']);
+    }
 
     //Make sure that memberOf is on top
     state.data = state.data.sort((a, b) => {
@@ -174,72 +177,74 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     drawFaces(chartGroup, goals, yourScore, maxValue, yScale, xValue, dontAnimateIn ? 0 : speed);
     */
 
-    // Draw leader line
-    const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);
+    if (!state.noLeader) {
+      // Draw leader line
+      const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);
 
-    leaderLine.enter().append('line')
-      .attr('class', styles.leaderLine)
-      .attr('x1', -50)
-      .attr('x2', props.width)
-      .attr('y1', yScale)
-      .attr('y2', yScale)
-      .attr('opacity', 0)
-      .merge(leaderLine)
-        .transition().delay(speed).duration(speed)
-        .attr('y1', yScale)
-        .attr('y2', yScale)
+      leaderLine.enter().append('line')
+        .attr('class', styles.leaderLine)
         .attr('x1', -50)
         .attr('x2', props.width)
-        .attr('opacity', 1)
-        .select('line')
-          .attr('class', styles.leaderLine);
-
-    leaderLine.exit().remove();
-
-    // Leader name and value
-    const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue]);
-    const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue]);
-
-    leaderLabel.enter().append('svg')
-      .attr('viewBox', "0 0 768 768")
-      .attr('x', 40)
-      .attr('y', state.height)
-      .attr('width', 40)
-      .attr('height', 12)
-      .attr('opacity', 0)
-      .append('path')
-        .attr('d', paths.crown)
-        .attr('class', styles.leaderLabel)
-        .merge(leaderLabel)
-          .transition().delay(speed).duration(speed)
-          .attr('x', 40)
-          .attr('y', d => yScale(d) - 16)
-          .attr('opacity', 1)
-          .select('path')
-            .attr('d', paths.crown)
-            .attr('class', styles.leaderLabel);
-
-      leaderLabel.exit().remove();
-
-      const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
-
-      leaderText.enter().append('text')
-        .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
-        .attr('x', 72)
-        .attr('y', state.height + 6)
+        .attr('y1', yScale)
+        .attr('y2', yScale)
         .attr('opacity', 0)
-        .attr('class', styles.leaderText)
-        .attr('font-size', '12px')
-        .merge(leaderText)
+        .merge(leaderLine)
           .transition().delay(speed).duration(speed)
-          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
+          .attr('y1', yScale)
+          .attr('y2', yScale)
+          .attr('x1', -50)
+          .attr('x2', props.width)
+          .attr('opacity', 1)
+          .select('line')
+            .attr('class', styles.leaderLine);
+
+      leaderLine.exit().remove();
+
+      // Leader name and value
+      const leaderLabel = svg.select(`.${styles.leaderGroup}`).selectAll('svg').data([maxValue]);
+      const leaderText = svg.select(`.${styles.leaderGroup}`).selectAll('text').data([maxValue]);
+
+      leaderLabel.enter().append('svg')
+        .attr('viewBox', "0 0 768 768")
+        .attr('x', 40)
+        .attr('y', state.height)
+        .attr('width', 40)
+        .attr('height', 12)
+        .attr('opacity', 0)
+        .append('path')
+          .attr('d', paths.crown)
+          .attr('class', styles.leaderLabel)
+          .merge(leaderLabel)
+            .transition().delay(speed).duration(speed)
+            .attr('x', 40)
+            .attr('y', d => yScale(d) - 16)
+            .attr('opacity', 1)
+            .select('path')
+              .attr('d', paths.crown)
+              .attr('class', styles.leaderLabel);
+
+        leaderLabel.exit().remove();
+
+        const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+
+        leaderText.enter().append('text')
+          .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
+          .attr('x', 72)
+          .attr('y', state.height + 6)
+          .attr('opacity', 0)
           .attr('class', styles.leaderText)
           .attr('font-size', '12px')
-          .attr('y', data => yScale(data) - 5.5)
-          .attr('x', 72)
-          .attr('opacity', 1);
+          .merge(leaderText)
+            .transition().delay(speed).duration(speed)
+            .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName}${yourTeam})`)
+            .attr('class', styles.leaderText)
+            .attr('font-size', '12px')
+            .attr('y', data => yScale(data) - 5.5)
+            .attr('x', 72)
+            .attr('opacity', 1);
 
-    leaderText.exit().remove();
+      leaderText.exit().remove();
+    }
 
     const lines = svg.select(`.${styles.lines}`).selectAll('g').data(state.data, d => d.id);
     const areas = svg.select(`.${styles.areas}`).selectAll('g').data(state.data, d => d.id);

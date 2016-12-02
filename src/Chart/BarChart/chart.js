@@ -17,7 +17,7 @@ const d3Chart = {};
 
 d3Chart.create = (el, props, state) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
-
+  props.margin.bottom = state.isMobile ? props.margin.bottom : props.margin.bottom;
   const svg = utils.drawSVG(el, props);
 
   utils.drawXAxisGroup(svg, props, true);
@@ -34,15 +34,16 @@ d3Chart.create = (el, props, state) => {
 
 d3Chart.update = (el, state, props, dontAnimateIn) => {
   const speed = 250;
+  const maxWidthBar = state.maxWidthBar | 24;
 
   //A lot of calculations, functions and definitions for the chart
-  const { memberOf, selectedId, goals, isMobile, onClick } = state;
+  const { memberOf, selectedId, milestones, goal, isMobile, onClick } = state;
   const height = props.height - props.margin.top - props.margin.bottom;
   const xAxisOffset = height + props.margin.top + 5;
   const highestScore = max(state.data, (data) => data.value);
   const lowestScore = min(state.data, (data) => data.value);
-  const leaderId = (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
-  const nextGoal = goals[goals.reduce((acc, goal) => (goal <= highestScore) ? acc + 1 : acc, 0)];
+  const leaderId = state.noLeader ? null : (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
+  const nextGoal = milestones[milestones.reduce((acc, goal) => (goal <= highestScore) ? acc + 1 : acc, 0)];
   const yourScore = state.data.reduce((acc, dp) => dp.id === memberOf ? acc + dp.value : acc, 0);
 
   const data = state.data.map(el => {
@@ -74,15 +75,18 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //Define x and y scales
   const xScale = scaleBand()
     .domain(data.map((data) => data.label))
-    .range([0, props.width - props.margin.left - props.margin.right])
-    .round(true);
+    .range([20, props.width - props.margin.left - props.margin.right])
+    .padding(0.1);
+
+  const bottomX = isMobile ? height + props.margin.top + 10 : height + props.margin.top - 25;
+
+  const highestYValue = max([highestScore, nextGoal, milestones[1]]);
 
   const yScale = scaleLinear()
-    .domain([0, max([highestScore, nextGoal, goals[1]])])
-    .range([height - 4, 15 + props.margin.top]);
+    .domain([0, highestYValue])
+    .range([bottomX, 15 + props.margin.top]);
 
-  const yAxisTickValues = calculateYAxisTicks(goals, nextGoal, lowestScore, yScale);
-
+  const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, goal, yScale);
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -128,19 +132,19 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
         .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
         .attr('y', xAxisOffset + 26);
 
-  drawBars(svg, data, xScale, yScale, height, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles);
+  drawBars(svg, data, xScale, yScale, bottomX, maxWidthBar, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles);
 
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed, onClick)
+  drawLabels(labelGroup, yAxisTickValues, goal, highestYValue, yourScore, yScale, dontAnimateIn ? 0 : speed, onClick)
 
   //Draw faces
   /*
   const xValue = props.width - props.margin.left - props.margin.right * 2;
   const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
-  drawFaces(chartGroup, goals, yourScore, highestScore, yScale, xValue, dontAnimateIn ? 0 : speed);
+  drawFaces(chartGroup, milestones, yourScore, highestScore, yScale, xValue, dontAnimateIn ? 0 : speed);
   */
 };
 
