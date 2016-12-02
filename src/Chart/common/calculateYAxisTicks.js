@@ -1,6 +1,6 @@
 import { min, max } from 'd3-array';
 
-export default (goals, nextGoal, yourScore, goal, yScale) => {
+export default (goals, nextGoal, yourScore, goal=-1000000, yScale) => {
   const visibleGoals = goals.slice(0, max([min([nextGoal ? goals.indexOf(nextGoal) : goals.length, goals.length]) + 1, 2]))
   visibleGoals.reverse();
   const indexOfNextGoal = visibleGoals.indexOf(visibleGoals.reduce((current, goal) => (goal > yourScore) ? goal : current, 0));

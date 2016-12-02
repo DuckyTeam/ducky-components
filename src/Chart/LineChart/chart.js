@@ -120,11 +120,13 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .range([40, props.width - props.margin.left - props.margin.right - 40])
         .domain([moment(state.startDate), moment(state.endDate)]);
 
+    const highestYValue = max([maxValue, nextGoal(), state.goals[1]]);
+
     const yScale = scaleLinear()
-      .domain([0, max([maxValue, nextGoal(), state.goals[1]])])
+      .domain([0, highestYValue])
       .range([state.height - 4, 15 + props.margin.top]);
 
-    state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, yScale);
+    state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, false, yScale);
 
     const lineDrawer = line()
         .x(d => xScale(moment(d.date)))
@@ -168,7 +170,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-    drawLabels(labelGroup, state.yAxisTickValues, yourScore, yScale, dontAnimateIn ? 0 : speed, state.onClickCO2);
+    drawLabels(labelGroup, state.yAxisTickValues, false, highestYValue, yourScore, yScale, dontAnimateIn ? 0 : speed, state.onClickCO2);
 
     //Draw faces
     /*const xValue = props.width - props.margin.left - props.margin.right * 2;
