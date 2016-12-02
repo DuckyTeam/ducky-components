@@ -19,7 +19,6 @@ function ProgressBar(props) {
       {(props.percent > 0)
         ? <div
           className={classNames(styles.progress, styles[props.size])}
-          goal={props.goal}
           style={{width: `${props.percent}%`, backgroundColor: props.color}}
           >
         </div>
@@ -34,7 +33,6 @@ ProgressBar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: React.PropTypes.string,
-  goal: React.PropTypes.string,
   onClick: PropTypes.func,
   percent: PropTypes.number,
   size: PropTypes.oneOf(['standard', 'wide'])
