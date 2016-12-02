@@ -6,7 +6,7 @@
 }
 
 .composite {
-    flex: 1;
+    flex: auto;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;

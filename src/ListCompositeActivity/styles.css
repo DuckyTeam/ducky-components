@@ -1,5 +1,6 @@
 .wrapper {
     display: flex;
+    flex: 1;
     background: transparent;
     height: 36px;
     align-items: center;
@@ -10,7 +11,7 @@
 }
 
 .composite {
-    flex: auto;
+    flex: 1;
     overflow: hidden;
     text-overflow: ellipsis;
     display: block;
