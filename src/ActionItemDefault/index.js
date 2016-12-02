@@ -25,6 +25,7 @@ function ActionItemDefault(props) {
           size={'standard'}
           />
         <LogButton
+          icon={props.logIcon}
           className={styles.logButton}
           onClick={props.onLogClick}
           />
@@ -37,6 +38,7 @@ ActionItemDefault.propTypes = {
   className: PropTypes.string,
   co2: PropTypes.number,
   iconSVG: PropTypes.string,
+  logIcon: PropTypes.string,
   onActionClick: PropTypes.func,
   onLogClick: PropTypes.func,
   points: PropTypes.number,
