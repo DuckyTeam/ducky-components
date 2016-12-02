@@ -33,7 +33,7 @@ function ProgressBar(props) {
 ProgressBar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  color: React.PropTypes.shape({}),
+  color: React.PropTypes.string,
   goal: React.PropTypes.string,
   onClick: PropTypes.func,
   percent: PropTypes.number,
