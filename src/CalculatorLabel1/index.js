@@ -19,25 +19,29 @@ function CalculatorLabel1(props) {
       <div>
         <ProgressBar
           className={classNames(styles.progressBar)}
+          color={props.barColor}
           percent={progressPercent}
           size={props.size || "standard"}
           >
           <div className={classNames(styles.progressWrapper)}>
             <Spacer size="standard" />
-            <div className={classNames(styles.metaWrapper)}>
-              <LabelSmall
-                className={classNames(styles.labelCurrent)}
-                content={props.value}
-                icon={props.iconCurrent}
-                onclick={props.onClickCo2}
-                />
-              <Typography
-                className={classNames(styles.caption)}
-                type="caption2Normal"
-                >
-                {'kgCO2e'}
-              </Typography>
-            </div>
+            {props.valueDescription
+              ? <div className={classNames(styles.metaWrapper)}>
+                <LabelSmall
+                  className={classNames(styles.labelCurrent)}
+                  content={props.value}
+                  icon={props.iconCurrent}
+                  onclick={props.onClickCo2}
+                  />
+                <Typography
+                  className={classNames(styles.caption)}
+                  type="caption2Normal"
+                  >
+                  {props.valueDescription}
+                </Typography>
+              </div>
+              : null
+            }
             <div
               className={classNames(styles.goalMarkerWrapper)}
               style={{left: `${goalPosition}%`}}
@@ -64,6 +68,7 @@ function CalculatorLabel1(props) {
 }
 
 CalculatorLabel1.propTypes = {
+  barColor: React.PropTypes.string,
   goalValue: React.PropTypes.number,
   iconCurrent: React.PropTypes.string,
   iconGoal: React.PropTypes.string,
@@ -72,7 +77,8 @@ CalculatorLabel1.propTypes = {
   onClickGoal: React.PropTypes.func,
   size: React.PropTypes.oneOf(['standard', 'wide']),
   toolTipText: React.PropTypes.string,
-  value: React.PropTypes.number
+  value: React.PropTypes.number,
+  valueDescription: React.PropTypes.string
 };
 
 export default CalculatorLabel1;

@@ -32,15 +32,16 @@
 
 .goalMarkerStandard {
   height: 4px;
+  top: -4px;
 }
 
 .goalMarkerWide {
   height: 12px;
+  top: -12px;
 }
 
 .progressWrapper {
   position: absolute;
-  top: 0;
   width: 100%;
 }
 
