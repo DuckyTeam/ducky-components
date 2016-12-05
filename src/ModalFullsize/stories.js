@@ -11,6 +11,7 @@ stories(module, ModalFullsize, [
   onCancel: func(),
   onHide: func(),
   onOkClick: func(),
+  ref: func(),
   show: bool(),
   showStickyFooter: bool()
 });

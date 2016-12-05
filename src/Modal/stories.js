@@ -7,6 +7,7 @@ stories(module, Modal, [
   children: string('Component'),
   className: className(),
   onHide: func(),
+  modalRef: func(),
   show: bool(),
   width: string('200')
 });
