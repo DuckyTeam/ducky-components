@@ -1,0 +1,147 @@
+.outerwrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    Inactive - cursor: default;
+}
+
+.wrapper{
+    border: 2px solid #CFD8DC;
+    border-radius: 100%;
+    height: 36px;
+    width: 36px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.wrapper > span {
+    color: #607D8B;
+    text-align: center;
+    display: inline-block;
+    margin: 5px 6px 6px 6px;
+}
+
+.wrapper:hover{
+    border: 2px solid #00AB97;
+    background-color: white;
+}
+
+.wrapper:hover > span{
+    color: #00AB97;
+}
+
+.textUncheckedActive{
+  color: #607d8b;
+}
+.textUncheckedActive:hover{
+  color:  #00ab97;
+}
+
+.textInactive{
+   color: #cfd8dc;
+}
+
+.textcheckedInactive{
+  color: #cfd8dc;
+}
+
+.textcheckedActive{
+  color: #607d8b;
+}
+.textcheckedActive:hover{
+  color: #009483;
+}
+
+.textpartiallyChecked{
+  color: #607d8b;
+}
+
+.textpartiallyChecked:hover{
+  color: #607d8b;
+}
+
+.uncheckedActive{
+border-color: 2px solid #CFD8DC;
+background-color: #FFFFFF;
+}
+
+.uncheckedActive > span {
+color: #607D8B;
+}
+
+.uncheckedActive:hover{
+    border-color: #00AB97;
+    background-color: #FFFFFF;
+}
+
+.uncheckedActive:hover > span{
+    color: #00AB97;
+}
+
+.uncheckedInactive {
+    border: 2px solid #eceff1;
+    cursor: default;
+    background-color: #FFFFFF;
+  }
+
+  .uncheckedInactive > span {
+    color: #cfd8dc;
+  }
+
+
+.checkedActive{
+   background-color: #00AB97;
+    border-color: #00AB97;
+  }
+
+.checkedActive > span {
+    color: #FFFFFF;
+}
+
+.checkedActive:hover{
+    border-color: #009483;;
+    background-color: #009483;
+}
+
+.checkedActive:hover > span{
+    color: #FFFFFF;
+}
+
+.checkedInactive {
+  border: 2px solid #eceff1;
+  cursor: default;
+  background-color: #FFFFFF;
+}
+
+.checkedInactive > span {
+  color: #cfd8dc;
+}
+  .partiallyChecked{
+  color: #607d8b;
+  background-color: #CFD8DC;
+
+  }
+
+  .partiallyChecked > span {
+  color: #607D8B;
+  }
+
+  .partiallyChecked:hover{
+      border-color: #009483;
+      background-color: #009483;
+  }
+
+  .partiallyChecked:hover > span {
+      color: #FFFFFF;
+  }
+
+.partiallyCheckedInactive {
+  border: 2px solid #eceff1;
+  cursor: default;
+  background-color: #eceff1;
+}
+
+.partiallyCheckedInactive > span {
+  color: #cfd8dc;
+}
