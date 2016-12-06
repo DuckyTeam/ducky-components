@@ -1,0 +1,52 @@
+.mainWrapper {
+  width: 576px;
+  background-color: #f4f7f9;
+  border-radius: 4px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.innerWrapper {
+  height: 96px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  overflow: hidden;
+}
+
+.challengeTitle {
+  width: 100%;
+  margin-bottom: 8px;
+  color: #263238;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.challengeTagline {
+  color: #607d8b;
+  text-overflow: ellipsis; /*two lines, last on overflows"ellipsis", need function*/
+}
+
+.bottomWrapper {
+  width:100%;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottomDates{
+  color: #607d8b;
+}
+
+.bottomLabel {
+  color: #607d8b;
+}
+
+.imageChallengeShare {
+  width: 96px;
+  height: 96px;
+  margin-right: 16px;
+}
