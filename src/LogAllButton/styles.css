@@ -31,6 +31,10 @@
     color: #00AB97;
 }
 
+.text {
+  padding-right: 8px;
+}
+
 .textUncheckedActive{
   color: #607d8b;
 }
