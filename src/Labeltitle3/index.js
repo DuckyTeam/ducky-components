@@ -5,7 +5,7 @@ import styles from './styles.css';
 import Typography from '../Typography';
 import Icon from '../Icon';
 
-function labelTitle3(props) {
+function LabelTitle3(props) {
   return (
     <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Icon
@@ -24,11 +24,11 @@ function labelTitle3(props) {
     );
 }
 
-labelTitle3.propTypes = {
+LabelTitle3.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
-  style: React.PropTypes.shape({}),
-  label: PropTypes.string
+  label: PropTypes.string,
+  style: React.PropTypes.shape({})
 };
 
-export default labelTitle3;
+export default LabelTitle3;
