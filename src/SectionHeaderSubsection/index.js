@@ -12,6 +12,7 @@ function SectionHeaderSubsection(props) {
     })}>
       <Wrapper
         className={styles.iconTextWrapper}
+        onClick={props.onClick}
         size="short"
         >
         <LabelTitle
