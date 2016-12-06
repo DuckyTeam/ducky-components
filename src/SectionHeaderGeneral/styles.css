@@ -1,0 +1,20 @@
+.wrapper {
+display: flex;
+flex-grow: 1;
+text-align: left;
+}
+
+.outerWrapper {
+width: 100%;
+display: flex;
+align-items:flex-start;
+background: transparent;
+}
+
+.text {
+  color: #263238;
+}
+
+.text::first-letter {
+  text-transform: capitalize;
+}
