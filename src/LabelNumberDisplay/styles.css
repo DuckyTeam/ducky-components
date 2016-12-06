@@ -1,0 +1,23 @@
+.outerWrapper {
+  display: flex;
+  align-items: center;
+}
+.value {
+  color: #263238;
+  margin-right: 8px;
+}
+.valueDark {
+  color: #fff;
+  margin-right: 8px;
+}
+
+.label {
+  align-self: flex-end;
+  line-height: 28px;
+  color:#90a4ae;
+}
+.labelDark {
+  align-self: flex-end;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.4);
+}
