@@ -5,7 +5,7 @@ import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function SectionHeaderGeneral4(props) {
+function SectionHeaderGeneral(props) {
   let withTypo = (
     <Typography
       className={styles.text}
@@ -48,7 +48,7 @@ function SectionHeaderGeneral4(props) {
     );
 }
 
-SectionHeaderGeneral4.propTypes = {
+SectionHeaderGeneral.propTypes = {
   className: React.PropTypes.string,
   headerOpt: React.PropTypes.string,
   icon: React.PropTypes.string,
@@ -57,4 +57,4 @@ SectionHeaderGeneral4.propTypes = {
   title: React.PropTypes.string
 };
 
-export default SectionHeaderGeneral4;
+export default SectionHeaderGeneral;

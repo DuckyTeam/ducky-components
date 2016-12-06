@@ -1,7 +1,7 @@
 import {stories, className, string, func, bool, oneOf} from '../duckyStories';
-import SectionHeaderGeneral4 from './index';
+import SectionHeaderGeneral from './index';
 
-stories(module, SectionHeaderGeneral4, [
+stories(module, SectionHeaderGeneral, [
   'https://github.com/DuckyTeam/ducky-web/issues/2108'
 ], {
   className: className(),
