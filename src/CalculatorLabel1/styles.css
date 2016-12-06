@@ -3,6 +3,14 @@
   justify-content: flex-start;
 }
 
+.wrapper_wide {
+  height: 34px;
+}
+
+.wrapper_standard {
+  height: 30px;
+}
+
 .progressBar {
   width: 100%;
 }

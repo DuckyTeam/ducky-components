@@ -46,6 +46,7 @@ class ModalFullsize extends React.Component {
           [this.props.className]: this.props.className
         })}
         onClick={this.props.onHide}
+        ref={this.props.ref}
         >
         <div
           className={styles.modal}
@@ -72,6 +73,7 @@ ModalFullsize.propTypes = {
   onCancel: React.PropTypes.func,
   onHide: React.PropTypes.func,
   onOkClick: React.PropTypes.func,
+  ref: React.PropTypes.func,
   show: React.PropTypes.bool,
   showStickyFooter: React.PropTypes.bool
 };

@@ -9,6 +9,7 @@ function LogButton(props) {
       className={classNames(styles.wrapper, {
         [styles.checked]: props.checked,
         [styles.inactive]: props.inactive,
+        [styles.checkedInactive]: props.checked && props.inactive,
         [props.className]: props.className
       })}
       onClick={!props.inactive && props.onClick}

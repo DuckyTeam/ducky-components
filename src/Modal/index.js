@@ -28,6 +28,7 @@ class Modal extends React.Component {
           [this.props.className]: this.props.className
         })}
         onClick={this.props.onHide}
+        ref={this.props.modalRef}
         >
         <div className={styles.modalWrapper}>
           <div
@@ -46,6 +47,7 @@ class Modal extends React.Component {
 Modal.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
+  modalRef: React.PropTypes.func,
   onHide: React.PropTypes.func,
   show: React.PropTypes.bool,
   width: React.PropTypes.string

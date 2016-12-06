@@ -16,7 +16,7 @@ function CalculatorLabel1(props) {
       placement="top"
       text={props.toolTipText}
       >
-      <div>
+      <div className={props.size === 'wide' ? styles.wrapper_wide : styles.wrapper_standard}>
         <ProgressBar
           className={classNames(styles.progressBar)}
           color={props.barColor}

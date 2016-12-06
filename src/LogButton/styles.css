@@ -1,26 +1,26 @@
 .wrapper{
-    border: 2px solid #CFD8DC;
-    border-radius: 100%;
-    height: 36px;
-    width: 36px;
-    display: inline-block;
-    cursor: pointer;
+  border: 2px solid #CFD8DC;
+  border-radius: 100%;
+  height: 36px;
+  width: 36px;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .wrapper > span {
-    color: #607D8B;
-    text-align: center;
-    display: inline-block;
-    margin: 5px 6px 6px 6px;
+  color: #607D8B;
+  text-align: center;
+  display: inline-block;
+  margin: 5px 6px 6px 6px;
 }
 
-.checked{
-    background-color: #00AB97;
-    border-color: #00AB97;
+.checked {
+  background-color: #00AB97;
+  border-color: #00AB97;
 }
 
 .checked > span {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 .inactive {
@@ -32,29 +32,48 @@
   color: #cfd8dc;
 }
 
-.wrapper:hover{
-    border: 2px solid #00AB97;
-    background-color: white;
+.checkedInactive {
+  border-color: #eceff1;
+  background-color: #eceff1;
+  cursor: default;
 }
 
-.wrapper:hover > span{
-    color: #00AB97;
+.checkedInactive > span {
+  color: #FFFFFF;
 }
 
-.checked:hover{
-    border-color: #009483;;
-    background-color: #009483;
+.wrapper:hover {
+  border: 2px solid #00AB97;
+  background-color: white;
 }
 
-.checked:hover > span{
-    color: #FFFFFF;
+.wrapper:hover > span {
+  color: #00AB97;
 }
 
-.inactive:hover{
+.checked:hover {
+  border-color: #009483;;
+  background-color: #009483;
+}
+
+.checked:hover > span {
+  color: #FFFFFF;
+}
+
+.inactive:hover {
   border: 2px solid #eceff1;
   cursor: default;
 }
 
 .inactive:hover > span {
   color: #cfd8dc;
+}
+
+.checkedInactive:hover {
+  border-color: #eceff1;
+  background-color: #eceff1;
+}
+
+.checkedInactive:hover > span {
+  color: #FFFFFF;
 }

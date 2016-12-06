@@ -6,7 +6,7 @@ stories(module, LogButton, [
 ], {
   checked: bool(),
   className: className(),
-  inactive: bool(),
+  inactive: bool(false),
   icon: string(),
   onClick: func()
 });

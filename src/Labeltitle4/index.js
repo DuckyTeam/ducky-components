@@ -5,18 +5,18 @@ import styles from './styles.css';
 import Typography from '../Typography';
 import Icon from '../Icon';
 
-function LabelTitle3(props) {
+function LabelTitle4(props) {
   return (
     <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Icon
         className={styles.icon}
         icon={props.icon}
-        size="mini"
+        size="small"
         style={props.style}
         />
       <Typography
         className={styles.label}
-        type="caption2Normal"
+        type="bodyTextNormal"
         >
         {props.label}
       </Typography>
@@ -24,11 +24,11 @@ function LabelTitle3(props) {
     );
 }
 
-LabelTitle3.propTypes = {
+LabelTitle4.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   label: PropTypes.string,
   style: React.PropTypes.shape({})
 };
 
-export default LabelTitle3;
+export default LabelTitle4;
