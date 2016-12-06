@@ -18,8 +18,8 @@ function SectionHeaderGeneral(props) {
   let withIcon = (
     <div>
       <IconAvaWrapper
-        icon={props.icon}
         onClick={props.onClick}
+        icon={props.rightIcon}
         size={"standard"}
         />
     </div>
@@ -51,9 +51,8 @@ function SectionHeaderGeneral(props) {
 SectionHeaderGeneral.propTypes = {
   className: React.PropTypes.string,
   headerOpt: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  iconTitle: React.PropTypes.bool,
   onClick: React.PropTypes.func,
+  rightIcon: React.PropTypes.string,
   title: React.PropTypes.string
 };
 
