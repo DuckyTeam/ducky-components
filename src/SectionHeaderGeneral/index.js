@@ -5,57 +5,56 @@ import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function SectionHeaderGeneral(props) {
-    return (
-        <Wrapper
-            className={classNames(styles.wrapper, {
-                [props.className]: props.className
-            })}
-            size={"standard"}
+function SectionHeaderGeneral4(props) {
+  let withTypo = (
+    <Typography
+      className={styles.text}
+      type="ingressStrong"
+      >
+      {props.title}
+    </Typography>
+);
+
+  let withIcon = (
+    <div>
+      <IconAvaWrapper
+        icon={props.icon}
+        onClick={props.onClick}
+        size={"standard"}
+        />
+    </div>
+);
+
+  if (props.headerOpt === 'title') {
+    withIcon = null;
+  }
+  if (props.headerOpt === 'icon') {
+    withTypo = null;
+  }
+  return (
+    <div className={styles.outerWrapper}>
+      <Wrapper
+        className={classNames(styles.wrapper, {
+          [props.className]: props.className
+        })}
+        size={"short"}
         >
-            {props.leftIcon
-                ? <div className={styles.leftIconWrapper}>
-                    <IconAvaWrapper
-                        icon={props.leftIcon}
-                        onClick={props.onClick}
-                        size={"standard"}
-                    />
-                </div>
-              : null
-            }
-
-            <div className={styles.contentWrapper}>
-                <Typography
-                    className={styles.title}
-                    type="ingressTitle"
-                >
-                    {props.title}
-                </Typography>
-                {props.children ? <div className={styles.children}>{props.children}</div> : null}
-            </div>
-
-
-            {props.rightIcon
-                ? <div className={styles.rightIconWrapper}>
-                    <IconAvaWrapper
-                        icon={props.rightIcon}
-                        onClick={props.onClick}
-                        size={"standard"}
-                    />
-                </div>
-              : null
-            }
-        </Wrapper>
+      {withTypo}
+      </Wrapper>
+      <div className={styles.iconWrapper}>
+        {withIcon}
+      </div>
+    </div>
     );
 }
 
-SectionHeaderGeneral.propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    leftIcon: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    rightIcon: React.PropTypes.string,
-    title: React.PropTypes.string
+SectionHeaderGeneral4.propTypes = {
+  className: React.PropTypes.string,
+  headerOpt: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  iconTitle: React.PropTypes.bool,
+  onClick: React.PropTypes.func,
+  title: React.PropTypes.string
 };
 
-export default SectionHeaderGeneral;
+export default SectionHeaderGeneral4;

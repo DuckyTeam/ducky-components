@@ -1,13 +1,13 @@
-import {stories, className, string, func} from '../duckyStories';
-import SectionHeaderGeneral from './index';
+import {stories, className, string, func, bool, oneOf} from '../duckyStories';
+import SectionHeaderGeneral4 from './index';
 
-stories(module, SectionHeaderGeneral, [
-  'https://github.com/DuckyTeam/ducky-web/issues/654'
+stories(module, SectionHeaderGeneral4, [
+  'https://github.com/DuckyTeam/ducky-web/issues/2108'
 ], {
-  children: string('Meta text / labels'),
   className: className(),
-  leftIcon: string('icon-tune'),
   onClick: func(),
-  rightIcon: string('icon-add'),
-  title: string('Applikasjoner')
+  headerOpt: oneOf('both', 'title', 'icon'),
+  icon: string('icon-leaf'),
+  iconTitle: bool(),
+  title: string('some quite long title on this section')
 });
