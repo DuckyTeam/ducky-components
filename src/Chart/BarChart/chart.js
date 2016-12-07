@@ -86,7 +86,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .domain([0, highestYValue])
     .range([bottomX, 15 + props.margin.top]);
 
-  const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, goal, yScale);
+  const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, yScale);
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -96,7 +96,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const xAxis = axisBottom(xScale);
 
   const yAxis = axisLeft(yScale)
-      .tickValues(yAxisTickValues)
+      .tickValues(yAxisTickValues.map(x => x.value))
       .tickSize(-props.width, 0, 0);
 
   // Move xaxis
@@ -136,8 +136,8 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
-
-  drawLabels(labelGroup, yAxisTickValues, goal, highestYValue, yourScore, yScale, dontAnimateIn ? 0 : speed, onClick)
+  console.log(yAxisTickValues);
+  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onClick)
 
   //Draw faces
   /*

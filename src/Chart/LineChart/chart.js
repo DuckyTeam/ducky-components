@@ -37,11 +37,25 @@ d3Chart.create = (el, props, state, formatting) => {
 };
 
 d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
-    state.height = props.height - props.margin.top - props.margin.bottom;
-    state.xAxisOffset = state.height + props.margin.top + 5;
+
+    const {
+      data,
+      memberOf,
+      selectedId,
+      milestones,
+      startDate,
+      endDate,
+      noLeader,
+      goal,
+      onClick,
+      onClickCO2
+    } = state;
+
+    const height = props.height - props.margin.top - props.margin.bottom;
+    const xAxisOffset = height + props.margin.top + 5;
     const speed = 300;
-    const maxValue = max(state.data.map(d => max(d.data.map(d => d.value))));
-    state.lowestScore = min(state.data.map(d => {
+    const maxValue = max(data.map(d => max(d.data.map(d => d.value))));
+    const lowestScore = min(data.map(d => {
       if (d.data && d.data.length === 0) {
         return 0;
       } else if (d.data) {
@@ -52,35 +66,34 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     let leaderId;
     let leaderName;
 
-    if (!state.noLeader) {
-      state.leaderId = leaderId;
-      [leaderId, leaderName] = state.data.reduce((acc, d) => {
-        return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
-      }, [-1, '']);
-    }
-
     //Make sure that memberOf is on top
-    state.data = state.data.sort((a, b) => {
-      if (a.id === state.memberOf) {
+    const sortedData = data.sort((a, b) => {
+      if (a.id === memberOf) {
         return 1;
-      } else if (b.id === state.memberOf) {
+      } else if (b.id === memberOf) {
         return -1;
       }
       return b.id - a.id;
     });
 
-    const nextGoal = () => {
-      for (let index = 0; index < state.goals.length; index += 1) {
-        if (state.goals[index] > maxValue) {
-          return state.goals[index];
+    if (!noLeader) {
+      [leaderId, leaderName] = sortedData.reduce((acc, d) => {
+        return d.data[d.data.length - 1].value === maxValue ? [d.id, d.label] : acc;
+      }, [-1, '']);
+    }
+
+    const nextGoal = (() => {
+      for (let index = 0; index < milestones.length; index += 1) {
+        if (milestones[index] > maxValue) {
+          return milestones[index];
         }
       }
-      return state.goals[state.goals.length - 1];
-    };
+      return milestones[milestones.length - 1];
+    })();
 
     const getIdbyName = name => {
       let id = -1;
-      state.data.forEach((d) => {
+      sortedData.forEach((d) => {
         if (d.label === name) {
           id = d.id;
         }
@@ -89,25 +102,25 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     }
 
 
-    const xAxisTicks = utils.getDateTicks(state.startDate, state.endDate, 6);
-    const dotData = state.data.reduce((acc, line) => {
+    const xAxisTicks = utils.getDateTicks(startDate, endDate, 6);
+    const dotData = sortedData.reduce((acc, line) => {
       let newData = [line.data[0], line.data[max([line.data.length - 1, 0])]];
       newData[0].id = line.id;
       newData[1].id = line.id;
       return acc.concat(newData);
     }, []);
 
-    const yourScore = state.data.reduce((acc, dp) => {
-      return dp.id === state.memberOf ? acc + dp.data[dp.data.length - 1].value : acc;
+    const yourScore = sortedData.reduce((acc, dp) => {
+      return dp.id === memberOf ? acc + dp.data[dp.data.length - 1].value : acc;
     }, 0);
 
     const getPointClass = d => {
       let classes = styles.pointSeries;
       if (d.id === leaderId) {
         classes = `${classes} ${styles.leaderPoints}`; }
-      if (d.id === state.memberOf) {
+      if (d.id === memberOf) {
         classes = `${classes} ${styles.yourPoints}`; }
-      if (d.id === state.selectedId) {
+      if (d.id === selectedId) {
         classes = `${classes} ${styles.selectedPoints}`; }
       return classes;
     }
@@ -118,15 +131,15 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     const xScale = scaleTime()
         .range([40, props.width - props.margin.left - props.margin.right - 40])
-        .domain([moment(state.startDate), moment(state.endDate)]);
+        .domain([moment(startDate), moment(endDate)]);
 
-    const highestYValue = max([maxValue, nextGoal(), state.goals[1]]);
+    const highestYValue = max([maxValue, nextGoal, milestones[1]]);
 
     const yScale = scaleLinear()
       .domain([0, highestYValue])
-      .range([state.height - 4, 15 + props.margin.top]);
+      .range([height - 4, 15 + props.margin.top]);
 
-    state.yAxisTickValues = calculateYAxisTicks(state.goals, state.nextGoal, state.lowestScore, false, yScale);
+    const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, yScale);
 
     const lineDrawer = line()
         .x(d => xScale(moment(d.date)))
@@ -134,20 +147,20 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     const lineDrawerZero = line()
         .x(d => xScale(moment(d.date)))
-        .y(state.height);
+        .y(height);
 
     const areaDrawer = area()
         .x(d => xScale(moment(d.date)))
-        .y0(state.height)
+        .y0(height)
         .y1(d => yScale(d.value));
 
     const areaDrawerZero = area()
         .x(d => xScale(moment(d.date)))
-        .y0(state.height)
-        .y1(state.height);
+        .y0(height)
+        .y1(height);
 
     const yAxis = axisLeft(yScale)
-        .tickValues(state.yAxisTickValues)
+        .tickValues(yAxisTickValues.map(x => x.value))
         .tickSize(-props.width, 0, 0);
 
     const xAxis = axisBottom(xScale)
@@ -159,27 +172,27 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .tickSize(-props.width, 0, 0);
 
     // Move axes
-    utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${state.xAxisOffset})`);
+    utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
     utils.selectYAxisGroup(svg).transition().duration(speed).delay(dontAnimateIn ? 0 : speed).call(yAxis);
     utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
     utils.selectXAxisGroup(svg).selectAll('.tick')
         .classed(styles.startEndDates, (data, index) => {
             return index === 0 || index === (utils.selectXAxisGroup(svg).selectAll('.tick')._groups[0].length - 1);
-        }).on('click', (data) => state.onClick(getIdbyName(data)));;
+        }).on('click', (data) => onClick(getIdbyName(data)));;
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-    drawLabels(labelGroup, state.yAxisTickValues, false, highestYValue, yourScore, yScale, dontAnimateIn ? 0 : speed, state.onClickCO2);
+    drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onClickCO2);
 
     //Draw faces
     /*const xValue = props.width - props.margin.left - props.margin.right * 2;
     const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
 
-    drawFaces(chartGroup, goals, yourScore, maxValue, yScale, xValue, dontAnimateIn ? 0 : speed);
+    drawFaces(chartGroup, milestones, yourScore, maxValue, yScale, xValue, dontAnimateIn ? 0 : speed);
     */
 
-    if (!state.noLeader) {
+    if (!noLeader) {
       // Draw leader line
       const leaderLine = svg.select(`.${styles.leaderLine}`).selectAll('line').data([maxValue]);
 
@@ -227,12 +240,12 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
         leaderLabel.exit().remove();
 
-        const yourTeam = leaderId === state.memberOf ? " - Ditt lag" : "";
+        const yourTeam = leaderId === memberOf ? " - Ditt lag" : "";
 
         leaderText.enter().append('text')
           .text((data) => `${Number(maxValue).toLocaleString()} (${leaderName})`)
           .attr('x', 72)
-          .attr('y', state.height + 6)
+          .attr('y', height + 6)
           .attr('opacity', 0)
           .attr('class', styles.leaderText)
           .attr('font-size', '12px')
@@ -248,18 +261,18 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       leaderText.exit().remove();
     }
 
-    const lines = svg.select(`.${styles.lines}`).selectAll('g').data(state.data, d => d.id);
-    const areas = svg.select(`.${styles.areas}`).selectAll('g').data(state.data, d => d.id);
+    const lines = svg.select(`.${styles.lines}`).selectAll('g').data(sortedData, d => d.id);
+    const areas = svg.select(`.${styles.areas}`).selectAll('g').data(sortedData, d => d.id);
 
     const getStrokeClass = (data) => {
       let classes = `${styles.progressLine}`;
-      if (data.id === state.memberOf) {
+      if (data.id === memberOf) {
         classes = `${classes} ${styles.memberStroke}`;
       }
       if (data.id === leaderId) {
         classes = `${classes} ${styles.leaderStroke}`;
       }
-      if (data.id === state.selectedId) {
+      if (data.id === selectedId) {
         classes = `${classes} ${styles.selectedStroke}`;
       }
       return classes;
@@ -287,7 +300,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     mergedLines.select('path')
       .attr('class', getStrokeClass)
-      .on('click', data => state.onClick(data.id));
+      .on('click', data => onClick(data.id));
 
     mergedLines.select('path').transition().delay(speed).duration(speed)
       .attr('d', d => lineDrawer(d.data));
@@ -296,7 +309,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('d', d => areaDrawer(d.data));
 
     mergedAreas.select('path')
-      .attr('display', d => state.memberOf === d.id ? true : "none");
+      .attr('display', d => memberOf === d.id ? true : "none");
 
     //Draw points
     const points = svg.select(`.${styles.pointSeries}`).selectAll('g').data(dotData, d => `${d.id}${d.date}`);
@@ -306,7 +319,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .attr('class', styles.pointSeries)
       .attr('r', 4)
       .attr('cx', d => xScale(moment(d.date)))
-      .attr('cy', state.height)
+      .attr('cy', height)
       .attr('class', getPointClass);
 
     points.exit().remove();
@@ -320,7 +333,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     mergedPoints.select('circle')
       .attr('class', getPointClass)
-      .on('click', data => state.onClick && state.onClick(data.id));
+      .on('click', data => onClick && onClick(data.id));
 
 
 };

@@ -5,16 +5,7 @@ import { transition } from 'd3-transition';
 import styles from './drawGoalLabels.css';
 import paths from './../svgpaths';
 
-export default (labelGroup, milestones, goal, highestYValue, yourScore, yScale, speed, onClick) => {
-  const data = milestones.map(ms => {
-      const value = (ms === goal) ? min([ms, highestYValue]) : ms;
-      const label = ms;
-      const path = (ms === goal) ? paths.trophy : ((ms <= yourScore) ? paths.check : paths.leaf);
-      const classNameIcon = (ms === goal) ? styles.trophy : ((ms <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf);
-      const classNameText = (ms === goal) ? styles.progressedGoalsText : (ms <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
-      return {value, label, path, classNameIcon, classNameText};
-  });
-
+export default (labelGroup, data, yScale, speed, onClick) => {
   const labels = labelGroup.selectAll('g').data(data, g => g.label);
 
   const eventListenerCO2 = (d, i) => {
