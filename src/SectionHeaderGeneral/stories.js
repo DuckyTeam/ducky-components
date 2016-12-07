@@ -6,7 +6,6 @@ stories(module, SectionHeaderGeneral, [
 ], {
   className: className(),
   onClick: func(),
-  headerOpt: oneOf('title', 'icon', ''),
   rightIcon: string('icon-star'),
   title: string('some quite long title on this section')
 });
