@@ -32,3 +32,12 @@
 .trophy {
   fill: #ffc107;
 }
+
+.hasntStarted {
+  fill: rgba(255, 255, 255, 0.12);
+  text-anchor: start;
+  line-height: 12px;
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}

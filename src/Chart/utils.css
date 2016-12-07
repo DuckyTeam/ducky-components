@@ -44,3 +44,7 @@
     font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
     font-size: 10px;
 }
+
+.inactive > g > line{
+  stroke-opacity: 0.04;
+}

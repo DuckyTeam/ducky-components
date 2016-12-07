@@ -11,3 +11,8 @@
 .textSub {
   font-size:9px;
 }
+
+.inactive {
+  fill: rgba(255, 255, 255, 0.12);
+  fill-opacity: 1;
+}

@@ -3,14 +3,14 @@ import { min, max } from 'd3-array';
 import paths from './../svgpaths';
 import styles from './drawGoalLabels.css';
 
-export default (goals, nextGoal, yourScore, highestYValue, goal, yScale) => {
+export default (goals, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale) => {
   const visibleGoals = goals.slice(0, max([min([nextGoal ? goals.indexOf(nextGoal) : goals.length, goals.length]) + 1, 2]))
   visibleGoals.reverse();
   const indexOfNextGoal = visibleGoals.indexOf(visibleGoals.reduce((current, goal) => (goal > yourScore) ? goal : current, 0));
   const withoutAchieved = visibleGoals.slice(0, min([indexOfNextGoal + 2, visibleGoals.length]));
   let prevoiusYValue;
   const lowestScoreY = yScale(withoutAchieved[withoutAchieved.length - 1]);
-  console.log(goals, nextGoal, yourScore, highestYValue, goal);
+
   if (goal) {
     const nonClustered = withoutAchieved.filter((el, index) => {
       if (yScale(el) + 30 > yScale(goal) && yScale(el) - 30 < yScale(goal)) {
@@ -34,13 +34,13 @@ export default (goals, nextGoal, yourScore, highestYValue, goal, yScale) => {
       nonClustered.push(lowestGoal);
     }
     nonClustered.push(goal);
-    console.log(nonClustered);
+
     return nonClustered.map(ms => {
           const value = (ms === goal) ? min([ms, highestYValue]) : ms;
           const label = ms;
           const path = (ms === goal) ? paths.trophy : ((ms <= yourScore) ? paths.check : paths.leaf);
-          const classNameIcon = (ms === goal) ? styles.trophy : ((ms <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf);
-          const classNameText = (ms === goal) ? styles.progressedGoalsText : (ms <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
+          const classNameIcon = hasStarted ? (ms === goal) ? styles.trophy : ((ms <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf) : styles.hasntStarted;
+          const classNameText = hasStarted ? (ms === goal) ? styles.progressedGoalsText : (ms <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText : styles.hasntStarted;
           return {value, label, path, classNameIcon, classNameText};
       });
   }
@@ -60,12 +60,13 @@ export default (goals, nextGoal, yourScore, highestYValue, goal, yScale) => {
       return false;
     });
     nonClustered.push(withoutAchieved[withoutAchieved.length - 1]);
+
     return nonClustered.map(ms => {
           const value = ms;
           const label = ms;
           const path = (ms <= yourScore) ? paths.check : paths.leaf;
           const classNameIcon = ms <= yourScore ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf;
-          const classNameText = ms <= yourScore ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
+          const classNameText = (ms <= yourScore && hasStarted) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText;
           return {value, label, path, classNameIcon, classNameText};
       });
   }

@@ -24,9 +24,9 @@ exports.drawXAxisGroup = (svg, props, hover) => {
 
 exports.selectYAxisGroup = (svg) => svg.select(`.${styles.yAxis}`);
 
-exports.drawYAxisGroup = (svg, props) => {
+exports.drawYAxisGroup = (svg, props, hasStarted) => {
   return svg.append('g')
-        .attr('class', styles.yAxis)
+        .attr('class', `${styles.yAxis} ${hasStarted ?  '' : styles.inactive}`)
         .attr("transform", `translate(0, ${props.margin.top})`);
 }
 

@@ -48,7 +48,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       noLeader,
       goal,
       onClick,
-      onClickCO2
+      onClickCO2,
+      hasStarted
     } = state;
 
     const height = props.height - props.margin.top - props.margin.bottom;
@@ -139,7 +140,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       .domain([0, highestYValue])
       .range([height - 4, 15 + props.margin.top]);
 
-    const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, yScale);
+    const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale);
 
     const lineDrawer = line()
         .x(d => xScale(moment(d.date)))

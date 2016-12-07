@@ -30,6 +30,7 @@ stories(module, BarChart, [
   noLeader: bool(true),
   selectedId: json(12),
   onClick: func(),
-  isMobile: bool(true),
-  onClickCO2: func()
+  isMobile: bool(false),
+  onClickCO2: func(),
+  daysToStart: number(3)
 }, 'Chart/BarChart');

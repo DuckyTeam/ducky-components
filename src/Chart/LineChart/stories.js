@@ -65,4 +65,5 @@ stories(module, LineChart, [
     startDate: json(moment('05-May-2016')),
     onClick: json(null),
     onClickCO2: func(),
+    hasStarted: bool(false)
 }, 'Chart/LineChart');
