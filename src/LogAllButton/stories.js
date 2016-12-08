@@ -1,4 +1,4 @@
-import {stories, className, func, bool} from '../duckyStories';
+import {stories, className, func, string, bool} from '../duckyStories';
 import LogAllButton from './index';
 
 stories(module, LogAllButton, [
@@ -7,6 +7,7 @@ stories(module, LogAllButton, [
   checked: bool(),
   className: className(),
   inactive: bool(),
+  logAllText: string('Logg alle'),
   onClick: func(),
   partiallyChecked: bool()
 });
