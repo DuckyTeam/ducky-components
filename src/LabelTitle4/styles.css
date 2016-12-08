@@ -1,0 +1,11 @@
+.wrapper {
+    display: flex;
+}
+
+.icon {
+  margin-right: 8px;
+}
+
+.label {
+    color: #263238;
+}
