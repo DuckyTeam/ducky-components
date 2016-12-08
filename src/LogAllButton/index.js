@@ -19,7 +19,7 @@ function LogAllButton(props) {
         onClick={!props.inactive && props.onClick}
         type="caption2Normal"
         >
-        {'Log alle'}
+        {props.logAllText}
       </Typography>
       <div
         className={classNames(styles.wrapper, {
@@ -46,6 +46,7 @@ LogAllButton.propTypes = {
   checked: React.PropTypes.bool,
   className: React.PropTypes.string,
   inactive: React.PropTypes.bool,
+  logAllText: React.PropTypes.string,
   onClick: React.PropTypes.func,
   partiallyChecked: React.PropTypes.bool
 };
