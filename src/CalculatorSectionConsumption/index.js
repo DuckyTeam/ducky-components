@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ModalFullsize from '../ModalFullsize';
 import CalculatorGeneralItem from '../CalculatorGeneralItem';
+import CalculatorConsumptionDonation from '../CalculatorConsumptionDonation';
 import IconCircularFrame from '../IconCircularFrame';
 import CarouselNavigator from '../CarouselNavigator';
 import Wrapper from '../Wrapper';
@@ -40,8 +41,11 @@ function CalculatorSectionConsumption(props) {
           </Typography>
         </Wrapper>
       </div>
-      <div>
-      </div>
+      <CalculatorConsumptionDonation
+        donationValue={props.donationValue}
+        donationValueDecreased={props.donationValueDecreased}
+        donationValueIncreased={props.donationValueIncreased}
+        />
       <Spacer size="standard" />
       <CalculatorGeneralItem
         expanded={props.expandedProducts}
@@ -110,12 +114,10 @@ function CalculatorSectionConsumption(props) {
           />
       </Wrapper>
       <Spacer size="standard" />
-      <div className={classNames(styles.categorylistWrap)}>
-        <SubcategoryList
-          sortedCategories={props.sortedCategories}
-          title={props.categorylistHeading}
-          />
-      </div>
+      <SubcategoryList className={classNames(styles.subcategoryListWrap)}
+        sortedCategories={props.sortedCategories}
+        title={props.categorylistHeading}
+        />
       <div className={classNames(styles.carouselWrap)}>
         <CarouselNavigator
           changeDot={props.changeDot}
@@ -147,6 +149,9 @@ CalculatorSectionConsumption.propTypes = {
   categorylistHeading: React.PropTypes.string,
   changeDot: React.PropTypes.func,
   colorAverageFoorprint: React.PropTypes.string,
+  donationValue: React.PropTypes.number,
+  donationValueDecreased: React.PropTypes.func,
+  donationValueIncreased: React.PropTypes.func,
   expandedEtics: React.PropTypes.bool,
   expandedProducts: React.PropTypes.bool,
   expandedRecycle: React.PropTypes.bool,
