@@ -110,14 +110,20 @@ function CalculatorSectionConsumption(props) {
           />
       </Wrapper>
       <Spacer size="standard" />
-      <SubcategoryList
-        sortedCategories={props.sortedCategories}
-        title={props.categorylistHeading}
-        />
-      <CarouselNavigator
-        currentSlide={props.carCurrentSlide}
-        slideCount={props.slideCount}
-        />
+      <div className={classNames(styles.categorylistWrap)}>
+        <SubcategoryList
+          sortedCategories={props.sortedCategories}
+          title={props.categorylistHeading}
+          />
+      </div>
+      <div className={classNames(styles.carouselWrap)}>
+        <CarouselNavigator
+          changeDot={props.changeDot}
+          currentSlide={props.carCurrentSlide}
+          slideCount={props.slideCount}
+          themeCarousel={props.themeCarousel}
+          />
+      </div>
       <SectionFooterNew
         buttonText={props.sectionFooterButtontext || "NESTE"}
         icon={props.iconSectionFooter || "icon-keyboard_arrow_left"}
@@ -137,10 +143,10 @@ CalculatorSectionConsumption.propTypes = {
   caption: React.PropTypes.string,
   captionCo2: React.PropTypes.string,
   captionNumber: React.PropTypes.string,
-  carCurrentSlide: React.PropTypes.string,
+  carCurrentSlide: React.PropTypes.number,
   categorylistHeading: React.PropTypes.string,
+  changeDot: React.PropTypes.func,
   colorAverageFoorprint: React.PropTypes.string,
-  currentSlide: React.PropTypes.number,
   expandedEtics: React.PropTypes.bool,
   expandedProducts: React.PropTypes.bool,
   expandedRecycle: React.PropTypes.bool,
@@ -169,6 +175,7 @@ CalculatorSectionConsumption.propTypes = {
   slideCount: React.PropTypes.number,
   sortedCategories: React.PropTypes.array,
   theme: React.PropTypes.string,
+  themeCarousel: React.PropTypes.string,
   title: React.PropTypes.string,
   valueEtics: React.PropTypes.string,
   valueProducts: React.PropTypes.string,

@@ -32,3 +32,17 @@
   display: flex;
   justify-content: center;
 }
+
+.categorylistWrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.carouselWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}

@@ -1,4 +1,4 @@
-import {stories, bool, string, number, json} from '../duckyStories';
+import {stories, bool, string, number, json, func, oneOf} from '../duckyStories';
 import CalculatorSectionConsumption from './index';
 
 stories(module, CalculatorSectionConsumption, [
@@ -14,6 +14,7 @@ stories(module, CalculatorSectionConsumption, [
   calcRecycle: string(),
   calcRepaired: string(),
   calcServicevsprod: string(),
+  changeDot: func(),
   expandedEtics: bool(false),
   expandedProducts: bool(false),
   expandedRecycle: bool(false),
@@ -32,17 +33,16 @@ stories(module, CalculatorSectionConsumption, [
   labelServicevsprod: string("Velger du tjenester fremfor produkter?"),
   captionCo2: string("kg CO2e"),
   captionNumber: string("3,980"),
-  carCurrentSlide: string(),
+  carCurrentSlide: number(3),
   categorylistHeading: string("Fotavtrykk fordelt på underkategorier:"),
   colorAverageFoorprint: string(),
-  currentSlide: number(),
   footprintCaption: string(),
   footprintIcon: string(),
   footprintTitle: string(),
   iconSectionFooter: string("icon-keyboard_arrow_left"),
   sectionFooterButtontext: string("NESTE"),
   sectionFooterText: string("TILBAKE"),
-  slideCount: number(),
+  slideCount: number(6),
   sortedCategories: json([
     {
       percent: 77,
@@ -64,6 +64,7 @@ stories(module, CalculatorSectionConsumption, [
     }
   ]),
   theme: string(),
+  themeCarousel: oneOf('light', 'dark'),
   valueEtics: string("Av og til"),
   valueProducts: string("Av og til"),
   valueRecycle: string("Det meste..."),
