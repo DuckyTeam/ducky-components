@@ -7,5 +7,6 @@ stories(module, ButtonLoadMore, [
   onClick: func(),
   children: string('Vis mer'),
   className: className(),
+  disabled: bool(),
   endOfContent: bool()
 });

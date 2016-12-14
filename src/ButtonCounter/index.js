@@ -24,6 +24,7 @@ function ButtonCounter(props) {
         [styles[props.size]]: props.size,
         [props.className]: props.className
       })}
+      disabled={Boolean(props.disabled)}
       onClick={props.onClick}
       style={props.style}
       >
@@ -39,6 +40,7 @@ function ButtonCounter(props) {
 
 ButtonCounter.propTypes = {
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   number: PropTypes.string,
   onClick: PropTypes.func,
   prefix: React.PropTypes.string,

@@ -4,16 +4,10 @@ import classNames from 'classnames';
 import styles from './styles.css';
 
 function Button(props) {
-  let disabled = false;
-
-  if (props.disabled) {
-    disabled = 'disabled';
-  }
-
   return (
     <button
       className={classNames(styles.flat, {[props.className]: props.className})}
-      disabled={disabled}
+      disabled={Boolean(props.disabled)}
       onClick={props.onClick}
       type={props.type}
       >

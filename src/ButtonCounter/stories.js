@@ -1,4 +1,4 @@
-import {stories, func, className, string, oneOf} from '../duckyStories';
+import {stories, bool, func, className, string, oneOf} from '../duckyStories';
 import ButtonCounter from './index';
 
 stories(module, ButtonCounter, [
@@ -7,6 +7,7 @@ stories(module, ButtonCounter, [
 ], {
   className: className(),
   // number is string for multipurpose
+  disabled: bool(false),
   number: string(54),
   onClick: func(),
   prefix: string(''),
