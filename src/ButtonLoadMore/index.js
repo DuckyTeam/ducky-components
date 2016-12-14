@@ -9,45 +9,46 @@ const PropTypes = React.PropTypes;
 function ButtonLoadMore(props) {
   return (
     <div
-      clasName={classNames(styles.container, {
+      className={classNames(styles.container, {
         [props.className]: props.className
       })}
       >
-    {props.endOfContent
-      ? <div className={styles.innerWrapper}>
-        <Typography
-          className={styles.textOne}
-          type="bodyTextNormal"
-          >
-          {props.endOfContentText}
-        </Typography>
-        <Spacer size="double" />
-        <ActionButton
-          className={styles.upBtn}
-          icon="icon-keyboard_arrow_up"
+      {props.endOfContent
+        ? <div className={styles.innerWrapper}>
+          <Typography
+            className={styles.textOne}
+            type="bodyTextNormal"
+            >
+            {props.endOfContentText}
+          </Typography>
+          <Spacer size="double" />
+          <ActionButton
+            className={styles.upBtn}
+            disabled={Boolean(props.disabled)}
+            icon="icon-keyboard_arrow_up"
+            onClick={props.onClick}
+            size="standard"
+            />
+          <Spacer size="standard" />
+          <Typography
+            className={styles.textTwo}
+            type="bodyTextNormal"
+            >
+            {props.backToTopText}
+          </Typography>
+        </div>
+        : <div
+          className={styles.wrapper}
           onClick={props.onClick}
-          size="standard"
-          />
-        <Spacer size="standard" />
-        <Typography
-          className={styles.textTwo}
-          type="bodyTextNormal"
           >
-          {props.backToTopText}
-        </Typography>
-      </div>
-      : <div
-        className={styles.wrapper}
-        onClick={props.onClick}
-        >
-        <Typography
-          className={styles.loadmoreBtnText}
-          type="bodyTextNormal"
-          >
-          {props.showMoreText}
-        </Typography>
-      </div>
-    }
+          <Typography
+            className={styles.loadmoreBtnText}
+            type="bodyTextNormal"
+            >
+            {props.showMoreText}
+          </Typography>
+        </div>
+      }
     </div>
   );
 }
@@ -55,6 +56,7 @@ function ButtonLoadMore(props) {
 ButtonLoadMore.propTypes = {
   backToTopText: PropTypes.string,
   className: PropTypes.string,
+  disabled: PropTypes.bool,
   endOfContent: PropTypes.bool,
   endOfContentText: PropTypes.string,
   onClick: PropTypes.func,

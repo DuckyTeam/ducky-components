@@ -5,11 +5,12 @@ import styles from './styles.css';
 
 function ActionButton(props) {
   return (
-    <div
+    <button
       className={classNames(styles.wrapper, {
         [styles[props.size]]: props.size,
         [props.className]: props.className
       })}
+      disabled={Boolean(props.disabled)}
       onClick={props.onClick}
       >
       <Icon
@@ -17,13 +18,14 @@ function ActionButton(props) {
         icon={props.icon}
         size={props.size === 'standard' ? 'small' : 'standard'}
         />
-    </div>
+    </button>
   );
 }
 
 ActionButton.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
+  disabled: React.PropTypes.bool,
   icon: React.PropTypes.string,
   onClick: React.PropTypes.func,
   size: React.PropTypes.oneOf(['standard', 'main'])
