@@ -6,6 +6,7 @@ stories(module, PopoverMenuItem4, [
 ], {
   className: className(),
   icon: string('icon-star'),
+  inactive: bool(false),
   label: string('Menu Label'),
   onClick: func()
 });

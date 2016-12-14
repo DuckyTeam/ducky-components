@@ -7,34 +7,36 @@ import styles from './styles.css';
 const PropTypes = React.PropTypes;
 
 function PopoverMenuItem4(props) {
-    return (
-        <Wrapper
-            className={classNames(styles.wrapper, {
-                [props.className]: props.className}
-            )}
-            onClick={props.onClick}
-            size={'short'}
+  return (
+    <Wrapper
+      className={classNames(styles.wrapper, {
+        [props.className]: props.className,
+        [styles.inactive]: props.inactive}
+      )}
+      onClick={props.onClick}
+      size={'short'}
+      >
+      <Icon
+        className={styles.icon}
+        icon={props.icon}
+        size={'small'}
+        />
+      <Typography
+        className={styles.text}
+        type="bodyTextNormal"
         >
-            <Icon
-                className={styles.icon}
-                icon={props.icon}
-                size={'small'}
-            />
-            <Typography
-                className={styles.text}
-                type="bodyTextNormal"
-            >
-                {props.label}
-            </Typography>
-        </Wrapper>
-    );
+        {props.label}
+      </Typography>
+    </Wrapper>
+  );
 }
 
 PopoverMenuItem4.propTypes = {
-    className: PropTypes.string,
-    icon: PropTypes.string,
-    label: PropTypes.string,
-    onClick: PropTypes.func
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  inactive: PropTypes.bool,
+  label: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default PopoverMenuItem4;
