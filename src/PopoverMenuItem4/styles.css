@@ -16,3 +16,11 @@
     flex-grow: 1;
     margin: 0 16px;
 }
+
+.inactive {
+  pointer-events: none;
+}
+
+.inactive > span {
+  color: #b0bec5;
+}
