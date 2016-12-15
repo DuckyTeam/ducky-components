@@ -133,7 +133,7 @@ const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, your
     .attr('height', (data) => height + 4 - yScale(data.value));
 
   transY.select("svg")
-    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - 24 - 8 : yScale(data.value) - barWidth - barTextFontSize)
+    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - 24 - 8 : yScale(data.value) - 24 - barTextFontSize)
     .attr('width', 24)
     .attr('height', 24)
     .attr('opacity', 1);
