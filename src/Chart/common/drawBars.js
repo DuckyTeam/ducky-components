@@ -65,7 +65,7 @@ const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, your
     .attr('class', styles.rectangle)
     .attr('rx', 2)
     .attr('x', (data) => xScale(data.label) + (xScale.bandwidth() - barWidth / 2))
-    .attr('y', height + 15)
+    .attr('y', height + 4)
     .attr('height', 0)
     .attr('width', barWidth);
 
@@ -130,7 +130,7 @@ const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, your
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
-    .attr('height', (data) => height + 15 - yScale(data.value));
+    .attr('height', (data) => height + 4 - yScale(data.value));
 
   transY.select("svg")
     .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - 24 - 8 : yScale(data.value) - barWidth - barTextFontSize)
