@@ -7,6 +7,7 @@ stories(module, LogAllButton, [
   checked: bool(),
   className: className(),
   inactive: bool(),
+  isLoggingActivity: bool(false),
   logAllText: string('Logg alle'),
   onClick: func(),
   partiallyChecked: bool()

@@ -1,7 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
 import styles from './styles.css';
-import Icon from './../Icon';
+import Icon from '../Icon';
+import LoaderImage from '../LoaderImage';
 import Typography from '../Typography';
 
 function LogAllButton(props) {
@@ -21,23 +22,25 @@ function LogAllButton(props) {
         >
         {props.logAllText}
       </Typography>
-      <div
-        className={classNames(styles.wrapper, {
-          [styles.uncheckedActive]: !props.checked && !props.inactive,
-          [styles.uncheckedInactive]: !props.checked && props.inactive,
-          [styles.checkedActive]: props.checked && !props.inactive,
-          [styles.checkedInactive]: props.checked && props.inactive,
-          [styles.partiallyChecked]: props.partiallyChecked && !props.inactive,
-          [styles.partiallyCheckedInactive]: props.partiallyChecked && props.inactive,
-          [props.className]: props.className
-        })}
-        onClick={!props.inactive && props.onClick}
-        >
-        <Icon
-          icon={"icon-done_all"}
-          size={"small"}
-          />
-      </div>
+      {props.isLoggingActivity
+        ? <LoaderImage />
+        : <div
+          className={classNames(styles.wrapper, {
+            [styles.uncheckedActive]: !props.checked && !props.inactive,
+            [styles.uncheckedInactive]: !props.checked && props.inactive,
+            [styles.checkedActive]: props.checked && !props.inactive,
+            [styles.checkedInactive]: props.checked && props.inactive,
+            [styles.partiallyChecked]: props.partiallyChecked && !props.inactive,
+            [styles.partiallyCheckedInactive]: props.partiallyChecked && props.inactive,
+            [props.className]: props.className
+          })}
+          onClick={!props.inactive && props.onClick}
+          >
+          <Icon
+            icon={"icon-done_all"}
+            size={"small"}
+            />
+        </div>}
     </div>
     );
 }
@@ -46,6 +49,7 @@ LogAllButton.propTypes = {
   checked: React.PropTypes.bool,
   className: React.PropTypes.string,
   inactive: React.PropTypes.bool,
+  isLoggingActivity: React.PropTypes.bool,
   logAllText: React.PropTypes.string,
   onClick: React.PropTypes.func,
   partiallyChecked: React.PropTypes.bool
