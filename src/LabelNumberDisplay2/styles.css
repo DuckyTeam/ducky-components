@@ -22,7 +22,7 @@
   color: #90A4AE;
 }
 
-.darkThemeNumber {
+.darkThemeNumber > span:last-child {
   color: #FFF;
 }
 
