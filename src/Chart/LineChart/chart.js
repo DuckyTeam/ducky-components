@@ -48,7 +48,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
       noLeader,
       goal,
       onClick,
-      onClickCO2,
+      onCo2Click,
       hasStarted
     } = state;
 
@@ -184,7 +184,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-    drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onClickCO2);
+    drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click);
 
     //Draw faces
     /*const xValue = props.width - props.margin.left - props.margin.right * 2;

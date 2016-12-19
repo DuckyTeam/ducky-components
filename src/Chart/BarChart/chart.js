@@ -46,6 +46,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     goal,
     isMobile,
     onClick,
+    onCo2Click,
     daysToStart
   } = state;
 
@@ -157,7 +158,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onClick)
+  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click)
 
   //Draw faces
   /*

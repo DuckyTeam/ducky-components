@@ -14,6 +14,7 @@ function Input(props) {
   return (
     <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <input
+        autoFocus={props.autoFocus}
         className={classNames(styles.input, TypographyStyles.bodyTextNormal, WrapperStyles.short, {
           [styles.error]: props.errorMessage
         })}
@@ -37,6 +38,7 @@ function Input(props) {
 }
 
 Input.propTypes = {
+  autoFocus: PropTypes.bool,
   className: PropTypes.string,
   errorMessage: PropTypes.node,
   inputType: PropTypes.string,

@@ -31,7 +31,7 @@ class InputLarge extends React.Component {
         }
     }
     render() {
-        const {className, value, label, errorMessage, onBlur, onFocus, onChange, size} = this.props;
+        const {className, value, label, errorMessage, onBlur, onFocus, onChange, size, autoFocus} = this.props;
 
         /* eslint-disable react/no-set-state */
         return (
@@ -49,6 +49,7 @@ class InputLarge extends React.Component {
                         {this.capitalizeFirstLetter(label)}
                     </div>
                     <input
+                        autoFocus={autoFocus}
                         className={
                           classNames(styles.input,
                             this.getCorrectFontClass(size),
