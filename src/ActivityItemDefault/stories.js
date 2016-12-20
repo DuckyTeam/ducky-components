@@ -1,8 +1,8 @@
 import {stories, className, string, number, oneOf, func} from '../duckyStories';
-import ActionItemDefault from './index';
+import ActivityItemDefault from './index';
 const iconImageImage = require('../assets/SVGIcons/social.svg');
 
-stories(module, ActionItemDefault, [
+stories(module, ActivityItemDefault, [
   'https://github.com/DuckyTeam/ducky-web/issues/712'
 ], {
   className: className(),

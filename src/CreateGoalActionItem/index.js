@@ -1,4 +1,4 @@
-import ActionItemSelectComposit from '../ActionItemSelectComposit';
+import ActivityItemSelectComposite from '../ActivityItemSelectComposite';
 import Wrapper from '../Wrapper';
 import React from 'react';
 import classNames from 'classnames';
@@ -14,7 +14,7 @@ function CreateGoalActionItem(props) {
       size={'short'}
       >
       <div className={styles.actionItemComposite}>
-        <ActionItemSelectComposit
+        <ActivityItemSelectComposite
           co2={props.co2}
           icon={props.icon}
           onClick={props.onClick}

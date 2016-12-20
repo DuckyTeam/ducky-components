@@ -1,8 +1,8 @@
 import {stories, className, string, oneOf, number, func} from '../duckyStories';
-import ActionItemSelectComposit from './index';
+import ActivityItemSelectComposite from './index';
 const iconImageImage = require('../assets/SVGIcons/social.svg');
 
-stories(module, ActionItemSelectComposit, [
+stories(module, ActivityItemSelectComposite, [
   'https://github.com/DuckyTeam/ducky-web/issues/1448'
 ], {
   className: className(),
