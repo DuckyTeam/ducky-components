@@ -23,6 +23,7 @@ function SettingsItem(props) {
               {props.label}
             </Typography>
             <ButtonRaised
+              disabled={props.buttonDisabled}
               className={styles.saveButton}
               onClick={props.onSaveButtonClicked}
               >
@@ -73,6 +74,7 @@ function SettingsItem(props) {
 }
 
 SettingsItem.propTypes = {
+  buttonDisabled: PropTypes.bool,
   children: PropTypes.node,
   className: PropTypes.string,
   expanded: PropTypes.bool,
