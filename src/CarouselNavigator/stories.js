@@ -6,6 +6,5 @@ stories(module, CarouselNavigator1, [
 ], {
   className: className(),
   slideCount: number(5),
-  currentSlide: number(),
   theme: oneOf('light', 'dark')
 });

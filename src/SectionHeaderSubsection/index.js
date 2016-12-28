@@ -2,7 +2,6 @@ import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
 import LabelTitle from '../LabelTitle';
 import Wrapper from '../Wrapper';
-import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -16,16 +15,11 @@ function SectionHeaderSubsection(props) {
         onClick={props.onClick}
         size="short"
         >
-        {props.leftIcon
-        ? <LabelTitle
+        <LabelTitle
           icon={props.leftIcon}
           size="regular"
           text={props.title}
           />
-        : <Typography type="bodyTextNormal">
-          {props.title}
-        </Typography>}
-
       </Wrapper>
       {props.rightIcon
         ? <IconAvaWrapper

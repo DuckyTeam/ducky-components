@@ -20,9 +20,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-:global .icon-household:before {
-  content: "\e94a";
-}
 :global .icon-team:before {
   content: "\e93c";
 }

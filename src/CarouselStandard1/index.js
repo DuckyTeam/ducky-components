@@ -3,7 +3,6 @@ import CarouselNavigator from '../CarouselNavigator';
 import IconAvaWrapper from '../IconAvaWrapper';
 // import classNames from 'classnames';
 import styles from './styles.css';
-import Spacer from '../Spacer';
 // let slideIndex = 1;
 
 class CarouselStandard1 extends React.Component {
@@ -63,12 +62,10 @@ class CarouselStandard1 extends React.Component {
                 <div className={styles.carouselNavigator}
                     id={"carouselNavigator"}
                 >
-                    <Spacer size={'double'} />
                     <CarouselNavigator
                         slideCount={this.props.slideCount}
                         theme={'dark'}
                     />
-                    <Spacer size={'double'} />
                 </div>
             </div>
         );

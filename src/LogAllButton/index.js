@@ -26,8 +26,9 @@ function LogAllButton(props) {
         ? <LoaderImage />
         : <div
           className={classNames(styles.wrapper, {
-            [styles.uncheckedActive]: !props.checked && !props.inactive,
-            [styles.uncheckedInactive]: !props.checked && props.inactive,
+            [styles.inactive]: props.inactive,
+            [styles.uncheckedActive]: !props.checked && !props.inactive && !props.partiallyChecked,
+            [styles.uncheckedInactive]: !props.checked && props.inactive && !props.partiallyChecked,
             [styles.checkedActive]: props.checked && !props.inactive,
             [styles.checkedInactive]: props.checked && props.inactive,
             [styles.partiallyChecked]: props.partiallyChecked && !props.inactive,
