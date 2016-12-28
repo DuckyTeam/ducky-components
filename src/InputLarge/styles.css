@@ -5,6 +5,7 @@
 
 .inputWrapper {
   display: flex;
+  position: relative;
   min-height: 48px;
 }
 

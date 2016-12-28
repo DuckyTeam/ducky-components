@@ -5,7 +5,10 @@ import styles from './styles.css';
 
 class CarouselNavigator extends React.Component {
   handleDotClick(index) {
-    this.props.changeDot(index);
+    if (!this.props.changeDot) {
+      return null;
+    }
+    return this.props.changeDot(index);
   }
 
   render() {

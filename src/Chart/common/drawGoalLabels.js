@@ -9,9 +9,7 @@ export default (labelGroup, data, yScale, speed, onClick) => {
   const labels = labelGroup.selectAll('g').data(data, g => g.label);
 
   const eventListenerCO2 = (d, i) => {
-    if (d.value <= yourScore || d.value === goal) {
-      onClick({co2: d.value});
-    }
+    onClick({co2: d.value});
   }
 
   //Enter

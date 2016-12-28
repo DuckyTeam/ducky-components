@@ -7,7 +7,7 @@ export default (goals, nextGoal, yourScore, highestYValue, goal, hasStarted, ySc
   const visibleGoals = goals.slice(0, max([min([nextGoal ? goals.indexOf(nextGoal) : goals.length, goals.length]) + 1, 2]))
   visibleGoals.reverse();
   const indexOfNextGoal = visibleGoals.indexOf(visibleGoals.reduce((current, goal) => (goal > yourScore) ? goal : current, 0));
-  const withoutAchieved = visibleGoals.slice(0, min([indexOfNextGoal + 2, visibleGoals.length]));
+  const withoutAchieved = visibleGoals;//.slice(0, min([indexOfNextGoal + 2, visibleGoals.length]));
   let prevoiusYValue;
   const lowestScoreY = yScale(withoutAchieved[withoutAchieved.length - 1]);
 

@@ -13,7 +13,7 @@ LineChart.PropTypes = {
   memberOf: React.PropTypes.any,
   selectedId: React.PropTypes.any,
   onClick: React.PropTypes.func,
-  onClickCO2: React.PropTypes.func,
+  onCo2Click: React.PropTypes.func,
   isMobile: React.PropTypes.bool,
   startDate: React.PropTypes.string,
   endDate: React.PropTypes.string,

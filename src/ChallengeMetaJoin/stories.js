@@ -11,5 +11,6 @@ stories(module, ChallengeMetaJoin, [
   noAccess: bool(true),
   onClick: func(),
   onNotificationsClick: func(),
+  hideJoinButton: bool(),
   startDate: number(1475241124937)
 });

@@ -46,6 +46,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     goal,
     isMobile,
     onClick,
+    onCo2Click,
     daysToStart
   } = state;
 
@@ -55,7 +56,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const highestScore = max(state.data, (data) => data.value);
   const lowestScore = min(state.data, (data) => data.value);
   const leaderId = state.noLeader ? null : (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
-  const nextGoal = milestones[milestones.reduce((acc, goal) => (goal <= highestScore) ? acc + 1 : acc, 0)];
+  const nextGoal = milestones[min([milestones.reduce((acc, goal) => (goal <= highestScore) ? acc + 1 : acc, 0) + 1, milestones.length])];
   const yourScore = state.data.reduce((acc, dp) => dp.id === memberOf ? acc + dp.value : acc, 0);
 
   const data = state.data.map(el => {
@@ -157,7 +158,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onClick)
+  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click)
 
   //Draw faces
   /*

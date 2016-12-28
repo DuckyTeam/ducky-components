@@ -65,7 +65,7 @@ class ChallengeMetaJoin extends React.Component {
       </Typography>
     );
   }
-  getJoinIndicator(joined, noAccess) {
+  getJoinIndicator(joined, noAccess, hideJoinButton) {
     if (noAccess) {
       return (
         <div className={styles.noAccessTextWrapper}>
@@ -97,6 +97,11 @@ class ChallengeMetaJoin extends React.Component {
           />
       );
     }
+
+    if (hideJoinButton) {
+      return null;
+    }
+
     return (
       <ButtonRaised
         className={styles.button}
@@ -118,7 +123,7 @@ class ChallengeMetaJoin extends React.Component {
           >
           {this.getJoinedIndicatorInfo(this.props.joined)}
           <div>
-            {this.getJoinIndicator(this.props.joined, this.props.noAccess)}
+            {this.getJoinIndicator(this.props.joined, this.props.noAccess, this.props.hideJoinButton)}
           </div>
         </Wrapper>
       </div>
@@ -132,6 +137,7 @@ ChallengeMetaJoin.propTypes = {
   disabled: React.PropTypes.bool,
   endDate: React.PropTypes.number,
   endsInText: React.PropTypes.string,
+  hideJoinButton: React.PropTypes.bool,
   joinText: React.PropTypes.string,
   joined: React.PropTypes.bool,
   noAccess: React.PropTypes.bool,
@@ -141,7 +147,6 @@ ChallengeMetaJoin.propTypes = {
   startDate: React.PropTypes.number,
   startsInText: React.PropTypes.string,
   viewNotificationsText: React.PropTypes.string
-
 };
 
 export default ChallengeMetaJoin;

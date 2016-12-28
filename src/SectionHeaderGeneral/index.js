@@ -23,11 +23,13 @@ function SectionHeaderGeneral(props) {
       </Wrapper>
       <div className={styles.iconWrapper}>
         <div>
-          <IconAvaWrapper
-            icon={props.rightIcon}
-            onClick={props.onClick}
-            size={"standard"}
-            />
+        {props.rightIcon
+        ? <IconAvaWrapper
+          icon={props.rightIcon}
+          onClick={props.onClick}
+          size={"standard"}
+          />
+        : null}
         </div>
       </div>
     </div>

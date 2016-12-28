@@ -6,12 +6,12 @@ import styles from './styles.css';
 
 function ButtonCircle(props) {
   return (
-    <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
+    <button className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Typography
         className={styles.text}
         type="bodyTextNormal"
         >{props.children}</Typography>
-    </div>
+    </button>
   );
 }
 
