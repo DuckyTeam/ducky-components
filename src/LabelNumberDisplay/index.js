@@ -10,8 +10,7 @@ function LabelNumberDisplay(props) {
   return (
     <div className={styles.outerWrapper}>
       <Icon
-        className={styles.icon}
-        icon={props.icon || 'icon-leaf'}
+        icon={'icon-leaf'}
         size={'standard'}
         style={{color: props.color ? props.color : '#00ab97'}}
         />
@@ -31,7 +30,6 @@ function LabelNumberDisplay(props) {
 
 LabelNumberDisplay.propTypes = {
   color: PropTypes.string,
-  icon: PropTypes.string,
   label: PropTypes.string,
   theme: PropTypes.string,
   value: PropTypes.number

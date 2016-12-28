@@ -1,4 +1,5 @@
 import React from 'react';
+import Spacer from '../Spacer';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -30,9 +31,11 @@ class CarouselNavigator extends React.Component {
 
     return (
       <div className={styles.outwrapper}>
+        <Spacer size={'double'} />
         <ul className={styles.wrapper}>
           {dots}
         </ul>
+        <Spacer size={'double'} />
       </div>
     );
   }
