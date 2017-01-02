@@ -59,7 +59,7 @@ function AverageFootprintComparison(props) {
 
 AverageFootprintComparison.propTypes = {
   className: React.PropTypes.string,
-  color: React.PropTypes.tring,
+  color: React.PropTypes.string,
   icon: React.PropTypes.oneOf(['icon-sentiment_very_satisfied', 'icon-tag_faces', 'icon-sentiment_satisfied',
   'icon-sentiment_neutral', 'icon-sentiment_dissatisfied', 'icon-mood_bad', 'icon-sentiment_very_dissatisfied'])
 };

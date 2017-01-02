@@ -1,0 +1,48 @@
+.ModalFullsize {
+  background-color: #F4F7F9;
+}
+
+.mainImage {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 180px;
+  margin-bottom: 48px;
+}
+
+.icon {
+  position: relative;
+  left: 50%;
+  bottom: -132px;
+  color: #FFFFFF;
+}
+
+.icon > div {
+  background-color: #EF5F8A;
+  border: 2px solid #F4F7F9;
+}
+
+.wrapperWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.co2wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.subcategoryListWrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.carouselWrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}

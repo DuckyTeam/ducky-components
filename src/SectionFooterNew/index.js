@@ -61,7 +61,6 @@ function SectionFooterNew(props) {
 
 SectionFooterNew.propTypes = {
   buttonText: React.PropTypes.string,
-  children: React.PropTypes.node,
   className: React.PropTypes.string,
   dateTime: React.PropTypes.number,
   icon: React.PropTypes.string,
