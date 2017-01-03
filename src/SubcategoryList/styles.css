@@ -1,5 +1,5 @@
 .wrapper {
-  displey: flex;
+  display: flex;
   flex-direction: column;
   background-color: #ffffff;
   border-bottom: 1px solid rgba(38,50,56,0.12);

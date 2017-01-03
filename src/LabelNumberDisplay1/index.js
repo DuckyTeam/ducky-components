@@ -22,7 +22,7 @@ function LabelNumberDisplay1(props) {
           className={classNames(styles.number, {[styles.darkNumber]: props.theme === 'dark'})}
           type="display1"
           >
-          {props.captionNumber}
+          {props.number}
         </Typography>
       </div>
       <Spacer size="standard" />
@@ -30,17 +30,17 @@ function LabelNumberDisplay1(props) {
         className={classNames(styles.innerText, {[styles.darkCo2]: props.theme === 'dark'})}
         type="bodyTextNormal"
         >
-        {props.captionCo2}
+        {props.caption}
       </Typography>
     </div>
   );
 }
 
 LabelNumberDisplay1.propTypes = {
-  captionCo2: React.PropTypes.string,
-  captionNumber: React.PropTypes.string,
+  caption: React.PropTypes.string,
   className: React.PropTypes.string,
   icon: React.PropTypes.string,
+  number: React.PropTypes.string,
   theme: React.PropTypes.string
 };
 
