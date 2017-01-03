@@ -32,18 +32,18 @@ function CalculatorHouseholdEnergyShower(props) {
           decreaseValue={props.numberShowerValueDecreased}
           increaseValue={props.numberShowerValueIncreased}
           label={props.numberShowerText}
-          resultNumber={props.numberShowerValue}
+          value={props.numberShowerValue}
           />
         <Spacer size={'double'} />
         <CounterInputGeneral
           decreaseValue={props.durationShowerValueDecreased}
           increaseValue={props.durationShowerValueIncreased}
           label={props.durationShowerText}
-          resultNumber={props.durationShowerValue}
+          value={props.durationShowerValue}
           />
         <Spacer size={'standard'} />
         {props.toggledInfo
-        ? <Typography>
+        ? <Typography type={'caption2Normal'}>
           {props.showerInfotext}
         </Typography>
         : null}

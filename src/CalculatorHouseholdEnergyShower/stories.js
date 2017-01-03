@@ -1,7 +1,7 @@
 import {
   number,
   string,
-  func,
+  bool,
   stories} from '../duckyStories';
 
 import CalculatorHouseholdEnergyShower from './index';
@@ -15,5 +15,6 @@ stories(module, CalculatorHouseholdEnergyShower, [
   durationShowerText: string("Lengde per dusj"),
   durationShowerValue: string("7-9 min"),
   icon: string("icon-info_outline"),
+  toggledInfo: bool(true),
   showerInfotext: string("Gjennomsnittsnordmannen dusjer 7 ganger i uka og bruker ca 8. minutter per dusj.")
 });

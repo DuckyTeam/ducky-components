@@ -40,8 +40,8 @@ CounterInputGeneral.propTypes = {
   className: PropTypes.string,
   decreaseValue: PropTypes.func,
   increaseValue: PropTypes.func,
-  value: PropTypes.number,
-  label: PropTypes.string
+  label: PropTypes.string,
+  value: PropTypes.number
 };
 
 export default CounterInputGeneral;
