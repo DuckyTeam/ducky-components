@@ -30,7 +30,7 @@ function ProgressBarChallengeDates(props) {
           })}
           type="caption2Normal"
           >
-           {moment(props.startDate).format('D. MMMM')}
+           {moment(props.startDate).format('D. MMMM')} - <small>{moment(props.startDate).format('HH:mm')}</small>
         </Typography>
         <Typography
           className={classNames({
@@ -39,7 +39,7 @@ function ProgressBarChallengeDates(props) {
           })}
           type="caption2Normal"
           >
-           {moment(props.endDate).format('D. MMMM')}
+           {moment(props.endDate).format('D. MMMM')} - <small>{moment(props.endDate).format('HH:mm')}</small>
         </Typography>
       </span>
       <Spacer size="standard" />
