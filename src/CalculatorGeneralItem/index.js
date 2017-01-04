@@ -11,6 +11,7 @@ function CalculatorGeneralItem(props) {
     props.expanded
     ? <div className={styles.outerWrapper}>
       <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
+        onClick={props.onClick}
         size={'standard'}
         >
         <Typography
