@@ -1,0 +1,26 @@
+.outerWrap {
+  width: 100%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.innerWrap {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.forcing {
+  margin-left: 16px;
+  color: #90A4AE;
+}
+
+.topSpacer {
+  width: 100%;
+}
+
+.bottomSpacer {
+  width: 100%;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+}
