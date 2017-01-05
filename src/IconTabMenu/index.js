@@ -14,21 +14,21 @@ class IconTabMenu extends React.Component {
   getTabsWithTooltip() {
     const {tabs, selected, disabled} = this.props;
 
-    return Object.keys(tabs).map((tooltip, key) => {
-      const selectedTab = (key === selected);
-      const disabledTab = (disabled.indexOf(key) > -1);
-      const icon = tabs[Object.keys(tabs)[key]];
+    return Object.keys(tabs).map((title, index) => {
+      const selectedTab = (index === selected);
+      const disabledTab = (disabled.indexOf(index) > -1);
+      const icon = tabs[Object.keys(tabs)[index]];
 
       return (
         <Tooltip
-          key={key}
+          key={index}
           placement={'top'}
-          text={tooltip}
+          text={title}
           >
           <button
             className={styles.button}
             disabled={disabledTab}
-            onClick={this.handleTabClick.bind(this, key)}
+            onClick={this.handleTabClick.bind(this, index)}
             >
             <div
               className={classNames(styles.labelWrapper, {
@@ -51,16 +51,19 @@ class IconTabMenu extends React.Component {
   }
 
   getTabs() {
-    return this.props.tabs.map((icon, key) => {
-      const selected = (key === this.props.selected);
-      const disabled = (this.props.disabled.indexOf(key) > -1);
+    const {tabs} = this.props;
+
+    return Object.keys(tabs).map((title, index) => {
+      const selected = (index === this.props.selected);
+      const disabled = (this.props.disabled.indexOf(index) > -1);
+      const icon = tabs[Object.keys(tabs)[index]];
 
       return (
         <button
           className={styles.button}
           disabled={disabled}
-          key={key}
-          onClick={this.handleTabClick.bind(this, key)}
+          key={index}
+          onClick={this.handleTabClick.bind(this, index)}
           >
           <div
             className={classNames(styles.labelWrapper, {
