@@ -13,11 +13,13 @@ function ActionButton(props) {
       disabled={Boolean(props.disabled)}
       onClick={props.onClick}
       >
-      <Icon
-        className={styles.icon}
-        icon={props.icon}
-        size={props.size === 'standard' ? 'small' : 'standard'}
-        />
+      <div className={styles.iconWrapper}>
+        <Icon
+          className={styles.icon}
+          icon={props.icon}
+          size={props.size === 'standard' ? 'small' : 'standard'}
+          />
+      </div>
     </button>
   );
 }

@@ -2,11 +2,9 @@
   color: #FFFFFF !important;
   border-radius: 50%;
   background-color: #00AB97;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
-  border: 0px solid rgba(0,0,0,0)
+  border: 0px solid rgba(0,0,0,0);
+  padding: 0;
 }
 
 .main {
@@ -18,6 +16,12 @@
 .standard {
   width: 36px;
   height: 36px;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon {
