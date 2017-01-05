@@ -8,6 +8,5 @@ stories(module, SectionHeaderSubsection, [
   onClick: func(),
   leftIcon: string('icon-star'),
   rightIcon: string('icon-leaf'),
-  onRightIconClick: func(),
   title: string('Applikasjoner')
 });

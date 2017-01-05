@@ -10,10 +10,10 @@ function SectionHeaderSubsection(props) {
   return (
     <div className={classNames(styles.wrapper, {
       [props.className]: props.className
-    })}>
+    })}
+    onClick={props.onClick}>
       <Wrapper
         className={styles.iconTextWrapper}
-        onClick={props.onClick}
         size="short"
         >
         {props.leftIcon
@@ -22,7 +22,8 @@ function SectionHeaderSubsection(props) {
           size="regular"
           text={props.title}
           />
-        : <Typography type="bodyTextNormal">
+        : <Typography
+          type="bodyTextNormal">
           {props.title}
         </Typography>}
 
@@ -30,7 +31,6 @@ function SectionHeaderSubsection(props) {
       {props.rightIcon
         ? <IconAvaWrapper
           icon={props.rightIcon}
-          onClick={props.onRightIconClick}
           size={"standard"}
           />
         : null
@@ -43,7 +43,6 @@ SectionHeaderSubsection.propTypes = {
   className: React.PropTypes.string,
   leftIcon: React.PropTypes.string,
   onClick: React.PropTypes.func,
-  onRightIconClick: React.PropTypes.func,
   rightIcon: React.PropTypes.string,
   title: React.PropTypes.string
 };
