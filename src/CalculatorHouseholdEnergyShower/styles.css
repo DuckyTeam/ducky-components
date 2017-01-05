@@ -1,0 +1,22 @@
+.outerWrapper {
+  padding:0;
+  margin:0;
+  display: flex;
+  flex-direction:column;;
+  background-color: #FFFFFF;
+}
+
+.countersWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.icon {
+  color: #00ab97;
+}
+
+.titleandiconWrap {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 4px;
+}

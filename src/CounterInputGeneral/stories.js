@@ -1,4 +1,4 @@
-import {stories, className, bool, string, func, oneOf} from '../duckyStories';
+import {stories, className, bool, string, func, number, oneOf} from '../duckyStories';
 import CounterInputGeneral from './index';
 
 stories(module, CounterInputGeneral, [
@@ -12,5 +12,6 @@ stories(module, CounterInputGeneral, [
   increaseValue: func(),
   operator: oneOf(['plus', 'remove']),
   resultNumber: string('20000'),
-  units: string('kwh')
+  units: string('kwh'),
+  value: number(7)
 });
