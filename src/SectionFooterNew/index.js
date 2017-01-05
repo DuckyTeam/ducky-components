@@ -27,10 +27,12 @@ function SectionFooterNew(props) {
       <div className={classNames(styles.wrapper, props.className)}>
         <ButtonIcon
           icon={props.icon}
+          onClick={props.onPreviousClick}
           >
           {props.text}
         </ButtonIcon>
         <ButtonRaised
+          onClick={props.onNextClick}
           theme={'dark'}
           >
         {props.buttonText}
@@ -66,7 +68,8 @@ SectionFooterNew.propTypes = {
   dateTime: React.PropTypes.number,
   icon: React.PropTypes.string,
   name: React.PropTypes.string,
-  onClick: React.PropTypes.func,
+  onNextClick: React.PropTypes.func,
+  onPreviousClick: React.PropTypes.func,
   seen: React.PropTypes.bool,
   text: React.PropTypes.string,
   type: React.PropTypes.string
