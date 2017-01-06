@@ -13,14 +13,16 @@ function ButtonMini(props) {
       })}
       onClick={props.disabled ? null : props.onClick}
       >
-      <Icon
-        className={classNames(styles.icon, {
-          [styles.borderIcon]: props.theme === 'border',
-          [styles.fillIcon]: props.theme === 'fill'
-        })}
-        icon={props.icon}
-        size={'micro'}
-        />
+      <div className={styles.iconWrapper}>
+        <Icon
+          className={classNames(styles.icon, {
+            [styles.borderIcon]: props.theme === 'border',
+            [styles.fillIcon]: props.theme === 'fill'
+          })}
+          icon={props.icon}
+          size={'micro'}
+          />
+      </div>
     </button>
   );
 }
