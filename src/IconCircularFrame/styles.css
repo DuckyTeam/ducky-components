@@ -3,14 +3,63 @@
   width: 96px;
   height: 96px;
   background-color: #00AB97;
-  border: 2px solid;
-  border-color: #FFFFFF;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.border {
+  border: 2px solid;
+  border-color: #FFFFFF;
+}
+
 .icon {
   color: #FFFFFF;
+}
+
+.nano {
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.micro {
+  width: 20px;
+  height: 20px;
+}
+
+.mini {
+  width: 24px;
+  height: 24px;
+}
+
+.small {
+  width: 36px;
+  height: 36px;
+}
+
+.standard {
+  width: 48px;
+  height: 48px;
+}
+
+.large1 {
+  width: 72px;
+  height: 72px;
+}
+
+.large2 {
+  width: 96px;
+  height: 96px;
+}
+
+.display1 {
+  width: 96px;
+  height: 96px;
+}
+
+.display2 {
+  width: 96px;
+  height: 96px;
 }
