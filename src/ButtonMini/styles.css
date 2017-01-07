@@ -3,9 +3,7 @@
   height: 16px;
   border-radius: 50%;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0;
   cursor: pointer;
   border: 0px solid rgba(0,0,0,0);
 }
@@ -30,4 +28,12 @@
 
 .borderIcon {
   color: #00ab97;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
