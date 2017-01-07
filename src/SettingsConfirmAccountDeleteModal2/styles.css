@@ -1,0 +1,35 @@
+.modal {
+  width:95%;
+  max-width:520px;
+  margin: 48px auto;
+  border-radius: 4px;
+  background: #FFFFFF;
+  box-shadow: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
+}
+
+.deleteWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  color: #00ab97;
+  padding-bottom: 32px;
+}
+
+.textTitle {
+  padding-bottom: 16px;
+}
+
+.inputPassword {
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+.buttonConfirmDelete {
+  width: 100%;
+  margin-bottom: 16px;
+}
