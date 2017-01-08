@@ -44,7 +44,7 @@ function SettingsItem(props) {
         <Spacer size={'double'} />
       </div>
       : <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
-        onClick={props.onClick}
+        onClick={props.inactive ? null : props.onClick}
         size={'standard'}
         >
         <div className={styles.composite}>
@@ -57,13 +57,13 @@ function SettingsItem(props) {
           {props.value
             ? <Typography
               className={props.inactive ? styles.typoContentInactive : styles.typoContent}
-              size={'bodyTextStrong'}
+              type={'bodyTextStrong'}
               >
               {props.value}
             </Typography>
             : <Typography
               className={props.inactive ? styles.noValueInactive : styles.noValue}
-              size={'bodyTextStrong'}
+              type={'bodyTextStrong'}
               >
               {'Legg til'}
             </Typography>
