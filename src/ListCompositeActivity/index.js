@@ -35,7 +35,7 @@ function ListCompositeActivity(props) {
 
 ListCompositeActivity.propTypes = {
   className: PropTypes.string,
-  co2: PropTypes.number,
+  co2: PropTypes.node,
   icon: PropTypes.string,
   onIconClick: PropTypes.func,
   onLabelClick: PropTypes.func,
