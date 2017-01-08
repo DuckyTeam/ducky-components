@@ -1,10 +1,13 @@
 .wrapper {
-  color: #FFFFFF !important;
   border-radius: 50%;
   background-color: #00AB97;
   cursor: pointer;
   border: 0px solid rgba(0,0,0,0);
   padding: 0;
+}
+
+.wrapper > div > span {
+  color: #FFF;
 }
 
 .main {
