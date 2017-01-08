@@ -30,6 +30,8 @@
 
 .composite {
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .compositeExpanded {
@@ -44,7 +46,6 @@
 
 .typoTitleInactive {
   line-height: 24px;
-  flex-grow: 1;
   color: #90a4ae;
 }
 
@@ -57,7 +58,12 @@
 .typoContentInactive {
   padding-left: 16px;
   color: #90a4ae;
-  float: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  width: 100%;
+  text-align: right;
 }
 
 .saveButton {

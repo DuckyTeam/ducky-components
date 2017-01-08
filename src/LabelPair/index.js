@@ -80,7 +80,7 @@ function LabelPair(props) {
 
 LabelPair.displayName = 'LabelPair';
 LabelPair.propTypes = {
-  co2: PropTypes.number,
+  co2: PropTypes.node,
   onClick: PropTypes.func,
   onlyDays: PropTypes.bool,
   points: PropTypes.number,
