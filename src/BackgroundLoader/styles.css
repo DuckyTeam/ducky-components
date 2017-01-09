@@ -8,6 +8,9 @@
   text-align: center;
   z-index: 99999;
   overflow: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .iconWrapper {
