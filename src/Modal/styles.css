@@ -8,6 +8,8 @@
   text-align: center;
   z-index: 99999;
   overflow: auto;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
 }
 
 .modalWrapper {

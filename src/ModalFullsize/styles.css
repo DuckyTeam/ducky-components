@@ -13,6 +13,8 @@
   text-align: center;
   margin: 0 auto;
   overflow: auto;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
   z-index: 99999;
 }
 
