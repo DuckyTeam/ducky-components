@@ -30,7 +30,7 @@
   padding: 0;
   box-shadow: 0 19px 60px rgba(0,0,0,0.3), 0 15px 20px rgba(0,0,0,0.22);
   border-radius: 4px;
-  border: 1px solid rgba(0,0,0,0.15);
+  overflow: hidden;
   z-index: 999999;
   background-color: #fff;
   text-align: left;
