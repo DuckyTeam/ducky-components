@@ -46,16 +46,18 @@ class ModalFullsize extends React.Component {
           [this.props.className]: this.props.className
         })}
         onClick={this.props.onHide}
-        ref={this.props.ref}
         >
         <div
           className={styles.modal}
           onClick={this.handleClick}
           >
-          <div className={classNames({
-            [styles.content]: !this.props.showStickyFooter,
-            [styles.contentWithPadding]: this.props.showStickyFooter
-          })}>
+          <div
+            className={classNames({
+              [styles.content]: !this.props.showStickyFooter,
+              [styles.contentWithPadding]: this.props.showStickyFooter
+            })}
+            ref={this.props.modalRef}
+            >
             {this.props.children}
           </div>
           {this.props.showStickyFooter ? this.renderStickyFooter() : null}
@@ -69,11 +71,11 @@ ModalFullsize.propTypes = {
   cancelButtonText: React.PropTypes.string,
   children: React.PropTypes.node,
   className: React.PropTypes.string,
+  modalRef: React.PropTypes.func,
   okButtonText: React.PropTypes.string,
   onCancel: React.PropTypes.func,
   onHide: React.PropTypes.func,
   onOkClick: React.PropTypes.func,
-  ref: React.PropTypes.func,
   show: React.PropTypes.bool,
   showStickyFooter: React.PropTypes.bool
 };
