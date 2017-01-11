@@ -76,7 +76,7 @@ CalculatorGeneralItem.propTypes = {
   onSaveButtonClicked: React.PropTypes.func,
   saveButtonText: React.PropTypes.string,
   units: React.PropTypes.string,
-  value: React.PropTypes.string
+  value: React.PropTypes.node
 };
 
 export default CalculatorGeneralItem;

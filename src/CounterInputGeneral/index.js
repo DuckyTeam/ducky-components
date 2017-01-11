@@ -41,7 +41,7 @@ CounterInputGeneral.propTypes = {
   decreaseValue: PropTypes.func,
   increaseValue: PropTypes.func,
   label: PropTypes.string,
-  value: PropTypes.number
+  value: PropTypes.node
 };
 
 export default CounterInputGeneral;

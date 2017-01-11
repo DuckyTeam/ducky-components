@@ -38,7 +38,7 @@ ProgressbarLabeledPercentage.propTypes = {
   categoryText: React.PropTypes.string,
   className: React.PropTypes.string,
   color: React.PropTypes.string,
-  percent: React.PropTypes.number,
+  percent: React.PropTypes.node,
   scaledPercent: React.PropTypes.number
 };
 
