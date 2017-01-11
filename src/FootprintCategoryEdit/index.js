@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import IconAvaWrapper from '../IconAvaWrapper';
 import Spacer from '../Spacer';
 import LabelNumberDisplay from '../LabelNumberDisplay';
@@ -6,7 +7,12 @@ import styles from './styles.css';
 
 function FootprintCategoryEdit(props) {
   return (
-    <div className={styles.outerWrap}>
+    <div
+      className={classNames(styles.outerWrap, {
+        [styles.cursorPointer]: props.onClick
+      })}
+      onClick={props.onClick}
+      >
       <Spacer
         className={styles.topSpacer}
         size="standard"
@@ -14,14 +20,19 @@ function FootprintCategoryEdit(props) {
       <div className={styles.innerWrap}>
         <div className={styles.forcing}>
           <LabelNumberDisplay
+            className={styles.labelNumberDisplay}
             icon={props.icon || 'icon-gnome'}
-            label={props.footprintLabel}
-            value={props.footprintValue}
+            label={props.label}
+            value={props.value}
             />
         </div>
-        <IconAvaWrapper
-          icon={props.avaIcon || 'icon-mode_edit'}
-          />
+        {
+          props.rightIcon
+          ? <IconAvaWrapper
+            icon={props.rightIcon}
+            />
+          : null
+        }
       </div>
       <Spacer
         className={styles.bottomSpacer}
@@ -32,10 +43,11 @@ function FootprintCategoryEdit(props) {
 }
 
 FootprintCategoryEdit.propTypes = {
-  avaIcon: React.PropTypes.string,
-  footprintLabel: React.PropTypes.string,
-  footprintValue: React.PropTypes.number,
-  icon: React.PropTypes.string
+  icon: React.PropTypes.string,
+  label: React.PropTypes.node,
+  onClick: React.PropTypes.func,
+  rightIcon: React.PropTypes.string,
+  value: React.PropTypes.node
 };
 
 export default FootprintCategoryEdit;

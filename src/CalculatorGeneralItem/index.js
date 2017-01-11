@@ -9,8 +9,8 @@ import styles from './styles.css';
 function CalculatorGeneralItem(props) {
   return (
     props.expanded
-    ? <div className={styles.outerWrapper}>
-      <Wrapper className={classNames(styles.wrapperExpanded, {[props.className]: props.className})}
+    ? <div className={classNames(styles.outerWrapper, props.className)}>
+      <Wrapper className={styles.wrapperExpanded}
         onClick={props.onClick}
         size={'standard'}
         >
@@ -33,8 +33,8 @@ function CalculatorGeneralItem(props) {
         size="double"
         />
     </div>
-  : <div className={styles.outerWrapper}>
-    <Wrapper className={classNames(styles.wrapper, {[props.className]: props.className})}
+  : <div className={classNames(styles.outerWrapper, props.className)}>
+    <Wrapper className={styles.wrapper}
       onClick={props.onClick}
       size="standard"
       >

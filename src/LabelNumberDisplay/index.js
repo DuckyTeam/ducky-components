@@ -8,7 +8,7 @@ const PropTypes = React.PropTypes;
 
 function LabelNumberDisplay(props) {
   return (
-    <div className={styles.outerWrapper}>
+    <div className={classNames(styles.outerWrapper, props.className)}>
       <Icon
         className={styles.icon}
         icon={props.icon || 'icon-leaf'}
@@ -30,6 +30,7 @@ function LabelNumberDisplay(props) {
 }
 
 LabelNumberDisplay.propTypes = {
+  className: PropTypes.string,
   color: PropTypes.string,
   icon: PropTypes.string,
   label: PropTypes.string,

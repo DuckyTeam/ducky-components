@@ -1,0 +1,34 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+}
+
+.icon {
+  color: #fff;
+  margin-right: 16px;
+}
+
+.textWrapper {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+}
+
+.title {
+  color: #fff;
+  line-height: 28px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subTitle {
+  color: #fff;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

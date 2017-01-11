@@ -1,6 +1,9 @@
 .outerWrap {
   width: 100%;
   background-color: #fff;
+}
+
+.cursorPointer {
   cursor: pointer;
 }
 
@@ -13,7 +16,10 @@
 
 .forcing {
   margin-left: 16px;
-  color: #90A4AE;
+}
+
+.labelNumberDisplay span:first-child {
+  color: #90A4AE !important;
 }
 
 .topSpacer {

@@ -1,11 +1,11 @@
 .outerWrapper {
-  width:100%
+  width:100%;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
 }
 .wrapper, .wrapperExpanded {
   background-color: transparent;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(38,50,56,0.12);
   cursor: pointer;
   justify-content: space-between;
 }
@@ -22,16 +22,14 @@
 }
 .typoQuestion {
   line-height: 24px;
-  flex-grow: 1;
+  flex: 1;
+  padding-right: 10px;
 }
 
 .typoAnswer, .typoAnswerInactive {
-  width: 120px;
-  flex: 0 0 120px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin-right: 16px;
+  max-width: 100px;
+  width: auto;
+  text-align: right;
 }
 
 .typoAnswer {

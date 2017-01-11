@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   height: 12px;
-  min-width: 320px;
 }
 
 .categoryWrapper {
