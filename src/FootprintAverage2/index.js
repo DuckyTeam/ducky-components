@@ -8,13 +8,13 @@ import styles from './styles.css';
 
 function AverageFootprint2(props) {
   const captionicons = {
-    'icon-sentiment_very_satisfied': 'blant de beste!',
-    'icon-tag_faces': 'kjempebra',
-    'icon-sentiment_satisfied': 'bedre enn snittet',
-    'icon-sentiment_neutral': 'gjennomsnittlige',
-    'icon-sentiment_dissatisfied': 'dårligere enn snittet',
-    'icon-mood_bad': 'ganske dårlige!',
-    'icon-sentiment_very_dissatisfied': 'blant de dårligste!'
+    'icon-sentiment_very_satisfied': 'Blant de beste!',
+    'icon-tag_faces': 'Kjempebra',
+    'icon-sentiment_satisfied': 'Bedre enn snittet',
+    'icon-sentiment_neutral': 'Gjennomsnittlig',
+    'icon-sentiment_dissatisfied': 'Dårligere enn snittet',
+    'icon-mood_bad': 'Ganske dårlige!',
+    'icon-sentiment_very_dissatisfied': 'Blant de dårligste!'
   };
 
   const iconcolors = {
