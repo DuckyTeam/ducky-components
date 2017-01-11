@@ -52,7 +52,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   const height = props.height - props.margin.top - props.margin.bottom;
   const xAxisOffset = height + props.margin.top + 5;
-  const hasStarted = daysToStart === 0;
+  const hasStarted = daysToStart <= 0;
   const highestScore = max(state.data, (data) => data.value);
   const lowestScore = min(state.data, (data) => data.value);
   const leaderId = state.noLeader ? null : (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
