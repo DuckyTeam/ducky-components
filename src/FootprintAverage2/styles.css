@@ -1,0 +1,54 @@
+.wrapper {
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(38,50,56,0.12);
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+}
+
+.face1 {
+    color: #455a64;
+}
+
+.face2 {
+    color: #607d8b;
+}
+
+.face3 {
+    color: #90a4ae;
+}
+
+.face4 {
+    color: #b0bec5;
+}
+
+.face5 {
+    color: #45c5b4;
+}
+
+.face6 {
+    color: #00ab97;
+}
+
+.face7 {
+    color: #007565;
+}
+
+.icon {
+  margin-right: 16px;
+  height: auto;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.firstRow {
+
+}
+
+.secondRow {
+  line-height: 28px;
+}
