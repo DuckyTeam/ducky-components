@@ -38,20 +38,39 @@
   color: #00ab97;
 }
 
+.typoContent {
+  padding-left: 16px;
+  color: #00ab97;
+  float: right;
+}
+
 .typoContentInactive {
-  padding-right: 16px;
+  padding-left: 16px;
   color: #90a4ae;
+  float: right;
 }
 
 .typoAnswerInactive {
   color: #90a4ae;
 }
 
-.saveButton {
-  margin-right: 6px;
+.icon {
+  margin-right: 15px;
   cursor: pointer;
 }
 
 .spacerBottom {
   border-bottom: 1px solid rgba(38,50,56,0.12);
+}
+
+.noValue {
+  padding-left: 16px;
+  color: #ff9800;
+  float: right;
+}
+
+.noValueInactive {
+  padding-left: 16px;
+  color: #90a4ae;
+  float: right;
 }
