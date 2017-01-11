@@ -6,7 +6,7 @@ import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';
 
-function AverageFootprint2(props) {
+function FootprintAverage2(props) {
   const captionicons = {
     'icon-sentiment_very_satisfied': 'Blant de beste!',
     'icon-tag_faces': 'Kjempebra',
@@ -58,11 +58,11 @@ function AverageFootprint2(props) {
   );
 }
 
-AverageFootprint2.propTypes = {
+FootprintAverage2.propTypes = {
   className: React.PropTypes.string,
   color: React.PropTypes.string,
   icon: React.PropTypes.oneOf(['icon-sentiment_very_satisfied', 'icon-tag_faces', 'icon-sentiment_satisfied',
   'icon-sentiment_neutral', 'icon-sentiment_dissatisfied', 'icon-mood_bad', 'icon-sentiment_very_dissatisfied'])
 };
 
-export default AverageFootprint2;
+export default FootprintAverage2;
