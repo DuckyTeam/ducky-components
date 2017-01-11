@@ -9,7 +9,7 @@ function ProfilePageMeta(props) {
     let icon = 'icon-leaf';
     let iconTitle = props.savingsText;
     let totalComparisonComp = '';
-    const totalUserValue = (props.totalUserValue).toLocaleString();
+    const totalUserValue = props.totalUserValue ? (props.totalUserValue).toLocaleString() : 0;
     const totalComparisonValue = props.totalComparisonValue ? (props.totalComparisonValue).toLocaleString() : 0;
 
     if (props.type === 'points') {
