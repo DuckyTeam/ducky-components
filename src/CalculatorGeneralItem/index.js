@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Button from '../Button';
+import Icon from '../Icon';
 import Spacer from '../Spacer';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
@@ -20,12 +20,10 @@ function CalculatorGeneralItem(props) {
           >
           {props.label}
         </Typography>
-        <Button
-          className={styles.saveButton}
-          onClick={props.onSaveButtonClicked}
-          >
-          {props.saveButtonText}
-        </Button>
+        <Icon
+          className={styles.icon}
+          icon={'icon-keyboard_arrow_up'}
+          />
       </Wrapper>
       <div>
         {props.children}
@@ -46,13 +44,21 @@ function CalculatorGeneralItem(props) {
         >
         {props.label}
       </Typography>
-      <Typography
-        className={props.inactive ? styles.typoAnswerInactive : styles.typoAnswer}
-        type="bodyTextStrong"
-        >
-        {props.value}
-        <span className={styles.unitsText}>{props.units}</span>
-      </Typography>
+      {props.value
+        ? <Typography
+          className={props.inactive ? styles.typoContentInactive : styles.typoContent}
+          size={'bodyTextStrong'}
+          >
+          {props.value}
+          {props.units ? <span className={styles.unitsText}>{props.units}</span> : null}
+        </Typography>
+        : <Typography
+          className={props.inactive ? styles.noValueInactive : styles.noValue}
+          size={'bodyTextStrong'}
+          >
+          {props.noValue}
+        </Typography>
+    }
     </Wrapper>
   </div>
   );
@@ -64,6 +70,7 @@ CalculatorGeneralItem.propTypes = {
   expanded: React.PropTypes.bool,
   inactive: React.PropTypes.bool,
   label: React.PropTypes.string,
+  noValue: React.PropTypes.string,
   onClick: React.PropTypes.func,
   onCloseClick: React.PropTypes.func,
   onSaveButtonClicked: React.PropTypes.func,
