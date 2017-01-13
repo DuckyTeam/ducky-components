@@ -26,7 +26,7 @@ class CarouselNavigator extends React.Component {
           className={className}
           id={index}
           key={index}
-          onClick={this.handleDotClick.bind(this, index)}
+          onClick={() => this.handleDotClick(index)}
           />
       );
     });
