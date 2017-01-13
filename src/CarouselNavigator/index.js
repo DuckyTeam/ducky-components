@@ -15,10 +15,10 @@ class CarouselNavigator extends React.Component {
     // Does not work in IE11 and below: const dotsArray = new Array(dotCount).fill(0);
     const dotsArray = new Array(dotCount + 1).join('0').split('');
 
-    let dots = dotsArray.map((dot, index) => {
-      let className = classNames(styles.inactive, {
+    const dots = dotsArray.map((dot, index) => {
+      const className = classNames(styles.inactive, {
         [styles.dotActive]: (dotCount >= this.props.currentSlide
-          ? this.props.currentSlide === index + 1 : index + 1 === 0)
+          ? this.props.currentSlide === index : index === 0)
       }, {[this.props.className]: this.props.className});
 
       return (
