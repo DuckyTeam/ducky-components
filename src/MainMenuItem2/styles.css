@@ -1,0 +1,26 @@
+.wrapper {
+  margin-left: 48px;
+  margin-right: 16px;
+  height: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+}
+.wrapper:hover{
+  background-color: rgba(38,50,56,0.04);
+}
+.wrapper:hover{
+  background-color: rgba(38,50,56,0.04);
+}
+
+.caption {
+  overflow: ellipsis;
+  color: #607d8b;
+}
+.caption:hover{
+  color: #607d8b;
+}
+.caption:active{
+  color: #00ab97;
+}
