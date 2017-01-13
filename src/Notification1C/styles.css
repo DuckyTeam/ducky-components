@@ -1,0 +1,9 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  padding: 0px;
+}
+.icon {
+  color: #00AB97;
+  margin-right: 12px;
+}
