@@ -12,7 +12,6 @@ stories(module, NotificationItem, [
   name: string('Navn Navnesen'),
   onClick: func(),
   seen: bool(),
-  text: string('som du deltar på er nå igang!'),
-  textBeforeName: string('Utfordringen'),
+  text: string('er nå ferdig! Vil du se resultatet'),
   type: oneOf('default', 'challenge')
 });

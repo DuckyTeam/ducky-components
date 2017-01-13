@@ -3,7 +3,7 @@ import Wrapper from '../Wrapper';
 import NotificationItem from '../NotificationItem';
 import React from 'react';
 import styles from './styles.css';
-function Notification1B(props) {
+function Notification1C(props) {
   return (
       <NotificationItem
         buttonClicked={props.buttonClicked}
@@ -16,7 +16,6 @@ function Notification1B(props) {
         onClick={props.onClick}
         seen={props.seen}
         text={props.text}
-        textBeforeName={props.textBeforeName}
         type={props.type}
         >
         <Icon
@@ -28,7 +27,7 @@ function Notification1B(props) {
   );
 }
 
-Notification1B.propTypes = {
+Notification1C.propTypes = {
   buttonClicked: React.PropTypes.func,
   buttonText: React.PropTypes.string,
   children: React.PropTypes.node,
@@ -42,8 +41,7 @@ Notification1B.propTypes = {
   seen: React.PropTypes.bool,
   size: React.PropTypes.oneOf(['standard', 'main']),
   text: React.PropTypes.string,
-  textBeforeName: React.PropTypes.string,
   type: React.PropTypes.string
 };
 
-export default Notification1B;
+export default Notification1C;
