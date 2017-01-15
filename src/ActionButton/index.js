@@ -25,7 +25,6 @@ function ActionButton(props) {
 }
 
 ActionButton.propTypes = {
-  children: React.PropTypes.node,
   className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   icon: React.PropTypes.string,

@@ -29,7 +29,7 @@ d3Chart.create = (el, props, state) => {
   utils.drawChartGroup(svg, props, styles.triangleIndicator);
   utils.drawChartGroup(svg, props, styles.daysToStart);
 
-  drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel), state.daysToStart === 0);
+  drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel), !state.milestones && !state.goals ? 4 : -38  ,state.daysToStart === 0);
 
   d3Chart.update(el, state, props, true);
 };
@@ -42,7 +42,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const {
     memberOf,
     selectedId,
-    milestones,
+    milestones = [],
     goal,
     isMobile,
     onClick,
@@ -99,7 +99,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .domain([0, highestYValue])
     .range([bottomX, 15 + props.margin.top]);
 
-  const yAxisTickValues = calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale);
+  const yAxisTickValues = milestones.length !== 0 || goal ? calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale) : [];
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -158,7 +158,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   //Draw labels
   const labelGroup = utils.getChartGroup(svg, styles.labels);
 
-  drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click)
+  if (yAxisTickValues.length !== 0) drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click)
 
   //Draw faces
   /*

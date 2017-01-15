@@ -6,6 +6,7 @@
 import { select, selectAll } from 'd3-selection';
 import { pie, arc } from 'd3-shape';
 import { interpolate } from 'd3-interpolate';
+import { transition } from 'd3-transition';
 
 const MARGINS = {top: 0, right: 0, bottom: 0, left: 0};
 const INNER_RADIUS_MULTIPLIER = 0.8;
