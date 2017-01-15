@@ -32,5 +32,5 @@ stories(module, BarChart, [
   onClick: func(),
   isMobile: bool(false),
   onClickCO2: func(),
-  daysToStart: number(3)
+  daysToStart: number(0)
 }, 'Chart/BarChart');
