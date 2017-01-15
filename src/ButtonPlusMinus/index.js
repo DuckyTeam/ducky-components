@@ -7,7 +7,7 @@ function ButtonPlusMinus(props) {
   return (
     <div
       className={classNames(styles.wrapper, {
-        [styles.largerPlusMinus]: props.larger,
+        [styles.largerPlusMinus]: props.large,
         [styles.inactive]: props.inactive,
         [props.className]: props.className
       })}
@@ -16,7 +16,7 @@ function ButtonPlusMinus(props) {
       <ButtonMini
         className={props.larger ? styles.iconLarger : null}
         icon={props.operator === "plus" ? "icon-add" : "icon-remove"}
-        larger={props.larger}
+        large={props.large}
         />
     </div>
   );
@@ -25,7 +25,7 @@ function ButtonPlusMinus(props) {
 ButtonPlusMinus.propTypes = {
   className: React.PropTypes.string,
   inactive: React.PropTypes.bool,
-  larger: React.PropTypes.bool,
+  large: React.PropTypes.bool,
   onClick: React.PropTypes.func,
   operator: React.PropTypes.oneOf(['plus', 'remove'])
 };
