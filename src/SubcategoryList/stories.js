@@ -8,7 +8,7 @@ stories(module, SubcategoryList, [
     {
       'percent': 77,
       'color': 'red',
-      'label': 'Meiereiprodukter',
+      'label': 'Meieriprodukter',
       'scaledPercent': 100
     },
     {
