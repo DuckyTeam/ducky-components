@@ -7,7 +7,7 @@ function ButtonMini(props) {
   return (
     <button
       className={classNames(styles.wrapper, {
-        [styles.largerMini]: props.larger,
+        [styles.largerMini]: props.large,
         [styles.borderWrapper]: props.theme === 'border',
         [styles.fillWrapper]: props.theme === 'fill',
         [props.className]: props.className
@@ -21,7 +21,7 @@ function ButtonMini(props) {
             [styles.fillIcon]: props.theme === 'fill'
           })}
           icon={props.icon}
-          size={props.larger ? "small" : "micro"}
+          size={props.large ? "small" : "micro"}
           />
       </div>
     </button>
@@ -32,7 +32,7 @@ ButtonMini.propTypes = {
   className: React.PropTypes.string,
   disabled: React.PropTypes.bool,
   icon: React.PropTypes.string,
-  larger: React.PropTypes.bool,
+  large: React.PropTypes.bool,
   onClick: React.PropTypes.func,
   theme: React.PropTypes.oneOf(['border', 'fill'])
 };
