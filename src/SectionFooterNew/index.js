@@ -32,6 +32,8 @@ function SectionFooterNew(props) {
           {props.text}
         </ButtonIcon>
         <ButtonRaised
+          className={styles.sef007NextButton}
+          disabled={props.disabled}
           onClick={props.onNextClick}
           theme={'dark'}
           >
@@ -66,6 +68,7 @@ SectionFooterNew.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
   dateTime: React.PropTypes.number,
+  disabled: React.PropTypes.bool,
   icon: React.PropTypes.string,
   name: React.PropTypes.string,
   onNextClick: React.PropTypes.func,
