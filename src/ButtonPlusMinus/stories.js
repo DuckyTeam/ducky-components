@@ -6,6 +6,7 @@ stories(module, ButtonPlusMinus, [
 ], {
   className: className(),
   inactive: bool(false),
+  larger: bool(false),
   onClick: func(),
   operator: oneOf('plus', 'remove')
 });

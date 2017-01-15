@@ -11,6 +11,11 @@
   align-items: center;
 }
 
+.largerPlusMinus {
+  width: 30px;
+  height: 30px;
+}
+
 .wrapper:hover {
   border: 2px solid #607D8B;
 }
@@ -39,4 +44,9 @@
 
 .wrapper > button {
   background-color: transparent;
+}
+
+.iconLarger > div > span {
+  height: 20px;
+  width: 20px;
 }
