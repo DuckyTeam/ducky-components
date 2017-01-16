@@ -23,11 +23,13 @@ function CounterInputGeneral(props) {
       <ButtonPlusMinus
         className={styles.minus}
         inactive={props.value === 0}
+        large={props.large}
         onClick={props.decreaseValue}
         operator={'remove'}
         />
       <ButtonPlusMinus
         className={styles.plus}
+        large={props.large}
         onClick={props.increaseValue}
         operator={'plus'}
         />
@@ -41,6 +43,7 @@ CounterInputGeneral.propTypes = {
   decreaseValue: PropTypes.func,
   increaseValue: PropTypes.func,
   label: PropTypes.string,
+  large: PropTypes.bool,
   value: PropTypes.node
 };
 
