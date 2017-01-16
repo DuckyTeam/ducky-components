@@ -7,6 +7,7 @@ stories(module, ButtonMini, [
   className: className(),
   disabled: bool(),
   icon: string('icon-tram'),
+  large: bool(false),
   onClick: func(),
   theme: oneOf('border', 'fill')
 });
