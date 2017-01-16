@@ -1,0 +1,26 @@
+.outerWrap {
+  width: 100%;
+  background-color: #f4f7f9;
+}
+
+.wrapper {
+  width: 100%;
+  background-color: #f4f7f9;
+  text-align: left;
+}
+
+.subsectionLink {
+  width: 100%;
+  background-color: #f4f7f9;
+  cursor: pointer;
+  color: #00ab97;
+}
+
+.subsectionLink span {
+  color: #00ab97;
+}
+
+.spacer {
+  width: 100%;
+  background-color: #f4f7f9;
+}
