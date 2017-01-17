@@ -1,7 +1,7 @@
 import paths from './../svgpaths';
-import { min, max } from 'd3-array';
+import {min, max} from 'd3-array';
 
-const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles) => {
+const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, yourScore, speed, isMobile, grID, memberOf, selectedId, onClick, styles) => {
 
   //Bunch of messy helper functions and variables
   const barTextFontSize = 20;
@@ -18,7 +18,7 @@ const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, your
   };
   const getPath = (data) => {
     if (data.id === memberOf && data.id !== leaderId) {
-      return (isMobile || yourScore === 0) ? paths.check : paths.leaf;
+      return (isMobile || yourScore === 0) ? paths.check : [(grID === 111) ? paths.gnome : paths.leaf];
     } else if (data.id === leaderId) {
       return paths.crown;
     }
