@@ -1,7 +1,23 @@
-.outerWrapperExpanded{
-    font-color: #00ab97;
+.wrapper {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
 }
 
-.outerWrapper{
-    color: #607d8b;
+.iconTextWrapper {
+  display: flex;
+  flex-grow: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+.inactive{
+  color: #607d8b;
+  padding-right: 16px;
+}
+
+.active{
+  color: #00ab97;
+  padding-right: 16px;
 }
