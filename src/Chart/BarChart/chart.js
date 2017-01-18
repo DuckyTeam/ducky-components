@@ -66,8 +66,6 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     return el;
   });
 
-  const grID = state.graphID;
-
   const isSelectedByName = (label) => {
     let found = false;
 
@@ -103,7 +101,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .domain([0, highestYValue])
     .range([bottomX, 15 + props.margin.top]);
 
-  const yAxisTickValues = milestones.length !== 0 || goal ? calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, isGnome, hasStarted, yScale) : [];
+  const yAxisTickValues = milestones.length !== 0 || goal ? calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale, isGnome) : [];
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
