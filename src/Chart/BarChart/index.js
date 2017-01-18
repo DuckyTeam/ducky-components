@@ -21,6 +21,7 @@ BarChart.propTypes = {
   graphID: React.PropTypes.number.isRequired,
   hasLeader: React.PropTypes.bool,
   height: React.PropTypes.string.isRequired,
+  isGnome: React.PropTypes.bool,
   isMobile: React.PropTypes.bool,
   maxWidthBar: React.PropTypes.number,
   memberOf: React.PropTypes.any,

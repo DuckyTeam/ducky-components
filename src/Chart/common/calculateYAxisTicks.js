@@ -1,9 +1,9 @@
-import { min, max } from 'd3-array';
+import {min, max} from 'd3-array';
 
 import paths from './../svgpaths';
 import styles from './drawGoalLabels.css';
 
-export default (goals, nextGoal, yourScore, highestYValue, goal, grID, hasStarted, yScale) => {
+export default (goals, nextGoal, yourScore, highestYValue, goal, isGnome, hasStarted, yScale) => {
   const visibleGoals = goals.slice(0, max([min([nextGoal ? goals.indexOf(nextGoal) : goals.length, goals.length]) + 1, 2]))
   visibleGoals.reverse();
   const indexOfNextGoal = visibleGoals.indexOf(visibleGoals.reduce((current, goal) => (goal > yourScore) ? goal : current, 0));
@@ -38,7 +38,7 @@ export default (goals, nextGoal, yourScore, highestYValue, goal, grID, hasStarte
     return nonClustered.map(ms => {
           const value = (ms === goal) ? min([ms, highestYValue]) : ms;
           const label = ms;
-          const path = (ms === goal) ? paths.trophy : ((ms <= yourScore) ? paths.check : [(grID === 111) ? paths.gnome : paths.leaf]);
+          const path = (ms === goal) ? paths.trophy : ((ms <= yourScore) ? paths.check : [ isGnome ? paths.gnome : paths.leaf]);
           const classNameIcon = hasStarted ? (ms === goal) ? styles.trophy : ((ms <= yourScore) ? styles.progressedGoalsCheck : styles.toBeProgressedGoalsLeaf) : styles.hasntStarted;
           const classNameText = hasStarted ? (ms === goal) ? styles.progressedGoalsText : (ms <= yourScore) ? styles.progressedGoalsText : styles.toBeProgressedGoalsText : styles.hasntStarted;
           return {value, label, path, classNameIcon, classNameText};

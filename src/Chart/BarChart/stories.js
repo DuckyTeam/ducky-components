@@ -31,6 +31,7 @@ stories(module, BarChart, [
   selectedId: json(12),
   onClick: func(),
   isMobile: bool(false),
+  isGnome: bool(),
   onClickCO2: func(),
   daysToStart: number(0)
 }, 'Chart/BarChart');
