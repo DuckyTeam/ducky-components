@@ -42,9 +42,11 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   const {
     memberOf,
     selectedId,
+    graphID,
     milestones = [],
     goal,
     isMobile,
+    isGnome,
     onClick,
     onCo2Click,
     daysToStart
@@ -63,6 +65,8 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     el.label = getShortenedName(el.label, state.data.length);
     return el;
   });
+
+  const grID = state.graphID;
 
   const isSelectedByName = (label) => {
     let found = false;
@@ -99,7 +103,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     .domain([0, highestYValue])
     .range([bottomX, 15 + props.margin.top]);
 
-  const yAxisTickValues = milestones.length !== 0 || goal ? calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, hasStarted, yScale) : [];
+  const yAxisTickValues = milestones.length !== 0 || goal ? calculateYAxisTicks(milestones, nextGoal, yourScore, highestYValue, goal, isGnome, hasStarted, yScale) : [];
 
   // Resize svg-canvas
   const svg = utils.selectSVG(props.id)
@@ -145,7 +149,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
         .attr('x', d => xScale(d.label) + (xScale.bandwidth() - 16) / 2)
         .attr('y', xAxisOffset + 26);
 
-  if (hasStarted) drawBars(svg, data, xScale, yScale, bottomX, maxWidthBar, leaderId, yourScore, speed, isMobile, memberOf, selectedId, onClick, styles);
+  if (hasStarted) drawBars(svg, data, xScale, yScale, bottomX, maxWidthBar, leaderId, yourScore, speed, isMobile, isGnome, memberOf, selectedId, onClick, styles);
 
   drawText(
     utils.getChartGroup(svg, styles.daysToStart),

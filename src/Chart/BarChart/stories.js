@@ -7,11 +7,11 @@ stories(module, BarChart, [
   data:json([{
     id: 12,
     value: 140,
-    label: "Strek1",
+    label: "Strek1"
   }, {
     id: 13,
     value: 1005,
-    label: "De nye Gitarkameratene",
+    label: "De nye Gitarkameratene"
   }, {
     id: 14,
     value: 320,
@@ -31,6 +31,7 @@ stories(module, BarChart, [
   selectedId: json(12),
   onClick: func(),
   isMobile: bool(false),
+  isGnome: bool(),
   onClickCO2: func(),
   daysToStart: number(0)
 }, 'Chart/BarChart');
