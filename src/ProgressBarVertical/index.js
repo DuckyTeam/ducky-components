@@ -19,6 +19,7 @@ function ProgressBarVertical(props) {
       className={classNames(styles.wrapper, {
         [styles.inactiveWrapper]: props.inactive,
         [props.className]: props.className})}
+      onClick={props.onClick}
       >
       <div
         className={styles.progress}
@@ -31,6 +32,7 @@ function ProgressBarVertical(props) {
 ProgressBarVertical.propTypes = {
   className: PropTypes.string,
   inactive: PropTypes.bool,
+  onClick: PropTypes.func,
   percent: PropTypes.number,
   type: PropTypes.string
 };
