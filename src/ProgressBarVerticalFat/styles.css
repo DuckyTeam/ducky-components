@@ -1,6 +1,12 @@
+.wrapper {
+  width: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
 .progressBarVertical {
-  flex-grow: 1;
-  max-width: 12px;
   height: 100%;
   border-radius: 2px;
   background-color: transparent;
@@ -10,6 +16,8 @@
   padding: 0;
   transition: all 0.1s ease;
   background-color: rgba(38, 50, 56, 0.04);
+  box-sizing: content-box;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 .progressBarVerticalWithHover {
@@ -23,15 +31,19 @@
 }
 
 .inactiveWrapper {
-  background-color: rgba(38,50,56,0.06);
+  height: 4px;
+}
+
+.inactive {
+  background-color: rgba(38,50,56,0.06) !important;
 }
 
 .progress {
-  position: absolute;
+  box-sizing: content-box;
+  width: 24px;
+  margin: 0 -2px;
+  min-height: 4px;
   bottom: 0;
-  margin: 0;
-  left:0;
-  width: 100%;
-  height: 4px;
+  position: absolute;
   background-color: #b0bec5;
 }
