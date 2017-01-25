@@ -10,16 +10,16 @@ class MenuWrapper extends React.Component {
 
   render() {
     return (
-            <div className={classNames(styles.menuWrapper, {
-              [this.props.className]: this.props.className
-            })}>
-              <div
-                className={styles[(this.props.show ? 'show' : '') + this.props.alignment]}
-                >
-                {this.props.children}
-              </div>
-            </div>
-        );
+      <div className={classNames(styles.menuWrapper, {
+        [this.props.className]: this.props.className
+      })}>
+        <div
+          className={styles[(this.props.show ? 'show' : '') + this.props.alignment]}
+          >
+          {this.props.children}
+        </div>
+      </div>
+    );
   }
 }
 
