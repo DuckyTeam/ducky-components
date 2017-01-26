@@ -31,9 +31,6 @@ class TextAreaLarge extends React.Component {
             return TypographyStyles.bodyTextNormal;
         }
     }
-    countLines(str) {
-      return str.split(/\r\n|\r|\n/).length;
-    }
     render() {
         const {className, value, label, errorMessage,
           onBlur, onFocus, onChange, maxLength, size} = this.props;
@@ -47,7 +44,6 @@ class TextAreaLarge extends React.Component {
                         className={classNames(styles.label, {
                             [this.getCorrectFontClass(size)]: !this.state.isFocused && !value.length,
                             [TypographyStyles.caption2Normal]: this.state.isFocused || value.length,
-                            [styles.longLineDesc]: this.countLines(value) > 15,
                             [styles.labelWithInput]: value.length,
                             [styles.labelFocused]: this.state.isFocused,
                             [styles[`label_${size}`]]: size
