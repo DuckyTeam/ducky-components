@@ -21,6 +21,10 @@
   height: 36px;
 }
 
+.disabled {
+  cursor: default;
+}
+
 .iconWrapper {
   display: inline-flex;
   align-items: center;

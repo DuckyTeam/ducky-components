@@ -15,7 +15,7 @@
   width: 100%;
 }
 
-.goalLabel {
+.goalLabel > span:first-child {
   color: #FFC107;
 }
 

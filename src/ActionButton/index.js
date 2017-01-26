@@ -8,7 +8,8 @@ function ActionButton(props) {
     <button
       className={classNames(styles.wrapper, {
         [styles[props.size]]: props.size,
-        [props.className]: props.className
+        [props.className]: props.className,
+        [styles.disabled]: props.disabled
       })}
       disabled={Boolean(props.disabled)}
       onClick={props.onClick}
