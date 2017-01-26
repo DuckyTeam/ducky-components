@@ -57,12 +57,16 @@
   text-transform: capitalize;
 }
 
+.labelWrap {
+  position: relative;
+}
+
 .label {
+  position: absolute;
   line-height: 20px;
   font-weight: normal;
   color: #b0bec5;
   pointer-events: none;
-  position: absolute;
   transform: translate3d(0, 0, 0) scale(1);
   transform-origin: left top;
   transition: 200ms;
@@ -111,8 +115,4 @@
   color: #b0bec5;
   margin-top: 8px;
   display: inline-block;
-}
-
-.longLineDesc {
-  display: none;
 }
