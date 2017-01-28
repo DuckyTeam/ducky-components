@@ -27,7 +27,7 @@ viz.update = (el, props) => {
   const bubble = pack()
     .size([props.width, props.height])
     .padding(1.5);
-
+    
   const nodes = bubble(hierarchy(data).sum(d => d.size)).leaves();
 
   const bubbles = svg.selectAll('.circles').data(nodes);
@@ -35,17 +35,15 @@ viz.update = (el, props) => {
   const enter = bubbles.enter();
 
   enter.filter(d => d.parent)
-    .append('svg')
+    .append('svg:image')
       .attr('class', 'circles')
       .attr('xlink:href', d => d.data.icon)
-      .attr('x', d => d.x)
-      .attr('y', d => d.y)
+      .attr('transform', d => `translate(${d.x}, ${d.y})`)
       .attr('height', 0)
       .attr('width', 0);
 
   bubbles.transition().duration(1000)
-    .attr('x', d => d.x)
-    .attr('y', d => d.y)
+    .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
     .attr('height', d => d.r*2)
     .attr('width', d => d.r*2);
 
