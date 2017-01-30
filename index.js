@@ -65,7 +65,6 @@ export {default as IconAvaWrapper} from './src/IconAvaWrapper';
 export {default as IconCircularFrame} from './src/IconCircularFrame';
 export {default as IconDropdown} from './src/IconDropdown';
 export {default as IconImage} from './src/IconImage';
-export {default as icons} from './src/icons.css';
 export {default as IconTabMenu} from './src/IconTabMenu';
 export {default as ImageElement} from './src/ImageElement';
 export {default as Input} from './src/Input';
