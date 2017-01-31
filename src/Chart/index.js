@@ -13,12 +13,22 @@ class Chart extends React.Component {
     }
     componentDidMount() {
         this.margin.left = this.props.milestones || this.props.goal ? 50 : 8;
-        this.props.chart.create(this.container, {
+        this.props.chart.create(this.container, Object.assign(this.getChartState(), {
+          data: []
+        }), {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
             margin: this.margin,
             id: this.props.graphID
-        }, this.getChartState());
+        });
+        setTimeout(() => {
+          this.props.chart.update(this.container, this.getChartState(), {
+              width: this.container.offsetWidth,
+              height: this.container.offsetHeight,
+              margin: this.margin,
+              id: this.props.graphID
+          }, true);
+        }, 100);
     }
 
     componentDidUpdate() {

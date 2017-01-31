@@ -17,7 +17,7 @@ import calculateYAxisTicks from './../common/calculateYAxisTicks';
 
 const d3Chart = {};
 
-d3Chart.create = (el, props, state, formatting) => {
+d3Chart.create = (el, state, props, formatting) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
   const svg = utils.drawSVG(el, props);
 

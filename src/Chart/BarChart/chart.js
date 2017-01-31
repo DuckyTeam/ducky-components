@@ -16,7 +16,7 @@ import calculateYAxisTicks from './../common/calculateYAxisTicks';
 import getShortenedName from './../common/calculateShortenedName';
 const d3Chart = {};
 
-d3Chart.create = (el, props, state) => {
+d3Chart.create = (el, state, props) => {
   props.xAxisOffset = props.height + props.margin.top + 5;
   props.margin.bottom = state.isMobile ? props.margin.bottom : props.margin.bottom;
   const svg = utils.drawSVG(el, props);
