@@ -22,6 +22,10 @@ class Chart extends React.Component {
             id: this.props.graphID
         });
         setTimeout(() => {
+          if (!this.container) {
+            return;
+          }
+
           this.props.chart.update(this.container, this.getChartState(), {
               width: this.container.offsetWidth,
               height: this.container.offsetHeight,
