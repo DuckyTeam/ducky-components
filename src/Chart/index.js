@@ -35,10 +35,6 @@ class Chart extends React.Component {
       this.props.chart.destroy(this.props.graphID);
     }
 
-    handleRef = (element) => {
-        this.container = element;
-    }
-
     getChartState() {
         return Object.assign({}, this.props);
     }
@@ -48,7 +44,7 @@ class Chart extends React.Component {
             <div
                 className="Chart"
                 id={`chartDiv${this.props.graphID}`}
-                ref={this.handleRef}
+                ref={(node) => { this.container = node }}
                 style={{height: this.props.height}}
             >
             </div>

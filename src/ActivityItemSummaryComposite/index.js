@@ -28,10 +28,6 @@ class ActionItemSummaryComposit extends React.Component {
     ReactDOM.render(<div>{icons}</div>, this.container);
   }
 
-  handleRef = (component) => {
-    this.container = component;
-  };
-
   renderIcons() {
     let lastLeft = 0;
     const width = ReactDOM.findDOMNode(this.container).offsetWidth;
@@ -76,7 +72,7 @@ class ActionItemSummaryComposit extends React.Component {
         className={classNames(styles.wrapper, {
           [this.props.className]: this.props.className
         })}
-        ref={this.handleRef}
+        ref={(node) => { this.container = node; }}
         >
       </div>
     );
