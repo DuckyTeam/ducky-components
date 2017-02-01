@@ -44,13 +44,18 @@ viz.update = (el, props) => {
     if (error) throw error;
 
     const b = map.bbox;
-    
+
     const projection = geoMercator()
       .scale(500)
       .center([(b[0]+b[2])/2, (b[1]+b[3])/2])
       .translate([props.width / 2, props.height / 2]);
 
     const path = geoPath().projection(projection);
+
+    /*
+    Zoom / pan
+    https://bl.ocks.org/mbostock/eec4a6cda2f573574a11
+    */
 
     const fylker = svg.select(`.${styles.fylker}`)
       .selectAll("path")
