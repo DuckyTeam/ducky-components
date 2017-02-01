@@ -21,16 +21,12 @@ class Chart extends React.Component {
             margin: this.margin,
             id: this.props.graphID
         });
-        setTimeout(() => {
-          if (!this.container) {
-            return;
-          }
-
+        this.initialUpdate = setTimeout(() => {
           this.props.chart.update(this.container, this.getChartState(), {
-              width: this.container.offsetWidth,
-              height: this.container.offsetHeight,
-              margin: this.margin,
-              id: this.props.graphID
+            width: this.container.offsetWidth,
+            height: this.container.offsetHeight,
+            margin: this.margin,
+            id: this.props.graphID
           }, true);
         }, 100);
     }
@@ -46,7 +42,8 @@ class Chart extends React.Component {
     }
 
     componentWillUnmount() {
-      this.props.chart.destroy(this.props.graphID);
+        clearTimeout(this.initialUpdate);
+        this.props.chart.destroy(this.props.graphID);
     }
 
     getChartState() {
