@@ -27,7 +27,7 @@ viz.update = (el, props) => {
   const bubble = pack()
     .size([props.width, props.height])
     .padding(1.5);
-    
+
   const nodes = bubble(hierarchy(data).sum(d => d.size)).leaves();
 
   const bubbles = svg.selectAll('.circles').data(nodes);
@@ -42,7 +42,7 @@ viz.update = (el, props) => {
       .attr('height', 0)
       .attr('width', 0);
 
-  bubbles.transition().duration(1000)
+  bubbles.transition().delay(200).duration(1000)
     .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
     .attr('height', d => d.r*2)
     .attr('width', d => d.r*2);
@@ -50,14 +50,10 @@ viz.update = (el, props) => {
   const exit = bubbles.exit();
 
   exit.remove();
-
-
-
-
 };
 
 viz.destroy = (el) => {
-  //Destroy
+  select(el).remove();
 };
 
 export default viz;

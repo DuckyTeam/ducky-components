@@ -1,0 +1,19 @@
+.svg {
+}
+
+.fylker {
+
+}
+
+.fylke {
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+.fylke:hover {
+  fill: green;
+}
+
+.grenser {
+
+}
