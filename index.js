@@ -4,6 +4,7 @@ export {default as ActivityItemDefault} from './src/ActivityItemDefault';
 export {default as ActivityItemSelectComposite} from './src/ActivityItemSelectComposite';
 export {default as ActivityItemSummaryComposite} from './src/ActivityItemSummaryComposite';
 export {default as Avatar} from './src/Avatar';
+export {default as avatarStyles} from './src/Avatar/styles.css';
 export {default as AverageFootprintComparison} from './src/AverageFootprintComparison';
 export {default as BackgroundLoader} from './src/BackgroundLoader';
 export {default as Button} from './src/Button';
