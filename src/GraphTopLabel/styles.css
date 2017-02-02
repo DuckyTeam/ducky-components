@@ -1,0 +1,10 @@
+.wrapper {
+  background-color: #003741;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.40);
+}
