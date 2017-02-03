@@ -14,7 +14,7 @@ class Chart extends React.Component {
     componentDidMount() {
         this.margin.left = this.props.milestones || this.props.goal ? 50 : 8;
         this.props.chart.create(this.container, Object.assign(this.getChartState(), {
-          data: []
+          data: this.props.data
         }), {
             width: this.container.offsetWidth,
             height: this.container.offsetHeight,
