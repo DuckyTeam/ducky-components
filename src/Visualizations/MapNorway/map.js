@@ -1,9 +1,9 @@
-import { select, selectAll } from 'd3-selection';
+import { select, selectAll, event } from 'd3-selection';
 import { pack, hierarchy } from 'd3-hierarchy';
 import { json } from 'd3-request';
 import { geoPath, geoMercator } from 'd3-geo';
 import { scaleLinear } from 'd3-scale';
-import { max } from 'd3-array';
+import { max, min } from 'd3-array';
 import { transition } from 'd3-transition';
 
 
@@ -23,6 +23,10 @@ viz.create = (el, props) => {
     .attr("height", props.height)
     .attr("width", props.width);
 
+  const tooltip = select(el).append("div")
+    .attr("class", styles.tooltip)
+    .style("opacity", 0);
+
   svg.append("g")
     .attr("class", styles.fylker);
 
@@ -33,6 +37,8 @@ viz.create = (el, props) => {
 };
 
 viz.update = (el, props) => {
+
+  props.hoverColor = props.hoverColor || '#607D8B';
 
   const svg = select(el).select(`#MapNorway${props.id}`);
 
@@ -46,9 +52,9 @@ viz.update = (el, props) => {
     const b = map.bbox;
 
     const projection = geoMercator()
-      .scale(500)
+      .scale(min([props.height, props.width])*1.7)
       .center([(b[0]+b[2])/2, (b[1]+b[3])/2])
-      .translate([props.width / 2, props.height / 2]);
+      .translate([props.width / 2, 15 + props.height / 2]);
 
     const path = geoPath().projection(projection);
 
@@ -57,20 +63,43 @@ viz.update = (el, props) => {
     https://bl.ocks.org/mbostock/eec4a6cda2f573574a11
     */
 
+    const tooltip = select(el).select(`.${styles.tooltip}`);
+
+    const getFill = d => {
+      if (d === 0 || !props.values[d.properties.NAVN]) {
+        return props.zeroColor;
+      }
+      return colorScale(props.values[d.properties.NAVN] || 0);
+    };
+
     const fylker = svg.select(`.${styles.fylker}`)
       .selectAll("path")
       .data(feature(map, map.objects['fylker.geo']).features);
 
     const enterFylker = fylker.enter()
       .append("path")
-        .attr("fill", d => colorScale(props.values[d.properties.NAVN] || 0))
+        .attr("fill", getFill)
         .attr("class", styles.fylke)
-        .attr("d", path);
+        .attr("d", path)
+        .on("mouseover", d => {
+          console.log(d);
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltip.html(`${d.properties.NAVN} <br/> ${props.values[d.properties.NAVN] || 0} ${props.unit}`)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+            })
+        .on("mouseout", d => {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
 
     const merged = enterFylker.merge(fylker);
 
     merged.transition().duration(1000)
-      .attr("fill", d => colorScale(props.values[d.properties.NAVN] || 0))
+      .attr("fill", getFill)
       .attr("class", styles.fylke)
       .attr("d", path);
     });

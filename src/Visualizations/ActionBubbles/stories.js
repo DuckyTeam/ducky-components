@@ -20,20 +20,21 @@ stories(module, ActionBubbles, [
 ], {
   className: className(),
   data: json([
-    {icon: cons01, size: 3},
-    {icon: cons02, size: 13},
-    {icon: cons03, size: 20},
-    {icon: cons04, size: 2},
-    {icon: cons05, size: 8},
-    {icon: cons06, size: 4},
-    {icon: cons07, size: 2},
-    {icon: cons08, size: 3},
-    {icon: cons09, size: 1},
-    {icon: cons10, size: 3},
-    {icon: cons11, size: 6},
-    {icon: cons12, size: 3},
-    {icon: cons13, size: 2}
+    {icon: cons01, size: 3, text: 'Consumtion 1,  very long title'},
+    {icon: cons02, size: 13, text: 'Cons2'},
+    {icon: cons03, size: 20, text: 'Cons3'},
+    {icon: cons04, size: 2, text: 'Cons4'},
+    {icon: cons05, size: 8, text: 'Cons5'},
+    {icon: cons06, size: 4, text: 'Cons6'},
+    {icon: cons07, size: 2, text: 'Cons7'},
+    {icon: cons08, size: 3, text: 'Cons8'},
+    {icon: cons09, size: 1, text: 'Cons9'},
+    {icon: cons10, size: 3, text: 'Cons10'},
+    {icon: cons11, size: 6, text: 'Cons11'},
+    {icon: cons12, size: 3, text: 'Cons12'},
+    {icon: cons13, size: 2, text: 'Cons13'}
   ]),
+  unit: string('CO2'),
   height: string('300px'),
   id: number(1)
 }, 'Visualizations/ActionBubbles');

@@ -1,0 +1,19 @@
+.circle {
+}
+
+.circle:hover {
+  opacity: 0.8;
+
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: white;
+  background: #263238;
+  border: 0px;
+  border-radius: 4px;
+  pointer-events: none;
+}
