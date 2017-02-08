@@ -1,0 +1,34 @@
+.wrapper {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  text-align: left;
+  min-height: 48px;
+}
+
+.iconWrapper {
+
+}
+
+.iconStyles > span{
+  fill: #90a4ae;
+}
+
+.iconStyles > span:hover{
+  fill: #607d8b;
+}
+
+.outerWrapper {
+  width: 100%;
+  display: flex;
+  align-items:flex-start;
+  background: transparent;
+}
+
+.text {
+  color: #263238;
+}
+
+.text::first-letter {
+  text-transform: capitalize;
+}
