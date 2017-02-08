@@ -1,0 +1,33 @@
+.svg {
+  border: 1px dashed red;
+}
+
+.fylker {
+
+}
+
+.fylke {
+  stroke: white;
+  stroke-width: 0.5px;
+}
+
+.fylke:hover {
+  stroke: #607D8B;
+  stroke-width: 0.5px;
+}
+
+.grenser {
+
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 2px 8px;
+  font-size: 12px;
+  color: white;
+  background: #263238;
+  border: 0px;
+  border-radius: 4px;
+  pointer-events: none;
+}
