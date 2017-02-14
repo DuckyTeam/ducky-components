@@ -19,12 +19,14 @@ function PlaceholderElement1(props) {
         />
       <Wrapper
         className={styles.textWrapper}
-        type={'standard'}
+        size={'standard'}
         >
         <Typography
           className={styles.text}
           type={'bodyTextNormal'}
-          >{props.text}</Typography>
+          >
+          {props.text}
+        </Typography>
       </Wrapper>
     </div>
   );
