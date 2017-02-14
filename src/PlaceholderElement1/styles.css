@@ -1,6 +1,5 @@
 .outerWrapper {
   width: 100%;
-  max-width: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,6 +9,7 @@
   color: #b0bec5;
 }
 .textWrapper {
+  max-width: 320px;
   text-align: center;
 }
 .text {
