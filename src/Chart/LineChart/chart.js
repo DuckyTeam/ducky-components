@@ -13,7 +13,7 @@ import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
 import drawLabels from './../common/drawGoalLabels';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
-import calculateYAxisTicks from './../common/calculateYAxisTicks';
+import calculateYAxisTicks from './calculateYAxisTicks';
 
 const d3Chart = {};
 

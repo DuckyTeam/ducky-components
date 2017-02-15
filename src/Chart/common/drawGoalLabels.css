@@ -5,7 +5,7 @@
   text-anchor: start;
   font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
   cursor: pointer;
 }
 
@@ -16,12 +16,12 @@
   line-height: 12px;
   font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .progressedGoalsCheck {
   fill: #00ab97;
-  line-height: 16px;
+  line-height: 12px;
 }
 
 .toBeProgressedGoalsLeaf {
@@ -39,5 +39,5 @@
   line-height: 12px;
   font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 10px;
 }

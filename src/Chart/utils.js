@@ -35,7 +35,7 @@ exports.getChartGroup = (svg, styleClass) => svg.select(`.${styleClass}`);
 exports.drawChartGroup = (svg, props, styleClass) => {
   return svg.append('g')
         .attr('class', styleClass)
-        .attr("transform", `translate(${props.margin.left}, ${props.margin.top})`);
+        .attr("transform", `translate(${0}, ${props.margin.top})`);
 }
 
 exports.getDateTicks = (from, to, number) => {

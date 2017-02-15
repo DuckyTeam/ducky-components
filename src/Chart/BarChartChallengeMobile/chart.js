@@ -7,7 +7,7 @@ import { transition } from 'd3-transition';
 import styles from './styles.css';
 import utils from './../utils';
 import paths from './../svgpaths';
-import drawBars from './../common/drawBarsMobile';
+import drawBars from './drawBarsMobile';
 import drawText from './../common/drawStartsInText';
 const d3Chart = {};
 
