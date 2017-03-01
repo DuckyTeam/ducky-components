@@ -1,7 +1,8 @@
+import { max } from 'd3-array';
+
 export default (data, memberOf) => {
   if (data.length <= 14) return data;
 
-  const nToRemove = data.length - 14 + 2;
   let yourPlace = -1;
 
   for ( var i = 0, len = data.length; i < len; i++ ) {
@@ -9,6 +10,10 @@ export default (data, memberOf) => {
       yourPlace = i;
       break;
     }
+  }
+
+  if (yourPlace === -1) {
+    return [];
   }
 
   const getEmpty = value => {
@@ -20,56 +25,30 @@ export default (data, memberOf) => {
     };
   };
 
-  let toRemoveBelow = 0;
-  let toRemoveAbove = 0;
-
-  const nBelowYou = data.length - yourPlace;
-  const nAboveYou = yourPlace;
-
-  const nBelowForRemoval = nBelowYou - 1;
-  const nAboveForRemoval = nAboveYou - 1;
-
-  const toRemoveAverage = nToRemove / 2;
-
-  if (toRemoveAverage >= nBelowForRemoval) {
-    toRemoveBelow = nBelowForRemoval;
-    toRemoveAbove = nToRemove - nBelowForRemoval;
-  } else if (toRemoveAverage >= nAboveForRemoval) {
-    toRemoveAbove = nAboveForRemoval;
-    toRemoveBelow = nToRemove - nAboveForRemoval;
+  // If you are top 5 (no placeholder above)
+  if (yourPlace <= 5) {
+    return [
+      ...data.slice(0, yourPlace + 3),
+      getEmpty(data[yourPlace + 3].value),
+      ...data.slice(data.length - (14 - yourPlace - 4))
+    ];
+  // If you are last to 4rd last (no placeholder below)
+  } else if (yourPlace > data.length - 5) {
+    return [
+      ...data.slice(0, 14 - (1 + data.length - yourPlace + 2)),
+      getEmpty(data[yourPlace - 3].value),
+      ...data.slice(yourPlace - 2, data.length)
+    ];
+  //Placeholder above and below
   } else {
-    toRemoveBelow = Math.ceil(toRemoveAverage);
-    toRemoveAbove = Math.floor(toRemoveAverage)
+    const toAdd = 14 - 5 - 2;
+    return [
+      ...data.slice(0, Math.ceil(toAdd / 2)),
+      getEmpty(data[yourPlace - 3].value),
+      ...data.slice(yourPlace - 2, yourPlace + 3),
+      getEmpty(yourPlace + 3),
+      ...data.slice(data.length - Math.floor(toAdd / 2))
+    ];
   }
-
-  if (toRemoveBelow <= 2 && nBelowForRemoval < 2) {
-    toRemoveAbove += toRemoveBelow - 1;
-    toRemoveBelow = 0;
-  }
-  if (toRemoveAbove <= 2 && nAboveForRemoval < 2) {
-    toRemoveBelow += toRemoveAbove - 1;
-    toRemoveAbove = 0;
-  }
-
-  //Remove Above
-  if (toRemoveAbove > 1) {
-    let sumUp = 0;
-    for (let i = yourPlace - 2; i > yourPlace - 2 - toRemoveAbove; i--) {
-      sumUp += data[i].value;
-      data[i] = null;
-    }
-    data[yourPlace - 2] = getEmpty(sumUp/toRemoveAbove);
-  }
-
-  //Remove Below
-  if (toRemoveBelow > 1) {
-    let sumDown = 0;
-    for (let i = yourPlace + 2; i < yourPlace + 3 + toRemoveAbove; i++) {
-      sumDown += data[i].value;
-      data[i] = null;
-    }
-    data[yourPlace + 2] = getEmpty(sumDown/toRemoveBelow);
-  }
-
   return data.filter(d => d);
 };
