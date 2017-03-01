@@ -1,5 +1,5 @@
 import {stories, bool, oneOf, func, string, number, className, json} from '../../duckyStories';
-import ActionBubbles from './index';
+import ActivityBubbles from './index';
 
 const cons01 = require('./../../assets/SVGIcons/activities/activity_consumption_01.svg');
 const cons02 = require('./../../assets/SVGIcons/activities/activity_consumption_02.svg');
@@ -16,13 +16,13 @@ const cons12 = require('./../../assets/SVGIcons/activities/activity_consumption_
 const cons13 = require('./../../assets/SVGIcons/activities/activity_consumption_13.svg');
 
 
-stories(module, ActionBubbles, [
+stories(module, ActivityBubbles, [
 ], {
   className: className(),
   data: json([
-    {icon: cons01, size: 3, text: 'Consumtion 1,  very long title'},
-    {icon: cons02, size: 13, text: 'Cons2'},
-    {icon: cons03, size: 20, text: 'Cons3'},
+    {icon: cons01, size: 1, text: 'Consumtion 1,  very long title'},
+    {icon: cons02, size: 11, text: 'Cons2'},
+    {icon: cons03, size: 1, text: 'Cons3'},
     {icon: cons04, size: 2, text: 'Cons4'},
     {icon: cons05, size: 8, text: 'Cons5'},
     {icon: cons06, size: 4, text: 'Cons6'},
@@ -37,4 +37,4 @@ stories(module, ActionBubbles, [
   unit: string('CO2'),
   height: string('300px'),
   id: number(1)
-}, 'Visualizations/ActionBubbles');
+}, 'Visualizations/ActivityBubbles');

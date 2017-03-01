@@ -8,7 +8,7 @@ const viz = {};
 viz.create = (el, props) => {
 
   select(el).append("svg")
-    .attr("id", `ActionBubbles${props.id}`)
+    .attr("id", `ActivityBubbles${props.id}`)
     .attr("height", props.height)
     .attr("width", props.width);
 
@@ -21,7 +21,7 @@ viz.create = (el, props) => {
 
 viz.update = (el, props) => {
 
-  const svg = select(el).select(`#ActionBubbles${props.id}`);
+  const svg = select(el).select(`#ActivityBubbles${props.id}`);
 
   const data = {
     name: "root",
@@ -34,6 +34,8 @@ viz.update = (el, props) => {
     .size([props.width, props.height])
     .padding(1.5);
 
+    console.log(data);
+
   const nodes = bubble(hierarchy(data).sum(d => d.size)).leaves();
 
   const bubbles = svg.selectAll(`.${styles.circle}`).data(nodes);
@@ -42,7 +44,7 @@ viz.update = (el, props) => {
     .filter(d => d.parent)
     .append('svg:image')
       .attr('class', `${styles.circle}`)
-      .attr('xlink:href', d => d.data.icon)
+      .attr("xlink:xlink:href", "data:image/svg+xml;base64,", d => d.data.icon)
       .attr('transform', d => `translate(${d.x}, ${d.y})`)
       .attr('height', 0)
       .attr('width', 0)

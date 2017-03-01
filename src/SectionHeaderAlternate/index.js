@@ -7,11 +7,13 @@ import styles from './styles.css';
 
 function SectionHeaderAlternate(props) {
   return (
-    <div className={styles.outerWrapper}>
+    <div
+      className={classNames(styles.outerWrapper, {
+        [props.className]: props.className
+      })}
+      >
       <Wrapper
-        className={classNames(styles.wrapper, {
-          [props.className]: props.className
-        })}
+        className={styles.wrapper}
         size={"short"}
         >
         <Typography

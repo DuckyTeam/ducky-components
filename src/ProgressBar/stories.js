@@ -8,7 +8,7 @@ stories(module, ProgressBar, [
 ], {
   className: className(),
   children: string(),
-  style: json({color: '#607d8b'}),
+  color: string('red'),
   onClick: func(),
   percent: number(25),
   size: oneOf('standard', 'wide')
