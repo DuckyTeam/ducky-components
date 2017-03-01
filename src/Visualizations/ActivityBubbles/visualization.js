@@ -34,8 +34,6 @@ viz.update = (el, props) => {
     .size([props.width, props.height])
     .padding(1.5);
 
-    console.log(data);
-
   const nodes = bubble(hierarchy(data).sum(d => d.size)).leaves();
 
   const bubbles = svg.selectAll(`.${styles.circle}`).data(nodes);
@@ -44,12 +42,11 @@ viz.update = (el, props) => {
     .filter(d => d.parent)
     .append('svg:image')
       .attr('class', `${styles.circle}`)
-      .attr("xlink:xlink:href", "data:image/svg+xml;base64,", d => d.data.icon)
+      .attr("xlink:href", d => d.data.icon)
       .attr('transform', d => `translate(${d.x}, ${d.y})`)
       .attr('height', 0)
       .attr('width', 0)
       .on("mouseover", d => {
-        console.log(d);
           tooltip.transition()
               .duration(200)
               .style("opacity", .9);
@@ -61,7 +58,11 @@ viz.update = (el, props) => {
           tooltip.transition()
               .duration(500)
               .style("opacity", 0);
-      });
+      })
+      .transition().delay(200).duration(1000)
+        .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
+        .attr('height', d => d.r*2)
+        .attr('width', d => d.r*2);
 
   bubbles.transition().delay(200).duration(1000)
     .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
