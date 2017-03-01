@@ -47,7 +47,6 @@ viz.update = (el, props) => {
       .attr('height', 0)
       .attr('width', 0)
       .on("mouseover", d => {
-        console.log(d);
           tooltip.transition()
               .duration(200)
               .style("opacity", .9);
@@ -59,7 +58,11 @@ viz.update = (el, props) => {
           tooltip.transition()
               .duration(500)
               .style("opacity", 0);
-      });
+      })
+      .transition().delay(200).duration(1000)
+        .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
+        .attr('height', d => d.r*2)
+        .attr('width', d => d.r*2);
 
   bubbles.transition().delay(200).duration(1000)
     .attr('transform', d => `translate(${d.x - d.r}, ${d.y - d.r})`)
