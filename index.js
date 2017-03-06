@@ -72,6 +72,7 @@ export {default as Input} from './src/Input';
 export {default as InputLarge} from './src/InputLarge';
 export {default as LabelDisplay} from './src/LabelDisplay';
 export {default as LabelDouble} from './src/LabelDouble';
+export {default as LabelExpandCollapse} from './src/LabelExpandCollapse';
 export {default as LabelHorisontal} from './src/LabelHorisontal';
 export {default as LabelLarge} from './src/LabelLarge';
 export {default as LabelMini} from './src/LabelMini';
