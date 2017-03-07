@@ -6,7 +6,7 @@ stories(module, BarChart, [
 ], {
   data:json([{
     id: 1,
-    value: 140,
+    value: 100,
     label: "Strek1"
   }, {
     id: 2,
@@ -14,27 +14,27 @@ stories(module, BarChart, [
     label: "De nye Gitarkameratene"
   }, {
     id: 3,
-    value: 322,
+    value: 120,
     label: "Strek3"
   }, {
     id: 4,
-    value: 521,
+    value: 140,
     label: "Strek4"
   }, {
     id: 5,
-    value: 140,
+    value: 145,
     label: "Strek5"
   }, {
     id: 6,
-    value: 1205,
+    value: 149,
     label: "De nye Gitarkameratene2"
   }, {
     id: 7,
-    value: 1212,
+    value: 200,
     label: "Strek6"
   }, {
     id: 8,
-    value: 500,
+    value: 213,
     label: "Strek7"
   }, {
     id: 9,
@@ -42,35 +42,35 @@ stories(module, BarChart, [
     label: "Strek8"
   }, {
     id: 10,
-    value: 1305,
+    value: 360,
     label: "9"
   }, {
     id: 11,
-    value: 20,
+    value: 398,
     label: "Strek10"
   }, {
     id: 12,
-    value: 543,
+    value: 406,
     label: "Strek11"
   }, {
     id: 13,
-    value: 563,
+    value: 413,
     label: "Strek13"
   }, {
     id: 14,
-    value: 321,
+    value: 510,
     label: "Strek114"
   }, {
     id: 15,
-    value: 343,
+    value: 530,
     label: "Strek11|1"
   }, {
     id: 16,
-    value: 363,
+    value: 600,
     label: "Strek1213"
   }, {
     id: 17,
-    value: 1212,
+    value: 754,
     label: "Strek3214"
   }]),
   goal: number(784),
