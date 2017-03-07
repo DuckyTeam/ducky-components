@@ -21,7 +21,7 @@ function AccordionItem(props) {
         <Icon
           className={styles.active}
           icon={props.leftIcon}
-          size={'regular'}
+          size={'standard'}
           />
         <Typography
           type="bodyTextNormal"
@@ -37,7 +37,8 @@ function AccordionItem(props) {
     : <div className={classNames(styles.wrapper, {
       [props.className]: props.className
     })}
-      onClick={props.onClick}>
+      onClick={props.onClick}
+      >
       <Wrapper
         className={styles.iconTextWrapper}
         size="short"
@@ -45,7 +46,7 @@ function AccordionItem(props) {
         <Icon
           className={styles.inactive}
           icon={props.leftIcon}
-          size={'regular'}
+          size={'standard'}
           />
         <Typography
           type="bodyTextNormal"

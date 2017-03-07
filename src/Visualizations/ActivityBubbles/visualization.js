@@ -8,7 +8,7 @@ const viz = {};
 viz.create = (el, props) => {
 
   select(el).append("svg")
-    .attr("id", `ActionBubbles${props.id}`)
+    .attr("id", `ActivityBubbles${props.id}`)
     .attr("height", props.height)
     .attr("width", props.width);
 
@@ -21,7 +21,7 @@ viz.create = (el, props) => {
 
 viz.update = (el, props) => {
 
-  const svg = select(el).select(`#ActionBubbles${props.id}`);
+  const svg = select(el).select(`#ActivityBubbles${props.id}`);
 
   const data = {
     name: "root",
@@ -42,7 +42,7 @@ viz.update = (el, props) => {
     .filter(d => d.parent)
     .append('svg:image')
       .attr('class', `${styles.circle}`)
-      .attr('xlink:href', d => d.data.icon)
+      .attr("xlink:href", d => d.data.icon)
       .attr('transform', d => `translate(${d.x}, ${d.y})`)
       .attr('height', 0)
       .attr('width', 0)

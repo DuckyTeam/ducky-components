@@ -2,7 +2,7 @@ import React from 'react';
 import visualization from './visualization';
 import Visualization from './../index';
 
-function ActionBubbles(props) {
+function ActivityBubbles(props) {
   return (
     <Visualization
       className={props.className}
@@ -12,4 +12,4 @@ function ActionBubbles(props) {
   );
 }
 
-export default ActionBubbles;
+export default ActivityBubbles;
