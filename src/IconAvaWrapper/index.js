@@ -15,7 +15,7 @@ function IconAvaWrapper(props) {
           {[styles.pointerCursor]: props.onClick, [props.className]: props.className}
         )}
         onClick={props.onClick}
-        size={'narrow'}
+        size={props.size === 'small' ? 'slender' : 'narrow'}
         >
         <Avatar
           image={props.avatar}
@@ -32,7 +32,7 @@ function IconAvaWrapper(props) {
         {[styles.pointerCursor]: props.onClick, [props.className]: props.className}
       )}
       onClick={props.onClick}
-      size={'narrow'}
+      size={props.size === 'small' ? 'slender' : 'narrow'}
       >
       <Icon
         icon={props.icon}
@@ -46,7 +46,8 @@ IconAvaWrapper.propTypes = {
   avatar: PropTypes.string,
   className: PropTypes.string,
   icon: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf('small', null)
 };
 
 export default IconAvaWrapper;
