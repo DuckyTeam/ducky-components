@@ -6,10 +6,11 @@ stories(module, ListCompositePerson, [
   'https://github.com/DuckyTeam/ducky-web/issues/774'
 ], {
   avatarImage: oneOf(AVATAR_URL),
+  caption: string('Text'),
   className: className(),
   date: string('Aug. 2011'),
   location: string('Norway'),
   mutualNumber: number(3),
-  type: oneOf('mutual', 'location', null),
+  type: oneOf('mutual', 'location', 'date', null),
   userName: string('Navn Navnesen')
 });

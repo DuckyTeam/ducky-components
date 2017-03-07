@@ -23,10 +23,16 @@ function ListCompositePerson(props) {
                 type={"caption2Normal"}
             />
         );
-    } else {
+    } else if (props.type === 'date'){
         opt = (
             <Typography type="caption2Normal">
                 {'Medlem siden '} {props.date}
+            </Typography>
+        );
+    } else {
+        opt = (
+            <Typography type="caption2Normal">
+                {props.caption}
             </Typography>
         );
     }
@@ -51,11 +57,12 @@ function ListCompositePerson(props) {
 
 ListCompositePerson.propTypes = {
     avatarImage: PropTypes.string,
+    caption: PropTypes.string,
     className: PropTypes.string,
     date: PropTypes.string,
     location: PropTypes.string,
     mutualNumber: PropTypes.number,
-    type: PropTypes.oneOf(['mutual', 'location', null]),
+    type: PropTypes.oneOf(['mutual', 'location', 'date', null]),
     userName: PropTypes.string
 };
 
