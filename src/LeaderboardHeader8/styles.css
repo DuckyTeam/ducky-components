@@ -1,0 +1,26 @@
+.wrapper {
+  width: 100%;
+  background-color: #eceff1;
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: #607d8b;
+  margin-left: 6px;
+}
+
+.name {
+  margin-left: 74px;
+  flex-grow: 1;
+}
+
+.activity {
+  width: 120px;
+  text-align: left;
+}
+
+.saving {
+  width: 120px;
+  text-align: right;
+}

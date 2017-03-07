@@ -5,13 +5,13 @@ import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import styles from './styles.css';
 
-function LeaderboardHeader7(props) {
+function LeaderboardHeader8(props) {
   return (
     <Wrapper
       className={classNames(styles.wrapper, {
         [props.className]: props.className
       })}
-      size={'short'}
+      size={'side-bottom'}
       >
       <Icon
         className={styles.icon}
@@ -20,24 +20,31 @@ function LeaderboardHeader7(props) {
         />
       <Typography
         className={styles.name}
-        type={'caption2Normal'}
+        type={'caption2Strong'}
         >
           {props.nameText}
       </Typography>
       <Typography
-        className={styles.saving}
+        className={styles.activity}
         type={'caption2Normal'}
         >
-        {props.savingText}
+        {props.activityText}
+      </Typography>
+      <Typography
+        className={styles.saving}
+        type={'caption2Strong'}
+        >
+          {props.savingText}
       </Typography>
     </Wrapper>
   );
 }
 
-LeaderboardHeader7.propTypes = {
+LeaderboardHeader8.propTypes = {
+  activityText: React.PropTypes.string,
   className: React.PropTypes.string,
   nameText: React.PropTypes.string,
   savingText: React.PropTypes.string
 };
 
-export default LeaderboardHeader7;
+export default LeaderboardHeader8;
