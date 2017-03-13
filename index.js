@@ -28,7 +28,6 @@ export {default as ChallengeCardLabel2} from './src/ChallengeCardLabel2';
 export {default as ChallengeMeta4} from './src/ChallengeMeta4';
 export {default as ChallengeMeta5} from './src/ChallengeMeta5';
 export {default as ChallengeMeta7} from './src/ChallengeMeta7';
-export {default as ChallengeMetaJoin} from './src/ChallengeMetaJoin';
 export {default as ChallengeSharePreview} from './src/ChallengeSharePreview';
 export {default as Chart} from './src/Chart';
 export {default as BarChart} from './src/Chart/BarChart';
