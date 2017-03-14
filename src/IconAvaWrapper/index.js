@@ -47,7 +47,7 @@ IconAvaWrapper.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf('small', null)
+  size: PropTypes.string
 };
 
 export default IconAvaWrapper;

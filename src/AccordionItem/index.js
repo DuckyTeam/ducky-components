@@ -29,10 +29,7 @@ function AccordionItem(props) {
           {props.title}
         </Typography>
       </Wrapper>
-      <IconAvaWrapper
-        icon={'icon-keyboard_arrow_down'}
-        size={"standard"}
-        />
+      <IconAvaWrapper icon={'icon-keyboard_arrow_down'} />
     </div>
     : <div className={classNames(styles.wrapper, {
       [props.className]: props.className
