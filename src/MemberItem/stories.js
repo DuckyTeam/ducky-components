@@ -1,4 +1,4 @@
-import {stories, string, oneOf, func} from '../duckyStories';
+import {stories, bool, string, oneOf, func} from '../duckyStories';
 import MemberItem from './index';
 const AVATAR_URL = 'http://www.glitters20.com/wp-content/uploads/2012/11/Funny-Duck-41.jpg';
 
@@ -7,6 +7,7 @@ stories(module, MemberItem, [
 ], {
   avatarImage: oneOf(AVATAR_URL),
   caption: string('Text'),
+  loadingImage: bool(),
   onClick: func(),
   userName: string('Navn Navnesen')
 });

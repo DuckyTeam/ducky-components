@@ -14,6 +14,7 @@ function MemberItem(props) {
       <ListCompositePerson
         avatarImage={props.avatarImage}
         caption={props.caption}
+        loadingImage={props.loadingImage}
         userName={props.userName}
         />
     </Wrapper>
@@ -23,6 +24,7 @@ function MemberItem(props) {
 MemberItem.propTypes = {
   avatarImage: PropTypes.string,
   caption: PropTypes.string,
+  loadingImage: PropTypes.bool,
   onClick: PropTypes.func,
   userName: PropTypes.string
 };

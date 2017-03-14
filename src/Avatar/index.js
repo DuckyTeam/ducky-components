@@ -11,7 +11,7 @@ function Avatar(props) {
         [props.className]: props.className
       })}
       onClick={props.onClick}
-      style={{backgroundImage: `url(${props.image})`}}
+      style={Object.assign({backgroundImage: `url(${props.image})`}, props.style)}
       >
     </div>
   );
@@ -21,6 +21,7 @@ Avatar.propTypes = {
   className: PropTypes.string,
   image: PropTypes.string,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"])
+  size: PropTypes.oneOf(["small", "standard", "large", "display1", "display2"]),
+  style: PropTypes.any
 };
 export default Avatar;

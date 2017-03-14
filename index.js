@@ -104,6 +104,7 @@ export {default as LoaderImage} from './src/LoaderImage';
 export {default as LoaderImagePlaceHolder} from './src/LoaderImagePlaceHolder';
 export {default as LogAllButton} from './src/LogAllButton';
 export {default as LogButton} from './src/LogButton';
+export {default as MemberItem} from './src/MemberItem';
 export {default as MainMenuItem2} from './src/MainMenuItem2';
 export {default as MenuWrapper} from './src/MenuWrapper';
 export {default as Modal} from './src/Modal';
