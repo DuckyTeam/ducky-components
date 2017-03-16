@@ -4,18 +4,18 @@
   background-color: inherit;
   visibility: hidden;
   z-index: 100000;
-  margin-left: -160px;
   color: #fff;
   text-align: center;
   position: fixed;
-  left: 50%;
+  left: 16px;
   bottom: 0;
   font-size: 17px;
 }
 
 .messageWrapper {
   background-color: #263238;
-  margin: 0 auto 16px;
+  margin-top: 22px;
+  margin-bottom: -50px;
   width: 100%;
   border-radius: 4px;
   z-index: 1;
@@ -23,20 +23,34 @@
   text-align: center;
   font-size: 17px;
   visibility: visible;
-  -moz-animation: cssAnimation 0.5s ease-in 4s forwards;
-  -webkit-animation: cssAnimation 0.5s ease-in 4s forwards;
- -o-animation: cssAnimation 0.5s ease-in 4s forwards;
-  animation: cssAnimation 0.5s ease-in 4s forwards;
+  -moz-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
+  -webkit-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
+  -o-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
+  animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
 
-@keyframes cssAnimation {
+@keyframes moveUp {
+  to {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+@-webkit-keyframes moveUp {
+  to {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+@keyframes fadeOut {
   to {
     opacity:0;
   }
 }
-@-webkit-keyframes cssAnimation {
+@-webkit-keyframes fadeOut {
   to {
     opacity:0;
   }

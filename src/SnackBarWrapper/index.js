@@ -18,20 +18,21 @@ class SnackBarWrapper extends React.Component {
     return messagesLength - (messagesLength - revertedIndex);
   }
   renderMessages() {
-    return [].concat(this.props.messages).map((message, index) => {
+    return this.props.messages.map((message, index) => {
       return (
         <div
           className={styles.messageWrapper}
           key={message.date}
-          onAnimationEnd={() => this.props.onDismiss(this.getMessageIndex(index))}
+          onAnimationEnd={(event) => {
+            if (event.elapsedTime > 2) {
+              this.props.onDismiss(this.getMessageIndex(index));
+            }
+          }}
           >
           {this.renderMessage(message)}
         </div>
       );
-    })
-    .reverse();
-
-    /* reverse() changes the original array, which we need to know the index */
+    });
   }
   render() {
     return (
