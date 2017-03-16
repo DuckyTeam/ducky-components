@@ -91,7 +91,6 @@ export {default as LabelTitle4} from './src/LabelTitle4';
 export {default as LeaderboardComposite7} from './src/LeaderboardComposite7';
 export {default as LeaderboardHeader4} from './src/LeaderboardHeader4';
 export {default as LeaderboardHeader5} from './src/LeaderboardHeader5';
-export {default as LeaderboardHeader6} from './src/LeaderboardHeader6';
 export {default as LeaderboardLabelSet1} from './src/LeaderboardLabelSet1';
 export {default as LeaderboardLabelSet2} from './src/LeaderboardLabelSet2';
 export {default as ListComposite} from './src/ListComposite';
