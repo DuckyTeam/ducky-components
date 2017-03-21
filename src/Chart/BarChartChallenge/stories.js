@@ -18,9 +18,9 @@ stories(module, BarChart, [
     label: "Strek3"
   }, {
     id: 4,
-    value: 140,
+    value: 0,
     label: "Strek4"
-  }, {
+  }/*, {
     id: 5,
     value: 145,
     label: "Strek5"
@@ -72,7 +72,7 @@ stories(module, BarChart, [
     id: 17,
     value: 754,
     label: "Strek3214"
-  }]),
+  }*/]),
   goal: number(784),
   milestones: json([10, 25, 50, 100, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 5000, 10000]),
   graphID: json(1),

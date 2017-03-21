@@ -16,7 +16,7 @@ function Input(props) {
       <input
         autoFocus={props.autoFocus}
         className={classNames(styles.input, TypographyStyles.bodyTextNormal, WrapperStyles.short, {
-          [styles.error]: props.errorMessage
+          [styles.error]: props.errorMessage || props.error
         })}
         name={props.name}
         onBlur={props.onBlur}
@@ -40,6 +40,7 @@ function Input(props) {
 Input.propTypes = {
   autoFocus: PropTypes.bool,
   className: PropTypes.string,
+  error: PropTypes.bool,
   errorMessage: PropTypes.node,
   inputType: PropTypes.string,
   name: PropTypes.string,

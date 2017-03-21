@@ -1,4 +1,4 @@
-import {stories, oneOf, func, className, string} from '../duckyStories';
+import {stories, bool, oneOf, func, className, string} from '../duckyStories';
 import Input from './index';
 
 stories(module, Input, [
@@ -6,6 +6,7 @@ stories(module, Input, [
 ], {
   className: className(),
   errorMessage: oneOf(null, 'Error'),
+  error: bool(),
   name: string('Used to get browsers to store credentials'),
   onBlur: func(),
   onChange: func(),
