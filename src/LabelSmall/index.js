@@ -9,7 +9,7 @@ function LabelSmall(props) {
   return (
     <span className={classNames(styles.wrapper, {[props.className]: props.className})}>
       <Icon
-        className={classNames(styles.pad, {
+        className={classNames(styles.pad, props.iconClass, {
           [styles.pointsIcon]: props.icon === 'icon-brightness_high',
           [styles.co2Icon]: props.icon === 'icon-leaf'
         })}
@@ -17,7 +17,7 @@ function LabelSmall(props) {
         onClick={props.onClick}
         size={'micro'}
         />
-      <Typography type={props.typographyType || 'caption2Normal'}>{props.content}</Typography>
+      <Typography className={props.typhographyClass} type={props.typographyType || 'caption2Normal'}>{props.content}</Typography>
     </span>
   );
 }
@@ -28,6 +28,8 @@ LabelSmall.propTypes = {
   content: PropTypes.node,
   icon: PropTypes.string,
   onClick: React.PropTypes.func,
-  typographyType: PropTypes.string
+  typographyType: PropTypes.string,
+  typhographyClass: PropTypes.string,
+  iconClass: PropTypes.string
 };
 export default LabelSmall;
