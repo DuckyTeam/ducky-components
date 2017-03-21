@@ -11,7 +11,7 @@ import utils from './../utils';
 import styles from './styles.css';
 import paths from './../svgpaths';
 import drawFaces from './../common/drawFaces';
-import drawLabels from './../common/drawGoalLabels';
+import drawLabels from './../common/drawGoalLabelsRight';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
 import calculateYAxisTicks from './calculateYAxisTicks';
 
@@ -183,8 +183,8 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
 
     //Draw labels
     const labelGroup = utils.getChartGroup(svg, styles.labels);
-
-    drawLabels(labelGroup, yAxisTickValues, yScale, dontAnimateIn ? 0 : speed, onCo2Click);
+                // labelGroup, yAxisTickValues, yScale, props.width, dontAnimateIn ? 0 : speed, onCo2Click
+    drawLabels(labelGroup, yAxisTickValues, yScale, props.width, dontAnimateIn ? 0 : speed, onCo2Click);
 
     //Draw faces
     /*const xValue = props.width - props.margin.left - props.margin.right * 2;
