@@ -28,7 +28,7 @@ function ProgressBarChallengeDates(props) {
             [styles.darkText]: props.theme === 'dark',
             [styles.lightText]: props.theme === 'light'
           })}
-          type="caption2Normal"
+          type={props.large ? "bodyTextNormal" : "caption2Normal"}
           >
            {moment(props.startDate).format('D. MMMM')} - <small>{moment(props.startDate).format('HH:mm')}</small>
         </Typography>
@@ -37,7 +37,7 @@ function ProgressBarChallengeDates(props) {
             [styles.darkText]: props.theme === 'dark',
             [styles.lightText]: props.theme === 'light'
           })}
-          type="caption2Normal"
+          type={props.large ? "bodyTextNormal" : "caption2Normal"}
           >
            {moment(props.endDate).format('D. MMMM')} - <small>{moment(props.endDate).format('HH:mm')}</small>
         </Typography>
@@ -60,7 +60,8 @@ ProgressBarChallengeDates.propTypes = {
   className: PropTypes.string,
   endDate: PropTypes.number,
   startDate: PropTypes.number,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  large: PropTypes.bool
 };
 
 export default ProgressBarChallengeDates;
