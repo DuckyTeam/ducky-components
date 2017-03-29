@@ -1,0 +1,25 @@
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.textWrapper {
+  background: transparent;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.explanation {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.caption {
+  text-align: center;
+}
