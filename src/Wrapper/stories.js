@@ -16,6 +16,6 @@ stories(module, Wrapper, [
   className: className(),
   onClick: func(),
   size: oneOf('standard', 'side-bottom', 'side', 'narrow', 'slim',
-    'short', 'midget', 'squat', 'slender', 'large'),
+    'short', 'midget', 'squat', 'slender', 'large', 'large-no-top'),
   style: json({backgroundColor: 'grey'})
 });
