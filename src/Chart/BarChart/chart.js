@@ -166,7 +166,6 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   /*
   const xValue = props.width - props.margin.left - props.margin.right * 2;
   const chartGroup = utils.getChartGroup(svg, styles.faceGroup);
-
   drawFaces(chartGroup, milestones, yourScore, highestScore, yScale, xValue, dontAnimateIn ? 0 : speed);
   */
 };
