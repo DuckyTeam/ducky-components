@@ -131,7 +131,7 @@ const drawBars = (
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
-    .attr('height', d => height + 2 - yScale(d.value));
+    .attr('height', d => d.value !== null ? height + 2 - yScale(d.value) : 0);
 
   transY.select("svg")
     .attr('y', (data) => data.value === 0 ? yScale(data.value) - 24 - 8 : yScale(data.value) - 24 - barTextFontSize)
