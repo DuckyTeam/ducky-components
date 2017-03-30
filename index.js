@@ -180,6 +180,7 @@ export {default as StatsCarousel1} from './src/StatsCarousel1';
 export {default as SubcategoryList} from './src/SubcategoryList';
 export {default as SwitchesToggleMenu} from './src/SwitchesToggleMenu';
 export {default as SwitchToggleButton} from './src/SwitchToggleButton';
+export {default as TeamHeader} from './src/TeamHeader';
 export {default as TextArea} from './src/TextArea';
 export {default as TextAreaLarge} from './src/TextAreaLarge';
 export {default as TextImageElement} from './src/TextImageElement';
