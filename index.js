@@ -137,6 +137,7 @@ export {default as ProgressbarLabeledPercentage} from './src/ProgressbarLabeledP
 export {default as ProgressBarVertical} from './src/ProgressBarVertical';
 export {default as ProgressBarVerticalFat} from './src/ProgressBarVerticalFat';
 export {default as ProgressCircle} from './src/ProgressCircle';
+export {default as ProgressCirclePercentage} from './src/ProgressCirclePercentage';
 export {default as RadioButton} from './src/RadioButton';
 export {default as RemoveImage} from './src/RemoveImage';
 export {default as ScrollContainer} from './src/ScrollContainer';
