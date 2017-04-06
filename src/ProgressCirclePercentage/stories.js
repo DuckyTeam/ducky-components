@@ -1,4 +1,4 @@
-import {stories, className, func, bool, string, number, oneOf, json} from '../duckyStories';
+import {stories, className, string, number} from '../duckyStories';
 import ProgressCirclePercentage from './index';
 
 stories(module, ProgressCirclePercentage, [
