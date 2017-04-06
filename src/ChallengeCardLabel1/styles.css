@@ -20,7 +20,6 @@
 .general {
     margin-right: 6px;
     font-weight: bold;
-    color: #263238;
 }
 
 .co2{
@@ -33,6 +32,10 @@
 
 .activities{
     color: #0099A9;
+}
+
+.participants{
+    color: #8BC34A;
 }
 
 .typoText{

@@ -194,4 +194,7 @@ export {default as Tooltip} from './src/Tooltip';
 export {default as Typography} from './src/Typography';
 export {default as ActivityBubbles} from './src/Visualizations/ActivityBubbles';
 export {default as MapNorway} from './src/Visualizations/MapNorway';
+export {default as ChallengeMeta13} from './src/ChallengeMeta13';
+export {default as ParticipationList} from './src/ParticipationList';
+export {default as ParticipationChart} from './src/ParticipationChart';
 export {default as Wrapper} from './src/Wrapper';

@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  height: 310px;
+  overflow-y: auto;
+}
+.participationText {
+  text-align: center;
+}
+.percentage {
+  margin: 16px auto 32px;
+}
