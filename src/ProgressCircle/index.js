@@ -5,7 +5,12 @@ import classNames from 'classnames';
 
 function ProgressCircle(props) {
     // radius as per spec - 48
-    const circumference = 2 * Math.PI * 48;
+    let circumference = 2 * Math.PI * 48;
+
+    if (props.big) {
+      circumference = 2 * Math.PI * 86;
+    }
+
     const arc = circumference * (100 - props.percent) / 100;
     // color for POINTS and default
     let color = '#8bc34a';
@@ -22,13 +27,13 @@ function ProgressCircle(props) {
         <div
             className={classNames(styles.wrapper, {[props.className]: props.className})}
         >
-            <svg className={styles.svg}>
-                <circle className={styles.circleBase} />
-                <circle className={styles.circleProgress}
+            <svg className={classNames(styles.svg, {[styles.svgBig]: props.big})}>
+                <circle className={classNames(styles.circleBase, {[styles.circleBaseBig]: props.big})} />
+                <circle className={classNames(styles.circleProgress, {[styles.circleProgressBig]: props.big})}
                     stroke={color}
                     strokeDasharray={circumference}
                     strokeDashoffset={arc}
-                    transform="rotate(-90, 50, 50)"
+                    transform={props.big ? 'rotate(-90, 90, 90)' : 'rotate(-90, 50, 50)'}
                 />
             </svg>
         </div>
@@ -36,6 +41,7 @@ function ProgressCircle(props) {
 }
 
 ProgressCircle.propTypes = {
+    big: PropTypes.bool,
     className: PropTypes.string,
     percent: PropTypes.number,
     type: PropTypes.oneOf(['co2', 'activity', 'habit', 'points'])
