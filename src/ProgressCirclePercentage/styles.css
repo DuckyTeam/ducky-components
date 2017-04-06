@@ -1,0 +1,9 @@
+.container {
+  position: relative;
+}
+
+.percentage {
+  position: absolute;
+  left: 40px;
+  top: 65px;
+}
