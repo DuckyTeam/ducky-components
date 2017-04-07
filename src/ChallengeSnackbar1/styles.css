@@ -1,0 +1,14 @@
+.wrapper {
+  width:100%;
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: 16px;
+}
+
+.text {
+  color: #fff;
+  text-align: left;
+}

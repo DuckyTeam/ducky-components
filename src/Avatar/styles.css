@@ -3,6 +3,9 @@
     border-radius: 50%;
     background-position: center;
     background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .small {
@@ -28,4 +31,12 @@
 .display2 {
     width: 96px;
     height: 96px;
+}
+
+.loader {
+  vertical-align: middle;
+  display: block;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50%;
 }

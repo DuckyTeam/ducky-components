@@ -1,57 +1,9 @@
-.snackbarWrapper {
-  min-width: 320px;
-  max-width: 520px;
-  background-color: inherit;
-  visibility: hidden;
-  z-index: 100000;
-  color: #fff;
-  text-align: center;
-  position: fixed;
-  left: 16px;
-  bottom: 0;
-  font-size: 17px;
-}
-
-.messageWrapper {
+.wrapper {
   background-color: #263238;
-  margin-top: 22px;
-  margin-bottom: -50px;
   width: 100%;
   border-radius: 4px;
   z-index: 1;
   color: #fff;
   text-align: center;
   font-size: 17px;
-  visibility: visible;
-  -moz-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
-  -webkit-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
-  -o-animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
-  animation: moveUp 0.5s ease-out 0s forwards, fadeOut 0.5s ease-in 4s forwards;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
-}
-
-@keyframes moveUp {
-  to {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-}
-
-@-webkit-keyframes moveUp {
-  to {
-    margin-top: 16px;
-    margin-bottom: 16px;
-  }
-}
-
-@keyframes fadeOut {
-  to {
-    opacity:0;
-  }
-}
-@-webkit-keyframes fadeOut {
-  to {
-    opacity:0;
-  }
 }
