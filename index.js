@@ -196,5 +196,6 @@ export {default as ActivityBubbles} from './src/Visualizations/ActivityBubbles';
 export {default as MapNorway} from './src/Visualizations/MapNorway';
 export {default as ChallengeMeta13} from './src/ChallengeMeta13';
 export {default as ParticipationList} from './src/ParticipationList';
+export {default as ParticipationListMobile} from './src/ParticipationListMobile';
 export {default as ParticipationChart} from './src/ParticipationChart';
 export {default as Wrapper} from './src/Wrapper';
