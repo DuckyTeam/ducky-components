@@ -1,0 +1,20 @@
+.wrapper {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper:hover {
+  background-color: #ECEFF1;
+}
+
+.button {
+  flex: none;
+  font-size: 20px;
+}
+
+.text {
+  margin-left: 16px;
+  flex: auto;
+  ellipsis: true;
+}

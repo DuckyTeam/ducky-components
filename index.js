@@ -167,6 +167,7 @@ export {default as SettingsSectionOne} from './src/SettingsSectionOne';
 export {default as SettingsSectionPersonal} from './src/SettingsSectionPersonal';
 export {default as SettingsSectionPrivacy} from './src/SettingsSectionPrivacy';
 export {default as SettingsSectionProfile} from './src/SettingsSectionProfile';
+export {default as ShareMenuItem} from './src/ShareMenuItem';
 export {default as ShowActivitySubHeader} from './src/ShowActivitySubHeader';
 export {default as SnackBarPanel1} from './src/SnackBarPanel1';
 export {default as SnackBarPanel3} from './src/SnackBarPanel3';
