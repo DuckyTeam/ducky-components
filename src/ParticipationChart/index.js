@@ -5,8 +5,6 @@ import ProgressCirclePercentage from '../ProgressCirclePercentage';
 import styles from './styles.css';
 
 function ParticipationChart(props) {
-  const {expectedParticipantCounts, participantCounts, percentage} = props;
-
   return (
     <Wrapper
       className={styles.wrapper}
@@ -14,22 +12,22 @@ function ParticipationChart(props) {
       >
       <ProgressCirclePercentage
         className={styles.percentage}
-        percent={percentage}
+        percent={props.percentage}
         type={'points'}
         />
       <Typography
         className={styles.participationText}
         type={'caption2Normal'}
         >
-        {`${participantCounts.total} av totalt ${expectedParticipantCounts.total} inviterte deltagere er med i denne utfordringen.`}
+        {`${props.participantCounts} av totalt ${props.expectedParticipantCounts} inviterte deltagere er med i denne utfordringen.`}
       </Typography>
     </Wrapper>
   );
 }
 
 ParticipationChart.propTypes = {
-  expectedParticipantCounts: React.PropTypes.object,
-  participantCounts: React.PropTypes.object,
+  expectedParticipantCounts: React.PropTypes.number,
+  participantCounts: React.PropTypes.number,
   percentage: React.PropTypes.number
 };
 
