@@ -2,6 +2,7 @@
   background-color: transparent;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .wrapper:hover {
@@ -17,4 +18,8 @@
   margin-left: 16px;
   flex: auto;
   ellipsis: true;
+}
+
+.bgColourFacebook {
+  background-color: #3b5994;
 }

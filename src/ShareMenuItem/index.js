@@ -12,6 +12,7 @@ function ShareMenuItem(props) {
   const share = props.share;
   let icon = props.icon;
   let text = props.text;
+  let bgColour = props.colour;
 
   if (share) {
       if (share === 'facebook') {
@@ -34,15 +35,17 @@ function ShareMenuItem(props) {
           className={classNames({
               [props.className]: props.className
           })}
+          onClick={props.onClick}
       >
           <Wrapper
               className={styles.wrapper}
               size={'short'}
           >
               <ActionButton
-                  className={styles.button}
+                  className={classNames(styles.button, {
+                      [styles.bgColourFacebook]: share === 'facebook'
+                  })}
                   icon={icon}
-                  onClick={props.onClick}
                   size={'standard'}
               />
               <Typography
