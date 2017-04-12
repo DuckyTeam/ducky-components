@@ -3,15 +3,6 @@ import ParticipationChart from './index';
 
 stories(module, ParticipationChart, [], {
   percentage: number(50),
-  expectedParticipantCounts: json(
-    {
-      total: 96
-
-    }
-  ),
-  participantCounts: json(
-    {
-      total: 48
-    }
-)
+  expectedParticipantCounts: number(96),
+  participantCounts: number(48)
 });

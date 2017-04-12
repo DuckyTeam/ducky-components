@@ -1,10 +1,11 @@
 .container {
-  position: relative;
   display: flex;
-  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  position: relative;
 }
 
 .percentage {
-  position: absolute;
-  top: 65px;
+  position: relative;
+  margin-top: -120px;
 }
