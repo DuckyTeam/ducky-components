@@ -32,6 +32,7 @@ export {default as ChallengeSharePreview} from './src/ChallengeSharePreview';
 export {default as Chart} from './src/Chart';
 export {default as BarChart} from './src/Chart/BarChart';
 export {default as BarChartChallenge} from './src/Chart/BarChartChallenge';
+export {default as BarChartChallengeMobile} from './src/Chart/BarChartChallengeMobile';
 export {default as LineChart} from './src/Chart/LineChart';
 export {default as CheckBox} from './src/CheckBox';
 export {default as ConfirmationModal} from './src/ConfirmationModal';
