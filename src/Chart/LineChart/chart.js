@@ -173,7 +173,7 @@ d3Chart.update = (el, state, props, formatting, dontAnimateIn) => {
         .tickSize(-props.width, 0, 0);
 
     // Move axes
-    utils.selectXAxisGroup(svg).attr("transform", `translate(${props.margin.left}, ${xAxisOffset})`);
+    utils.selectXAxisGroup(svg).attr("transform", `translate(0, ${xAxisOffset})`);
     utils.selectYAxisGroup(svg).transition().duration(speed).delay(dontAnimateIn ? 0 : speed).call(yAxis);
     utils.selectXAxisGroup(svg).transition().duration(speed).delay(speed).call(xAxis);
     utils.selectXAxisGroup(svg).selectAll('.tick')
