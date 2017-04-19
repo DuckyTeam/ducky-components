@@ -34,11 +34,6 @@
   border-bottom: 1px solid #00ab97;
 }
 
-*:focus {
-  outline: none;
-  border-bottom: 1px solid #00ab97;
-}
-
 .icon {
   color: #607d8b;
   position: absolute;

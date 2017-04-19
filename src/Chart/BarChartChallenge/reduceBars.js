@@ -28,9 +28,9 @@ export default (data, memberOf) => {
   // If you are top 5 (no placeholder above)
   if (yourPlace <= 5) {
     return [
-      ...data.slice(0, yourPlace + 3),
-      getEmpty(data[yourPlace + 3].value),
-      ...data.slice(data.length - (14 - yourPlace - 4))
+      ...data.slice(0, 10)
+      /*getEmpty(data[yourPlace + 3].value),
+      ...data.slice(data.length - (14 - yourPlace - 4))*/
     ];
   // If you are last to 4rd last (no placeholder below)
   } else if (yourPlace > data.length - 5) {

@@ -13,7 +13,7 @@ function ChallengeCardLabel1(props) {
   let iconName = '';
   let typoText = '';
   let opt = '';
-  let percentValue = props.percentValue > 0 ? props.percentValue : 0;
+  const percentValue = props.percentValue > 0 ? props.percentValue : 0;
 
   if (props.type === 'points') {
     pColor = '#8BC34A';
@@ -27,6 +27,18 @@ function ChallengeCardLabel1(props) {
     pColor = '#0099A9';
     iconName = 'icon-check_circle';
     typoText = props.activityCountText;
+  } else if (props.type === 'participants') {
+    pColor = '#8BC34A';
+    iconName = 'icon-people';
+    typoText = (<div>
+      <span style={{color: '#263238', 'fontWeight': 'bold'}}>
+        {props.participantCount}
+
+      </span>
+      <span style={{color: '#90a4ae', 'fontWeight': 'normal'}}>
+        {' / '}{props.expectedParticipants}
+      </span>
+    </div>);
   }
 
   if (props.goal) {
@@ -36,6 +48,21 @@ function ChallengeCardLabel1(props) {
         type={'caption2Normal'}
         >
         {percentValue}{'%'}
+      </Typography>
+    );
+  }
+  if (props.type === 'participants') {
+    opt = (
+      <Typography
+        className={styles.pad}
+        type={'caption2Normal'}
+        >
+        <span style={{color: '#263238', 'fontWeight': 'bold'}}>
+          {percentValue}{'% '}
+        </span>
+        <span style={{color: '#90a4ae', 'fontWeight': 'normal'}}>
+          {'deltagelse'}
+        </span>
       </Typography>
     );
   } else {
@@ -51,6 +78,7 @@ function ChallengeCardLabel1(props) {
         />
     );
   }
+
   return (
     <div>
       <Tooltip text="Din status">
@@ -64,7 +92,7 @@ function ChallengeCardLabel1(props) {
       <span className={styles.wrapper}>
         <LabelSmall
           className={classNames(styles.general, styles[props.type])}
-          content={props.points > 0 ? props.points : '-'}
+          content={props.points > 0 ? props.points : ''}
           icon={iconName}
           typographyType="caption2Strong"
           />
@@ -84,12 +112,14 @@ function ChallengeCardLabel1(props) {
 ChallengeCardLabel1.propTypes = {
   activityCountText: PropTypes.string,
   co2Text: PropTypes.string,
+  expectedParticipants: PropTypes.number,
   goal: PropTypes.bool,
+  participantCount: PropTypes.number,
   percentValue: PropTypes.number,
   points: PropTypes.number,
   pointsText: PropTypes.string,
   position: PropTypes.number,
   progPercent: PropTypes.number,
-  type: PropTypes.oneOf(['points', 'co2', 'activities'])
+  type: PropTypes.oneOf(['points', 'co2', 'activities', 'participants'])
 };
 export default ChallengeCardLabel1;

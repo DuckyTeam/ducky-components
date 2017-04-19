@@ -71,8 +71,8 @@ ProfilePageMeta.propTypes = {
     savingsText: PropTypes.string,
     toBeCompared: PropTypes.bool,
     totalText: PropTypes.string,
-    totalComparisonValue: PropTypes.number,
-    totalUserValue: PropTypes.number,
+    totalComparisonValue: PropTypes.node,
+    totalUserValue: PropTypes.node,
     type: PropTypes.oneOf(['points', 'co2', 'aktiviteter'])
 };
 

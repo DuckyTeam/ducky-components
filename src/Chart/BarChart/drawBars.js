@@ -1,11 +1,7 @@
 import paths from './../svgpaths';
 import {min, max} from 'd3-array';
 
-const drawBars = (
-  svg, data, xScale, yScale, height,
-  maxWidthBar, leaderId, yourScore, speed,
-  memberOf, selectedId, onClick, styles
-) => {
+const drawBars = (svg, data, xScale, yScale, height, maxWidthBar, leaderId, yourScore, speed, isMobile, isGnome, memberOf, selectedId, onClick, styles) => {
 
   //Bunch of messy helper functions and variables
   const barTextFontSize = 20;
@@ -22,7 +18,7 @@ const drawBars = (
   };
   const getPath = (data) => {
     if (data.id === memberOf && data.id !== leaderId) {
-      return (yourScore === 0) ? paths.check : paths.leaf;
+      return (isMobile || yourScore === 0) ? paths.check : [isGnome ? paths.gnome : paths.leaf];
     } else if (data.id === leaderId) {
       return paths.crown;
     }
@@ -42,6 +38,9 @@ const drawBars = (
 
   const getTextClass = d => {
     if (d.value === 0) {
+      return styles.barTextHidden;
+    }
+    if (isMobile) {
       return styles.barTextHidden;
     } else if (d.id === leaderId || d.id === memberOf) {
       return styles.barText;
@@ -131,13 +130,10 @@ const drawBars = (
 
   transY.select("rect")
     .attr('y', (data) => yScale(data.value))
-    .attr('height', (data) => {
-      console.log(height);
-      return height + 4 - yScale(data.value)
-    });
+    .attr('height', (data) => height + 4 - yScale(data.value));
 
   transY.select("svg")
-    .attr('y', (data) => data.value === 0 ? yScale(data.value) - 24 - 8 : yScale(data.value) - 24 - barTextFontSize)
+    .attr('y', (data) => data.value === 0 || isMobile ? yScale(data.value) - 24 - 8 : yScale(data.value) - 24 - barTextFontSize)
     .attr('width', 24)
     .attr('height', 24)
     .attr('opacity', 1);

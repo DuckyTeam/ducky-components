@@ -21,5 +21,6 @@ stories(module, ActivityBubbles, [
   ]),
   unit: string('CO2'),
   height: string('300px'),
+  menuOffset: number(0),
   id: number(1)
 }, 'Visualizations/ActivityBubbles');

@@ -1,0 +1,18 @@
+.wrapper {
+  position: relative;
+  background-color: #F4F7F9;
+}
+
+.iconWrapper {
+  transform: rotate(90deg);
+  height: 24px;
+  width: 24px;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -12px;
+}
+
+.icon {
+  color: #B0BEC5;
+}

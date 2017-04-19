@@ -51,7 +51,7 @@ viz.update = (el, props) => {
               .duration(200)
               .style("opacity", .9);
           tooltip.html(`${d.data.text} <br/> ${d.data.size} ${props.unit}`)
-              .style("left", (event.pageX) + "px")
+              .style("left", (event.pageX - props.menuOffset) + "px")
               .style("top", (event.pageY - 28) + "px");
           })
       .on("mouseout", d => {

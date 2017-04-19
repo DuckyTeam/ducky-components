@@ -19,3 +19,26 @@
   stroke-width: 4px;
   fill: transparent;
 }
+
+
+.svgBig {
+  height: 180px;
+  width: 180px
+}
+
+.circleBaseBig {
+  cx: 90px;
+  cy: 90px;
+  r: 86px;
+  stroke: rgba(38,50,56,0.12);
+  stroke-width: 8px;
+  fill: transparent;
+}
+
+.circleProgressBig {
+  cx: 90px;
+  cy: 90px;
+  r: 86px;
+  stroke-width: 8px;
+  fill: transparent;
+}
