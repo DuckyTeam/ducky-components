@@ -40,7 +40,7 @@ LabelNumberDisplay1.propTypes = {
   caption: React.PropTypes.string,
   className: React.PropTypes.string,
   icon: React.PropTypes.string,
-  number: React.PropTypes.string,
+  number: React.PropTypes.node,
   theme: React.PropTypes.string
 };
 
