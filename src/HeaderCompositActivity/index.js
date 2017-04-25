@@ -54,7 +54,7 @@ HeaderCompositActivity.propTypes = {
   children: React.PropTypes.node,
   className: React.PropTypes.string,
   icon: React.PropTypes.string,
-  iconValue: React.PropTypes.string,
+  iconValue: React.PropTypes.node,
   leftIcon: React.PropTypes.string,
   onIconClick: React.PropTypes.func,
   title: React.PropTypes.string
