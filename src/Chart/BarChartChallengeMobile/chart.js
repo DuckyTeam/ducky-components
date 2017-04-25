@@ -32,6 +32,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     selectedId,
     graphID,
     onClick,
+    startDate,
     daysToStart
   } = state;
 
@@ -59,6 +60,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     ? drawBars(svg, data, xScale, yScale, props.height, leaderId, speed, memberOf, selectedId, onClick, styles)
     : drawText(
       utils.getChartGroup(svg, styles.daysToStart),
+      startDate,
       daysToStart,
       props.height - 13,
       props.width - props.margin.left - props.margin.right,
