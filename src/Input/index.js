@@ -21,6 +21,7 @@ function Input(props) {
         name={props.name}
         onBlur={props.onBlur}
         onChange={props.onChange}
+        pattern={props.inputType === 'number' ? '\\d*' : null}
         placeholder={capitalizeFirstLetter(props.placeholder)}
         type={props.inputType}
         value={props.value}
