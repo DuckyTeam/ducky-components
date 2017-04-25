@@ -10,10 +10,16 @@ import styles from './styles.css';
 function HeaderCompositActivity(props) {
     return (
         <div className={classNames(styles.wrapper, {[props.className]: props.className})}>
-            <IconImage
+            {props.activityIcon
+              ? <IconImage
                 icon={props.activityIcon}
                 size={"standard"}
-            />
+                />
+              : <Icon
+                icon={props.leftIcon}
+                size="large1"
+                />
+            }
             <div className={styles.content}>
                 <Typography
                     className={styles.title}
@@ -44,13 +50,14 @@ function HeaderCompositActivity(props) {
 }
 
 HeaderCompositActivity.propTypes = {
-    activityIcon: React.PropTypes.string,
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    iconValue: React.PropTypes.string,
-    onIconClick: React.PropTypes.func,
-    title: React.PropTypes.string
+  activityIcon: React.PropTypes.string,
+  children: React.PropTypes.node,
+  className: React.PropTypes.string,
+  icon: React.PropTypes.string,
+  iconValue: React.PropTypes.string,
+  leftIcon: React.PropTypes.string,
+  onIconClick: React.PropTypes.func,
+  title: React.PropTypes.string
 };
 
 export default HeaderCompositActivity;
