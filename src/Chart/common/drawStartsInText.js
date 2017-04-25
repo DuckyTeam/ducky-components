@@ -1,24 +1,29 @@
 import styles from './drawStartsInText.css';
+import moment from 'moment';
 
-export default (group, daysToStart, height, width, style) => {
-    group.classed(style, true);
-    const data = daysToStart !== 0 ? [daysToStart] : [];
-    const text = group.selectAll('text').data(data);
+export default (group, startDate, daysToStart, height, width, style) => {
+  group.classed(style, true);
 
-    const eneteredText = text.enter().append('text').text(`${daysToStart}`);
+  const start = moment(startDate);
+  const now = moment();
 
-    const mergedText = eneteredText.merge(text);
+  const data = daysToStart !== 0 ? [daysToStart] : [];
+  const text = group.selectAll('text').data(data);
 
-    if (daysToStart > 1) {
-     mergedText.text(`${daysToStart} dager til start`)
-     .attr('x', width / 2)
-     .attr('y', height / 2 + 15);
-   }
-   else {
-     mergedText.text(`${daysToStart} dag til start`)
-     .attr('x', width / 2)
-     .attr('y', height / 2 + 15);
-   }
+  const eneteredText = text.enter().append('text').text(`${daysToStart}`);
+  const mergedText = eneteredText.merge(text);
 
-    text.exit().remove();
+  if (start.isAfter(now)) {
+    if (now.isSame(start, 'day')) {
+      mergedText.text(`${start.fromNow(true)} til start`)
+      .attr('x', width / 2)
+      .attr('y', height / 2 + 15);
+    } else {
+      mergedText.text(`${daysToStart} dager til start`)
+      .attr('x', width / 2)
+      .attr('y', height / 2 + 15);
+    }
+  }
+
+  text.exit().remove();
 };

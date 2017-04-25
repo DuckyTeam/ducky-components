@@ -53,6 +53,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
     goal,
     onClick,
     onCo2Click,
+    startDate,
     daysToStart
   } = state;
 
@@ -143,6 +144,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
       )
     : drawText(
         utils.getChartGroup(svg, styles.daysToStart),
+        startDate,
         daysToStart,
         props.height - 13,
         props.width - props.margin.left - props.margin.right,

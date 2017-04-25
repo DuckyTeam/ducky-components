@@ -82,5 +82,6 @@ stories(module, BarChart, [
   selectedId: json(12),
   onClick: func(),
   onClickCO2: func(),
-  daysToStart: number(0)
+  daysToStart: number(0),
+  startDate: number(1493119815000)
 }, 'Chart/BarChartChallenge');
