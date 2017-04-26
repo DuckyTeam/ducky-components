@@ -31,7 +31,7 @@ d3Chart.create = (el, state, props, formatting) => {
   utils.drawChartGroup(svg, props, styles.leaderLine);
   utils.drawChartGroup(svg, props, styles.leaderGroup);
 
-  drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel));
+  // drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel));
 
   d3Chart.update(el, state, props, formatting, true);
 };
