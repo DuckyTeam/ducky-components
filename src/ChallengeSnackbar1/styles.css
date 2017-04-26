@@ -11,4 +11,5 @@
 .text {
   color: #fff;
   text-align: left;
+  flex: 1;
 }
