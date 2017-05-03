@@ -1,20 +1,19 @@
 .wrapper {
-    line-height: 14px;
-    display: inline-flex;
-    align-items: center;
+  line-height: 14px;
+  display: inline-flex;
 }
 
 .pad {
-    padding-right: 4px;
+  padding-right: 4px;
 }
 
 .pointsIcon {
-    color: #8BC34A;
+  color: #8BC34A;
 }
 .participants {
-    color: #8BC34A;
+  color: #8BC34A;
 }
 
 .co2Icon{
-    color: #00AB97;
+  color: #00AB97;
 }

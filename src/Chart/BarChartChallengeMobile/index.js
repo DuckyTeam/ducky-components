@@ -18,7 +18,7 @@ BarChartMobile.propTypes = {
     value: React.PropTypes.number
   })),
   graphID: React.PropTypes.number.isRequired,
-  height: React.PropTypes.string.isRequired,
+  height: React.PropTypes.string,
   maxWidthBar: React.PropTypes.number,
   memberOf: React.PropTypes.any,
   onClick: React.PropTypes.func,

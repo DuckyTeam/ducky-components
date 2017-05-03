@@ -4,6 +4,7 @@
   cursor: pointer;
   border: 0px solid rgba(0,0,0,0);
   padding: 0;
+  outline: none;
 }
 
 .wrapper > div > span {

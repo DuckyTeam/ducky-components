@@ -24,10 +24,10 @@ d3Chart.create = (el, state, props) => {
   utils.drawXAxisGroup(svg, props, true);
   utils.drawYAxisGroup(svg, props, state.hasStarted);
   utils.drawChartGroup(svg, props, styles.bars);
-  utils.drawChartGroup(svg, props, styles.labels);
-  utils.drawChartGroup(svg, props, styles.faceGroup);
-  utils.drawChartGroup(svg, props, styles.triangleIndicator);
-  utils.drawChartGroup(svg, props, styles.daysToStart);
+  //utils.drawChartGroup(svg, props, styles.labels);
+  //utils.drawChartGroup(svg, props, styles.faceGroup);
+  //utils.drawChartGroup(svg, props, styles.triangleIndicator);
+  //utils.drawChartGroup(svg, props, styles.daysToStart);
 
   drawCO2AxisLabel(utils.drawChartGroup(svg, props, styles.co2AxisLabel), !state.milestones && !state.goals ? 4 : -38  ,state.daysToStart === 0);
 
