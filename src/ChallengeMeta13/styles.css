@@ -3,6 +3,7 @@
   width: 100%;
   background-color: transparent;
 }
+
 .innerWrapper {
   flex-grow: 1;
   display: flex;

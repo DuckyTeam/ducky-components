@@ -16,8 +16,8 @@ function ChallengeMeta13(props) {
       size={'standard'}
       >
       <Icon
-        size={'standard'}
         icon={'icon-location_city'}
+        size={'large1'}
         style={{
           marginRight: 16,
           color: props.isUserSection ? '#8bc34a' : '#90a4ae'
@@ -25,7 +25,9 @@ function ChallengeMeta13(props) {
         />
       <div className={styles.innerWrapper}>
 
-        <Typography>
+        <Typography
+          type={'bodyTextStrong'}
+          >
           {props.sectionName}
           <Spacer size="standard" />
         </Typography>
