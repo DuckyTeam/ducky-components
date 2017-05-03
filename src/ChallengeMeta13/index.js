@@ -5,11 +5,14 @@ import Spacer from '../Spacer';
 import Typography from '../Typography';
 import Label from '../ChallengeCardLabel1';
 import styles from './styles.css';
+import classNames from 'classnames';
 
 function ChallengeMeta13(props) {
   return (
     <Wrapper
-      className={styles.wrapper}
+      className={classNames(styles.wrapper, {
+        [props.className]: props.className
+      })}
       size={'standard'}
       >
       <Icon

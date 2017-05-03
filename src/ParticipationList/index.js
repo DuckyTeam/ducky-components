@@ -28,6 +28,7 @@ function ParticipationList(props) {
         sortedList.map((section) => {
           return (
             <ChallengeMeta13
+              className={styles.item}
               expectedParticipants={section.expectedParticipants}
               isUserSection={section.isUserSection}
               key={section.sectionName}

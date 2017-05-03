@@ -7,3 +7,7 @@
   height: 310px;
   overflow-y: auto;
 }
+
+.item {
+  min-height: 65px;
+}
