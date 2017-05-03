@@ -9,6 +9,8 @@ import utils from './../utils';
 import paths from './../svgpaths';
 import drawBars from './drawBarsMobile';
 import drawText from './../common/drawStartsInText';
+import reduceBars from './../common/reduceBars';
+
 const d3Chart = {};
 
 d3Chart.create = (el, state, props) => {
@@ -27,7 +29,6 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
 
   //A lot of calculations, functions and definitions for the chart
   const {
-    data,
     memberOf,
     selectedId,
     graphID,
@@ -37,10 +38,16 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
   } = state;
 
   const hasStarted = daysToStart <= 0;
-  const highestScore = max(data, (data) => data.value);
+  const highestScore = max(state.data, (data) => data.value);
 
   const leaderId = state.noLeader ? null : (highestScore === 0) ? -1 : state.data.filter((data) => data.value === max(state.data, data => data.value))[0].id;
-
+  const data = reduceBars(
+    state.data
+      .map(d => { d.sortValue = d.value; return d; })
+      .sort((a,b) => b.sortValue - a.sortValue),
+    memberOf
+  );
+  console.log(data);
   //Define x and y scales
   const xScale = scaleBand()
     .domain(data.map((data) => data.id))

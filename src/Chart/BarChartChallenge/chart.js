@@ -14,7 +14,7 @@ import drawText from './../common/drawStartsInText';
 import drawCO2AxisLabel from './../common/drawCO2AxisLabel';
 import calculateYAxisTicks from './calculateYAxisTicks';
 import getShortenedName from './../common/calculateShortenedName';
-import reduceBars from './reduceBars';
+import reduceBars from './../common/reduceBars';
 const d3Chart = {};
 
 const margin = {
