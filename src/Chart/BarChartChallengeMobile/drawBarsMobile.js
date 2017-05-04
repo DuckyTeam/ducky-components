@@ -18,7 +18,7 @@ const drawBarsMobile = (svg, data, xScale, yScale, height, leaderId, speed, memb
         onClick(data.id)}
       }
     );
-    console.log(data);
+
   entered.append("rect")
     .attr('class', styles.rectangle)
     .attr('rx', 2)

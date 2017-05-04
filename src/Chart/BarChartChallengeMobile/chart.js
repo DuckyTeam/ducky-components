@@ -47,7 +47,7 @@ d3Chart.update = (el, state, props, dontAnimateIn) => {
       .sort((a,b) => b.sortValue - a.sortValue),
     memberOf
   );
-  console.log(data);
+
   //Define x and y scales
   const xScale = scaleBand()
     .domain(data.map((data) => data.id))
