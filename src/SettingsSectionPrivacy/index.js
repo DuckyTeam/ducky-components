@@ -2,9 +2,10 @@ import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import SettingsPrivacyGeneral from '../SettingsPrivacyGeneral';
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function SettingsSectionPrivacy(props) {
     return (

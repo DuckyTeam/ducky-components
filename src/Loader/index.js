@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -34,11 +35,11 @@ function Loader(props) {
 }
 
 Loader.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  hide: React.PropTypes.bool,
-  image: React.PropTypes.bool,
-  size: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  hide: PropTypes.bool,
+  image: PropTypes.bool,
+  size: PropTypes.string
 };
 
 export default Loader;

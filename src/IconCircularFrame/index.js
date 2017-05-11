@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import styles from './styles.css';
@@ -22,11 +23,11 @@ function IconCircularFrame(props) {
 }
 
 IconCircularFrame.propTypes = {
-  bgColor: React.PropTypes.string,
-  borderColor: React.PropTypes.string,
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  size: React.PropTypes.string
+  bgColor: PropTypes.string,
+  borderColor: PropTypes.string,
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  size: PropTypes.string
 };
 
 export default IconCircularFrame;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import chart from './chart';
 import Chart from './../index';
 
@@ -13,16 +14,16 @@ function BarChartMobile(props) {
 }
 
 BarChartMobile.propTypes = {
-  data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.any,
-    value: React.PropTypes.number
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.any,
+    value: PropTypes.number
   })),
-  graphID: React.PropTypes.number.isRequired,
-  height: React.PropTypes.string,
-  maxWidthBar: React.PropTypes.number,
-  memberOf: React.PropTypes.any,
-  onClick: React.PropTypes.func,
-  selectedId: React.PropTypes.any
+  graphID: PropTypes.number.isRequired,
+  height: PropTypes.string,
+  maxWidthBar: PropTypes.number,
+  memberOf: PropTypes.any,
+  onClick: PropTypes.func,
+  selectedId: PropTypes.any
 };
 
 export default BarChartMobile;

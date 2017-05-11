@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import SectionFooterCancelOK from '../SectionFooterCancelOK';
@@ -71,16 +72,16 @@ class ModalFullsize extends React.Component {
 }
 
 ModalFullsize.propTypes = {
-  cancelButtonText: React.PropTypes.string,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  modalRef: React.PropTypes.func,
-  okButtonText: React.PropTypes.string,
-  onCancel: React.PropTypes.func,
-  onHide: React.PropTypes.func,
-  onOkClick: React.PropTypes.func,
-  show: React.PropTypes.bool,
-  showStickyFooter: React.PropTypes.bool
+  cancelButtonText: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  modalRef: PropTypes.func,
+  okButtonText: PropTypes.string,
+  onCancel: PropTypes.func,
+  onHide: PropTypes.func,
+  onOkClick: PropTypes.func,
+  show: PropTypes.bool,
+  showStickyFooter: PropTypes.bool
 };
 
 export default ModalFullsize;

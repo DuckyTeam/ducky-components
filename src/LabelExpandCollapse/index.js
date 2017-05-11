@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -35,10 +36,10 @@ function LabelExpandCollapse(props) {
 }
 
 LabelExpandCollapse.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  expanded: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  children: PropTypes.node,
+  className: PropTypes.string,
+  expanded: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default LabelExpandCollapse;

@@ -5,7 +5,8 @@ import Wrapper from '../Wrapper';
 import Counter from '../Counter';
 import styles from './styles.css';
 import React from 'react';
-const PropTypes = React.PropTypes;
+import PropTypes from 'prop-types';
+
 
 function SnackBarPanel3(props) {
     let opt = '';

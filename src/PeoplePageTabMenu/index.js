@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import IconTabMenu from '../IconTabMenu';
 
@@ -15,11 +16,11 @@ function PeoplePageTabMenu(props) {
 }
 
 PeoplePageTabMenu.propTypes = {
-  changeTab: React.PropTypes.func,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.arrayOf(React.PropTypes.number),
-  selected: React.PropTypes.string,
-  tooltipRequired: React.PropTypes.bool
+  changeTab: PropTypes.func,
+  className: PropTypes.string,
+  disabled: PropTypes.arrayOf(PropTypes.number),
+  selected: PropTypes.string,
+  tooltipRequired: PropTypes.bool
 };
 
 export default PeoplePageTabMenu;

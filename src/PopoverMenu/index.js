@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typo from './../Typography';
 import Wrapper from './../Wrapper';
 import styles from './styles.css';
@@ -19,7 +20,7 @@ function PopoverMenu(props) {
 
 PopoverMenu.displayName = "Popover Menu";
 PopoverMenu.propTypes = {
-  onClick: React.PropTypes.func,
-  text: React.PropTypes.string
+  onClick: PropTypes.func,
+  text: PropTypes.string
 };
 export default PopoverMenu;

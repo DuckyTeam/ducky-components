@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import Spacer from '../Spacer';
@@ -37,11 +38,11 @@ function LabelNumberDisplay1(props) {
 }
 
 LabelNumberDisplay1.propTypes = {
-  caption: React.PropTypes.string,
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  number: React.PropTypes.node,
-  theme: React.PropTypes.string
+  caption: PropTypes.string,
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  number: PropTypes.node,
+  theme: PropTypes.string
 };
 
 export default LabelNumberDisplay1;

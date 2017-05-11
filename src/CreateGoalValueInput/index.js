@@ -3,6 +3,7 @@ import Wrapper from '../Wrapper';
 import Input from '../Input';
 import LabelHorisontal from '../LabelHorisontal';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -72,8 +73,8 @@ class CreateGoalValueInput extends React.Component {
 }
 
 CreateGoalValueInput.propTypes = {
-    className: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['points', 'activity', 'co2'])
+    className: PropTypes.string,
+    type: PropTypes.oneOf(['points', 'activity', 'co2'])
 };
 
 export default CreateGoalValueInput;

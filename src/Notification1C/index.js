@@ -2,6 +2,7 @@ import Icon from '../Icon';
 import Wrapper from '../Wrapper';
 import NotificationItem from '../NotificationItem';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 function Notification1C(props) {
   return (
@@ -28,20 +29,20 @@ function Notification1C(props) {
 }
 
 Notification1C.propTypes = {
-  buttonClicked: React.PropTypes.func,
-  buttonText: React.PropTypes.string,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  dateTime: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  mainIcon: React.PropTypes.string,
-  name: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  seen: React.PropTypes.bool,
-  size: React.PropTypes.oneOf(['standard', 'main']),
-  text: React.PropTypes.string,
-  type: React.PropTypes.string
+  buttonClicked: PropTypes.func,
+  buttonText: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  dateTime: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  mainIcon: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  seen: PropTypes.bool,
+  size: PropTypes.oneOf(['standard', 'main']),
+  text: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default Notification1C;

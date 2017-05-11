@@ -2,6 +2,7 @@ import LabelTab from '../LabelTab';
 import ActionButton from '../ActionButton';
 import Typography from '../Typography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -75,15 +76,15 @@ function ProfileMenuItem(props) {
 }
 
 ProfileMenuItem.propTypes = {
-    className: React.PropTypes.string,
-    dateOfLastActivity: React.PropTypes.string,
-    numberChallenges: React.PropTypes.number,
-    numberGoals: React.PropTypes.number,
-    onClick: React.PropTypes.func,
-    percentCompare: React.PropTypes.number,
-    profileType: React.PropTypes.oneOf(['self', 'others']),
-    totalSavings: React.PropTypes.number,
-    type: React.PropTypes.oneOf(['personal', 'insight', 'footprint', 'challenges', 'activity'])
+    className: PropTypes.string,
+    dateOfLastActivity: PropTypes.string,
+    numberChallenges: PropTypes.number,
+    numberGoals: PropTypes.number,
+    onClick: PropTypes.func,
+    percentCompare: PropTypes.number,
+    profileType: PropTypes.oneOf(['self', 'others']),
+    totalSavings: PropTypes.number,
+    type: PropTypes.oneOf(['personal', 'insight', 'footprint', 'challenges', 'activity'])
 };
 
 export default ProfileMenuItem;

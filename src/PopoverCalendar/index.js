@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import 'moment/locale/nb';
 // import 'moment/locale/de';
@@ -235,17 +236,17 @@ class PopoverCalendar extends React.Component {
 
 }
 PopoverCalendar.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  // hasActivity: React.Proptypes.bool,
-  // isDisabled: React.PropTypes.bool,
-  // isSelected: React.PropTypes.bool,
-  onDayClick: React.PropTypes.func,
-  language: React.PropTypes.string,
-  month: React.PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
-  onClick: React.PropTypes.func,
-  structWeek: React.PropTypes.func,
-  year: React.PropTypes.number
+  children: PropTypes.node,
+  className: PropTypes.string,
+  // hasActivity: PropTypes.bool,
+  // isDisabled: PropTypes.bool,
+  // isSelected: PropTypes.bool,
+  onDayClick: PropTypes.func,
+  language: PropTypes.string,
+  month: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
+  onClick: PropTypes.func,
+  structWeek: PropTypes.func,
+  year: PropTypes.number
 
 };
 export default PopoverCalendar;

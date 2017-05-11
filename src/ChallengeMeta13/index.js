@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import Wrapper from '../Wrapper';
 import Spacer from '../Spacer';
@@ -39,14 +40,14 @@ function ChallengeMeta13(props) {
 }
 
 ChallengeMeta13.propTypes = {
-  className: React.PropTypes.string,
-  expectedParticipants: React.PropTypes.number,
-  icon: React.PropTypes.string,
-  isUserSection: React.PropTypes.bool,
-  name: React.PropTypes.string,
-  participantCount: React.PropTypes.number,
-  participantPercentage: React.PropTypes.number,
-  sectionName: React.PropTypes.string
+  className: PropTypes.string,
+  expectedParticipants: PropTypes.number,
+  icon: PropTypes.string,
+  isUserSection: PropTypes.bool,
+  name: PropTypes.string,
+  participantCount: PropTypes.number,
+  participantPercentage: PropTypes.number,
+  sectionName: PropTypes.string
 };
 
 export default ChallengeMeta13;

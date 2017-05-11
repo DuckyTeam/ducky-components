@@ -2,6 +2,7 @@
 import Icon from '../Icon';
 import IconImage from '../IconImage';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import LabelStandard from '../LabelStandard';
 import classNames from 'classnames';
@@ -50,14 +51,14 @@ function HeaderCompositActivity(props) {
 }
 
 HeaderCompositActivity.propTypes = {
-  activityIcon: React.PropTypes.string,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  iconValue: React.PropTypes.node,
-  leftIcon: React.PropTypes.string,
-  onIconClick: React.PropTypes.func,
-  title: React.PropTypes.string
+  activityIcon: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  iconValue: PropTypes.node,
+  leftIcon: PropTypes.string,
+  onIconClick: PropTypes.func,
+  title: PropTypes.string
 };
 
 export default HeaderCompositActivity;

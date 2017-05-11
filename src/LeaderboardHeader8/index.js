@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -41,10 +42,10 @@ function LeaderboardHeader8(props) {
 }
 
 LeaderboardHeader8.propTypes = {
-  activityText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  nameText: React.PropTypes.string,
-  savingText: React.PropTypes.string
+  activityText: PropTypes.string,
+  className: PropTypes.string,
+  nameText: PropTypes.string,
+  savingText: PropTypes.string
 };
 
 export default LeaderboardHeader8;

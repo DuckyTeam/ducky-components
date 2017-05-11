@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import Spacer from '../Spacer';
 import styles from './styles.css';

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import chart from './chart';
 import Chart from './../index';
 
@@ -12,23 +13,23 @@ function BarChart(props) {
 }
 
 BarChart.propTypes = {
-  data: React.PropTypes.arrayOf(React.PropTypes.shape({
-    id: React.PropTypes.any,
-    value: React.PropTypes.number,
-    label: React.PropTypes.string
+  data: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.any,
+    value: PropTypes.number,
+    label: PropTypes.string
   })),
-  goal: React.PropTypes.number,
-  graphID: React.PropTypes.number.isRequired,
-  hasLeader: React.PropTypes.bool,
-  height: React.PropTypes.string.isRequired,
-  isGnome: React.PropTypes.bool,
-  isMobile: React.PropTypes.bool,
-  maxWidthBar: React.PropTypes.number,
-  memberOf: React.PropTypes.any,
-  milestones: React.PropTypes.arrayOf(React.PropTypes.number),
-  onClick: React.PropTypes.func,
-  onClickCO2: React.PropTypes.func,
-  selectedId: React.PropTypes.any
+  goal: PropTypes.number,
+  graphID: PropTypes.number.isRequired,
+  hasLeader: PropTypes.bool,
+  height: PropTypes.string.isRequired,
+  isGnome: PropTypes.bool,
+  isMobile: PropTypes.bool,
+  maxWidthBar: PropTypes.number,
+  memberOf: PropTypes.any,
+  milestones: PropTypes.arrayOf(PropTypes.number),
+  onClick: PropTypes.func,
+  onClickCO2: PropTypes.func,
+  selectedId: PropTypes.any
 };
 
 export default BarChart;

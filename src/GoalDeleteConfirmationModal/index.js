@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SectionHeaderGeneral from '../SectionHeaderGeneral';
 import Modal from '../Modal';
 import Wrapper from '../Wrapper';
 import SectionFooterCancelOK from '../SectionFooterCancelOK';
 import Typography from '../Typography';
 import classNames from 'classnames';
-const PropTypes = React.PropTypes;
+
 
 function GoalDeleteConfirmationModal(props) {
   return (

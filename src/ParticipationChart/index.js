@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import ProgressCirclePercentage from '../ProgressCirclePercentage';
@@ -26,9 +27,9 @@ function ParticipationChart(props) {
 }
 
 ParticipationChart.propTypes = {
-  expectedParticipantCounts: React.PropTypes.number,
-  participantCounts: React.PropTypes.number,
-  percentage: React.PropTypes.number
+  expectedParticipantCounts: PropTypes.number,
+  participantCounts: PropTypes.number,
+  percentage: PropTypes.number
 };
 
 export default ParticipationChart;

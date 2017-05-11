@@ -2,6 +2,7 @@ import Icon from '../Icon';
 import Typography from '../Typography';
 import GoalButtonPopOverMenuItem from '../GoalButtonPopOverMenuItem';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import moment from 'moment';
@@ -107,19 +108,19 @@ function GoalDescriptionGeneral(props) {
 }
 
 GoalDescriptionGeneral.propTypes = {
-    className: React.PropTypes.string,
-    endDate: React.PropTypes.string,
-    finished: React.PropTypes.bool,
-    goalPointsAmount: React.PropTypes.number,
-    handleMoreClick: React.PropTypes.func,
-    numberDays: React.PropTypes.number,
-    numberRegistration: React.PropTypes.number,
-    onClick: React.PropTypes.func,
-    savingsAmount: React.PropTypes.number,
-    selectedActivityName: React.PropTypes.string,
-    show: React.PropTypes.bool,
-    startDate: React.PropTypes.string,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    endDate: PropTypes.string,
+    finished: PropTypes.bool,
+    goalPointsAmount: PropTypes.number,
+    handleMoreClick: PropTypes.func,
+    numberDays: PropTypes.number,
+    numberRegistration: PropTypes.number,
+    onClick: PropTypes.func,
+    savingsAmount: PropTypes.number,
+    selectedActivityName: PropTypes.string,
+    show: PropTypes.bool,
+    startDate: PropTypes.string,
+    type: PropTypes.string
 };
 
 export default GoalDescriptionGeneral;

@@ -3,6 +3,7 @@ import GoalComposit1 from '../GoalComposit1';
 import Spacer from '../Spacer';
 import GoalInfoNavigation from '../GoalInfoNavigation';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -45,12 +46,12 @@ function ProfileSectionPersonalGoal(props) {
 }
 
 ProfileSectionPersonalGoal.propTypes = {
-    children: React.PropTypes.string,
-    className: React.PropTypes.string,
-    currentSlide: React.PropTypes.number,
-    numberGoals: React.PropTypes.number,
-    profileType: React.PropTypes.oneOf(['self', 'others']),
-    slideCount: React.PropTypes.number
+    children: PropTypes.string,
+    className: PropTypes.string,
+    currentSlide: PropTypes.number,
+    numberGoals: PropTypes.number,
+    profileType: PropTypes.oneOf(['self', 'others']),
+    slideCount: PropTypes.number
 };
 
 export default ProfileSectionPersonalGoal;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonRaised from './../ButtonRaised';
 import styles from './styles.css';
 import classNames from 'classnames';
@@ -37,10 +38,10 @@ class SectionFooterOK extends React.Component {
 }
 
 SectionFooterOK.propTypes = {
-    buttonName: React.PropTypes.string,
-    className: React.PropTypes.string,
-    disabled: React.PropTypes.bool,
-    onClick: React.PropTypes.func
+    buttonName: PropTypes.string,
+    className: PropTypes.string,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func
 };
 
 export default SectionFooterOK;

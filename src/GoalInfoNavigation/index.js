@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import IconAvaWrapper from '../IconAvaWrapper';
@@ -31,10 +32,10 @@ function GoalInfoNavigation(props) {
 }
 
 GoalInfoNavigation.propTypes = {
-    currentSlide: React.PropTypes.number,
-    handleLeftClick: React.PropTypes.func,
-    handleRightClick: React.PropTypes.func,
-    slideCount: React.PropTypes.number
+    currentSlide: PropTypes.number,
+    handleLeftClick: PropTypes.func,
+    handleRightClick: PropTypes.func,
+    slideCount: PropTypes.number
 };
 
 export default GoalInfoNavigation;

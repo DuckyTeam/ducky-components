@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import SocialConnect from '../SocialConnect';
 import Spacer from '../Spacer';
@@ -56,14 +57,14 @@ function SocialConnectComposit2(props) {
 }
 
 SocialConnectComposit2.propTypes = {
-  className: React.PropTypes.string,
-  connectedFacebook: React.PropTypes.bool,
-  connectedGoogle: React.PropTypes.bool,
-  connectedTwitter: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  social: React.PropTypes.oneOf(['facebook', 'twitter', 'google+']),
-  social2: React.PropTypes.oneOf(['facebook', 'twitter', 'google+']),
-  social3: React.PropTypes.oneOf(['facebook', 'twitter', 'google+'])
+  className: PropTypes.string,
+  connectedFacebook: PropTypes.bool,
+  connectedGoogle: PropTypes.bool,
+  connectedTwitter: PropTypes.bool,
+  onClick: PropTypes.func,
+  social: PropTypes.oneOf(['facebook', 'twitter', 'google+']),
+  social2: PropTypes.oneOf(['facebook', 'twitter', 'google+']),
+  social3: PropTypes.oneOf(['facebook', 'twitter', 'google+'])
 };
 
 export default SocialConnectComposit2;

@@ -2,6 +2,7 @@ import GoalButtonBig from '../GoalButtonBig';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -48,10 +49,10 @@ function GoalComposit1(props) {
 }
 
 GoalComposit1.propTypes = {
-    className: React.PropTypes.string,
-    finishedGoal: React.PropTypes.bool,
-    handleTypoClick: React.PropTypes.func,
-    onClick: React.PropTypes.func
+    className: PropTypes.string,
+    finishedGoal: PropTypes.bool,
+    handleTypoClick: PropTypes.func,
+    onClick: PropTypes.func
 };
 
 export default GoalComposit1;

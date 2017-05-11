@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -15,7 +16,7 @@ function BackgroundLoader(props) {
 }
 
 BackgroundLoader.propTypes = {
-  className: React.PropTypes.string
+  className: PropTypes.string
 };
 
 export default BackgroundLoader;

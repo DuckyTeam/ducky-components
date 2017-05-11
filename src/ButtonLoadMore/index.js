@@ -1,10 +1,11 @@
 import ActionButton from '../ActionButton';
 import classNames from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Spacer from '../Spacer';
 import styles from './styles.css';
 import Typography from '../Typography';
-const PropTypes = React.PropTypes;
+
 
 function ButtonLoadMore(props) {
   return (

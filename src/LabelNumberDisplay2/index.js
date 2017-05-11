@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 import LabelTitle from '../LabelTitle';
 import Tooltip from '../Tooltip';
-const PropTypes = React.PropTypes;
+
 
 function LabelNumberDisplay2(props) {
   return (
@@ -40,13 +41,13 @@ function LabelNumberDisplay2(props) {
 LabelNumberDisplay2.propTypes = {
   animation: PropTypes.bool,
   caption: PropTypes.string,
-  className: React.PropTypes.string,
+  className: PropTypes.string,
   decimals: PropTypes.number,
-  icon: React.PropTypes.string,
-  number: React.PropTypes.node,
+  icon: PropTypes.string,
+  number: PropTypes.node,
   onClick: PropTypes.func,
-  theme: React.PropTypes.string,
-  tooltipText: React.PropTypes.node
+  theme: PropTypes.string,
+  tooltipText: PropTypes.node
 };
 
 export default LabelNumberDisplay2;

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import ButtonPlusMinus from '../ButtonPlusMinus';
 import Typography from '../Typography';
-const PropTypes = React.PropTypes;
+
 
 function CounterInputGeneral(props) {
   return (

@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 const MAX_NUM_STANDARD = 999;
 const MAX_NUM_SMALL = 99;
 
@@ -43,10 +44,10 @@ ButtonCounter.propTypes = {
   disabled: PropTypes.bool,
   number: PropTypes.string,
   onClick: PropTypes.func,
-  prefix: React.PropTypes.string,
-  size: React.PropTypes.oneOf(['small', 'standard']),
-  style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
-        [React.PropTypes.number, React.PropTypes.string]
+  prefix: PropTypes.string,
+  size: PropTypes.oneOf(['small', 'standard']),
+  style: PropTypes.objectOf(PropTypes.oneOfType(
+        [PropTypes.number, PropTypes.string]
     ))
 };
 

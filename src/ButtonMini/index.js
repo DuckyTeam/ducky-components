@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -29,12 +30,12 @@ function ButtonMini(props) {
 }
 
 ButtonMini.propTypes = {
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  large: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  theme: React.PropTypes.oneOf(['border', 'fill'])
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  large: PropTypes.bool,
+  onClick: PropTypes.func,
+  theme: PropTypes.oneOf(['border', 'fill'])
 };
 
 export default ButtonMini;

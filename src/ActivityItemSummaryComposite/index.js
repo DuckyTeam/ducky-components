@@ -2,6 +2,7 @@ import ButtonCounter from '../ButtonCounter';
 import IconImage from '../IconImage';
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -80,10 +81,10 @@ class ActionItemSummaryComposit extends React.Component {
 }
 
 ActionItemSummaryComposit.propTypes = {
-  className: React.PropTypes.string,
-  expanded: React.PropTypes.bool,
-  icons: React.PropTypes.arrayOf(React.PropTypes.string),
-  onClick: React.PropTypes.func
+  className: PropTypes.string,
+  expanded: PropTypes.bool,
+  icons: PropTypes.arrayOf(PropTypes.string),
+  onClick: PropTypes.func
 };
 
 export default ActionItemSummaryComposit;

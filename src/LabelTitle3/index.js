@@ -1,5 +1,6 @@
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 import classNames from 'classnames';
 import styles from './styles.css';
 import Typography from '../Typography';
@@ -28,7 +29,7 @@ LabelTitle3.propTypes = {
   className: PropTypes.string,
   icon: PropTypes.string,
   label: PropTypes.string,
-  style: React.PropTypes.shape({})
+  style: PropTypes.shape({})
 };
 
 export default LabelTitle3;

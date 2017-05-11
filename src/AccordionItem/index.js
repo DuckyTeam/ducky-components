@@ -1,5 +1,6 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
@@ -60,11 +61,11 @@ function AccordionItem(props) {
 }
 
 AccordionItem.propTypes = {
-  className: React.PropTypes.string,
-  expanded: React.PropTypes.bool,
-  leftIcon: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  title: React.PropTypes.string
+  className: PropTypes.string,
+  expanded: PropTypes.bool,
+  leftIcon: PropTypes.string,
+  onClick: PropTypes.func,
+  title: PropTypes.string
 };
 
 export default AccordionItem;

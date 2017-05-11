@@ -1,5 +1,6 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -48,12 +49,12 @@ function SectionHeaderAlternate(props) {
 }
 
 SectionHeaderAlternate.propTypes = {
-  className: React.PropTypes.string,
-  onClickLeftIcon: React.PropTypes.func,
-  onClickRightIcon: React.PropTypes.func,
-  leftIcon: React.PropTypes.string,
-  rightIcon: React.PropTypes.string,
-  title: React.PropTypes.string
+  className: PropTypes.string,
+  onClickLeftIcon: PropTypes.func,
+  onClickRightIcon: PropTypes.func,
+  leftIcon: PropTypes.string,
+  rightIcon: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default SectionHeaderAlternate;

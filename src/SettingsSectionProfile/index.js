@@ -2,14 +2,15 @@
 import ActionButton from '../ActionButton';
 import Avatar from '../Avatar';
 import React from 'react';
+import PropTypes from 'prop-types';
 // import Image from '../ImageElement';
-// import {PropTypes} from 'react';
+// 
 import classNames from 'classnames';
 import styles from './styles.css';
 import SectionFooterCancelOK from '../SectionFooterCancelOK';
 import TextArea from '../TextAreaLarge';
 import Wrapper from '../Wrapper';
-const PropTypes = React.PropTypes;
+
 
 function SettingsSectionProfile(props) {
   const CoverImgStyle = {
@@ -91,7 +92,7 @@ SettingsSectionProfile.propTypes = {
   handleAvyImgClick: PropTypes.func,
   handleCovImgClick: PropTypes.func,
   handleFooterOK: PropTypes.func,
-  handlefooterCancel: React.PropTypes.func,
+  handlefooterCancel: PropTypes.func,
   textAerrorMessage1: PropTypes.node,
   textAerrorMessage2: PropTypes.node,
   textAerrorMessage3: PropTypes.node,

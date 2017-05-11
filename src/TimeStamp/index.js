@@ -1,7 +1,8 @@
 import {isoString, timeSince} from './utils/time';
 import LabelSmall from '../LabelSmall';
 import React from 'react';
-const PropTypes = React.PropTypes;
+import PropTypes from 'prop-types';
+
 
 function TimeStamp(props) {
     return (

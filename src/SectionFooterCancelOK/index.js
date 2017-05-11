@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonRaised from './../ButtonRaised';
 import Button from './../Button';
 import styles from './styles.css';
@@ -25,12 +26,12 @@ function SectionFooterCancelOK(props) {
 }
 
 SectionFooterCancelOK.propTypes = {
-  cancelButtonText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  okButtonText: React.PropTypes.string,
-  onCancel: React.PropTypes.func,
-  onClick: React.PropTypes.func
+  cancelButtonText: PropTypes.string,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  okButtonText: PropTypes.string,
+  onCancel: PropTypes.func,
+  onClick: PropTypes.func
 };
 
 export default SectionFooterCancelOK;

@@ -3,6 +3,7 @@ import PopoverMenu from '../PopoverMenu';
 import Popup from '../Popup';
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -37,10 +38,10 @@ function GoalButtonPopOverMenuItem(props) {
 }
 
 GoalButtonPopOverMenuItem.propTypes = {
-    className: React.PropTypes.string,
-    onActivityClick: React.PropTypes.func,
-    onClick: React.PropTypes.func,
-    show: React.PropTypes.bool
+    className: PropTypes.string,
+    onActivityClick: PropTypes.func,
+    onClick: PropTypes.func,
+    show: PropTypes.bool
 };
 
 export default GoalButtonPopOverMenuItem;

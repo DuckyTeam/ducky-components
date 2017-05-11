@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import IconAvaWrapper from '../IconAvaWrapper';
 import Spacer from '../Spacer';
@@ -43,11 +44,11 @@ function FootprintCategoryEdit(props) {
 }
 
 FootprintCategoryEdit.propTypes = {
-  icon: React.PropTypes.string,
-  label: React.PropTypes.node,
-  onClick: React.PropTypes.func,
-  rightIcon: React.PropTypes.string,
-  value: React.PropTypes.node
+  icon: PropTypes.string,
+  label: PropTypes.node,
+  onClick: PropTypes.func,
+  rightIcon: PropTypes.string,
+  value: PropTypes.node
 };
 
 export default FootprintCategoryEdit;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
@@ -25,10 +26,10 @@ function CreateGoalValueInput2(props) {
 }
 
 CreateGoalValueInput2.propTypes = {
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  number: React.PropTypes.string,
-  text: React.PropTypes.string
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  number: PropTypes.string,
+  text: PropTypes.string
 };
 
 export default CreateGoalValueInput2;

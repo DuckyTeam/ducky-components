@@ -1,11 +1,12 @@
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProfilePageMeta from '../ProfilePageMeta';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
 import Avatar from '../Avatar';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function ProfileSectionOverallStats(props) {
     return (

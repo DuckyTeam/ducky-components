@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Wrapper from '../Wrapper';
 import ListCompositePerson from '../ListCompositePerson';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function MemberItem(props) {
   return (

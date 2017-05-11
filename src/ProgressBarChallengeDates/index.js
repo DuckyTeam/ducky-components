@@ -1,5 +1,6 @@
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 import Typography from '../Typography';
 import Spacer from '../Spacer';
 import ProgressBar from '../ProgressBar';

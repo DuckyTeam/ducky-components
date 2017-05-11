@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -45,12 +46,12 @@ class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  modalRef: React.PropTypes.func,
-  onHide: React.PropTypes.func,
-  show: React.PropTypes.bool,
-  width: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  modalRef: PropTypes.func,
+  onHide: PropTypes.func,
+  show: PropTypes.bool,
+  width: PropTypes.string
 };
 
 export default Modal;

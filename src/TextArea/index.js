@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TypographyCSS from '../Typography/styles.css';
 import ReactTextArea from 'react-textarea-autosize';
 import classNames from 'classnames';
@@ -42,17 +43,17 @@ class TextArea extends React.Component {
 }
 
 TextArea.propTypes = {
-    className: React.PropTypes.string,
-    maxLength: React.PropTypes.node,
-    onBlur: React.PropTypes.func,
-    onChange: React.PropTypes.func,
-    onClick: React.PropTypes.func,
-    onFocus: React.PropTypes.func,
-    onSubmit: React.PropTypes.func,
-    placeholder: React.PropTypes.string,
-    showFullText: React.PropTypes.bool,
-    textType: React.PropTypes.oneOf(Object.keys(TypographyCSS)),
-    value: React.PropTypes.string
+    className: PropTypes.string,
+    maxLength: PropTypes.node,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func,
+    onFocus: PropTypes.func,
+    onSubmit: PropTypes.func,
+    placeholder: PropTypes.string,
+    showFullText: PropTypes.bool,
+    textType: PropTypes.oneOf(Object.keys(TypographyCSS)),
+    value: PropTypes.string
 };
 
 export default TextArea;

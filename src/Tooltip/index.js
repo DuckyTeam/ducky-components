@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
@@ -42,10 +43,10 @@ function Tooltip(props) {
 
 Tooltip.displayName = 'ToolTip';
 Tooltip.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  placement: React.PropTypes.oneOf(['left', 'right', 'top', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
-  text: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  placement: PropTypes.oneOf(['left', 'right', 'top', 'bottom', 'topLeft', 'topRight', 'bottomLeft', 'bottomRight']),
+  text: PropTypes.string
 };
 
 export default Tooltip;

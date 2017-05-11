@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
 import PersonItem1 from '../PersonItem1';
-const PropTypes = React.PropTypes;
+
 
 function PersonItem2(props) {
 
@@ -48,7 +49,7 @@ function PersonItem2(props) {
       icon:PropTypes.string,
       location: PropTypes.string,
       mutualNumber: PropTypes.number,
-      onClick: React.PropTypes.func,
+      onClick: PropTypes.func,
       type: PropTypes.string,
       userName: PropTypes.string
   };

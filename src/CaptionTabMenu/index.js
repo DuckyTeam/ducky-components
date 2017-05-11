@@ -1,9 +1,10 @@
 import Wrapper from '../Wrapper';
 import LabelTab from '../LabelTab';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 class CaptionTabMenu extends React.Component {
 
@@ -67,12 +68,12 @@ CaptionTabMenu.propTypes = {
   alignment: PropTypes.oneOf(['left', 'center', 'split']),
   changeTab: PropTypes.func,
   className: PropTypes.string,
-  disabled: PropTypes.arrayOf(React.PropTypes.number),
+  disabled: PropTypes.arrayOf(PropTypes.number),
   selected: PropTypes.number,
-  tabs: React.PropTypes.arrayOf(
-    React.PropTypes.shape({
-      label: React.PropTypes.string,
-      icon: React.PropTypes.string
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      icon: PropTypes.string
     })
   )
 };

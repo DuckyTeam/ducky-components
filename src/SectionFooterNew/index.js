@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import classNames from 'classnames';
 import ButtonIcon from '../ButtonIcon';
@@ -64,18 +65,18 @@ function SectionFooterNew(props) {
 }
 
 SectionFooterNew.propTypes = {
-  buttonText: React.PropTypes.string,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  dateTime: React.PropTypes.number,
-  disabled: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  name: React.PropTypes.string,
-  onNextClick: React.PropTypes.func,
-  onPreviousClick: React.PropTypes.func,
-  seen: React.PropTypes.bool,
-  text: React.PropTypes.string,
-  type: React.PropTypes.string
+  buttonText: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  dateTime: PropTypes.number,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  name: PropTypes.string,
+  onNextClick: PropTypes.func,
+  onPreviousClick: PropTypes.func,
+  seen: PropTypes.bool,
+  text: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default SectionFooterNew;

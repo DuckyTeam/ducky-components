@@ -3,8 +3,9 @@ import LabelHorisontal from '../LabelHorisontal';
 import classNames from 'classnames';
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function StatsCarousel1(props) {
     return (

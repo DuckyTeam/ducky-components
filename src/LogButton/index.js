@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Icon from './../Icon';
@@ -23,11 +24,11 @@ function LogButton(props) {
 }
 
 LogButton.propTypes = {
-  checked: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  inactive: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  checked: PropTypes.bool,
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  inactive: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default LogButton;

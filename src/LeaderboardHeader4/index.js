@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -35,7 +36,7 @@ function LeaderboardHeader4(props) {
 }
 
 LeaderboardHeader4.propTypes = {
-  className: React.PropTypes.string
+  className: PropTypes.string
 };
 
 export default LeaderboardHeader4;

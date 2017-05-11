@@ -1,8 +1,9 @@
 import LabelSmall from '../LabelSmall';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Time from '../TimeStamp';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function LabelPair(props) {
   if (props.co2 && props.time) {

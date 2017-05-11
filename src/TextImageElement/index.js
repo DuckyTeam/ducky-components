@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import styles from './styles.css';
 const BREAK_TEXT_LENGTH = 415;
@@ -43,9 +44,9 @@ function TextImageElement(props) {
 }
 
 TextImageElement.propTypes = {
-    children: React.PropTypes.node,
-    onClick: React.PropTypes.func,
-    showFullText: React.PropTypes.bool
+    children: PropTypes.node,
+    onClick: PropTypes.func,
+    showFullText: PropTypes.bool
 };
 
 export default TextImageElement;

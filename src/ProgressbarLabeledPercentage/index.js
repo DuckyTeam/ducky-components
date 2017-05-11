@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ProgressBar from '../ProgressBar';
 import Typography from '../Typography';
@@ -35,11 +36,11 @@ function ProgressbarLabeledPercentage(props) {
 }
 
 ProgressbarLabeledPercentage.propTypes = {
-  categoryText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  color: React.PropTypes.string,
-  percent: React.PropTypes.node,
-  scaledPercent: React.PropTypes.number
+  categoryText: PropTypes.string,
+  className: PropTypes.string,
+  color: PropTypes.string,
+  percent: PropTypes.node,
+  scaledPercent: PropTypes.number
 };
 
 export default ProgressbarLabeledPercentage;

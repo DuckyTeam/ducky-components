@@ -3,6 +3,7 @@ import IconImage from '../IconImage';
 import ProgressCircle from '../ProgressCircle';
 import LabelSmall from '../LabelSmall';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -67,12 +68,12 @@ function GoalProgressBarGeneral(props) {
 }
 
 GoalProgressBarGeneral.propTypes = {
-    className: React.PropTypes.string,
-    content: React.PropTypes.string,
-    handleButtonClick: React.PropTypes.func,
-    icon: React.PropTypes.string,
-    percentage: React.PropTypes.number,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    content: PropTypes.string,
+    handleButtonClick: PropTypes.func,
+    icon: PropTypes.string,
+    percentage: PropTypes.number,
+    type: PropTypes.string
 };
 
 export default GoalProgressBarGeneral;

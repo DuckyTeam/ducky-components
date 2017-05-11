@@ -1,9 +1,10 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import Tooltip from '../Tooltip';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 class IconTabMenu extends React.Component {
 
@@ -100,10 +101,10 @@ class IconTabMenu extends React.Component {
 IconTabMenu.propTypes = {
   changeTab: PropTypes.func,
   className: PropTypes.string,
-  disabled: PropTypes.arrayOf(React.PropTypes.number),
+  disabled: PropTypes.arrayOf(PropTypes.number),
   selected: PropTypes.number,
-  tabs: React.PropTypes.any,
-  tooltipRequired: React.PropTypes.bool
+  tabs: PropTypes.any,
+  tooltipRequired: PropTypes.bool
 };
 
 export default IconTabMenu;

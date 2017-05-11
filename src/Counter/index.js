@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import CountUp from 'countup.js';
 import classNames from 'classnames';
@@ -50,10 +51,10 @@ class Counter extends React.Component {
 }
 
 Counter.propTypes = {
-    className: React.PropTypes.string,
-    decimals: React.PropTypes.number,
-    noAnimation: React.PropTypes.bool,
-    number: React.PropTypes.number
+    className: PropTypes.string,
+    decimals: PropTypes.number,
+    noAnimation: PropTypes.bool,
+    number: PropTypes.number
 };
 
 export default Counter;

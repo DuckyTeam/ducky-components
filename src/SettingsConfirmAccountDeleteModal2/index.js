@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
@@ -59,24 +60,24 @@ function SettingsConfirmAccountDeleteModal2(props) {
 }
 
 SettingsConfirmAccountDeleteModal2.propTypes = {
-  autoFocus: React.PropTypes.bool,
-  buttonDisabled: React.PropTypes.bool,
-  buttonText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  closeIcon: React.PropTypes.string,
-  confirmDeleteHeader: React.PropTypes.string,
-  confirmDeleteText: React.PropTypes.string,
-  errorMessage: React.PropTypes.node,
-  inputType: React.PropTypes.string,
-  mainIcon: React.PropTypes.string,
-  onBlur: React.PropTypes.func,
-  onCancel: React.PropTypes.func,
-  onChange: React.PropTypes.func,
-  onDeleteConfirmClick: React.PropTypes.func,
-  passwordPlaceholder: React.PropTypes.string,
-  show: React.PropTypes.bool,
-  name: React.PropTypes.string,
-  value: React.PropTypes.string
+  autoFocus: PropTypes.bool,
+  buttonDisabled: PropTypes.bool,
+  buttonText: PropTypes.string,
+  className: PropTypes.string,
+  closeIcon: PropTypes.string,
+  confirmDeleteHeader: PropTypes.string,
+  confirmDeleteText: PropTypes.string,
+  errorMessage: PropTypes.node,
+  inputType: PropTypes.string,
+  mainIcon: PropTypes.string,
+  onBlur: PropTypes.func,
+  onCancel: PropTypes.func,
+  onChange: PropTypes.func,
+  onDeleteConfirmClick: PropTypes.func,
+  passwordPlaceholder: PropTypes.string,
+  show: PropTypes.bool,
+  name: PropTypes.string,
+  value: PropTypes.string
 };
 
 export default SettingsConfirmAccountDeleteModal2;

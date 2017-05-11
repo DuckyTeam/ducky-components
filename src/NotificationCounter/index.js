@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typo from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';
@@ -32,8 +33,8 @@ function NotificationCounter(props) {
 }
 NotificationCounter.displayName = "Notification Counter";
 NotificationCounter.propTypes = {
-  className: React.PropTypes.string,
-  number: React.PropTypes.number,
-  size: React.PropTypes.string
+  className: PropTypes.string,
+  number: PropTypes.number,
+  size: PropTypes.string
 };
 export default NotificationCounter;

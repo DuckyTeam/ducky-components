@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -17,10 +18,10 @@ function Typography(props) {
 }
 
 Typography.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  type: React.PropTypes.oneOf([
+  children: PropTypes.node,
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  type: PropTypes.oneOf([
     'caption1Normal',
     'caption1Strong',
     'caption2Normal',

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CarouselNavigator from '../CarouselNavigator';
 import IconAvaWrapper from '../IconAvaWrapper';
 // import classNames from 'classnames';
@@ -76,13 +77,13 @@ class CarouselStandard1 extends React.Component {
 }
 
 CarouselStandard1.propTypes = {
-    children: React.PropTypes.string,
-    handleLeftClick: React.PropTypes.func,
-    handleRightClick: React.PropTypes.func,
-    leftactive: React.PropTypes.bool,
-    rightactive: React.PropTypes.bool,
-    slideCount: React.PropTypes.number,
-    theme: React.PropTypes.string
+    children: PropTypes.string,
+    handleLeftClick: PropTypes.func,
+    handleRightClick: PropTypes.func,
+    leftactive: PropTypes.bool,
+    rightactive: PropTypes.bool,
+    slideCount: PropTypes.number,
+    theme: PropTypes.string
 };
 
 export default CarouselStandard1;

@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 
 class SwitchesToggleMenu extends React.Component {
@@ -40,7 +41,7 @@ class SwitchesToggleMenu extends React.Component {
 SwitchesToggleMenu.displayName = 'SwitchesToggleMenu';
 SwitchesToggleMenu.propTypes = {
   checkedOption: PropTypes.number,
-  options: PropTypes.arrayOf(React.PropTypes.string)
+  options: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default SwitchesToggleMenu;

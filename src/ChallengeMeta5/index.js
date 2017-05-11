@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProgressBar from '../ProgressBar';
 import Typography from '../Typography';
 import LabelSmall from '../LabelSmall';
@@ -45,10 +46,10 @@ function ChallengeMeta5(props) {
 }
 
 ChallengeMeta5.propTypes = {
-  goal: React.PropTypes.number,
-  level: React.PropTypes.number,
-  nextLevelText: React.PropTypes.string,
-  progress: React.PropTypes.number
+  goal: PropTypes.number,
+  level: PropTypes.number,
+  nextLevelText: PropTypes.string,
+  progress: PropTypes.number
 };
 
 export default ChallengeMeta5;

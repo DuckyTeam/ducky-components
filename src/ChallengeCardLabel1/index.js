@@ -4,9 +4,10 @@ import LabelSmall from '../LabelSmall';
 import classNames from 'classnames';
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function ChallengeCardLabel1(props) {
   let pColor = '';

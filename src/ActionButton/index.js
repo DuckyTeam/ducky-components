@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -26,11 +27,11 @@ function ActionButton(props) {
 }
 
 ActionButton.propTypes = {
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  size: React.PropTypes.oneOf(['standard', 'main'])
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['standard', 'main'])
 };
 
 export default ActionButton;

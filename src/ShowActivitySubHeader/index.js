@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LabelSmall from '../LabelSmall';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -32,14 +33,14 @@ function ShowActivitySubHeader(props) {
 }
 
 ShowActivitySubHeader.propTypes = {
-  bookmarkNumber: React.PropTypes.string,
-  className: React.PropTypes.string,
-  commentNumber: React.PropTypes.string,
-  favNumber: React.PropTypes.string,
-  shareNumber: React.PropTypes.string,
-  userBookmarked: React.PropTypes.bool,
-  userCommented: React.PropTypes.bool,
-  userLikes: React.PropTypes.bool
+  bookmarkNumber: PropTypes.string,
+  className: PropTypes.string,
+  commentNumber: PropTypes.string,
+  favNumber: PropTypes.string,
+  shareNumber: PropTypes.string,
+  userBookmarked: PropTypes.bool,
+  userCommented: PropTypes.bool,
+  userLikes: PropTypes.bool
 };
 
 export default ShowActivitySubHeader;

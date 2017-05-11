@@ -1,5 +1,6 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -37,10 +38,10 @@ function SectionHeaderGeneral(props) {
 }
 
 SectionHeaderGeneral.propTypes = {
-  className: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  rightIcon: React.PropTypes.string,
-  title: React.PropTypes.string
+  className: PropTypes.string,
+  onClick: PropTypes.func,
+  rightIcon: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default SectionHeaderGeneral;

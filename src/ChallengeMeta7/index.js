@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import ChallengeMeta4 from '../ChallengeMeta4';
@@ -30,14 +31,14 @@ function ChallengeMeta7(props) {
 }
 
 ChallengeMeta7.propTypes = {
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  isLeader: React.PropTypes.bool,
-  isYourteam: React.PropTypes.bool,
-  memberCount: React.PropTypes.number,
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  yourTeamText: React.PropTypes.string
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  isLeader: PropTypes.bool,
+  isYourteam: PropTypes.bool,
+  memberCount: PropTypes.number,
+  name: PropTypes.string,
+  theme: PropTypes.string,
+  yourTeamText: PropTypes.string
 };
 
 export default ChallengeMeta7;
