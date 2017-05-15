@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function SnackBarWrapper(props) {
   return (

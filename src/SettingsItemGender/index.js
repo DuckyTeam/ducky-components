@@ -2,10 +2,11 @@ import SettingsItem from '../SettingsItem';
 import Wrapper from '../Wrapper';
 import RadioButton from '../RadioButton';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Spacer from '../Spacer';
 import styles from './styles.css';
 import classNames from 'classnames';
-const PropTypes = React.PropTypes;
+
 
 function SettingsItemGender(props) {
   return (

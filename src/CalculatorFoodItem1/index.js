@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RadioButton from '../RadioButton';
 import Spacer from '../Spacer';
@@ -58,16 +59,16 @@ function CalculatorFoodItem1(props) {
 }
 
 CalculatorFoodItem1.propTypes = {
-  checked: React.PropTypes.bool,
-  checkedEatAmount: React.PropTypes.oneOf(['little', 'woman', 'avg', 'man', 'horse']),
-  children: React.PropTypes.string,
-  className: React.PropTypes.string,
-  lblEatAverage: React.PropTypes.string,
-  lblEatLikeHorse: React.PropTypes.string,
-  lblEatLittle: React.PropTypes.string,
-  lblEatTypicalMan: React.PropTypes.string,
-  lblEatTypicalWoman: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  checked: PropTypes.bool,
+  checkedEatAmount: PropTypes.oneOf(['little', 'woman', 'avg', 'man', 'horse']),
+  children: PropTypes.string,
+  className: PropTypes.string,
+  lblEatAverage: PropTypes.string,
+  lblEatLikeHorse: PropTypes.string,
+  lblEatLittle: PropTypes.string,
+  lblEatTypicalMan: PropTypes.string,
+  lblEatTypicalWoman: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default CalculatorFoodItem1;

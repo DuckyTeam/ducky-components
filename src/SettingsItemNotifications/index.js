@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SettingsItem from '../SettingsItem';
 import Spacer from '../Spacer';
 import ToggleButtonWithLabel from '../ToggleButtonWithLabel';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 class SettingsItemNotifications extends React.Component {
   getNotificationValue(notificationValue) {

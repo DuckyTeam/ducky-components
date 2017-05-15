@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SettingsItem from '../SettingsItem';
-const PropTypes = React.PropTypes;
+
 
 function SettingsPrivacyGeneral(props) {
   return (

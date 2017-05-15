@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -26,12 +27,12 @@ function ButtonRaised(props) {
 }
 
 ButtonRaised.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  theme: React.PropTypes.string,
-  type: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  onClick: PropTypes.func,
+  theme: PropTypes.string,
+  type: PropTypes.string
 };
 
 export default ButtonRaised;

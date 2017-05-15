@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from "../Icon";
 import LabelStandard from "../LabelStandard";
 import SnackBarWrapperMobile from "../SnackBarWrapperMobile";
@@ -7,7 +8,7 @@ import Wrapper from "../Wrapper";
 
 import styles from './styles.css';
 
-const PropTypes = React.PropTypes;
+
 
 function SnackbarPanelTwoPointsCO2(props) {
   return (

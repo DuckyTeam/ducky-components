@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import Spacer from '../Spacer';
@@ -58,9 +59,9 @@ function AverageFootprintComparison(props) {
 }
 
 AverageFootprintComparison.propTypes = {
-  className: React.PropTypes.string,
-  color: React.PropTypes.string,
-  icon: React.PropTypes.oneOf(['icon-sentiment_very_satisfied', 'icon-tag_faces', 'icon-sentiment_satisfied',
+  className: PropTypes.string,
+  color: PropTypes.string,
+  icon: PropTypes.oneOf(['icon-sentiment_very_satisfied', 'icon-tag_faces', 'icon-sentiment_satisfied',
   'icon-sentiment_neutral', 'icon-sentiment_dissatisfied', 'icon-mood_bad', 'icon-sentiment_very_dissatisfied'])
 };
 

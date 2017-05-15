@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Icon from '../Icon';
@@ -47,13 +48,13 @@ function LogAllButton(props) {
 }
 
 LogAllButton.propTypes = {
-  checked: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  inactive: React.PropTypes.bool,
-  isLoggingActivity: React.PropTypes.bool,
-  logAllText: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  partiallyChecked: React.PropTypes.bool
+  checked: PropTypes.bool,
+  className: PropTypes.string,
+  inactive: PropTypes.bool,
+  isLoggingActivity: PropTypes.bool,
+  logAllText: PropTypes.string,
+  onClick: PropTypes.func,
+  partiallyChecked: PropTypes.bool
 };
 
 export default LogAllButton;

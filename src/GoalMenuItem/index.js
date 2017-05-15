@@ -3,6 +3,7 @@ import ActionButton from '../ActionButton';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -75,10 +76,10 @@ function GoalMenuItem(props) {
 }
 
 GoalMenuItem.propTypes = {
-    className: React.PropTypes.string,
-    inactive: React.PropTypes.bool,
-    onClick: React.PropTypes.func,
-    type: React.PropTypes.string
+    className: PropTypes.string,
+    inactive: PropTypes.bool,
+    onClick: PropTypes.func,
+    type: PropTypes.string
 };
 
 export default GoalMenuItem;

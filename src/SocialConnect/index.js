@@ -1,6 +1,7 @@
 import Icon from '../Icon';
 import ButtonMini from '../ButtonMini';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -42,10 +43,10 @@ function SocialConnect(props) {
 }
 
 SocialConnect.propTypes = {
-  className: React.PropTypes.string,
-  connected: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  socialMedia: React.PropTypes.oneOf(['facebook', 'twitter', 'google+', 'instagram'])
+  className: PropTypes.string,
+  connected: PropTypes.bool,
+  onClick: PropTypes.func,
+  socialMedia: PropTypes.oneOf(['facebook', 'twitter', 'google+', 'instagram'])
 };
 
 export default SocialConnect;

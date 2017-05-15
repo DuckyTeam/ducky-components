@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ButtonMini from '../ButtonMini';
 import styles from './styles.css';
@@ -23,11 +24,11 @@ function ButtonPlusMinus(props) {
 }
 
 ButtonPlusMinus.propTypes = {
-  className: React.PropTypes.string,
-  inactive: React.PropTypes.bool,
-  large: React.PropTypes.bool,
-  onClick: React.PropTypes.func,
-  operator: React.PropTypes.oneOf(['plus', 'remove'])
+  className: PropTypes.string,
+  inactive: PropTypes.bool,
+  large: PropTypes.bool,
+  onClick: PropTypes.func,
+  operator: PropTypes.oneOf(['plus', 'remove'])
 };
 
 export default ButtonPlusMinus;

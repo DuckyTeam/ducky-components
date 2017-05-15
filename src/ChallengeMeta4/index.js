@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import LabelSmall from '../LabelSmall';
 import classNames from 'classnames';
@@ -45,13 +46,13 @@ function ChallengeMeta4(props) {
 }
 
 ChallengeMeta4.propTypes = {
-  className: React.PropTypes.string,
-  isLeader: React.PropTypes.bool,
-  members: React.PropTypes.number,
-  name: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  yourTeam: React.PropTypes.bool,
-  yourTeamText: React.PropTypes.string
+  className: PropTypes.string,
+  isLeader: PropTypes.bool,
+  members: PropTypes.number,
+  name: PropTypes.string,
+  theme: PropTypes.string,
+  yourTeam: PropTypes.bool,
+  yourTeamText: PropTypes.string
 };
 
 export default ChallengeMeta4;

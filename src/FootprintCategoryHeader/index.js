@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
@@ -35,10 +36,10 @@ function FootprintCategoryHeader(props) {
 }
 
 FootprintCategoryHeader.propTypes = {
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  subTitle: React.PropTypes.node,
-  title: React.PropTypes.node
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  subTitle: PropTypes.node,
+  title: PropTypes.node
 };
 
 

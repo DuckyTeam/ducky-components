@@ -1,9 +1,10 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function LabelMini(props) {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Icon from '../Icon';
@@ -24,11 +25,11 @@ function LoaderImage(props) {
 
 LoaderImage.propTypes = {
 
-  className: React.PropTypes.string,
-  hide: React.PropTypes.bool,
-  iconName: React.PropTypes.string,
-  image: React.PropTypes.bool,
-  size: React.PropTypes.string
+  className: PropTypes.string,
+  hide: PropTypes.bool,
+  iconName: PropTypes.string,
+  image: PropTypes.bool,
+  size: PropTypes.string
 };
 
 export default LoaderImage;

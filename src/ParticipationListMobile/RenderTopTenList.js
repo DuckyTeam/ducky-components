@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
 import ChallengeMeta13 from '../ChallengeMeta13';
@@ -35,7 +36,7 @@ function RenderTopTenlist(props) {
 }
 
 RenderTopTenlist.propTypes = {
-  sortedList: React.PropTypes.array
+  sortedList: PropTypes.array
 };
 
 export default RenderTopTenlist;

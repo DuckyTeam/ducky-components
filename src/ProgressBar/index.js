@@ -1,5 +1,6 @@
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './styles.css';
 import classNames from 'classnames';
 
@@ -32,7 +33,7 @@ function ProgressBar(props) {
 ProgressBar.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  color: React.PropTypes.string,
+  color: PropTypes.string,
   onClick: PropTypes.func,
   percent: PropTypes.number,
   size: PropTypes.oneOf(['standard', 'wide'])

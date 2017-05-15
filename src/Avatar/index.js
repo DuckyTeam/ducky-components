@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import LoaderImagePlaceHolder from '../LoaderImagePlaceHolder';
-const PropTypes = React.PropTypes;
+
 
 function Avatar(props) {
   if (props.isLoading) {

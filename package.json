@@ -87,6 +87,7 @@
     "d3-time-format": "^2.0.2",
     "d3-transition": "^1.0.3",
     "moment": "^2.15",
+    "prop-types": "^15.5.9",
     "rc-tooltip": "^3.4.2",
     "topojson": "^2.2.0"
   }

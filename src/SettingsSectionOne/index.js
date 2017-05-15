@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ActionButton from '../ActionButton';
 import Avatar from '../Avatar';
 import Spacer from '../Spacer';
@@ -7,7 +8,7 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import styles from './styles.css';
 
-const PropTypes = React.PropTypes;
+
 
 function SettingsSectionOne(props) {
   return (

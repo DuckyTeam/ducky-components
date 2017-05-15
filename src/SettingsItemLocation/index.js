@@ -4,9 +4,10 @@ import PopoverMenuAnchor4 from '../PopoverMenuAnchor4';
 import PopoverMenu from '../PopoverMenu';
 import Popup from '../Popup';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function SettingsItemLocation(props) {
   const renderPopup = (

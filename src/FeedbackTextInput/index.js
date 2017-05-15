@@ -1,6 +1,7 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 import styles from './styles.css';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
@@ -52,7 +53,7 @@ function FeedbackTextInput(props) {
 
 FeedbackTextInput.propTypes = {
   className: PropTypes.string,
-  disabled: React.PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   onSubmit: PropTypes.func,
   placeholder: PropTypes.string,

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Wrapper from '../Wrapper';
 import LeaderboardSeparator1 from '../LeaderboardSeparator1';
 import RenderBottomFiveList from './RenderBottomFiveList';
@@ -60,10 +61,10 @@ function ParticipationListMobile(props) {
 }
 
 ParticipationListMobile.propTypes = {
-  expectedParticipantCounts: React.PropTypes.object,
-  participantCounts: React.PropTypes.object,
-  sectionKey: React.PropTypes.string,
-  sections: React.PropTypes.object
+  expectedParticipantCounts: PropTypes.object,
+  participantCounts: PropTypes.object,
+  sectionKey: PropTypes.string,
+  sections: PropTypes.object
 };
 
 export default ParticipationListMobile;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './../Button';
 import styles from './styles.css';
 import classNames from 'classnames';
@@ -20,9 +21,9 @@ function SectionFooterClose(props) {
 
 SectionFooterClose.displayName = "Section Footer Close";
 SectionFooterClose.propTypes = {
-  className: React.PropTypes.string,
-  closeButtonText: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  className: PropTypes.string,
+  closeButtonText: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default SectionFooterClose;

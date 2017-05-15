@@ -1,10 +1,11 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
 import Counter from '../Counter';
-const PropTypes = React.PropTypes;
+
 
 function LabelStandard(props) {
     return (
@@ -40,6 +41,6 @@ LabelStandard.propTypes = {
     content: PropTypes.node,
     decimals: PropTypes.number,
     icon: PropTypes.string,
-    onClick: React.PropTypes.func
+    onClick: PropTypes.func
 };
 export default LabelStandard;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonIcon from './../ButtonIcon';
 import styles from './styles.css';
 import classNames from 'classnames';
@@ -20,9 +21,9 @@ function SectionFooterBack(props) {
 
 SectionFooterBack.displayName = "Section Footer Back";
 SectionFooterBack.propTypes = {
-  className: React.PropTypes.string,
-  backText: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  className: PropTypes.string,
+  backText: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default SectionFooterBack;

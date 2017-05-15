@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -42,11 +43,11 @@ class CarouselNavigator extends React.Component {
 }
 
 CarouselNavigator.propTypes = {
-  changeDot: React.PropTypes.func,
-  className: React.PropTypes.string,
-  currentSlide: React.PropTypes.number,
-  slideCount: React.PropTypes.number,
-  theme: React.PropTypes.string
+  changeDot: PropTypes.func,
+  className: PropTypes.string,
+  currentSlide: PropTypes.number,
+  slideCount: PropTypes.number,
+  theme: PropTypes.string
 };
 
 export default CarouselNavigator;

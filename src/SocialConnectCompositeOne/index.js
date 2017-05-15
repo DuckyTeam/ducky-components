@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import SocialConnect from "../SocialConnect";
 import Typography from "../Typography";
@@ -35,9 +36,9 @@ function SocialConnectCompositeOne(props) {
 }
 
 SocialConnectCompositeOne.propTypes = {
-  connectedFacebook: React.PropTypes.bool,
-  connectedGoogle: React.PropTypes.bool,
-  connectedTwitter: React.PropTypes.bool
+  connectedFacebook: PropTypes.bool,
+  connectedGoogle: PropTypes.bool,
+  connectedTwitter: PropTypes.bool
 };
 
 export default SocialConnectCompositeOne;

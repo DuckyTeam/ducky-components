@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './styles.css';
 import ProgressCircle from '../ProgressCircle';
 import Typography from '../Typography';
 import classNames from 'classnames';
-const PropTypes = React.PropTypes;
+
 
 function ProgressCirclePercentage(props) {
   return (

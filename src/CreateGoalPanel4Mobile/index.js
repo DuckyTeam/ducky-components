@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import CategoryButtons from '../CategoryButtons';
 import CreateGoalActionItem from '../CreateGoalActionItem';
@@ -7,7 +8,7 @@ import Spacer from '../Spacer';
 import styles from './styles.css';
 import SectionFooterNew from '../SectionFooterNew';
 import Wrapper from '../Wrapper';
-const PropTypes = React.PropTypes;
+
 
 function CreateGoalPanel4Mobile(props) {
   return (

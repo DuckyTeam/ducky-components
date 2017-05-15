@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -20,9 +21,9 @@ function CheckBox(props) {
 
 
 CheckBox.propTypes = {
-    checked: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    onClick: PropTypes.func
 };
 
 export default CheckBox;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ChallengeMeta13 from '../ChallengeMeta13';
 
 function RenderUserClosestList(props) {
@@ -69,8 +70,8 @@ function RenderUserClosestList(props) {
 }
 
 RenderUserClosestList.propTypes = {
-  currentPosition: React.PropTypes.number,
-  sortedList: React.PropTypes.array
+  currentPosition: PropTypes.number,
+  sortedList: PropTypes.array
 };
 
 export default RenderUserClosestList;

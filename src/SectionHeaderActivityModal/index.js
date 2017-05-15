@@ -1,5 +1,6 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonIcon from '../ButtonIcon';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -40,11 +41,11 @@ function SectionHeaderActivityModal(props) {
 }
 
 SectionHeaderActivityModal.propTypes = {
-  className: React.PropTypes.string,
-  favorite: React.PropTypes.bool,
-  handleButtonOnClick: React.PropTypes.func,
-  onClick: React.PropTypes.func,
-  onIconClose: React.PropTypes.func
+  className: PropTypes.string,
+  favorite: PropTypes.bool,
+  handleButtonOnClick: PropTypes.func,
+  onClick: PropTypes.func,
+  onIconClose: PropTypes.func
 };
 
 export default SectionHeaderActivityModal;

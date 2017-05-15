@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import map from './map';
 import Visualization from './../index';
 

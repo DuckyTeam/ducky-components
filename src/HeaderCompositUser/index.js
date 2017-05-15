@@ -1,6 +1,7 @@
 import Icon from '../Icon';
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 import Typography from '../Typography';
 import LabelStandard from '../LabelStandard';
 import classNames from 'classnames';

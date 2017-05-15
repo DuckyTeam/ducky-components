@@ -2,6 +2,7 @@ import GoalProgressBarGeneral from '../GoalProgressBarGeneral';
 import GoalDescriptionGeneral from '../GoalDescriptionGeneral';
 import Wrapper from '../Wrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -38,20 +39,20 @@ function GoalCompositeProgressInfo(props) {
 }
 
 GoalCompositeProgressInfo.propTypes = {
-    className: React.PropTypes.string,
-    content: React.PropTypes.string,
-    endDate: React.PropTypes.string,
-    finished: React.PropTypes.bool,
-    goalPointsAmount: React.PropTypes.number,
-    handleButtonClick: React.PropTypes.func,
-    icon: React.PropTypes.string,
-    numberDays: React.PropTypes.number,
-    numberRegistration: React.PropTypes.number,
-    percentage: React.PropTypes.number,
-    savingsAmount: React.PropTypes.number,
-    selectedActivityName: React.PropTypes.string,
-    startDate: React.PropTypes.string,
-    type: React.PropTypes.oneOf(['habit', 'points', 'activity', 'co2'])
+    className: PropTypes.string,
+    content: PropTypes.string,
+    endDate: PropTypes.string,
+    finished: PropTypes.bool,
+    goalPointsAmount: PropTypes.number,
+    handleButtonClick: PropTypes.func,
+    icon: PropTypes.string,
+    numberDays: PropTypes.number,
+    numberRegistration: PropTypes.number,
+    percentage: PropTypes.number,
+    savingsAmount: PropTypes.number,
+    selectedActivityName: PropTypes.string,
+    startDate: PropTypes.string,
+    type: PropTypes.oneOf(['habit', 'points', 'activity', 'co2'])
 };
 
 export default GoalCompositeProgressInfo;

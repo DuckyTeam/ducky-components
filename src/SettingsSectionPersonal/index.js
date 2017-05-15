@@ -4,9 +4,10 @@ import SettingsItemGender from '../SettingsItemGender';
 import SettingsItemLocation from '../SettingsItemLocation';
 import Spacer from '../Spacer';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 const Header = SectionHeaderGeneral;
 const Gender = SettingsItemGender;
 const Location = SettingsItemLocation;

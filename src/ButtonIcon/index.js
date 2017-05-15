@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Icon from '../Icon';
 import classNames from 'classnames';
@@ -28,12 +29,12 @@ function ButtonIcon(props) {
 }
 
 ButtonIcon.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  disabled: React.PropTypes.bool,
-  icon: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  theme: React.PropTypes.string
+  children: PropTypes.node,
+  className: PropTypes.string,
+  disabled: PropTypes.bool,
+  icon: PropTypes.string,
+  onClick: PropTypes.func,
+  theme: PropTypes.string
 };
 
 export default ButtonIcon;

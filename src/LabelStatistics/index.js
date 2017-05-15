@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Spacer from '../Spacer';
 import classNames from 'classnames';
@@ -37,10 +38,10 @@ function LabelStatistics(props) {
   );
 }
 LabelStatistics.propTypes = {
-    className: React.PropTypes.string,
-    statistics: React.PropTypes.string,
-    textcontent: React.PropTypes.string,
-    theme: React.PropTypes.oneOf(['light', 'dark'])
+    className: PropTypes.string,
+    statistics: PropTypes.string,
+    textcontent: PropTypes.string,
+    theme: PropTypes.oneOf(['light', 'dark'])
 };
 
 export default LabelStatistics;

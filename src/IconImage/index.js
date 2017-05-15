@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -18,13 +19,13 @@ function IconImage(props) {
 }
 
 IconImage.propTypes = {
-    className: React.PropTypes.string,
-    icon: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    size: React.PropTypes.oneOf(['small', 'standard',
+    className: PropTypes.string,
+    icon: PropTypes.string,
+    onClick: PropTypes.func,
+    size: PropTypes.oneOf(['small', 'standard',
         'large', 'display1', 'display2']),
-    style: React.PropTypes.objectOf(React.PropTypes.oneOfType(
-        [React.PropTypes.number, React.PropTypes.string]
+    style: PropTypes.objectOf(PropTypes.oneOfType(
+        [PropTypes.number, PropTypes.string]
     ))
 };
 

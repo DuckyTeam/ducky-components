@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import Spacer from '../Spacer';
@@ -65,18 +66,18 @@ function CalculatorGeneralItem(props) {
 }
 
 CalculatorGeneralItem.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  expanded: React.PropTypes.bool,
-  inactive: React.PropTypes.bool,
-  label: React.PropTypes.string,
-  noValue: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  onCloseClick: React.PropTypes.func,
-  onSaveButtonClicked: React.PropTypes.func,
-  saveButtonText: React.PropTypes.string,
-  units: React.PropTypes.string,
-  value: React.PropTypes.node
+  children: PropTypes.node,
+  className: PropTypes.string,
+  expanded: PropTypes.bool,
+  inactive: PropTypes.bool,
+  label: PropTypes.string,
+  noValue: PropTypes.string,
+  onClick: PropTypes.func,
+  onCloseClick: PropTypes.func,
+  onSaveButtonClicked: PropTypes.func,
+  saveButtonText: PropTypes.string,
+  units: PropTypes.string,
+  value: PropTypes.node
 };
 
 export default CalculatorGeneralItem;

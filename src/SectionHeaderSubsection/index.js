@@ -1,5 +1,6 @@
 import IconAvaWrapper from '../IconAvaWrapper';
 import React from 'react';
+import PropTypes from 'prop-types';
 import LabelTitle from '../LabelTitle';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
@@ -40,11 +41,11 @@ function SectionHeaderSubsection(props) {
 }
 
 SectionHeaderSubsection.propTypes = {
-  className: React.PropTypes.string,
-  leftIcon: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  rightIcon: React.PropTypes.string,
-  title: React.PropTypes.string
+  className: PropTypes.string,
+  leftIcon: PropTypes.string,
+  onClick: PropTypes.func,
+  rightIcon: PropTypes.string,
+  title: PropTypes.string
 };
 
 export default SectionHeaderSubsection;

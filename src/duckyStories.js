@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {storiesOf} from '@kadira/storybook';
 import {withKnobs} from '@kadira/storybook-addon-knobs';

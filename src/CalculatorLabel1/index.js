@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ProgressBar from '../ProgressBar';
 import LabelSmall from '../LabelSmall';
@@ -68,17 +69,17 @@ function CalculatorLabel1(props) {
 }
 
 CalculatorLabel1.propTypes = {
-  barColor: React.PropTypes.string,
-  goalValue: React.PropTypes.number,
-  iconCurrent: React.PropTypes.string,
-  iconGoal: React.PropTypes.string,
-  maxValue: React.PropTypes.number,
-  onClickCo2: React.PropTypes.func,
-  onClickGoal: React.PropTypes.func,
-  size: React.PropTypes.oneOf(['standard', 'wide']),
-  toolTipText: React.PropTypes.string,
-  value: React.PropTypes.number,
-  valueDescription: React.PropTypes.string
+  barColor: PropTypes.string,
+  goalValue: PropTypes.number,
+  iconCurrent: PropTypes.string,
+  iconGoal: PropTypes.string,
+  maxValue: PropTypes.number,
+  onClickCo2: PropTypes.func,
+  onClickGoal: PropTypes.func,
+  size: PropTypes.oneOf(['standard', 'wide']),
+  toolTipText: PropTypes.string,
+  value: PropTypes.number,
+  valueDescription: PropTypes.string
 };
 
 export default CalculatorLabel1;

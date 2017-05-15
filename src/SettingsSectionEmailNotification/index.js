@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SectionHeaderGeneral from "../SectionHeaderGeneral";
 import SettingsItemNotifications from "../SettingsItemNotifications";
 import Spacer from "../Spacer";
 
 import styles from './styles.css';
 
-const PropTypes = React.PropTypes;
+
 
 function SettingSectionEmailNotification(props) {
   return (

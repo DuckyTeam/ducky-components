@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 import SettingsItem from '../SettingsItem';
 import Wrapper from '../Wrapper';
 import moment from 'moment';
 import PopoverMenuAnchor4 from '../PopoverMenuAnchor4';
-const PropTypes = React.PropTypes;
+
 
 function SettingsItemBirthday(props) {
   return (

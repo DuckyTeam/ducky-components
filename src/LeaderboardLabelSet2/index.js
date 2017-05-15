@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Spacer from '../Spacer';
 import ProgressBar from '../ProgressBar';
-import {PropTypes} from 'react';
+
 import classNames from 'classnames';
 import styles from './styles.css';
 import LeaderboardLabelSet1 from '../LeaderboardLabelSet1';

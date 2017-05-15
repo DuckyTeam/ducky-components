@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import Wrapper from '../Wrapper';
 import classNames from 'classnames';
@@ -22,10 +23,10 @@ function SectionHeaderTitle(props) {
 }
 
 SectionHeaderTitle.propTypes = {
-    children: React.PropTypes.node,
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func,
-    title: React.PropTypes.string
+    children: PropTypes.node,
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    title: PropTypes.string
 };
 
 export default SectionHeaderTitle;

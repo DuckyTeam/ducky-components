@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Button from './../Button';
 import styles from './styles.css';
 import classNames from 'classnames';
@@ -20,9 +21,9 @@ function SectionFooterCancelLeft(props) {
 
 SectionFooterCancelLeft.displayName = "Section Footer Close Left";
 SectionFooterCancelLeft.propTypes = {
-  cancelText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  onClick: React.PropTypes.func
+  cancelText: PropTypes.string,
+  className: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 export default SectionFooterCancelLeft;

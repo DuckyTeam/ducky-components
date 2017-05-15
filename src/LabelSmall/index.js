@@ -1,9 +1,10 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import styles from './styles.css';
 import classNames from 'classnames';
-const PropTypes = React.PropTypes;
+
 
 function LabelSmall(props) {
   return (
@@ -27,7 +28,7 @@ LabelSmall.propTypes = {
   className: PropTypes.string,
   content: PropTypes.node,
   icon: PropTypes.string,
-  onClick: React.PropTypes.func,
+  onClick: PropTypes.func,
   typographyType: PropTypes.string,
   typhographyClass: PropTypes.string,
   iconClass: PropTypes.string

@@ -1,5 +1,6 @@
 import React from 'react';
-import {PropTypes} from 'react';
+import PropTypes from 'prop-types';
+
 
 function ImageElement(props) {
   const style = {

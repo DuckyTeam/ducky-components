@@ -1,8 +1,9 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function LabelLarge(props) {
     return (
@@ -22,6 +23,6 @@ LabelLarge.displayName = 'LabelLarge';
 LabelLarge.propTypes = {
     content: PropTypes.node,
     icon: PropTypes.string,
-    onClick: React.PropTypes.func
+    onClick: PropTypes.func
 };
 export default LabelLarge;

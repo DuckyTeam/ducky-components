@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Spacer from '../Spacer';
 import ProgressbarLabeledPercentage from '../ProgressbarLabeledPercentage';
 import Typography from '../Typography';
@@ -45,8 +46,8 @@ class SubcategoryList extends React.Component {
 }
 
 SubcategoryList.propTypes = {
-  sortedCategories: React.PropTypes.array,
-  title: React.PropTypes.string
+  sortedCategories: PropTypes.array,
+  title: PropTypes.string
 };
 
 export default SubcategoryList;

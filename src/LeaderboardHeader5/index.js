@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -23,8 +24,8 @@ function LeaderboardHeader5(props) {
 }
 
 LeaderboardHeader5.propTypes = {
-  className: React.PropTypes.string,
-  household: React.PropTypes.bool
+  className: PropTypes.string,
+  household: PropTypes.bool
 };
 
 export default LeaderboardHeader5;

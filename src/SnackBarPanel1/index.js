@@ -2,9 +2,10 @@ import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import Button from '../Button';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
-const PropTypes = React.PropTypes;
+
 
 function SnackBarPanel1(props) {
     let opt = '';

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '../Typography';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -33,12 +34,12 @@ function LabelNumber(props) {
   );
 }
 LabelNumber.propTypes = {
-    animation: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    decimals: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    number: React.PropTypes.oneOfType([React.PropTypes.number, React.PropTypes.string]),
-    textcontent: React.PropTypes.string,
-    theme: React.PropTypes.oneOf(['light', 'dark'])
+    animation: PropTypes.bool,
+    className: PropTypes.string,
+    decimals: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    number: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    textcontent: PropTypes.string,
+    theme: PropTypes.oneOf(['light', 'dark'])
 };
 
 export default LabelNumber;

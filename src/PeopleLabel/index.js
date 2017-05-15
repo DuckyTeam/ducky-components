@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Avatar from '../Avatar';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -25,8 +26,8 @@ function PeopleLabel(props) {
 }
 
 PeopleLabel.propTypes = {
-    className: React.PropTypes.string,
-    people: React.PropTypes.arrayOf(React.PropTypes.string)
+    className: PropTypes.string,
+    people: PropTypes.arrayOf(PropTypes.string)
 };
 
 export default PeopleLabel;

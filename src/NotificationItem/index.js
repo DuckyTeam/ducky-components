@@ -1,5 +1,6 @@
 import Icon from '../Icon';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Spacer from '../Spacer';
 import TimeStamp from '../TimeStamp';
 import Typo from '../Typography';
@@ -99,17 +100,17 @@ function NotificationItem(props) {
 
 NotificationItem.displayName = "Notification Item";
 NotificationItem.propTypes = {
-  buttonClicked: React.PropTypes.bool,
-  buttonText: React.PropTypes.string,
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  dateTime: React.PropTypes.number,
-  icon: React.PropTypes.string,
-  name: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  seen: React.PropTypes.bool,
-  text: React.PropTypes.string,
-  textBeforeName: React.PropTypes.string,
-  type: React.PropTypes.oneOf(['challenge', 'default'])
+  buttonClicked: PropTypes.bool,
+  buttonText: PropTypes.string,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  dateTime: PropTypes.number,
+  icon: PropTypes.string,
+  name: PropTypes.string,
+  onClick: PropTypes.func,
+  seen: PropTypes.bool,
+  text: PropTypes.string,
+  textBeforeName: PropTypes.string,
+  type: PropTypes.oneOf(['challenge', 'default'])
 };
 export default NotificationItem;

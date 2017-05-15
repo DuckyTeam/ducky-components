@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -18,12 +19,12 @@ function Icon(props) {
 }
 
 Icon.propTypes = {
-  className: React.PropTypes.string,
-  icon: React.PropTypes.string,
-  onClick: React.PropTypes.func,
-  size: React.PropTypes.oneOf(['nano', 'micro', 'mini', 'small', 'standard',
+  className: PropTypes.string,
+  icon: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(['nano', 'micro', 'mini', 'small', 'standard',
       'large1', 'large2', 'display1', 'display2']),
-  style: React.PropTypes.shape({})
+  style: PropTypes.shape({})
 };
 
 export default Icon;

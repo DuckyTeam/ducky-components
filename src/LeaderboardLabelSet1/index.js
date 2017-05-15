@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import LabelSmall from '../LabelSmall';
 import Typography from '../Typography';
 import styles from './styles.css';
 import classNames from 'classnames';
-import {PropTypes} from 'react';
+
 
 function LeaderboardLabelSet1(props) {
   return (

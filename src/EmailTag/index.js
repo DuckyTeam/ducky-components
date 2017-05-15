@@ -2,6 +2,7 @@ import Icon from '../Icon';
 import Wrapper from '../Wrapper';
 import Typography from '../Typography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -34,10 +35,10 @@ function EmailTag(props) {
 }
 
 EmailTag.propTypes = {
-  children: React.PropTypes.node,
-  className: React.PropTypes.string,
-  invalid: React.PropTypes.bool,
-  onClick: React.PropTypes.func
+  children: PropTypes.node,
+  className: PropTypes.string,
+  invalid: PropTypes.bool,
+  onClick: PropTypes.func
 };
 
 export default EmailTag;

@@ -1,6 +1,7 @@
 import Icon from '../Icon';
 import Typography from '../Typography';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import styles from './styles.css';
 
@@ -28,8 +29,8 @@ function GoalButtonBig(props) {
 }
 
 GoalButtonBig.propTypes = {
-    className: React.PropTypes.string,
-    onClick: React.PropTypes.func
+    className: PropTypes.string,
+    onClick: PropTypes.func
 };
 
 export default GoalButtonBig;

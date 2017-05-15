@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import classNames from 'classnames';
 import styles from './styles.css';
@@ -31,10 +32,10 @@ function RadioButton(props) {
 
 
 RadioButton.propTypes = {
-    checked: React.PropTypes.bool,
-    className: React.PropTypes.string,
-    label: React.PropTypes.node,
-    onClick: React.PropTypes.func
+    checked: PropTypes.bool,
+    className: PropTypes.string,
+    label: PropTypes.node,
+    onClick: PropTypes.func
 };
 
 export default RadioButton;
